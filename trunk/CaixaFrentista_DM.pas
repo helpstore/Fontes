@@ -1461,7 +1461,7 @@ begin
 
      If Not Valida_ClienteCPF_CNPJ.isNull
      then Begin
-          CartaoCPF_CNPJ.Value := Valida_ClienteCPF_CNPJ.Value ;
+          CartaoCPF_CNPJ.Value :=    Valida_ClienteCPF_CNPJ.Value ;
      end ;
 
      Valida_Cliente.Close ;
