@@ -1371,7 +1371,9 @@ uses
   ClienteCidades_FRel, ClientesCategoria_Form, Representante_Form,
   ContratosConstru_Form, Rel_ContratoObra, untCadLogradouro, untCadBairros,
   untCadCidades, untCadEstados, untCadMoedas, untCadPaises,
-  untCadAtividades, untCadPessoas, untCadRegioes, untCadVendedor2;
+  untCadAtividades, untCadPessoas, untCadRegioes, untCadVendedor2,
+  UntCadCobradores, UntCadTerceiros, UntCadCategoriaClientes,
+  UntCadTecnicos, UntCadUsuarios;
 
 {$R *.DFM}
 
@@ -2427,6 +2429,21 @@ end;
 
 procedure TFrmMain.OpTerceirosClick(Sender: TObject);
 begin
+//
+ if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadTerceiros', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadTerceiro = Nil Then
+  begin
+     frmCadTerceiro := TfrmCadTerceiro.Create(Self);
+     frmCadTerceiro.ShowMODAL ;
+     frmCadTerceiro.Free      ;
+     frmCadTerceiro := Nil    ;
+  end;
+  Exit;
   { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmTerceiros', True)) Then
      Exit;
@@ -2521,6 +2538,22 @@ end;
 
 procedure TFrmMain.opUsuariosClick(Sender: TObject);
 begin
+//
+ if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadUsuarios', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadUsuarios = Nil Then
+  begin
+     frmCadUsuarios := TfrmCadUsuarios.Create(Self);
+     frmCadUsuarios.ShowMODAL ;
+     frmCadUsuarios.Free      ;
+     frmCadUsuarios := Nil    ;
+  end;
+  Exit;
+//
   { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmUsuarios', True)) Then
      Exit;
@@ -4691,6 +4724,22 @@ end;
 
 procedure TFrmMain.OpMecanicosClick(Sender: TObject);
 begin
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadTecnicos', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadTecnicos = Nil Then
+  begin
+     frmCadTecnicos := TfrmCadTecnicos.Create(Self);
+     frmCadTecnicos.ShowMODAL ;
+     frmCadTecnicos.Free      ;
+     frmCadTecnicos := Nil    ;
+  end;
+  Exit;
+///
   { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMecanicos', True)) Then
      Exit;
@@ -5434,6 +5483,25 @@ end;
 
 procedure TFrmMain.OpCobradorClick(Sender: TObject);
 begin
+//Código novo
+
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCadCobradores', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if FrmCadCobradores = Nil Then
+  begin
+     FrmCadCobradores := TFrmCadCobradores.Create(Self);
+     FrmCadCobradores.ShowMODAL ;
+     FrmCadCobradores.Free      ;
+     FrmCadCobradores := Nil    ;
+  end;
+
+  Exit;
+//
+
   { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCobrador', True)) Then
      Exit;
@@ -8990,6 +9058,22 @@ end;
 
 procedure TFrmMain.btnCadCategoriasClick(Sender: TObject);
 begin
+//
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCadCategoriaClientes', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if FrmCadCategoriaClientes = Nil Then
+  begin
+     FrmCadCategoriaClientes := TFrmCadCategoriaClientes.Create(Self);
+     FrmCadCategoriaClientes.ShowMODAL ;
+     FrmCadCategoriaClientes.Free      ;
+     FrmCadCategoriaClientes := Nil    ;
+  end;
+  Exit;
+  
   If FrmMain.MDIChildCount > 1 Then
      Exit;
   { * * * * * }
