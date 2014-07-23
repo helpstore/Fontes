@@ -552,7 +552,12 @@ uses
   untCadPadraoMaster in 'untCadPadraoMaster.pas' {frmCadPadraoMaster},
   untCadVendedor2 in 'untCadVendedor2.pas' {frmCadVendedor2},
   untMainPadrao in 'untMainPadrao.pas' {frmManutencaoPadrao},
-  untCadContasPagar in 'untCadContasPagar.pas' {frmCadContasPagar};
+  untCadContasPagar in 'untCadContasPagar.pas' {frmCadContasPagar},
+  UntCadCategoriaClientes in 'UntCadCategoriaClientes.pas' {FrmCadCategoriaClientes},
+  UntCadCobradores in 'UntCadCobradores.pas' {FrmCadCobradores},
+  UntCadTerceiros in 'UntCadTerceiros.pas' {FrmCadTerceiro},
+  UntCadTecnicos in 'UntCadTecnicos.pas' {frmCadTecnicos},
+  UntCadUsuarios in 'UntCadUsuarios.pas' {frmCadUsuarios};
 
 {$R *.RES}
 
