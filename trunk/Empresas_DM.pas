@@ -782,6 +782,8 @@ type
     SelEmpresaCTR_EXIBE_REL_PROVISIONADO: TIBStringField;
     SelEmpresaCTR_EXIBE_REL_CONSOLIDADO: TIBStringField;
     SelEmpresaMARGEM_BRUTA: TFloatField;
+    EmpresasOFC_DATA_BASE_MAN_OS: TDateField;
+    SelEmpresaOFC_DATA_BASE_MAN_OS: TDateField;
     procedure EmpresasBeforeOpen(DataSet: TDataSet);
     procedure EmpresasAfterClose(DataSet: TDataSet);
     procedure EmpresasTIPO_TAXAGetText(Sender: TField; var Text: String;

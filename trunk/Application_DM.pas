@@ -1087,6 +1087,7 @@ type
     EXIBE_INDICE_PDV : String[1] ;
     EXIBE_ACERTO  : String[1] ; //DIGITA DESCONTO NA TELA DE ENTRADA DE PRODUTOS
     EXIBE_OFC_COPIAS  : String[1] ;
+    OFC_DATA_BASE_MAN_OS  : Tdate;
     EXIBE_OFC_MOVTO_AVULSO : String[1] ;
     EXIBE_OFC_VISUALIZACAO  : String[1] ;
     EXIBE_SRV : String[1] ;
@@ -8703,6 +8704,7 @@ Function TDmApp.SelecionarEmpresa: String;
               dmApp.EXIBE_INDICE_PDV  := DMEmpresas.SelEmpresa.FieldByName('EXIBE_INDICE_PDV').asString;
               dmApp.EXIBE_ACERTO      := DMEmpresas.SelEmpresa.FieldByName('exibe_acerto_contas').asString;
               dmApp.EXIBE_OFC_COPIAS      := DMEmpresas.SelEmpresa.FieldByName('OFC_EXIBE_COPIAS').asString;
+              dmApp.OFC_DATA_BASE_MAN_OS := DMEmpresas.SelEmpresa.FieldByName('OFC_DATA_BASE_MAN_OS').asDateTime;
               dmApp.EXIBE_OFC_MOVTO_AVULSO      := DMEmpresas.SelEmpresa.FieldByName('OFC_EXIBE_MOVTO_AVULSO').asString;
               dmApp.EXIBE_OFC_VISUALIZACAO      := DMEmpresas.SelEmpresa.FieldByName('OFC_EXIBE_VISUALIZACAO').asString;
               dmApp.EXIBE_SRV := DMEmpresas.SelEmpresa.FieldByName('EXIBE_SRV').asString;
@@ -12726,6 +12728,20 @@ begin
     edtProdutos.Open;
     edtProdutos.Append;
     edtProdutosNOME.Value := xProd;
+    edtProdutosDEBITA_ICMS.Value      := 'N' ;
+    edtProdutosATIVO.Value            := 'S' ;
+    edtProdutosCOMPLEMENTO_NF.Value   := 'N' ;
+    edtProdutosVENDE_FRACIONADO.Value := 'N' ;
+    edtProdutosPOSSUI_LOTE.Value      := 'N' ;
+    edtProdutosCTE.Value              := 1   ;
+    edtProdutosCTIe.Value             := 1   ;
+    edtProdutosNEG_QTDADE_2.Value     := 'N' ;
+    edtProdutosEtiqueta_ent.Value     := 'N' ;
+    edtProdutosComplemento_NF.Value   := 'N' ;
+    edtProdutosPROD_PESAVEL.Value     := 'N' ;
+    edtProdutosSERVICO.Value          := 'N' ;
+    edtProdutosCUSTO_INDEXADO.Value   := 0   ;
+    edtProdutosSINCRONIZA_FILIAIS.Value := 'S';
   end
   else
   begin
@@ -12749,20 +12765,6 @@ begin
   edtProdutosUNIDADE.Value := uCom;
   edtProdutosUND_PRIMARIA.Value := uCom;
   edtProdutosUND_CARREGAMENTO.Value := uCom;
-  edtProdutosDEBITA_ICMS.Value      := 'N' ;
-     edtProdutosATIVO.Value            := 'S' ;
-     edtProdutosCOMPLEMENTO_NF.Value   := 'N' ;
-     edtProdutosVENDE_FRACIONADO.Value := 'N' ;
-     edtProdutosPOSSUI_LOTE.Value      := 'N' ;
-     edtProdutosCTE.Value              := 1   ;
-     edtProdutosCTIe.Value             := 1   ;
-     edtProdutosNEG_QTDADE_2.Value     := 'N' ;
-     edtProdutosEtiqueta_ent.Value     := 'N' ;
-     edtProdutosComplemento_NF.Value   := 'N' ;
-     edtProdutosPROD_PESAVEL.Value     := 'N' ;
-     edtProdutosSERVICO.Value          := 'N' ;
-     edtProdutosCUSTO_INDEXADO.Value   := 0   ;
-  edtProdutosSINCRONIZA_FILIAIS.Value := 'S';
   edtProdutos.Post;
 
   QryRetProduto.Close;

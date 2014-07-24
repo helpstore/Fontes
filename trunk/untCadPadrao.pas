@@ -212,7 +212,7 @@ end;
 
 procedure TfrmCadPadrao.ActNextExecute(Sender: TObject);
 begin
-  dtEdit.Next;
+  dtList.Next;
 end;
 
 procedure TfrmCadPadrao.ActLastExecute(Sender: TObject);
@@ -427,16 +427,36 @@ end;
 procedure TfrmCadPadrao.ActSaveExecute(Sender: TObject);
 var
   Posicao :TBookmark;
+  codigo : integer;
+  tipo : string;
 begin
+  if dsRegistro.DataSet.State = dsEdit then
+  begin
+    tipo := 'edit';
+    Posicao := dsPesquisa.DataSet.GetBookmark;
+  end
+  else
+    tipo := 'insert';
+
   dsRegistro.DataSet.Post;
-  Posicao := dsPesquisa.DataSet.GetBookmark;
+  TIBDataSet(dsRegistro.DataSet).Transaction.CommitRetaining;
+  codigo := dsRegistro.DataSet.fieldbyname('codigo').value;
+
   dsPesquisa.DataSet.Close;
   dsPesquisa.DataSet.Open;
+
+  if tipo = 'insert' then
+  begin
+    dsPesquisa.DataSet.Locate('codigo',codigo,[loCaseInsensitive]);
+    Posicao := dsPesquisa.DataSet.GetBookmark;
+  end;
+
   dsPesquisa.DataSet.GotoBookmark(Posicao);
   dsPesquisa.DataSet.FreeBookMark(Posicao);
+
   tbsLista.Show;
   Grid.SetFocus;
-  TIBDataSet(dsRegistro.DataSet).Transaction.CommitRetaining;
+
 end;
 
 procedure TfrmCadPadrao.ActCancelExecute(Sender: TObject);

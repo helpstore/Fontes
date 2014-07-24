@@ -73,7 +73,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       Top = 2
       Width = 991
       Height = 554
-      ActivePage = Tab1
+      ActivePage = TAB2
       Align = alClient
       TabOrder = 1
       TabStop = False
@@ -1514,8 +1514,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         object GroupBox7: TGroupBox
           Left = 0
           Top = 0
-          Width = 984
-          Height = 525
+          Width = 983
+          Height = 523
           Align = alClient
           Caption = 'Atividades '
           Font.Charset = DEFAULT_CHARSET
@@ -1528,8 +1528,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
           object GRID: TdxDBGrid
             Left = 2
             Top = 15
-            Width = 980
-            Height = 224
+            Width = 979
+            Height = 222
             Bands = <
               item
                 Caption = 'Inicial'
@@ -1702,8 +1702,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
           end
           object GridEmail: TcxGrid
             Left = 2
-            Top = 362
-            Width = 980
+            Top = 360
+            Width = 979
             Height = 161
             Align = alBottom
             PopupMenu = FrmMain.Pop
@@ -1805,8 +1805,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
           end
           object GridAnexo: TcxGrid
             Left = 2
-            Top = 239
-            Width = 980
+            Top = 237
+            Width = 979
             Height = 123
             Align = alBottom
             PopupMenu = PopAnexo
@@ -2514,7 +2514,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
           TabOrder = 1
           OnCommandStateChange = WebBrowser1CommandStateChange
           ControlData = {
-            4C000000B3650000612700000000000000000000000000000000000000000000
+            4C000000996500002C2700000000000000000000000000000000000000000000
             000000004C000000000000000000000001000000E0D057007335CF11AE690800
             2B2E126208000000000000004C0000000114020000000000C000000000000046
             8000000000000000000000000000000000000000000000000000000000000000
@@ -6949,8 +6949,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     Priority = mpHigh
     Recipients = <>
     ReplyTo = <>
-    Left = 215
-    Top = 264
+    Left = 263
+    Top = 224
   end
   object IdSMTP: TIdSMTP
     IOHandler = SSLSocket
@@ -6993,8 +6993,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     Enabled = False
     Interval = 10
     OnTimer = TimerMapsTimer
-    Left = 184
-    Top = 264
+    Left = 224
+    Top = 224
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
     Left = 640
@@ -7036,8 +7036,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       'and ct.cod_cliente = :cod_cliente'
       'and prd.codigo = :produto'
       'order by prd.codigo||'#39'-'#39'||prd.nome')
-    Left = 192
-    Top = 298
+    Left = 296
+    Top = 226
     ParamData = <
       item
         DataType = ftString

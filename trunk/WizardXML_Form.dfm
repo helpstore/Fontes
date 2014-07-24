@@ -1,6 +1,6 @@
 object frmImportaNFe: TfrmImportaNFe
-  Left = -8
-  Top = -8
+  Left = 0
+  Top = 2
   Width = 1296
   Height = 776
   Caption = 'Importar NFe'
@@ -120,10 +120,10 @@ object frmImportaNFe: TfrmImportaNFe
               Height = 306
               Width = 1258
               object WBXML: TWebBrowser
-                Left = 3
-                Top = 21
-                Width = 1252
-                Height = 282
+                Left = 2
+                Top = 18
+                Width = 1254
+                Height = 286
                 Align = alClient
                 TabOrder = 0
                 ControlData = {

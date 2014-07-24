@@ -1,7 +1,7 @@
 object DMMensagem: TDMMensagem
   OldCreateOrder = False
   Left = 13
-  Top = 7
+  Top = 40
   Height = 450
   Width = 638
   object Mensagem: TIBDataSet

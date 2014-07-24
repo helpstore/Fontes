@@ -276,6 +276,12 @@ type
     ActExibirMapa: TAction;
     edtSerie: TcxTextEdit;
     cxLabel1: TcxLabel;
+    GridTVDT_CILINDRO: TcxGridDBBandedColumn;
+    GridTVCT_CILINDRO: TcxGridDBBandedColumn;
+    GridTVULT_DT_CILINDRO: TcxGridDBBandedColumn;
+    GridTVULT_CT_CILINDRO: TcxGridDBBandedColumn;
+    GridTVCT_CILINDRO_SALDO_DIAS: TcxGridDBBandedColumn;
+    GridTVCT_CILINDRO_SALDO_CONTADOR: TcxGridDBBandedColumn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -320,7 +326,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
 
-    Procedure Filtrar;
+    Procedure Filtrar(inicial:boolean=false);
     Procedure FiltrarPreventiva;
     procedure GridMovimentosDBBandedTableView1KeyDown(Sender: TObject;
       var Key: Word; Shift: TShiftState);
@@ -383,10 +389,22 @@ begin
 
 end;
 
-Procedure TFrmSelOrdens.Filtrar;
+Procedure TFrmSelOrdens.Filtrar(inicial:boolean=false);
 var
   filtro : string;
 Begin
+  if (inicial) then
+    edDtInicial.Date := dmApp.OFC_DATA_BASE_MAN_OS;
+    
+
+  if ((edDtInicial.Date < dmApp.OFC_DATA_BASE_MAN_OS) and ((dmApp.OFC_DATA_BASE_MAN_OS) > 0)) then
+  begin
+    Application.MessageBox(Pchar('Data Inicial Inválida. Data inferior ao parametrizado como Data Base para Listagem de OS: '+DateToStr(dmApp.OFC_DATA_BASE_MAN_OS)),'Aviso',mb_ok+mb_ok+mb_iconinformation);
+    edDtInicial.Date := dmApp.OFC_DATA_BASE_MAN_OS;
+    edDtInicial.SetFocus;
+    exit;
+  end;
+
   filtro := '';
   With DMServicos do
   begin
@@ -409,6 +427,13 @@ Begin
      filtro := filtro + ' and prd.serie = '+QuoTedStr(EdtSerie.text);
 
    SelOrdens_Servicos.sql.text := sqloriginal + filtro;
+
+   //Data base de filtro de OS, cliente pode parametrizar uma data minima para o filtro a fim melhorar o desempenho do sistema
+   if (dmApp.OFC_DATA_BASE_MAN_OS > 0) then
+     SelOrdens_Servicos.parambyname('OFC_DATA_BASE_MAN_OS').AsDate := dmApp.OFC_DATA_BASE_MAN_OS
+   else
+     SelOrdens_Servicos.parambyname('OFC_DATA_BASE_MAN_OS').AsDate := StrToDate('01/01/2001');
+
    SelOrdens_Servicos.Open;
   end;
   GridTV.ViewData.Expand(True);
@@ -506,7 +531,7 @@ begin
      edDtInicial.setfocus;
 
 
-     filtrar;
+     filtrar(true);
      FiltrarMovtos;
 
 end;
