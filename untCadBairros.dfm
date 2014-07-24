@@ -1,21 +1,18 @@
 inherited frmCadBairros: TfrmCadBairros
   Left = 313
-  Top = 168
-  Width = 791
-  Height = 444
+  Top = 165
+  Height = 447
   Caption = 'Bairros'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 775
-    Height = 380
-    ClientRectBottom = 376
-    ClientRectRight = 771
+    Height = 383
+    ActivePage = tbsEdita
+    ClientRectBottom = 379
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 767
-        Height = 332
+        Height = 335
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -38,14 +35,10 @@ inherited frmCadBairros: TfrmCadBairros
           end
         end
       end
-      inherited Panel1: TPanel
-        Width = 767
-      end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 767
-        Height = 349
+        Height = 352
         inherited edtNome: TcxDBTextEdit
           DataBinding.DataField = 'NOME'
         end
@@ -96,6 +89,8 @@ inherited frmCadBairros: TfrmCadBairros
     GeneratorField.Field = 'CODIGO'
     GeneratorField.Generator = 'GLO_BAIRROS_GE'
     GeneratorField.ApplyEvent = gamOnPost
+    Left = 176
+    Top = 65532
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"GLO_BAIRROS"."CNPJ"'

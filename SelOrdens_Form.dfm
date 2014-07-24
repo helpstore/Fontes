@@ -1,8 +1,8 @@
 object FrmSelOrdens: TFrmSelOrdens
   Left = 1
-  Top = 1
-  Width = 1278
-  Height = 758
+  Top = 4
+  Width = 1276
+  Height = 756
   Caption = 'Manuten'#231#227'o de OS'
   Color = 15396334
   Font.Charset = DEFAULT_CHARSET
@@ -23,23 +23,23 @@ object FrmSelOrdens: TFrmSelOrdens
   object pgcOServico: TcxPageControl
     Left = 0
     Top = 0
-    Width = 1073
-    Height = 694
+    Width = 1071
+    Height = 692
     ActivePage = tabManutencao
     Align = alClient
     TabOrder = 0
     OnChange = pgcOServicoChange
-    ClientRectBottom = 690
+    ClientRectBottom = 688
     ClientRectLeft = 4
-    ClientRectRight = 1069
+    ClientRectRight = 1067
     ClientRectTop = 27
     object tabManutencao: TcxTabSheet
       Caption = 'Manutencao de OS'
       object pnlClient: TPanel
         Left = 0
         Top = 0
-        Width = 1065
-        Height = 663
+        Width = 1063
+        Height = 661
         Align = alClient
         BevelOuter = bvNone
         Color = clWhite
@@ -53,8 +53,8 @@ object FrmSelOrdens: TFrmSelOrdens
         OnResize = pnlClientResize
         object Bevel1: TBevel
           Left = 0
-          Top = 661
-          Width = 1065
+          Top = 659
+          Width = 1063
           Height = 2
           Align = alBottom
           Shape = bsTopLine
@@ -62,8 +62,8 @@ object FrmSelOrdens: TFrmSelOrdens
         object Panel5: TPanel
           Left = 0
           Top = 0
-          Width = 1065
-          Height = 661
+          Width = 1063
+          Height = 659
           Align = alClient
           BevelOuter = bvNone
           Color = clWhite
@@ -71,15 +71,15 @@ object FrmSelOrdens: TFrmSelOrdens
           object pc: TcxPageControl
             Left = 0
             Top = 148
-            Width = 1065
-            Height = 513
+            Width = 1063
+            Height = 511
             ActivePage = cxTabSheet1
             Align = alClient
             HotTrack = True
             TabOrder = 0
-            ClientRectBottom = 509
+            ClientRectBottom = 507
             ClientRectLeft = 4
-            ClientRectRight = 1061
+            ClientRectRight = 1059
             ClientRectTop = 27
             object cxTabSheet1: TcxTabSheet
               Caption = 'Lista de OS'
@@ -87,8 +87,8 @@ object FrmSelOrdens: TFrmSelOrdens
               object Grid: TcxGrid
                 Left = 0
                 Top = 0
-                Width = 1057
-                Height = 482
+                Width = 1055
+                Height = 480
                 Align = alClient
                 TabOrder = 0
                 OnMouseEnter = GridMouseEnter
@@ -472,6 +472,45 @@ object FrmSelOrdens: TFrmSelOrdens
                     Position.ColIndex = 49
                     Position.RowIndex = 0
                   end
+                  object GridTVDT_CILINDRO: TcxGridDBBandedColumn
+                    DataBinding.FieldName = 'DT_CILINDRO'
+                    Position.BandIndex = 0
+                    Position.ColIndex = 50
+                    Position.RowIndex = 0
+                  end
+                  object GridTVCT_CILINDRO: TcxGridDBBandedColumn
+                    DataBinding.FieldName = 'CT_CILINDRO'
+                    Width = 88
+                    Position.BandIndex = 0
+                    Position.ColIndex = 51
+                    Position.RowIndex = 0
+                  end
+                  object GridTVULT_DT_CILINDRO: TcxGridDBBandedColumn
+                    DataBinding.FieldName = 'ULT_DT_CILINDRO'
+                    Width = 124
+                    Position.BandIndex = 0
+                    Position.ColIndex = 52
+                    Position.RowIndex = 0
+                  end
+                  object GridTVULT_CT_CILINDRO: TcxGridDBBandedColumn
+                    DataBinding.FieldName = 'ULT_CT_CILINDRO'
+                    Width = 112
+                    Position.BandIndex = 0
+                    Position.ColIndex = 53
+                    Position.RowIndex = 0
+                  end
+                  object GridTVCT_CILINDRO_SALDO_DIAS: TcxGridDBBandedColumn
+                    DataBinding.FieldName = 'CT_CILINDRO_SALDO_DIAS'
+                    Position.BandIndex = 0
+                    Position.ColIndex = 54
+                    Position.RowIndex = 0
+                  end
+                  object GridTVCT_CILINDRO_SALDO_CONTADOR: TcxGridDBBandedColumn
+                    DataBinding.FieldName = 'CT_CILINDRO_SALDO_CONTADOR'
+                    Position.BandIndex = 0
+                    Position.ColIndex = 55
+                    Position.RowIndex = 0
+                  end
                 end
                 object GridLV: TcxGridLevel
                   GridView = GridTV
@@ -482,7 +521,7 @@ object FrmSelOrdens: TFrmSelOrdens
           object Panel3: TPanel
             Left = 0
             Top = 38
-            Width = 1065
+            Width = 1063
             Height = 110
             Align = alTop
             BevelOuter = bvNone
@@ -631,7 +670,7 @@ object FrmSelOrdens: TFrmSelOrdens
           object Panel8: TPanel
             Left = 0
             Top = 0
-            Width = 1065
+            Width = 1063
             Height = 38
             Align = alTop
             BevelOuter = bvNone
@@ -739,8 +778,8 @@ object FrmSelOrdens: TFrmSelOrdens
       object Panel11: TPanel
         Left = 0
         Top = 0
-        Width = 1065
-        Height = 663
+        Width = 1063
+        Height = 661
         Align = alClient
         BevelOuter = bvNone
         Caption = 'Panel9'
@@ -749,7 +788,7 @@ object FrmSelOrdens: TFrmSelOrdens
         object Panel1: TPanel
           Left = 0
           Top = 0
-          Width = 1065
+          Width = 1063
           Height = 110
           Align = alTop
           BevelOuter = bvNone
@@ -874,8 +913,8 @@ object FrmSelOrdens: TFrmSelOrdens
         object GridMovimentos: TcxGrid
           Left = 0
           Top = 110
-          Width = 1065
-          Height = 553
+          Width = 1063
+          Height = 551
           Align = alClient
           TabOrder = 1
           OnMouseEnter = GridMovimentosMouseEnter
@@ -1213,8 +1252,8 @@ object FrmSelOrdens: TFrmSelOrdens
       object Panel9: TPanel
         Left = 0
         Top = 0
-        Width = 1065
-        Height = 663
+        Width = 1063
+        Height = 661
         Align = alClient
         BevelOuter = bvNone
         Caption = 'Panel9'
@@ -1223,7 +1262,7 @@ object FrmSelOrdens: TFrmSelOrdens
         object Panel6: TPanel
           Left = 0
           Top = 0
-          Width = 1065
+          Width = 1063
           Height = 105
           Align = alTop
           BevelInner = bvRaised
@@ -1406,8 +1445,8 @@ object FrmSelOrdens: TFrmSelOrdens
         object GridPreventiva: TcxGrid
           Left = 0
           Top = 105
-          Width = 1065
-          Height = 558
+          Width = 1063
+          Height = 556
           Align = alClient
           TabOrder = 1
           OnMouseEnter = GridPreventivaMouseEnter
@@ -1714,17 +1753,17 @@ object FrmSelOrdens: TFrmSelOrdens
     end
   end
   object Panel4: TPanel
-    Left = 1073
+    Left = 1071
     Top = 0
     Width = 189
-    Height = 694
+    Height = 692
     Align = alRight
     BevelInner = bvRaised
     BevelOuter = bvLowered
     TabOrder = 5
     DesignSize = (
       189
-      694)
+      692)
     object btnTimer: TcxButton
       Left = 0
       Top = 91
@@ -2075,7 +2114,7 @@ object FrmSelOrdens: TFrmSelOrdens
       Left = 2
       Top = 2
       Width = 6
-      Height = 690
+      Height = 688
       Control = Panel4
     end
   end
@@ -4262,6 +4301,111 @@ object FrmSelOrdens: TFrmSelOrdens
           'Width')
       end
       item
+        Component = GridTVCT_CILINDRO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridTVCT_CILINDRO_SALDO_CONTADOR
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridTVCT_CILINDRO_SALDO_DIAS
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
         Component = GridTVCUSTO_OS
         Properties.Strings = (
           'AlternateCaption'
@@ -4367,6 +4511,41 @@ object FrmSelOrdens: TFrmSelOrdens
           'Width')
       end
       item
+        Component = GridTVDT_CILINDRO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
         Component = GridTVID_CONTRATO
         Properties.Strings = (
           'AlternateCaption'
@@ -4403,6 +4582,76 @@ object FrmSelOrdens: TFrmSelOrdens
       end
       item
         Component = GridTVINFORMACOES
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridTVMAP_LAT
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridTVMAP_LONG
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -5663,6 +5912,76 @@ object FrmSelOrdens: TFrmSelOrdens
       end
       item
         Component = GridTVTPC_NOME
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridTVULT_CT_CILINDRO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridTVULT_DT_CILINDRO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'

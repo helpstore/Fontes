@@ -88,7 +88,7 @@ procedure TfrmCadUsuarios.FormShow(Sender: TObject);
 begin
   inherited;
   QryPerfil.Close;
-  QryPerfilOpen;
+  QryPerfil.Open;
 
   dtVendedor.Close;
   dtVendedor.Open;

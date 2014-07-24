@@ -19,6 +19,7 @@ object DmApp: TDmApp
     Top = 24
   end
   object Transaction: TIBTransaction
+    Active = True
     DefaultDatabase = Database
     Params.Strings = (
       'read_committed'

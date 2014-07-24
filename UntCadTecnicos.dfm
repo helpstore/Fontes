@@ -1,6 +1,7 @@
 inherited frmCadTecnicos: TfrmCadTecnicos
   Left = 262
   Caption = 'T'#233'cnicos'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
@@ -120,7 +121,7 @@ inherited frmCadTecnicos: TfrmCadTecnicos
         inherited cxLabel2: TcxLabel
           Caption = 'T'#233'cnico'
         end
-        object cxDBLookupComboBox1: TcxDBLookupComboBox
+        object cbPessoa: TcxDBLookupComboBox
           Left = 7
           Top = 80
           DataBinding.DataField = 'PESSOA_FJ'
@@ -133,7 +134,7 @@ inherited frmCadTecnicos: TfrmCadTecnicos
             end>
           Properties.ListSource = DsPessoaFJ
           TabOrder = 2
-          Width = 222
+          Width = 218
         end
         object cxLabel3: TcxLabel
           Left = 7
@@ -214,19 +215,19 @@ inherited frmCadTecnicos: TfrmCadTecnicos
           Transparent = True
         end
         object cxLabel4: TcxLabel
-          Left = 233
+          Left = 249
           Top = 63
           Caption = 'CREA'
           Transparent = True
         end
         object cxDBTextEdit1: TcxDBTextEdit
-          Left = 233
+          Left = 249
           Top = 80
           DataBinding.DataField = 'CREA'
           DataBinding.DataSource = dsRegistro
           Properties.CharCase = ecUpperCase
           TabOrder = 3
-          Width = 89
+          Width = 72
         end
         object cxLabel5: TcxLabel
           Left = 325
@@ -292,6 +293,21 @@ inherited frmCadTecnicos: TfrmCadTecnicos
           DataBinding.DataSource = dsRegistro
           TabOrder = 11
           Width = 74
+        end
+        object btnPessoa: TcxButtonEdit
+          Left = 224
+          Top = 80
+          Properties.Buttons = <
+            item
+              Caption = 'F4'
+              Default = True
+              Kind = bkText
+            end>
+          Properties.ViewStyle = vsButtonsOnly
+          TabOrder = 26
+          Text = 'btnPessoa'
+          OnClick = btnPessoaClick
+          Width = 25
         end
       end
     end
@@ -546,6 +562,11 @@ inherited frmCadTecnicos: TfrmCadTecnicos
       0
       0
       26)
+  end
+  inherited ActionList1: TActionList
+    inherited ActCadLookup: TAction
+      OnExecute = ActCadLookupExecute
+    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1

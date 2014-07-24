@@ -1,5 +1,6 @@
 inherited frmCadUsuarios: TfrmCadUsuarios
   Caption = ' Usu'#225'rios '
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl

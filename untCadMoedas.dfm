@@ -6,10 +6,9 @@ inherited frmCadMoedas: TfrmCadMoedas
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 767
-        Height = 332
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CODIGO'
@@ -38,9 +37,6 @@ inherited frmCadMoedas: TfrmCadMoedas
             Position.RowIndex = 0
           end
         end
-      end
-      inherited Panel1: TPanel
-        Width = 767
       end
     end
     inherited tbsEdita: TcxTabSheet
@@ -111,6 +107,8 @@ inherited frmCadMoedas: TfrmCadMoedas
       '  UTILIZA_INDEXADOR = :UTILIZA_INDEXADOR'
       'where'
       '  CODIGO = :OLD_CODIGO')
+    Left = 120
+    Top = 12
     object dtEditCODIGO: TIntegerField
       FieldName = 'CODIGO'
       Origin = '"FIN_MOEDA"."CODIGO"'
@@ -140,6 +138,8 @@ inherited frmCadMoedas: TfrmCadMoedas
       'select * '
       'from FIN_MOEDA'
       'where codigo <> :cnpj')
+    Left = 89
+    Top = 12
     ParamData = <
       item
         DataType = ftUnknown

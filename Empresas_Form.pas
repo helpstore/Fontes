@@ -26,7 +26,7 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinsdxBarPainter, cxTextEdit, cxMaskEdit,
   cxDropDownEdit, cxDBEdit, dxSkinscxPCPainter, cxPC, 
-  cxRadioGroup, cxLabel, cxMemo, cxCheckBox, IBQuery;
+  cxRadioGroup, cxLabel, cxMemo, cxCheckBox, IBQuery, cxCalendar;
 
 type
   TFrmEmpresas = class(TForm)
@@ -714,6 +714,8 @@ type
     cxLabel24: TcxLabel;
     dxDBCalcEdit29: TdxDBCalcEdit;
     cxLabel25: TcxLabel;
+    cxDBDateEdit1: TcxDBDateEdit;
+    cxLabel26: TcxLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);

@@ -1655,6 +1655,12 @@ type
     SelEquipClienteTIPO_CONTRATO: TIBStringField;
     RetCodTecnico: TIBQuery;
     RetCodTecnicoCOD_TECNICO: TIntegerField;
+    SelOrdens_ServicosDT_CILINDRO: TDateTimeField;
+    SelOrdens_ServicosCT_CILINDRO: TIntegerField;
+    SelOrdens_ServicosULT_DT_CILINDRO: TDateField;
+    SelOrdens_ServicosULT_CT_CILINDRO: TIntegerField;
+    SelOrdens_ServicosCT_CILINDRO_SALDO_CONTADOR: TLargeintField;
+    SelOrdens_ServicosCT_CILINDRO_SALDO_DIAS: TIntegerField;
     procedure ServicosAfterClose(DataSet: TDataSet);
     procedure ServicosAfterInsert(DataSet: TDataSet);
     procedure ServicosBeforeOpen(DataSet: TDataSet);
