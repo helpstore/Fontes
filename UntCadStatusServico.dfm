@@ -1,21 +1,22 @@
-inherited frmCadUsuarios: TfrmCadUsuarios
-  Caption = ' Usu'#225'rios '
-  OldCreateOrder = True
+inherited frmCadStatusServico: TfrmCadStatusServico
+  Left = 233
+  Top = 267
+  Caption = 'Status de Servi'#231'o'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
-          object GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'CODIGO'
+          object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'CNPJ'
+            Visible = False
             Position.BandIndex = 0
             Position.ColIndex = 0
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2LOGIN: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'LOGIN'
+          object GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'CODIGO'
             Position.BandIndex = 0
             Position.ColIndex = 1
             Position.RowIndex = 0
@@ -26,16 +27,37 @@ inherited frmCadUsuarios: TfrmCadUsuarios
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2PERFIL: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'PERFIL'
+          object GridDBBandedTableView2COR: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'COR'
+            PropertiesClassName = 'TcxColorComboBoxProperties'
+            Properties.CustomColors = <>
+            Width = 104
             Position.BandIndex = 0
             Position.ColIndex = 3
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2SENHA: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'SENHA'
+          object GridDBBandedTableView2FECHADO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'FECHADO'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Width = 47
             Position.BandIndex = 0
             Position.ColIndex = 4
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2OS: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'OS'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Width = 37
+            Position.BandIndex = 0
+            Position.ColIndex = 5
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2MOVIMENTO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'MOVIMENTO'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Width = 74
+            Position.BandIndex = 0
+            Position.ColIndex = 6
             Position.RowIndex = 0
           end
         end
@@ -49,172 +71,190 @@ inherited frmCadUsuarios: TfrmCadUsuarios
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
         end
-        object cxDBTextEdit1: TcxDBTextEdit
-          Left = 6
-          Top = 76
-          DataBinding.DataField = 'LOGIN'
+        object cxDBColorComboBox1: TcxDBColorComboBox
+          Left = 7
+          Top = 80
+          DataBinding.DataField = 'COR'
           DataBinding.DataSource = dsRegistro
-          Properties.CharCase = ecUpperCase
-          TabOrder = 2
-          Width = 91
+          Properties.CustomColors = <>
+          TabOrder = 4
+          Width = 138
         end
         object cxLabel3: TcxLabel
-          Left = 6
-          Top = 59
-          Caption = 'Login'
+          Left = 7
+          Top = 63
+          Caption = 'Cor'
           Transparent = True
         end
-        object cxDBLookupComboBox1: TcxDBLookupComboBox
-          Left = 100
-          Top = 76
-          DataBinding.DataField = 'PERFIL'
+        object cxDBCheckBox1: TcxDBCheckBox
+          Left = 149
+          Top = 81
+          Caption = 'Fechado'
+          DataBinding.DataField = 'FECHADO'
           DataBinding.DataSource = dsRegistro
-          Properties.KeyFieldNames = 'CODIGO'
-          Properties.ListColumns = <
-            item
-              FieldName = 'DESCRICAO'
-            end>
-          Properties.ListSource = dsPerfil
-          TabOrder = 3
-          Width = 242
+          Properties.ValueChecked = 'S'
+          Properties.ValueUnchecked = 'N'
+          TabOrder = 6
+          Width = 68
         end
-        object cxLabel4: TcxLabel
-          Left = 100
-          Top = 59
-          Caption = 'Perfil'
-          Transparent = True
+        object cxDBCheckBox2: TcxDBCheckBox
+          Left = 214
+          Top = 81
+          Caption = 'OS'
+          DataBinding.DataField = 'OS'
+          DataBinding.DataSource = dsRegistro
+          Properties.ValueChecked = 'S'
+          Properties.ValueUnchecked = 'N'
+          TabOrder = 7
+          Width = 43
         end
-        object cxLabel5: TcxLabel
-          Left = 353
-          Top = 59
-          Caption = 'Vendedor'
-          Transparent = True
-        end
-        object cxDBLookupComboBox2: TcxDBLookupComboBox
-          Left = 349
-          Top = 76
-          DataBinding.DataField = 'VENDEDOR'
-          DataBinding.DataSource = dsCaixa
-          Properties.KeyFieldNames = 'CODIGO'
-          Properties.ListColumns = <
-            item
-              FieldName = 'NOME'
-            end>
-          Properties.ListSource = dsVendedor
-          TabOrder = 9
-          Width = 221
+        object cxDBCheckBox3: TcxDBCheckBox
+          Left = 254
+          Top = 81
+          Caption = 'Movimentos'
+          DataBinding.DataField = 'MOVIMENTO'
+          DataBinding.DataSource = dsRegistro
+          Properties.ValueChecked = 'S'
+          Properties.ValueUnchecked = 'N'
+          TabOrder = 8
+          Width = 83
         end
       end
     end
   end
   inherited dtEdit: TIBDataSet
     DeleteSQL.Strings = (
-      'delete from SIS_USUARIOS'
+      'delete from ofc_status'
       'where'
+      '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
-      'insert into SIS_USUARIOS'
-      '  (CODIGO, LOGIN, NOME, PERFIL, SENHA)'
+      'insert into ofc_status'
+      '  (CNPJ, CODIGO, COR, FECHADO, MOVIMENTO, NOME, OS)'
       'values'
-      '  (:CODIGO, :LOGIN, :NOME, :PERFIL, :SENHA)')
+      '  (:CNPJ, :CODIGO, :COR, :FECHADO, :MOVIMENTO, :NOME, :OS)')
     RefreshSQL.Strings = (
-      'Select '
-      '  CODIGO,'
-      '  LOGIN,'
-      '  NOME,'
-      '  PERFIL,'
-      '  SENHA,'
-      '  EXIBIR'
-      'from SIS_USUARIOS '
+      'Select *'
+      'from ofc_status '
       'where'
+      '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'SELECT CODIGO, '
-      '               LOGIN, '
-      '               NOME, '
-      '               PERFIL, '
-      '               SENHA'
-      'FROM SIS_USUARIOS'
-      'WHERE PERFIL > :PERFIL')
+      'select * from ofc_status'
+      'where codigo =:codigo')
     ModifySQL.Strings = (
-      'update SIS_USUARIOS'
+      'update ofc_status'
       'set'
+      '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
-      '  LOGIN = :LOGIN,'
+      '  COR = :COR,'
+      '  FECHADO = :FECHADO,'
+      '  MOVIMENTO = :MOVIMENTO,'
       '  NOME = :NOME,'
-      '  PERFIL = :PERFIL,'
-      '  SENHA = :SENHA'
+      '  OS = :OS'
       'where'
+      '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
+    GeneratorField.Field = 'CODIGO'
+    GeneratorField.Generator = 'GEN_OFC_STATUS_ID'
+    GeneratorField.ApplyEvent = gamOnPost
+    object dtEditCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_STATUS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
     object dtEditCODIGO: TIntegerField
       FieldName = 'CODIGO'
-      Origin = '"SIS_USUARIOS"."CODIGO"'
+      Origin = '"OFC_STATUS"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object dtEditLOGIN: TIBStringField
-      FieldName = 'LOGIN'
-      Origin = '"SIS_USUARIOS"."LOGIN"'
-      Size = 10
-    end
     object dtEditNOME: TIBStringField
       FieldName = 'NOME'
-      Origin = '"SIS_USUARIOS"."NOME"'
+      Origin = '"OFC_STATUS"."NOME"'
       Size = 50
     end
-    object dtEditPERFIL: TIntegerField
-      FieldName = 'PERFIL'
-      Origin = '"SIS_USUARIOS"."PERFIL"'
+    object dtEditCOR: TIntegerField
+      FieldName = 'COR'
+      Origin = '"OFC_STATUS"."COR"'
     end
-    object dtEditSENHA: TIBStringField
-      FieldName = 'SENHA'
-      Origin = '"SIS_USUARIOS"."SENHA"'
+    object dtEditFECHADO: TIBStringField
+      FieldName = 'FECHADO'
+      Origin = '"OFC_STATUS"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditOS: TIBStringField
+      FieldName = 'OS'
+      Origin = '"OFC_STATUS"."OS"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditMOVIMENTO: TIBStringField
+      FieldName = 'MOVIMENTO'
+      Origin = '"OFC_STATUS"."MOVIMENTO"'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'SELECT CODIGO, '
-      '               LOGIN, '
-      '               NOME, '
-      '               PERFIL, '
-      '               SENHA'
-      'FROM SIS_USUARIOS'
-      'WHERE PERFIL > :PERFIL'
-      'ORDER BY LOGIN')
+      'select * from ofc_status'
+      'where cnpj = :cnpj')
     ParamData = <
       item
         DataType = ftUnknown
-        Name = 'PERFIL'
+        Name = 'cnpj'
         ParamType = ptUnknown
       end>
+    object dtListCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_STATUS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
     object dtListCODIGO: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
-      Origin = '"SIS_USUARIOS"."CODIGO"'
+      Origin = '"OFC_STATUS"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-    end
-    object dtListLOGIN: TIBStringField
-      DisplayLabel = 'Login'
-      FieldName = 'LOGIN'
-      Origin = '"SIS_USUARIOS"."LOGIN"'
-      Size = 10
     end
     object dtListNOME: TIBStringField
       DisplayLabel = 'Nome'
       FieldName = 'NOME'
-      Origin = '"SIS_USUARIOS"."NOME"'
+      Origin = '"OFC_STATUS"."NOME"'
       Size = 50
     end
-    object dtListPERFIL: TIntegerField
-      DisplayLabel = 'Perfil'
-      FieldName = 'PERFIL'
-      Origin = '"SIS_USUARIOS"."PERFIL"'
+    object dtListCOR: TIntegerField
+      DisplayLabel = 'Cor'
+      FieldName = 'COR'
+      Origin = '"OFC_STATUS"."COR"'
     end
-    object dtListSENHA: TIBStringField
-      DisplayLabel = 'Senha'
-      FieldName = 'SENHA'
-      Origin = '"SIS_USUARIOS"."SENHA"'
+    object dtListFECHADO: TIBStringField
+      DisplayLabel = 'Fechado'
+      FieldName = 'FECHADO'
+      Origin = '"OFC_STATUS"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListOS: TIBStringField
+      FieldName = 'OS'
+      Origin = '"OFC_STATUS"."OS"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListMOVIMENTO: TIBStringField
+      DisplayLabel = 'Movimento'
+      FieldName = 'MOVIMENTO'
+      Origin = '"OFC_STATUS"."MOVIMENTO"'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -333,6 +373,41 @@ inherited frmCadUsuarios: TfrmCadUsuarios
           'Tag')
       end
       item
+        Component = GridDBBandedTableView2CNPJ
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
         Component = GridDBBandedTableView2CODIGO
         Properties.Strings = (
           'AlternateCaption'
@@ -368,7 +443,77 @@ inherited frmCadUsuarios: TfrmCadUsuarios
           'Width')
       end
       item
-        Component = GridDBBandedTableView2LOGIN
+        Component = GridDBBandedTableView2COR
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2FECHADO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2MOVIMENTO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -438,42 +583,7 @@ inherited frmCadUsuarios: TfrmCadUsuarios
           'Width')
       end
       item
-        Component = GridDBBandedTableView2PERFIL
-        Properties.Strings = (
-          'AlternateCaption'
-          'BestFitMaxWidth'
-          'Caption'
-          'DataBinding'
-          'DateTimeGrouping'
-          'FakeComponentLink1'
-          'FakeComponentLink2'
-          'FakeComponentLink3'
-          'FooterAlignmentHorz'
-          'GroupIndex'
-          'GroupSummaryAlignment'
-          'HeaderAlignmentHorz'
-          'HeaderAlignmentVert'
-          'HeaderGlyph'
-          'HeaderGlyphAlignmentHorz'
-          'HeaderGlyphAlignmentVert'
-          'MinWidth'
-          'Name'
-          'Options'
-          'Position'
-          'Properties'
-          'PropertiesClassName'
-          'RepositoryItem'
-          'SortIndex'
-          'SortOrder'
-          'Styles'
-          'Summary'
-          'Tag'
-          'Visible'
-          'VisibleForCustomization'
-          'Width')
-      end
-      item
-        Component = GridDBBandedTableView2SENHA
+        Component = GridDBBandedTableView2OS
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -507,205 +617,5 @@ inherited frmCadUsuarios: TfrmCadUsuarios
           'VisibleForCustomization'
           'Width')
       end>
-  end
-  object dsPerfil: TDataSource
-    DataSet = QryPerfil
-    Left = 743
-    Top = 4
-  end
-  object QryPerfil: TIBQuery
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      'SELECT CODIGO, '
-      '               DESCRICAO'
-      'FROM SIS_PERFIL'
-      'WHERE CODIGO > :CODIGO'
-      'ORDER BY CODIGO'
-      '')
-    Left = 713
-    Top = 4
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CODIGO'
-        ParamType = ptUnknown
-      end>
-    object QryPerfilCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"SIS_PERFIL"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object QryPerfilDESCRICAO: TIBStringField
-      FieldName = 'DESCRICAO'
-      Origin = '"SIS_PERFIL"."DESCRICAO"'
-      Size = 50
-    end
-  end
-  object dtVendedor: TIBDataSet
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforePost = dtEditBeforePost
-    DeleteSQL.Strings = (
-      'delete from PST_VENDEDOR_CAIXA'
-      'where'
-      '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
-    InsertSQL.Strings = (
-      'insert into PST_VENDEDOR_CAIXA'
-      '  (CNPJ, CODIGO, CONTA_DESCONTOS, CONTA_DIFERENCA, VENDEDOR)'
-      'values'
-      
-        '  (:CNPJ, :CODIGO, :CONTA_DESCONTOS, :CONTA_DIFERENCA, :VENDEDOR' +
-        ')')
-    RefreshSQL.Strings = (
-      'Select '
-      '  CNPJ,'
-      '  CODIGO,'
-      '  CONTA_DIFERENCA,'
-      '  CONTA_DESCONTOS,'
-      '  VENDEDOR'
-      'from PST_VENDEDOR_CAIXA '
-      'where'
-      '  CNPJ = :CNPJ and'
-      '  CODIGO = :CODIGO')
-    SelectSQL.Strings = (
-      'select CNPJ, '
-      '          CODIGO, '
-      '          CONTA_DESCONTOS, '
-      '          CONTA_DIFERENCA, '
-      '          VENDEDOR '
-      'from PST_VENDEDOR_CAIXA'
-      'Where CODIGO = :CODIGO')
-    ModifySQL.Strings = (
-      'update PST_VENDEDOR_CAIXA'
-      'set'
-      '  CNPJ = :CNPJ,'
-      '  CODIGO = :CODIGO,'
-      '  CONTA_DESCONTOS = :CONTA_DESCONTOS,'
-      '  CONTA_DIFERENCA = :CONTA_DIFERENCA,'
-      '  VENDEDOR = :VENDEDOR'
-      'where'
-      '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
-    DataSource = dsLink
-    Left = 712
-    Top = 36
-    object dtVendedorCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"PST_VENDEDOR_CAIXA"."CNPJ"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      FixedChar = True
-      Size = 14
-    end
-    object dtVendedorCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"PST_VENDEDOR_CAIXA"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object dtVendedorCONTA_DESCONTOS: TIntegerField
-      FieldName = 'CONTA_DESCONTOS'
-      Origin = '"PST_VENDEDOR_CAIXA"."CONTA_DESCONTOS"'
-    end
-    object dtVendedorCONTA_DIFERENCA: TIntegerField
-      FieldName = 'CONTA_DIFERENCA'
-      Origin = '"PST_VENDEDOR_CAIXA"."CONTA_DIFERENCA"'
-    end
-    object dtVendedorVENDEDOR: TIntegerField
-      FieldName = 'VENDEDOR'
-      Origin = '"PST_VENDEDOR_CAIXA"."VENDEDOR"'
-    end
-  end
-  object dsCaixa: TDataSource
-    DataSet = dtVendedor
-    Left = 743
-    Top = 36
-  end
-  object QryVendedor: TIBQuery
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      'SELECT CNPJ, '
-      '               CODIGO, '
-      '               NOME, '
-      '               COM_VISTA, '
-      '               COM_PRAZO,'
-      '               PESSOA_FJ,'
-      '               SENHA,'
-      '               ATIVO,'
-      '               COD_PERFIL, '
-      '               COD_PERFIL_PAGTO'
-      'FROM FAT_VENDEDOR'
-      'WHERE CODIGO = :CODIGO '
-      'ORDER BY NOME'
-      '')
-    Left = 713
-    Top = 68
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CODIGO'
-        ParamType = ptUnknown
-      end>
-    object QryVendedorCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"FAT_VENDEDOR"."CNPJ"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      FixedChar = True
-      Size = 14
-    end
-    object QryVendedorCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"FAT_VENDEDOR"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object QryVendedorNOME: TIBStringField
-      FieldName = 'NOME'
-      Origin = '"FAT_VENDEDOR"."NOME"'
-      Size = 50
-    end
-    object QryVendedorCOM_VISTA: TFloatField
-      FieldName = 'COM_VISTA'
-      Origin = '"FAT_VENDEDOR"."COM_VISTA"'
-    end
-    object QryVendedorCOM_PRAZO: TFloatField
-      FieldName = 'COM_PRAZO'
-      Origin = '"FAT_VENDEDOR"."COM_PRAZO"'
-    end
-    object QryVendedorPESSOA_FJ: TIntegerField
-      FieldName = 'PESSOA_FJ'
-      Origin = '"FAT_VENDEDOR"."PESSOA_FJ"'
-    end
-    object QryVendedorSENHA: TIBStringField
-      FieldName = 'SENHA'
-      Origin = '"FAT_VENDEDOR"."SENHA"'
-      Size = 6
-    end
-    object QryVendedorATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"FAT_VENDEDOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryVendedorCOD_PERFIL: TIntegerField
-      FieldName = 'COD_PERFIL'
-      Origin = '"FAT_VENDEDOR"."COD_PERFIL"'
-    end
-    object QryVendedorCOD_PERFIL_PAGTO: TIntegerField
-      FieldName = 'COD_PERFIL_PAGTO'
-      Origin = '"FAT_VENDEDOR"."COD_PERFIL_PAGTO"'
-    end
-  end
-  object dsVendedor: TDataSource
-    DataSet = QryVendedor
-    Left = 743
-    Top = 68
   end
 end

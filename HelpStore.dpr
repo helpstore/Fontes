@@ -557,7 +557,30 @@ uses
   UntCadCobradores in 'UntCadCobradores.pas' {FrmCadCobradores},
   UntCadTerceiros in 'UntCadTerceiros.pas' {FrmCadTerceiro},
   UntCadTecnicos in 'UntCadTecnicos.pas' {frmCadTecnicos},
-  UntCadUsuarios in 'UntCadUsuarios.pas' {frmCadUsuarios};
+  UntCadUsuarios in 'UntCadUsuarios.pas' {frmCadUsuarios},
+  untCadUnidadesMedidas in 'untCadUnidadesMedidas.pas' {frmCadUnidadesMedidas},
+  UntCadMarcas in 'UntCadMarcas.pas' {frmCadMarcas},
+  UntCadModelo in 'UntCadModelo.pas' {frmCadModelo},
+  UntCadSecoesProdutos in 'UntCadSecoesProdutos.pas' {frmCadSecoesProdutos},
+  UntCadLocalizacaoEstoque in 'UntCadLocalizacaoEstoque.pas' {frmCadLocalizacaoEstoque},
+  UntCadCor in 'UntCadCor.pas' {frmCadCor},
+  UntCadMaterial in 'UntCadMaterial.pas' {frmCadMaterial},
+  UntCadAplicacoesProdutos in 'UntCadAplicacoesProdutos.pas' {frmCadAplicacoesProdutos},
+  UntCadAplicacaoProduto in 'UntCadAplicacaoProduto.pas' {frmCadAplicacaoProduto},
+  UntCadBancos in 'UntCadBancos.pas' {frmCadBancos},
+  UntCadMotivosDevolucao in 'UntCadMotivosDevolucao.pas' {frmCadMotivosDevolucao},
+  UntCadContaCorrente in 'UntCadContaCorrente.pas' {frmCadContaCorrente},
+  UntCadAdministradoras in 'UntCadAdministradoras.pas' {frmCadAdministradoras},
+  UntCadLocalCobranca in 'UntCadLocalCobranca.pas' {frmCadLocalCobranca},
+  UntCadTipoDocumento in 'UntCadTipoDocumento.pas' {frmCadTipoDocumento},
+  UntCadCotacoes in 'UntCadCotacoes.pas' {frmCadCotacoes},
+  UntCadAlegacao in 'UntCadAlegacao.pas' {frmCadAlegacao},
+  UntCadEventoContabil in 'UntCadEventoContabil.pas' {frmCadEventoContabil},
+  UntCadStatusServico in 'UntCadStatusServico.pas' {frmCadStatusServico},
+  UntCadDefeitos in 'UntCadDefeitos.pas' {frmCadDefeitos},
+  UntCadServicoExecutado in 'UntCadServicoExecutado.pas' {frmCadServicoExecutado},
+  UntCadProblemaIdentificado in 'UntCadProblemaIdentificado.pas' {frmCadProblemaIdentificado},
+  UntCadTipoContrato in 'UntCadTipoContrato.pas' {frmCadTipoContrato};
 
 {$R *.RES}
 

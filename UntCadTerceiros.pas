@@ -22,7 +22,7 @@ uses
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
   cxPC, cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
-  cxDBLookupComboBox, cxCalc;
+  cxDBLookupComboBox, cxCalc, cxButtonEdit;
 
 type
   TFrmCadTerceiro = class(TfrmCadPadrao)
@@ -38,7 +38,7 @@ type
     dtEditCOM_VISTA: TFloatField;
     dtEditNOME: TIBStringField;
     dtEditPESSOA_FJ: TIntegerField;
-    cxDBLookupComboBox1: TcxDBLookupComboBox;
+    cbPessoa: TcxDBLookupComboBox;
     cxLabel3: TcxLabel;
     dsPessoasFJ: TDataSource;
     cxDBCalcEdit1: TcxDBCalcEdit;
@@ -83,7 +83,10 @@ type
     QryPessoaID_CLIENTE: TIntegerField;
     QryPessoaMAP_LAT: TIBStringField;
     QryPessoaMAP_LONG: TIBStringField;
+    btnPessoa: TcxButtonEdit;
     procedure FormShow(Sender: TObject);
+    procedure btnPessoaClick(Sender: TObject);
+    procedure ActCadLookupExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -95,12 +98,35 @@ var
 
 implementation
 
+uses untCadPessoas;
+
 {$R *.dfm}
 
 procedure TFrmCadTerceiro.FormShow(Sender: TObject);
 begin
   inherited;
   AbreDataSet(QryPessoa);
+end;
+
+procedure TFrmCadTerceiro.btnPessoaClick(Sender: TObject);
+begin
+  inherited;
+  frmCadPessoas := TfrmCadPessoas.Create(Self);
+  frmCadPessoas.ShowMODAL ;
+
+  AbreDataSet(TDataSet(QryPessoa));
+
+  dtEditPESSOA_FJ.Value := frmCadPessoas.Codigo;
+
+  frmCadPessoas.Free;
+  frmCadPessoas := nil;
+end;
+
+procedure TFrmCadTerceiro.ActCadLookupExecute(Sender: TObject);
+begin
+  inherited;
+  if cbPessoa.Focused then
+    btnPessoa.OnClick(Self)
 end;
 
 end.

@@ -1,17 +1,18 @@
 inherited frmCadVendedor2: TfrmCadVendedor2
   Left = 278
-  Top = 114
+  Top = 146
   Height = 526
   Caption = 'Vendedores'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Height = 462
-    ClientRectBottom = 458
+    Height = 473
+    ActivePage = tbsLista
+    ClientRectBottom = 469
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Height = 414
+        Height = 425
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -84,9 +85,9 @@ inherited frmCadVendedor2: TfrmCadVendedor2
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Height = 431
+        Height = 442
         inherited pnlSubCad: TPanel
-          Top = 153
+          Top = 164
           inherited PgcDetalhe: TcxPageControl
             ActivePage = tbsDetalhe1
             inherited tbsDetalhe1: TcxTabSheet
@@ -95,6 +96,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
                 ActivePage = tbsListaSub1
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
+                    Width = 743
                     inherited TVDet1: TcxGridDBTableView
                       DataController.DetailKeyFieldNames = 'CODIGO'
                       object TVDet1CNPJ: TcxGridDBColumn
@@ -276,10 +278,10 @@ inherited frmCadVendedor2: TfrmCadVendedor2
           end
         end
         inherited pnlMaster: TPanel
-          Height = 152
+          Height = 163
           inherited PgcMaster: TcxPageControl
-            Height = 152
-            ClientRectBottom = 148
+            Height = 163
+            ClientRectBottom = 159
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Vendedor'
               object cxDBCalcEdit2: TcxDBCalcEdit

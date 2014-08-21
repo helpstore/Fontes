@@ -67,8 +67,8 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
         end
-        object cxDBLookupComboBox1: TcxDBLookupComboBox
-          Left = 7
+        object cbPessoa: TcxDBLookupComboBox
+          Left = 10
           Top = 88
           DataBinding.DataField = 'PESSOA_FJ'
           DataBinding.DataSource = dsRegistro
@@ -79,7 +79,7 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
             end>
           Properties.ListSource = dsPessoasFJ
           TabOrder = 4
-          Width = 310
+          Width = 282
         end
         object cxLabel3: TcxLabel
           Left = 7
@@ -114,6 +114,21 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
           Top = 71
           Caption = 'Comiss'#227'o '#224' Prazo'
           Transparent = True
+        end
+        object btnPessoa: TcxButtonEdit
+          Left = 291
+          Top = 88
+          Properties.Buttons = <
+            item
+              Caption = 'F4'
+              Default = True
+              Kind = bkText
+            end>
+          Properties.ViewStyle = vsButtonsOnly
+          TabOrder = 10
+          Text = 'btnPessoa'
+          OnClick = btnPessoaClick
+          Width = 25
         end
       end
     end
@@ -274,14 +289,329 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
       0
       26)
   end
+  inherited ActionList1: TActionList
+    inherited ActCadLookup: TAction
+      OnExecute = ActCadLookupExecute
+    end
+  end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
+  end
+  inherited cxPropertiesStore: TcxPropertiesStore
+    Components = <
+      item
+        Component = Grid
+        Properties.Strings = (
+          'Align'
+          'Anchors'
+          'BevelEdges'
+          'BevelInner'
+          'BevelKind'
+          'BevelOuter'
+          'BevelWidth'
+          'BorderStyle'
+          'BorderWidth'
+          'Constraints'
+          'Cursor'
+          'DragCursor'
+          'DragKind'
+          'DragMode'
+          'DragOpening'
+          'DragOpeningWaitTime'
+          'Enabled'
+          'Font'
+          'Height'
+          'HelpContext'
+          'HelpKeyword'
+          'HelpType'
+          'Hint'
+          'Left'
+          'LevelTabs'
+          'LookAndFeel'
+          'Name'
+          'ParentFont'
+          'PopupMenu'
+          'RootLevelOptions'
+          'RootLevelStyles'
+          'TabOrder'
+          'TabStop'
+          'Tag'
+          'Top'
+          'Visible'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView1
+        Properties.Strings = (
+          'BackgroundBitmaps'
+          'Bands'
+          'DataController'
+          'DateTimeHandling'
+          'DragMode'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FilterBox'
+          'Filtering'
+          'FilterRow'
+          'Name'
+          'NavigatorButtons'
+          'NewItemRow'
+          'OptionsBehavior'
+          'OptionsCustomize'
+          'OptionsData'
+          'OptionsSelection'
+          'OptionsView'
+          'PopupMenu'
+          'Preview'
+          'Styles'
+          'Synchronization'
+          'Tag')
+      end
+      item
+        Component = GridDBBandedTableView2
+        Properties.Strings = (
+          'BackgroundBitmaps'
+          'Bands'
+          'DataController'
+          'DateTimeHandling'
+          'DragMode'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FilterBox'
+          'Filtering'
+          'FilterRow'
+          'Name'
+          'NavigatorButtons'
+          'NewItemRow'
+          'OptionsBehavior'
+          'OptionsCustomize'
+          'OptionsData'
+          'OptionsSelection'
+          'OptionsView'
+          'PopupMenu'
+          'Preview'
+          'Styles'
+          'Synchronization'
+          'Tag')
+      end
+      item
+        Component = GridDBBandedTableView2CNPJ
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2CODIGO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2COM_PRAZO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2COM_VISTA
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2NOME
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2PESSOA_FJ
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end>
   end
   object dsPessoasFJ: TDataSource
     AutoEdit = False
     DataSet = QryPessoa
-    Left = 192
-    Top = 107
+    Left = 744
+    Top = 3
   end
   object QryPessoa: TIBQuery
     Database = DmApp.Database
@@ -323,8 +653,8 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
       'FROM GLO_PESSOAS_FJ'
       'WHERE CNPJ = :CNPJ'
       'ORDER BY NOME_RAZAO')
-    Left = 161
-    Top = 108
+    Left = 713
+    Top = 4
     ParamData = <
       item
         DataType = ftUnknown
@@ -350,6 +680,7 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
       Origin = '"GLO_PESSOAS_FJ"."REGIAO"'
     end
     object QryPessoaNOME_RAZAO: TIBStringField
+      DisplayLabel = 'Pessoa F'#237'sica/Jur'#237'dica'
       FieldName = 'NOME_RAZAO'
       Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
       Size = 50

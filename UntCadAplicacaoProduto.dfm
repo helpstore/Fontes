@@ -1,47 +1,37 @@
-inherited FrmCadCobradores: TFrmCadCobradores
-  Caption = ' Cobradores'
+inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
+  Left = 235
+  Top = 216
+  Caption = 'Aplica'#231#227'o'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
+            Visible = False
             Position.BandIndex = 0
             Position.ColIndex = 0
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'CODIGO'
+          object GridDBBandedTableView2PRODUTO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'PRODUTO'
             Position.BandIndex = 0
             Position.ColIndex = 1
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2NOME: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'NOME'
+          object GridDBBandedTableView2APLICACAO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'APLICACAO'
             Position.BandIndex = 0
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2INTERNO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'INTERNO'
-            PropertiesClassName = 'TcxCheckBoxProperties'
-            Properties.ValueChecked = 'S'
-            Properties.ValueUnchecked = 'N'
-            Width = 38
+          object GridDBBandedTableView2LOCAL: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'LOCAL'
             Position.BandIndex = 0
             Position.ColIndex = 3
-            Position.RowIndex = 0
-          end
-          object GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'ATIVO'
-            PropertiesClassName = 'TcxCheckBoxProperties'
-            Properties.ValueChecked = 'S'
-            Properties.ValueUnchecked = 'N'
-            Width = 46
-            Position.BandIndex = 0
-            Position.ColIndex = 4
             Position.RowIndex = 0
           end
         end
@@ -50,127 +40,124 @@ inherited FrmCadCobradores: TFrmCadCobradores
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
         inherited edtNome: TcxDBTextEdit
-          DataBinding.DataField = 'NOME'
+          Left = 8
+          Top = 80
+          DataBinding.DataField = 'LOCAL'
+          Width = 241
         end
         inherited edtCodigo: TcxDBTextEdit
-          DataBinding.DataField = 'CODIGO'
+          DataBinding.DataField = 'PRODUTO'
+          Enabled = True
+          Width = 242
         end
-        object cxDBCheckBox1: TcxDBCheckBox
-          Left = 6
-          Top = 64
-          Caption = 'Interno'
-          DataBinding.DataField = 'INTERNO'
+        inherited cxLabel1: TcxLabel
+          Caption = 'Produto'
+        end
+        inherited cxLabel2: TcxLabel
+          Left = 7
+          Top = 63
+          Caption = 'Local'
+        end
+        object cxDBLookupComboBox1: TcxDBLookupComboBox
+          Left = 256
+          Top = 32
+          DataBinding.DataField = 'APLICACAO'
           DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
+          Properties.KeyFieldNames = 'CODIGO'
+          Properties.ListColumns = <
+            item
+              FieldName = 'NOME'
+            end>
+          Properties.ListSource = dsQryAplicacao
           TabOrder = 4
-          Width = 65
+          Width = 249
         end
-        object cxDBCheckBox2: TcxDBCheckBox
-          Left = 75
-          Top = 64
-          Caption = 'Ativo'
-          DataBinding.DataField = 'ATIVO'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
-          TabOrder = 5
-          Width = 121
+        object cxLabel3: TcxLabel
+          Left = 256
+          Top = 15
+          Caption = 'Aplica'#231#227'o'
+          Transparent = True
         end
       end
     end
   end
   inherited dtEdit: TIBDataSet
     DeleteSQL.Strings = (
-      'delete from FIN_COBRADOR'
+      'delete from EST_PRODUTOS_APLICACOES'
       'where'
+      '  APLICACAO = :OLD_APLICACAO and'
       '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
+      '  PRODUTO = :OLD_PRODUTO')
     InsertSQL.Strings = (
-      'insert into FIN_COBRADOR'
-      '  (ATIVO, CNPJ, CODIGO, INTERNO, NOME)'
+      'insert into EST_PRODUTOS_APLICACOES'
+      '  (APLICACAO, CNPJ, LOCAL, PRODUTO)'
       'values'
-      '  (:ATIVO, :CNPJ, :CODIGO, :INTERNO, :NOME)')
+      '  (:APLICACAO, :CNPJ, :LOCAL, :PRODUTO)')
     RefreshSQL.Strings = (
       'Select '
       '  CNPJ,'
-      '  CODIGO,'
-      '  NOME,'
-      '  INTERNO,'
-      '  ATIVO'
-      'from FIN_COBRADOR '
+      '  PRODUTO,'
+      '  APLICACAO,'
+      '  LOCAL'
+      'from EST_PRODUTOS_APLICACOES '
       'where'
+      '  APLICACAO = :APLICACAO and'
       '  CNPJ = :CNPJ and'
-      '  CODIGO = :CODIGO')
+      '  PRODUTO = :PRODUTO')
     SelectSQL.Strings = (
-      'select CNPJ, '
-      '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ AND'
-      'CODIGO =:CODIGO'
-      '')
+      'SELECT CNPJ,'
+      '               PRODUTO, '
+      '               APLICACAO, '
+      '               LOCAL '
+      'FROM EST_PRODUTOS_APLICACOES'
+      'WHERE CNPJ = :CNPJ ')
     ModifySQL.Strings = (
-      'update FIN_COBRADOR'
+      'update EST_PRODUTOS_APLICACOES'
       'set'
-      '  ATIVO = :ATIVO,'
+      '  APLICACAO = :APLICACAO,'
       '  CNPJ = :CNPJ,'
-      '  CODIGO = :CODIGO,'
-      '  INTERNO = :INTERNO,'
-      '  NOME = :NOME'
+      '  LOCAL = :LOCAL,'
+      '  PRODUTO = :PRODUTO'
       'where'
+      '  APLICACAO = :OLD_APLICACAO and'
       '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
-    GeneratorField.Field = 'CODIGO'
-    GeneratorField.Generator = 'FIN_COBRADOR_GE'
-    GeneratorField.ApplyEvent = gamOnPost
-    Active = True
+      '  PRODUTO = :OLD_PRODUTO')
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
+      Origin = '"EST_PRODUTOS_APLICACOES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
       Size = 14
     end
-    object dtEditCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
+    object dtEditPRODUTO: TIBStringField
+      FieldName = 'PRODUTO'
+      Origin = '"EST_PRODUTOS_APLICACOES"."PRODUTO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Size = 15
+    end
+    object dtEditAPLICACAO: TIntegerField
+      FieldName = 'APLICACAO'
+      Origin = '"EST_PRODUTOS_APLICACOES"."APLICACAO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object dtEditNOME: TIBStringField
-      FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
+    object dtEditLOCAL: TIBStringField
+      FieldName = 'LOCAL'
+      Origin = '"EST_PRODUTOS_APLICACOES"."LOCAL"'
       Size = 50
-    end
-    object dtEditINTERNO: TIBStringField
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
-      FixedChar = True
-      Size = 1
-    end
-    object dtEditATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
     end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'select CNPJ, '
-      '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ'
-      'Order by NOME')
-    Left = 113
-    Top = 4
+      'SELECT CNPJ,'
+      '               PRODUTO, '
+      '               APLICACAO, '
+      '               LOCAL '
+      'FROM EST_PRODUTOS_APLICACOES'
+      'WHERE CNPJ = :CNPJ '
+      'ORDER BY PRODUTO, APLICACAO')
     ParamData = <
       item
         DataType = ftUnknown
@@ -179,38 +166,32 @@ inherited FrmCadCobradores: TFrmCadCobradores
       end>
     object dtListCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
+      Origin = '"EST_PRODUTOS_APLICACOES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
       Size = 14
     end
-    object dtListCODIGO: TIntegerField
-      DisplayLabel = 'C'#243'digo'
-      FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
+    object dtListPRODUTO: TIBStringField
+      DisplayLabel = 'Produto'
+      FieldName = 'PRODUTO'
+      Origin = '"EST_PRODUTOS_APLICACOES"."PRODUTO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Size = 15
+    end
+    object dtListAPLICACAO: TIntegerField
+      DisplayLabel = 'Aplica'#231#227'o'
+      FieldName = 'APLICACAO'
+      Origin = '"EST_PRODUTOS_APLICACOES"."APLICACAO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object dtListNOME: TIBStringField
-      DisplayLabel = 'Nome'
-      FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
+    object dtListLOCAL: TIBStringField
+      DisplayLabel = 'Local'
+      FieldName = 'LOCAL'
+      Origin = '"EST_PRODUTOS_APLICACOES"."LOCAL"'
       Size = 50
-    end
-    object dtListINTERNO: TIBStringField
-      DisplayLabel = 'Interno'
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
-      FixedChar = True
-      Size = 1
-    end
-    object dtListATIVO: TIBStringField
-      DisplayLabel = 'Ativo'
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -329,7 +310,7 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Tag')
       end
       item
-        Component = GridDBBandedTableView2ATIVO
+        Component = GridDBBandedTableView2APLICACAO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -399,7 +380,7 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Width')
       end
       item
-        Component = GridDBBandedTableView2CODIGO
+        Component = GridDBBandedTableView2LOCAL
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -434,42 +415,7 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Width')
       end
       item
-        Component = GridDBBandedTableView2INTERNO
-        Properties.Strings = (
-          'AlternateCaption'
-          'BestFitMaxWidth'
-          'Caption'
-          'DataBinding'
-          'DateTimeGrouping'
-          'FakeComponentLink1'
-          'FakeComponentLink2'
-          'FakeComponentLink3'
-          'FooterAlignmentHorz'
-          'GroupIndex'
-          'GroupSummaryAlignment'
-          'HeaderAlignmentHorz'
-          'HeaderAlignmentVert'
-          'HeaderGlyph'
-          'HeaderGlyphAlignmentHorz'
-          'HeaderGlyphAlignmentVert'
-          'MinWidth'
-          'Name'
-          'Options'
-          'Position'
-          'Properties'
-          'PropertiesClassName'
-          'RepositoryItem'
-          'SortIndex'
-          'SortOrder'
-          'Styles'
-          'Summary'
-          'Tag'
-          'Visible'
-          'VisibleForCustomization'
-          'Width')
-      end
-      item
-        Component = GridDBBandedTableView2NOME
+        Component = GridDBBandedTableView2PRODUTO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -503,5 +449,49 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'VisibleForCustomization'
           'Width')
       end>
+  end
+  object QryAplicacao: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               CODIGO, '
+      '               NOME '
+      'FROM EST_APLICACOES'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
+    Left = 505
+    Top = 52
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryAplicacaoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_APLICACOES"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryAplicacaoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"EST_APLICACOES"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryAplicacaoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_APLICACOES"."NOME"'
+      Size = 50
+    end
+  end
+  object dsQryAplicacao: TDataSource
+    DataSet = QryAplicacao
+    Left = 535
+    Top = 52
   end
 end

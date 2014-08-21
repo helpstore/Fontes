@@ -1,6 +1,6 @@
 inherited frmCadMoedas: TfrmCadMoedas
-  Left = 432
-  Top = 189
+  Left = 242
+  Top = 190
   Caption = 'Moedas'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -107,6 +107,9 @@ inherited frmCadMoedas: TfrmCadMoedas
       '  UTILIZA_INDEXADOR = :UTILIZA_INDEXADOR'
       'where'
       '  CODIGO = :OLD_CODIGO')
+    GeneratorField.Field = 'CODIGO'
+    GeneratorField.Generator = 'GEN_FIN_MOEDA_ID'
+    GeneratorField.ApplyEvent = gamOnPost
     Left = 120
     Top = 12
     object dtEditCODIGO: TIntegerField
@@ -189,5 +192,245 @@ inherited frmCadMoedas: TfrmCadMoedas
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
+  end
+  inherited cxPropertiesStore: TcxPropertiesStore
+    Components = <
+      item
+        Component = Grid
+        Properties.Strings = (
+          'Align'
+          'Anchors'
+          'BevelEdges'
+          'BevelInner'
+          'BevelKind'
+          'BevelOuter'
+          'BevelWidth'
+          'BorderStyle'
+          'BorderWidth'
+          'Constraints'
+          'Cursor'
+          'DragCursor'
+          'DragKind'
+          'DragMode'
+          'DragOpening'
+          'DragOpeningWaitTime'
+          'Enabled'
+          'Font'
+          'Height'
+          'HelpContext'
+          'HelpKeyword'
+          'HelpType'
+          'Hint'
+          'Left'
+          'LevelTabs'
+          'LookAndFeel'
+          'Name'
+          'ParentFont'
+          'PopupMenu'
+          'RootLevelOptions'
+          'RootLevelStyles'
+          'TabOrder'
+          'TabStop'
+          'Tag'
+          'Top'
+          'Visible'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView1
+        Properties.Strings = (
+          'BackgroundBitmaps'
+          'Bands'
+          'DataController'
+          'DateTimeHandling'
+          'DragMode'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FilterBox'
+          'Filtering'
+          'FilterRow'
+          'Name'
+          'NavigatorButtons'
+          'NewItemRow'
+          'OptionsBehavior'
+          'OptionsCustomize'
+          'OptionsData'
+          'OptionsSelection'
+          'OptionsView'
+          'PopupMenu'
+          'Preview'
+          'Styles'
+          'Synchronization'
+          'Tag')
+      end
+      item
+        Component = GridDBBandedTableView2
+        Properties.Strings = (
+          'BackgroundBitmaps'
+          'Bands'
+          'DataController'
+          'DateTimeHandling'
+          'DragMode'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FilterBox'
+          'Filtering'
+          'FilterRow'
+          'Name'
+          'NavigatorButtons'
+          'NewItemRow'
+          'OptionsBehavior'
+          'OptionsCustomize'
+          'OptionsData'
+          'OptionsSelection'
+          'OptionsView'
+          'PopupMenu'
+          'Preview'
+          'Styles'
+          'Synchronization'
+          'Tag')
+      end
+      item
+        Component = GridDBBandedTableView2CODIGO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2NOME
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2SIGLA
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2UTILIZA_INDEXADOR
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end>
   end
 end

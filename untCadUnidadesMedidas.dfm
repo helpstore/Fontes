@@ -1,5 +1,5 @@
-inherited FrmCadCobradores: TFrmCadCobradores
-  Caption = ' Cobradores'
+inherited frmCadUnidadesMedidas: TfrmCadUnidadesMedidas
+  Caption = 'Unidades de Medidas'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
@@ -8,12 +8,14 @@ inherited FrmCadCobradores: TFrmCadCobradores
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
+            Visible = False
             Position.BandIndex = 0
             Position.ColIndex = 0
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'CODIGO'
+          object GridDBBandedTableView2SIGLA: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'SIGLA'
+            Width = 37
             Position.BandIndex = 0
             Position.ColIndex = 1
             Position.RowIndex = 0
@@ -24,24 +26,11 @@ inherited FrmCadCobradores: TFrmCadCobradores
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2INTERNO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'INTERNO'
-            PropertiesClassName = 'TcxCheckBoxProperties'
-            Properties.ValueChecked = 'S'
-            Properties.ValueUnchecked = 'N'
-            Width = 38
+          object GridDBBandedTableView2UNIDADES: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'UNIDADES'
+            Visible = False
             Position.BandIndex = 0
             Position.ColIndex = 3
-            Position.RowIndex = 0
-          end
-          object GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'ATIVO'
-            PropertiesClassName = 'TcxCheckBoxProperties'
-            Properties.ValueChecked = 'S'
-            Properties.ValueUnchecked = 'N'
-            Width = 46
-            Position.BandIndex = 0
-            Position.ColIndex = 4
             Position.RowIndex = 0
           end
         end
@@ -53,124 +42,88 @@ inherited FrmCadCobradores: TFrmCadCobradores
           DataBinding.DataField = 'NOME'
         end
         inherited edtCodigo: TcxDBTextEdit
-          DataBinding.DataField = 'CODIGO'
+          DataBinding.DataField = 'SIGLA'
+          Enabled = True
         end
-        object cxDBCheckBox1: TcxDBCheckBox
-          Left = 6
-          Top = 64
-          Caption = 'Interno'
-          DataBinding.DataField = 'INTERNO'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
-          TabOrder = 4
-          Width = 65
-        end
-        object cxDBCheckBox2: TcxDBCheckBox
-          Left = 75
-          Top = 64
-          Caption = 'Ativo'
-          DataBinding.DataField = 'ATIVO'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
-          TabOrder = 5
-          Width = 121
+        inherited cxLabel1: TcxLabel
+          Caption = 'Sigla'
         end
       end
     end
   end
   inherited dtEdit: TIBDataSet
     DeleteSQL.Strings = (
-      'delete from FIN_COBRADOR'
+      'delete from EST_UNIDADES'
       'where'
       '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
+      '  SIGLA = :OLD_SIGLA')
     InsertSQL.Strings = (
-      'insert into FIN_COBRADOR'
-      '  (ATIVO, CNPJ, CODIGO, INTERNO, NOME)'
+      'insert into EST_UNIDADES'
+      '  (CNPJ, NOME, SIGLA, UNIDADES)'
       'values'
-      '  (:ATIVO, :CNPJ, :CODIGO, :INTERNO, :NOME)')
+      '  (:CNPJ, :NOME, :SIGLA, :UNIDADES)')
     RefreshSQL.Strings = (
       'Select '
       '  CNPJ,'
-      '  CODIGO,'
+      '  SIGLA,'
       '  NOME,'
-      '  INTERNO,'
-      '  ATIVO'
-      'from FIN_COBRADOR '
+      '  UNIDADES'
+      'from EST_UNIDADES '
       'where'
       '  CNPJ = :CNPJ and'
-      '  CODIGO = :CODIGO')
+      '  SIGLA = :SIGLA')
     SelectSQL.Strings = (
-      'select CNPJ, '
-      '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ AND'
-      'CODIGO =:CODIGO'
-      '')
+      'SELECT CNPJ,'
+      '               SIGLA, '
+      '               NOME,'
+      '               UNIDADES'
+      'FROM EST_UNIDADES'
+      'WHERE SIGLA = :SIGLA')
     ModifySQL.Strings = (
-      'update FIN_COBRADOR'
+      'update EST_UNIDADES'
       'set'
-      '  ATIVO = :ATIVO,'
       '  CNPJ = :CNPJ,'
-      '  CODIGO = :CODIGO,'
-      '  INTERNO = :INTERNO,'
-      '  NOME = :NOME'
+      '  NOME = :NOME,'
+      '  SIGLA = :SIGLA,'
+      '  UNIDADES = :UNIDADES'
       'where'
       '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
-    GeneratorField.Field = 'CODIGO'
-    GeneratorField.Generator = 'FIN_COBRADOR_GE'
-    GeneratorField.ApplyEvent = gamOnPost
-    Active = True
+      '  SIGLA = :OLD_SIGLA')
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
+      Origin = '"EST_UNIDADES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
       Size = 14
     end
-    object dtEditCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
+    object dtEditSIGLA: TIBStringField
+      FieldName = 'SIGLA'
+      Origin = '"EST_UNIDADES"."SIGLA"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
+      Size = 4
     end
     object dtEditNOME: TIBStringField
       FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
+      Origin = '"EST_UNIDADES"."NOME"'
       Size = 50
     end
-    object dtEditINTERNO: TIBStringField
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
-      FixedChar = True
-      Size = 1
-    end
-    object dtEditATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
+    object dtEditUNIDADES: TFloatField
+      FieldName = 'UNIDADES'
+      Origin = '"EST_UNIDADES"."UNIDADES"'
     end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'select CNPJ, '
-      '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ'
-      'Order by NOME')
-    Left = 113
-    Top = 4
+      'SELECT CNPJ,'
+      '               SIGLA, '
+      '               NOME,'
+      '               UNIDADES'
+      'FROM EST_UNIDADES'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
     ParamData = <
       item
         DataType = ftUnknown
@@ -179,38 +132,31 @@ inherited FrmCadCobradores: TFrmCadCobradores
       end>
     object dtListCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
+      Origin = '"EST_UNIDADES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
       Size = 14
     end
-    object dtListCODIGO: TIntegerField
-      DisplayLabel = 'C'#243'digo'
-      FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
+    object dtListSIGLA: TIBStringField
+      DisplayLabel = 'Sigla'
+      FieldName = 'SIGLA'
+      Origin = '"EST_UNIDADES"."SIGLA"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
+      Size = 4
     end
     object dtListNOME: TIBStringField
       DisplayLabel = 'Nome'
       FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
+      Origin = '"EST_UNIDADES"."NOME"'
       Size = 50
     end
-    object dtListINTERNO: TIBStringField
-      DisplayLabel = 'Interno'
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
-      FixedChar = True
-      Size = 1
-    end
-    object dtListATIVO: TIBStringField
-      DisplayLabel = 'Ativo'
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
+    object dtListUNIDADES: TFloatField
+      DisplayLabel = 'Unidades'
+      FieldName = 'UNIDADES'
+      Origin = '"EST_UNIDADES"."UNIDADES"'
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -329,41 +275,6 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Tag')
       end
       item
-        Component = GridDBBandedTableView2ATIVO
-        Properties.Strings = (
-          'AlternateCaption'
-          'BestFitMaxWidth'
-          'Caption'
-          'DataBinding'
-          'DateTimeGrouping'
-          'FakeComponentLink1'
-          'FakeComponentLink2'
-          'FakeComponentLink3'
-          'FooterAlignmentHorz'
-          'GroupIndex'
-          'GroupSummaryAlignment'
-          'HeaderAlignmentHorz'
-          'HeaderAlignmentVert'
-          'HeaderGlyph'
-          'HeaderGlyphAlignmentHorz'
-          'HeaderGlyphAlignmentVert'
-          'MinWidth'
-          'Name'
-          'Options'
-          'Position'
-          'Properties'
-          'PropertiesClassName'
-          'RepositoryItem'
-          'SortIndex'
-          'SortOrder'
-          'Styles'
-          'Summary'
-          'Tag'
-          'Visible'
-          'VisibleForCustomization'
-          'Width')
-      end
-      item
         Component = GridDBBandedTableView2CNPJ
         Properties.Strings = (
           'AlternateCaption'
@@ -399,77 +310,77 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Width')
       end
       item
-        Component = GridDBBandedTableView2CODIGO
-        Properties.Strings = (
-          'AlternateCaption'
-          'BestFitMaxWidth'
-          'Caption'
-          'DataBinding'
-          'DateTimeGrouping'
-          'FakeComponentLink1'
-          'FakeComponentLink2'
-          'FakeComponentLink3'
-          'FooterAlignmentHorz'
-          'GroupIndex'
-          'GroupSummaryAlignment'
-          'HeaderAlignmentHorz'
-          'HeaderAlignmentVert'
-          'HeaderGlyph'
-          'HeaderGlyphAlignmentHorz'
-          'HeaderGlyphAlignmentVert'
-          'MinWidth'
-          'Name'
-          'Options'
-          'Position'
-          'Properties'
-          'PropertiesClassName'
-          'RepositoryItem'
-          'SortIndex'
-          'SortOrder'
-          'Styles'
-          'Summary'
-          'Tag'
-          'Visible'
-          'VisibleForCustomization'
-          'Width')
-      end
-      item
-        Component = GridDBBandedTableView2INTERNO
-        Properties.Strings = (
-          'AlternateCaption'
-          'BestFitMaxWidth'
-          'Caption'
-          'DataBinding'
-          'DateTimeGrouping'
-          'FakeComponentLink1'
-          'FakeComponentLink2'
-          'FakeComponentLink3'
-          'FooterAlignmentHorz'
-          'GroupIndex'
-          'GroupSummaryAlignment'
-          'HeaderAlignmentHorz'
-          'HeaderAlignmentVert'
-          'HeaderGlyph'
-          'HeaderGlyphAlignmentHorz'
-          'HeaderGlyphAlignmentVert'
-          'MinWidth'
-          'Name'
-          'Options'
-          'Position'
-          'Properties'
-          'PropertiesClassName'
-          'RepositoryItem'
-          'SortIndex'
-          'SortOrder'
-          'Styles'
-          'Summary'
-          'Tag'
-          'Visible'
-          'VisibleForCustomization'
-          'Width')
-      end
-      item
         Component = GridDBBandedTableView2NOME
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2SIGLA
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2UNIDADES
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
