@@ -2155,7 +2155,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 33.000000000000000000
+                            Value = 84.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2323,7 +2323,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 62.000000000000000000
+                            Value = 97.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2491,7 +2491,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 55.000000000000000000
+                            Value = 85.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2659,7 +2659,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 82.000000000000000000
+                            Value = 92.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -2827,7 +2827,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 2.000000000000000000
+                            Value = 85.000000000000000000
                           end
                         end
                         object lcMetaVendaGroup_Root: TdxLayoutGroup

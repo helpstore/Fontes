@@ -1373,7 +1373,13 @@ uses
   untCadCidades, untCadEstados, untCadMoedas, untCadPaises,
   untCadAtividades, untCadPessoas, untCadRegioes, untCadVendedor2,
   UntCadCobradores, UntCadTerceiros, UntCadCategoriaClientes,
-  UntCadTecnicos, UntCadUsuarios;
+  UntCadTecnicos, UntCadUsuarios, untCadUnidadesMedidas, UntCadMarcas,
+  UntCadModelo, UntCadSecoesProdutos, UntCadLocalizacaoEstoque, UntCadCor,
+  UntCadMaterial, UntCadAplicacaoProduto, UntCadAplicacoesProdutos,
+  UntCadBancos, UntCadMotivosDevolucao, UntCadAdministradoras,
+  UntCadTipoDocumento, UntCadAlegacao, UntCadEventoContabil,
+  UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
+  UntCadProblemaIdentificado;
 
 {$R *.DFM}
 
@@ -1655,13 +1661,13 @@ end;
 procedure TFrmMain.opMarcasClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMarcas', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMarcas', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmMarcas = Nil Then
+  If frmCadMarcas = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -1671,11 +1677,11 @@ begin
        //
 //       DMCadastros := TDMCadastros.Create(Self);
 
-       FrmMarcas   := TFrmMarcas.Create(Self);
+       frmCadMarcas   := TfrmCadMarcas.Create(Self);
        //
-       FrmMarcas.FormStyle   := fsMDIChild;
-       FrmMarcas.WindowState := wsMaximized;
-       FrmMarcas.BorderStyle := bsNone;
+       frmCadMarcas.FormStyle   := fsMDIChild;
+       frmCadMarcas.WindowState := wsMaximized;
+       frmCadMarcas.BorderStyle := bsNone;
        PnlClient.Visible     := False;
      End;
 end;
@@ -1709,13 +1715,13 @@ end;
 procedure TFrmMain.opUnidadesMedClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmUnidades', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadUnidadesMedidas', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmUnidades = Nil Then
+  If frmCadUnidadesMedidas = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -1724,11 +1730,11 @@ begin
        Application.ProcessMessages;
        //
 //       DMCadastros := TDMCadastros.Create(Self);
-       FrmUnidades := TFrmUnidades.Create(Self);
+       frmCadUnidadesMedidas := TfrmCadUnidadesMedidas.Create(Self);
        //
-       FrmUnidades.FormStyle   := fsMDIChild;
-       FrmUnidades.WindowState := wsMaximized;
-       FrmUnidades.BorderStyle := bsNone;
+       frmCadUnidadesMedidas.FormStyle   := fsMDIChild;
+       frmCadUnidadesMedidas.WindowState := wsMaximized;
+       frmCadUnidadesMedidas.BorderStyle := bsNone;
        PnlClient.Visible       := False;
      End;
 end;
@@ -1811,23 +1817,23 @@ end;
 procedure TFrmMain.opAplicacoesClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmAplicacoes', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacoesProdutos', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmAplicacoes = Nil Then
+  If frmCadAplicacoesProdutos = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
           opFechar.OnClick(opFechar);
        //
        Application.ProcessMessages;
-       FrmAplicacoes := TFrmAplicacoes.Create(Self);
-       FrmAplicacoes.FormStyle   := fsMDIChild;
-       FrmAplicacoes.WindowState := wsMaximized;
-       FrmAplicacoes.BorderStyle := bsNone;
+       frmCadAplicacoesProdutos := TfrmCadAplicacoesProdutos.Create(Self);
+       frmCadAplicacoesProdutos.FormStyle   := fsMDIChild;
+       frmCadAplicacoesProdutos.WindowState := wsMaximized;
+       frmCadAplicacoesProdutos.BorderStyle := bsNone;
        PnlClient.Visible         := False;
      End;
 end;
@@ -2259,24 +2265,24 @@ end;
 procedure TFrmMain.TiposDctosClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmTipoDoctos', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadTipoDocumento', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmTipoDoctos = Nil Then
+  If frmCadTipoDocumento = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
           opFechar.OnClick(opFechar);
 
        Application.ProcessMessages;
-       FrmTipoDoctos  := TFrmTipoDoctos.Create(Self);
+       frmCadTipoDocumento  := TfrmCadTipoDocumento.Create(Self);
 
-       FrmTipoDoctos.FormStyle   := fsMDIChild;
-       FrmTipoDoctos.WindowState := wsMaximized;
-       FrmTipoDoctos.BorderStyle := bsNone;
+       frmCadTipoDocumento.FormStyle   := fsMDIChild;
+       frmCadTipoDocumento.WindowState := wsMaximized;
+       frmCadTipoDocumento.BorderStyle := bsNone;
        PnlClient.Visible          := False;
      End;
 end;
@@ -3835,23 +3841,23 @@ end;
 procedure TFrmMain.Produtos_AplicacoesClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmProdutos_Aplicacoes', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacaoProduto', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmProdutos_Aplicacoes = Nil Then
+  If frmCadAplicacaoProduto = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
           opFechar.OnClick(opFechar);
 
        Application.ProcessMessages;
-       FrmProdutos_Aplicacoes := TFrmProdutos_Aplicacoes.Create(Self);
-       FrmProdutos_Aplicacoes.FormStyle   := fsMDIChild;
-       FrmProdutos_Aplicacoes.WindowState := wsMaximized;
-       FrmProdutos_Aplicacoes.BorderStyle := bsNone;
+       frmCadAplicacaoProduto := TfrmCadAplicacaoProduto.Create(Self);
+       frmCadAplicacaoProduto.FormStyle   := fsMDIChild;
+       frmCadAplicacaoProduto.WindowState := wsMaximized;
+       frmCadAplicacaoProduto.BorderStyle := bsNone;
        PnlClient.Visible         := False;
      End;
 end;
@@ -3918,7 +3924,7 @@ end;
 procedure TFrmMain.OpMacaVeiculosClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMarcas_Veiculos', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMarcas_Veiculos', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
@@ -4203,13 +4209,13 @@ end;
 procedure TFrmMain.AdministradorasClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'Frmdministradoras', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAdministradoras', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmAdministradoras = Nil Then
+  If frmCadAdministradoras = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -4218,11 +4224,11 @@ begin
        Application.ProcessMessages;
        //
 
-       FrmAdministradoras   := TFrmAdministradoras.Create(Self);
+       frmCadAdministradoras   := TfrmCadAdministradoras.Create(Self);
        //
-       FrmAdministradoras.FormStyle   := fsMDIChild;
-       FrmAdministradoras.WindowState := wsMaximized;
-       FrmAdministradoras.BorderStyle := bsNone;
+       frmCadAdministradoras.FormStyle   := fsMDIChild;
+       frmCadAdministradoras.WindowState := wsMaximized;
+       frmCadAdministradoras.BorderStyle := bsNone;
        PnlClient.Visible       := False;
      End;
 end;
@@ -4473,13 +4479,13 @@ end;
 procedure TFrmMain.OpMotivoDevClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMotivos_Devolucao', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMotivosDevolucao', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmMotivos_Devolucao = Nil Then
+  If frmCadMotivosDevolucao = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -4487,11 +4493,11 @@ begin
        //
        Application.ProcessMessages;
 
-       FrmMotivos_Devolucao   := TFrmMotivos_Devolucao.Create(Self);
+       frmCadMotivosDevolucao   := TfrmCadMotivosDevolucao.Create(Self);
        //
-       FrmMotivos_Devolucao.FormStyle   := fsMDIChild;
-       FrmMotivos_Devolucao.WindowState := wsMaximized;
-       FrmMotivos_Devolucao.BorderStyle := bsNone;
+       frmCadMotivosDevolucao.FormStyle   := fsMDIChild;
+       frmCadMotivosDevolucao.WindowState := wsMaximized;
+       frmCadMotivosDevolucao.BorderStyle := bsNone;
        PnlClient.Visible       := False;
      End;
 end;
@@ -4689,13 +4695,13 @@ begin
   if dmapp.TIPO_EMPRESA = 'Pecas'
   then begin
        { * * * * * }
-       If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMotores', True))
+       If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadModelo', True))
        Then
            Exit;
   end
   else begin
        { * * * * * }
-       If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMotores', True)) Then
+       If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadModelo', True)) Then
            Exit;
   end;
 
@@ -4703,7 +4709,7 @@ begin
   If DMApp.SelecionarEmpresa = 'N' Then Exit;
 
   { * * * * * }
-  If FrmMotores = Nil Then
+  If frmCadModelo = Nil Then
   begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -4711,14 +4717,14 @@ begin
        //
        Application.ProcessMessages;
        //
-       FrmMotores   := TFrmMotores.Create(Self);
+       frmCadModelo   := TfrmCadModelo.Create(Self);
        //
-       FrmMotores.FormStyle   := fsMDIChild;
-       FrmMotores.WindowState := wsMaximized;
-       FrmMotores.BorderStyle := bsNone;
+       frmCadModelo.FormStyle   := fsMDIChild;
+       frmCadModelo.WindowState := wsMaximized;
+       frmCadModelo.BorderStyle := bsNone;
        PnlClient.Visible        := False;
        //
-       FrmMotores.Show;
+       frmCadModelo.Show;
   end;
 end;
 
@@ -5283,13 +5289,13 @@ end;
 procedure TFrmMain.OpMotivosClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMotivosCobranca', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAlegacao', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then Exit;
 
   { * * * * * }
-  If FrmMotivosCobranca = Nil Then
+  If frmCadAlegacao = Nil Then
   begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -5298,12 +5304,12 @@ begin
        Application.ProcessMessages;
 
        //Cria o Formulario de Localizar Cliente
-       Application.CreateForm(TFrmMotivosCobranca, FrmMotivosCobranca) ;
-       FrmMotivosCobranca  := TFrmMotivosCobranca.Create(Self);
+       Application.CreateForm(TfrmCadAlegacao, frmCadAlegacao) ;
+       frmCadAlegacao  := TfrmCadAlegacao.Create(Self);
 
-       FrmMotivosCobranca.Showmodal ;
-       FrmMotivosCobranca.Free      ;
-       FrmMotivosCobranca := Nil    ;
+       frmCadAlegacao.Showmodal ;
+       frmCadAlegacao.Free      ;
+       frmCadAlegacao := Nil    ;
   end;
 end;
 
@@ -5391,13 +5397,13 @@ end;
 procedure TFrmMain.OpCorClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCores', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCor', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmCores = Nil Then
+  If frmCadCor = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -5406,35 +5412,35 @@ begin
        Application.ProcessMessages;
        //
 //       DMCadastros := TDMCadastros.Create(Self);
-       FrmCores    := TFrmCores.Create(Self);
+       frmCadCor    := TfrmCadCor.Create(Self);
        //
-       FrmCores.Showmodal ;
-       FrmCores.Free      ;
-       FrmCores := Nil    ;
+       frmCadCor.Showmodal ;
+       frmCadCor.Free      ;
+       frmCadCor := Nil    ;
      End;
 end;
 
 procedure TFrmMain.OpMaterialClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMateriais', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMaterial', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmMateriais = Nil Then
+  If frmCadMaterial = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
           opFechar.OnClick(opFechar);
        //
        Application.ProcessMessages;
-       FrmMateriais    := TFrmMateriais.Create(Self);
+       frmCadMaterial    := TfrmCadMaterial.Create(Self);
 
-       FrmMateriais.Showmodal ;
-       FrmMateriais.Free      ;
-       FrmMateriais := Nil ;
+       frmCadMaterial.Showmodal ;
+       frmCadMaterial.Free      ;
+       frmCadMaterial := Nil ;
      End;
 end;
 
@@ -6331,13 +6337,13 @@ end;
 procedure TFrmMain.OpLocalCobrancaClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmLocais_Cobranca', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadLocalCobranca', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmLocais_Cobranca = Nil Then
+  If frmCadLocalCobranca = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -6345,11 +6351,11 @@ begin
        //
        Application.ProcessMessages;
        //
-       FrmLocais_Cobranca  := TFrmLocais_Cobranca.Create(Self);
+       frmCadLocalCobranca  := TfrmCadLocalCobranca.Create(Self);
        //
-       FrmLocais_Cobranca.FormStyle   := fsMDIChild;
-       FrmLocais_Cobranca.WindowState := wsMaximized;
-       FrmLocais_Cobranca.BorderStyle := bsNone;
+       frmCadLocalCobranca.FormStyle   := fsMDIChild;
+       frmCadLocalCobranca.WindowState := wsMaximized;
+       frmCadLocalCobranca.BorderStyle := bsNone;
        PnlClient.Visible              := False;
      End;
 end;
@@ -6566,13 +6572,13 @@ begin
   If FrmMain.MDIChildCount > 1 Then
      Exit;
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmDefeitos', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadDefeitos', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then Exit;
 
   { * * * * * }
-  If FrmDefeitos = Nil Then
+  If frmCadDefeitos = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -6580,11 +6586,11 @@ begin
        //
        Application.ProcessMessages;
        //
-       FrmDefeitos   := TFrmDefeitos.Create(Self);
+       frmCadDefeitos   := TfrmCadDefeitos.Create(Self);
        //
-       FrmDefeitos.Showmodal;
-       FrmDefeitos.FREE      ;
-       FrmDefeitos := Nil    ;
+       frmCadDefeitos.Showmodal;
+       frmCadDefeitos.FREE      ;
+       frmCadDefeitos := Nil    ;
 
      End;
 end;
@@ -6886,13 +6892,13 @@ end;
 procedure TFrmMain.mnCadastroBancoClick(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmBancos', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadBancos', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmBancos = Nil Then
+  If frmCadBancos = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -6900,11 +6906,11 @@ begin
        Application.ProcessMessages;
 
 
-       FrmBancos   := TFrmBancos.Create(Self);
+       frmCadBancos   := TfrmCadBancos.Create(Self);
        //
-       FrmBancos.FormStyle   := fsMDIChild;
-       FrmBancos.WindowState := wsMaximized;
-       FrmBancos.BorderStyle := bsNone;
+       frmCadBancos.FormStyle   := fsMDIChild;
+       frmCadBancos.WindowState := wsMaximized;
+       frmCadBancos.BorderStyle := bsNone;
        PnlClient.Visible       := False;
      End;
 end;            
@@ -7294,22 +7300,22 @@ begin
   If FrmMain.MDIChildCount > 1 Then
      Exit;
 
-  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmTipos_Contratos', True)) then
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadTipoContrato', True)) then
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
     Exit;
 
-  if FrmTipos_Contratos = nil  then
+  if frmCadTipoContrato = nil  then
   begin
     if FrmMain.MDIChildCount > 0 then
        opFechar.OnClick(opFechar);
     Application.ProcessMessages;
 
-    FrmTipos_Contratos := TFrmTipos_Contratos.Create(Self);
-    FrmTipos_Contratos.Showmodal;
-    FrmTipos_Contratos.Free;
-    FrmTipos_Contratos := Nil;
+    frmCadTipoContrato := TfrmCadTipoContrato.Create(Self);
+    frmCadTipoContrato.Showmodal;
+    frmCadTipoContrato.Free;
+    frmCadTipoContrato := Nil;
   end;
 end;
 
@@ -7318,19 +7324,19 @@ begin
   If FrmMain.MDIChildCount > 1 Then
      Exit;
 
-  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmStatusServico', True)) then
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadStatusServico', True)) then
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
     Exit;
 
-  if frmStatusServico = nil  then
+  if frmCadStatusServico = nil  then
   begin
     Application.ProcessMessages;
-    frmStatusServico := TfrmStatusServico.Create(Self);
-    frmStatusServico.Showmodal;
-    frmStatusServico.Free;
-    frmStatusServico := Nil;
+    frmCadStatusServico := TfrmCadStatusServico.Create(Self);
+    frmCadStatusServico.Showmodal;
+    frmCadStatusServico.Free;
+    frmCadStatusServico := Nil;
   end;
 end;
 
@@ -7339,19 +7345,19 @@ begin
   If FrmMain.MDIChildCount > 1 Then
      Exit;
 
-  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmTipoAtendimento', True)) then
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadServicoExecutado', True)) then
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
     Exit;
 
-  if frmTipoAtendimento = nil  then
+  if frmCadServicoExecutado = nil  then
   begin
     Application.ProcessMessages;
-    frmTipoAtendimento := TfrmTipoAtendimento.Create(Self);
-    frmTipoAtendimento.Showmodal;
-    frmTipoAtendimento.Free;
-    frmTipoAtendimento := Nil;
+    frmCadServicoExecutado := TfrmCadServicoExecutado.Create(Self);
+    frmCadServicoExecutado.Showmodal;
+    frmCadServicoExecutado.Free;
+    frmCadServicoExecutado := Nil;
   end;
 end;
 
@@ -7360,19 +7366,19 @@ begin
   If FrmMain.MDIChildCount > 1 Then
      Exit;
 
-  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmMotivoChamado', True)) then
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProblemaIdentificado', True)) then
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
     Exit;
 
-  if frmMotivoChamado = nil  then
+  if frmCadProblemaIdentificado = nil  then
   begin
     Application.ProcessMessages;
-    frmMotivoChamado := TfrmMotivoChamado.Create(Self);
-    frmMotivoChamado.Showmodal;
-    frmMotivoChamado.Free;
-    frmMotivoChamado := Nil;
+    frmCadProblemaIdentificado := TfrmCadProblemaIdentificado.Create(Self);
+    frmCadProblemaIdentificado.Showmodal;
+    frmCadProblemaIdentificado.Free;
+    frmCadProblemaIdentificado := Nil;
   end;
 end;
 
@@ -7401,13 +7407,13 @@ end;
 
 procedure TFrmMain.btnSecaoClick(Sender: TObject);
 begin
- If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmSecoes_Produtos', True)) Then
+ If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadSecoesProdutos', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmSecoes_Produtos = Nil Then
+  If frmCadSecoesProdutos = Nil Then
   begin
 
     If FrmMain.MDIChildCount > 0 Then
@@ -7415,10 +7421,10 @@ begin
 
     Application.ProcessMessages;
 
-    FrmSecoes_Produtos := TFrmSecoes_Produtos.Create(Self);
-    FrmSecoes_Produtos.FormStyle   := fsMDIChild;
-    FrmSecoes_Produtos.WindowState := wsMaximized;
-    FrmSecoes_Produtos.BorderStyle := bsNone;
+    frmCadSecoesProdutos := TfrmCadSecoesProdutos.Create(Self);
+    frmCadSecoesProdutos.FormStyle   := fsMDIChild;
+    frmCadSecoesProdutos.WindowState := wsMaximized;
+    frmCadSecoesProdutos.BorderStyle := bsNone;
     PnlClient.Visible     := False;
   end;
 end;
@@ -8266,13 +8272,13 @@ end;
 procedure TFrmMain.btnEventoContabilClick(Sender: TObject);
 begin
   { * * * * * }
-  IF Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmEventoContabil', True)) Then
+  IF Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadEventoContabil', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmEventoContabil = Nil Then
+  If frmCadEventoContabil = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -8281,12 +8287,12 @@ begin
        Application.ProcessMessages;
        //
        DMPlano       := TDMPlano.Create(Self);
-       FrmEventoContabil := TFrmEventoContabil.Create(Self);
+       frmCadEventoContabil := TfrmCadEventoContabil.Create(Self);
 
 
-       FrmEventoContabil.Showmodal ;
-       FrmEventoContabil.Free;
-       FrmEventoContabil := Nil;
+       frmCadEventoContabil.Showmodal ;
+       frmCadEventoContabil.Free;
+       frmCadEventoContabil := Nil;
      End;
 end;
 
@@ -8612,21 +8618,21 @@ end;
 
 procedure TFrmMain.btnLocalizacaoClick(Sender: TObject);
 begin
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmLocalizacao', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadLocalizacaoEstoque', True)) Then
      Exit;
 
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
 
-  If FrmLocalizacao = Nil Then
+  If frmCadLocalizacaoEstoque = Nil Then
      Begin
        If FrmMain.MDIChildCount > 0 Then
           opFechar.OnClick(opFechar);
        Application.ProcessMessages;
-       FrmLocalizacao  := TFrmLocalizacao.Create(Self);
-       FrmLocalizacao.Showmodal ;
-       FrmLocalizacao.Free      ;
-       FrmLocalizacao := Nil    ;
+       frmCadLocalizacaoEstoque  := TfrmCadLocalizacaoEstoque.Create(Self);
+       frmCadLocalizacaoEstoque.Showmodal ;
+       frmCadLocalizacaoEstoque.Free      ;
+       frmCadLocalizacaoEstoque := Nil    ;
      End;
 end;
 

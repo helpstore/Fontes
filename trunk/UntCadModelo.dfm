@@ -1,13 +1,15 @@
-inherited FrmCadCobradores: TFrmCadCobradores
-  Caption = ' Cobradores'
+inherited frmCadModelo: TfrmCadModelo
+  Caption = 'Modelo'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
+            Visible = False
             Position.BandIndex = 0
             Position.ColIndex = 0
             Position.RowIndex = 0
@@ -24,24 +26,25 @@ inherited FrmCadCobradores: TFrmCadCobradores
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2INTERNO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'INTERNO'
-            PropertiesClassName = 'TcxCheckBoxProperties'
-            Properties.ValueChecked = 'S'
-            Properties.ValueUnchecked = 'N'
-            Width = 38
+          object GridDBBandedTableView2CILINDROS: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'CILINDROS'
+            Visible = False
             Position.BandIndex = 0
             Position.ColIndex = 3
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'ATIVO'
-            PropertiesClassName = 'TcxCheckBoxProperties'
-            Properties.ValueChecked = 'S'
-            Properties.ValueUnchecked = 'N'
-            Width = 46
+          object GridDBBandedTableView2COMBUSTIVEL: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'COMBUSTIVEL'
+            Visible = False
             Position.BandIndex = 0
             Position.ColIndex = 4
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2TIPO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'TIPO'
+            Visible = False
+            Position.BandIndex = 0
+            Position.ColIndex = 5
             Position.RowIndex = 0
           end
         end
@@ -55,81 +58,59 @@ inherited FrmCadCobradores: TFrmCadCobradores
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
         end
-        object cxDBCheckBox1: TcxDBCheckBox
-          Left = 6
-          Top = 64
-          Caption = 'Interno'
-          DataBinding.DataField = 'INTERNO'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
-          TabOrder = 4
-          Width = 65
-        end
-        object cxDBCheckBox2: TcxDBCheckBox
-          Left = 75
-          Top = 64
-          Caption = 'Ativo'
-          DataBinding.DataField = 'ATIVO'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
-          TabOrder = 5
-          Width = 121
-        end
       end
     end
   end
   inherited dtEdit: TIBDataSet
     DeleteSQL.Strings = (
-      'delete from FIN_COBRADOR'
+      'delete from OFC_MOTORES'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
-      'insert into FIN_COBRADOR'
-      '  (ATIVO, CNPJ, CODIGO, INTERNO, NOME)'
+      'insert into OFC_MOTORES'
+      '  (CILINDROS, CNPJ, CODIGO, COMBUSTIVEL, NOME, TIPO)'
       'values'
-      '  (:ATIVO, :CNPJ, :CODIGO, :INTERNO, :NOME)')
+      '  (:CILINDROS, :CNPJ, :CODIGO, :COMBUSTIVEL, :NOME, :TIPO)')
     RefreshSQL.Strings = (
       'Select '
       '  CNPJ,'
       '  CODIGO,'
       '  NOME,'
-      '  INTERNO,'
-      '  ATIVO'
-      'from FIN_COBRADOR '
+      '  TIPO,'
+      '  CILINDROS,'
+      '  COMBUSTIVEL'
+      'from OFC_MOTORES '
       'where'
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
       'select CNPJ, '
       '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ AND'
-      'CODIGO =:CODIGO'
-      '')
+      '          NOME,'
+      '          CILINDROS, '
+      '          COMBUSTIVEL, '
+      '          TIPO'
+      'from OFC_MOTORES'
+      'WHERE CODIGO= :CODIGO')
     ModifySQL.Strings = (
-      'update FIN_COBRADOR'
+      'update OFC_MOTORES'
       'set'
-      '  ATIVO = :ATIVO,'
+      '  CILINDROS = :CILINDROS,'
       '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
-      '  INTERNO = :INTERNO,'
-      '  NOME = :NOME'
+      '  COMBUSTIVEL = :COMBUSTIVEL,'
+      '  NOME = :NOME,'
+      '  TIPO = :TIPO'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
     GeneratorField.Field = 'CODIGO'
-    GeneratorField.Generator = 'FIN_COBRADOR_GE'
+    GeneratorField.Generator = 'OFC_MOTORES_GE'
     GeneratorField.ApplyEvent = gamOnPost
-    Active = True
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
+      Origin = '"OFC_MOTORES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
@@ -137,40 +118,42 @@ inherited FrmCadCobradores: TFrmCadCobradores
     end
     object dtEditCODIGO: TIntegerField
       FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
+      Origin = '"OFC_MOTORES"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtEditNOME: TIBStringField
       FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
-      Size = 50
+      Origin = '"OFC_MOTORES"."NOME"'
+      Size = 80
     end
-    object dtEditINTERNO: TIBStringField
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
-      FixedChar = True
-      Size = 1
+    object dtEditCILINDROS: TIBStringField
+      FieldName = 'CILINDROS'
+      Origin = '"OFC_MOTORES"."CILINDROS"'
+      Size = 15
     end
-    object dtEditATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
+    object dtEditCOMBUSTIVEL: TIBStringField
+      FieldName = 'COMBUSTIVEL'
+      Origin = '"OFC_MOTORES"."COMBUSTIVEL"'
+      Size = 30
+    end
+    object dtEditTIPO: TIBStringField
+      FieldName = 'TIPO'
+      Origin = '"OFC_MOTORES"."TIPO"'
+      Size = 10
     end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
       'select CNPJ, '
       '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ'
+      '          NOME,'
+      '          CILINDROS, '
+      '          COMBUSTIVEL, '
+      '          TIPO'
+      'from OFC_MOTORES'
+      'WHERE CNPJ = :CNPJ '
       'Order by NOME')
-    Left = 113
-    Top = 4
     ParamData = <
       item
         DataType = ftUnknown
@@ -179,7 +162,7 @@ inherited FrmCadCobradores: TFrmCadCobradores
       end>
     object dtListCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
+      Origin = '"OFC_MOTORES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
@@ -188,29 +171,33 @@ inherited FrmCadCobradores: TFrmCadCobradores
     object dtListCODIGO: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
+      Origin = '"OFC_MOTORES"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtListNOME: TIBStringField
       DisplayLabel = 'Nome'
       FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
-      Size = 50
+      Origin = '"OFC_MOTORES"."NOME"'
+      Size = 80
     end
-    object dtListINTERNO: TIBStringField
-      DisplayLabel = 'Interno'
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
-      FixedChar = True
-      Size = 1
+    object dtListCILINDROS: TIBStringField
+      DisplayLabel = 'Cilindros'
+      FieldName = 'CILINDROS'
+      Origin = '"OFC_MOTORES"."CILINDROS"'
+      Size = 15
     end
-    object dtListATIVO: TIBStringField
-      DisplayLabel = 'Ativo'
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
+    object dtListCOMBUSTIVEL: TIBStringField
+      DisplayLabel = 'Combust'#237'vel'
+      FieldName = 'COMBUSTIVEL'
+      Origin = '"OFC_MOTORES"."COMBUSTIVEL"'
+      Size = 30
+    end
+    object dtListTIPO: TIBStringField
+      DisplayLabel = 'Tipo'
+      FieldName = 'TIPO'
+      Origin = '"OFC_MOTORES"."TIPO"'
+      Size = 10
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -329,7 +316,7 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Tag')
       end
       item
-        Component = GridDBBandedTableView2ATIVO
+        Component = GridDBBandedTableView2CILINDROS
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -434,7 +421,7 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Width')
       end
       item
-        Component = GridDBBandedTableView2INTERNO
+        Component = GridDBBandedTableView2COMBUSTIVEL
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -470,6 +457,41 @@ inherited FrmCadCobradores: TFrmCadCobradores
       end
       item
         Component = GridDBBandedTableView2NOME
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2TIPO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'

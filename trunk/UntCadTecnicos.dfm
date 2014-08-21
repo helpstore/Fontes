@@ -638,6 +638,7 @@ inherited frmCadTecnicos: TfrmCadTecnicos
       Origin = '"GLO_PESSOAS_FJ"."REGIAO"'
     end
     object QryPessoaFJNOME_RAZAO: TIBStringField
+      DisplayLabel = 'Pessoa F'#237'sica/Jur'#237'dica'
       FieldName = 'NOME_RAZAO'
       Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
       Size = 50
@@ -803,6 +804,7 @@ inherited frmCadTecnicos: TfrmCadTecnicos
       Size = 10
     end
     object QryUsuarioNOME: TIBStringField
+      DisplayLabel = 'Usu'#225'rio'
       FieldName = 'NOME'
       Origin = '"SIS_USUARIOS"."NOME"'
       Size = 50

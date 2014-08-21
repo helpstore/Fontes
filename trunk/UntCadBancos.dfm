@@ -1,47 +1,63 @@
-inherited FrmCadCobradores: TFrmCadCobradores
-  Caption = ' Cobradores'
+inherited frmCadBancos: TfrmCadBancos
+  Caption = 'Bancos'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
-          object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'CNPJ'
-            Position.BandIndex = 0
-            Position.ColIndex = 0
-            Position.RowIndex = 0
-          end
           object GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CODIGO'
+            Width = 39
             Position.BandIndex = 0
-            Position.ColIndex = 1
+            Position.ColIndex = 0
             Position.RowIndex = 0
           end
           object GridDBBandedTableView2NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NOME'
             Position.BandIndex = 0
+            Position.ColIndex = 1
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2BOLETO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'BOLETO'
+            Position.BandIndex = 0
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2INTERNO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'INTERNO'
+          object GridDBBandedTableView2GERA_ARQUIVO_MAGNETICO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'GERA_ARQUIVO_MAGNETICO'
             PropertiesClassName = 'TcxCheckBoxProperties'
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
-            Width = 38
+            Width = 163
             Position.BandIndex = 0
             Position.ColIndex = 3
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'ATIVO'
+          object GridDBBandedTableView2PADRAO_BOLETO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'PADRAO_BOLETO'
             PropertiesClassName = 'TcxCheckBoxProperties'
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
-            Width = 46
+            Width = 126
             Position.BandIndex = 0
             Position.ColIndex = 4
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2CONFIG_CH: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'CONFIG_CH'
+            Visible = False
+            Position.BandIndex = 0
+            Position.ColIndex = 5
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2CONFIG_CHEQUE: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'CONFIG_CHEQUE'
+            Visible = False
+            Position.BandIndex = 0
+            Position.ColIndex = 6
             Position.RowIndex = 0
           end
         end
@@ -54,163 +70,144 @@ inherited FrmCadCobradores: TFrmCadCobradores
         end
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
+          Enabled = True
+        end
+        object cxLabel3: TcxLabel
+          Left = 7
+          Top = 57
+          Caption = 'N'#186' de Boletos'
+          Transparent = True
+        end
+        object cxDBTextEdit1: TcxDBTextEdit
+          Left = 7
+          Top = 74
+          DataBinding.DataField = 'BOLETO'
+          DataBinding.DataSource = dsRegistro
+          Properties.CharCase = ecUpperCase
+          TabOrder = 5
+          Width = 106
         end
         object cxDBCheckBox1: TcxDBCheckBox
-          Left = 6
-          Top = 64
-          Caption = 'Interno'
-          DataBinding.DataField = 'INTERNO'
+          Left = 117
+          Top = 75
+          Caption = 'Arq. Magn'#233'tico Cheque'
+          DataBinding.DataField = 'GERA_ARQUIVO_MAGNETICO'
           DataBinding.DataSource = dsRegistro
           Properties.ValueChecked = 'S'
           Properties.ValueUnchecked = 'N'
-          TabOrder = 4
-          Width = 65
+          TabOrder = 6
+          Width = 137
         end
         object cxDBCheckBox2: TcxDBCheckBox
-          Left = 75
-          Top = 64
-          Caption = 'Ativo'
-          DataBinding.DataField = 'ATIVO'
+          Left = 256
+          Top = 75
+          Caption = 'Banco padr'#227'o de Boletos'
+          DataBinding.DataField = 'PADRAO_BOLETO'
           DataBinding.DataSource = dsRegistro
           Properties.ValueChecked = 'S'
           Properties.ValueUnchecked = 'N'
-          TabOrder = 5
-          Width = 121
+          TabOrder = 7
+          Width = 137
         end
       end
     end
   end
   inherited dtEdit: TIBDataSet
     DeleteSQL.Strings = (
-      'delete from FIN_COBRADOR'
+      'delete from FIN_BANCO'
       'where'
-      '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
-      'insert into FIN_COBRADOR'
-      '  (ATIVO, CNPJ, CODIGO, INTERNO, NOME)'
+      'insert into FIN_BANCO'
+      
+        '  (BOLETO, CODIGO, CONFIG_CH, CONFIG_CHEQUE, GERA_ARQUIVO_MAGNET' +
+        'ICO, NOME, '
+      '   PADRAO_BOLETO)'
       'values'
-      '  (:ATIVO, :CNPJ, :CODIGO, :INTERNO, :NOME)')
+      
+        '  (:BOLETO, :CODIGO, :CONFIG_CH, :CONFIG_CHEQUE, :GERA_ARQUIVO_M' +
+        'AGNETICO, '
+      '   :NOME, :PADRAO_BOLETO)')
     RefreshSQL.Strings = (
       'Select '
-      '  CNPJ,'
       '  CODIGO,'
       '  NOME,'
-      '  INTERNO,'
-      '  ATIVO'
-      'from FIN_COBRADOR '
+      '  BOLETO,'
+      '  GERA_ARQUIVO_MAGNETICO,'
+      '  PADRAO_BOLETO,'
+      '  CONFIG_CH,'
+      '  CONFIG_CHEQUE'
+      'from FIN_BANCO '
       'where'
-      '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'select CNPJ, '
-      '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ AND'
-      'CODIGO =:CODIGO'
+      'SELECT * '
+      'FROM FIN_BANCO'
       '')
     ModifySQL.Strings = (
-      'update FIN_COBRADOR'
+      'update FIN_BANCO'
       'set'
-      '  ATIVO = :ATIVO,'
-      '  CNPJ = :CNPJ,'
+      '  BOLETO = :BOLETO,'
       '  CODIGO = :CODIGO,'
-      '  INTERNO = :INTERNO,'
-      '  NOME = :NOME'
+      '  CONFIG_CH = :CONFIG_CH,'
+      '  CONFIG_CHEQUE = :CONFIG_CHEQUE,'
+      '  GERA_ARQUIVO_MAGNETICO = :GERA_ARQUIVO_MAGNETICO,'
+      '  NOME = :NOME,'
+      '  PADRAO_BOLETO = :PADRAO_BOLETO'
       'where'
-      '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
-    GeneratorField.Field = 'CODIGO'
-    GeneratorField.Generator = 'FIN_COBRADOR_GE'
-    GeneratorField.ApplyEvent = gamOnPost
-    Active = True
-    object dtEditCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      FixedChar = True
-      Size = 14
-    end
-    object dtEditCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object dtEditNOME: TIBStringField
-      FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
-      Size = 50
-    end
-    object dtEditINTERNO: TIBStringField
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
-      FixedChar = True
-      Size = 1
-    end
-    object dtEditATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
-      FixedChar = True
-      Size = 1
-    end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'select CNPJ, '
-      '          CODIGO, '
-      '          NOME ,'
-      '          INTERNO, '
-      '          ATIVO'
-      'from FIN_COBRADOR'
-      'Where CNPJ = :CNPJ'
-      'Order by NOME')
-    Left = 113
-    Top = 4
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end>
-    object dtListCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"FIN_COBRADOR"."CNPJ"'
+      'SELECT * '
+      'FROM FIN_BANCO'
+      'ORDER BY NOME')
+    object dtListCODIGO: TIBStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      Origin = '"FIN_BANCO"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
-      Size = 14
-    end
-    object dtListCODIGO: TIntegerField
-      DisplayLabel = 'C'#243'digo'
-      FieldName = 'CODIGO'
-      Origin = '"FIN_COBRADOR"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
+      Size = 3
     end
     object dtListNOME: TIBStringField
       DisplayLabel = 'Nome'
       FieldName = 'NOME'
-      Origin = '"FIN_COBRADOR"."NOME"'
+      Origin = '"FIN_BANCO"."NOME"'
       Size = 50
     end
-    object dtListINTERNO: TIBStringField
-      DisplayLabel = 'Interno'
-      FieldName = 'INTERNO'
-      Origin = '"FIN_COBRADOR"."INTERNO"'
+    object dtListBOLETO: TIntegerField
+      DisplayLabel = 'N'#186' Boletos'
+      FieldName = 'BOLETO'
+      Origin = '"FIN_BANCO"."BOLETO"'
+    end
+    object dtListGERA_ARQUIVO_MAGNETICO: TIBStringField
+      DisplayLabel = 'Gerar Arquivo Magn'#233'tico Cheque'
+      FieldName = 'GERA_ARQUIVO_MAGNETICO'
+      Origin = '"FIN_BANCO"."GERA_ARQUIVO_MAGNETICO"'
       FixedChar = True
       Size = 1
     end
-    object dtListATIVO: TIBStringField
-      DisplayLabel = 'Ativo'
-      FieldName = 'ATIVO'
-      Origin = '"FIN_COBRADOR"."ATIVO"'
+    object dtListPADRAO_BOLETO: TIBStringField
+      DisplayLabel = 'Banco Padr'#227'o de Boletos'
+      FieldName = 'PADRAO_BOLETO'
+      Origin = '"FIN_BANCO"."PADRAO_BOLETO"'
       FixedChar = True
       Size = 1
+    end
+    object dtListCONFIG_CH: TBlobField
+      FieldName = 'CONFIG_CH'
+      Origin = '"FIN_BANCO"."CONFIG_CH"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtListCONFIG_CHEQUE: TMemoField
+      FieldName = 'CONFIG_CHEQUE'
+      Origin = '"FIN_BANCO"."CONFIG_CHEQUE"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -329,42 +326,7 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Tag')
       end
       item
-        Component = GridDBBandedTableView2ATIVO
-        Properties.Strings = (
-          'AlternateCaption'
-          'BestFitMaxWidth'
-          'Caption'
-          'DataBinding'
-          'DateTimeGrouping'
-          'FakeComponentLink1'
-          'FakeComponentLink2'
-          'FakeComponentLink3'
-          'FooterAlignmentHorz'
-          'GroupIndex'
-          'GroupSummaryAlignment'
-          'HeaderAlignmentHorz'
-          'HeaderAlignmentVert'
-          'HeaderGlyph'
-          'HeaderGlyphAlignmentHorz'
-          'HeaderGlyphAlignmentVert'
-          'MinWidth'
-          'Name'
-          'Options'
-          'Position'
-          'Properties'
-          'PropertiesClassName'
-          'RepositoryItem'
-          'SortIndex'
-          'SortOrder'
-          'Styles'
-          'Summary'
-          'Tag'
-          'Visible'
-          'VisibleForCustomization'
-          'Width')
-      end
-      item
-        Component = GridDBBandedTableView2CNPJ
+        Component = GridDBBandedTableView2BOLETO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -434,7 +396,77 @@ inherited FrmCadCobradores: TFrmCadCobradores
           'Width')
       end
       item
-        Component = GridDBBandedTableView2INTERNO
+        Component = GridDBBandedTableView2CONFIG_CH
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2CONFIG_CHEQUE
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2GERA_ARQUIVO_MAGNETICO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -470,6 +502,41 @@ inherited FrmCadCobradores: TFrmCadCobradores
       end
       item
         Component = GridDBBandedTableView2NOME
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2PADRAO_BOLETO
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
