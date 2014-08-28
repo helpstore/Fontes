@@ -1379,7 +1379,8 @@ uses
   UntCadBancos, UntCadMotivosDevolucao, UntCadAdministradoras,
   UntCadTipoDocumento, UntCadAlegacao, UntCadEventoContabil,
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
-  UntCadProblemaIdentificado;
+  UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
+  UntCadAplicacao;
 
 {$R *.DFM}
 
@@ -1660,14 +1661,31 @@ end;
 
 procedure TFrmMain.opMarcasClick(Sender: TObject);
 begin
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMarcas', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadMarcas = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadMarcas := TfrmCadMarcas.Create(Self);
+     frmCadMarcas.ShowMODAL ;
+     frmCadMarcas.Free      ;
+     frmCadMarcas := Nil    ;
+  end;
+
+
+
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMarcas', True)) Then
+{  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMarcas', True)) Then
      Exit;
   { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+ { If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If frmCadMarcas = Nil Then
+ { If frmCadMarcas = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -1683,7 +1701,7 @@ begin
        frmCadMarcas.WindowState := wsMaximized;
        frmCadMarcas.BorderStyle := bsNone;
        PnlClient.Visible     := False;
-     End;
+     End;     }
 end;
 
 procedure TFrmMain.opGruposClick(Sender: TObject);
@@ -1714,14 +1732,28 @@ end;
 
 procedure TFrmMain.opUnidadesMedClick(Sender: TObject);
 begin
+   if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadUnidadesMedidas', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadUnidadesMedidas = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadUnidadesMedidas := TfrmCadUnidadesMedidas.Create(Self);
+     frmCadUnidadesMedidas.ShowMODAL ;
+     frmCadUnidadesMedidas.Free      ;
+     frmCadUnidadesMedidas := Nil    ;
+  end;
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadUnidadesMedidas', True)) Then
+ { If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadUnidadesMedidas', True)) Then
      Exit;
   { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+  {If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If frmCadUnidadesMedidas = Nil Then
+{  If frmCadUnidadesMedidas = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -1736,7 +1768,7 @@ begin
        frmCadUnidadesMedidas.WindowState := wsMaximized;
        frmCadUnidadesMedidas.BorderStyle := bsNone;
        PnlClient.Visible       := False;
-     End;
+     End;        }
 end;
 
 procedure TFrmMain.opReducoesClick(Sender: TObject);
@@ -1816,14 +1848,30 @@ end;
 
 procedure TFrmMain.opAplicacoesClick(Sender: TObject);
 begin
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacao', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadAplicacao = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadAplicacao := TfrmCadAplicacao.Create(Self);
+     frmCadAplicacao.ShowMODAL ;
+     frmCadAplicacao.Free      ;
+     frmCadAplicacao := Nil    ;
+  end;
+
+
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacoesProdutos', True)) Then
+{  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacoesProdutos', True)) Then
      Exit;
   { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+ { If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If frmCadAplicacoesProdutos = Nil Then
+ { If frmCadAplicacoesProdutos = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -1835,7 +1883,7 @@ begin
        frmCadAplicacoesProdutos.WindowState := wsMaximized;
        frmCadAplicacoesProdutos.BorderStyle := bsNone;
        PnlClient.Visible         := False;
-     End;
+     End;       }
 end;
 
 procedure TFrmMain.opEmpresasClick(Sender: TObject);
@@ -3840,14 +3888,29 @@ end;
 
 procedure TFrmMain.Produtos_AplicacoesClick(Sender: TObject);
 begin
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacaoProduto', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadAplicacaoProduto = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadAplicacaoProduto := TfrmCadAplicacaoProduto.Create(Self);
+     frmCadAplicacaoProduto.ShowMODAL ;
+     frmCadAplicacaoProduto.Free      ;
+     frmCadAplicacaoProduto := Nil    ;
+  end;
+
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacaoProduto', True)) Then
+{  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadAplicacaoProduto', True)) Then
      Exit;
   { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+ { If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If frmCadAplicacaoProduto = Nil Then
+  {If frmCadAplicacaoProduto = Nil Then
      Begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -3859,7 +3922,7 @@ begin
        frmCadAplicacaoProduto.WindowState := wsMaximized;
        frmCadAplicacaoProduto.BorderStyle := bsNone;
        PnlClient.Visible         := False;
-     End;
+     End;         }
 end;
 
 procedure TFrmMain.OpBxPgrCentroClick(Sender: TObject);
@@ -4688,28 +4751,42 @@ end;
 
 procedure TFrmMain.OpMotoresClick(Sender: TObject);
 begin
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadModelo', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadModelo = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadModelo := TfrmCadModelo.Create(Self);
+     frmCadModelo.ShowMODAL ;
+     frmCadModelo.Free      ;
+     frmCadModelo := Nil    ;
+  end;
   { * * * * * }
-  If FrmMain.MDIChildCount > 1 Then
+ { If FrmMain.MDIChildCount > 1 Then
      Exit;
 
   if dmapp.TIPO_EMPRESA = 'Pecas'
   then begin
        { * * * * * }
-       If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadModelo', True))
+ {      If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadModelo', True))
        Then
            Exit;
   end
   else begin
        { * * * * * }
-       If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadModelo', True)) Then
+  {     If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadModelo', True)) Then
            Exit;
-  end;
+  end;     }
 
   { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then Exit;
+ //If DMApp.SelecionarEmpresa = 'N' Then Exit;
 
   { * * * * * }
-  If frmCadModelo = Nil Then
+ { If frmCadModelo = Nil Then
   begin
        //
        If FrmMain.MDIChildCount > 0 Then
@@ -4725,7 +4802,7 @@ begin
        PnlClient.Visible        := False;
        //
        frmCadModelo.Show;
-  end;
+  end;      }
 end;
 
 procedure TFrmMain.OpMecanicosClick(Sender: TObject);
@@ -7407,13 +7484,27 @@ end;
 
 procedure TFrmMain.btnSecaoClick(Sender: TObject);
 begin
- If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadSecoesProdutos', True)) Then
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadSecoesProdutos', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadSecoesProdutos = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadSecoesProdutos := TfrmCadSecoesProdutos.Create(Self);
+     frmCadSecoesProdutos.ShowMODAL ;
+     frmCadSecoesProdutos.Free      ;
+     frmCadSecoesProdutos := Nil    ;
+  end;
+{ If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadSecoesProdutos', True)) Then
      Exit;
   { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+ { If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If frmCadSecoesProdutos = Nil Then
+{  If frmCadSecoesProdutos = Nil Then
   begin
 
     If FrmMain.MDIChildCount > 0 Then
@@ -7426,7 +7517,7 @@ begin
     frmCadSecoesProdutos.WindowState := wsMaximized;
     frmCadSecoesProdutos.BorderStyle := bsNone;
     PnlClient.Visible     := False;
-  end;
+  end;   }
 end;
 
 procedure TFrmMain.ListaAtendimentoClick(Sender: TObject);

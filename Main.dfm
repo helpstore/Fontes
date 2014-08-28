@@ -1,6 +1,6 @@
 object FrmMain: TFrmMain
-  Left = 126
-  Top = 137
+  Left = 124
+  Top = 113
   Width = 1086
   Height = 591
   Caption = 'HelpStore - Help Inform'#225'tica Dourados'
@@ -2155,7 +2155,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 84.000000000000000000
+                            Value = 35.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2323,7 +2323,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 97.000000000000000000
+                            Value = 74.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2491,7 +2491,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 85.000000000000000000
+                            Value = 87.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2659,7 +2659,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 92.000000000000000000
+                            Value = 98.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -2827,7 +2827,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 85.000000000000000000
+                            Value = 39.000000000000000000
                           end
                         end
                         object lcMetaVendaGroup_Root: TdxLayoutGroup
@@ -10068,13 +10068,11 @@ object FrmMain: TFrmMain
   end
   object dsMensagens: TDataSource
     AutoEdit = False
-    DataSet = DMMensagem.Mensagens
     Left = 716
     Top = 16
   end
   object dsMensagensRes: TDataSource
     AutoEdit = False
-    DataSet = DMMensagem.MensagensRes
     Left = 784
     Top = 16
   end

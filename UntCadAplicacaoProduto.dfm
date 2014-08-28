@@ -43,6 +43,7 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
           Left = 8
           Top = 80
           DataBinding.DataField = 'LOCAL'
+          TabOrder = 2
           Width = 241
         end
         inherited edtCodigo: TcxDBTextEdit
@@ -58,7 +59,7 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
           Top = 63
           Caption = 'Local'
         end
-        object cxDBLookupComboBox1: TcxDBLookupComboBox
+        object cmbAplicacao: TcxDBLookupComboBox
           Left = 256
           Top = 32
           DataBinding.DataField = 'APLICACAO'
@@ -69,7 +70,7 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
               FieldName = 'NOME'
             end>
           Properties.ListSource = dsQryAplicacao
-          TabOrder = 4
+          TabOrder = 1
           Width = 249
         end
         object cxLabel3: TcxLabel
@@ -77,6 +78,21 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
           Top = 15
           Caption = 'Aplica'#231#227'o'
           Transparent = True
+        end
+        object btnAplicacao: TcxButtonEdit
+          Left = 503
+          Top = 32
+          Properties.Buttons = <
+            item
+              Caption = 'F4'
+              Default = True
+              Kind = bkText
+            end>
+          Properties.ViewStyle = vsButtonsOnly
+          TabOrder = 6
+          Text = 'btnAplicacao'
+          OnClick = btnAplicacaoClick
+          Width = 25
         end
       end
     end
@@ -206,6 +222,11 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
       0
       0
       26)
+  end
+  inherited ActionList1: TActionList
+    inherited ActCadLookup: TAction
+      OnExecute = ActCadLookupExecute
+    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
@@ -462,7 +483,7 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
       'WHERE CNPJ = :CNPJ'
       'ORDER BY NOME')
     Left = 505
-    Top = 52
+    Top = 84
     ParamData = <
       item
         DataType = ftUnknown
@@ -492,6 +513,6 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
   object dsQryAplicacao: TDataSource
     DataSet = QryAplicacao
     Left = 535
-    Top = 52
+    Top = 84
   end
 end

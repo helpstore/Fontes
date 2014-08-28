@@ -1,6 +1,6 @@
 object FrmProdutos: TFrmProdutos
   Left = 441
-  Top = 59
+  Top = 76
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Produtos '
@@ -4025,8 +4025,8 @@ object FrmProdutos: TFrmProdutos
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

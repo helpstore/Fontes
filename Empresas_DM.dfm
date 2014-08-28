@@ -1,7 +1,7 @@
 object DMEmpresas: TDMEmpresas
   OldCreateOrder = False
-  Left = 514
-  Top = 279
+  Left = 509
+  Top = 253
   Height = 479
   Width = 740
   object Empresas: TIBDataSet
