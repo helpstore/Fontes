@@ -565,7 +565,7 @@ uses
   UntCadLocalizacaoEstoque in 'UntCadLocalizacaoEstoque.pas' {frmCadLocalizacaoEstoque},
   UntCadCor in 'UntCadCor.pas' {frmCadCor},
   UntCadMaterial in 'UntCadMaterial.pas' {frmCadMaterial},
-  UntCadAplicacoesProdutos in 'UntCadAplicacoesProdutos.pas' {frmCadAplicacoesProdutos},
+  UntCadAplicacao in 'UntCadAplicacao.pas' {frmCadAplicacao},
   UntCadAplicacaoProduto in 'UntCadAplicacaoProduto.pas' {frmCadAplicacaoProduto},
   UntCadBancos in 'UntCadBancos.pas' {frmCadBancos},
   UntCadMotivosDevolucao in 'UntCadMotivosDevolucao.pas' {frmCadMotivosDevolucao},

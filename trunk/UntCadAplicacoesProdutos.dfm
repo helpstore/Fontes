@@ -1,4 +1,4 @@
-inherited frmCadAplicacoesProdutos: TfrmCadAplicacoesProdutos
+inherited frmCadAplicacao: TfrmCadAplicacao
   Caption = 'Aplica'#231#245'es - Produtos'
   PixelsPerInch = 96
   TextHeight = 13

@@ -24,7 +24,7 @@ uses
   cxPC;
 
 type
-  TfrmCadAplicacoesProdutos = class(TfrmCadPadrao)
+  TfrmCadAplicacao = class(TfrmCadPadrao)
     dtListCNPJ: TIBStringField;
     dtListCODIGO: TIntegerField;
     dtListNOME: TIBStringField;
@@ -41,7 +41,7 @@ type
   end;
 
 var
-  frmCadAplicacoesProdutos: TfrmCadAplicacoesProdutos;
+  frmCadAplicacao: TfrmCadAplicacao;
 
 implementation
 
