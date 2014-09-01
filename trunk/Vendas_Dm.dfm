@@ -3198,7 +3198,7 @@ object DmVendas: TDmVendas
     Transaction = DmApp.Transaction
     OnCalcFields = Consulta_VendaCalcFields
     SQL.Strings = (
-      'SELECT *  FROM CONSULTA_VENDA ( :CNPJ,  :COD )'
+      'SELECT *   FROM CONSULTA_VENDA ( :CNPJ,  :COD )'
       ''
       ''
       ''
@@ -3636,6 +3636,12 @@ object DmVendas: TDmVendas
       FieldName = 'OBSERVACAO'
       Origin = '"CONSULTA_VENDA"."OBSERVACAO"'
       Size = 600
+    end
+    object Consulta_VendaNFE_STATUS: TIBStringField
+      FieldName = 'NFE_STATUS'
+      Origin = '"CONSULTA_VENDA"."NFE_STATUS"'
+      FixedChar = True
+      Size = 1
     end
   end
   object DsConsulta_Venda: TDataSource
@@ -14616,8 +14622,8 @@ object DmVendas: TDmVendas
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     StoredProcName = 'PCD_REUTILIZAR_N_NF'
-    Left = 768
-    Top = 495
+    Left = 304
+    Top = 599
   end
   object Extenso: TACBrExtenso
     StrMoeda = 'Real'

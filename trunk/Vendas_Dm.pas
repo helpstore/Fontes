@@ -2028,6 +2028,7 @@ type
     SelPlanoBLT_NOSSO_NUM_PROX: TIntegerField;
     Consulta_VendaOBSERVACAO: TIBStringField;
     SelOrcamentosCOD_PEDIDO: TIntegerField;
+    Consulta_VendaNFE_STATUS: TIBStringField;
     procedure FiltrarDataSet(DataSet: TDataSet);
     procedure VendasBeforeOpen(DataSet: TDataSet);
     procedure VendasAfterInsert(DataSet: TDataSet);

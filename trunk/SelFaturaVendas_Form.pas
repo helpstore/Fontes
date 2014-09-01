@@ -1307,13 +1307,13 @@ begin
         //Verificando se existe mais de um registro selecionado
         with dmVendas2 do
         begin
-          Geral.close;
+         { Geral.close;
           Geral.sql.text := 'select count(*) cont from fat_vendas vd where vd.cnpj  =  :cnpj and vd.pessoa_fj = :pessoa_fj and vd.selecionada = ''S''';
           Geral.parambyname('cnpj').value := dmapp.cnpj;
           Geral.parambyname('pessoa_fj').value := PessoaNFGraf;
           Geral.Open;
           if (Geral.Fieldbyname('cont').value > 1) then
-             IDNFGraf := 0;
+             IDNFGraf := 0;}
         end;
 
         DmVendas.SelFaturaVendas.Close ;
@@ -2475,7 +2475,6 @@ begin
     exit;
   end ;
 
-  DmApp.ImpECF_Bemacash(dmApp.Cnpj,DmVendas.SelFaturaVendasCODIGO.value);
 end;
 
 procedure TFrmSelFaturaVendas.verificalogin;

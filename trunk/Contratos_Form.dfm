@@ -1,6 +1,6 @@
 object FrmContratos: TFrmContratos
-  Left = 349
-  Top = 166
+  Left = 278
+  Top = 122
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Contrato de Atendimento'
@@ -57,7 +57,7 @@ object FrmContratos: TFrmContratos
         Left = 0
         Top = 41
         Width = 751
-        Height = 212
+        Height = 222
         Align = alTop
         TabOrder = 0
         object btnCliente: TcxButton
@@ -66,7 +66,7 @@ object FrmContratos: TFrmContratos
           Width = 23
           Height = 24
           Cursor = crHandPoint
-          TabOrder = 14
+          TabOrder = 13
           OnClick = btnClienteClick
           Glyph.Data = {
             06030000424D06030000000000003600000028000000100000000F0000000100
@@ -101,7 +101,7 @@ object FrmContratos: TFrmContratos
           Width = 23
           Height = 22
           Cursor = crHandPoint
-          TabOrder = 15
+          TabOrder = 14
           OnClick = btnContratoClick
           Glyph.Data = {
             06030000424D06030000000000003600000028000000100000000F0000000100
@@ -167,7 +167,7 @@ object FrmContratos: TFrmContratos
         end
         object Label14: TcxLabel
           Left = 6
-          Top = 139
+          Top = 154
           Caption = 'Informa'#231#245'es'
           ParentFont = False
           Transparent = True
@@ -199,29 +199,6 @@ object FrmContratos: TFrmContratos
           Caption = 'Dia Base'
           ParentFont = False
           Transparent = True
-        end
-        object DtFim: TdxDBDateEdit
-          Left = 460
-          Top = 73
-          Width = 92
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-          Style.BorderColor = clBtnShadow
-          Style.BorderStyle = xbsSingle
-          Style.ButtonStyle = btsSimple
-          TabOrder = 6
-          OnEnter = EdCodigoEnter
-          OnExit = DtFimExit
-          OnKeyDown = EdCodigoKeyDown
-          DataField = 'DT_FIM'
-          DataSource = DataSource
-          DateValidation = True
-          UseEditMask = True
-          StoredValues = 4
         end
         object DtInicio: TdxDBDateEdit
           Left = 364
@@ -329,8 +306,8 @@ object FrmContratos: TFrmContratos
           StoredValues = 64
         end
         object cbEtiqueta: TdxDBCheckEdit
-          Left = 7
-          Top = 108
+          Left = 8
+          Top = 112
           Width = 52
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 8404992
@@ -341,7 +318,7 @@ object FrmContratos: TFrmContratos
           Style.BorderColor = clBtnShadow
           Style.BorderStyle = xbsNone
           Style.ButtonStyle = btsSimple
-          TabOrder = 11
+          TabOrder = 10
           OnEnter = EdCodigoEnter
           OnExit = cmbClienteExit
           OnKeyDown = EdCodigoKeyDown
@@ -354,15 +331,15 @@ object FrmContratos: TFrmContratos
           StoredValues = 1
         end
         object dxDBMemo1: TdxDBMemo
-          Left = 6
-          Top = 157
+          Left = 8
+          Top = 172
           Width = 735
           Hint = 'Porque 2 observacoes?'
           ParentColor = True
           Style.BorderColor = clBtnShadow
           Style.BorderStyle = xbsSingle
           Style.ButtonStyle = btsSimple
-          TabOrder = 12
+          TabOrder = 11
           OnEnter = EdCodigoEnter
           OnExit = cmbClienteExit
           CharCase = ecUpperCase
@@ -395,8 +372,8 @@ object FrmContratos: TFrmContratos
           StoredValues = 4
         end
         object dxDBCheckEdit1: TdxDBCheckEdit
-          Left = 311
-          Top = 108
+          Left = 312
+          Top = 112
           Width = 83
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 8404992
@@ -407,7 +384,7 @@ object FrmContratos: TFrmContratos
           Style.BorderColor = clBtnShadow
           Style.BorderStyle = xbsNone
           Style.ButtonStyle = btsSimple
-          TabOrder = 9
+          TabOrder = 8
           OnEnter = EdCodigoEnter
           OnExit = cmbClienteExit
           OnKeyDown = EdCodigoKeyDown
@@ -420,8 +397,8 @@ object FrmContratos: TFrmContratos
           StoredValues = 1
         end
         object dxDBCheckEdit2: TdxDBCheckEdit
-          Left = 185
-          Top = 108
+          Left = 192
+          Top = 112
           Width = 112
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 8404992
@@ -432,7 +409,7 @@ object FrmContratos: TFrmContratos
           Style.BorderColor = clBtnShadow
           Style.BorderStyle = xbsNone
           Style.ButtonStyle = btsSimple
-          TabOrder = 10
+          TabOrder = 9
           OnEnter = EdCodigoEnter
           OnExit = cmbClienteExit
           OnKeyDown = EdCodigoKeyDown
@@ -476,7 +453,7 @@ object FrmContratos: TFrmContratos
           Style.BorderColor = clBtnShadow
           Style.BorderStyle = xbsSingle
           Style.ButtonStyle = btsSimple
-          TabOrder = 7
+          TabOrder = 6
           OnEnter = EdCodigoEnter
           OnExit = cmbClienteExit
           OnKeyDown = EdCodigoKeyDown
@@ -516,7 +493,7 @@ object FrmContratos: TFrmContratos
           Style.BorderColor = clBtnShadow
           Style.BorderStyle = xbsSingle
           Style.ButtonStyle = btsSimple
-          TabOrder = 8
+          TabOrder = 7
           OnEnter = EdCodigoEnter
           OnExit = cmbClienteExit
           OnKeyDown = EdCodigoKeyDown
@@ -527,8 +504,8 @@ object FrmContratos: TFrmContratos
           StoredValues = 48
         end
         object dxDBCheckEdit3: TdxDBCheckEdit
-          Left = 71
-          Top = 108
+          Left = 72
+          Top = 112
           Width = 112
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 8404992
@@ -539,7 +516,7 @@ object FrmContratos: TFrmContratos
           Style.BorderColor = clBtnShadow
           Style.BorderStyle = xbsNone
           Style.ButtonStyle = btsSimple
-          TabOrder = 13
+          TabOrder = 12
           OnEnter = EdCodigoEnter
           OnExit = cmbClienteExit
           OnKeyDown = EdCodigoKeyDown
@@ -555,9 +532,24 @@ object FrmContratos: TFrmContratos
           Left = 400
           Top = 99
           Width = 314
-          Height = 58
+          Height = 73
           Caption = 'Dados Update VMC - Item'
-          TabOrder = 26
+          TabOrder = 25
+          object DBText1: TDBText
+            Left = 9
+            Top = 54
+            Width = 41
+            Height = 13
+            AutoSize = True
+            DataField = 'RESPOSTA'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+          end
           object dxDBEdit2: TdxDBEdit
             Left = 79
             Top = 29
@@ -668,6 +660,29 @@ object FrmContratos: TFrmContratos
             Transparent = True
           end
         end
+        object DtFim: TdxDBDateEdit
+          Left = 462
+          Top = 73
+          Width = 90
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          Style.BorderColor = clBtnShadow
+          Style.BorderStyle = xbsSingle
+          Style.ButtonStyle = btsSimple
+          TabOrder = 26
+          OnEnter = EdCodigoEnter
+          OnExit = DtFimExit
+          OnKeyDown = EdCodigoKeyDown
+          DataField = 'DT_FIM'
+          DataSource = DataSource
+          DateValidation = True
+          UseEditMask = True
+          StoredValues = 4
+        end
       end
       object Panel1: TPanel
         Left = 0
@@ -695,175 +710,360 @@ object FrmContratos: TFrmContratos
       end
       object Panel3: TPanel
         Left = 0
-        Top = 247
+        Top = 262
         Width = 751
-        Height = 277
+        Height = 262
         Align = alBottom
         Caption = 'Panel3'
         TabOrder = 2
-        object GridItens: TdxDBGrid
+        object PgcItens: TcxPageControl
           Left = 1
           Top = 1
           Width = 749
-          Height = 275
-          Bands = <
-            item
-            end>
-          DefaultLayout = True
-          HeaderPanelRowCount = 1
-          KeyField = 'CODIGO'
-          ShowSummaryFooter = True
-          SummaryGroups = <>
-          SummarySeparator = ', '
+          Height = 260
+          ActivePage = cxTabSheet2
           Align = alClient
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
           TabOrder = 0
-          OnKeyDown = GridItensKeyDown
-          AutoExpandOnSearch = False
-          BandFont.Charset = DEFAULT_CHARSET
-          BandFont.Color = clWindowText
-          BandFont.Height = -11
-          BandFont.Name = 'MS Sans Serif'
-          BandFont.Style = []
-          DataSource = DsItens
-          Filter.Criteria = {00000000}
-          HeaderFont.Charset = DEFAULT_CHARSET
-          HeaderFont.Color = clWindowText
-          HeaderFont.Height = -11
-          HeaderFont.Name = 'MS Sans Serif'
-          HeaderFont.Style = []
-          LookAndFeel = lfFlat
-          OptionsBehavior = [edgoAutoSearch, edgoAutoSort, edgoDragScroll, edgoEditing, edgoEnterShowEditor, edgoTabThrough, edgoVertThrough]
-          OptionsCustomize = [edgoBandMoving, edgoBandSizing, edgoColumnMoving, edgoColumnSizing, edgoNotHideColumn]
-          OptionsDB = [edgoCancelOnExit, edgoCanNavigation, edgoConfirmDelete, edgoLoadAllRecords, edgoUseBookmarks]
-          PreviewFont.Charset = DEFAULT_CHARSET
-          PreviewFont.Color = clBlue
-          PreviewFont.Height = -11
-          PreviewFont.Name = 'MS Sans Serif'
-          PreviewFont.Style = []
-          object GridItensCOD_PRODUTO: TdxDBGridMaskColumn
-            Width = 94
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'COD_PRODUTO'
+          ClientRectBottom = 256
+          ClientRectLeft = 4
+          ClientRectRight = 745
+          ClientRectTop = 27
+          object cxTabSheet1: TcxTabSheet
+            Caption = 'Itens'
+            ImageIndex = 0
+            object GridItens: TdxDBGrid
+              Left = 0
+              Top = 0
+              Width = 741
+              Height = 229
+              Bands = <
+                item
+                end>
+              DefaultLayout = True
+              HeaderPanelRowCount = 1
+              KeyField = 'CODIGO'
+              ShowSummaryFooter = True
+              SummaryGroups = <>
+              SummarySeparator = ', '
+              Align = alClient
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              OnKeyDown = GridItensKeyDown
+              AutoExpandOnSearch = False
+              BandFont.Charset = DEFAULT_CHARSET
+              BandFont.Color = clWindowText
+              BandFont.Height = -11
+              BandFont.Name = 'MS Sans Serif'
+              BandFont.Style = []
+              DataSource = DsItens
+              Filter.Criteria = {00000000}
+              HeaderFont.Charset = DEFAULT_CHARSET
+              HeaderFont.Color = clWindowText
+              HeaderFont.Height = -11
+              HeaderFont.Name = 'MS Sans Serif'
+              HeaderFont.Style = []
+              LookAndFeel = lfFlat
+              OptionsBehavior = [edgoAutoSearch, edgoAutoSort, edgoDragScroll, edgoEditing, edgoEnterShowEditor, edgoTabThrough, edgoVertThrough]
+              OptionsCustomize = [edgoBandMoving, edgoBandSizing, edgoColumnMoving, edgoColumnSizing, edgoNotHideColumn]
+              OptionsDB = [edgoCancelOnExit, edgoCanNavigation, edgoConfirmDelete, edgoLoadAllRecords, edgoUseBookmarks]
+              PreviewFont.Charset = DEFAULT_CHARSET
+              PreviewFont.Color = clBlue
+              PreviewFont.Height = -11
+              PreviewFont.Name = 'MS Sans Serif'
+              PreviewFont.Style = []
+              object GridItensCOD_PRODUTO: TdxDBGridMaskColumn
+                Width = 94
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'COD_PRODUTO'
+              end
+              object GridItensMODELO_EQUIPAMENTO: TdxDBGridMaskColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'MODELO_EQUIPAMENTO'
+              end
+              object GridItensSERIE: TdxDBGridMaskColumn
+                Width = 115
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'SERIE'
+              end
+              object GridItensVALOR: TdxDBGridMaskColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'VALOR'
+                SummaryFooterType = cstSum
+                SummaryField = 'VALOR'
+              end
+              object GridItensQTDE_COPIAS_PREVENTIVA: TdxDBGridMaskColumn
+                Sorted = csUp
+                Width = 155
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'QTDE_COPIAS_PREVENTIVA'
+              end
+              object GridItensDIAS_RECHAMADO: TdxDBGridMaskColumn
+                Width = 106
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'DIAS_RECHAMADO'
+              end
+              object GridItensMEDIA_COPIAS: TdxDBGridMaskColumn
+                Width = 137
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'MEDIA_COPIAS'
+                SummaryFooterType = cstSum
+              end
+              object GridItensDT_RETIRADA: TdxDBGridDateColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'DT_RETIRADA'
+              end
+              object GridItensTEMPO_RESPOSTA: TdxDBGridMaskColumn
+                Width = 106
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'TEMPO_RESPOSTA'
+              end
+              object GridItensDATA: TdxDBGridDateColumn
+                Width = 112
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'DATA'
+              end
+              object GridItensDT_ADICAO: TdxDBGridDateColumn
+                Width = 112
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'DT_ADICAO'
+              end
+              object GridItensTIPO_PRODUTO: TdxDBGridMaskColumn
+                Width = 84
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'TIPO_PRODUTO'
+              end
+              object GridItensATIVO: TdxDBGridMaskColumn
+                Width = 30
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'ATIVO'
+              end
+              object GridItensCONTRATO: TdxDBGridMaskColumn
+                Visible = False
+                Width = 80
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'CONTRATO'
+              end
+              object GridItensINFORMACOES_ITENS: TdxDBGridMemoColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'INFORMACOES_ITENS'
+              end
+              object GridItensDT_VIGENCIA_INICIAL: TdxDBGridDateColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'DT_VIGENCIA_INICIAL'
+              end
+              object GridItensDECONTINUADO: TdxDBGridCheckColumn
+                Width = 100
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'DECONTINUADO'
+                ValueChecked = 'S'
+                ValueUnchecked = 'N'
+              end
+              object GridItensCOD_INDEXADOR: TdxDBGridMaskColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'COD_INDEXADOR'
+              end
+              object GridItensDT_VIGENCIA_FINAL: TdxDBGridDateColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'DT_VIGENCIA_FINAL'
+              end
+              object GridItensGERA_LEITURA: TdxDBGridMaskColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'GERA_LEITURA'
+              end
+              object GridItensVMC_DATA_UPD: TdxDBGridDateColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'VMC_DATA_UPD'
+              end
+              object GridItensVMC_TIPO_UPD: TdxDBGridMaskColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'VMC_TIPO_UPD'
+              end
+              object GridItensCNPJ: TdxDBGridMaskColumn
+                Width = 71
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'CNPJ'
+              end
+              object GridItensVMC_COD_UPD: TdxDBGridMaskColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'VMC_COD_UPD'
+              end
+              object GridItensCODIGO: TdxDBGridMaskColumn
+                Width = 61
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'CODIGO'
+              end
+              object GridItensCOD_CLIENTE: TdxDBGridMaskColumn
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'COD_CLIENTE'
+              end
+              object GridItensPRODUTO: TdxDBGridMaskColumn
+                Width = 215
+                BandIndex = 0
+                RowIndex = 0
+                FieldName = 'PRODUTO'
+              end
+            end
           end
-          object GridItensMODELO_EQUIPAMENTO: TdxDBGridMaskColumn
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'MODELO_EQUIPAMENTO'
-          end
-          object GridItensPRODUTO: TdxDBGridMaskColumn
-            Width = 215
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'PRODUTO'
-          end
-          object GridItensSERIE: TdxDBGridMaskColumn
-            Width = 115
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'SERIE'
-          end
-          object GridItensVALOR: TdxDBGridMaskColumn
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'VALOR'
-            SummaryFooterType = cstSum
-            SummaryField = 'VALOR'
-          end
-          object GridItensQTDE_COPIAS_PREVENTIVA: TdxDBGridMaskColumn
-            Sorted = csUp
-            Width = 155
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'QTDE_COPIAS_PREVENTIVA'
-          end
-          object GridItensDIAS_RECHAMADO: TdxDBGridMaskColumn
-            Width = 106
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'DIAS_RECHAMADO'
-          end
-          object GridItensMEDIA_COPIAS: TdxDBGridMaskColumn
-            Width = 137
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'MEDIA_COPIAS'
-            SummaryFooterType = cstSum
-          end
-          object GridItensTEMPO_RESPOSTA: TdxDBGridMaskColumn
-            Width = 106
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'TEMPO_RESPOSTA'
-          end
-          object GridItensDATA: TdxDBGridDateColumn
-            Width = 112
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'DATA'
-          end
-          object GridItensDT_ADICAO: TdxDBGridDateColumn
-            Width = 112
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'DT_ADICAO'
-          end
-          object GridItensTIPO_PRODUTO: TdxDBGridMaskColumn
-            Width = 84
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'TIPO_PRODUTO'
-          end
-          object GridItensATIVO: TdxDBGridMaskColumn
-            Width = 30
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'ATIVO'
-          end
-          object GridItensCNPJ: TdxDBGridMaskColumn
-            Visible = False
-            Width = 71
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'CNPJ'
-          end
-          object GridItensCODIGO: TdxDBGridMaskColumn
-            Visible = False
-            Width = 61
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'CODIGO'
-          end
-          object GridItensCONTRATO: TdxDBGridMaskColumn
-            Visible = False
-            Width = 80
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'CONTRATO'
-          end
-          object GridItensINFORMACOES_ITENS: TdxDBGridMemoColumn
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'INFORMACOES_ITENS'
-          end
-          object GridItensDT_RETIRADA: TdxDBGridDateColumn
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'DT_RETIRADA'
-          end
-          object GridItensDECONTINUADO: TdxDBGridCheckColumn
-            Width = 100
-            BandIndex = 0
-            RowIndex = 0
-            FieldName = 'DECONTINUADO'
-            ValueChecked = 'S'
-            ValueUnchecked = 'N'
+          object cxTabSheet2: TcxTabSheet
+            Caption = 'Hist'#243'rico - CMV'
+            ImageIndex = 1
+            object GridHistorico: TcxGrid
+              Left = 0
+              Top = 0
+              Width = 741
+              Height = 204
+              Align = alClient
+              TabOrder = 0
+              object GridHistoricoDBBandedTableView1: TcxGridDBBandedTableView
+                NavigatorButtons.ConfirmDelete = False
+                DataController.Summary.DefaultGroupSummaryItems = <>
+                DataController.Summary.FooterSummaryItems = <>
+                DataController.Summary.SummaryGroups = <>
+                Bands = <
+                  item
+                  end>
+              end
+              object TVHistorico: TcxGridDBBandedTableView
+                NavigatorButtons.ConfirmDelete = False
+                DataController.DataSource = dsHistorico
+                DataController.Summary.DefaultGroupSummaryItems = <>
+                DataController.Summary.FooterSummaryItems = <>
+                DataController.Summary.SummaryGroups = <>
+                FilterRow.Visible = True
+                OptionsBehavior.IncSearch = True
+                OptionsData.CancelOnExit = False
+                OptionsData.Deleting = False
+                OptionsData.DeletingConfirmation = False
+                OptionsData.Editing = False
+                OptionsData.Inserting = False
+                OptionsView.Footer = True
+                OptionsView.GroupFooters = gfAlwaysVisible
+                OptionsView.BandHeaders = False
+                Bands = <
+                  item
+                  end>
+                object TVHistoricoCODIGO: TcxGridDBBandedColumn
+                  DataBinding.FieldName = 'CODIGO'
+                  Position.BandIndex = 0
+                  Position.ColIndex = 0
+                  Position.RowIndex = 0
+                end
+                object TVHistoricoCONT_LEITURA: TcxGridDBBandedColumn
+                  DataBinding.FieldName = 'CONT_LEITURA'
+                  Width = 177
+                  Position.BandIndex = 0
+                  Position.ColIndex = 1
+                  Position.RowIndex = 0
+                end
+                object TVHistoricoDATA: TcxGridDBBandedColumn
+                  DataBinding.FieldName = 'DATA'
+                  Width = 139
+                  Position.BandIndex = 0
+                  Position.ColIndex = 2
+                  Position.RowIndex = 0
+                end
+                object TVHistoricoSALDO_DIAS: TcxGridDBBandedColumn
+                  DataBinding.FieldName = 'SALDO_DIAS'
+                  Width = 76
+                  Position.BandIndex = 0
+                  Position.ColIndex = 4
+                  Position.RowIndex = 0
+                end
+                object TVHistoricoSALDO_COPIAS: TcxGridDBBandedColumn
+                  DataBinding.FieldName = 'SALDO_COPIAS'
+                  Width = 92
+                  Position.BandIndex = 0
+                  Position.ColIndex = 3
+                  Position.RowIndex = 0
+                end
+              end
+              object LVHistorico: TcxGridLevel
+                GridView = TVHistorico
+              end
+            end
+            object Panel4: TPanel
+              Left = 0
+              Top = 204
+              Width = 741
+              Height = 25
+              Align = alBottom
+              TabOrder = 1
+              object BitBtn1: TBitBtn
+                Left = 2
+                Top = 1
+                Width = 77
+                Height = 23
+                Caption = 'Exportar'
+                TabOrder = 0
+                OnClick = BitBtn1Click
+                Glyph.Data = {
+                  36040000424D3604000000000000360000002800000010000000100000000100
+                  2000000000000004000000000000000000000000000000000000000000000000
+                  0000000000008484840000000000000000000000000000000000000000000000
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000000084848400C6C6C600C6C6C600C6C6C600C6C6C600C6C6C600C6C6
+                  C600C6C6C600C6C6C600C6C6C600C6C6C600C6C6C60000000000000000000000
+                  00000000000084848400FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+                  FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00C6C6C60000000000000000000000
+                  00000000000084848400FFFFFF00C6C6C600C6C6C600C6C6C600C6C6C600FFFF
+                  FF00C6C6C600C6C6C600C6C6C600FFFFFF00C6C6C60000000000000000000000
+                  00000000000084848400FFFFFF00FFFFFF00FFFFFF0000840000848484000084
+                  000084848400FFFFFF00C6C6C600FFFFFF00C6C6C60000000000008400008484
+                  84000084000084848400008400008484840000840000FFFFFF00008400008484
+                  840000840000FFFFFF00C6C6C600FFFFFF00C6C6C60000000000848484000084
+                  000084848400008400008484840000840000FFFFFF0000840000848484000084
+                  0000FFFFFF00FFFFFF00FFFFFF00FFFFFF00C6C6C60000000000008400008484
+                  8400008400008484840000840000FFFFFF000084000084848400008400008484
+                  8400C6C6C600C6C6C600C6C6C600FFFFFF00C6C6C60000000000000000000084
+                  00008484840000840000FFFFFF00008400008484840000840000848484000084
+                  0000FFFFFF00FFFFFF00C6C6C600FFFFFF00C6C6C60000000000000000000000
+                  000000840000FFFFFF0000840000848484000084000084848400C6C6C600C6C6
+                  C600C6C6C600C6C6C600C6C6C600FFFFFF00C6C6C60000000000000000000084
+                  0000FFFFFF00008400008484840000840000848484000084000084848400C6C6
+                  C600FFFFFF00FFFFFF00C6C6C600FFFFFF00C6C6C6000000000000840000FFFF
+                  FF00008400008484840000840000848484000084000084848400008400008484
+                  8400C6C6C600C6C6C600C6C6C600FFFFFF00C6C6C60000000000848484000084
+                  0000848484000084000084848400FFFFFF008484840000840000848484000084
+                  0000FFFFFF00FFFFFF0000000000000000000000000000000000008400008484
+                  84000084000084848400FFFFFF00FFFFFF00FFFFFF0084848400008400008484
+                  8400FFFFFF00FFFFFF0084848400FFFFFF000000000000000000000000000000
+                  00000000000084848400FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+                  FF00FFFFFF00FFFFFF0084848400000000000000000000000000000000000000
+                  0000000000008484840084848400848484008484840084848400848484008484
+                  8400848484008484840084848400000000000000000000000000}
+              end
+            end
           end
         end
       end
@@ -1395,911 +1595,206 @@ object FrmContratos: TFrmContratos
   object stgFrmContratos: TcxPropertiesStore
     Components = <
       item
-        Component = GridItensATIVO
+        Component = TVHistorico
         Properties.Strings = (
-          'Alignment'
-          'BandIndex'
+          'BackgroundBitmaps'
+          'Bands'
+          'DataController'
+          'DateTimeHandling'
+          'DragMode'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FilterBox'
+          'Filtering'
+          'FilterRow'
+          'Name'
+          'NavigatorButtons'
+          'NewItemRow'
+          'OptionsBehavior'
+          'OptionsCustomize'
+          'OptionsData'
+          'OptionsSelection'
+          'OptionsView'
+          'PopupMenu'
+          'Preview'
+          'Styles'
+          'Synchronization'
+          'Tag')
+      end
+      item
+        Component = TVHistoricoCODIGO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
           'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
           'GroupIndex'
-          'HeaderAlignment'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
           'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
           'MinWidth'
           'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
           'Tag'
-          'VertAlignment'
           'Visible'
+          'VisibleForCustomization'
           'Width')
       end
       item
-        Component = GridItensCNPJ
+        Component = TVHistoricoCONT_LEITURA
         Properties.Strings = (
-          'Alignment'
-          'BandIndex'
+          'AlternateCaption'
+          'BestFitMaxWidth'
           'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
           'GroupIndex'
-          'HeaderAlignment'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
           'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
           'MinWidth'
           'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
           'Tag'
-          'VertAlignment'
           'Visible'
+          'VisibleForCustomization'
           'Width')
       end
       item
-        Component = GridItensCOD_PRODUTO
+        Component = TVHistoricoDATA
         Properties.Strings = (
-          'Alignment'
-          'BandIndex'
+          'AlternateCaption'
+          'BestFitMaxWidth'
           'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
           'GroupIndex'
-          'HeaderAlignment'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
           'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
           'MinWidth'
           'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
           'Tag'
-          'VertAlignment'
           'Visible'
+          'VisibleForCustomization'
           'Width')
       end
       item
-        Component = GridItensCODIGO
+        Component = TVHistoricoSALDO_COPIAS
         Properties.Strings = (
-          'Alignment'
-          'BandIndex'
+          'AlternateCaption'
+          'BestFitMaxWidth'
           'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
           'GroupIndex'
-          'HeaderAlignment'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
           'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
           'MinWidth'
           'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
           'Tag'
-          'VertAlignment'
           'Visible'
+          'VisibleForCustomization'
           'Width')
       end
       item
-        Component = GridItensCONTRATO
+        Component = TVHistoricoSALDO_DIAS
         Properties.Strings = (
-          'Alignment'
-          'BandIndex'
+          'AlternateCaption'
+          'BestFitMaxWidth'
           'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
           'GroupIndex'
-          'HeaderAlignment'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
           'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
           'MinWidth'
           'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
           'Tag'
-          'VertAlignment'
           'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensDATA
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'ButtonGlyph'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DateButtons'
-          'DateOnError'
-          'DateValidation'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'PopupAlignment'
-          'PopupBorder'
-          'ReadOnly'
-          'RowIndex'
-          'SaveTime'
-          'ShowButtonStyle'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'UseEditMask'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensDECONTINUADO
-        Properties.Strings = (
-          'Alignment'
-          'AllowGrayed'
-          'BandIndex'
-          'Border3D'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'DisplayChecked'
-          'DisplayNull'
-          'DisplayUnChecked'
-          'FieldName'
-          'Font'
-          'Glyph'
-          'GlyphCount'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'ShowNullFieldStyle'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'ValueChecked'
-          'ValueGrayed'
-          'ValueUnchecked'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensDIAS_RECHAMADO
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensDT_ADICAO
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'ButtonGlyph'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DateButtons'
-          'DateOnError'
-          'DateValidation'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'PopupAlignment'
-          'PopupBorder'
-          'ReadOnly'
-          'RowIndex'
-          'SaveTime'
-          'ShowButtonStyle'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'UseEditMask'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensDT_RETIRADA
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'ButtonGlyph'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DateButtons'
-          'DateOnError'
-          'DateValidation'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'PopupAlignment'
-          'PopupBorder'
-          'ReadOnly'
-          'RowIndex'
-          'SaveTime'
-          'ShowButtonStyle'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'UseEditMask'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensINFORMACOES_ITENS
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableGrouping'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'HideScrollBars'
-          'MaxDisplayLength'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'ScrollBars'
-          'SelectionBar'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'WantReturns'
-          'WantTabs'
-          'Width'
-          'WordWrap')
-      end
-      item
-        Component = GridItensMEDIA_COPIAS
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensMODELO_EQUIPAMENTO
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensPRODUTO
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensQTDE_COPIAS_PREVENTIVA
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensSERIE
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensTEMPO_RESPOSTA
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensTIPO_PRODUTO
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
-          'Width')
-      end
-      item
-        Component = GridItensVALOR
-        Properties.Strings = (
-          'Alignment'
-          'BandIndex'
-          'Caption'
-          'CharCase'
-          'ColIndex'
-          'Color'
-          'DisableCaption'
-          'DisableCustomizing'
-          'DisableDragging'
-          'DisableEditor'
-          'DisableFilter'
-          'DisableGrouping'
-          'EditMask'
-          'FieldName'
-          'Font'
-          'GroupIndex'
-          'HeaderAlignment'
-          'HeaderGlyph'
-          'HeaderMaxLineCount'
-          'IgnoreMaskBlank'
-          'MaxLength'
-          'MinWidth'
-          'Name'
-          'OEMConvert'
-          'PasswordChar'
-          'ReadOnly'
-          'RowIndex'
-          'Sizing'
-          'SortBySummary'
-          'Sorted'
-          'SummaryField'
-          'SummaryFooterField'
-          'SummaryFooterFormat'
-          'SummaryFooterType'
-          'SummaryFormat'
-          'SummaryGroupName'
-          'SummaryType'
-          'TabStop'
-          'Tag'
-          'VertAlignment'
-          'Visible'
+          'VisibleForCustomization'
           'Width')
       end>
     StorageName = 'stgFrmContratos'
@@ -2318,5 +1813,86 @@ object FrmContratos: TFrmContratos
     DataSet = dmFinanceiro2.Moeda
     Left = 608
     Top = 8
+  end
+  object QryHistorico: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    DataSource = DsItens
+    SQL.Strings = (
+      'select  * from PCD_LST_HISTORICO_VMC(:cnpj,:VMC_TIPO_UPD'
+      ',:codigo,'
+      ':COD_CLIENTE,:COD_PRODUTO)')
+    Left = 225
+    Top = 324
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'VMC_TIPO_UPD'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'codigo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'COD_CLIENTE'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'COD_PRODUTO'
+        ParamType = ptUnknown
+      end>
+    object QryHistoricoCODIGO: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      Origin = '"PCD_LST_HISTORICO_VMC"."CODIGO"'
+    end
+    object QryHistoricoCONT_LEITURA: TIntegerField
+      DisplayLabel = 'Cont. Leitura / Cont. Total OS'
+      FieldName = 'CONT_LEITURA'
+      Origin = '"PCD_LST_HISTORICO_VMC"."CONT_LEITURA"'
+    end
+    object QryHistoricoDATA: TDateField
+      DisplayLabel = 'Data'
+      FieldName = 'DATA'
+      Origin = '"PCD_LST_HISTORICO_VMC"."DATA"'
+    end
+    object QryHistoricoSALDO_DIAS: TIntegerField
+      DisplayLabel = 'Saldo Dias'
+      FieldName = 'SALDO_DIAS'
+      Origin = '"PCD_LST_HISTORICO_VMC"."SALDO_DIAS"'
+    end
+    object QryHistoricoSALDO_COPIAS: TIntegerField
+      DisplayLabel = 'Saldo Copias'
+      FieldName = 'SALDO_COPIAS'
+      Origin = '"PCD_LST_HISTORICO_VMC"."SALDO_COPIAS"'
+    end
+  end
+  object dsHistorico: TDataSource
+    AutoEdit = False
+    DataSet = QryHistorico
+    OnStateChange = DataSourceStateChange
+    Left = 194
+    Top = 325
+  end
+  object cxGridPopupMenu1: TcxGridPopupMenu
+    Grid = GridHistorico
+    PopupMenus = <>
+    Left = 367
+    Top = 405
+  end
+  object SaveDialog: TSaveDialog
+    FileName = 'ExpGrid'
+    Options = [ofOverwritePrompt, ofHideReadOnly]
+    Left = 342
+    Top = 4
   end
 end

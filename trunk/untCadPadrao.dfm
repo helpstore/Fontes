@@ -24,7 +24,7 @@ object frmCadPadrao: TfrmCadPadrao
     Top = 0
     Width = 783
     Height = 391
-    ActivePage = tbsLista
+    ActivePage = tbsEdita
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange
@@ -97,6 +97,7 @@ object frmCadPadrao: TfrmCadPadrao
         Align = alClient
         TabOrder = 0
         object edtNome: TcxDBTextEdit
+          Tag = 1
           Left = 76
           Top = 32
           DataBinding.DataSource = dsRegistro

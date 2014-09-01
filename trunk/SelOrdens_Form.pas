@@ -346,6 +346,9 @@ type
     procedure GridPreventivaMouseEnter(Sender: TObject);
     procedure GridMovimentosMouseEnter(Sender: TObject);
     procedure ActExibirMapaExecute(Sender: TObject);
+    procedure GridTVULT_DT_CILINDROCustomDrawCell(
+      Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
   private
     procedure GerarListaCoordenadas;
     { Private declarations }
@@ -1325,6 +1328,16 @@ begin
   frmMapa.ShowModal;
   frmMapa.Free;
   frmMapa := nil;
+end;
+
+procedure TFrmSelOrdens.GridTVULT_DT_CILINDROCustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  ACanvas.Canvas.Font.Color := clBlack;
+  ACanvas.Canvas.Brush.Style := bsSolid;
+ if not VarIsNull(GridTV.ViewData.Records[AViewInfo.GridRecord.Index].Values[GridTVULT_DT_CILINDRO.Index]) then
+     ACanvas.Canvas.Brush.Color := clYellow;
 end;
 
 end.

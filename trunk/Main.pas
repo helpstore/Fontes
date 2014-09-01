@@ -1379,8 +1379,7 @@ uses
   UntCadBancos, UntCadMotivosDevolucao, UntCadAdministradoras,
   UntCadTipoDocumento, UntCadAlegacao, UntCadEventoContabil,
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
-  UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
-  UntCadAplicacao;
+  UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato;
 
 {$R *.DFM}
 

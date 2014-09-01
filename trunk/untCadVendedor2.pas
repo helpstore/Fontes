@@ -92,7 +92,6 @@ type
     dtEditDet1ID: TIntegerField;
     dtListDet1ID: TIntegerField;
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
-    procedure FormShow(Sender: TObject);
     procedure cxDBCalcEdit5KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
   private
@@ -112,13 +111,6 @@ procedure TfrmCadVendedor2.dtEditDet1BeforePost(DataSet: TDataSet);
 begin
   inherited;
   dtEditDet1CODIGO.Value := dtEditCODIGO.value;
-end;
-
-procedure TfrmCadVendedor2.FormShow(Sender: TObject);
-begin
-  inherited;
-  QryPessoa.Close;
-  QryPessoa.Open;
 end;
 
 procedure TfrmCadVendedor2.cxDBCalcEdit5KeyDown(Sender: TObject;

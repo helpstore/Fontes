@@ -59,7 +59,6 @@ var
 
 implementation
 
-uses UntCadAplicacao;
 
 {$R *.dfm}
 
@@ -73,10 +72,10 @@ end;
 procedure TfrmCadAplicacaoProduto.btnAplicacaoClick(Sender: TObject);
 begin
   inherited;
-  frmCadAplicacao := tFrmCadAplicacao.Create(Self);
+ { frmCadAplicacao := tFrmCadAplicacao.Create(Self);
   frmCadAplicacao.ShowModal;
   frmCadAplicacao.Release;
-  frmCadAplicacao:= nil;
+  frmCadAplicacao:= nil;}
 end;
 
 end.

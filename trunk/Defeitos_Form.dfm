@@ -1,10 +1,10 @@
 object FrmDefeitos: TFrmDefeitos
-  Left = 335
-  Top = 165
+  Left = 411
+  Top = 149
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Defeitos'
-  ClientHeight = 151
+  ClientHeight = 172
   ClientWidth = 422
   Color = 15396334
   Font.Charset = DEFAULT_CHARSET
@@ -23,7 +23,7 @@ object FrmDefeitos: TFrmDefeitos
     Left = 0
     Top = 0
     Width = 422
-    Height = 151
+    Height = 172
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -38,7 +38,7 @@ object FrmDefeitos: TFrmDefeitos
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 117
+      Top = 138
       Width = 418
       Height = 2
       Align = alBottom
@@ -81,7 +81,7 @@ object FrmDefeitos: TFrmDefeitos
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 119
+      Top = 140
       Width = 418
       Height = 30
       Align = alBottom
@@ -147,6 +147,17 @@ object FrmDefeitos: TFrmDefeitos
       DataField = 'NOME'
       DataSource = DataSource
     end
+    object ckAtivo: TcxDBCheckBox
+      Left = 117
+      Top = 103
+      Caption = 'Ativo'
+      DataBinding.DataField = 'ATIVO'
+      DataBinding.DataSource = DataSource
+      Properties.ValueChecked = 'S'
+      Properties.ValueUnchecked = 'N'
+      TabOrder = 7
+      Width = 121
+    end
   end
   object BarDBNavigator: TdxBarDBNavigator
     BarManager = BarManager
@@ -162,8 +173,8 @@ object FrmDefeitos: TFrmDefeitos
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

@@ -54,7 +54,7 @@ type
     BtnFechar: TdxBarButton;
     Panel1: TPanel;
     ActFechar: TAction;
-    DataSource: TDataSource;
+    DsEmpresas: TDataSource;
     LblTitulo: TcxLabel;
     Image1: TImage;
     actLookup: TAction;
@@ -727,7 +727,7 @@ type
     procedure dxDBEdit1KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure pnlClientResize(Sender: TObject);
-    procedure DataSourceStateChange(Sender: TObject);
+    procedure DsEmpresasStateChange(Sender: TObject);
     procedure ActFecharExecute(Sender: TObject);
     procedure btnFiltrarClick(Sender: TObject);
     procedure ActNextPageExecute(Sender: TObject);
@@ -817,7 +817,7 @@ procedure TFrmEmpresas.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
      DsConfiguracoes.Dataset.Close;
 
-     Datasource.Dataset.Close;
+     DsEmpresas.DataSet.Close;
 
 
 
@@ -892,8 +892,8 @@ end;
 
 procedure TFrmEmpresas.ActCancelExecute(Sender: TObject);
 begin
-  If DataSource.DataSet.State in dsEditModes Then
-     DataSource.DataSet.Cancel
+  If DsEmpresas.DataSet.State in dsEditModes Then
+     DsEmpresas.DataSet.Cancel
   Else
      BtnFechar.OnClick(BtnFechar);
 end;
@@ -902,8 +902,8 @@ procedure TFrmEmpresas.FormShow(Sender: TObject);
 begin
   IniciaComponentes ( Self as TForm );
   Try
-    if not(Datasource.DataSet.Active) Then
-       DataSource.DataSet.Open;
+    if not(DsEmpresas.DataSet.Active) Then
+       DsEmpresas.DataSet.Open;
 
     If Not(DsCaixa.DataSet.Active) Then
        DsCaixa.DataSet.Open;
@@ -978,10 +978,10 @@ begin
 
   If Not(DsConfiguracoes.DataSet.Active) Then
    DsConfiguracoes.DataSet.Open;
-   
+
   GetCores;
   GetPDV_ECF;
-  Datasource.AutoEdit := ActAlterar.Enabled;
+  DsEmpresas.AutoEdit := ActAlterar.Enabled;
   pc.ActivePageIndex  := 0;
   EdCnpj.SetFocus;
 
@@ -1036,9 +1036,9 @@ begin
   b2.Width := pnlClient.Width - 17;
 end;
 
-procedure TFrmEmpresas.DataSourceStateChange(Sender: TObject);
+procedure TFrmEmpresas.DsEmpresasStateChange(Sender: TObject);
 begin
-  If ( DataSource.State in dsEditModes ) or ( DsConfiguracoes.State in dsEditModes )
+  If ( DsEmpresas.State in dsEditModes ) or ( DsConfiguracoes.State in dsEditModes )
   Then Begin
        ActIncluir.Enabled   := False;
        ActAlterar.Enabled   := False;
@@ -1067,7 +1067,7 @@ begin
 { If FrmEmpresas.FormStyle = fsMDIChild Then
      FrmMain.opFechar.OnClick(FrmMain.opFechar)
   Else}
-  
+
   Close;
 end;
 
@@ -1112,11 +1112,11 @@ procedure TFrmEmpresas.COR_FUNDO_SELECIONADOEnter(Sender: TObject);
 begin
      if Cor.Execute
      then begin
-          If Not ( DataSource.State in [ DsInsert, DsEdit ] )
+          If Not ( DsEmpresas.State in [ DsInsert, DsEdit ] )
           then
-              DataSource.DataSet.Edit ;
+              dsEmpresas.DataSet.Edit ;
 
-          DataSource.DataSet.FieldByName ( 'COR_FUNDO_SELECIONADO' ).AsString := IntToStr(Cor.Color) ;
+          dsEmpresas.DataSet.FieldByName ( 'COR_FUNDO_SELECIONADO' ).AsString := IntToStr(Cor.Color) ;
      end;
 end;
 
@@ -1124,11 +1124,11 @@ procedure TFrmEmpresas.COR_FUNDO_DESELECIONADOEnter(Sender: TObject);
 begin
      if Cor.Execute
      then begin
-          If Not ( DataSource.State in [ DsInsert, DsEdit ] )
+          If Not ( DsEmpresas.State in [ DsInsert, DsEdit ] )
           then
-              DataSource.DataSet.Edit ;
+              DsEmpresas.DataSet.Edit ;
 
-          DataSource.DataSet.FieldByName ( 'COR_FUNDO_DESELECIONADO' ).AsString := IntToStr(Cor.Color) ;
+          DsEmpresas.DataSet.FieldByName ( 'COR_FUNDO_DESELECIONADO' ).AsString := IntToStr(Cor.Color) ;
      end;
 
 end;
@@ -1296,8 +1296,8 @@ end;
 
 procedure TFrmEmpresas.btnProdutoClick(Sender: TObject);
 begin
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmProdutos', False);
 
@@ -1310,7 +1310,7 @@ begin
     SelProdutos.Open;
   end;
 
-  Datasource.DataSet.FieldByName('OFC_LT_PRODUTO_COPIAS').value := FrmMain.Codigo_str ;
+  DsEmpresas.DataSet.FieldByName('OFC_LT_PRODUTO_COPIAS').value := FrmMain.Codigo_str ;
   FrmProdutos.Free;
   FrmProdutos := Nil;
   cmbProduto.SetFocus;
@@ -1345,8 +1345,8 @@ begin
   If ActAlterar.Tag = 0 Then
      Exit;
 
-  If DataSource.DataSet.State = dsBrowse Then
-     DataSource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmLogradouros', False);
   FrmLogradouros := TFrmLogradouros.Create(Self);
@@ -1355,7 +1355,7 @@ begin
   dsLogradouros.Dataset.Close;
   dsLogradouros.Dataset.Open;
 
-  DataSource.DataSet.FieldByName('COD_LOGRADOURO').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('COD_LOGRADOURO').asInteger := FrmMain.Codigo_Int;
 
   FrmLogradouros.Free;
   FrmLogradouros := Nil;
@@ -1367,8 +1367,8 @@ begin
   If ActAlterar.Tag = 0 Then
      Exit;
 
-  If DataSource.DataSet.State = dsBrowse Then
-     DataSource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmBairros', False);
@@ -1379,7 +1379,7 @@ begin
   dsBairros.Dataset.Close;
   dsBairros.Dataset.Open;
 
-  DataSource.DataSet.FieldByName('COD_BAIRRO').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('COD_BAIRRO').asInteger := FrmMain.Codigo_Int;
 
   FrmBairros.Free;
   FrmBairros := Nil;
@@ -1392,8 +1392,8 @@ begin
   If ActAlterar.Tag = 0 Then
      Exit;
 
-  If DataSource.DataSet.State = dsBrowse Then
-     DataSource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCidades', False);
 
@@ -1402,7 +1402,7 @@ begin
   dsCidades.Dataset.Close;
   dsCidades.Dataset.Open;
 
-  DataSource.DataSet.FieldByName('COD_CIDADE').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('COD_CIDADE').asInteger := FrmMain.Codigo_Int;
 
   FrmCidades.Free;
   FrmCidades := Nil;
@@ -1419,8 +1419,8 @@ end;
 
 procedure TFrmEmpresas.btnFormaClick(Sender: TObject);
 begin
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
   //
   { * * * * * }
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmFormasPagto', False);
@@ -1432,7 +1432,7 @@ begin
   FrmFormasPagto := TFrmFormasPagto.Create(Application);
   FrmFormasPagto.Showmodal ;
 
-  Datasource.DataSet.FieldByName('FORMA_PAGTO_MENSALIDADE').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('FORMA_PAGTO_MENSALIDADE').asInteger := FrmMain.Codigo_Int;
 
   DsForma.DataSet.Tag := DsForma.DataSet.Tag - 1;
   cmbForma.SetFocus;
@@ -1565,8 +1565,8 @@ begin
   If ActAlterar.Tag = 0 Then
      Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmNaturezaOper', False);
   FrmNaturezaOper := TFrmNaturezaOper.Create(Application);
@@ -1588,8 +1588,8 @@ begin
     If ActAlterar.Tag = 0 Then
      Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmNaturezaOper', False);
   FrmNaturezaOper := TFrmNaturezaOper.Create(Application);
@@ -1621,13 +1621,13 @@ begin
   if ActAlterar.Tag = 0 Then
     Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCCusto', False);
   FrmCCusto := TFrmCCusto.Create(Self);
   FrmCCusto.ShowModal;
-  Datasource.DataSet.FieldByName('CC_INSS').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('CC_INSS').asInteger := FrmMain.Codigo_Int;
   FrmCCusto.Free;
   FrmCCusto := Nil;
 
@@ -1642,13 +1642,13 @@ begin
   if ActAlterar.Tag = 0 Then
     Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCCusto', False);
   FrmCCusto := TFrmCCusto.Create(Self);
   FrmCCusto.ShowModal;
-  Datasource.DataSet.FieldByName('CC_IRPJ').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('CC_IRPJ').asInteger := FrmMain.Codigo_Int;
   FrmCCusto.Free;
   FrmCCusto := Nil;
 
@@ -1662,13 +1662,13 @@ begin
   if ActAlterar.Tag = 0 Then
     Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCCusto', False);
   FrmCCusto := TFrmCCusto.Create(Self);
   FrmCCusto.ShowModal;
-  Datasource.DataSet.FieldByName('CC_ISS').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('CC_ISS').asInteger := FrmMain.Codigo_Int;
   FrmCCusto.Free;
   FrmCCusto := Nil;
 
@@ -1682,13 +1682,13 @@ begin
   if ActAlterar.Tag = 0 Then
     Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCCusto', False);
   FrmCCusto := TFrmCCusto.Create(Self);
   FrmCCusto.ShowModal;
-  Datasource.DataSet.FieldByName('CC_PIS').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('CC_PIS').asInteger := FrmMain.Codigo_Int;
   FrmCCusto.Free;
   FrmCCusto := Nil;
 
@@ -1702,13 +1702,13 @@ begin
   if ActAlterar.Tag = 0 Then
     Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCCusto', False);
   FrmCCusto := TFrmCCusto.Create(Self);
   FrmCCusto.ShowModal;
-  Datasource.DataSet.FieldByName('CC_COFINS').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('CC_COFINS').asInteger := FrmMain.Codigo_Int;
   FrmCCusto.Free;
   FrmCCusto := Nil;
 
@@ -1722,13 +1722,13 @@ begin
   if ActAlterar.Tag = 0 Then
     Exit;
 
-  If Datasource.DataSet.State = dsBrowse Then
-     Datasource.DataSet.Edit;
+  If DsEmpresas.DataSet.State = dsBrowse Then
+     DsEmpresas.DataSet.Edit;
 
   DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCCusto', False);
   FrmCCusto := TFrmCCusto.Create(Self);
   FrmCCusto.ShowModal;
-  Datasource.DataSet.FieldByName('CC_CSLL').asInteger := FrmMain.Codigo_Int;
+  DsEmpresas.DataSet.FieldByName('CC_CSLL').asInteger := FrmMain.Codigo_Int;
   FrmCCusto.Free;
   FrmCCusto := Nil;
 

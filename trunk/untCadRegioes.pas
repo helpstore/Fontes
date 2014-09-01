@@ -83,7 +83,6 @@ type
     QryTerceiroCOM_VISTA: TFloatField;
     QryTerceiroNOME: TIBStringField;
     QryTerceiroPESSOA_FJ: TIntegerField;
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -96,13 +95,5 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TfrmCadRegiao.FormShow(Sender: TObject);
-begin
-  inherited;
-  AbreDataSet(TDataSet(QryTecnico));
-  AbreDataSet(TDataSet(QryVendedor));
-  AbreDataSet(TDataSet(QryTerceiro))
-end;
 
 end.

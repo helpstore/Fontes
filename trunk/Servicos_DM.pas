@@ -1659,8 +1659,10 @@ type
     SelOrdens_ServicosCT_CILINDRO: TIntegerField;
     SelOrdens_ServicosULT_DT_CILINDRO: TDateField;
     SelOrdens_ServicosULT_CT_CILINDRO: TIntegerField;
-    SelOrdens_ServicosCT_CILINDRO_SALDO_CONTADOR: TLargeintField;
+    DefeitoATIVO: TIBStringField;
     SelOrdens_ServicosCT_CILINDRO_SALDO_DIAS: TIntegerField;
+    SelOrdens_ServicosCT_CILINDRO_SALDO_CONTADOR: TFloatField;
+    MotivoChamadoATIVO: TIBStringField;
     procedure ServicosAfterClose(DataSet: TDataSet);
     procedure ServicosAfterInsert(DataSet: TDataSet);
     procedure ServicosBeforeOpen(DataSet: TDataSet);
