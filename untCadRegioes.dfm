@@ -4,7 +4,6 @@ inherited frmCadRegiao: TfrmCadRegiao
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
@@ -806,6 +805,7 @@ inherited frmCadRegiao: TfrmCadRegiao
       end>
   end
   object QryVendedor: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa
@@ -855,6 +855,7 @@ inherited frmCadRegiao: TfrmCadRegiao
     Top = 88
   end
   object QryTerceiro: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa
@@ -921,6 +922,7 @@ inherited frmCadRegiao: TfrmCadRegiao
     Top = 136
   end
   object QryTecnico: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa

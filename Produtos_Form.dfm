@@ -90,7 +90,7 @@ object FrmProdutos: TFrmProdutos
       Width = 605
       Height = 446
       Cursor = crHandPoint
-      ActivePage = dxTabSheet2
+      ActivePage = Pg1
       HotTrack = True
       TabOrder = 1
       ClientRectBottom = 442

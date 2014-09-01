@@ -598,10 +598,7 @@ begin
       end;
     end;}
 
-     if (dmApp.BCH_ATIVO = 'S') then
-       DmApp.ImpECF_Bemacash(dmApp.cnpj,PedidoNumero)
-     else
-       DmVendas.ImprimeCf (PedidoNumero);
+     DmVendas.ImprimeCf (PedidoNumero);
 
      ImprimeDoctoRecebimento(PedidoNumero);
      Close ;

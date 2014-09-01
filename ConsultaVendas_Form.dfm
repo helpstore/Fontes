@@ -35,21 +35,21 @@ object FrmConsultaVenda: TFrmConsultaVenda
     BevelOuter = bvLowered
     TabOrder = 0
     object Label21: TcxLabel
-      Left = 157
+      Left = 285
       Top = 4
       Caption = '( F10 ) Consulta Descri'#231#227'o/Servi'#231'o   '
       ParentFont = False
       Transparent = True
     end
     object Label23: TcxLabel
-      Left = 401
+      Left = 519
       Top = 4
       Caption = 'C'#243'd. Barras'
       ParentFont = False
       Transparent = True
     end
     object Label24: TcxLabel
-      Left = 597
+      Left = 653
       Top = 4
       Caption = 'Vlr. Dec'
       ParentFont = False
@@ -63,7 +63,7 @@ object FrmConsultaVenda: TFrmConsultaVenda
       Transparent = True
     end
     object Label30: TcxLabel
-      Left = 157
+      Left = 133
       Top = 24
       Caption = '( F12 ) Corrigir N'#186' Nota Fiscal'
       ParentFont = False
@@ -107,7 +107,7 @@ object FrmConsultaVenda: TFrmConsultaVenda
       NumGlyphs = 2
     end
     object btnDevolucao: TcxButton
-      Left = 337
+      Left = 457
       Top = 19
       Width = 61
       Height = 25
@@ -139,9 +139,9 @@ object FrmConsultaVenda: TFrmConsultaVenda
       NumGlyphs = 2
     end
     object edtCodBarras: TdxEdit
-      Left = 398
+      Left = 518
       Top = 19
-      Width = 199
+      Width = 139
       Hint = 'C'#243'digo de Barras'
       Enabled = False
       Font.Charset = DEFAULT_CHARSET
@@ -160,9 +160,9 @@ object FrmConsultaVenda: TFrmConsultaVenda
       CharCase = ecUpperCase
     end
     object edtVlrDec: TdxEdit
-      Left = 598
+      Left = 656
       Top = 19
-      Width = 46
+      Width = 44
       Hint = 'Vlr. de Decremento'
       Enabled = False
       Font.Charset = DEFAULT_CHARSET
@@ -178,6 +178,13 @@ object FrmConsultaVenda: TFrmConsultaVenda
       TabOrder = 3
       OnEnter = edtCodBarrasEnter
       OnKeyDown = edtCodBarrasKeyDown
+    end
+    object cxLabel1: TcxLabel
+      Left = 132
+      Top = 4
+      Caption = '( F8 ) Altera Status NFe'
+      ParentFont = False
+      Transparent = True
     end
   end
   object PGC: TPageControl
@@ -1448,6 +1455,11 @@ object FrmConsultaVenda: TFrmConsultaVenda
       ShortCut = 123
       OnExecute = ActReusaNFExecute
     end
+    object ActAlteraStatus: TAction
+      Caption = 'ActAlteraStatus'
+      ShortCut = 119
+      OnExecute = ActAlteraStatusExecute
+    end
   end
   object dsProdutos: TDataSource
     AutoEdit = False
@@ -2511,5 +2523,28 @@ object FrmConsultaVenda: TFrmConsultaVenda
     StorageName = 'stgFrmConsultaVenda'
     Left = 274
     Top = 176
+  end
+  object PCD_ALTERA_STATUS_NFE: TIBStoredProc
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    StoredProcName = 'PCD_ALTERA_STATUS_NFE'
+    Left = 552
+    Top = 191
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'CNPJ'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'CODIGO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'STATUS'
+        ParamType = ptInput
+      end>
   end
 end

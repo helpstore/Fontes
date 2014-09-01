@@ -3,7 +3,7 @@ object FRel_Rechamados: TFRel_Rechamados
   Top = 133
   BorderStyle = bsDialog
   Caption = 'Relat'#243'rio de Atendimentos'
-  ClientHeight = 501
+  ClientHeight = 515
   ClientWidth = 750
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object FRel_Rechamados: TFRel_Rechamados
   TextHeight = 13
   object Panel2: TPanel
     Left = 0
-    Top = 469
+    Top = 483
     Width = 750
     Height = 32
     Align = alBottom
@@ -96,7 +96,7 @@ object FRel_Rechamados: TFRel_Rechamados
     Left = 0
     Top = 0
     Width = 750
-    Height = 469
+    Height = 483
     Align = alClient
     BevelOuter = bvNone
     Color = clWhite
@@ -906,7 +906,7 @@ object FRel_Rechamados: TFRel_Rechamados
       Left = 10
       Top = 397
       Width = 319
-      Height = 65
+      Height = 85
       Caption = 'Op'#231#245'es de Quebra'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
@@ -967,6 +967,14 @@ object FRel_Rechamados: TFRel_Rechamados
         Caption = 'Equipamento'
         TabOrder = 5
       end
+      object rdMotivoChamado: TRadioButton
+        Left = 9
+        Top = 61
+        Width = 128
+        Height = 19
+        Caption = 'Motivo do chamado'
+        TabOrder = 6
+      end
     end
   end
   object DsClientes: TDataSource
@@ -1018,6 +1026,7 @@ object FRel_Rechamados: TFRel_Rechamados
   object qAtendimento_Sint: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    Active = True
     SQL.Strings = (
       'select * '
       
@@ -1372,6 +1381,9 @@ object FRel_Rechamados: TFRel_Rechamados
     Template.DatabaseSettings.DataPipeline = ppLayout
     Template.DatabaseSettings.NameField = 'RELATORIO'
     Template.DatabaseSettings.TemplateField = 'CONFIG'
+    Template.FileName = 
+      'C:\Users\Fabiano\Desktop\Update Sistemaq\Relat'#243'rio de Atendiment' +
+      'os.rtm'
     Template.SaveTo = stDatabase
     Template.Format = ftASCII
     AllowPrintToArchive = True
@@ -1442,6 +1454,11 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.mmPaperHeight = 210000
           PrinterSetup.mmPaperWidth = 297000
           PrinterSetup.PaperSize = 9
+          Template.DatabaseSettings.DataPipeline = ppLayout
+          Template.DatabaseSettings.NameField = 'RELATORIO'
+          Template.DatabaseSettings.TemplateField = 'CONFIG'
+          Template.SaveTo = stDatabase
+          Template.Format = ftASCII
           Left = 216
           Top = 312
           Version = '12.03'
@@ -1449,8 +1466,10 @@ object FRel_Rechamados: TFRel_Rechamados
           DataPipelineName = 'ppAtendimento'
           object ppHeaderBand1: TppHeaderBand
             BeforePrint = ppHeaderBand6BeforePrint
+            Visible = False
+            PrintHeight = phDynamic
             mmBottomOffset = 0
-            mmHeight = 5027
+            mmHeight = 7938
             mmPrintPosition = 0
             object ppLine1: TppLine
               UserName = 'Line1'
@@ -1464,94 +1483,6 @@ object FRel_Rechamados: TFRel_Rechamados
               mmLeft = 0
               mmTop = 4763
               mmWidth = 284163
-              BandType = 0
-            end
-            object ppLabel1: TppLabel
-              UserName = 'Label111'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Equipamento'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3439
-              mmLeft = 8467
-              mmTop = 1323
-              mmWidth = 29104
-              BandType = 0
-            end
-            object ppLabel2: TppLabel
-              UserName = 'Label9'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Marca'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3439
-              mmLeft = 38365
-              mmTop = 1323
-              mmWidth = 12700
-              BandType = 0
-            end
-            object ppLabel3: TppLabel
-              UserName = 'Label10'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Modelo'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 57944
-              mmTop = 1323
-              mmWidth = 12171
-              BandType = 0
-            end
-            object ppLabel4: TppLabel
-              UserName = 'Label102'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Cliente'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3439
-              mmLeft = 115359
-              mmTop = 1323
-              mmWidth = 12435
               BandType = 0
             end
             object ppLabel5: TppLabel
@@ -1572,7 +1503,7 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               mmHeight = 3440
-              mmLeft = 268023
+              mmLeft = 266701
               mmTop = 1323
               mmWidth = 16404
               BandType = 0
@@ -1594,8 +1525,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               TextAlignment = taRightJustified
               Transparent = True
-              mmHeight = 3439
-              mmLeft = 194998
+              mmHeight = 3440
+              mmLeft = 191823
               mmTop = 1323
               mmWidth = 14023
               BandType = 0
@@ -1618,9 +1549,9 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               mmHeight = 3440
-              mmLeft = 209815
+              mmLeft = 206111
               mmTop = 1323
-              mmWidth = 13495
+              mmWidth = 13494
               BandType = 0
             end
             object ppLabel8: TppLabel
@@ -1667,73 +1598,6 @@ object FRel_Rechamados: TFRel_Rechamados
               mmWidth = 11980
               BandType = 0
             end
-            object ppLabel10: TppLabel
-              UserName = 'Label187'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Cod.'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              TextAlignment = taRightJustified
-              Transparent = True
-              mmHeight = 3323
-              mmLeft = 0
-              mmTop = 1323
-              mmWidth = 6244
-              BandType = 0
-            end
-            object ppLabel11: TppLabel
-              UserName = 'Label188'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'T'#233'cnico'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3323
-              mmLeft = 176477
-              mmTop = 1323
-              mmWidth = 17463
-              BandType = 0
-            end
-            object ppLabel12: TppLabel
-              UserName = 'Label103'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Mtv. Chamado'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 85725
-              mmTop = 1323
-              mmWidth = 20638
-              BandType = 0
-            end
             object ppLabel13: TppLabel
               UserName = 'Label190'
               HyperlinkColor = clBlue
@@ -1752,9 +1616,246 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               mmHeight = 3440
-              mmLeft = 224632
+              mmLeft = 222780
               mmTop = 1323
               mmWidth = 11642
+              BandType = 0
+            end
+            object ppSubReport1: TppSubReport
+              UserName = 'SubReport1'
+              ExpandAll = False
+              NewPrintJob = False
+              OutlineSettings.CreateNode = True
+              TraverseAllData = False
+              mmHeight = 3175
+              mmLeft = 0
+              mmTop = 4763
+              mmWidth = 284300
+              BandType = 0
+              mmBottomOffset = 0
+              mmOverFlowOffset = 0
+              mmStopPosition = 0
+              mmMinHeight = 0
+              object ppChildReport6: TppChildReport
+                PrinterSetup.BinName = 'Default'
+                PrinterSetup.DocumentName = 'Report'
+                PrinterSetup.Orientation = poLandscape
+                PrinterSetup.PaperName = 'A4'
+                PrinterSetup.PrinterName = 'Default'
+                PrinterSetup.SaveDeviceSettings = False
+                PrinterSetup.mmMarginBottom = 6350
+                PrinterSetup.mmMarginLeft = 6350
+                PrinterSetup.mmMarginRight = 6350
+                PrinterSetup.mmMarginTop = 6350
+                PrinterSetup.mmPaperHeight = 210000
+                PrinterSetup.mmPaperWidth = 297000
+                PrinterSetup.PaperSize = 9
+                Template.DatabaseSettings.DataPipeline = ppLayout
+                Template.DatabaseSettings.NameField = 'RELATORIO'
+                Template.DatabaseSettings.TemplateField = 'CONFIG'
+                Template.SaveTo = stDatabase
+                Template.Format = ftASCII
+                Version = '12.03'
+                mmColumnWidth = 0
+                object ppHeaderBand7: TppHeaderBand
+                  mmBottomOffset = 0
+                  mmHeight = 13229
+                  mmPrintPosition = 0
+                end
+                object ppDetailBand6: TppDetailBand
+                  Background1.Brush.Style = bsClear
+                  Background1.Gradient.EndColor = clWhite
+                  Background1.Gradient.StartColor = clWhite
+                  Background1.Gradient.Style = gsNone
+                  Background2.Brush.Style = bsClear
+                  Background2.Gradient.EndColor = clWhite
+                  Background2.Gradient.StartColor = clWhite
+                  Background2.Gradient.Style = gsNone
+                  mmBottomOffset = 0
+                  mmHeight = 13229
+                  mmPrintPosition = 0
+                end
+                object ppFooterBand1: TppFooterBand
+                  mmBottomOffset = 0
+                  mmHeight = 13229
+                  mmPrintPosition = 0
+                end
+              end
+            end
+            object ppLabel2: TppLabel
+              UserName = 'Label3'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Serie'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 30427
+              mmTop = 1323
+              mmWidth = 17463
+              BandType = 0
+            end
+            object ppLabel1: TppLabel
+              UserName = 'Label1'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'CONT_TOTAL'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taCentered
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 165629
+              mmTop = 1323
+              mmWidth = 23813
+              BandType = 0
+            end
+            object ppLabel10: TppLabel
+              UserName = 'Label5'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Executado'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 56356
+              mmTop = 1323
+              mmWidth = 24606
+              BandType = 0
+            end
+            object ppLabel3: TppLabel
+              UserName = 'Label2'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Tecnico'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 136790
+              mmTop = 1323
+              mmWidth = 16933
+              BandType = 0
+            end
+            object ppLabel4: TppLabel
+              UserName = 'Label4'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Abertura'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 89959
+              mmTop = 1323
+              mmWidth = 15346
+              BandType = 0
+            end
+            object ppLabel11: TppLabel
+              UserName = 'Label6'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Fechamento'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taCentered
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 105569
+              mmTop = 1323
+              mmWidth = 27517
+              BandType = 0
+            end
+            object ppLabel12: TppLabel
+              UserName = 'Label7'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'OS'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3387
+              mmLeft = 1058
+              mmTop = 1323
+              mmWidth = 4106
+              BandType = 0
+            end
+            object ppLabel15: TppLabel
+              UserName = 'Label8'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Modelo'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 10848
+              mmTop = 1323
+              mmWidth = 10848
               BandType = 0
             end
           end
@@ -1771,31 +1872,6 @@ object FRel_Rechamados: TFRel_Rechamados
             mmBottomOffset = 0
             mmHeight = 2910
             mmPrintPosition = 0
-            object ppDBText1: TppDBText
-              UserName = 'DBText97'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'PRD_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 8467
-              mmTop = 0
-              mmWidth = 13885
-              BandType = 4
-            end
             object ppDBText2: TppDBText
               UserName = 'DBText3'
               HyperlinkColor = clBlue
@@ -1816,58 +1892,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 38365
+              mmLeft = 10848
               mmTop = 0
-              mmWidth = 14224
-              BandType = 4
-            end
-            object ppDBText3: TppDBText
-              UserName = 'DBText8'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'MDL_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 57944
-              mmTop = 0
-              mmWidth = 13801
-              BandType = 4
-            end
-            object ppDBText4: TppDBText
-              UserName = 'DBText245'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'CLI_NOME_RAZAO'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2900
-              mmLeft = 115359
-              mmTop = 0
-              mmWidth = 56356
+              mmWidth = 12023
               BandType = 4
             end
             object ppDBText5: TppDBText
@@ -1892,9 +1919,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 269950
+              mmLeft = 283878
               mmTop = 0
-              mmWidth = 14478
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText6: TppDBText
@@ -1918,10 +1945,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 174265
+              mmHeight = 2910
+              mmLeft = 194998
               mmTop = 0
-              mmWidth = 34756
+              mmWidth = 4763
               BandType = 4
             end
             object ppDBText7: TppDBText
@@ -1945,10 +1972,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 195104
+              mmHeight = 2910
+              mmLeft = 211138
               mmTop = 0
-              mmWidth = 28321
+              mmWidth = 4763
               BandType = 4
             end
             object OFC_TEMPO_VIAJEM: TppDBText
@@ -1973,9 +2000,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2910
-              mmLeft = 227807
+              mmLeft = 243417
               mmTop = 0
-              mmWidth = 25400
+              mmWidth = 4763
               BandType = 4
             end
             object ppDBText9: TppDBText
@@ -1995,13 +2022,13 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Name = 'Arial'
               Font.Size = 7
               Font.Style = []
-              TextAlignment = taCentered
+              TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 251884
+              mmLeft = 254921
               mmTop = 0
-              mmWidth = 22394
+              mmWidth = 11388
               BandType = 4
             end
             object ppDBText10: TppDBText
@@ -2024,58 +2051,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 0
+              mmLeft = 1058
               mmTop = 0
-              mmWidth = 16425
-              BandType = 4
-            end
-            object ppDBText11: TppDBText
-              UserName = 'DBText2502'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'MEC_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 176477
-              mmTop = 0
-              mmWidth = 14097
-              BandType = 4
-            end
-            object ppDBText12: TppDBText
-              UserName = 'DBText257'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'MTC_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2921
-              mmLeft = 85725
-              mmTop = 0
-              mmWidth = 28310
+              mmWidth = 6773
               BandType = 4
             end
             object ppDBText13: TppDBText
@@ -2099,10 +2077,173 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 214048
+              mmHeight = 2910
+              mmLeft = 225955
               mmTop = 0
-              mmWidth = 22310
+              mmWidth = 4763
+              BandType = 4
+            end
+            object ppDBText3: TppDBText
+              UserName = 'DBText2'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'PRD_SERIE'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 30427
+              mmTop = 0
+              mmWidth = 24871
+              BandType = 4
+            end
+            object ppDBText1: TppDBText
+              UserName = 'DBText1'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'CONTADOR_TOTAL'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3260
+              mmLeft = 173302
+              mmTop = 0
+              mmWidth = 16140
+              BandType = 4
+            end
+            object ppDBText12: TppDBText
+              UserName = 'DBText6'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'DEF_NOME'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 56356
+              mmTop = 0
+              mmWidth = 24606
+              BandType = 4
+            end
+            object ppDBText4: TppDBText
+              UserName = 'DBText4'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'MEC_NOME'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 136790
+              mmTop = 0
+              mmWidth = 22225
+              BandType = 4
+            end
+            object ppDBText11: TppDBText
+              UserName = 'DBText5'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'OFC_DT_SOLICITACAO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 89959
+              mmTop = 0
+              mmWidth = 19050
+              BandType = 4
+            end
+            object ppDBText14: TppDBText
+              UserName = 'DBText7'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'OFC_DT_FECHAMENTO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3440
+              mmLeft = 100277
+              mmTop = 0
+              mmWidth = 32808
+              BandType = 4
+            end
+            object ppDBText15: TppDBText
+              UserName = 'DBText15'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'OFC_DATA_FECHAMENTO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              TextAlignment = taCentered
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 109273
+              mmTop = 0
+              mmWidth = 20373
               BandType = 4
             end
           end
@@ -2170,7 +2311,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 3387
               mmLeft = 19050
               mmTop = 2117
-              mmWidth = 29041
+              mmWidth = 29972
               BandType = 7
             end
             object ppDBCalc2: TppDBCalc
@@ -2299,9 +2440,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2910
-              mmLeft = 241565
+              mmLeft = 239713
               mmTop = 1323
-              mmWidth = 11642
+              mmWidth = 13494
               BandType = 7
             end
           end
@@ -2321,29 +2462,6 @@ object FRel_Rechamados: TFRel_Rechamados
               mmBottomOffset = 0
               mmHeight = 8731
               mmPrintPosition = 0
-              object ppLabel15: TppLabel
-                UserName = 'Label1'
-                HyperlinkColor = clBlue
-                Border.BorderPositions = []
-                Border.Color = clBlack
-                Border.Style = psSolid
-                Border.Visible = False
-                Border.Weight = 1.000000000000000000
-                Caption = 'Regi'#227'o: '
-                Ellipsis = False
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
-                Font.Name = 'Arial'
-                Font.Size = 10
-                Font.Style = [fsBold, fsItalic]
-                Transparent = True
-                mmHeight = 4106
-                mmLeft = 6879
-                mmTop = 3440
-                mmWidth = 13949
-                BandType = 3
-                GroupNo = 0
-              end
               object ppLine3: TppLine
                 UserName = 'Line2'
                 Border.BorderPositions = []
@@ -2359,29 +2477,41 @@ object FRel_Rechamados: TFRel_Rechamados
                 BandType = 3
                 GroupNo = 0
               end
-              object ppDBText14: TppDBText
-                UserName = 'DBText1'
-                HyperlinkColor = clBlue
-                AutoSize = True
+              object ppLine21: TppLine
+                UserName = 'Line5'
                 Border.BorderPositions = []
                 Border.Color = clBlack
                 Border.Style = psSolid
                 Border.Visible = False
-                Border.Weight = 1.000000000000000000
-                DataField = 'REG_DESCRICAO'
+                Weight = 0.750000000000000000
+                mmHeight = 3969
+                mmLeft = 0
+                mmTop = 7938
+                mmWidth = 13229
+                BandType = 3
+                GroupNo = 0
+              end
+              object ppDBText77: TppDBText
+                UserName = 'DBText77'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                DataField = 'OFC_DATA_FECHAMENTO'
                 DataPipeline = ppAtendimento
                 Ellipsis = False
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
                 Font.Name = 'Arial'
-                Font.Size = 9
-                Font.Style = [fsBold, fsItalic]
+                Font.Size = 8
+                Font.Style = []
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
-                mmHeight = 3683
-                mmLeft = 21431
-                mmTop = 3969
-                mmWidth = 27644
+                mmHeight = 3260
+                mmLeft = 204523
+                mmTop = 265
+                mmWidth = 32808
                 BandType = 3
                 GroupNo = 0
               end
@@ -2453,7 +2583,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3387
                 mmLeft = 21696
                 mmTop = 1323
-                mmWidth = 29041
+                mmWidth = 29972
                 BandType = 5
                 GroupNo = 0
               end
@@ -2592,9 +2722,23 @@ object FRel_Rechamados: TFRel_Rechamados
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
                 mmHeight = 2910
-                mmLeft = 241565
+                mmLeft = 239713
                 mmTop = 529
-                mmWidth = 11642
+                mmWidth = 13494
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppLine22: TppLine
+                UserName = 'Line6'
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Weight = 0.750000000000000000
+                mmHeight = 3969
+                mmLeft = 0
+                mmTop = 0
+                mmWidth = 13229
                 BandType = 5
                 GroupNo = 0
               end
@@ -2639,6 +2783,11 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.mmPaperHeight = 210000
           PrinterSetup.mmPaperWidth = 297000
           PrinterSetup.PaperSize = 9
+          Template.DatabaseSettings.DataPipeline = ppLayout
+          Template.DatabaseSettings.NameField = 'RELATORIO'
+          Template.DatabaseSettings.TemplateField = 'CONFIG'
+          Template.SaveTo = stDatabase
+          Template.Format = ftASCII
           Left = 216
           Top = 312
           Version = '12.03'
@@ -2646,8 +2795,9 @@ object FRel_Rechamados: TFRel_Rechamados
           DataPipelineName = 'ppAtendimento'
           object ppHeaderBand6: TppHeaderBand
             BeforePrint = ppHeaderBand6BeforePrint
+            Visible = False
             mmBottomOffset = 0
-            mmHeight = 5027
+            mmHeight = 9260
             mmPrintPosition = 0
             object ppLine68: TppLine
               UserName = 'Line1'
@@ -2661,28 +2811,6 @@ object FRel_Rechamados: TFRel_Rechamados
               mmLeft = 0
               mmTop = 4763
               mmWidth = 284163
-              BandType = 0
-            end
-            object ppLabel251: TppLabel
-              UserName = 'Label111'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Equipamento'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3439
-              mmLeft = 8467
-              mmTop = 1323
-              mmWidth = 29104
               BandType = 0
             end
             object ppLabel183: TppLabel
@@ -2701,32 +2829,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Size = 8
               Font.Style = [fsBold]
               Transparent = True
-              mmHeight = 3439
-              mmLeft = 38365
+              mmHeight = 3440
+              mmLeft = 10848
               mmTop = 1323
               mmWidth = 12700
-              BandType = 0
-            end
-            object ppLabel184: TppLabel
-              UserName = 'Label10'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Modelo'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 57944
-              mmTop = 1323
-              mmWidth = 12171
               BandType = 0
             end
             object ppLabel179: TppLabel
@@ -2745,123 +2851,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Size = 8
               Font.Style = [fsBold]
               Transparent = True
-              mmHeight = 3439
+              mmHeight = 3440
               mmLeft = 115359
-              mmTop = 1323
+              mmTop = 1852
               mmWidth = 12435
-              BandType = 0
-            end
-            object ppLabel180: TppLabel
-              UserName = 'Label180'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Total (R$)'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              TextAlignment = taRightJustified
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 268023
-              mmTop = 1323
-              mmWidth = 16404
-              BandType = 0
-            end
-            object ppLabel181: TppLabel
-              UserName = 'Label1801'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Tmp. At. '
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              TextAlignment = taRightJustified
-              Transparent = True
-              mmHeight = 3439
-              mmLeft = 194998
-              mmTop = 1323
-              mmWidth = 14023
-              BandType = 0
-            end
-            object ppLabel182: TppLabel
-              UserName = 'Label182'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Tmp. Rp.'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              TextAlignment = taRightJustified
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 209815
-              mmTop = 1323
-              mmWidth = 13495
-              BandType = 0
-            end
-            object ppLabel185: TppLabel
-              UserName = 'Label185'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Tp. Viagem'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 237067
-              mmTop = 1323
-              mmWidth = 15875
-              BandType = 0
-            end
-            object ppLabel186: TppLabel
-              UserName = 'Label186'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Tp. Atend.'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3323
-              mmLeft = 254001
-              mmTop = 1323
-              mmWidth = 13229
               BandType = 0
             end
             object ppLabel187: TppLabel
@@ -2904,8 +2897,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 181769
-              mmTop = 1323
+              mmLeft = 265642
+              mmTop = 1058
               mmWidth = 11113
               BandType = 0
             end
@@ -2926,32 +2919,140 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 85725
+              mmLeft = 42598
               mmTop = 1323
               mmWidth = 20638
               BandType = 0
             end
-            object ppLabel190: TppLabel
-              UserName = 'Label190'
+            object ppLabel17: TppLabel
+              UserName = 'Label17'
               HyperlinkColor = clBlue
+              AutoSize = False
               Border.BorderPositions = []
               Border.Color = clBlack
               Border.Style = psSolid
               Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'KM. Utl.'
+              Caption = 'Executado'
               Ellipsis = False
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = [fsBold]
-              TextAlignment = taRightJustified
               Transparent = True
               mmHeight = 3440
-              mmLeft = 224103
+              mmLeft = 85196
+              mmTop = 1058
+              mmWidth = 24077
+              BandType = 0
+            end
+            object ppLabel19: TppLabel
+              UserName = 'Label19'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Modelo'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 26194
+              mmTop = 1852
+              mmWidth = 10054
+              BandType = 0
+            end
+            object ppLabel33: TppLabel
+              UserName = 'Label33'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Contador Total'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 233098
               mmTop = 1323
-              mmWidth = 12171
+              mmWidth = 40481
+              BandType = 0
+            end
+            object ppLabel68: TppLabel
+              UserName = 'Label68'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Serie'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 161661
+              mmTop = 1852
+              mmWidth = 18521
+              BandType = 0
+            end
+            object ppLabel82: TppLabel
+              UserName = 'Label82'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Cidade'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              mmHeight = 3175
+              mmLeft = 204523
+              mmTop = 1323
+              mmWidth = 17198
+              BandType = 0
+            end
+            object ppLabel83: TppLabel
+              UserName = 'Label83'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'Fechamento'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3387
+              mmLeft = 180182
+              mmTop = 1323
+              mmWidth = 21167
               BandType = 0
             end
           end
@@ -2968,31 +3069,6 @@ object FRel_Rechamados: TFRel_Rechamados
             mmBottomOffset = 0
             mmHeight = 2910
             mmPrintPosition = 0
-            object ppDBText246: TppDBText
-              UserName = 'DBText97'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'PRD_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 8467
-              mmTop = 0
-              mmWidth = 13885
-              BandType = 4
-            end
             object ppDBText252: TppDBText
               UserName = 'DBText3'
               HyperlinkColor = clBlue
@@ -3013,9 +3089,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 38365
+              mmLeft = 8996
               mmTop = 0
-              mmWidth = 14224
+              mmWidth = 12023
               BandType = 4
             end
             object ppDBText253: TppDBText
@@ -3038,167 +3114,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 57944
+              mmLeft = 24342
               mmTop = 0
-              mmWidth = 13801
-              BandType = 4
-            end
-            object ppDBText245: TppDBText
-              UserName = 'DBText245'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'CLI_NOME_RAZAO'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2900
-              mmLeft = 115359
-              mmTop = 0
-              mmWidth = 56356
-              BandType = 4
-            end
-            object ppDBText247: TppDBText
-              UserName = 'DBText247'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'OFC_TOTAL'
-              DataPipeline = ppAtendimento
-              DisplayFormat = '#,0.00;-#,0.00'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              TextAlignment = taRightJustified
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 269950
-              mmTop = 0
-              mmWidth = 14478
-              BandType = 4
-            end
-            object ppDBText248: TppDBText
-              UserName = 'DBText248'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'OFC_HORAS_TRABALHADAS'
-              DataPipeline = ppAtendimento
-              DisplayFormat = '#,0.00;-#,0.00'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              TextAlignment = taRightJustified
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 174265
-              mmTop = 0
-              mmWidth = 34756
-              BandType = 4
-            end
-            object ppDBText249: TppDBText
-              UserName = 'DBText249'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'CP_TEMPO_RESPOSTA'
-              DataPipeline = ppAtendimento
-              DisplayFormat = '#,0.00;-#,0.00'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              TextAlignment = taRightJustified
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 195104
-              mmTop = 0
-              mmWidth = 28321
-              BandType = 4
-            end
-            object ppDBText250: TppDBText
-              UserName = 'DBText250'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'OFC_TEMPO_VIAJEM'
-              DataPipeline = ppAtendimento
-              DisplayFormat = '#,0.00;-#,0.00'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              TextAlignment = taRightJustified
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 227542
-              mmTop = 0
-              mmWidth = 25400
-              BandType = 4
-            end
-            object ppDBText251: TppDBText
-              UserName = 'DBText2501'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'TP_ATENDIMENTO'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              TextAlignment = taCentered
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 251402
-              mmTop = 0
-              mmWidth = 22394
+              mmWidth = 11134
               BandType = 4
             end
             object ppDBText254: TppDBText
@@ -3221,9 +3139,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 0
+              mmLeft = 1058
               mmTop = 0
-              mmWidth = 16425
+              mmWidth = 6773
               BandType = 4
             end
             object ppDBText256: TppDBText
@@ -3246,9 +3164,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 181769
+              mmLeft = 263790
               mmTop = 0
-              mmWidth = 21294
+              mmWidth = 24680
               BandType = 4
             end
             object ppDBText257: TppDBText
@@ -3269,37 +3187,149 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2921
-              mmLeft = 85725
+              mmHeight = 2910
+              mmLeft = 42598
               mmTop = 0
-              mmWidth = 28575
+              mmWidth = 36777
               BandType = 4
             end
-            object ppDBText258: TppDBText
-              UserName = 'DBText258'
+            object ppDBText245: TppDBText
+              UserName = 'DBText245'
               HyperlinkColor = clBlue
-              AutoSize = True
               Border.BorderPositions = []
               Border.Color = clBlack
               Border.Style = psSolid
               Border.Visible = False
               Border.Weight = 1.000000000000000000
-              DataField = 'OFC_KM_RODADO'
+              DataField = 'CLI_NOME_RAZAO'
               DataPipeline = ppAtendimento
-              DisplayFormat = '#,0.00;-#,0.00'
               Ellipsis = False
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 7
               Font.Style = []
-              TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 213963
+              mmHeight = 2910
+              mmLeft = 115359
               mmTop = 0
-              mmWidth = 22310
+              mmWidth = 39688
+              BandType = 4
+            end
+            object ppDBText75: TppDBText
+              UserName = 'DBText75'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'PRD_SERIE'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 161661
+              mmTop = 0
+              mmWidth = 18521
+              BandType = 4
+            end
+            object ppDBText76: TppDBText
+              UserName = 'DBText76'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'CIDADE'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 204523
+              mmTop = 0
+              mmWidth = 21431
+              BandType = 4
+            end
+            object ppDBText60: TppDBText
+              UserName = 'DBText60'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'CONTADOR_TOTAL'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 234686
+              mmTop = 0
+              mmWidth = 32544
+              BandType = 4
+            end
+            object ppDBText78: TppDBText
+              UserName = 'DBText78'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'OFC_DATA_FECHAMENTO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 184150
+              mmTop = 0
+              mmWidth = 16140
+              BandType = 4
+            end
+            object ppDBText29: TppDBText
+              UserName = 'DBText29'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'TPA_NOME'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3175
+              mmLeft = 84138
+              mmTop = 0
+              mmWidth = 28840
               BandType = 4
             end
           end
@@ -3367,7 +3397,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 3387
               mmLeft = 19050
               mmTop = 2117
-              mmWidth = 29041
+              mmWidth = 29972
               BandType = 7
             end
             object ppDBCalc15: TppDBCalc
@@ -3534,10 +3564,10 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 10
                 Font.Style = [fsBold, fsItalic]
                 Transparent = True
-                mmHeight = 4149
-                mmLeft = 6879
-                mmTop = 3440
-                mmWidth = 15663
+                mmHeight = 4233
+                mmLeft = 2117
+                mmTop = 0
+                mmWidth = 42333
                 BandType = 3
                 GroupNo = 0
               end
@@ -3576,9 +3606,9 @@ object FRel_Rechamados: TFRel_Rechamados
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
                 mmHeight = 3683
-                mmLeft = 22754
+                mmLeft = 2117
                 mmTop = 3969
-                mmWidth = 18203
+                mmWidth = 15663
                 BandType = 3
                 GroupNo = 0
               end
@@ -3650,7 +3680,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3387
                 mmLeft = 22490
                 mmTop = 1323
-                mmWidth = 29041
+                mmWidth = 29972
                 BandType = 5
                 GroupNo = 0
               end
@@ -3844,7 +3874,7 @@ object FRel_Rechamados: TFRel_Rechamados
         Border.Style = psSolid
         Border.Visible = False
         Border.Weight = 1.000000000000000000
-        Caption = 'lblEmpresa'
+        Caption = 'SISTEMAQ AUTOMA'#199#195'O'
         Ellipsis = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -3855,7 +3885,7 @@ object FRel_Rechamados: TFRel_Rechamados
         mmHeight = 5842
         mmLeft = 2117
         mmTop = 3969
-        mmWidth = 26712
+        mmWidth = 59351
         BandType = 1
       end
       object SubMarca: TppSubReport
@@ -3892,6 +3922,11 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.mmPaperHeight = 210000
           PrinterSetup.mmPaperWidth = 297000
           PrinterSetup.PaperSize = 9
+          Template.DatabaseSettings.DataPipeline = ppLayout
+          Template.DatabaseSettings.NameField = 'RELATORIO'
+          Template.DatabaseSettings.TemplateField = 'CONFIG'
+          Template.SaveTo = stDatabase
+          Template.Format = ftASCII
           Left = 216
           Top = 312
           Version = '12.03'
@@ -3899,6 +3934,7 @@ object FRel_Rechamados: TFRel_Rechamados
           DataPipelineName = 'ppAtendimento'
           object ppHeaderBand2: TppHeaderBand
             BeforePrint = ppHeaderBand6BeforePrint
+            Visible = False
             mmBottomOffset = 0
             mmHeight = 5027
             mmPrintPosition = 0
@@ -3914,28 +3950,6 @@ object FRel_Rechamados: TFRel_Rechamados
               mmLeft = 0
               mmTop = 4763
               mmWidth = 284163
-              BandType = 0
-            end
-            object ppLabel17: TppLabel
-              UserName = 'Label111'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Equipamento'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3439
-              mmLeft = 8467
-              mmTop = 1323
-              mmWidth = 29104
               BandType = 0
             end
             object ppLabel18: TppLabel
@@ -3955,31 +3969,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 156104
+              mmLeft = 164836
               mmTop = 1323
               mmWidth = 10054
-              BandType = 0
-            end
-            object ppLabel19: TppLabel
-              UserName = 'Label10'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Modelo'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 41010
-              mmTop = 1323
-              mmWidth = 12171
               BandType = 0
             end
             object ppLabel20: TppLabel
@@ -3998,8 +3990,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Size = 8
               Font.Style = [fsBold]
               Transparent = True
-              mmHeight = 3439
-              mmLeft = 98425
+              mmHeight = 3440
+              mmLeft = 95515
               mmTop = 1323
               mmWidth = 12435
               BandType = 0
@@ -4157,10 +4149,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Size = 8
               Font.Style = [fsBold]
               Transparent = True
-              mmHeight = 3323
-              mmLeft = 181769
+              mmHeight = 3440
+              mmLeft = 180182
               mmTop = 1323
-              mmWidth = 10626
+              mmWidth = 10583
               BandType = 0
             end
             object ppLabel28: TppLabel
@@ -4180,7 +4172,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 68792
+              mmLeft = 34131
               mmTop = 1323
               mmWidth = 20638
               BandType = 0
@@ -4244,34 +4236,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 174265
+              mmLeft = 198195
               mmTop = 0
-              mmWidth = 34756
-              BandType = 4
-            end
-            object ppDBText15: TppDBText
-              UserName = 'DBText97'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'PRD_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 8467
-              mmTop = 0
-              mmWidth = 13885
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText16: TppDBText
@@ -4294,9 +4261,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 156104
+              mmLeft = 167217
               mmTop = 0
-              mmWidth = 21294
+              mmWidth = 24680
               BandType = 4
             end
             object ppDBText17: TppDBText
@@ -4319,9 +4286,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 41010
+              mmLeft = 12700
               mmTop = 0
-              mmWidth = 13801
+              mmWidth = 11134
               BandType = 4
             end
             object ppDBText18: TppDBText
@@ -4342,10 +4309,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2900
-              mmLeft = 98425
+              mmHeight = 2910
+              mmLeft = 95515
               mmTop = 0
-              mmWidth = 56356
+              mmWidth = 60590
               BandType = 4
             end
             object ppDBText19: TppDBText
@@ -4370,9 +4337,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 269950
+              mmLeft = 283878
               mmTop = 0
-              mmWidth = 14478
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText21: TppDBText
@@ -4397,9 +4364,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 195104
+              mmLeft = 215392
               mmTop = 0
-              mmWidth = 28321
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText22: TppDBText
@@ -4423,10 +4390,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 227013
-              mmTop = 265
-              mmWidth = 26458
+              mmHeight = 2910
+              mmLeft = 240771
+              mmTop = 0
+              mmWidth = 5556
               BandType = 4
             end
             object ppDBText23: TppDBText
@@ -4450,9 +4417,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 251402
+              mmLeft = 256905
               mmTop = 0
-              mmWidth = 22394
+              mmWidth = 11388
               BandType = 4
             end
             object ppDBText24: TppDBText
@@ -4477,7 +4444,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 0
               mmTop = 0
-              mmWidth = 16425
+              mmWidth = 6773
               BandType = 4
             end
             object ppDBText25: TppDBText
@@ -4502,7 +4469,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 181769
               mmTop = 0
-              mmWidth = 14097
+              mmWidth = 11896
               BandType = 4
             end
             object ppDBText26: TppDBText
@@ -4523,10 +4490,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2921
-              mmLeft = 68792
+              mmHeight = 2910
+              mmLeft = 34131
               mmTop = 0
-              mmWidth = 28046
+              mmWidth = 53446
               BandType = 4
             end
             object ppDBText27: TppDBText
@@ -4550,10 +4517,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 214238
+              mmHeight = 2910
+              mmLeft = 228336
               mmTop = 0
-              mmWidth = 22310
+              mmWidth = 5556
               BandType = 4
             end
           end
@@ -4621,7 +4588,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 3387
               mmLeft = 19050
               mmTop = 2117
-              mmWidth = 29041
+              mmWidth = 29972
               BandType = 7
             end
             object ppDBCalc21: TppDBCalc
@@ -4641,10 +4608,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Name = 'Arial'
               Font.Size = 7
               Font.Style = [fsBold]
-              TextAlignment = taRightJustified
+              TextAlignment = taCentered
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2910
+              mmHeight = 2921
               mmLeft = 266701
               mmTop = 1588
               mmWidth = 17198
@@ -4667,10 +4634,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Name = 'Arial'
               Font.Size = 7
               Font.Style = [fsBold]
-              TextAlignment = taRightJustified
+              TextAlignment = taCentered
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2910
+              mmHeight = 2921
               mmLeft = 224896
               mmTop = 1323
               mmWidth = 11642
@@ -4693,14 +4660,14 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Name = 'Arial'
               Font.Size = 7
               Font.Style = [fsBold]
-              TextAlignment = taRightJustified
+              TextAlignment = taCentered
               Transparent = True
               DBCalcType = dcAverage
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2910
-              mmLeft = 209815
+              mmLeft = 213255
               mmTop = 1323
-              mmWidth = 13495
+              mmWidth = 10054
               BandType = 7
             end
             object ppDBCalc25: TppDBCalc
@@ -4720,13 +4687,13 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Name = 'Arial'
               Font.Size = 7
               Font.Style = [fsBold]
-              TextAlignment = taRightJustified
+              TextAlignment = taCentered
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2910
               mmLeft = 194998
               mmTop = 1323
-              mmWidth = 14023
+              mmWidth = 11113
               BandType = 7
             end
             object ppDBCalc68: TppDBCalc
@@ -4746,13 +4713,13 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Name = 'Arial'
               Font.Size = 7
               Font.Style = [fsBold]
-              TextAlignment = taRightJustified
+              TextAlignment = taCentered
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2921
-              mmLeft = 240771
+              mmHeight = 2910
+              mmLeft = 239713
               mmTop = 1323
-              mmWidth = 12700
+              mmWidth = 9790
               BandType = 7
             end
           end
@@ -4832,7 +4799,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3683
                 mmLeft = 20108
                 mmTop = 3969
-                mmWidth = 18373
+                mmWidth = 15833
                 BandType = 3
                 GroupNo = 0
               end
@@ -4904,7 +4871,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3387
                 mmLeft = 20373
                 mmTop = 1588
-                mmWidth = 29041
+                mmWidth = 29972
                 BandType = 5
                 GroupNo = 0
               end
@@ -4926,10 +4893,10 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 7
                 Font.Style = [fsBold]
                 ResetGroup = ppGroup2
-                TextAlignment = taRightJustified
+                TextAlignment = taCentered
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
-                mmHeight = 2963
+                mmHeight = 2921
                 mmLeft = 266965
                 mmTop = 794
                 mmWidth = 17198
@@ -4954,11 +4921,11 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 7
                 Font.Style = [fsBold]
                 ResetGroup = ppGroup2
-                TextAlignment = taRightJustified
+                TextAlignment = taCentered
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
                 mmHeight = 2910
-                mmLeft = 224896
+                mmLeft = 226219
                 mmTop = 529
                 mmWidth = 11642
                 BandType = 5
@@ -4982,14 +4949,14 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 7
                 Font.Style = [fsBold]
                 ResetGroup = ppGroup2
-                TextAlignment = taRightJustified
+                TextAlignment = taCentered
                 Transparent = True
                 DBCalcType = dcAverage
                 DataPipelineName = 'ppAtendimento'
                 mmHeight = 2910
-                mmLeft = 209815
+                mmLeft = 213255
                 mmTop = 529
-                mmWidth = 13495
+                mmWidth = 10054
                 BandType = 5
                 GroupNo = 0
               end
@@ -5011,13 +4978,13 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 7
                 Font.Style = [fsBold]
                 ResetGroup = ppGroup2
-                TextAlignment = taRightJustified
+                TextAlignment = taCentered
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
                 mmHeight = 2910
-                mmLeft = 194998
+                mmLeft = 196057
                 mmTop = 529
-                mmWidth = 14023
+                mmWidth = 10054
                 BandType = 5
                 GroupNo = 0
               end
@@ -5039,13 +5006,13 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 7
                 Font.Style = [fsBold]
                 ResetGroup = ppGroup2
-                TextAlignment = taRightJustified
+                TextAlignment = taCentered
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
-                mmHeight = 2921
-                mmLeft = 240771
+                mmHeight = 2910
+                mmLeft = 239713
                 mmTop = 529
-                mmWidth = 12700
+                mmWidth = 9790
                 BandType = 5
                 GroupNo = 0
               end
@@ -5090,6 +5057,11 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.mmPaperHeight = 210000
           PrinterSetup.mmPaperWidth = 297000
           PrinterSetup.PaperSize = 9
+          Template.DatabaseSettings.DataPipeline = ppLayout
+          Template.DatabaseSettings.NameField = 'RELATORIO'
+          Template.DatabaseSettings.TemplateField = 'CONFIG'
+          Template.SaveTo = stDatabase
+          Template.Format = ftASCII
           Left = 216
           Top = 312
           Version = '12.03'
@@ -5097,6 +5069,7 @@ object FRel_Rechamados: TFRel_Rechamados
           DataPipelineName = 'ppAtendimento'
           object ppHeaderBand3: TppHeaderBand
             BeforePrint = ppHeaderBand6BeforePrint
+            Visible = False
             mmBottomOffset = 0
             mmHeight = 5027
             mmPrintPosition = 0
@@ -5112,28 +5085,6 @@ object FRel_Rechamados: TFRel_Rechamados
               mmLeft = 0
               mmTop = 4763
               mmWidth = 284163
-              BandType = 0
-            end
-            object ppLabel33: TppLabel
-              UserName = 'Label111'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Equipamento'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3439
-              mmLeft = 8467
-              mmTop = 1323
-              mmWidth = 29104
               BandType = 0
             end
             object ppLabel34: TppLabel
@@ -5153,7 +5104,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 159015
+              mmLeft = 167217
               mmTop = 1323
               mmWidth = 10054
               BandType = 0
@@ -5175,7 +5126,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 43921
+              mmLeft = 22490
               mmTop = 1323
               mmWidth = 10583
               BandType = 0
@@ -5378,7 +5329,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 71702
+              mmLeft = 63500
               mmTop = 1323
               mmWidth = 22754
               BandType = 0
@@ -5420,31 +5371,6 @@ object FRel_Rechamados: TFRel_Rechamados
             mmBottomOffset = 0
             mmHeight = 2910
             mmPrintPosition = 0
-            object ppDBText29: TppDBText
-              UserName = 'DBText97'
-              HyperlinkColor = clBlue
-              AutoSize = True
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'PRD_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 8467
-              mmTop = 0
-              mmWidth = 13885
-              BandType = 4
-            end
             object ppDBText30: TppDBText
               UserName = 'DBText3'
               HyperlinkColor = clBlue
@@ -5465,9 +5391,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 159015
-              mmTop = 0
-              mmWidth = 21294
+              mmLeft = 171715
+              mmTop = 265
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText31: TppDBText
@@ -5488,10 +5414,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2921
-              mmLeft = 43921
+              mmHeight = 2910
+              mmLeft = 21431
               mmTop = 0
-              mmWidth = 24606
+              mmWidth = 20638
               BandType = 4
             end
             object ppDBText32: TppDBText
@@ -5512,10 +5438,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2900
+              mmHeight = 2910
               mmLeft = 101336
               mmTop = 0
-              mmWidth = 56356
+              mmWidth = 61648
               BandType = 4
             end
             object ppDBText33: TppDBText
@@ -5540,9 +5466,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 269950
+              mmLeft = 283878
               mmTop = 0
-              mmWidth = 14478
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText34: TppDBText
@@ -5567,9 +5493,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 174265
+              mmLeft = 208471
               mmTop = 0
-              mmWidth = 34756
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText35: TppDBText
@@ -5594,9 +5520,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 195104
+              mmLeft = 222875
               mmTop = 0
-              mmWidth = 28321
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText36: TppDBText
@@ -5620,10 +5546,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2910
-              mmLeft = 228336
+              mmHeight = 2879
+              mmLeft = 253186
               mmTop = 265
-              mmWidth = 25400
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText37: TppDBText
@@ -5647,9 +5573,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 251402
+              mmLeft = 262324
               mmTop = 0
-              mmWidth = 22394
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText38: TppDBText
@@ -5674,7 +5600,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 0
               mmTop = 0
-              mmWidth = 16425
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText39: TppDBText
@@ -5699,7 +5625,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 181769
               mmTop = 0
-              mmWidth = 14097
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText40: TppDBText
@@ -5721,7 +5647,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2910
-              mmLeft = 71702
+              mmLeft = 63500
               mmTop = 0
               mmWidth = 28046
               BandType = 4
@@ -5748,9 +5674,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 214238
+              mmLeft = 235998
               mmTop = 0
-              mmWidth = 22310
+              mmWidth = 550
               BandType = 4
             end
           end
@@ -5818,7 +5744,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 3387
               mmLeft = 19050
               mmTop = 2117
-              mmWidth = 29041
+              mmWidth = 29972
               BandType = 7
             end
             object ppDBCalc32: TppDBCalc
@@ -6029,7 +5955,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3683
                 mmLeft = 21431
                 mmTop = 3969
-                mmWidth = 18034
+                mmWidth = 889
                 BandType = 3
                 GroupNo = 0
               end
@@ -6101,7 +6027,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3387
                 mmLeft = 22490
                 mmTop = 1323
-                mmWidth = 29041
+                mmWidth = 29972
                 BandType = 5
                 GroupNo = 0
               end
@@ -6287,6 +6213,11 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.mmPaperHeight = 210000
           PrinterSetup.mmPaperWidth = 297000
           PrinterSetup.PaperSize = 9
+          Template.DatabaseSettings.DataPipeline = ppLayout
+          Template.DatabaseSettings.NameField = 'RELATORIO'
+          Template.DatabaseSettings.TemplateField = 'CONFIG'
+          Template.SaveTo = stDatabase
+          Template.Format = ftASCII
           Left = 216
           Top = 312
           Version = '12.03'
@@ -6294,6 +6225,7 @@ object FRel_Rechamados: TFRel_Rechamados
           DataPipelineName = 'ppAtendimento'
           object ppHeaderBand4: TppHeaderBand
             BeforePrint = ppHeaderBand6BeforePrint
+            Visible = False
             mmBottomOffset = 0
             mmHeight = 5027
             mmPrintPosition = 0
@@ -6328,8 +6260,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 35719
-              mmTop = 1323
+              mmLeft = 33073
+              mmTop = 1058
               mmWidth = 30427
               BandType = 0
             end
@@ -6635,8 +6567,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2921
-              mmLeft = 35719
+              mmHeight = 2910
+              mmLeft = 33073
               mmTop = 0
               mmWidth = 30427
               BandType = 4
@@ -6660,10 +6592,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 159015
+              mmHeight = 2910
+              mmLeft = 160867
               mmTop = 0
-              mmWidth = 21294
+              mmWidth = 4233
               BandType = 4
             end
             object ppDBText45: TppDBText
@@ -6688,7 +6620,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 8996
               mmTop = 0
-              mmWidth = 14224
+              mmWidth = 10499
               BandType = 4
             end
             object ppDBText46: TppDBText
@@ -6737,9 +6669,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 269950
+              mmLeft = 283878
               mmTop = 0
-              mmWidth = 14478
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText48: TppDBText
@@ -6764,9 +6696,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 174265
+              mmLeft = 204280
               mmTop = 0
-              mmWidth = 34756
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText49: TppDBText
@@ -6791,9 +6723,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 194998
+              mmLeft = 218578
               mmTop = 0
-              mmWidth = 28321
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText50: TppDBText
@@ -6817,10 +6749,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2910
-              mmLeft = 227278
+              mmHeight = 2879
+              mmLeft = 247937
               mmTop = 0
-              mmWidth = 25400
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText51: TppDBText
@@ -6844,9 +6776,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 251403
+              mmLeft = 258642
               mmTop = 0
-              mmWidth = 22394
+              mmWidth = 7916
               BandType = 4
             end
             object ppDBText52: TppDBText
@@ -6871,7 +6803,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 0
               mmTop = 0
-              mmWidth = 16425
+              mmWidth = 6773
               BandType = 4
             end
             object ppDBText53: TppDBText
@@ -6896,7 +6828,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 181769
               mmTop = 0
-              mmWidth = 14097
+              mmWidth = 7324
               BandType = 4
             end
             object ppDBText54: TppDBText
@@ -6917,10 +6849,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2921
-              mmLeft = 69321
+              mmHeight = 2910
+              mmLeft = 65617
               mmTop = 0
-              mmWidth = 30692
+              mmWidth = 32808
               BandType = 4
             end
             object ppDBText55: TppDBText
@@ -6945,9 +6877,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 214048
+              mmLeft = 231617
               mmTop = 0
-              mmWidth = 22310
+              mmWidth = 4741
               BandType = 4
             end
           end
@@ -7015,7 +6947,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 3387
               mmLeft = 19050
               mmTop = 2117
-              mmWidth = 29041
+              mmWidth = 29972
               BandType = 7
             end
             object ppDBCalc42: TppDBCalc
@@ -7226,7 +7158,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3683
                 mmLeft = 30692
                 mmTop = 3969
-                mmWidth = 17907
+                mmWidth = 55626
                 BandType = 3
                 GroupNo = 0
               end
@@ -7298,7 +7230,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3387
                 mmLeft = 30956
                 mmTop = 1323
-                mmWidth = 29041
+                mmWidth = 29972
                 BandType = 5
                 GroupNo = 0
               end
@@ -7457,7 +7389,6 @@ object FRel_Rechamados: TFRel_Rechamados
         OutlineSettings.CreateNode = True
         ParentPrinterSetup = False
         TraverseAllData = False
-        Visible = False
         DataPipelineName = 'ppAtendimento'
         mmHeight = 5027
         mmLeft = 0
@@ -7484,6 +7415,11 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.mmPaperHeight = 210000
           PrinterSetup.mmPaperWidth = 297000
           PrinterSetup.PaperSize = 9
+          Template.DatabaseSettings.DataPipeline = ppLayout
+          Template.DatabaseSettings.NameField = 'RELATORIO'
+          Template.DatabaseSettings.TemplateField = 'CONFIG'
+          Template.SaveTo = stDatabase
+          Template.Format = ftASCII
           Left = 216
           Top = 312
           Version = '12.03'
@@ -7524,8 +7460,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Size = 8
               Font.Style = [fsBold]
               Transparent = True
-              mmHeight = 3323
-              mmLeft = 98425
+              mmHeight = 3440
+              mmLeft = 45244
               mmTop = 1323
               mmWidth = 15610
               BandType = 0
@@ -7547,7 +7483,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 159015
+              mmLeft = 153723
               mmTop = 1323
               mmWidth = 10054
               BandType = 0
@@ -7569,31 +7505,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 62177
-              mmTop = 1323
-              mmWidth = 30427
-              BandType = 0
-            end
-            object ppLabel68: TppLabel
-              UserName = 'Label102'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              Caption = 'Equipamento'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3175
               mmLeft = 11113
               mmTop = 1323
-              mmWidth = 17639
+              mmWidth = 30427
               BandType = 0
             end
             object ppLabel69: TppLabel
@@ -7772,7 +7686,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3175
-              mmLeft = 135732
+              mmLeft = 127000
               mmTop = 1323
               mmWidth = 11642
               BandType = 0
@@ -7800,6 +7714,28 @@ object FRel_Rechamados: TFRel_Rechamados
               mmWidth = 11642
               BandType = 0
             end
+            object ppLabel81: TppLabel
+              UserName = 'Label81'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Dt. Abert.'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 103717
+              mmTop = 1058
+              mmWidth = 12700
+              BandType = 0
+            end
           end
           object ppDetailBand5: TppDetailBand
             Background1.Brush.Style = bsClear
@@ -7814,30 +7750,6 @@ object FRel_Rechamados: TFRel_Rechamados
             mmBottomOffset = 0
             mmHeight = 2910
             mmPrintPosition = 0
-            object ppDBText60: TppDBText
-              UserName = 'DBText245'
-              HyperlinkColor = clBlue
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Border.Weight = 1.000000000000000000
-              DataField = 'PRD_NOME'
-              DataPipeline = ppAtendimento
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 7
-              Font.Style = []
-              Transparent = True
-              DataPipelineName = 'ppAtendimento'
-              mmHeight = 2910
-              mmLeft = 11113
-              mmTop = 0
-              mmWidth = 39952
-              BandType = 4
-            end
             object ppDBText57: TppDBText
               UserName = 'DBText97'
               HyperlinkColor = clBlue
@@ -7856,8 +7768,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2963
-              mmLeft = 98425
+              mmHeight = 2910
+              mmLeft = 48419
               mmTop = 0
               mmWidth = 34660
               BandType = 4
@@ -7882,9 +7794,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 159015
+              mmLeft = 158221
               mmTop = 0
-              mmWidth = 21294
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText59: TppDBText
@@ -7905,8 +7817,8 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2963
-              mmLeft = 62177
+              mmHeight = 2910
+              mmLeft = 11113
               mmTop = 0
               mmWidth = 35454
               BandType = 4
@@ -7933,9 +7845,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 269950
+              mmLeft = 283878
               mmTop = 0
-              mmWidth = 14478
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText62: TppDBText
@@ -7960,9 +7872,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 174265
+              mmLeft = 208471
               mmTop = 0
-              mmWidth = 34756
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText63: TppDBText
@@ -7987,9 +7899,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 195104
+              mmLeft = 222875
               mmTop = 0
-              mmWidth = 28321
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText64: TppDBText
@@ -8013,10 +7925,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2910
-              mmLeft = 227278
+              mmHeight = 2879
+              mmLeft = 252128
               mmTop = 0
-              mmWidth = 25400
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText65: TppDBText
@@ -8040,9 +7952,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 251403
+              mmLeft = 262325
               mmTop = 0
-              mmWidth = 22394
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText66: TppDBText
@@ -8067,7 +7979,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 0
               mmTop = 0
-              mmWidth = 16425
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText67: TppDBText
@@ -8092,7 +8004,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 181769
               mmTop = 0
-              mmWidth = 14097
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText68: TppDBText
@@ -8115,9 +8027,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 135732
+              mmLeft = 126471
               mmTop = 0
-              mmWidth = 31665
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText69: TppDBText
@@ -8142,9 +8054,34 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 214238
+              mmLeft = 235998
               mmTop = 0
-              mmWidth = 22310
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText8: TppDBText
+              UserName = 'DBText2'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_DT_ENTRADA'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 103717
+              mmTop = 0
+              mmWidth = 550
               BandType = 4
             end
           end
@@ -8212,7 +8149,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 3387
               mmLeft = 19050
               mmTop = 2117
-              mmWidth = 29041
+              mmWidth = 29972
               BandType = 7
             end
             object ppDBCalc52: TppDBCalc
@@ -8423,7 +8360,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3683
                 mmLeft = 21167
                 mmTop = 3969
-                mmWidth = 29379
+                mmWidth = 889
                 BandType = 3
                 GroupNo = 0
               end
@@ -8449,7 +8386,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 2879
                 mmLeft = 7144
                 mmTop = 8731
-                mmWidth = 13970
+                mmWidth = 550
                 BandType = 3
                 GroupNo = 0
               end
@@ -8475,7 +8412,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 2879
                 mmLeft = 92340
                 mmTop = 8731
-                mmWidth = 9398
+                mmWidth = 550
                 BandType = 3
                 GroupNo = 0
               end
@@ -8501,7 +8438,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 2879
                 mmLeft = 134144
                 mmTop = 8731
-                mmWidth = 9271
+                mmWidth = 550
                 BandType = 3
                 GroupNo = 0
               end
@@ -8527,7 +8464,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 2879
                 mmLeft = 169069
                 mmTop = 8731
-                mmWidth = 6816
+                mmWidth = 550
                 BandType = 3
                 GroupNo = 0
               end
@@ -8599,7 +8536,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3387
                 mmLeft = 22225
                 mmTop = 1323
-                mmWidth = 29041
+                mmWidth = 29972
                 BandType = 5
                 GroupNo = 0
               end
@@ -8798,6 +8735,1162 @@ object FRel_Rechamados: TFRel_Rechamados
         mmWidth = 26289
         BandType = 1
       end
+      object SubMotivoChamado: TppSubReport
+        UserName = 'SubMotivoChamado'
+        ExpandAll = False
+        NewPrintJob = False
+        OutlineSettings.CreateNode = True
+        ParentPrinterSetup = False
+        TraverseAllData = False
+        Visible = False
+        DataPipelineName = 'ppAtendimento'
+        mmHeight = 5027
+        mmLeft = 0
+        mmTop = 24871
+        mmWidth = 284300
+        BandType = 1
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        object ppChildReport7: TppChildReport
+          AutoStop = False
+          DataPipeline = ppAtendimento
+          PrinterSetup.BinName = 'Default'
+          PrinterSetup.DocumentName = 'Report'
+          PrinterSetup.Orientation = poLandscape
+          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PrinterName = 'Default'
+          PrinterSetup.SaveDeviceSettings = False
+          PrinterSetup.mmMarginBottom = 6350
+          PrinterSetup.mmMarginLeft = 6350
+          PrinterSetup.mmMarginRight = 6350
+          PrinterSetup.mmMarginTop = 6350
+          PrinterSetup.mmPaperHeight = 210000
+          PrinterSetup.mmPaperWidth = 297000
+          PrinterSetup.PaperSize = 9
+          Template.DatabaseSettings.DataPipeline = ppLayout
+          Template.DatabaseSettings.NameField = 'RELATORIO'
+          Template.DatabaseSettings.TemplateField = 'CONFIG'
+          Template.SaveTo = stDatabase
+          Template.Format = ftASCII
+          Left = 216
+          Top = 312
+          Version = '12.03'
+          mmColumnWidth = 0
+          DataPipelineName = 'ppAtendimento'
+          object ppHeaderBand8: TppHeaderBand
+            BeforePrint = ppHeaderBand6BeforePrint
+            Visible = False
+            mmBottomOffset = 0
+            mmHeight = 5027
+            mmPrintPosition = 0
+            object ppLine23: TppLine
+              UserName = 'Line1'
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Weight = 0.750000000000000000
+              mmHeight = 529
+              mmLeft = 0
+              mmTop = 4763
+              mmWidth = 284163
+              BandType = 0
+            end
+            object ppLabel84: TppLabel
+              UserName = 'Label9'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Regi'#227'o'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 167217
+              mmTop = 1323
+              mmWidth = 10054
+              BandType = 0
+            end
+            object ppLabel85: TppLabel
+              UserName = 'Label10'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Marca'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 22490
+              mmTop = 1323
+              mmWidth = 10583
+              BandType = 0
+            end
+            object ppLabel86: TppLabel
+              UserName = 'Label102'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Cliente'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3439
+              mmLeft = 101336
+              mmTop = 1323
+              mmWidth = 12435
+              BandType = 0
+            end
+            object ppLabel87: TppLabel
+              UserName = 'Label180'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Total (R$)'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 268023
+              mmTop = 1323
+              mmWidth = 16404
+              BandType = 0
+            end
+            object ppLabel88: TppLabel
+              UserName = 'Label1801'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Tmp. At. '
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3439
+              mmLeft = 194998
+              mmTop = 1323
+              mmWidth = 14023
+              BandType = 0
+            end
+            object ppLabel89: TppLabel
+              UserName = 'Label182'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Tmp. Rp.'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 211138
+              mmTop = 1323
+              mmWidth = 12171
+              BandType = 0
+            end
+            object ppLabel90: TppLabel
+              UserName = 'Label185'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Tp. Viagem'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 238655
+              mmTop = 1323
+              mmWidth = 15081
+              BandType = 0
+            end
+            object ppLabel91: TppLabel
+              UserName = 'Label186'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Tp. Atend.'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3323
+              mmLeft = 254001
+              mmTop = 1323
+              mmWidth = 13229
+              BandType = 0
+            end
+            object ppLabel92: TppLabel
+              UserName = 'Label187'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Cod.'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3323
+              mmLeft = 0
+              mmTop = 1323
+              mmWidth = 6244
+              BandType = 0
+            end
+            object ppLabel93: TppLabel
+              UserName = 'Label188'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'T'#233'cnico'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3323
+              mmLeft = 181769
+              mmTop = 1323
+              mmWidth = 10626
+              BandType = 0
+            end
+            object ppLabel94: TppLabel
+              UserName = 'Label103'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Modelo'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3387
+              mmLeft = 61913
+              mmTop = 1323
+              mmWidth = 9991
+              BandType = 0
+            end
+            object ppLabel95: TppLabel
+              UserName = 'Label190'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'KM. Utl.'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3439
+              mmLeft = 224896
+              mmTop = 1323
+              mmWidth = 11641
+              BandType = 0
+            end
+          end
+          object ppDetailBand7: TppDetailBand
+            Background1.Brush.Style = bsClear
+            Background1.Gradient.EndColor = clWhite
+            Background1.Gradient.StartColor = clWhite
+            Background1.Gradient.Style = gsNone
+            Background2.Brush.Style = bsClear
+            Background2.Gradient.EndColor = clWhite
+            Background2.Gradient.StartColor = clWhite
+            Background2.Gradient.Style = gsNone
+            PrintHeight = phDynamic
+            mmBottomOffset = 0
+            mmHeight = 2910
+            mmPrintPosition = 0
+            object ppDBText79: TppDBText
+              UserName = 'DBText3'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'REG_DESCRICAO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 171715
+              mmTop = 265
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText80: TppDBText
+              UserName = 'DBText8'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'MRC_NOME'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 21431
+              mmTop = 0
+              mmWidth = 20638
+              BandType = 4
+            end
+            object ppDBText81: TppDBText
+              UserName = 'DBText245'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'CLI_NOME_RAZAO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 101336
+              mmTop = 0
+              mmWidth = 61648
+              BandType = 4
+            end
+            object ppDBText82: TppDBText
+              UserName = 'DBText247'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_TOTAL'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 283878
+              mmTop = 0
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText83: TppDBText
+              UserName = 'DBText248'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_HORAS_TRABALHADAS'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 208471
+              mmTop = 0
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText84: TppDBText
+              UserName = 'DBText249'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'CP_TEMPO_RESPOSTA'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 222875
+              mmTop = 0
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText85: TppDBText
+              UserName = 'DBText250'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_TEMPO_VIAJEM'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 253186
+              mmTop = 265
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText86: TppDBText
+              UserName = 'DBText2501'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'TP_ATENDIMENTO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              TextAlignment = taCentered
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 262324
+              mmTop = 0
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText87: TppDBText
+              UserName = 'DBText254'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_CODIGO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 0
+              mmTop = 0
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText88: TppDBText
+              UserName = 'DBText2502'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'MEC_NOME'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 181769
+              mmTop = 0
+              mmWidth = 550
+              BandType = 4
+            end
+            object ppDBText89: TppDBText
+              UserName = 'DBText257'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'MDL_NOME'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 61913
+              mmTop = 0
+              mmWidth = 28046
+              BandType = 4
+            end
+            object ppDBText90: TppDBText
+              UserName = 'DBText258'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_KM_RODADO'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2879
+              mmLeft = 235998
+              mmTop = 0
+              mmWidth = 550
+              BandType = 4
+            end
+          end
+          object ppSummaryBand6: TppSummaryBand
+            AlignToBottom = False
+            mmBottomOffset = 0
+            mmHeight = 12435
+            mmPrintPosition = 0
+            object ppLine24: TppLine
+              UserName = 'Line4'
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Weight = 0.750000000000000000
+              mmHeight = 1058
+              mmLeft = 529
+              mmTop = 529
+              mmWidth = 283898
+              BandType = 7
+            end
+            object ppLabel96: TppLabel
+              UserName = 'Label16'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              Caption = 'Total Geral:'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold, fsItalic]
+              Transparent = True
+              mmHeight = 3683
+              mmLeft = 1058
+              mmTop = 1852
+              mmWidth = 17695
+              BandType = 7
+            end
+            object ppDBCalc73: TppDBCalc
+              UserName = 'DBCalc7'
+              HyperlinkColor = clBlue
+              AutoSize = True
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_CODIGO'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              DBCalcType = dcCount
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 3387
+              mmLeft = 19050
+              mmTop = 2117
+              mmWidth = 29972
+              BandType = 7
+            end
+            object ppDBCalc74: TppDBCalc
+              UserName = 'DBCalc15'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_TOTAL'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 266701
+              mmTop = 1588
+              mmWidth = 17198
+              BandType = 7
+            end
+            object ppDBCalc75: TppDBCalc
+              UserName = 'DBCalc16'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_KM_RODADO'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 224103
+              mmTop = 1323
+              mmWidth = 11641
+              BandType = 7
+            end
+            object ppDBCalc76: TppDBCalc
+              UserName = 'DBCalc17'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'CP_TEMPO_RESPOSTA'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DBCalcType = dcAverage
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 209815
+              mmTop = 1323
+              mmWidth = 13494
+              BandType = 7
+            end
+            object ppDBCalc77: TppDBCalc
+              UserName = 'DBCalc18'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_HORAS_TRABALHADAS'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 194998
+              mmTop = 1323
+              mmWidth = 14023
+              BandType = 7
+            end
+            object ppDBCalc78: TppDBCalc
+              UserName = 'DBCalc66'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Border.Weight = 1.000000000000000000
+              DataField = 'OFC_TEMPO_VIAJEM'
+              DataPipeline = ppAtendimento
+              DisplayFormat = '#,0.00;-#,0.00'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 7
+              Font.Style = [fsBold]
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2921
+              mmLeft = 238919
+              mmTop = 1058
+              mmWidth = 14817
+              BandType = 7
+            end
+          end
+          object ppGroup6: TppGroup
+            BreakName = 'MDL_NOME'
+            DataPipeline = ppAtendimento
+            GroupFileSettings.NewFile = False
+            GroupFileSettings.EmailFile = False
+            OutlineSettings.CreateNode = True
+            StartOnOddPage = False
+            UserName = 'Group1'
+            mmNewColumnThreshold = 0
+            mmNewPageThreshold = 0
+            DataPipelineName = 'ppAtendimento'
+            NewFile = False
+            object ppGroupHeaderBand6: TppGroupHeaderBand
+              mmBottomOffset = 0
+              mmHeight = 8731
+              mmPrintPosition = 0
+              object ppLabel97: TppLabel
+                UserName = 'Label1'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Caption = 'Motivo do Chamado:'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 10
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                mmHeight = 4233
+                mmLeft = 6615
+                mmTop = 2646
+                mmWidth = 34660
+                BandType = 3
+                GroupNo = 0
+              end
+              object ppLine25: TppLine
+                UserName = 'Line2'
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Weight = 0.750000000000000000
+                mmHeight = 794
+                mmLeft = 6879
+                mmTop = 7938
+                mmWidth = 277548
+                BandType = 3
+                GroupNo = 0
+              end
+              object ppDBText91: TppDBText
+                UserName = 'DBText1'
+                HyperlinkColor = clBlue
+                AutoSize = True
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'MTC_NOME'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 9
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3704
+                mmLeft = 41804
+                mmTop = 3175
+                mmWidth = 7673
+                BandType = 3
+                GroupNo = 0
+              end
+            end
+            object ppGroupFooterBand6: TppGroupFooterBand
+              HideWhenOneDetail = False
+              mmBottomOffset = 0
+              mmHeight = 5821
+              mmPrintPosition = 0
+              object ppLine26: TppLine
+                UserName = 'Line3'
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Weight = 0.750000000000000000
+                mmHeight = 529
+                mmLeft = 6615
+                mmTop = 0
+                mmWidth = 277019
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppLabel98: TppLabel
+                UserName = 'Label15'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Caption = 'Total Modelo: '
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 9
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                mmHeight = 3747
+                mmLeft = 794
+                mmTop = 1058
+                mmWidth = 21569
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppDBCalc79: TppDBCalc
+                UserName = 'DBCalc12'
+                HyperlinkColor = clBlue
+                AutoSize = True
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'OFC_CODIGO'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup3
+                Transparent = True
+                DBCalcType = dcCount
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3387
+                mmLeft = 22490
+                mmTop = 1323
+                mmWidth = 29972
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppDBCalc80: TppDBCalc
+                UserName = 'DBCalc11'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'OFC_TOTAL'
+                DataPipeline = ppAtendimento
+                DisplayFormat = '#,0.00;-#,0.00'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 7
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup3
+                TextAlignment = taRightJustified
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 2963
+                mmLeft = 266965
+                mmTop = 794
+                mmWidth = 17198
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppDBCalc81: TppDBCalc
+                UserName = 'DBCalc1'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'OFC_KM_RODADO'
+                DataPipeline = ppAtendimento
+                DisplayFormat = '#,0.00;-#,0.00'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 7
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup3
+                TextAlignment = taRightJustified
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 2910
+                mmLeft = 224103
+                mmTop = 529
+                mmWidth = 11641
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppDBCalc82: TppDBCalc
+                UserName = 'DBCalc13'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'CP_TEMPO_RESPOSTA'
+                DataPipeline = ppAtendimento
+                DisplayFormat = '#,0.00;-#,0.00'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 7
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup3
+                TextAlignment = taRightJustified
+                Transparent = True
+                DBCalcType = dcAverage
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 2910
+                mmLeft = 209815
+                mmTop = 529
+                mmWidth = 13494
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppDBCalc83: TppDBCalc
+                UserName = 'DBCalc14'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'OFC_HORAS_TRABALHADAS'
+                DataPipeline = ppAtendimento
+                DisplayFormat = '#,0.00;-#,0.00'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 7
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup3
+                TextAlignment = taRightJustified
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 2910
+                mmLeft = 194998
+                mmTop = 529
+                mmWidth = 14023
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppDBCalc84: TppDBCalc
+                UserName = 'DBCalc65'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'OFC_TEMPO_VIAJEM'
+                DataPipeline = ppAtendimento
+                DisplayFormat = '#,0.00;-#,0.00'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 7
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup3
+                TextAlignment = taRightJustified
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 2910
+                mmLeft = 238919
+                mmTop = 529
+                mmWidth = 14817
+                BandType = 5
+                GroupNo = 0
+              end
+            end
+          end
+          object raCodeModule7: TraCodeModule
+            ProgramStream = {00}
+          end
+        end
+      end
     end
     object ppDetailBand18: TppDetailBand
       Background1.Brush.Style = bsClear
@@ -8828,6 +9921,29 @@ object FRel_Rechamados: TFRel_Rechamados
         mmWidth = 283369
         BandType = 8
       end
+      object ppLabel211: TppLabel
+        UserName = 'Label116'
+        HyperlinkColor = clBlue
+        AutoSize = False
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'SISTEMAQ AUTOMA'#199#195'O'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold, fsItalic]
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 3440
+        mmTop = 1852
+        mmWidth = 127794
+        BandType = 8
+      end
       object ppSystemVariable13: TppSystemVariable
         UserName = 'SystemVariable4'
         HyperlinkColor = clBlue
@@ -8850,30 +9966,6 @@ object FRel_Rechamados: TFRel_Rechamados
         mmWidth = 14552
         BandType = 8
       end
-      object ppDBText8: TppDBText
-        UserName = 'DBText1'
-        HyperlinkColor = clBlue
-        Border.BorderPositions = []
-        Border.Color = clBlack
-        Border.Style = psSolid
-        Border.Visible = False
-        DataField = 'PARC_TEXTO_RELATORIO'
-        DataPipeline = ppAppRepresentante
-        Ellipsis = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 9
-        Font.Style = [fsBold, fsItalic]
-        ParentDataPipeline = False
-        Transparent = True
-        DataPipelineName = 'ppAppRepresentante'
-        mmHeight = 3704
-        mmLeft = 2117
-        mmTop = 2117
-        mmWidth = 132292
-        BandType = 8
-      end
     end
     object raCodeModule6: TraCodeModule
       ProgramStream = {00}
@@ -8886,6 +9978,415 @@ object FRel_Rechamados: TFRel_Rechamados
     UserName = 'Atendimento'
     Left = 294
     Top = 3
+    object ppAtendimentoppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_CODIGO'
+      FieldName = 'OFC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppAtendimentoppField2: TppField
+      FieldAlias = 'OFC_DATA'
+      FieldName = 'OFC_DATA'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 1
+    end
+    object ppAtendimentoppField3: TppField
+      FieldAlias = 'OFC_DT_ENTRADA'
+      FieldName = 'OFC_DT_ENTRADA'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 2
+    end
+    object ppAtendimentoppField4: TppField
+      FieldAlias = 'OFC_HR_ENTRADA'
+      FieldName = 'OFC_HR_ENTRADA'
+      FieldLength = 0
+      DataType = dtDateTime
+      DisplayWidth = 18
+      Position = 3
+    end
+    object ppAtendimentoppField5: TppField
+      FieldAlias = 'OFC_DT_ATRIBUICAO'
+      FieldName = 'OFC_DT_ATRIBUICAO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 4
+    end
+    object ppAtendimentoppField6: TppField
+      FieldAlias = 'OFC_HR_ATRIBUICAO'
+      FieldName = 'OFC_HR_ATRIBUICAO'
+      FieldLength = 0
+      DataType = dtDateTime
+      DisplayWidth = 18
+      Position = 5
+    end
+    object ppAtendimentoppField7: TppField
+      FieldAlias = 'OFC_DATA_FECHAMENTO'
+      FieldName = 'OFC_DATA_FECHAMENTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 6
+    end
+    object ppAtendimentoppField8: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_TOTAL'
+      FieldName = 'OFC_TOTAL'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 7
+    end
+    object ppAtendimentoppField9: TppField
+      FieldAlias = 'OFC_SOLICITANTE'
+      FieldName = 'OFC_SOLICITANTE'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 8
+    end
+    object ppAtendimentoppField10: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_VENDA'
+      FieldName = 'OFC_VENDA'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 9
+    end
+    object ppAtendimentoppField11: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_KM_RODADO'
+      FieldName = 'OFC_KM_RODADO'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 10
+    end
+    object ppAtendimentoppField12: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_HORAS_TRABALHADAS'
+      FieldName = 'OFC_HORAS_TRABALHADAS'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 11
+    end
+    object ppAtendimentoppField13: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ST_CODIGO'
+      FieldName = 'ST_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 12
+    end
+    object ppAtendimentoppField14: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ST_COR'
+      FieldName = 'ST_COR'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 13
+    end
+    object ppAtendimentoppField15: TppField
+      FieldAlias = 'ST_NOME'
+      FieldName = 'ST_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 14
+    end
+    object ppAtendimentoppField16: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MEC_CODIGO'
+      FieldName = 'MEC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 15
+    end
+    object ppAtendimentoppField17: TppField
+      FieldAlias = 'MEC_NOME'
+      FieldName = 'MEC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 16
+    end
+    object ppAtendimentoppField18: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DEF_CODIGO'
+      FieldName = 'DEF_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 17
+    end
+    object ppAtendimentoppField19: TppField
+      FieldAlias = 'DEF_NOME'
+      FieldName = 'DEF_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 18
+    end
+    object ppAtendimentoppField20: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MTC_CODIGO'
+      FieldName = 'MTC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 19
+    end
+    object ppAtendimentoppField21: TppField
+      FieldAlias = 'MTC_NOME'
+      FieldName = 'MTC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 20
+    end
+    object ppAtendimentoppField22: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TPA_CODIGO'
+      FieldName = 'TPA_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 21
+    end
+    object ppAtendimentoppField23: TppField
+      FieldAlias = 'TPA_NOME'
+      FieldName = 'TPA_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 22
+    end
+    object ppAtendimentoppField24: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CODIGO'
+      FieldName = 'CLI_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 23
+    end
+    object ppAtendimentoppField25: TppField
+      FieldAlias = 'CLI_NOME_RAZAO'
+      FieldName = 'CLI_NOME_RAZAO'
+      FieldLength = 90
+      DisplayWidth = 90
+      Position = 24
+    end
+    object ppAtendimentoppField26: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'REG_CODIGO'
+      FieldName = 'REG_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 25
+    end
+    object ppAtendimentoppField27: TppField
+      FieldAlias = 'REG_DESCRICAO'
+      FieldName = 'REG_DESCRICAO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 26
+    end
+    object ppAtendimentoppField28: TppField
+      FieldAlias = 'PRD_CODIGO'
+      FieldName = 'PRD_CODIGO'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 27
+    end
+    object ppAtendimentoppField29: TppField
+      FieldAlias = 'PRD_NOME'
+      FieldName = 'PRD_NOME'
+      FieldLength = 90
+      DisplayWidth = 90
+      Position = 28
+    end
+    object ppAtendimentoppField30: TppField
+      FieldAlias = 'PRD_SERIE'
+      FieldName = 'PRD_SERIE'
+      FieldLength = 30
+      DisplayWidth = 30
+      Position = 29
+    end
+    object ppAtendimentoppField31: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MDL_CODIGO'
+      FieldName = 'MDL_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 30
+    end
+    object ppAtendimentoppField32: TppField
+      FieldAlias = 'MDL_NOME'
+      FieldName = 'MDL_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 31
+    end
+    object ppAtendimentoppField33: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MRC_CODIGO'
+      FieldName = 'MRC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 32
+    end
+    object ppAtendimentoppField34: TppField
+      FieldAlias = 'MRC_NOME'
+      FieldName = 'MRC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 33
+    end
+    object ppAtendimentoppField35: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CP_COD_CONTRATO'
+      FieldName = 'CP_COD_CONTRATO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 34
+    end
+    object ppAtendimentoppField36: TppField
+      FieldAlias = 'TPC_NOME'
+      FieldName = 'TPC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 35
+    end
+    object ppAtendimentoppField37: TppField
+      FieldAlias = 'TP_ATENDIMENTO'
+      FieldName = 'TP_ATENDIMENTO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 36
+    end
+    object ppAtendimentoppField38: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ID_CONTRATO'
+      FieldName = 'ID_CONTRATO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 37
+    end
+    object ppAtendimentoppField39: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'COD_CIDADE'
+      FieldName = 'COD_CIDADE'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 38
+    end
+    object ppAtendimentoppField40: TppField
+      FieldAlias = 'CIDADE'
+      FieldName = 'CIDADE'
+      FieldLength = 70
+      DisplayWidth = 70
+      Position = 39
+    end
+    object ppAtendimentoppField41: TppField
+      FieldAlias = 'TECNICO_ATDD'
+      FieldName = 'TECNICO_ATDD'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 40
+    end
+    object ppAtendimentoppField42: TppField
+      FieldAlias = 'OFC_DT_FECHAMENTO'
+      FieldName = 'OFC_DT_FECHAMENTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 41
+    end
+    object ppAtendimentoppField43: TppField
+      FieldAlias = 'OFC_DT_SOLICITACAO'
+      FieldName = 'OFC_DT_SOLICITACAO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 42
+    end
+    object ppAtendimentoppField44: TppField
+      FieldAlias = 'REG_NOME'
+      FieldName = 'REG_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 43
+    end
+    object ppAtendimentoppField45: TppField
+      FieldAlias = 'BAIRRO'
+      FieldName = 'BAIRRO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 44
+    end
+    object ppAtendimentoppField46: TppField
+      FieldAlias = 'ENDERECO'
+      FieldName = 'ENDERECO'
+      FieldLength = 100
+      DisplayWidth = 100
+      Position = 45
+    end
+    object ppAtendimentoppField47: TppField
+      FieldAlias = 'FONE'
+      FieldName = 'FONE'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 46
+    end
+    object ppAtendimentoppField48: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CP_TEMPO_RESPOSTA'
+      FieldName = 'CP_TEMPO_RESPOSTA'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 47
+    end
+    object ppAtendimentoppField49: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_TEMPO_VIAJEM'
+      FieldName = 'OFC_TEMPO_VIAJEM'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 48
+    end
+    object ppAtendimentoppField50: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TECNICO_ESPECIFICO'
+      FieldName = 'TECNICO_ESPECIFICO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 49
+    end
+    object ppAtendimentoppField51: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CONTADOR_TOTAL'
+      FieldName = 'CONTADOR_TOTAL'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 50
+    end
   end
   object dsMotivo: TDataSource
     AutoEdit = False
@@ -10223,6 +11724,39 @@ object FRel_Rechamados: TFRel_Rechamados
     UserName = 'SerieNF1'
     Left = 292
     Top = 32
+    object ppLayoutppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ID'
+      FieldName = 'ID'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 0
+    end
+    object ppLayoutppField2: TppField
+      FieldAlias = 'CNPJ'
+      FieldName = 'CNPJ'
+      FieldLength = 14
+      DisplayWidth = 14
+      Position = 1
+    end
+    object ppLayoutppField3: TppField
+      FieldAlias = 'RELATORIO'
+      FieldName = 'RELATORIO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 2
+    end
+    object ppLayoutppField4: TppField
+      FieldAlias = 'CONFIG'
+      FieldName = 'CONFIG'
+      FieldLength = 8
+      DataType = dtMemo
+      DisplayWidth = 10
+      Position = 3
+      Searchable = False
+      Sortable = False
+    end
   end
   object dsLayout: TDataSource
     AutoEdit = False

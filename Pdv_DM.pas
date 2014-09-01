@@ -4181,8 +4181,6 @@ Begin
      IF (( DMAPP.Perfil_ComputadorPDV_CONTRA_VALE.VALUE = 'S' ) AND ( VALOR_VALE > 0 ) AND ( Vale_Ticket )) THEN
          ImPrimeConvenio_Contra_Vale_Ticket ( Arredonda(PdvTICKET.Value,2), Valor_Vale );
 
-  if (dmApp.BCH_ATIVO = 'S') then
-    DmApp.ImpECF_Bemacash(dmApp.cnpj,PdvCODIGO.Value);
 end;
 
 procedure TDmPdv.ImPrimeVenda ;

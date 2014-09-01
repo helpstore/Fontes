@@ -1,18 +1,18 @@
 inherited frmCadVendedor2: TfrmCadVendedor2
   Left = 278
-  Top = 146
+  Top = 114
   Height = 526
   Caption = 'Vendedores'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Height = 473
-    ActivePage = tbsLista
-    ClientRectBottom = 469
+    Height = 462
+    ActivePage = tbsEdita
+    ClientRectBottom = 458
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Height = 425
+        Height = 414
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -85,18 +85,16 @@ inherited frmCadVendedor2: TfrmCadVendedor2
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Height = 442
+        Height = 431
         inherited pnlSubCad: TPanel
-          Top = 164
+          Top = 153
           inherited PgcDetalhe: TcxPageControl
             ActivePage = tbsDetalhe1
             inherited tbsDetalhe1: TcxTabSheet
               Caption = '  Faixas de Comiss'#227'o     '
               inherited PGCSub1: TcxPageControl
-                ActivePage = tbsListaSub1
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 743
                     inherited TVDet1: TcxGridDBTableView
                       DataController.DetailKeyFieldNames = 'CODIGO'
                       object TVDet1CNPJ: TcxGridDBColumn
@@ -278,10 +276,10 @@ inherited frmCadVendedor2: TfrmCadVendedor2
           end
         end
         inherited pnlMaster: TPanel
-          Height = 163
+          Height = 152
           inherited PgcMaster: TcxPageControl
-            Height = 163
-            ClientRectBottom = 159
+            Height = 152
+            ClientRectBottom = 148
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Vendedor'
               object cxDBCalcEdit2: TcxDBCalcEdit
@@ -363,6 +361,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
                 Width = 83
               end
               object btnLogradouro: TcxButtonEdit
+                Tag = 4
                 Left = 371
                 Top = 64
                 Properties.Buttons = <

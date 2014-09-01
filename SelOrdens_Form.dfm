@@ -460,6 +460,7 @@ object FrmSelOrdens: TFrmSelOrdens
                   end
                   object GridTVMAP_LAT: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'MAP_LAT'
+                    OnCustomDrawCell = GridTVOFC_CODIGOCustomDrawCell
                     Width = 180
                     Position.BandIndex = 0
                     Position.ColIndex = 48
@@ -467,6 +468,7 @@ object FrmSelOrdens: TFrmSelOrdens
                   end
                   object GridTVMAP_LONG: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'MAP_LONG'
+                    OnCustomDrawCell = GridTVOFC_CODIGOCustomDrawCell
                     Width = 205
                     Position.BandIndex = 0
                     Position.ColIndex = 49
@@ -474,12 +476,14 @@ object FrmSelOrdens: TFrmSelOrdens
                   end
                   object GridTVDT_CILINDRO: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'DT_CILINDRO'
+                    OnCustomDrawCell = GridTVOFC_CODIGOCustomDrawCell
                     Position.BandIndex = 0
                     Position.ColIndex = 50
                     Position.RowIndex = 0
                   end
                   object GridTVCT_CILINDRO: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'CT_CILINDRO'
+                    OnCustomDrawCell = GridTVOFC_CODIGOCustomDrawCell
                     Width = 88
                     Position.BandIndex = 0
                     Position.ColIndex = 51
@@ -487,6 +491,7 @@ object FrmSelOrdens: TFrmSelOrdens
                   end
                   object GridTVULT_DT_CILINDRO: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'ULT_DT_CILINDRO'
+                    OnCustomDrawCell = GridTVULT_DT_CILINDROCustomDrawCell
                     Width = 124
                     Position.BandIndex = 0
                     Position.ColIndex = 52
@@ -494,6 +499,7 @@ object FrmSelOrdens: TFrmSelOrdens
                   end
                   object GridTVULT_CT_CILINDRO: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'ULT_CT_CILINDRO'
+                    OnCustomDrawCell = GridTVULT_DT_CILINDROCustomDrawCell
                     Width = 112
                     Position.BandIndex = 0
                     Position.ColIndex = 53
@@ -501,12 +507,14 @@ object FrmSelOrdens: TFrmSelOrdens
                   end
                   object GridTVCT_CILINDRO_SALDO_DIAS: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'CT_CILINDRO_SALDO_DIAS'
+                    OnCustomDrawCell = GridTVOFC_CODIGOCustomDrawCell
                     Position.BandIndex = 0
                     Position.ColIndex = 54
                     Position.RowIndex = 0
                   end
                   object GridTVCT_CILINDRO_SALDO_CONTADOR: TcxGridDBBandedColumn
                     DataBinding.FieldName = 'CT_CILINDRO_SALDO_CONTADOR'
+                    OnCustomDrawCell = GridTVOFC_CODIGOCustomDrawCell
                     Position.BandIndex = 0
                     Position.ColIndex = 55
                     Position.RowIndex = 0

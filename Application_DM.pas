@@ -730,7 +730,6 @@ type
     procedure ZeraCaixaUsuario(owner: TObject);
     procedure ACBrNFeStatusChange(Sender: TObject);
     procedure ImprimeNFE(cnpj: string;venda,num_nf:integer;DataNF: TDate;Serie:string='1';PathXML:String='');
-    procedure ImpECF_Bemacash(cnpj: string;venda:integer);
     procedure BCH_SYNC_PRODUTO(produto:string);
     procedure BCH_SYNC_CLIENTE(cliente:integer);
     procedure ConsultaNFe(cnpj: string;venda:integer);
@@ -1563,7 +1562,7 @@ uses
     Ctb_Altera_Movimentos_Form,
     Procedures4_DM, Pdv_Frm, ListagemMod_Form, Empresas_Form,
   NFeStatus_Form, Cadastros_Dm2, ACBrNFeWebServices, pcnNFe, Vendas_DM2,
-  Financeiro_Dm2, EstoqueMaxMin_FRel2;
+  Financeiro_Dm2, EstoqueMaxMin_FRel2, ACBrNFeNotasFiscais;
 
 {$R *.DFM}
 
@@ -11660,6 +11659,7 @@ begin
       dmCadastros2.UPDNFeVendas.parambyname('NFE_PROTOCOLO').value := '0';
       dmCadastros2.UPDNFeVendas.parambyname('NFE_RECIBO').value := ACBrNFe.WebServices.EnviarDPEC.nRegDPEC;
       dmCadastros2.UPDNFeVendas.parambyname('NFE_XML').value := ACBrNFe.NotasFiscais.Items[0].XML;
+      dmCadastros2.UPDNFeVendas.parambyname('NFE_NUMERO').value := inttostr(ACBrNFe.NotasFiscais.Items[0].NFe.Ide.nNF);
       dmCadastros2.UPDNFeVendas.parambyname('NFE_AUTORIZADA').value := 4;
       dmCadastros2.UPDNFeVendas.ExecQuery;
     end;
@@ -11682,6 +11682,7 @@ begin
     dmCadastros2.UPDNFeVendas.parambyname('nfe_protocolo').value := ACBrNFe.WebServices.Retorno.Protocolo;
     dmCadastros2.UPDNFeVendas.parambyname('NFE_RECIBO').value := ACBrNFe.WebServices.Retorno.Recibo;
     dmCadastros2.UPDNFeVendas.parambyname('NFE_XML').value := ACBrNFe.NotasFiscais.Items[0].XML;
+    dmCadastros2.UPDNFeVendas.parambyname('NFE_NUMERO').value := inttostr(ACBrNFe.NotasFiscais.Items[0].NFe.Ide.nNF);
     dmCadastros2.UPDNFeVendas.parambyname('NFE_AUTORIZADA').value := status;
     dmCadastros2.UPDNFeVendas.ExecQuery;
   end;
@@ -11727,216 +11728,11 @@ begin
     dmCadastros2.UPDNFeVendas.parambyname('NFE_RECIBO').value := '';
     dmCadastros2.UPDNFeVendas.parambyname('NFE_XML').value := ACBrNFe.NotasFiscais.Items[0].XML;
     dmCadastros2.UPDNFeVendas.parambyname('NFE_AUTORIZADA').value := status;
+    dmCadastros2.UPDNFeVendas.parambyname('NFE_NUMERO').value := inttostr(ACBrNFe.NotasFiscais.Items[0].NFe.Ide.nNF);
     dmCadastros2.UPDNFeVendas.ExecQuery;
   end;
 end;
 
-procedure TDmApp.ImpECF_Bemacash(cnpj: string; venda: integer);
-var
-  f: TextFile;
-  sequencia : integer;
-  Aux, quantidade, vallan, vendedor,  preco, desconto, PathDestino, bchsql, data : String;
-  cartao : boolean;
-begin
-  try
-     PathDestino := dmApp.BCH_PATH_PEDIDOS+'\9'+Completaesq(IntToStr(Venda),'0',6)+'.lst';
-
-     AssignFile( f, PathDestino);
-
-     //Criando o txt
-     if FileExists(PathDestino) then
-       DeleteFile(PathDestino);
-
-     Rewrite(F, PathDestino);
-     Append(f);
-
-     if (dmApp.BCH_EXIBE_DESCONTO = 'S') then
-     begin
-       bchsql := '  select vd.codigo pedido, '+
-                 ' (vdi.prc_unitario) prc_unitario, '+
-                 ' vdi.quantidade , '+
-                 ' cast((((((((vdi.quantidade * vdi.prc_unitario) * 100)/vd.total)* vd.desc_acres)/100)/vdi.quantidade)*-1) as numeric(18,4)) desconto, '+
-                 ' vdi.vendedor, '+
-                 ' vdi.produto, '+
-                 ' vd.pessoa_fj, '+
-                 ' (vd.total + vd.desc_acres) total_venda, '+
-                 ' prd.bch_codigo '+
-                 ' from fat_vendas vd '+
-                 ' inner join fat_vendas_itens vdi on (vdi.cnpj = vd.cnpj and vd.codigo = vdi.codigo) '+
-                 ' inner join est_produtos prd on (prd.cnpj = vdi.cnpj and vdi.produto = prd.codigo) '+
-                 ' where vd.cnpj = :cnpj and vd.codigo = :codigo ';
-     end
-     else
-     begin
-       bchsql := ' select vd.codigo pedido, '+
-                 ' ((vdi.prc_unitario) + (((((((vdi.quantidade * vdi.prc_unitario) * 100)/vd.total)* vd.desc_acres)/100)/vdi.quantidade))) prc_unitario, '+
-                 ' vdi.quantidade , '+
-                 ' 0.0000 desconto, '+
-                 ' vdi.vendedor, '+
-                 ' vdi.produto, '+
-                 ' vd.pessoa_fj, '+
-                 ' (vd.total + vd.desc_acres) total_venda, '+
-                 ' prd.bch_codigo '+
-                 ' from fat_vendas vd '+
-                 ' inner join fat_vendas_itens vdi on (vdi.cnpj = vd.cnpj and vd.codigo = vdi.codigo) '+
-                 ' inner join est_produtos prd on (prd.cnpj = vdi.cnpj and vdi.produto = prd.codigo) '+
-                 ' where vd.cnpj = :cnpj and vd.codigo = :codigo ';
-     end;
-
-     DmVendas2.BCH_ITENS.Close;
-     DmVendas2.BCH_ITENS.sql.text := bchSql;
-     DmVendas2.BCH_ITENS.ParamByName('cnpj').value := dmApp.cnpj;
-     DmVendas2.BCH_ITENS.ParamByName('codigo').value := venda;
-     DmVendas2.BCH_ITENS.Open;
-
-     //--------------------------------Registro de Cabeçalho- linha 1-------------------------------//
-     aux := 'PEDIDO,'+trim(IntToStr(DmVendas2.BCH_ITENSPEDIDO.Value))+','+ //Pedido
-            '0'+','+// so o zero e a virgula mesmo
-            '0'+','+// so o zero e a virgula denovo
-            '2'+','+//Tipo do Pedido 1 - Entrega ou 2 Retira
-            trim(IntToStr(DmVendas2.BCH_ITENSPEDIDO.Value))+','+//1';+ //Número da DAv
-            trim(IntToStr(DmVendas2.BCH_ITENSPESSOA_FJ.Value)); //Cliente
-
-     writeln(f,aux);
-
-
-     //--------------------------------Pedido e Itens--------------------------------//
-     DmVendas2.BCH_ITENS.fetchAll ;
-     vallan := FormatFloat('###,##0.00',arredonda(DmVendas2.BCH_ITENSTOTAL_VENDA.Value,2));
-     vallan := StringReplace(vallan,',','',[RfReplaceAll]);
-     vallan := StringReplace(vallan,'.','',[RfReplaceAll]);
-
-     sequencia := 1;
-     DmVendas2.BCH_ITENS.first;
-     while NOT DmVendas2.BCH_ITENS.EOF do
-     begin
-        quantidade := FormatFloat('###,##0.000',DmVendas2.BCH_ITENSQUANTIDADE.Value);
-        quantidade := StringReplace(quantidade,',','',[RfReplaceAll]);
-        quantidade := StringReplace(quantidade,'.','',[RfReplaceAll]);
-
-        preco := FormatFloat('###,##0.00',DmVendas2.BCH_ITENSPRC_UNITARIO.Value);
-        preco := StringReplace(preco,',','',[RfReplaceAll]);
-        preco := StringReplace(preco,'.','',[RfReplaceAll]);
-
-        if (DmVendas2.BCH_ITENSDESCONTO.Value > 0) then
-        begin
-          desconto := FormatFloat('###,##0.00',DmVendas2.BCH_ITENSDESCONTO.Value);
-          desconto := StringReplace(desconto,',','',[RfReplaceAll]);
-          desconto := StringReplace(desconto,'.','',[RfReplaceAll]);
-        end
-        else
-          desconto := '0';
-
-         aux := 'ITEM'+
-               ','+
-               (IntToStr(DmVendas2.BCH_ITENSPEDIDO.value))+ //Pedido
-               ','+
-               trim(copy(DmVendas2.BCH_ITENSBCH_CODIGO.AsString,1,9))+//Produto
-              // '0'+
-               '0'+
-               ','+
-               quantidade+
-               ','+
-               DmVendas2.BCH_ITENSVENDEDOR.AsString+ //codigo do vendedor
-               ','+
-               preco+
-               ','+
-               '1'+//Origem
-               ','+
-               desconto;
-               Writeln( f, AUX );
-               DmVendas2.BCH_ITENS.Next;
-               sequencia := sequencia + 1;
-     end;
-
-     cartao := false;
-     {DmVendas2.BCH_CARTAO.Close;
-     DmVendas2.BCH_CARTAO.ParamByName('cnpj').value := dmApp.cnpj;
-     DmVendas2.BCH_CARTAO.ParamByName('codigo').value := venda;
-     DmVendas2.BCH_CARTAO.Open;
-
-     sequencia := 1;
-     cartao := false;
-     DmVendas2.BCH_CARTAO.first;
-     while NOT DmVendas2.BCH_CARTAO.EOF do
-     begin
-        cartao := true;
-        data := FormatDateTime('dd/mm/yy',DmVendas2.BCH_CARTAODATA.Value);
-        vallan := FormatFloat('###,##0.00',DmVendas2.BCH_CARTAOVALOR.Value);
-        vallan := StringReplace(vallan,',','',[RfReplaceAll]);
-        vallan := StringReplace(vallan,'.','',[RfReplaceAll]);
-
-        aux := trim('LANCTO',' ',6)+//Lancamento
-               ','+
-               trim(DmVendas2.BCH_CARTAOVENDA.AsString)+ //Pedido
-               ','+
-               trim('7')+//Código Evento Caixa
-               ','+
-               trim('CARTAO')+//Descricao evento caixa
-               ','+
-               trim(vallan)+ //valor do lançamento
-               ','+
-               ('')+//código do banco p/cheque
-               ','+
-               ('')+//codigo da agencia
-               ','+
-               ('')+//número da conta
-               ','+
-               ('')+//número do cheque
-               ','+
-               ('1')+//código da forma de pagamento
-               ','+
-               trim(intToStr(Sequencia))+//sequencia da parcela NUMPRC
-               ','+
-               trim(intToStr(Sequencia))+//Agrupador de cartão de credito, acredito que seja parcela vamos testar NUMLAN
-               ','+
-               trim(data);//data de vencimento
-               Writeln( f, AUX );
-        DmVendas2.BCH_CARTAO.next;
-        sequencia := sequencia + 1;
-     end;}
-
-    { if not (cartao) then
-     begin
-       data := FormatDateTime('dd/mm/yy',dmApp.Data_Servidor);
-
-       aux := trim('LANCTO')+//Lancamento
-               ','+
-               trim(DmVendas2.BCH_ITENSPEDIDO.AsString)+ //Pedido
-               ','+
-               trim('1')+//Código Evento Caixa
-               ','+
-               trim('DINHEIRO')+//Descricao evento caixa
-               ','+
-               trim(vallan)+ //valor do lançamento
-               ','+
-               ('')+//código do banco p/cheque
-               ','+
-               ('')+//codigo da agencia
-               ','+
-               ('')+//número da conta
-               ','+
-               ('')+//número do cheque
-               ','+
-               ('1')+//código da forma de pagamento
-               ','+
-               trim('1')+//sequencia da parcela NUMPRC
-               ','+
-               trim('1')+//Agrupador de cartão de credito, acredito que seja parcela vamos testar NUMLAN
-               ','+
-               trim(data);//data de vencimento
-               Writeln( f, AUX );
-     end;}
-
-     CloseFile(f);
-     Application.MessageBox(Pchar('Pedido : '+DmVendas2.BCH_ITENSPEDIDO.asString+' gerado com sucesso!'),'Aviso',mb_ok+mb_iconinformation);
-  except
-    On E:Exception Do
-     Begin
-          MessageDlg('Ocorreu o seguinte erro :' + #13 + #13 + '    ' + E.Message + '...   ',MtError,[MbOk],0);
-     End;
-  end;
-end;
 
 procedure TDmApp.BCH_SYNC_CLIENTE(cliente: integer);
 var

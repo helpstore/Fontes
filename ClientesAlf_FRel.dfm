@@ -1,6 +1,6 @@
 object FRelClientesAlf: TFRelClientesAlf
-  Left = 237
-  Top = 159
+  Left = 270
+  Top = 156
   BorderStyle = bsDialog
   Caption = 'Rel. Listagem de Clientes - Alfab'#233'tica'
   ClientHeight = 321
@@ -514,9 +514,9 @@ object FRelClientesAlf: TFRelClientesAlf
     PaginaInicial = 1
     PaginaFinal = 9999
     NumerodeCopias = 1
-    FonteTamanhoPadrao = S10cpp
+    FonteTamanhoPadrao = S12cpp
     FonteEstiloPadrao = []
-    Orientacao = poPortrait
+    Orientacao = poLandscape
     OnNewPage = PrintNewPage
     OnBeforeNewPage = PrintBeforeNewPage
     Left = 312

@@ -18,7 +18,7 @@ uses
   dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
   dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
-  dxSkinXmas2008Blue, cxButtons, cxLabel;
+  dxSkinXmas2008Blue, cxButtons, cxLabel, IBCustomDataSet, IBStoredProc;
 
 type
   TFrmConsultaVenda = class(TForm)
@@ -141,6 +141,9 @@ type
     GridItensCFOP: TdxDBGridMaskColumn;
     GridItensBCH_CODIGO: TdxDBGridMaskColumn;
     Label7: TcxLabel;
+    cxLabel1: TcxLabel;
+    PCD_ALTERA_STATUS_NFE: TIBStoredProc;
+    ActAlteraStatus: TAction;
     procedure ActFecharExecute(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure cmbPessoaKeyDown(Sender: TObject; var Key: Word;
@@ -157,6 +160,7 @@ type
     procedure MenuSelecionarPopup(Sender: TObject);
     procedure ActDefineComissaoExecute(Sender: TObject);
     procedure ActReusaNFExecute(Sender: TObject);
+    procedure ActAlteraStatusExecute(Sender: TObject);
   private
     { Private declarations }
     //Completa com caracteres a esquerda
@@ -606,6 +610,33 @@ procedure TFrmConsultaVenda.LoadXML(MyMemo: TMemo;
 begin
   MyMemo.Lines.SaveToFile(ExtractFileDir(application.ExeName)+'cons_temp.xml');
   MyWebBrowser.Navigate(ExtractFileDir(application.ExeName)+'cons_temp.xml');
+end;
+
+procedure TFrmConsultaVenda.ActAlteraStatusExecute(Sender: TObject);
+begin
+  with dmVendas do
+  begin
+    if (Application.MessageBox('Deseja realmente alterar o status da NFe?','Aviso', mb_yesno + mb_iconquestion) = id_no) then
+      exit;
+    try
+      PCD_ALTERA_STATUS_NFE.ParamByName('cnpj').value := dmApp.cnpj;
+      PCD_ALTERA_STATUS_NFE.ParamByName('codigo').value := Consulta_VendaCODIGO.value;
+      PCD_ALTERA_STATUS_NFE.ParamByName('status').value := Consulta_VendaNFE_STATUS.asString;
+      PCD_ALTERA_STATUS_NFE.ExecProc;
+      PCD_ALTERA_STATUS_NFE.Transaction.CommitRetaining;
+      Application.MessageBox('Status alterado com sucesso','Aviso', mb_yesno + mb_iconquestion)
+    except
+      On E:EDataBaseError Do
+        begin
+          Application.MessageBox(Pchar('Ocorreu o seguinte erro :'+ E.Message),'Aviso',mb_ok+mb_iconerror);
+        end
+        else
+        begin
+          Application.MessageBox('Ocorreu um erro não identificado pelo Sistema','Aviso',mb_ok+mb_iconerror);
+        end;
+        PCD_ALTERA_STATUS_NFE.Transaction.RollbackRetaining;
+    end
+  end
 end;
 
 end.

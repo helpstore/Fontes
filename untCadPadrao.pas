@@ -133,6 +133,7 @@ type
     procedure LiberaActList;
     procedure LiberaActEdit;
   protected
+    indicefoco : integer;
     procedure Inserir(DtsEdit: TDataSource ;tbEdit:TcxTabSheet);
     procedure Editar(DtsEdit: TDataSource ;tbEdit:TcxTabSheet);
     procedure Salvar(DtsEdit : TDataSource ;DtsList : TDataSource ;tbList:TcxTabSheet);
@@ -145,9 +146,11 @@ type
     procedure Refresh(DtsList : TDataSource);
     procedure VerificaStatus(DataSource :TDataSource);
     procedure AbreDataSet(DataSet : TDataSet);
+
   public
     { Public declarations }
     Codigo : Integer;
+
   end;
 
 var
@@ -160,8 +163,26 @@ uses  Application_DM;
 {$R *.dfm}
 
 procedure TfrmCadPadrao.FormShow(Sender: TObject);
+var
+ i : integer;
 begin
- 
+  for i := 0 to TfrmCadPadrao(Sender).ComponentCount - 1 do
+  begin
+    if (TfrmCadPadrao(Sender).Components[I] is TcxCustomTextEdit) then
+    begin
+       if TcxCustomTextEdit(TfrmCadPadrao(Sender).Components[I]).Tag > 0 then
+          indicefoco := i;
+    end
+    else if (TfrmCadPadrao(Sender).Components[I] is TIBQuery) then
+    begin
+       if TIBQuery(TfrmCadPadrao(Sender).Components[I]).Tag = 4 then
+       begin
+         TIBQuery(TfrmCadPadrao(Sender).Components[I]).Close;
+         TIBQuery(TfrmCadPadrao(Sender).Components[I]).Open;
+       end;
+    end;
+  end;
+
   dtList.Close;
   dtList.Open;
 
@@ -195,8 +216,8 @@ begin
   end
   else
   begin
-    edtNome.SetFocus;
-    
+    TcxCustomTextEdit(TcxPageControl(Sender).Owner.Components[indicefoco]).SetFocus;
+
   end;
 end;
 

@@ -21,7 +21,11 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, cxClasses, cxGraphics, cxLookAndFeels,
   cxLookAndFeelPainters, Menus, cxControls, cxContainer, cxEdit, cxLabel,
-  cxButtons;
+  cxButtons, dxSkinscxPCPainter, cxPC, cxStyles, cxCustomData, cxFilter,
+  cxData, cxDataStorage, cxDBData, cxGridLevel, cxGridCustomView,
+  cxGridCustomTableView, cxGridTableView, cxGridBandedTableView,
+  cxGridDBBandedTableView, cxGrid, cxGridCustomPopupMenu, cxGridPopupMenu,
+  DBCtrls, cxGridExportLink;
 
 type
   TFrmContratos = class(TForm)
@@ -52,7 +56,6 @@ type
     ActLookUp: TAction;
     Navigator: TdxBarDBNavigator;
     GroupBox1: TGroupBox;
-    DtFim: TdxDBDateEdit;
     DtInicio: TdxDBDateEdit;
     edtNumContrato: TdxDBEdit;
     cmbContrato: TdxDBLookupEdit;
@@ -75,30 +78,12 @@ type
     dxDBDateEdit1: TdxDBDateEdit;
     Label5: TcxLabel;
     Panel3: TPanel;
-    GridItens: TdxDBGrid;
     dxDBCheckEdit1: TdxDBCheckEdit;
     dxDBCheckEdit2: TdxDBCheckEdit;
     dxDBEdit1: TdxDBEdit;
     Label7: TcxLabel;
     DsItens: TDataSource;
-    GridItensCNPJ: TdxDBGridMaskColumn;
-    GridItensCODIGO: TdxDBGridMaskColumn;
-    GridItensCOD_PRODUTO: TdxDBGridMaskColumn;
-    GridItensCONTRATO: TdxDBGridMaskColumn;
-    GridItensDT_ADICAO: TdxDBGridDateColumn;
-    GridItensDATA: TdxDBGridDateColumn;
-    GridItensATIVO: TdxDBGridMaskColumn;
-    GridItensPRODUTO: TdxDBGridMaskColumn;
-    GridItensTIPO_PRODUTO: TdxDBGridMaskColumn;
-    GridItensVALOR: TdxDBGridMaskColumn;
-    GridItensQTDE_COPIAS_PREVENTIVA: TdxDBGridMaskColumn;
-    GridItensDIAS_RECHAMADO: TdxDBGridMaskColumn;
-    GridItensMEDIA_COPIAS: TdxDBGridMaskColumn;
-    GridItensTEMPO_RESPOSTA: TdxDBGridMaskColumn;
-    GridItensSERIE: TdxDBGridMaskColumn;
-    GridItensINFORMACOES_ITENS: TdxDBGridMemoColumn;
     dxDBCalcEdit1: TdxDBCalcEdit;
-    GridItensDT_RETIRADA: TdxDBGridDateColumn;
     EdParcelas: TdxDBSpinEdit;
     Label8: TcxLabel;
     dxBarDBNavFirst1: TdxBarDBNavButton;
@@ -107,8 +92,6 @@ type
     dxBarDBNavLast1: TdxBarDBNavButton;
     dxDBCheckEdit3: TdxDBCheckEdit;
     dsMoeda: TDataSource;
-    GridItensMODELO_EQUIPAMENTO: TdxDBGridMaskColumn;
-    GridItensDECONTINUADO: TdxDBGridCheckColumn;
     GroupBox2: TGroupBox;
     dxDBEdit2: TdxDBEdit;
     cxLabel1: TcxLabel;
@@ -118,6 +101,59 @@ type
     cxLabel3: TcxLabel;
     dxDBEdit4: TdxDBEdit;
     cxLabel4: TcxLabel;
+    PgcItens: TcxPageControl;
+    cxTabSheet1: TcxTabSheet;
+    cxTabSheet2: TcxTabSheet;
+    GridItens: TdxDBGrid;
+    GridItensCOD_PRODUTO: TdxDBGridMaskColumn;
+    GridItensMODELO_EQUIPAMENTO: TdxDBGridMaskColumn;
+    GridItensPRODUTO: TdxDBGridMaskColumn;
+    GridItensSERIE: TdxDBGridMaskColumn;
+    GridItensVALOR: TdxDBGridMaskColumn;
+    GridItensQTDE_COPIAS_PREVENTIVA: TdxDBGridMaskColumn;
+    GridItensDIAS_RECHAMADO: TdxDBGridMaskColumn;
+    GridItensMEDIA_COPIAS: TdxDBGridMaskColumn;
+    GridItensTEMPO_RESPOSTA: TdxDBGridMaskColumn;
+    GridItensDATA: TdxDBGridDateColumn;
+    GridItensDT_ADICAO: TdxDBGridDateColumn;
+    GridItensTIPO_PRODUTO: TdxDBGridMaskColumn;
+    GridItensATIVO: TdxDBGridMaskColumn;
+    GridItensCNPJ: TdxDBGridMaskColumn;
+    GridItensCODIGO: TdxDBGridMaskColumn;
+    GridItensCONTRATO: TdxDBGridMaskColumn;
+    GridItensINFORMACOES_ITENS: TdxDBGridMemoColumn;
+    GridItensDT_RETIRADA: TdxDBGridDateColumn;
+    GridItensDECONTINUADO: TdxDBGridCheckColumn;
+    GridHistorico: TcxGrid;
+    GridHistoricoDBBandedTableView1: TcxGridDBBandedTableView;
+    TVHistorico: TcxGridDBBandedTableView;
+    LVHistorico: TcxGridLevel;
+    QryHistorico: TIBQuery;
+    dsHistorico: TDataSource;
+    QryHistoricoCODIGO: TIntegerField;
+    QryHistoricoCONT_LEITURA: TIntegerField;
+    QryHistoricoDATA: TDateField;
+    TVHistoricoCODIGO: TcxGridDBBandedColumn;
+    TVHistoricoCONT_LEITURA: TcxGridDBBandedColumn;
+    TVHistoricoDATA: TcxGridDBBandedColumn;
+    DtFim: TdxDBDateEdit;
+    GridItensCOD_INDEXADOR: TdxDBGridMaskColumn;
+    GridItensDT_VIGENCIA_INICIAL: TdxDBGridDateColumn;
+    GridItensDT_VIGENCIA_FINAL: TdxDBGridDateColumn;
+    GridItensGERA_LEITURA: TdxDBGridMaskColumn;
+    GridItensVMC_DATA_UPD: TdxDBGridDateColumn;
+    GridItensVMC_TIPO_UPD: TdxDBGridMaskColumn;
+    GridItensVMC_COD_UPD: TdxDBGridMaskColumn;
+    GridItensCOD_CLIENTE: TdxDBGridMaskColumn;
+    QryHistoricoSALDO_DIAS: TIntegerField;
+    QryHistoricoSALDO_COPIAS: TIntegerField;
+    TVHistoricoSALDO_DIAS: TcxGridDBBandedColumn;
+    TVHistoricoSALDO_COPIAS: TcxGridDBBandedColumn;
+    cxGridPopupMenu1: TcxGridPopupMenu;
+    DBText1: TDBText;
+    Panel4: TPanel;
+    BitBtn1: TBitBtn;
+    SaveDialog: TSaveDialog;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);
@@ -147,6 +183,8 @@ type
     procedure GridItensKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure ActLocalizarExecute(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
     procedure HabilitaControles(Condicao: string);//André.. quer que quando a dt. de termino do contrato seja definida tdo se desabilita
@@ -273,11 +311,17 @@ begin
 
   DMCadastros.SelProdutos.Close;
   DMCadastros.SelProdutos.Open;
+
+  PgcItens.ActivePageIndex := 0;
+
+  QryHistorico.Close;
+  QryHistorico.Open;
+
 end;
 
 procedure TFrmContratos.FormCreate(Sender: TObject);
 begin
- 
+
   If DMUsuarios.Direito = 'SUPERVISOR' Then
      DMApp.Verifica_Modulo(FileName(Application.ExeName), Self.Name, LblTitulo.Caption, ListaActions(Actions))
   Else If DMUsuarios.Objeto = Self.Name Then
@@ -525,6 +569,24 @@ begin
 
   if (retorno > 0) then
     dmCadastros2.Contrato.Locate('codigo',Retorno,[]);
+end;
+
+procedure TFrmContratos.SpeedButton3Click(Sender: TObject);
+begin
+  QryHistorico.close;
+  QryHistorico.open;
+end;
+
+procedure TFrmContratos.BitBtn1Click(Sender: TObject);
+begin
+  with SaveDialog do
+  begin
+    DefaultExt := 'xls';
+    Filter := '*.xls';
+    FileName := 'Histórico VMC';
+    if Execute then
+      ExportGridToExcel(FileName,GridHistorico);
+  end;
 end;
 
 end.

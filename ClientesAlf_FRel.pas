@@ -125,7 +125,7 @@ procedure TFRelClientesAlf.PrintBeforeNewPage(Sender: TObject; Pagina: Integer);
 begin
   // Rodapé...
   Print.ImpF(63, 01, Replicate('-', 80), [Normal]);
-  Print.ImpF(64, 01, dmapp.QryParceiroPARC_TEXTO_RELATORIO.AsString, [comp17,italico]);
+  Print.ImpF(64, 01, dmapp.QryParceiroPARC_TEXTO_RELATORIO.AsString, [Comp17,italico]);
   Print.ImpF(64, 74, 'Pag. : ' + FormatFloat('0000', Pagina), [Comp17]);
 end;
 

@@ -16,7 +16,7 @@ uses
   dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven, dxSkinSharp,
   dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinXmas2008Blue,
-  dxSkinsdxBarPainter, cxClasses, cxLabel;
+  dxSkinsdxBarPainter, cxClasses, cxLabel, cxCheckBox, cxDBEdit;
 
 type
   TfrmMotivoChamado = class(TForm)
@@ -56,6 +56,7 @@ type
     dxBarDBNavPrev1: TdxBarDBNavButton;
     dxBarDBNavNext1: TdxBarDBNavButton;
     dxBarDBNavLast1: TdxBarDBNavButton;
+    ckAtivo: TcxDBCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);

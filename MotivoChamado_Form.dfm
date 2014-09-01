@@ -1,8 +1,8 @@
 object frmMotivoChamado: TfrmMotivoChamado
-  Left = 211
-  Top = 183
+  Left = 416
+  Top = 191
   Width = 460
-  Height = 194
+  Height = 205
   Caption = 'Problema identificado'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object frmMotivoChamado: TfrmMotivoChamado
   object pnlClient: TPanel
     Left = 0
     Top = 0
-    Width = 452
+    Width = 444
     Height = 167
     Align = alClient
     BevelInner = bvRaised
@@ -35,7 +35,7 @@ object frmMotivoChamado: TfrmMotivoChamado
     object Bevel1: TBevel
       Left = 2
       Top = 133
-      Width = 448
+      Width = 440
       Height = 2
       Align = alBottom
       Shape = bsTopLine
@@ -78,7 +78,7 @@ object frmMotivoChamado: TfrmMotivoChamado
     object pnlBottom: TPanel
       Left = 2
       Top = 135
-      Width = 448
+      Width = 440
       Height = 30
       Align = alBottom
       BevelOuter = bvNone
@@ -86,7 +86,7 @@ object frmMotivoChamado: TfrmMotivoChamado
       object dxBarDockControl1: TdxBarDockControl
         Left = 0
         Top = 2
-        Width = 448
+        Width = 440
         Height = 26
         Align = dalTop
         BarManager = BarManager
@@ -94,7 +94,7 @@ object frmMotivoChamado: TfrmMotivoChamado
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 448
+        Width = 440
         Height = 2
         Align = alTop
         BevelOuter = bvNone
@@ -139,6 +139,17 @@ object frmMotivoChamado: TfrmMotivoChamado
       DataField = 'NOME'
       DataSource = DataSource
     end
+    object ckAtivo: TcxDBCheckBox
+      Left = 117
+      Top = 103
+      Caption = 'Ativo'
+      DataBinding.DataField = 'ATIVO'
+      DataBinding.DataSource = DataSource
+      Properties.ValueChecked = 'S'
+      Properties.ValueUnchecked = 'N'
+      TabOrder = 7
+      Width = 60
+    end
   end
   object DataSource: TDataSource
     AutoEdit = False
@@ -152,8 +163,8 @@ object frmMotivoChamado: TfrmMotivoChamado
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

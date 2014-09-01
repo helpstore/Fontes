@@ -906,7 +906,6 @@ type
     ContratoGERA_FATURAMENTO: TIBStringField;
     ContratoGERA_LEITURA: TIBStringField;
     ContratoDIA_BASE: TSmallintField;
-    ContratoGERA_MENSALIDADE: TIBStringField;
     ContratosItensVALOR: TFloatField;
     NFe_Parcelamentos: TIBDataSet;
     NFe_ParcelamentosVALOR: TFloatField;
@@ -982,6 +981,9 @@ type
     ContratosItensVMC_DATA_UPD: TDateTimeField;
     ContratosItensVMC_TIPO_UPD: TIBStringField;
     ContratosItensVMC_COD_UPD: TIntegerField;
+    ContratosItensCOD_CLIENTE: TIntegerField;
+    ContratoGERA_MENSALIDADE: TIBStringField;
+    ContratoRESPOSTA: TIBStringField;
     procedure ProdutosClientesAfterInsert(DataSet: TDataSet);
     procedure ProdutosClientesBeforeOpen(DataSet: TDataSet);
     procedure ProdutosClientesNewRecord(DataSet: TDataSet);

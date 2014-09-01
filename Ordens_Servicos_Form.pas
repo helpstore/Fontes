@@ -132,15 +132,11 @@ type
     ppLabel12: TppLabel;
     ppDBText7: TppDBText;
     Gp2: TGroupBox;
-    Contato_Cilindro: TdxDBEdit;
     Cilindro_Data_Troca: TdxDBDateEdit;
     Label22: TcxLabel;
     Label24: TcxLabel;
-    Label26: TcxLabel;
     Label23: TcxLabel;
     Revelador_Data_Troca: TdxDBDateEdit;
-    Revelador_Contador: TdxDBEdit;
-    Label30: TcxLabel;
     Label31: TcxLabel;
     Gp1: TGroupBox;
     Ct_Total: TdxDBEdit;
@@ -412,6 +408,16 @@ type
     ppAppRepresentanteppField11: TppField;
     ppAppRepresentanteppField12: TppField;
     dsApp: TDataSource;
+    SelDefeitos: TIBQuery;
+    SelDefeitosCNPJ: TIBStringField;
+    SelDefeitosCODIGO: TIntegerField;
+    SelDefeitosNOME: TIBStringField;
+    SelDefeitosATIVO: TIBStringField;
+    SelMotivo: TIBQuery;
+    SelMotivoCNPJ: TIBStringField;
+    SelMotivoCODIGO: TIntegerField;
+    SelMotivoNOME: TIBStringField;
+    SelMotivoATIVO: TIBStringField;
 
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
@@ -496,6 +502,7 @@ type
       Shift: TShiftState);
     procedure lcControlDblClick(Sender: TObject);
     procedure btnTA2Click(Sender: TObject);
+    procedure SelDefeitosBeforeOpen(DataSet: TDataSet);
   private
     { Private declarations }
     conectado : boolean;
@@ -1011,17 +1018,11 @@ begin
     SelTecnico.Open;
     SelTecnico.fetchAll;
 
-    SelDefeitos.Close;
-    SelDefeitos.Open;
-    SelDefeitos.fetchAll;
+
 
     SelTA.Close;
     SelTA.Open;
     SelTA.FetchAll;
-
-    SelMotivo.Close;
-    SelMotivo.Open;
-    SelMotivo.fetchAll;
 
     SelEquipCliente.Close;
     SelEquipCliente.parambyname('cod_cliente').value := OrdemPESSOA_FJ.value;
@@ -1034,8 +1035,12 @@ begin
   If Not(DsPlano.DataSet.Active) Then
     DsPlano.DataSet.Open;
 
-  If Not(DsDefeito.DataSet.Active) Then
-    DsDefeito.DataSet.Open;
+
+  SelDefeitos.close;
+  SelDefeitos.Open;
+
+  SelMotivo.Close;
+  SelMotivo.Open;
 
   If Not(DataSource.DataSet.Active) Then
     DataSource.DataSet.Open;
@@ -1043,8 +1048,6 @@ begin
   If Not(dsItens.DataSet.Active) Then
     dsItens.DataSet.Open;
 
-  If Not(DsMovtos.DataSet.Active) Then
-    DsMovtos.DataSet.Open;
 
 
   with DmServicos do
@@ -1086,6 +1089,8 @@ begin
   else
     gpAvulso.Visible := true;
 
+
+  
 
   {if (dmApp.EXIBE_OFC_VISUALIZACAO = '0') then
   begin
@@ -1737,13 +1742,10 @@ begin
 
   FrmDefeitos := TFrmDefeitos.Create(Application);
   FrmDefeitos.Showmodal ;
-  with DmServicos do
-  begin
-    SelDefeitos.Close;
-    SelDefeitos.Open;
-    SelDefeitos.fetchAll;
-  end;
-  
+
+  SelDefeitos.Close;
+  SelDefeitos.Open;
+
   Datasource.DataSet.FieldByName('DEFEITO_RECLAMADO').asInteger := FrmMain.Codigo_Int;
   cmbDefeitoReclamado.SetFocus;
 end;
@@ -1943,13 +1945,9 @@ begin
   frmMotivoChamado := TfrmMotivoChamado.Create(Application);
   frmMotivoChamado.Showmodal ;
 
-  with DmServicos do
-  begin
-    SelMotivo.Close;
-    SelMotivo.Open;
-    SelMotivo.fetchAll;
-  end;
-  
+  SelMotivo.Close;
+  SelMotivo.Open;
+
   Datasource.DataSet.FieldByName('ID_TIPO_ATENDIMENTO').asInteger := FrmMain.Codigo_Int;
   cmbProblemaIdentificado.SetFocus;
 end;
@@ -2898,6 +2896,20 @@ begin
 
   Datasource.DataSet.FieldByName('ID_TIPO_ATENDIMENTO').asInteger := FrmMain.Codigo_Int;
   cmbServicoExecutado.SetFocus;
+end;
+
+procedure TFrmOrdens_Servicos.SelDefeitosBeforeOpen(DataSet: TDataSet);
+begin
+  If (DataSet is TIBQuery) Then
+     Begin
+       (DataSet as TIBQuery).ParamByName('CNPJ').asString := DMApp.Cnpj;
+       (Dataset as TIBQuery).Prepare;
+     End;
+  If (DataSet is TIBDataset) Then
+     Begin
+       (DataSet as TIBDataSet).ParamByName('CNPJ').asString := DMApp.Cnpj;
+       (Dataset as TIBDataSet).Prepare;
+     End;
 end;
 
 end.

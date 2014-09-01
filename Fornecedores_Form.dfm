@@ -1,6 +1,6 @@
 object FrmFornecedores: TFrmFornecedores
-  Left = 312
-  Top = 83
+  Left = 297
+  Top = 119
   Width = 683
   Height = 607
   BorderIcons = [biSystemMenu]
@@ -1521,7 +1521,7 @@ object FrmFornecedores: TFrmFornecedores
         end
         object GRID: TdxDBGrid
           Left = 4
-          Top = 24
+          Top = 0
           Width = 631
           Height = 433
           Bands = <

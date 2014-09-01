@@ -1,6 +1,6 @@
 object FrmOrdens_Servicos: TFrmOrdens_Servicos
-  Left = 77
-  Top = 84
+  Left = 249
+  Top = 100
   Width = 1011
   Height = 665
   Caption = ' Ordens Servi'#231'os '
@@ -73,7 +73,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       Top = 2
       Width = 991
       Height = 554
-      ActivePage = TAB2
+      ActivePage = Tab1
       Align = alClient
       TabOrder = 1
       TabStop = False
@@ -1340,7 +1340,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
                   LayoutDirection = ldHorizontal
                   ShowBorder = False
                   object lcProblemaIdentificado: TdxLayoutItem
-                    CaptionOptions.Text = 'Problema Identificado'
+                    CaptionOptions.Text = 'Motivo do Chamado'
                     CaptionOptions.Layout = clTop
                     SizeOptions.Width = 233
                     Control = cmbProblemaIdentificado
@@ -1972,7 +1972,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         object Gp2: TGroupBox
           Left = 140
           Top = 149
-          Width = 169
+          Width = 173
           Height = 156
           Caption = ' Cilindro / Revelador '
           Font.Charset = DEFAULT_CHARSET
@@ -1990,16 +1990,9 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
             Transparent = True
           end
           object Label24: TcxLabel
-            Left = 10
-            Top = 30
+            Left = 8
+            Top = 32
             Caption = 'Data Troca'
-            ParentFont = False
-            Transparent = True
-          end
-          object Label26: TcxLabel
-            Left = 106
-            Top = 30
-            Caption = 'Contador'
             ParentFont = False
             Transparent = True
           end
@@ -2010,44 +2003,16 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
             ParentFont = False
             Transparent = True
           end
-          object Label30: TcxLabel
-            Left = 105
-            Top = 98
-            Caption = 'Contador'
-            ParentFont = False
-            Transparent = True
-          end
           object Label31: TcxLabel
-            Left = 9
-            Top = 98
+            Left = 8
+            Top = 96
             Caption = 'Data Troca'
             ParentFont = False
             Transparent = True
           end
-          object Contato_Cilindro: TdxDBEdit
-            Left = 105
-            Top = 44
-            Width = 55
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Style.BorderColor = clBtnShadow
-            Style.BorderStyle = xbsSingle
-            Style.ButtonStyle = btsSimple
-            TabOrder = 1
-            OnEnter = EdPessoaEnter
-            OnExit = Revelador_ContadorExit
-            OnKeyDown = edCODIGOKeyDown
-            CharCase = ecUpperCase
-            DataField = 'CT_CILINDRO'
-            DataSource = DataSource
-          end
           object Cilindro_Data_Troca: TdxDBDateEdit
-            Left = 9
-            Top = 44
+            Left = 8
+            Top = 48
             Width = 95
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -2081,7 +2046,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
             Style.BorderColor = clBtnShadow
             Style.BorderStyle = xbsSingle
             Style.ButtonStyle = btsSimple
-            TabOrder = 2
+            TabOrder = 1
             OnEnter = EdPessoaEnter
             OnExit = Revelador_ContadorExit
             OnKeyDown = edCODIGOKeyDown
@@ -2090,27 +2055,6 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
             DateValidation = True
             UseEditMask = True
             StoredValues = 4
-          end
-          object Revelador_Contador: TdxDBEdit
-            Left = 104
-            Top = 112
-            Width = 55
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Style.BorderColor = clBtnShadow
-            Style.BorderStyle = xbsSingle
-            Style.ButtonStyle = btsSimple
-            TabOrder = 3
-            OnEnter = EdPessoaEnter
-            OnExit = Revelador_ContadorExit
-            OnKeyDown = edCODIGOKeyDown
-            CharCase = ecUpperCase
-            DataField = 'CT_REVELADOR'
-            DataSource = DataSource
           end
         end
         object Gp1: TGroupBox
@@ -2567,7 +2511,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     DBCheckLinks = <>
     VisibleButtons = [dxbnFirst, dxbnPrior, dxbnNext, dxbnLast]
     Left = 41
-    Top = 2
+    Top = 10
   end
   object BarMgr: TdxBarManager
     AllowReset = False
@@ -3030,7 +2974,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
   end
   object Actions: TActionList
     Left = 8
-    Top = 2
+    Top = 10
     object ActIncluir: TAction
       Tag = 1
       Caption = 'ActIncluir'
@@ -3157,7 +3101,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
   end
   object dsMotivo: TDataSource
     AutoEdit = False
-    DataSet = DmServicos.SelMotivo
+    DataSet = SelMotivo
     Left = 483
     Top = 2
   end
@@ -3208,7 +3152,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
   end
   object DsDefeito: TDataSource
     AutoEdit = False
-    DataSet = DmServicos.SelDefeitos
+    DataSet = SelDefeitos
     Left = 415
     Top = 2
   end
@@ -6949,8 +6893,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     Priority = mpHigh
     Recipients = <>
     ReplyTo = <>
-    Left = 263
-    Top = 224
+    Left = 615
+    Top = 296
   end
   object IdSMTP: TIdSMTP
     IOHandler = SSLSocket
@@ -6961,16 +6905,16 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     AuthenticationType = atLogin
     Password = 'fabino1306'
     Username = 'fabianolisboa'
-    Left = 250
-    Top = 264
+    Left = 610
+    Top = 232
   end
   object SSLSocket: TIdSSLIOHandlerSocket
     SSLOptions.Method = sslvSSLv2
     SSLOptions.Mode = sslmUnassigned
     SSLOptions.VerifyMode = []
     SSLOptions.VerifyDepth = 0
-    Left = 282
-    Top = 264
+    Left = 642
+    Top = 232
   end
   object dsVeiculos: TDataSource
     AutoEdit = False
@@ -6993,8 +6937,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     Enabled = False
     Interval = 10
     OnTimer = TimerMapsTimer
-    Left = 224
-    Top = 224
+    Left = 648
+    Top = 328
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
     Left = 640
@@ -7036,8 +6980,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       'and ct.cod_cliente = :cod_cliente'
       'and prd.codigo = :produto'
       'order by prd.codigo||'#39'-'#39'||prd.nome')
-    Left = 296
-    Top = 226
+    Left = 648
+    Top = 298
     ParamData = <
       item
         DataType = ftString
@@ -7212,5 +7156,92 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     DataSet = DmApp.QryParceiro
     Left = 350
     Top = 41
+  end
+  object SelDefeitos: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = SelDefeitosBeforeOpen
+    SQL.Strings = (
+      'select CNPJ, CODIGO, NOME, ATIVO'
+      'from OFC_DEFEITO'
+      'Where CNPJ = :CNPJ '
+      'and coalesce(ATIVO,'#39'N'#39') = '#39'S'#39
+      'Order by NOME')
+    Left = 584
+    Top = 35
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object SelDefeitosCNPJ: TIBStringField
+      DisplayLabel = 'Cnpj'
+      FieldName = 'CNPJ'
+      Origin = '"OFC_DEFEITO"."CNPJ"'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object SelDefeitosCODIGO: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      Origin = '"OFC_DEFEITO"."CODIGO"'
+      Required = True
+    end
+    object SelDefeitosNOME: TIBStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = '"OFC_DEFEITO"."NOME"'
+      Required = True
+      Size = 50
+    end
+    object SelDefeitosATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"OFC_DEFEITO"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object SelMotivo: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = SelDefeitosBeforeOpen
+    SQL.Strings = (
+      'select * from ofc_motivo_chamado mc'
+      'where mc.cnpj = :cnpj'
+      'and coalesce(mc.ativo,'#39'N'#39') = '#39'S'#39
+      'order by mc.nome')
+    Left = 552
+    Top = 35
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object SelMotivoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_MOTIVO_CHAMADO"."CNPJ"'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object SelMotivoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_MOTIVO_CHAMADO"."CODIGO"'
+      Required = True
+    end
+    object SelMotivoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"OFC_MOTIVO_CHAMADO"."NOME"'
+      Size = 50
+    end
+    object SelMotivoATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"OFC_MOTIVO_CHAMADO"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
   end
 end
