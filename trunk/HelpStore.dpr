@@ -565,7 +565,6 @@ uses
   UntCadLocalizacaoEstoque in 'UntCadLocalizacaoEstoque.pas' {frmCadLocalizacaoEstoque},
   UntCadCor in 'UntCadCor.pas' {frmCadCor},
   UntCadMaterial in 'UntCadMaterial.pas' {frmCadMaterial},
-  UntCadAplicacao in 'UntCadAplicacao.pas' {frmCadAplicacao},
   UntCadAplicacaoProduto in 'UntCadAplicacaoProduto.pas' {frmCadAplicacaoProduto},
   UntCadBancos in 'UntCadBancos.pas' {frmCadBancos},
   UntCadMotivosDevolucao in 'UntCadMotivosDevolucao.pas' {frmCadMotivosDevolucao},
@@ -579,8 +578,12 @@ uses
   UntCadStatusServico in 'UntCadStatusServico.pas' {frmCadStatusServico},
   UntCadDefeitos in 'UntCadDefeitos.pas' {frmCadDefeitos},
   UntCadServicoExecutado in 'UntCadServicoExecutado.pas' {frmCadServicoExecutado},
-  UntCadProblemaIdentificado in 'UntCadProblemaIdentificado.pas' {frmCadProblemaIdentificado},
-  UntCadTipoContrato in 'UntCadTipoContrato.pas' {frmCadTipoContrato};
+  UntCadProblemaIdentificado in 'UntCadProblemaIdentificado.pas' {frmCadMotivoChamado},
+  UntCadTipoContrato in 'UntCadTipoContrato.pas' {frmCadTipoContrato},
+  untCadFornecedores in 'untCadFornecedores.pas' {frmCadFornecedores},
+  untCadClientes in 'untCadClientes.pas' {frmCadClientes},
+  untFormPadrao in 'untFormPadrao.pas' {FormPadrao},
+  untCadOS in 'untCadOS.pas' {frmCadOS};
 
 {$R *.RES}
 

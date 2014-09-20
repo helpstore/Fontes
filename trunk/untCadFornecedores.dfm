@@ -8,6 +8,7 @@ inherited frmCadFornecedores: TfrmCadFornecedores
   inherited pgcCadastro: TcxPageControl
     Width = 749
     Height = 378
+    ActivePage = tbsEdita
     ClientRectBottom = 374
     ClientRectRight = 745
     inherited tbsLista: TcxTabSheet
@@ -157,15 +158,6 @@ inherited frmCadFornecedores: TfrmCadFornecedores
           TabOrder = 3
           Height = 165
           Width = 356
-          object cxDBTextEdit1: TcxDBTextEdit
-            Left = 224
-            Top = 40
-            DataBinding.DataField = 'FONE_VEN'
-            DataBinding.DataSource = dsRegistro
-            Properties.CharCase = ecUpperCase
-            TabOrder = 1
-            Width = 125
-          end
           object cxLabel3: TcxLabel
             Left = 224
             Top = 24
@@ -186,15 +178,6 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             Top = 104
             Caption = 'Financeiro'
             Transparent = True
-          end
-          object cxDBTextEdit3: TcxDBTextEdit
-            Left = 224
-            Top = 120
-            DataBinding.DataField = 'FONE_FIN'
-            DataBinding.DataSource = dsRegistro
-            Properties.CharCase = ecUpperCase
-            TabOrder = 5
-            Width = 125
           end
           object cxLabel4: TcxLabel
             Left = 224
@@ -220,7 +203,7 @@ inherited frmCadFornecedores: TfrmCadFornecedores
           object cxDBTextEdit5: TcxDBTextEdit
             Left = 8
             Top = 80
-            DataBinding.DataField = 'VENDEDOR'
+            DataBinding.DataField = 'REPRESENTANTE'
             DataBinding.DataSource = dsRegistro
             Properties.CharCase = ecUpperCase
             TabOrder = 2
@@ -232,29 +215,49 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             Caption = 'Representante'
             Transparent = True
           end
-          object cxDBTextEdit6: TcxDBTextEdit
-            Left = 224
-            Top = 80
-            DataBinding.DataField = 'FONE_VEN'
-            DataBinding.DataSource = dsRegistro
-            Properties.CharCase = ecUpperCase
-            TabOrder = 3
-            Width = 125
-          end
           object cxLabel8: TcxLabel
             Left = 224
             Top = 64
             Caption = 'Fone'
             Transparent = True
           end
+          object edtFoneVend: TcxDBMaskEdit
+            Left = 224
+            Top = 40
+            DataBinding.DataField = 'FONE_VEN'
+            DataBinding.DataSource = dsRegistro
+            Properties.EditMask = '(##)####-####;1; '
+            Properties.MaxLength = 0
+            TabOrder = 1
+            Width = 121
+          end
+          object edtFoneRep: TcxDBMaskEdit
+            Left = 224
+            Top = 80
+            DataBinding.DataField = 'FONE_REP'
+            DataBinding.DataSource = dsRegistro
+            Properties.EditMask = '(##)####-####;1; '
+            Properties.MaxLength = 0
+            TabOrder = 3
+            Width = 121
+          end
+          object edtFoneFin: TcxDBMaskEdit
+            Left = 224
+            Top = 120
+            DataBinding.DataField = 'FONE_FIN'
+            DataBinding.DataSource = dsRegistro
+            Properties.EditMask = '(##)####-####;1; '
+            Properties.MaxLength = 0
+            TabOrder = 5
+            Width = 121
+          end
         end
         inherited edtCodigo: TcxDBTextEdit [3]
           DataBinding.DataField = 'PESSOA_FJ'
-          Visible = False
         end
         inherited cxLabel1: TcxLabel [4]
         end
-        object btnLogradouro: TcxButtonEdit
+        object btnPessoaFJ: TcxButtonEdit
           Left = 577
           Top = 32
           Properties.Buttons = <
@@ -265,10 +268,11 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             end>
           Properties.ViewStyle = vsButtonsOnly
           TabOrder = 8
-          Text = 'btnPessoa'
+          Text = 'btnPessoaFJ'
+          OnClick = btnPessoaFJClick
           Width = 25
         end
-        object cbPessoaFJ: TcxDBLookupComboBox
+        object aTfrmCadPessoas: TcxDBLookupComboBox
           Tag = 1
           Left = 75
           Top = 32
@@ -318,18 +322,18 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             Caption = 'Banco'
             Transparent = True
           end
-          object cbBanco1: TcxDBLookupComboBox
+          object aTfrmCadBancos: TcxDBLookupComboBox
             Left = 9
             Top = 40
             DataBinding.DataField = 'BANCO_C1'
-            DataBinding.DataSource = dsBanco1
+            DataBinding.DataSource = dsRegistro
             Properties.CharCase = ecUpperCase
             Properties.KeyFieldNames = 'CODIGO'
             Properties.ListColumns = <
               item
-                FieldName = 'NOME_RAZAO'
+                FieldName = 'NOME'
               end>
-            Properties.ListSource = dsPessoa
+            Properties.ListSource = dsBanco1
             TabOrder = 0
             Width = 173
           end
@@ -378,18 +382,18 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             OnClick = btnBanco2Click
             Width = 25
           end
-          object cbBanco2: TcxDBLookupComboBox
+          object bTfrmCadBancos: TcxDBLookupComboBox
             Left = 9
             Top = 80
             DataBinding.DataField = 'BANCO_C2'
-            DataBinding.DataSource = dsBanco2
+            DataBinding.DataSource = dsRegistro
             Properties.CharCase = ecUpperCase
             Properties.KeyFieldNames = 'CODIGO'
             Properties.ListColumns = <
               item
-                FieldName = 'NOME_RAZAO'
+                FieldName = 'NOME'
               end>
-            Properties.ListSource = dsPessoa
+            Properties.ListSource = dsBanco2
             TabOrder = 3
             Width = 173
           end
@@ -430,7 +434,7 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             Transparent = True
           end
           object btnFormaPagto: TcxButtonEdit
-            Left = 182
+            Left = 333
             Top = 120
             Properties.Buttons = <
               item
@@ -441,9 +445,10 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             Properties.ViewStyle = vsButtonsOnly
             TabOrder = 15
             Text = 'btnPessoa'
+            OnClick = btnFormaPagtoClick
             Width = 25
           end
-          object cbFormaPagto: TcxDBLookupComboBox
+          object aTFrmFormasPagto: TcxDBLookupComboBox
             Left = 9
             Top = 120
             DataBinding.DataField = 'FORMA_PAGTO'
@@ -452,11 +457,11 @@ inherited frmCadFornecedores: TfrmCadFornecedores
             Properties.KeyFieldNames = 'CODIGO'
             Properties.ListColumns = <
               item
-                FieldName = 'NOME_RAZAO'
+                FieldName = 'NOME'
               end>
-            Properties.ListSource = dsPessoa
+            Properties.ListSource = dsFromaPagto
             TabOrder = 6
-            Width = 173
+            Width = 325
           end
           object cxLabel16: TcxLabel
             Left = 8
@@ -471,6 +476,8 @@ inherited frmCadFornecedores: TfrmCadFornecedores
           Caption = 'Compartilha c/Filiais'
           DataBinding.DataField = 'SINCRONIZA_FILIAIS'
           DataBinding.DataSource = dsRegistro
+          Properties.ValueChecked = 'S'
+          Properties.ValueUnchecked = 'N'
           TabOrder = 2
           Width = 121
         end
@@ -554,7 +561,6 @@ inherited frmCadFornecedores: TfrmCadFornecedores
     object dtEditFONE_VEN: TIBStringField
       FieldName = 'FONE_VEN'
       Origin = '"GLO_FORNECEDORES"."FONE_VEN"'
-      EditMask = '(##)####-####;1; '
     end
     object dtEditFINANCEIRO: TIBStringField
       FieldName = 'FINANCEIRO'
@@ -755,6 +761,7 @@ inherited frmCadFornecedores: TfrmCadFornecedores
       Required = True
     end
     object dtListPESSOA_FJ: TIntegerField
+      Tag = 1
       DisplayLabel = 'Pessoa FJ'
       FieldName = 'PESSOA_FJ'
       Origin = '"GLO_FORNECEDORES"."PESSOA_FJ"'

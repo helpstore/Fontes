@@ -22,15 +22,15 @@ object frmCadPadrao: TfrmCadPadrao
   object pgcCadastro: TcxPageControl
     Left = 0
     Top = 0
-    Width = 783
-    Height = 391
-    ActivePage = tbsEdita
+    Width = 775
+    Height = 380
+    ActivePage = tbsLista
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange
-    ClientRectBottom = 387
+    ClientRectBottom = 376
     ClientRectLeft = 4
-    ClientRectRight = 779
+    ClientRectRight = 771
     ClientRectTop = 27
     object tbsLista: TcxTabSheet
       Caption = 'Pesquisa'
@@ -38,8 +38,8 @@ object frmCadPadrao: TfrmCadPadrao
       object Grid: TcxGrid
         Left = 0
         Top = 17
-        Width = 775
-        Height = 343
+        Width = 767
+        Height = 332
         Align = alClient
         TabOrder = 0
         object GridDBBandedTableView1: TcxGridDBBandedTableView
@@ -79,7 +79,7 @@ object frmCadPadrao: TfrmCadPadrao
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 775
+        Width = 767
         Height = 17
         Align = alTop
         BevelOuter = bvNone
@@ -92,8 +92,8 @@ object frmCadPadrao: TfrmCadPadrao
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 775
-        Height = 360
+        Width = 767
+        Height = 349
         Align = alClient
         TabOrder = 0
         object edtNome: TcxDBTextEdit
@@ -158,8 +158,8 @@ object frmCadPadrao: TfrmCadPadrao
   object dxBarManager: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     Categories.Strings = (
       'Defaut'
@@ -791,6 +791,7 @@ object frmCadPadrao: TfrmCadPadrao
     object ActCadLookup: TAction
       Caption = 'ActCadLookup'
       ShortCut = 115
+      OnExecute = ActCadLookupExecute
     end
     object ActImprimir: TAction
       Caption = 'ActImprimir'

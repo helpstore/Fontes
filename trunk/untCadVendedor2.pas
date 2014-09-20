@@ -91,6 +91,10 @@ type
     cxLabel16: TcxLabel;
     dtEditDet1ID: TIntegerField;
     dtListDet1ID: TIntegerField;
+    dsPessoa: TDataSource;
+    QryPessoa: TIBQuery;
+    QryPessoaCODIGO: TIntegerField;
+    QryPessoaNOME_RAZAO: TIBStringField;
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure cxDBCalcEdit5KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);

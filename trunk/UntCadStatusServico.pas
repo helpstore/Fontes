@@ -22,7 +22,7 @@ uses
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
   cxPC, cxMaskEdit, cxDropDownEdit, cxColorComboBox, cxDBColorComboBox,
-  cxCheckBox;
+  cxCheckBox, cxGroupBox;
 
 type
   TfrmCadStatusServico = class(TfrmCadPadrao)
@@ -49,9 +49,17 @@ type
     dtEditMOVIMENTO: TIBStringField;
     cxDBColorComboBox1: TcxDBColorComboBox;
     cxLabel3: TcxLabel;
-    cxDBCheckBox1: TcxDBCheckBox;
-    cxDBCheckBox2: TcxDBCheckBox;
+    dtEditPADRAO_ENVIO: TIBStringField;
+    dtEditPADRAO_ABERTURA: TIBStringField;
+    dtListPADRAO_ENVIO: TIBStringField;
+    dtListPADRAO_ABERTURA: TIBStringField;
+    cxGroupBox1: TcxGroupBox;
     cxDBCheckBox3: TcxDBCheckBox;
+    cxDBCheckBox2: TcxDBCheckBox;
+    cxGroupBox2: TcxGroupBox;
+    cxDBCheckBox1: TcxDBCheckBox;
+    cxDBCheckBox4: TcxDBCheckBox;
+    cxDBCheckBox5: TcxDBCheckBox;
   private
     { Private declarations }
   public

@@ -8,7 +8,6 @@ inherited frmCadVendedor2: TfrmCadVendedor2
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
     Height = 462
-    ActivePage = tbsEdita
     ClientRectBottom = 458
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
@@ -766,13 +765,40 @@ inherited frmCadVendedor2: TfrmCadVendedor2
       Required = True
     end
   end
-  inherited QryPessoa: TIBQuery
-    BeforeOpen = dtListBeforeOpen
-    Left = 656
-    Top = 80
+  object dsPessoa: TDataSource
+    AutoEdit = False
+    DataSet = QryPessoa
+    Left = 331
+    Top = 152
   end
-  inherited dsPessoa: TDataSource
-    Left = 627
-    Top = 80
+  object QryPessoa: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    DataSource = dsPesquisa
+    SQL.Strings = (
+      'select psa.codigo, psa.nome_razao from glo_pessoas_fj psa'
+      'where psa.cnpj = :cnpj'
+      'order by psa.nome_razao')
+    Left = 360
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'CNPJ'
+        ParamType = ptInput
+      end>
+    object QryPessoaCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_PESSOAS_FJ"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryPessoaNOME_RAZAO: TIBStringField
+      FieldName = 'NOME_RAZAO'
+      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
+      Size = 50
+    end
   end
 end

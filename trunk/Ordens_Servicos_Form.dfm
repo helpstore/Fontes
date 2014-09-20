@@ -7244,4 +7244,989 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       Size = 1
     end
   end
+  object Ordem: TIBDataSet
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    DeleteSQL.Strings = (
+      'delete from OFC_ORDEM_SERVICO'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    InsertSQL.Strings = (
+      'insert into OFC_ORDEM_SERVICO'
+      
+        '  (ALIQUOTA_ISS, ASSUNTO, CAUSA_CHAMADO, CHASSI, CLIENTE, CNPJ, ' +
+        'COD_CONTATO, '
+      
+        '   COD_GRAVIDADE, COD_STATUS, CODIGO, CONDICAO_FINAL_EQUIPAMENTO' +
+        ', CONTADOR_CILINDRO, '
+      
+        '   CONTADOR_COR, CONTADOR_IMPRESSAO, CONTADOR_PRETO, CONTADOR_RE' +
+        'VELADOR, '
+      
+        '   CONTADOR_TOTAL, CONTROLE, CREDITOS, CT_CILINDRO, CT_REVELADOR' +
+        ', CUSTO_OS, '
+      
+        '   DATA, DATA_FECHAMENTO, DEBITOS, DEFEITO_RECLAMADO, DESC_ACRES' +
+        'C, DT_ATRIBUICAO, '
+      
+        '   DT_CILINDRO, DT_FINALIZACAO, DT_INICIALIZACAO, DT_REVELADOR, ' +
+        'ENTRADA, '
+      
+        '   ENVIADA_CAIXA, FECHADO, FORMA_PAGTO, HISTORICO, HORA_CHEGADA,' +
+        ' HORA_SAIDA, '
+      
+        '   HORAS_TRABALHADAS, HR_ATRIBUICAO, HR_ENTRADA, HR_FECHAMENTO, ' +
+        'HR_FINALIZACAO, '
+      
+        '   HR_INICIALIZACAO, ID_CONTRATO, ID_MOTIVO_CHAMADO, ID_TIPO_ATE' +
+        'NDIMENTO, '
+      
+        '   INFORMACOES, KM, KM_FINAL, KM_INICIAL, KM_RODADO, LOCAL_COBRA' +
+        'NCA, MAP_LAT, '
+      
+        '   MAP_LONG, MECANICO, MED_BIELA, MED_CARCACA, MED_CILINDRO, MED' +
+        '_VIRABREQUIM, '
+      
+        '   MOTOR, NATUREZA, NF, NOME, NOME_DEFEITO, NOME_FORMA, NOME_MEC' +
+        'ANICO, '
+      
+        '   NOME_MOTOR, NOME_NATUREZA, NOME_PROPRIEDADE, NOME_VIAJANTE, N' +
+        'UMERO_VENDA, '
+      
+        '   OBS_FECHAMENTO, ORCAMENTO, OS_RECHAMADO, PESSOA_FJ, PLACA, PR' +
+        'EVENTIVO, '
+      
+        '   PRIORIDADE, PRODUTO, PROPRIEDADE, PROTOCOLO, SERIE, TEMPO_RES' +
+        'POSTA, '
+      
+        '   TIPO_ATENDIMENTO, TIPO_DOCTO, TIPO_TECNICO, TOTAL, VEICULO, V' +
+        'ENDA, VIAJANTE, '
+      '   VLR_ENTRADA, VLR_PARC_LC)'
+      'values'
+      
+        '  (:ALIQUOTA_ISS, :ASSUNTO, :CAUSA_CHAMADO, :CHASSI, :CLIENTE, :' +
+        'CNPJ, :COD_CONTATO, '
+      
+        '   :COD_GRAVIDADE, :COD_STATUS, :CODIGO, :CONDICAO_FINAL_EQUIPAM' +
+        'ENTO, :CONTADOR_CILINDRO, '
+      
+        '   :CONTADOR_COR, :CONTADOR_IMPRESSAO, :CONTADOR_PRETO, :CONTADO' +
+        'R_REVELADOR, '
+      
+        '   :CONTADOR_TOTAL, :CONTROLE, :CREDITOS, :CT_CILINDRO, :CT_REVE' +
+        'LADOR, '
+      
+        '   :CUSTO_OS, :DATA, :DATA_FECHAMENTO, :DEBITOS, :DEFEITO_RECLAM' +
+        'ADO, :DESC_ACRESC, '
+      
+        '   :DT_ATRIBUICAO, :DT_CILINDRO, :DT_FINALIZACAO, :DT_INICIALIZA' +
+        'CAO, :DT_REVELADOR, '
+      
+        '   :ENTRADA, :ENVIADA_CAIXA, :FECHADO, :FORMA_PAGTO, :HISTORICO,' +
+        ' :HORA_CHEGADA, '
+      
+        '   :HORA_SAIDA, :HORAS_TRABALHADAS, :HR_ATRIBUICAO, :HR_ENTRADA,' +
+        ' :HR_FECHAMENTO, '
+      
+        '   :HR_FINALIZACAO, :HR_INICIALIZACAO, :ID_CONTRATO, :ID_MOTIVO_' +
+        'CHAMADO, '
+      
+        '   :ID_TIPO_ATENDIMENTO, :INFORMACOES, :KM, :KM_FINAL, :KM_INICI' +
+        'AL, :KM_RODADO, '
+      
+        '   :LOCAL_COBRANCA, :MAP_LAT, :MAP_LONG, :MECANICO, :MED_BIELA, ' +
+        ':MED_CARCACA, '
+      
+        '   :MED_CILINDRO, :MED_VIRABREQUIM, :MOTOR, :NATUREZA, :NF, :NOM' +
+        'E, :NOME_DEFEITO, '
+      
+        '   :NOME_FORMA, :NOME_MECANICO, :NOME_MOTOR, :NOME_NATUREZA, :NO' +
+        'ME_PROPRIEDADE, '
+      
+        '   :NOME_VIAJANTE, :NUMERO_VENDA, :OBS_FECHAMENTO, :ORCAMENTO, :' +
+        'OS_RECHAMADO, '
+      
+        '   :PESSOA_FJ, :PLACA, :PREVENTIVO, :PRIORIDADE, :PRODUTO, :PROP' +
+        'RIEDADE, '
+      
+        '   :PROTOCOLO, :SERIE, :TEMPO_RESPOSTA, :TIPO_ATENDIMENTO, :TIPO' +
+        '_DOCTO, '
+      
+        '   :TIPO_TECNICO, :TOTAL, :VEICULO, :VENDA, :VIAJANTE, :VLR_ENTR' +
+        'ADA, :VLR_PARC_LC)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  CNPJ,'
+      '  CODIGO,'
+      '  DATA,'
+      '  PESSOA_FJ,'
+      '  NOME,'
+      '  NATUREZA,'
+      '  MECANICO,'
+      '  VIAJANTE,'
+      '  ENTRADA,'
+      '  HR_ENTRADA,'
+      '  HISTORICO,'
+      '  CHASSI,'
+      '  INFORMACOES,'
+      '  TOTAL,'
+      '  DESC_ACRESC,'
+      '  CLIENTE,'
+      '  FECHADO,'
+      '  NOME_NATUREZA,'
+      '  NOME_MECANICO,'
+      '  NOME_VIAJANTE,'
+      '  MOTOR,'
+      '  NOME_MOTOR,'
+      '  ENVIADA_CAIXA,'
+      '  PLACA,'
+      '  DATA_FECHAMENTO,'
+      '  HR_FECHAMENTO,'
+      '  OBS_FECHAMENTO,'
+      '  FORMA_PAGTO,'
+      '  NOME_FORMA,'
+      '  TIPO_DOCTO,'
+      '  LOCAL_COBRANCA,'
+      '  VLR_PARC_LC,'
+      '  VLR_ENTRADA,'
+      '  CREDITOS,'
+      '  DEBITOS,'
+      '  NF,'
+      '  ALIQUOTA_ISS,'
+      '  ORCAMENTO,'
+      '  MED_VIRABREQUIM,'
+      '  MED_BIELA,'
+      '  MED_CILINDRO,'
+      '  MED_CARCACA,'
+      '  NUMERO_VENDA,'
+      '  DEFEITO_RECLAMADO,'
+      '  CONDICAO_FINAL_EQUIPAMENTO,'
+      '  HORA_CHEGADA,'
+      '  HORA_SAIDA,'
+      '  CONTADOR_TOTAL,'
+      '  CONTADOR_CILINDRO,'
+      '  CONTADOR_REVELADOR,'
+      '  NOME_DEFEITO,'
+      '  PROPRIEDADE,'
+      '  NOME_PROPRIEDADE,'
+      '  CAUSA_CHAMADO,'
+      '  TIPO_ATENDIMENTO,'
+      '  CONTADOR_COR,'
+      '  CONTADOR_PRETO,'
+      '  CONTADOR_IMPRESSAO,'
+      '  VENDA,'
+      '  PRODUTO,'
+      '  ID_MOTIVO_CHAMADO,'
+      '  ID_TIPO_ATENDIMENTO,'
+      '  COD_STATUS,'
+      '  DT_ATRIBUICAO,'
+      '  HR_ATRIBUICAO,'
+      '  DT_INICIALIZACAO,'
+      '  HR_INICIALIZACAO,'
+      '  DT_FINALIZACAO,'
+      '  HR_FINALIZACAO,'
+      '  CT_REVELADOR,'
+      '  DT_REVELADOR,'
+      '  DT_CILINDRO,'
+      '  CT_CILINDRO,'
+      '  KM_INICIAL,'
+      '  KM_FINAL,'
+      '  OS_RECHAMADO,'
+      '  KM_RODADO,'
+      '  HORAS_TRABALHADAS,'
+      '  TEMPO_RESPOSTA,'
+      '  TIPO_TECNICO,'
+      '  PREVENTIVO,'
+      '  ID_CONTRATO,'
+      '  COD_CONTATO,'
+      '  PRIORIDADE,'
+      '  CUSTO_OS,'
+      '  CONTROLE,'
+      '  ASSUNTO,'
+      '  VEICULO,'
+      '  KM,'
+      '  PROTOCOLO,'
+      '  COD_GRAVIDADE,'
+      '  MAP_LAT,'
+      '  MAP_LONG,'
+      '  TAG,'
+      '  SERIE'
+      'from OFC_ORDEM_SERVICO '
+      'where'
+      '  CNPJ = :CNPJ and'
+      '  CODIGO = :CODIGO')
+    SelectSQL.Strings = (
+      'select OFC_ORDEM_SERVICO.*,'
+      '        ofc_gravidade.cnpj gcnpj,'
+      '        ofc_gravidade.codigo gcodigo,'
+      '        ofc_gravidade.titulo,'
+      '        st.fechado st_fechado'
+      'from OFC_ORDEM_SERVICO'
+      
+        'left join ofc_gravidade on (ofc_gravidade.cnpj = ofc_ordem_servi' +
+        'co.cnpj and ofc_gravidade.codigo = ofc_ordem_servico.cod_gravida' +
+        'de)'
+      
+        'left join ofc_status st on (st.cnpj = ofc_ordem_servico.cnpj and' +
+        ' ofc_ordem_servico.cod_status = st.codigo)'
+      
+        'Where ofc_ordem_servico.CNPJ = :CNPJ AND ofc_ordem_servico.CODIG' +
+        'O = :CODIGO')
+    ModifySQL.Strings = (
+      'update OFC_ORDEM_SERVICO'
+      'set'
+      '  ALIQUOTA_ISS = :ALIQUOTA_ISS,'
+      '  ASSUNTO = :ASSUNTO,'
+      '  CAUSA_CHAMADO = :CAUSA_CHAMADO,'
+      '  CHASSI = :CHASSI,'
+      '  CLIENTE = :CLIENTE,'
+      '  CNPJ = :CNPJ,'
+      '  COD_CONTATO = :COD_CONTATO,'
+      '  COD_GRAVIDADE = :COD_GRAVIDADE,'
+      '  COD_STATUS = :COD_STATUS,'
+      '  CODIGO = :CODIGO,'
+      '  CONDICAO_FINAL_EQUIPAMENTO = :CONDICAO_FINAL_EQUIPAMENTO,'
+      '  CONTADOR_CILINDRO = :CONTADOR_CILINDRO,'
+      '  CONTADOR_COR = :CONTADOR_COR,'
+      '  CONTADOR_IMPRESSAO = :CONTADOR_IMPRESSAO,'
+      '  CONTADOR_PRETO = :CONTADOR_PRETO,'
+      '  CONTADOR_REVELADOR = :CONTADOR_REVELADOR,'
+      '  CONTADOR_TOTAL = :CONTADOR_TOTAL,'
+      '  CONTROLE = :CONTROLE,'
+      '  CREDITOS = :CREDITOS,'
+      '  CT_CILINDRO = :CT_CILINDRO,'
+      '  CT_REVELADOR = :CT_REVELADOR,'
+      '  CUSTO_OS = :CUSTO_OS,'
+      '  DATA = :DATA,'
+      '  DATA_FECHAMENTO = :DATA_FECHAMENTO,'
+      '  DEBITOS = :DEBITOS,'
+      '  DEFEITO_RECLAMADO = :DEFEITO_RECLAMADO,'
+      '  DESC_ACRESC = :DESC_ACRESC,'
+      '  DT_ATRIBUICAO = :DT_ATRIBUICAO,'
+      '  DT_CILINDRO = :DT_CILINDRO,'
+      '  DT_FINALIZACAO = :DT_FINALIZACAO,'
+      '  DT_INICIALIZACAO = :DT_INICIALIZACAO,'
+      '  DT_REVELADOR = :DT_REVELADOR,'
+      '  ENTRADA = :ENTRADA,'
+      '  ENVIADA_CAIXA = :ENVIADA_CAIXA,'
+      '  FECHADO = :FECHADO,'
+      '  FORMA_PAGTO = :FORMA_PAGTO,'
+      '  HISTORICO = :HISTORICO,'
+      '  HORA_CHEGADA = :HORA_CHEGADA,'
+      '  HORA_SAIDA = :HORA_SAIDA,'
+      '  HORAS_TRABALHADAS = :HORAS_TRABALHADAS,'
+      '  HR_ATRIBUICAO = :HR_ATRIBUICAO,'
+      '  HR_ENTRADA = :HR_ENTRADA,'
+      '  HR_FECHAMENTO = :HR_FECHAMENTO,'
+      '  HR_FINALIZACAO = :HR_FINALIZACAO,'
+      '  HR_INICIALIZACAO = :HR_INICIALIZACAO,'
+      '  ID_CONTRATO = :ID_CONTRATO,'
+      '  ID_MOTIVO_CHAMADO = :ID_MOTIVO_CHAMADO,'
+      '  ID_TIPO_ATENDIMENTO = :ID_TIPO_ATENDIMENTO,'
+      '  INFORMACOES = :INFORMACOES,'
+      '  KM = :KM,'
+      '  KM_FINAL = :KM_FINAL,'
+      '  KM_INICIAL = :KM_INICIAL,'
+      '  KM_RODADO = :KM_RODADO,'
+      '  LOCAL_COBRANCA = :LOCAL_COBRANCA,'
+      '  MAP_LAT = :MAP_LAT,'
+      '  MAP_LONG = :MAP_LONG,'
+      '  MECANICO = :MECANICO,'
+      '  MED_BIELA = :MED_BIELA,'
+      '  MED_CARCACA = :MED_CARCACA,'
+      '  MED_CILINDRO = :MED_CILINDRO,'
+      '  MED_VIRABREQUIM = :MED_VIRABREQUIM,'
+      '  MOTOR = :MOTOR,'
+      '  NATUREZA = :NATUREZA,'
+      '  NF = :NF,'
+      '  NOME = :NOME,'
+      '  NOME_DEFEITO = :NOME_DEFEITO,'
+      '  NOME_FORMA = :NOME_FORMA,'
+      '  NOME_MECANICO = :NOME_MECANICO,'
+      '  NOME_MOTOR = :NOME_MOTOR,'
+      '  NOME_NATUREZA = :NOME_NATUREZA,'
+      '  NOME_PROPRIEDADE = :NOME_PROPRIEDADE,'
+      '  NOME_VIAJANTE = :NOME_VIAJANTE,'
+      '  NUMERO_VENDA = :NUMERO_VENDA,'
+      '  OBS_FECHAMENTO = :OBS_FECHAMENTO,'
+      '  ORCAMENTO = :ORCAMENTO,'
+      '  OS_RECHAMADO = :OS_RECHAMADO,'
+      '  PESSOA_FJ = :PESSOA_FJ,'
+      '  PLACA = :PLACA,'
+      '  PREVENTIVO = :PREVENTIVO,'
+      '  PRIORIDADE = :PRIORIDADE,'
+      '  PRODUTO = :PRODUTO,'
+      '  PROPRIEDADE = :PROPRIEDADE,'
+      '  PROTOCOLO = :PROTOCOLO,'
+      '  SERIE = :SERIE,'
+      '  TEMPO_RESPOSTA = :TEMPO_RESPOSTA,'
+      '  TIPO_ATENDIMENTO = :TIPO_ATENDIMENTO,'
+      '  TIPO_DOCTO = :TIPO_DOCTO,'
+      '  TIPO_TECNICO = :TIPO_TECNICO,'
+      '  TOTAL = :TOTAL,'
+      '  VEICULO = :VEICULO,'
+      '  VENDA = :VENDA,'
+      '  VIAJANTE = :VIAJANTE,'
+      '  VLR_ENTRADA = :VLR_ENTRADA,'
+      '  VLR_PARC_LC = :VLR_PARC_LC'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    GeneratorField.Field = 'CODIGO'
+    GeneratorField.Generator = 'OFC_ORDEM_GE'
+    GeneratorField.ApplyEvent = gamOnPost
+    Left = 680
+    Top = 43
+    object OrdemCNPJ: TIBStringField
+      DisplayLabel = 'Cnpj'
+      FieldName = 'CNPJ'
+      Origin = '"OFC_ORDEM_SERVICO"."CNPJ"'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object OrdemCODIGO: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      Origin = '"OFC_ORDEM_SERVICO"."CODIGO"'
+      Required = True
+    end
+    object OrdemCHASSI: TIBStringField
+      DisplayLabel = 'Chassi'
+      FieldName = 'CHASSI'
+      Origin = '"OFC_ORDEM_SERVICO"."CHASSI"'
+      Size = 30
+    end
+    object OrdemCLIENTE: TIBStringField
+      DisplayLabel = 'Cliente'
+      FieldName = 'CLIENTE'
+      Origin = '"OFC_ORDEM_SERVICO"."CLIENTE"'
+      Size = 50
+    end
+    object OrdemDATA: TDateTimeField
+      DisplayLabel = 'Data'
+      FieldName = 'DATA'
+      Origin = '"OFC_ORDEM_SERVICO"."DATA"'
+    end
+    object OrdemDESC_ACRESC: TFloatField
+      DisplayLabel = 'Desc/Acr'#233'sc'
+      FieldName = 'DESC_ACRESC'
+      Origin = '"OFC_ORDEM_SERVICO"."DESC_ACRESC"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemENTRADA: TDateTimeField
+      DisplayLabel = 'Entrada'
+      FieldName = 'ENTRADA'
+      Origin = '"OFC_ORDEM_SERVICO"."ENTRADA"'
+    end
+    object OrdemDT_ATRIBUICAO: TDateTimeField
+      FieldName = 'DT_ATRIBUICAO'
+      Origin = '"OFC_ORDEM_SERVICO"."DT_ATRIBUICAO"'
+    end
+    object OrdemFECHADO: TIBStringField
+      DisplayLabel = 'Fechado'
+      FieldName = 'FECHADO'
+      Origin = '"OFC_ORDEM_SERVICO"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object OrdemHISTORICO: TIBStringField
+      DisplayLabel = 'Historico'
+      FieldName = 'HISTORICO'
+      Origin = '"OFC_ORDEM_SERVICO"."HISTORICO"'
+      Size = 100
+    end
+    object OrdemINFORMACOES: TBlobField
+      DisplayLabel = 'Informa'#231#245'es'
+      FieldName = 'INFORMACOES'
+      Origin = '"OFC_ORDEM_SERVICO"."INFORMACOES"'
+      Size = 8
+    end
+    object OrdemMECANICO: TIntegerField
+      DisplayLabel = 'Mec'#226'nico'
+      FieldName = 'MECANICO'
+      Origin = '"OFC_ORDEM_SERVICO"."MECANICO"'
+      Required = True
+    end
+    object OrdemNATUREZA: TIntegerField
+      DisplayLabel = 'Natureza'
+      FieldName = 'NATUREZA'
+      Origin = '"OFC_ORDEM_SERVICO"."NATUREZA"'
+    end
+    object OrdemNOME: TIBStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME"'
+      Size = 50
+    end
+    object OrdemPESSOA_FJ: TIntegerField
+      DisplayLabel = 'Pessoa F/J'
+      FieldName = 'PESSOA_FJ'
+      Origin = '"OFC_ORDEM_SERVICO"."PESSOA_FJ"'
+      Required = True
+    end
+    object OrdemTOTAL: TFloatField
+      DisplayLabel = 'Total'
+      FieldName = 'TOTAL'
+      Origin = '"OFC_ORDEM_SERVICO"."TOTAL"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemVIAJANTE: TIntegerField
+      DisplayLabel = 'Viajante'
+      FieldName = 'VIAJANTE'
+      Origin = '"OFC_ORDEM_SERVICO"."VIAJANTE"'
+    end
+    object OrdemNOME_NATUREZA: TIBStringField
+      DisplayLabel = 'Natureza'
+      FieldName = 'NOME_NATUREZA'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME_NATUREZA"'
+      Size = 50
+    end
+    object OrdemNOME_MECANICO: TIBStringField
+      DisplayLabel = 'Mec'#226'nico'
+      FieldName = 'NOME_MECANICO'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME_MECANICO"'
+      Size = 50
+    end
+    object OrdemNOME_VIAJANTE: TIBStringField
+      DisplayLabel = 'Viajante'
+      FieldName = 'NOME_VIAJANTE'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME_VIAJANTE"'
+      Size = 50
+    end
+    object OrdemLiquido: TFloatField
+      DisplayLabel = 'Liqu'#237'do'
+      FieldKind = fkCalculated
+      FieldName = 'Liquido'
+      DisplayFormat = '###,###,##0.00'
+      Calculated = True
+    end
+    object OrdemMOTOR: TIntegerField
+      FieldName = 'MOTOR'
+      Origin = '"OFC_ORDEM_SERVICO"."MOTOR"'
+    end
+    object OrdemNOME_MOTOR: TIBStringField
+      FieldName = 'NOME_MOTOR'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME_MOTOR"'
+      Size = 50
+    end
+    object OrdemENVIADA_CAIXA: TIBStringField
+      FieldName = 'ENVIADA_CAIXA'
+      Origin = '"OFC_ORDEM_SERVICO"."ENVIADA_CAIXA"'
+      FixedChar = True
+      Size = 1
+    end
+    object OrdemPLACA: TIBStringField
+      DisplayLabel = 'Placa'
+      FieldName = 'PLACA'
+      Origin = '"OFC_ORDEM_SERVICO"."PLACA"'
+      FixedChar = True
+      Size = 8
+    end
+    object OrdemDATA_FECHAMENTO: TDateTimeField
+      DisplayLabel = 'Data Fechamento'
+      FieldName = 'DATA_FECHAMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."DATA_FECHAMENTO"'
+    end
+    object OrdemOBS_FECHAMENTO: TBlobField
+      DisplayLabel = 'Obs'
+      FieldName = 'OBS_FECHAMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."OBS_FECHAMENTO"'
+      Size = 8
+    end
+    object OrdemFORMA_PAGTO: TIntegerField
+      DisplayLabel = 'Forma Pagto'
+      FieldName = 'FORMA_PAGTO'
+      Origin = '"OFC_ORDEM_SERVICO"."FORMA_PAGTO"'
+    end
+    object OrdemNOME_FORMA: TIBStringField
+      DisplayLabel = 'Nome Forma'
+      FieldName = 'NOME_FORMA'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME_FORMA"'
+      Size = 50
+    end
+    object OrdemTIPO_DOCTO: TIBStringField
+      FieldName = 'TIPO_DOCTO'
+      Origin = '"OFC_ORDEM_SERVICO"."TIPO_DOCTO"'
+      FixedChar = True
+      Size = 3
+    end
+    object OrdemLOCAL_COBRANCA: TIntegerField
+      FieldName = 'LOCAL_COBRANCA'
+      Origin = '"OFC_ORDEM_SERVICO"."LOCAL_COBRANCA"'
+    end
+    object OrdemTOTAL_PARCELAR: TFloatField
+      DisplayLabel = 'Total a Parcelar'
+      FieldKind = fkCalculated
+      FieldName = 'TOTAL_PARCELAR'
+      DisplayFormat = '###,###,##0.00'
+      Calculated = True
+    end
+    object OrdemDiferenca: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'Diferenca'
+      DisplayFormat = '###,###,##0.00'
+      Calculated = True
+    end
+    object OrdemVLR_PARC_LC: TFloatField
+      DisplayLabel = 'Parcelado'
+      FieldName = 'VLR_PARC_LC'
+      Origin = '"OFC_ORDEM_SERVICO"."VLR_PARC_LC"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemAVISTA: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'AVISTA'
+      DisplayFormat = '###,###,##0.00'
+      Calculated = True
+    end
+    object OrdemVLR_ENTRADA: TFloatField
+      FieldName = 'VLR_ENTRADA'
+      Origin = '"OFC_ORDEM_SERVICO"."VLR_ENTRADA"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemCREDITOS: TFloatField
+      FieldName = 'CREDITOS'
+      Origin = '"OFC_ORDEM_SERVICO"."CREDITOS"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemDEBITOS: TFloatField
+      FieldName = 'DEBITOS'
+      Origin = '"OFC_ORDEM_SERVICO"."DEBITOS"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemNF: TIntegerField
+      FieldName = 'NF'
+      Origin = '"OFC_ORDEM_SERVICO"."NF"'
+    end
+    object OrdemA_VISTA: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'A_VISTA'
+      Size = 1
+      Calculated = True
+    end
+    object OrdemMED_VIRABREQUIM: TIBStringField
+      FieldName = 'MED_VIRABREQUIM'
+      Origin = '"OFC_ORDEM_SERVICO"."MED_VIRABREQUIM"'
+    end
+    object OrdemMED_BIELA: TIBStringField
+      FieldName = 'MED_BIELA'
+      Origin = '"OFC_ORDEM_SERVICO"."MED_BIELA"'
+    end
+    object OrdemMED_CILINDRO: TIBStringField
+      FieldName = 'MED_CILINDRO'
+      Origin = '"OFC_ORDEM_SERVICO"."MED_CILINDRO"'
+    end
+    object OrdemMED_CARCACA: TIBStringField
+      FieldName = 'MED_CARCACA'
+      Origin = '"OFC_ORDEM_SERVICO"."MED_CARCACA"'
+    end
+    object OrdemORCAMENTO: TIntegerField
+      FieldName = 'ORCAMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."ORCAMENTO"'
+    end
+    object OrdemNUMERO_VENDA: TIntegerField
+      FieldName = 'NUMERO_VENDA'
+      Origin = '"OFC_ORDEM_SERVICO"."NUMERO_VENDA"'
+    end
+    object OrdemDEFEITO_RECLAMADO: TIntegerField
+      FieldName = 'DEFEITO_RECLAMADO'
+      Origin = '"OFC_ORDEM_SERVICO"."DEFEITO_RECLAMADO"'
+    end
+    object OrdemCONDICAO_FINAL_EQUIPAMENTO: TIBStringField
+      FieldName = 'CONDICAO_FINAL_EQUIPAMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."CONDICAO_FINAL_EQUIPAMENTO"'
+      Size = 50
+    end
+    object OrdemHORA_CHEGADA: TTimeField
+      FieldName = 'HORA_CHEGADA'
+      Origin = '"OFC_ORDEM_SERVICO"."HORA_CHEGADA"'
+    end
+    object OrdemHORA_SAIDA: TTimeField
+      FieldName = 'HORA_SAIDA'
+      Origin = '"OFC_ORDEM_SERVICO"."HORA_SAIDA"'
+    end
+    object OrdemCONTADOR_TOTAL: TFloatField
+      FieldName = 'CONTADOR_TOTAL'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTADOR_TOTAL"'
+    end
+    object OrdemCONTADOR_CILINDRO: TFloatField
+      FieldName = 'CONTADOR_CILINDRO'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTADOR_CILINDRO"'
+    end
+    object OrdemCONTADOR_REVELADOR: TFloatField
+      FieldName = 'CONTADOR_REVELADOR'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTADOR_REVELADOR"'
+    end
+    object OrdemNOME_DEFEITO: TIBStringField
+      FieldName = 'NOME_DEFEITO'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME_DEFEITO"'
+      Size = 50
+    end
+    object OrdemPROPRIEDADE: TIntegerField
+      FieldName = 'PROPRIEDADE'
+      Origin = '"OFC_ORDEM_SERVICO"."PROPRIEDADE"'
+    end
+    object OrdemNOME_PROPRIEDADE: TIBStringField
+      FieldName = 'NOME_PROPRIEDADE'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME_PROPRIEDADE"'
+      Size = 50
+    end
+    object OrdemTIPO_ATENDIMENTO: TIBStringField
+      DisplayLabel = 'Tipo Atendimento'
+      FieldName = 'TIPO_ATENDIMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."TIPO_ATENDIMENTO"'
+      Size = 50
+    end
+    object OrdemCAUSA_CHAMADO: TIBStringField
+      FieldName = 'CAUSA_CHAMADO'
+      Origin = '"OFC_ORDEM_SERVICO"."CAUSA_CHAMADO"'
+      Size = 200
+    end
+    object OrdemCONTADOR_COR: TFloatField
+      FieldName = 'CONTADOR_COR'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTADOR_COR"'
+    end
+    object OrdemCONTADOR_PRETO: TFloatField
+      FieldName = 'CONTADOR_PRETO'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTADOR_PRETO"'
+    end
+    object OrdemCONTADOR_IMPRESSAO: TFloatField
+      FieldName = 'CONTADOR_IMPRESSAO'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTADOR_IMPRESSAO"'
+    end
+    object OrdemVENDA: TIntegerField
+      FieldName = 'VENDA'
+      Origin = '"OFC_ORDEM_SERVICO"."VENDA"'
+    end
+    object OrdemALIQUOTA_ISS: TFloatField
+      FieldName = 'ALIQUOTA_ISS'
+      Origin = '"OFC_ORDEM_SERVICO"."ALIQUOTA_ISS"'
+    end
+    object OrdemPRODUTO: TIBStringField
+      FieldName = 'PRODUTO'
+      Origin = '"OFC_ORDEM_SERVICO"."PRODUTO"'
+      Size = 15
+    end
+    object OrdemID_MOTIVO_CHAMADO: TIntegerField
+      FieldName = 'ID_MOTIVO_CHAMADO'
+      Origin = '"OFC_ORDEM_SERVICO"."ID_MOTIVO_CHAMADO"'
+    end
+    object OrdemID_TIPO_ATENDIMENTO: TIntegerField
+      FieldName = 'ID_TIPO_ATENDIMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."ID_TIPO_ATENDIMENTO"'
+    end
+    object OrdemCOD_STATUS: TIntegerField
+      FieldName = 'COD_STATUS'
+      Origin = '"OFC_ORDEM_SERVICO"."COD_STATUS"'
+    end
+    object OrdemHR_INICIALIZACAO: TTimeField
+      FieldName = 'HR_INICIALIZACAO'
+      Origin = '"OFC_ORDEM_SERVICO"."HR_INICIALIZACAO"'
+    end
+    object OrdemDT_FINALIZACAO: TDateTimeField
+      FieldName = 'DT_FINALIZACAO'
+      Origin = '"OFC_ORDEM_SERVICO"."DT_FINALIZACAO"'
+    end
+    object OrdemHR_FINALIZACAO: TTimeField
+      FieldName = 'HR_FINALIZACAO'
+      Origin = '"OFC_ORDEM_SERVICO"."HR_FINALIZACAO"'
+    end
+    object OrdemDT_INICIALIZACAO: TDateTimeField
+      FieldName = 'DT_INICIALIZACAO'
+      Origin = '"OFC_ORDEM_SERVICO"."DT_INICIALIZACAO"'
+    end
+    object OrdemHR_ENTRADA: TTimeField
+      FieldName = 'HR_ENTRADA'
+      Origin = '"OFC_ORDEM_SERVICO"."HR_ENTRADA"'
+    end
+    object OrdemHR_ATRIBUICAO: TTimeField
+      FieldName = 'HR_ATRIBUICAO'
+      Origin = '"OFC_ORDEM_SERVICO"."HR_ATRIBUICAO"'
+    end
+    object OrdemCT_REVELADOR: TIntegerField
+      FieldName = 'CT_REVELADOR'
+      Origin = '"OFC_ORDEM_SERVICO"."CT_REVELADOR"'
+    end
+    object OrdemDT_REVELADOR: TDateTimeField
+      FieldName = 'DT_REVELADOR'
+      Origin = '"OFC_ORDEM_SERVICO"."DT_REVELADOR"'
+    end
+    object OrdemDT_CILINDRO: TDateTimeField
+      FieldName = 'DT_CILINDRO'
+      Origin = '"OFC_ORDEM_SERVICO"."DT_CILINDRO"'
+    end
+    object OrdemCT_CILINDRO: TIntegerField
+      FieldName = 'CT_CILINDRO'
+      Origin = '"OFC_ORDEM_SERVICO"."CT_CILINDRO"'
+    end
+    object OrdemKM_INICIAL: TFloatField
+      FieldName = 'KM_INICIAL'
+      Origin = '"OFC_ORDEM_SERVICO"."KM_INICIAL"'
+    end
+    object OrdemKM_FINAL: TFloatField
+      FieldName = 'KM_FINAL'
+      Origin = '"OFC_ORDEM_SERVICO"."KM_FINAL"'
+    end
+    object OrdemHR_FECHAMENTO: TTimeField
+      FieldName = 'HR_FECHAMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."HR_FECHAMENTO"'
+    end
+    object OrdemTEMPO_RESPOSTA: TFloatField
+      FieldName = 'TEMPO_RESPOSTA'
+      Origin = '"OFC_ORDEM_SERVICO"."TEMPO_RESPOSTA"'
+    end
+    object OrdemOS_RECHAMADO: TIntegerField
+      FieldName = 'OS_RECHAMADO'
+      Origin = '"OFC_ORDEM_SERVICO"."OS_RECHAMADO"'
+    end
+    object OrdemKM_RODADO: TFloatField
+      FieldName = 'KM_RODADO'
+      Origin = '"OFC_ORDEM_SERVICO"."KM_RODADO"'
+    end
+    object OrdemHORAS_TRABALHADAS: TFloatField
+      FieldName = 'HORAS_TRABALHADAS'
+      Origin = '"OFC_ORDEM_SERVICO"."HORAS_TRABALHADAS"'
+    end
+    object OrdemTIPO_TECNICO: TIBStringField
+      FieldName = 'TIPO_TECNICO'
+      Origin = '"OFC_ORDEM_SERVICO"."TIPO_TECNICO"'
+      FixedChar = True
+      Size = 1
+    end
+    object OrdemPREVENTIVO: TIBStringField
+      FieldName = 'PREVENTIVO'
+      Origin = '"OFC_ORDEM_SERVICO"."PREVENTIVO"'
+      FixedChar = True
+      Size = 1
+    end
+    object OrdemID_CONTRATO: TIntegerField
+      FieldName = 'ID_CONTRATO'
+      Origin = '"OFC_ORDEM_SERVICO"."ID_CONTRATO"'
+    end
+    object OrdemCOD_CONTATO: TIntegerField
+      FieldName = 'COD_CONTATO'
+      Origin = '"OFC_ORDEM_SERVICO"."COD_CONTATO"'
+    end
+    object OrdemPRIORIDADE: TIntegerField
+      FieldName = 'PRIORIDADE'
+      Origin = '"OFC_ORDEM_SERVICO"."PRIORIDADE"'
+    end
+    object OrdemCUSTO_OS: TFloatField
+      FieldName = 'CUSTO_OS'
+      Origin = '"OFC_ORDEM_SERVICO"."CUSTO_OS"'
+    end
+    object OrdemCONTROLE: TIntegerField
+      FieldName = 'CONTROLE'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTROLE"'
+    end
+    object OrdemASSUNTO: TIBStringField
+      FieldName = 'ASSUNTO'
+      Origin = '"OFC_ORDEM_SERVICO"."ASSUNTO"'
+      Size = 200
+    end
+    object OrdemVEICULO: TIntegerField
+      FieldName = 'VEICULO'
+      Origin = '"OFC_ORDEM_SERVICO"."VEICULO"'
+    end
+    object OrdemKM: TIntegerField
+      FieldName = 'KM'
+      Origin = '"OFC_ORDEM_SERVICO"."KM"'
+    end
+    object OrdemCOD_GRAVIDADE: TIntegerField
+      FieldName = 'COD_GRAVIDADE'
+      Origin = '"OFC_ORDEM_SERVICO"."COD_GRAVIDADE"'
+    end
+    object OrdemPROTOCOLO: TIBStringField
+      FieldName = 'PROTOCOLO'
+      Origin = '"OFC_ORDEM_SERVICO"."PROTOCOLO"'
+      Size = 15
+    end
+    object OrdemGCNPJ: TIBStringField
+      FieldName = 'GCNPJ'
+      Origin = '"OFC_GRAVIDADE"."CNPJ"'
+      FixedChar = True
+      Size = 14
+    end
+    object OrdemGCODIGO: TIntegerField
+      FieldName = 'GCODIGO'
+      Origin = '"OFC_GRAVIDADE"."CODIGO"'
+    end
+    object OrdemTITULO: TIBStringField
+      FieldName = 'TITULO'
+      Origin = '"OFC_GRAVIDADE"."TITULO"'
+      Size = 30
+    end
+    object OrdemST_FECHADO: TIBStringField
+      FieldName = 'ST_FECHADO'
+      Origin = '"OFC_STATUS"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object OrdemMAP_LAT: TIBStringField
+      FieldName = 'MAP_LAT'
+      Origin = '"OFC_ORDEM_SERVICO"."MAP_LAT"'
+      Size = 200
+    end
+    object OrdemMAP_LONG: TIBStringField
+      FieldName = 'MAP_LONG'
+      Origin = '"OFC_ORDEM_SERVICO"."MAP_LONG"'
+      Size = 200
+    end
+    object OrdemTAG: TIBStringField
+      FieldName = 'TAG'
+      Origin = '"OFC_ORDEM_SERVICO"."TAG"'
+      FixedChar = True
+      Size = 1
+    end
+    object OrdemSERIE: TIBStringField
+      FieldName = 'SERIE'
+      Origin = '"OFC_ORDEM_SERVICO"."SERIE"'
+      Size = 30
+    end
+  end
+  object OrdemItens: TIBDataSet
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    DeleteSQL.Strings = (
+      'delete from OFC_ORDEM_SERVICO_SERVICO'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO and'
+      '  PRODUTO = :OLD_PRODUTO')
+    RefreshSQL.Strings = (
+      'select osi.cnpj,'
+      '  osi.codigo,'
+      '  osi.nome,'
+      '  osi.quantidade,'
+      '  osi.servico,'
+      '  osi.unitario,'
+      '  osi.selecionado,'
+      '  prd.codigo as cod_produto,'
+      '  osi.codigo_tecnico,'
+      '  prd.nome nome_produto,'
+      '  tec.nome as nometec,'
+      'case prd.servico'
+      '                         when '#39'S'#39' then '#39'Servi'#231'o'#39
+      '                         else '#39'Produto'#39
+      '                       end tipo_servico'
+      ''
+      'from ofc_ordem_servico_servico osi'
+      
+        'left join est_produtos prd on (prd.cnpj = osi.cnpj and osi.produ' +
+        'to = prd.codigo)'
+      
+        'left join ofc_mecanicos  tec on(tec.codigo = osi.codigo_tecnico ' +
+        'and osi.cnpj = tec.cnpj)'
+      'where '
+      '  osi.CNPJ = :OLD_CNPJ and'
+      '  osi.CODIGO = :OLD_CODIGO and'
+      '  osi.PRODUTO = :OLD_PRODUTO')
+    SelectSQL.Strings = (
+      'select osi.cnpj,'
+      '  osi.codigo,'
+      '  osi.nome,'
+      '  osi.quantidade,'
+      '  osi.servico,'
+      '  osi.unitario,'
+      '  osi.selecionado,'
+      '  prd.codigo as cod_produto,'
+      '  osi.codigo_tecnico,'
+      '  prd.nome nome_produto,'
+      '  tec.nome as nometec,'
+      'case prd.servico'
+      '                         when '#39'S'#39' then '#39'Servi'#231'o'#39
+      '                         else '#39'Produto'#39
+      '                       end tipo_servico'
+      ''
+      'from ofc_ordem_servico_servico osi'
+      
+        'left join est_produtos prd on (prd.cnpj = osi.cnpj and osi.produ' +
+        'to = prd.codigo)'
+      
+        'left join ofc_mecanicos  tec on(tec.codigo = osi.codigo_tecnico ' +
+        'and osi.cnpj = tec.cnpj)'
+      'where osi.cnpj = :cnpj and osi.codigo = :codigo')
+    DataSource = DataSource
+    Left = 718
+    Top = 44
+    object OrdemItensCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."CNPJ"'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object OrdemItensCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."CODIGO"'
+      Required = True
+      DisplayFormat = 'C'#243'digo'
+    end
+    object OrdemItensNOME: TIBStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."NOME"'
+      Size = 50
+    end
+    object OrdemItensQUANTIDADE: TFloatField
+      DisplayLabel = 'Qtde'
+      FieldName = 'QUANTIDADE'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."QUANTIDADE"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemItensSERVICO: TIntegerField
+      DisplayLabel = 'Sevi'#231'o'
+      FieldName = 'SERVICO'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."SERVICO"'
+    end
+    object OrdemItensUNITARIO: TFloatField
+      DisplayLabel = 'Unit'#225'rio'
+      FieldName = 'UNITARIO'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."UNITARIO"'
+      DisplayFormat = '###,###,##0.00'
+    end
+    object OrdemItensSELECIONADO: TIBStringField
+      DisplayLabel = 'Sel'
+      FieldName = 'SELECIONADO'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."SELECIONADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object OrdemItensCOD_PRODUTO: TIBStringField
+      DisplayLabel = 'C'#243'd. Item'
+      FieldName = 'COD_PRODUTO'
+      Origin = '"EST_PRODUTOS"."CODIGO"'
+      Size = 15
+    end
+    object OrdemItensNOME_PRODUTO: TIBStringField
+      DisplayLabel = 'Item'
+      FieldName = 'NOME_PRODUTO'
+      Origin = '"EST_PRODUTOS"."NOME"'
+      Size = 50
+    end
+    object OrdemItensTIPO_SERVICO: TIBStringField
+      DisplayLabel = 'Tp. Servi'#231'o'
+      FieldName = 'TIPO_SERVICO'
+      FixedChar = True
+      Size = 7
+    end
+    object OrdemItensTotal: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'Total'
+      DisplayFormat = '###,##0.00'
+      Calculated = True
+    end
+    object OrdemItensNOMETEC: TIBStringField
+      DisplayLabel = 'Nome T'#233'cnico'
+      FieldName = 'NOMETEC'
+      Origin = '"OFC_MECANICOS"."NOME"'
+      Size = 50
+    end
+    object OrdemItensCODIGO_TECNICO: TIntegerField
+      FieldName = 'CODIGO_TECNICO'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."CODIGO_TECNICO"'
+    end
+  end
 end

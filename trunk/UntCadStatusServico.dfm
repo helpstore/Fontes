@@ -1,12 +1,21 @@
 inherited frmCadStatusServico: TfrmCadStatusServico
-  Left = 233
-  Top = 267
+  Left = 377
+  Top = 213
+  Width = 627
+  Height = 400
   Caption = 'Status de Servi'#231'o'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    Width = 611
+    Height = 336
+    ClientRectBottom = 332
+    ClientRectRight = 607
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
+        Width = 603
+        Height = 288
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -62,18 +71,24 @@ inherited frmCadStatusServico: TfrmCadStatusServico
           end
         end
       end
+      inherited Panel1: TPanel
+        Width = 603
+      end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
+        Width = 603
+        Height = 305
         inherited edtNome: TcxDBTextEdit
           DataBinding.DataField = 'NOME'
+          Width = 379
         end
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
         end
         object cxDBColorComboBox1: TcxDBColorComboBox
-          Left = 7
-          Top = 80
+          Left = 455
+          Top = 32
           DataBinding.DataField = 'COR'
           DataBinding.DataSource = dsRegistro
           Properties.CustomColors = <>
@@ -81,43 +96,81 @@ inherited frmCadStatusServico: TfrmCadStatusServico
           Width = 138
         end
         object cxLabel3: TcxLabel
-          Left = 7
-          Top = 63
+          Left = 455
+          Top = 15
           Caption = 'Cor'
           Transparent = True
         end
-        object cxDBCheckBox1: TcxDBCheckBox
-          Left = 149
-          Top = 81
-          Caption = 'Fechado'
-          DataBinding.DataField = 'FECHADO'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
+        object cxGroupBox1: TcxGroupBox
+          Left = 285
+          Top = 56
+          Caption = 'Vinculo de Status'
           TabOrder = 6
-          Width = 68
+          Height = 62
+          Width = 169
+          object cxDBCheckBox3: TcxDBCheckBox
+            Left = 6
+            Top = 25
+            Caption = 'Movimentos'
+            DataBinding.DataField = 'MOVIMENTO'
+            DataBinding.DataSource = dsRegistro
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            TabOrder = 0
+            Width = 83
+          end
+          object cxDBCheckBox2: TcxDBCheckBox
+            Left = 94
+            Top = 25
+            Caption = 'OS'
+            DataBinding.DataField = 'OS'
+            DataBinding.DataSource = dsRegistro
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            TabOrder = 1
+            Width = 43
+          end
         end
-        object cxDBCheckBox2: TcxDBCheckBox
-          Left = 214
-          Top = 81
-          Caption = 'OS'
-          DataBinding.DataField = 'OS'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
+        object cxGroupBox2: TcxGroupBox
+          Left = 8
+          Top = 56
+          Caption = 'Tipo de Status - Padr'#227'o'
           TabOrder = 7
-          Width = 43
-        end
-        object cxDBCheckBox3: TcxDBCheckBox
-          Left = 254
-          Top = 81
-          Caption = 'Movimentos'
-          DataBinding.DataField = 'MOVIMENTO'
-          DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
-          TabOrder = 8
-          Width = 83
+          Height = 62
+          Width = 273
+          object cxDBCheckBox1: TcxDBCheckBox
+            Left = 5
+            Top = 25
+            Caption = 'Fechamento'
+            DataBinding.DataField = 'FECHADO'
+            DataBinding.DataSource = dsRegistro
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            TabOrder = 0
+            Width = 84
+          end
+          object cxDBCheckBox4: TcxDBCheckBox
+            Left = 93
+            Top = 25
+            Caption = 'Programa'#231#227'o'
+            DataBinding.DataField = 'PADRAO_ENVIO'
+            DataBinding.DataSource = dsRegistro
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            TabOrder = 1
+            Width = 92
+          end
+          object cxDBCheckBox5: TcxDBCheckBox
+            Left = 189
+            Top = 25
+            Caption = 'Abertura'
+            DataBinding.DataField = 'PADRAO_ABERTURA'
+            DataBinding.DataSource = dsRegistro
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            TabOrder = 2
+            Width = 76
+          end
         end
       end
     end
@@ -130,11 +183,16 @@ inherited frmCadStatusServico: TfrmCadStatusServico
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
       'insert into ofc_status'
-      '  (CNPJ, CODIGO, COR, FECHADO, MOVIMENTO, NOME, OS)'
+      
+        '  (CNPJ, CODIGO, COR, FECHADO, MOVIMENTO, NOME, OS, PADRAO_ABERT' +
+        'URA, PADRAO_ENVIO)'
       'values'
-      '  (:CNPJ, :CODIGO, :COR, :FECHADO, :MOVIMENTO, :NOME, :OS)')
+      
+        '  (:CNPJ, :CODIGO, :COR, :FECHADO, :MOVIMENTO, :NOME, :OS, :PADR' +
+        'AO_ABERTURA, '
+      '   :PADRAO_ENVIO)')
     RefreshSQL.Strings = (
-      'Select *'
+      'Select * '
       'from ofc_status '
       'where'
       '  CNPJ = :CNPJ and'
@@ -151,7 +209,9 @@ inherited frmCadStatusServico: TfrmCadStatusServico
       '  FECHADO = :FECHADO,'
       '  MOVIMENTO = :MOVIMENTO,'
       '  NOME = :NOME,'
-      '  OS = :OS'
+      '  OS = :OS,'
+      '  PADRAO_ABERTURA = :PADRAO_ABERTURA,'
+      '  PADRAO_ENVIO = :PADRAO_ENVIO'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
@@ -196,6 +256,18 @@ inherited frmCadStatusServico: TfrmCadStatusServico
     object dtEditMOVIMENTO: TIBStringField
       FieldName = 'MOVIMENTO'
       Origin = '"OFC_STATUS"."MOVIMENTO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditPADRAO_ENVIO: TIBStringField
+      FieldName = 'PADRAO_ENVIO'
+      Origin = '"OFC_STATUS"."PADRAO_ENVIO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditPADRAO_ABERTURA: TIBStringField
+      FieldName = 'PADRAO_ABERTURA'
+      Origin = '"OFC_STATUS"."PADRAO_ABERTURA"'
       FixedChar = True
       Size = 1
     end
@@ -253,6 +325,20 @@ inherited frmCadStatusServico: TfrmCadStatusServico
       DisplayLabel = 'Movimento'
       FieldName = 'MOVIMENTO'
       Origin = '"OFC_STATUS"."MOVIMENTO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListPADRAO_ENVIO: TIBStringField
+      DisplayLabel = 'Status Padr'#227'o Programa'#231#227'o'
+      FieldName = 'PADRAO_ENVIO'
+      Origin = '"OFC_STATUS"."PADRAO_ENVIO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListPADRAO_ABERTURA: TIBStringField
+      DisplayLabel = 'Status Padr'#227'o Abertura'
+      FieldName = 'PADRAO_ABERTURA'
+      Origin = '"OFC_STATUS"."PADRAO_ABERTURA"'
       FixedChar = True
       Size = 1
     end

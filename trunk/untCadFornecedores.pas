@@ -22,7 +22,7 @@ uses
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
   cxPC, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox,
-  cxMaskEdit, cxButtonEdit, cxGroupBox, cxCheckBox;
+  cxMaskEdit, cxButtonEdit, cxGroupBox, cxCheckBox, StdCtrls;
 
 type
   TfrmCadFornecedores = class(TfrmCadPadrao)
@@ -67,8 +67,8 @@ type
     QryPessoaCODIGO: TIntegerField;
     QryPessoaNOME_RAZAO: TIBStringField;
     dsPessoa: TDataSource;
-    btnLogradouro: TcxButtonEdit;
-    cbPessoaFJ: TcxDBLookupComboBox;
+    btnPessoaFJ: TcxButtonEdit;
+    aTfrmCadPessoas: TcxDBLookupComboBox;
     cxLabel12: TcxLabel;
     dtEditCNPJ: TIBStringField;
     dtEditPESSOA_FJ: TIntegerField;
@@ -88,17 +88,14 @@ type
     dtEditCONTABILIDADE: TIntegerField;
     dtEditSINCRONIZA_FILIAIS: TIBStringField;
     cxGroupBox1: TcxGroupBox;
-    cxDBTextEdit1: TcxDBTextEdit;
     cxLabel3: TcxLabel;
     cxDBTextEdit2: TcxDBTextEdit;
     cxLabel5: TcxLabel;
-    cxDBTextEdit3: TcxDBTextEdit;
     cxLabel4: TcxLabel;
     cxDBTextEdit4: TcxDBTextEdit;
     cxLabel6: TcxLabel;
     cxDBTextEdit5: TcxDBTextEdit;
     cxLabel7: TcxLabel;
-    cxDBTextEdit6: TcxDBTextEdit;
     cxLabel8: TcxLabel;
     cxGroupBox2: TcxGroupBox;
     edtConta1: TcxDBTextEdit;
@@ -122,19 +119,19 @@ type
     QryBanco2PADRAO_BOLETO: TIBStringField;
     QryBanco2CONFIG_CH: TBlobField;
     QryBanco2CONFIG_CHEQUE: TMemoField;
-    cbBanco1: TcxDBLookupComboBox;
+    aTfrmCadBancos: TcxDBLookupComboBox;
     btnBanco1: TcxButtonEdit;
     edtconta2: TcxDBTextEdit;
     cxLabel10: TcxLabel;
     btnBanco2: TcxButtonEdit;
-    cbBanco2: TcxDBLookupComboBox;
+    bTfrmCadBancos: TcxDBLookupComboBox;
     cxLabel11: TcxLabel;
     cxDBTextEdit7: TcxDBTextEdit;
     cxLabel14: TcxLabel;
     cxDBTextEdit8: TcxDBTextEdit;
     cxLabel15: TcxLabel;
     btnFormaPagto: TcxButtonEdit;
-    cbFormaPagto: TcxDBLookupComboBox;
+    aTFrmFormasPagto: TcxDBLookupComboBox;
     cxLabel16: TcxLabel;
     ckCompartilha: TcxDBCheckBox;
     QryFormaPagto: TIBQuery;
@@ -156,12 +153,20 @@ type
     QryFormaPagtoVENCTO_FIXO: TIBStringField;
     QryFormaPagtoDT_VENCTO_FIXO: TDateField;
     QryFormaPagtoOUTROS: TIBStringField;
+    edtFoneVend: TcxDBMaskEdit;
+    edtFoneRep: TcxDBMaskEdit;
+    edtFoneFin: TcxDBMaskEdit;
     procedure FormShow(Sender: TObject);
     procedure btnBanco1Click(Sender: TObject);
     procedure btnBanco2Click(Sender: TObject);
+    procedure btnFormaPagtoClick(Sender: TObject);
+    procedure btnPessoaFJClick(Sender: TObject);
+    procedure cxDBButtonEdit1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
   private
     { Private declarations }
   public
+    
     { Public declarations }
   end;
 
@@ -170,9 +175,11 @@ var
 
 implementation
 
-uses Bancos_Form;
+uses Bancos_Form, UntCadBancos, untCadPessoas, FormasPagto_Form, Main;
 
 {$R *.dfm}
+
+
 
 procedure TfrmCadFornecedores.FormShow(Sender: TObject);
 begin
@@ -184,29 +191,34 @@ end;
 procedure TfrmCadFornecedores.btnBanco1Click(Sender: TObject);
 begin
   inherited;
-  FrmBancos := TFrmBancos.Create(Self);
-  FrmBancos.ShowMODAL ;
-
-  AbreDataSet(TDataSet(QryBanco1));
-
-//  dtEditBANCO_C1.Value := FrmBancos.Codigo;
-
-  FrmBancos.Free;
-  FrmBancos := nil;
+  CadastroLookup(TfrmCadBancos,dtEdit,'BANCO_C1',QryBanco1);
 end;
 
 procedure TfrmCadFornecedores.btnBanco2Click(Sender: TObject);
 begin
   inherited;
-  FrmBancos := TFrmBancos.Create(Self);
-  FrmBancos.ShowMODAL ;
+  CadastroLookup(TfrmCadBancos,dtEdit,'BANCO_C2',QryBanco2);
+end;
 
-  AbreDataSet(TDataSet(QryBanco2));
+procedure TfrmCadFornecedores.btnFormaPagtoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TFrmFormasPagto,dtEdit,'FORMA_PAGTO',QryFormaPagto);
+end;
 
- // dtEditBANCO_C2.Value := FrmBancos.Codigo;
+procedure TfrmCadFornecedores.btnPessoaFJClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadPessoas,dtEdit,'PESSOA_FJ',QryPessoa);
+end;
 
-  FrmBancos.Free;
-  FrmBancos := nil;
+
+
+procedure TfrmCadFornecedores.cxDBButtonEdit1PropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+begin
+  inherited;
+ showmessage('botao clicado');
 end;
 
 end.

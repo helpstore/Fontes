@@ -1,9 +1,9 @@
 inherited frmCadBancos: TfrmCadBancos
   Caption = 'Bancos'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
@@ -113,6 +113,7 @@ inherited frmCadBancos: TfrmCadBancos
     end
   end
   inherited dtEdit: TIBDataSet
+    Tag = 1
     DeleteSQL.Strings = (
       'delete from FIN_BANCO'
       'where'
@@ -143,7 +144,7 @@ inherited frmCadBancos: TfrmCadBancos
     SelectSQL.Strings = (
       'SELECT * '
       'FROM FIN_BANCO'
-      '')
+      'where codigo = :codigo')
     ModifySQL.Strings = (
       'update FIN_BANCO'
       'set'
@@ -156,12 +157,57 @@ inherited frmCadBancos: TfrmCadBancos
       '  PADRAO_BOLETO = :PADRAO_BOLETO'
       'where'
       '  CODIGO = :OLD_CODIGO')
+    object dtEditCODIGO: TIBStringField
+      FieldName = 'CODIGO'
+      Origin = '"FIN_BANCO"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object dtEditNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"FIN_BANCO"."NOME"'
+      Size = 50
+    end
+    object dtEditBOLETO: TIntegerField
+      FieldName = 'BOLETO'
+      Origin = '"FIN_BANCO"."BOLETO"'
+    end
+    object dtEditGERA_ARQUIVO_MAGNETICO: TIBStringField
+      FieldName = 'GERA_ARQUIVO_MAGNETICO'
+      Origin = '"FIN_BANCO"."GERA_ARQUIVO_MAGNETICO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditPADRAO_BOLETO: TIBStringField
+      FieldName = 'PADRAO_BOLETO'
+      Origin = '"FIN_BANCO"."PADRAO_BOLETO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditCONFIG_CH: TBlobField
+      FieldName = 'CONFIG_CH'
+      Origin = '"FIN_BANCO"."CONFIG_CH"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtEditCONFIG_CHEQUE: TMemoField
+      FieldName = 'CONFIG_CHEQUE'
+      Origin = '"FIN_BANCO"."CONFIG_CHEQUE"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
   end
   inherited dtList: TIBQuery
+    Tag = 1
     SQL.Strings = (
       'SELECT * '
       'FROM FIN_BANCO'
       'ORDER BY NOME')
+    Left = 97
+    Top = 4
     object dtListCODIGO: TIBStringField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
