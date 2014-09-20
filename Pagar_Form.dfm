@@ -469,7 +469,7 @@ object FrmPagar: TFrmPagar
           Properties.KeyFieldNames = 'SIGLA'
           Properties.ListColumns = <
             item
-              FieldName = 'SIGLA'
+              FieldName = 'NOME'
             end>
           Properties.ListSource = DsTipoDocto
           Properties.Revertable = True

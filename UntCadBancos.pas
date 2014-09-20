@@ -43,6 +43,13 @@ type
     cxDBTextEdit1: TcxDBTextEdit;
     cxDBCheckBox1: TcxDBCheckBox;
     cxDBCheckBox2: TcxDBCheckBox;
+    dtEditCODIGO: TIBStringField;
+    dtEditNOME: TIBStringField;
+    dtEditBOLETO: TIntegerField;
+    dtEditGERA_ARQUIVO_MAGNETICO: TIBStringField;
+    dtEditPADRAO_BOLETO: TIBStringField;
+    dtEditCONFIG_CH: TBlobField;
+    dtEditCONFIG_CHEQUE: TMemoField;
   private
     { Private declarations }
   public
@@ -55,5 +62,8 @@ var
 implementation
 
 {$R *.dfm}
+
+initialization
+ RegisterClass(TfrmCadBancos);
 
 end.

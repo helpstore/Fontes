@@ -24,7 +24,7 @@ uses
   cxPC;
 
 type
-  TfrmCadProblemaIdentificado = class(TfrmCadPadrao)
+  TfrmCadMotivoChamado = class(TfrmCadPadrao)
     dtListCNPJ: TIBStringField;
     dtListCODIGO: TIntegerField;
     dtListNOME: TIBStringField;
@@ -41,7 +41,7 @@ type
   end;
 
 var
-  frmCadProblemaIdentificado: TfrmCadProblemaIdentificado;
+  frmCadMotivoChamado: TfrmCadMotivoChamado;
 
 implementation
 

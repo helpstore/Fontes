@@ -24,7 +24,7 @@ type
     pnlBottom: TPanel;
     dxBarDockControl1: TdxBarDockControl;
     BarDBNavigator: TdxBarDBNavigator;
-    BarManager: TdxBarManager;
+    BarManager2: TdxBarManager;
     btnIncluir: TdxBarButton;
     btnExcluir: TdxBarButton;
     btnLocalizar: TdxBarButton;

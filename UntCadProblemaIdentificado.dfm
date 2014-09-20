@@ -1,7 +1,8 @@
-inherited frmCadProblemaIdentificado: TfrmCadProblemaIdentificado
+inherited frmCadMotivoChamado: TfrmCadMotivoChamado
   Left = 199
   Top = 251
-  Caption = 'Problema Identificado'
+  Caption = 'Motivo do Chamado'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl

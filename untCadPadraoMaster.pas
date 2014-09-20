@@ -28,16 +28,17 @@ uses
   dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinscxPCPainter, dxSkinsdxBarPainter, cxStorage,
-  dxSkinsForm, dxLayoutControl, cxLabel, cxTextEdit, cxDBEdit;
+  dxSkinsForm, dxLayoutControl, cxLabel, cxTextEdit, cxDBEdit,
+  untFormPadrao, dxLayoutcxEditAdapters;
 
 type
-  TfrmCadPadraoMaster = class(TForm)
+  TfrmCadPadraoMaster = class(TFormPadrao)
     pgcCadastro: TcxPageControl;
     tbsLista: TcxTabSheet;
     tbsEdita: TcxTabSheet;
     LVPesquisa: TcxGridLevel;
     Grid: TcxGrid;
-    Panel1: TPanel;
+    pnlFiltro: TPanel;
     dsPesquisa: TDataSource;
     dsRegistro: TDataSource;
     dtEdit: TIBDataSet;
@@ -111,8 +112,6 @@ type
     pnlMaster: TPanel;
     PgcMaster: TcxPageControl;
     tbsMaster1: TcxTabSheet;
-    edtCodigo: TcxDBTextEdit;
-    cxLabel1: TcxLabel;
     tbsDetalhe3: TcxTabSheet;
     tbsDetalhe4: TcxTabSheet;
     tbsDetalhe5: TcxTabSheet;
@@ -207,10 +206,8 @@ type
     edtCodDet7: TcxDBTextEdit;
     cxLabel9: TcxLabel;
     edtCodDet8: TcxDBTextEdit;
-    QryPessoa: TIBQuery;
-    QryPessoaCODIGO: TIntegerField;
-    QryPessoaNOME_RAZAO: TIBStringField;
-    dsPessoa: TDataSource;
+    cxLabel1: TcxLabel;
+    edtCodigo: TcxDBTextEdit;
     procedure FormShow(Sender: TObject);
     procedure pgcCadastroChange(Sender: TObject);
     procedure ActFirstExecute(Sender: TObject);
@@ -256,6 +253,7 @@ type
   private
     { Private declarations }
     Foco : string;
+    campochave : string;
     procedure Alterar;
     procedure LiberaActList(master:boolean=false);
     procedure LiberaActEdit(master:boolean=false);
@@ -276,8 +274,6 @@ type
     procedure VerificaStatus(iDataSource :TDataSource;Master:boolean=false);
     procedure AbreDataSet(DataSet : TDataSet);
   public
-    { Public declarations }
-    Codigo : Integer;
   end;
 
 var
@@ -290,6 +286,8 @@ uses  Application_DM;
 {$R *.dfm}
 
 procedure TfrmCadPadraoMaster.FormShow(Sender: TObject);
+var
+  i : integer;
 begin
 
   dtList.Close;
@@ -1144,8 +1142,8 @@ begin
   //lcMain.Store;
   if TfrmCadPadraoMaster(Sender).Tag = 0 then
   begin
-    if dtList.fieldbyname('CODIGO').asInteger > 0 then
-      Codigo := dtList.fieldbyname('CODIGO').value;
+    if dtList.fieldbyname(campochave).asString <> '' then
+      Codigo := dtList.fieldbyname(campochave).value;
   end;
 end;
 

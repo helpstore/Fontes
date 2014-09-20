@@ -1,7 +1,7 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
-  Left = 378
-  Top = 177
-  Width = 777
+  Left = 98
+  Top = 211
+  Width = 1049
   Height = 594
   Caption = 'frmCadPadraoMaster'
   Color = clBtnFace
@@ -22,24 +22,24 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
   object pgcCadastro: TcxPageControl
     Left = 0
     Top = 0
-    Width = 769
-    Height = 541
-    ActivePage = tbsEdita
+    Width = 1033
+    Height = 530
+    ActivePage = tbsLista
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange
-    ClientRectBottom = 537
+    ClientRectBottom = 526
     ClientRectLeft = 4
-    ClientRectRight = 765
+    ClientRectRight = 1029
     ClientRectTop = 27
     object tbsLista: TcxTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 0
       object Grid: TcxGrid
         Left = 0
-        Top = 17
-        Width = 761
-        Height = 493
+        Top = 18
+        Width = 1025
+        Height = 481
         Align = alClient
         TabOrder = 0
         OnEnter = GridEnter
@@ -77,11 +77,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
           GridView = TVRegistro
         end
       end
-      object Panel1: TPanel
+      object pnlFiltro: TPanel
         Left = 0
         Top = 0
-        Width = 761
-        Height = 17
+        Width = 1025
+        Height = 18
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
@@ -94,14 +94,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 761
-        Height = 510
+        Width = 1025
+        Height = 499
         Align = alClient
         TabOrder = 0
         object pnlSubCad: TPanel
           Left = 1
-          Top = 232
-          Width = 759
+          Top = 221
+          Width = 1023
           Height = 277
           Align = alBottom
           BevelOuter = bvNone
@@ -109,9 +109,9 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
           object PgcDetalhe: TcxPageControl
             Left = 0
             Top = 0
-            Width = 759
+            Width = 1023
             Height = 277
-            ActivePage = tbsDetalhe4
+            ActivePage = tbsDetalhe2
             Align = alClient
             Color = clBtnFace
             HotTrack = True
@@ -120,7 +120,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
             TabStop = False
             ClientRectBottom = 273
             ClientRectLeft = 4
-            ClientRectRight = 755
+            ClientRectRight = 1019
             ClientRectTop = 27
             object tbsDetalhe1: TcxTabSheet
               Caption = 'tbsDetalhe1'
@@ -129,7 +129,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub1: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
                 ActivePage = tbsEditaSub1
                 Align = alClient
@@ -137,7 +137,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 OnChange = PGCSub1Change
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub1: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -226,14 +226,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub2: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
                 ActivePage = tbsEditaSub2
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub2: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -322,14 +322,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub3: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
                 ActivePage = tbsEditaSub3
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub3: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -418,14 +418,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub4: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub4
+                ActivePage = tbsListaSub4
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub4: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -433,7 +433,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet4: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
@@ -514,7 +514,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub5: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
                 ActivePage = tbsEditaSub5
                 Align = alClient
@@ -522,7 +522,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub5: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -611,14 +611,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub6: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
                 ActivePage = tbsEditaSub6
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub6: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -707,14 +707,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub7: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
                 ActivePage = tbsEditaSub7
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub7: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -803,14 +803,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub8: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 751
+                Width = 1015
                 Height = 246
                 ActivePage = tbsEditaSub8
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 747
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub8: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -897,8 +897,8 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
         object pnlMaster: TPanel
           Left = 1
           Top = 1
-          Width = 759
-          Height = 231
+          Width = 1023
+          Height = 220
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
@@ -906,50 +906,38 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
           object PgcMaster: TcxPageControl
             Left = 0
             Top = 0
-            Width = 759
-            Height = 231
+            Width = 1023
+            Height = 220
             ActivePage = tbsMaster1
             Align = alClient
             Focusable = False
             HotTrack = True
             TabOrder = 0
-            ClientRectBottom = 227
+            ClientRectBottom = 216
             ClientRectLeft = 4
-            ClientRectRight = 755
+            ClientRectRight = 1019
             ClientRectTop = 27
             object tbsMaster1: TcxTabSheet
               Caption = 'tbsMaster1'
               ImageIndex = 0
+              object cxLabel1: TcxLabel
+                Left = 8
+                Top = 0
+                Caption = 'C'#243'digo'
+                Transparent = True
+              end
               object edtCodigo: TcxDBTextEdit
-                Left = 7
-                Top = 24
+                Left = 8
+                Top = 16
                 DataBinding.DataField = 'CODIGO'
                 DataBinding.DataSource = dsRegistro
                 Properties.ReadOnly = True
+                Style.BorderColor = clWindowFrame
+                Style.BorderStyle = ebs3D
                 Style.Color = clInactiveBorder
-                TabOrder = 0
-                Width = 65
-              end
-              object cxLabel1: TcxLabel
-                Left = 7
-                Top = 7
-                Caption = 'C'#243'digo'
                 Style.HotTrack = False
-                Style.LookAndFeel.Kind = lfUltraFlat
-                Style.LookAndFeel.NativeStyle = False
-                Style.LookAndFeel.SkinName = 'GlassOceans'
-                Style.Shadow = False
-                Style.TransparentBorder = True
-                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
-                StyleDisabled.LookAndFeel.NativeStyle = False
-                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
-                StyleFocused.LookAndFeel.Kind = lfUltraFlat
-                StyleFocused.LookAndFeel.NativeStyle = False
-                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
-                StyleHot.LookAndFeel.Kind = lfUltraFlat
-                StyleHot.LookAndFeel.NativeStyle = False
-                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
-                Transparent = True
+                TabOrder = 1
+                Width = 65
               end
             end
           end
@@ -986,8 +974,8 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
   object dxBarManager: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     Categories.Strings = (
       'Defaut'
@@ -4549,39 +4537,5 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     DataSet = dtListDet8
     Left = 520
     Top = 424
-  end
-  object QryPessoa: TIBQuery
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    DataSource = dsPesquisa
-    SQL.Strings = (
-      'select psa.codigo, psa.nome_razao from glo_pessoas_fj psa'
-      'where psa.cnpj = :cnpj'
-      'order by psa.nome_razao')
-    Left = 48
-    Top = 120
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'CNPJ'
-        ParamType = ptInput
-      end>
-    object QryPessoaCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"GLO_PESSOAS_FJ"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object QryPessoaNOME_RAZAO: TIBStringField
-      FieldName = 'NOME_RAZAO'
-      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
-      Size = 50
-    end
-  end
-  object dsPessoa: TDataSource
-    AutoEdit = False
-    DataSet = QryPessoa
-    Left = 19
-    Top = 120
   end
 end

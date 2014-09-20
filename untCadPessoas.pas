@@ -236,6 +236,7 @@ uses untCadLogradouro, untCadBairros, untCadCidades, untCadAtividades,
 
 {$R *.dfm}
 
+
 procedure TfrmCadPessoas.FormShow(Sender: TObject);
 begin
   inherited;
@@ -407,4 +408,8 @@ begin
   frmCadRegiao := nil;
 end;
 
+
+initialization
+ RegisterClass(TfrmCadPessoas);
+ 
 end.

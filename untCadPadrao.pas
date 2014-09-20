@@ -28,10 +28,11 @@ uses
   dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinscxPCPainter, dxSkinsdxBarPainter, cxStorage,
-  dxSkinsForm, dxLayoutControl, cxLabel, cxTextEdit, cxDBEdit;
+  dxSkinsForm, dxLayoutControl, cxLabel, cxTextEdit, cxDBEdit,
+  untFormPadrao, cxButtonEdit;
 
 type
-  TfrmCadPadrao = class(TForm)
+  TfrmCadPadrao = class(TFormPadrao)
     pgcCadastro: TcxPageControl;
     tbsLista: TcxTabSheet;
     tbsEdita: TcxTabSheet;
@@ -127,13 +128,13 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure ActCadLookupExecute(Sender: TObject);
   private
     { Private declarations }
     procedure Alterar;
     procedure LiberaActList;
     procedure LiberaActEdit;
   protected
-    indicefoco : integer;
     procedure Inserir(DtsEdit: TDataSource ;tbEdit:TcxTabSheet);
     procedure Editar(DtsEdit: TDataSource ;tbEdit:TcxTabSheet);
     procedure Salvar(DtsEdit : TDataSource ;DtsList : TDataSource ;tbList:TcxTabSheet);
@@ -145,11 +146,11 @@ type
     procedure Last(DtsList : TDataSource);
     procedure Refresh(DtsList : TDataSource);
     procedure VerificaStatus(DataSource :TDataSource);
-    procedure AbreDataSet(DataSet : TDataSet);
+    
 
   public
     { Public declarations }
-    Codigo : Integer;
+    
 
   end;
 
@@ -163,26 +164,8 @@ uses  Application_DM;
 {$R *.dfm}
 
 procedure TfrmCadPadrao.FormShow(Sender: TObject);
-var
- i : integer;
 begin
-  for i := 0 to TfrmCadPadrao(Sender).ComponentCount - 1 do
-  begin
-    if (TfrmCadPadrao(Sender).Components[I] is TcxCustomTextEdit) then
-    begin
-       if TcxCustomTextEdit(TfrmCadPadrao(Sender).Components[I]).Tag > 0 then
-          indicefoco := i;
-    end
-    else if (TfrmCadPadrao(Sender).Components[I] is TIBQuery) then
-    begin
-       if TIBQuery(TfrmCadPadrao(Sender).Components[I]).Tag = 4 then
-       begin
-         TIBQuery(TfrmCadPadrao(Sender).Components[I]).Close;
-         TIBQuery(TfrmCadPadrao(Sender).Components[I]).Open;
-       end;
-    end;
-  end;
-
+ inherited;
   dtList.Close;
   dtList.Open;
 
@@ -448,7 +431,7 @@ end;
 procedure TfrmCadPadrao.ActSaveExecute(Sender: TObject);
 var
   Posicao :TBookmark;
-  codigo : integer;
+  CodigoAtual : variant;
   tipo : string;
 begin
   if dsRegistro.DataSet.State = dsEdit then
@@ -461,14 +444,14 @@ begin
 
   dsRegistro.DataSet.Post;
   TIBDataSet(dsRegistro.DataSet).Transaction.CommitRetaining;
-  codigo := dsRegistro.DataSet.fieldbyname('codigo').value;
+  CodigoAtual := dsRegistro.DataSet.fieldbyname(campochave).value;
 
   dsPesquisa.DataSet.Close;
   dsPesquisa.DataSet.Open;
 
   if tipo = 'insert' then
   begin
-    dsPesquisa.DataSet.Locate('codigo',codigo,[loCaseInsensitive]);
+    dsPesquisa.DataSet.Locate(campochave,CodigoAtual,[loCaseInsensitive]);
     Posicao := dsPesquisa.DataSet.GetBookmark;
   end;
 
@@ -502,6 +485,7 @@ var
   DirUser, Diretorio, filtro : String;
   AFilterControl: TcxFilterControl;
 begin
+  inherited;
   cxPropertiesStore.StorageName := TfrmCadPadrao(Sender).Name;
   cxPropertiesStore.StorageType := stStream;
   FmyStream := TMemoryStream.Create;
@@ -561,12 +545,14 @@ end;
 
 procedure TfrmCadPadrao.dtListBeforeOpen(DataSet: TDataSet);
 begin
-  TIBQuery(DataSet).ParamByName('cnpj').value := dmApp.cnpj;
+  if ((TIBQuery(DataSet).tag = 0) or (TIBQuery(DataSet).Tag = 4)) then
+    TIBQuery(DataSet).ParamByName('cnpj').value := dmApp.cnpj;
 end;
 
 procedure TfrmCadPadrao.dtEditBeforePost(DataSet: TDataSet);
 begin
-  dtEdit.FieldByName('cnpj').value := dmapp.cnpj;
+  if TIBQuery(DataSet).tag = 0 then
+    dtEdit.FieldByName('cnpj').value := dmapp.cnpj;
 end;
 
 procedure TfrmCadPadrao.FormClose(Sender: TObject;
@@ -576,6 +562,7 @@ var
   DirUser, filtro : String;
   AFilterControl: TcxFilterControl;
 begin
+  inherited;
   if (GridDBBandedTableView2.DataController.Filter.Active) then
   begin
 
@@ -594,26 +581,60 @@ begin
   //lcMain.Store;
   if TfrmCadPadrao(Sender).Tag = 0 then
   begin
-    if dtList.fieldbyname('CODIGO').asInteger > 0 then
-      Codigo := dtList.fieldbyname('CODIGO').value;
+    if dtList.fieldbyname(campochave).asString <> '' then
+      Codigo := dtList.fieldbyname(campochave).value;
   end;
 end;
 
-procedure TfrmCadPadrao.AbreDataSet(DataSet: TDataSet);
-begin
-  TDataset(DataSet).Close;
-  TDataset(DataSet).Open;
-end;
+
 
 procedure TfrmCadPadrao.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+
    //fui obrigado a retirar a propriedade shortcut pois ocorria o fechamento da tela
   // na ocorrencia de erro e posterior tratamento do madshi.
   if key = vk_return then
     SelectNext(ActiveControl,True,True)
   else  if Key = VK_DELETE then
     ActDelete.execute;
+end;
+
+procedure TfrmCadPadrao.ActCadLookupExecute(Sender: TObject);
+var
+  campo,classe : string;
+  temp_comp: TcxButtonEdit;
+  Formulario: TFormClass;
+begin
+  inherited;
+  {Para que o lookup funcione corretamente são necessários os seguintes passos:
+   1 - Colocar o nome do componente de controle (dblookup) letra+NOME DO FORM A SER CRIADO
+       ex: no cadastro de fornecedores de tem o dblookup de bancos, logo o nome do dblookup precisa ser
+       aTfrmCadBancos.
+
+   2 - Em todo formulario que for instanciado por lookup (como é o caso de FrmCadbancos) é necessário
+       colocar a clausula inicialization da classe
+
+   3 - Já para que o botão funcione, basta manter o mesmo padrao do que já é utilzado
+   ex: colocar no onclick do botao ---> CadastroLookup(TfrmCadBancos,dtEdit,'BANCO_C1',QryBanco1);
+  }
+  if (TcxDBLookupComboBox(Screen.ActiveControl).Parent is TcxDBLookupComboBox) then
+  begin
+    //'extraindo' a classe do nome do controle
+    Classe := copy(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).name,2,50);
+
+    //capturando a classe, so ira funcionar se ela estiver inicializada, por isso a necessidade do inicialization
+    Formulario := TFormClass(GetClass(Classe));
+
+    //pegando o nome do field no controle
+    campo := TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).DataBinding.DataField;
+
+    if not Assigned(Formulario) then
+      exit;
+      
+    //chamando a rotina de lookup
+    CadastroLookup(Formulario,dtEdit,campo,TIBQuery(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).Properties.listsource.dataset));
+  end;
 end;
 
 end.

@@ -1,9 +1,9 @@
 inherited frmCadMotivosDevolucao: TfrmCadMotivosDevolucao
   Caption = 'Motivos Devolu'#231#227'o'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView

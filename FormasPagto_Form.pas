@@ -155,6 +155,8 @@ uses
 
 {$R *.DFM}
 
+
+
 procedure TFrmFormasPagto.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 
@@ -361,10 +363,7 @@ end;
 
 procedure TFrmFormasPagto.ActFecharExecute(Sender: TObject);
 begin
-  If FrmFormasPagto.FormStyle = fsMDIChild Then
-     FrmMain.opFechar.OnClick(FrmMain.opFechar)
-  Else
-     Close;
+   Close;
 end;
 
 procedure TFrmFormasPagto.edNomeEnter(Sender: TObject);
@@ -394,4 +393,7 @@ begin
     pnlParcelas.Enabled := false;
 end;
 
+initialization
+ RegisterClass(TFrmFormasPagto);
+ 
 end.

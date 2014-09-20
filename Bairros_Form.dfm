@@ -1,10 +1,10 @@
 object FrmBairros: TFrmBairros
-  Left = 762
-  Top = 230
+  Left = 425
+  Top = 226
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Bairros '
-  ClientHeight = 149
+  ClientHeight = 147
   ClientWidth = 434
   Color = 15396334
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object FrmBairros: TFrmBairros
     Left = 0
     Top = 0
     Width = 434
-    Height = 149
+    Height = 147
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -37,7 +37,7 @@ object FrmBairros: TFrmBairros
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 115
+      Top = 113
       Width = 430
       Height = 2
       Align = alBottom
@@ -80,7 +80,7 @@ object FrmBairros: TFrmBairros
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 117
+      Top = 115
       Width = 430
       Height = 30
       Align = alBottom
@@ -92,7 +92,7 @@ object FrmBairros: TFrmBairros
         Width = 430
         Height = 26
         Align = dalTop
-        BarManager = BarManager
+        BarManager = BarManager2
       end
       object Panel1: TPanel
         Left = 0
@@ -148,7 +148,7 @@ object FrmBairros: TFrmBairros
     end
   end
   object BarDBNavigator: TdxBarDBNavigator
-    BarManager = BarManager
+    BarManager = BarManager2
     CategoryName = 'DB Navigator'
     ConfirmDelete = False
     DataSource = DataSource
@@ -157,7 +157,7 @@ object FrmBairros: TFrmBairros
     Left = 229
     Top = 7
   end
-  object BarManager: TdxBarManager
+  object BarManager2: TdxBarManager
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -219,10 +219,6 @@ object FrmBairros: TFrmBairros
         item
           Visible = True
           ItemName = 'btnIncluir'
-        end
-        item
-          Visible = True
-          ItemName = 'btnExcluir'
         end
         item
           Visible = True

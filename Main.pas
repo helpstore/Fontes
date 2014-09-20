@@ -1379,7 +1379,8 @@ uses
   UntCadBancos, UntCadMotivosDevolucao, UntCadAdministradoras,
   UntCadTipoDocumento, UntCadAlegacao, UntCadEventoContabil,
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
-  UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato;
+  UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
+  untCadFornecedores;
 
 {$R *.DFM}
 
@@ -1853,14 +1854,14 @@ begin
   if DMApp.SelecionarEmpresa = 'N' Then
      Exit;
 
-  if frmCadAplicacao = Nil Then
+ { if frmCadAplicacao = Nil Then
   begin
      Application.ProcessMessages;
      frmCadAplicacao := TfrmCadAplicacao.Create(Self);
      frmCadAplicacao.ShowMODAL ;
      frmCadAplicacao.Free      ;
      frmCadAplicacao := Nil    ;
-  end;
+  end; }
 
 
   { * * * * * }
@@ -1956,33 +1957,19 @@ end;
 
 procedure TFrmMain.opFornecedoresClick(Sender: TObject);
 begin
-  { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmFornecedores', True)) Then
      Exit;
 
-  { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
 
-  { * * * * * }
-  If FrmFornecedores = Nil Then
-  Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-
-       If DMPLANO = Nil  then
-         DMPLANO := TDMPLANO.Create(Self);
-
-       FrmFornecedores := TFrmFornecedores.Create(Self);
-       //
-       FrmFornecedores.Showmodal ;
-       FrmFornecedores.Free       ;
-       FrmFornecedores := Nil     ;
-
-  End;
+  if frmCadFornecedores = Nil Then
+  begin
+     frmCadFornecedores := TfrmCadFornecedores.Create(Self);
+     frmCadFornecedores.ShowMODAL ;
+     frmCadFornecedores.Free      ;
+     frmCadFornecedores := Nil    ;
+  end;
 end;
 
 procedure TFrmMain.EstornaRecClick(Sender: TObject);
@@ -2016,21 +2003,15 @@ begin
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmFormasPagto = Nil Then
-  Begin
-                 
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
 
-       Application.ProcessMessages;
+  if FrmFormasPagto = Nil Then
+  begin
+     FrmFormasPagto := TFrmFormasPagto.Create(Self);
+     FrmFormasPagto.ShowMODAL ;
+     FrmFormasPagto.Free      ;
+     FrmFormasPagto := Nil    ;
+  end;
 
-
-       FrmFormasPagto := TFrmFormasPagto.Create(Self);
-       FrmFormasPagto.FormStyle   := fsMDIChild;
-       FrmFormasPagto.WindowState := wsMaximized;
-       FrmFormasPagto.BorderStyle := bsNone;
-       PnlClient.Visible          := False;
-  End;
 end;
 
 procedure TFrmMain.opEntradaProdutosClick(Sender: TObject);
@@ -2317,21 +2298,16 @@ begin
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
-  { * * * * * }
-  If frmCadTipoDocumento = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
 
-       Application.ProcessMessages;
-       frmCadTipoDocumento  := TfrmCadTipoDocumento.Create(Self);
+  if frmCadTipoDocumento = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadTipoDocumento := TfrmCadTipoDocumento.Create(Self);
+     frmCadTipoDocumento.ShowMODAL ;
+     frmCadTipoDocumento.Free      ;
+     frmCadTipoDocumento := Nil    ;
+  end;
 
-       frmCadTipoDocumento.FormStyle   := fsMDIChild;
-       frmCadTipoDocumento.WindowState := wsMaximized;
-       frmCadTipoDocumento.BorderStyle := bsNone;
-       PnlClient.Visible          := False;
-     End;
 end;
 
 procedure TFrmMain.RazaoClick(Sender: TObject);
@@ -4276,23 +4252,16 @@ begin
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
-  { * * * * * }
-  If frmCadAdministradoras = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-       //
 
-       frmCadAdministradoras   := TfrmCadAdministradoras.Create(Self);
-       //
-       frmCadAdministradoras.FormStyle   := fsMDIChild;
-       frmCadAdministradoras.WindowState := wsMaximized;
-       frmCadAdministradoras.BorderStyle := bsNone;
-       PnlClient.Visible       := False;
-     End;
+  if frmcadadministradoras = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmcadadministradoras := Tfrmcadadministradoras.Create(Self);
+     frmcadadministradoras.ShowMODAL ;
+     frmcadadministradoras.Free      ;
+     frmcadadministradoras := Nil    ;
+  end;
+
 end;
 
 procedure TFrmMain.OpCadChequeClick(Sender: TObject);
@@ -4547,21 +4516,16 @@ begin
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If frmCadMotivosDevolucao = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
 
-       frmCadMotivosDevolucao   := TfrmCadMotivosDevolucao.Create(Self);
-       //
-       frmCadMotivosDevolucao.FormStyle   := fsMDIChild;
-       frmCadMotivosDevolucao.WindowState := wsMaximized;
-       frmCadMotivosDevolucao.BorderStyle := bsNone;
-       PnlClient.Visible       := False;
-     End;
+  if frmcadmotivosdevolucao = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmcadmotivosdevolucao := Tfrmcadmotivosdevolucao.Create(Self);
+     frmcadmotivosdevolucao.ShowMODAL ;
+     frmcadmotivosdevolucao.Free      ;
+     frmcadmotivosdevolucao := Nil    ;
+  end;
+
 end;
 
 procedure TFrmMain.OpManutencaoChequesClick(Sender: TObject);
@@ -6418,22 +6382,16 @@ begin
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
-  { * * * * * }
-  If frmCadLocalCobranca = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-       //
-       frmCadLocalCobranca  := TfrmCadLocalCobranca.Create(Self);
-       //
-       frmCadLocalCobranca.FormStyle   := fsMDIChild;
-       frmCadLocalCobranca.WindowState := wsMaximized;
-       frmCadLocalCobranca.BorderStyle := bsNone;
-       PnlClient.Visible              := False;
-     End;
+
+  if frmcadlocalcobranca = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmcadlocalcobranca := Tfrmcadlocalcobranca.Create(Self);
+     frmcadlocalcobranca.ShowMODAL ;
+     frmcadlocalcobranca.Free      ;
+     frmcadlocalcobranca := Nil    ;
+  end;
+
 end;
 
 procedure TFrmMain.OpListaPrecServicoClick(Sender: TObject);
@@ -6974,22 +6932,17 @@ begin
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If frmCadBancos = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       Application.ProcessMessages;
 
+  if frmcadbancos = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmcadbancos := Tfrmcadbancos.Create(Self);
+     frmcadbancos.ShowMODAL ;
+     frmcadbancos.Free      ;
+     frmcadbancos := Nil    ;
+  end;
 
-       frmCadBancos   := TfrmCadBancos.Create(Self);
-       //
-       frmCadBancos.FormStyle   := fsMDIChild;
-       frmCadBancos.WindowState := wsMaximized;
-       frmCadBancos.BorderStyle := bsNone;
-       PnlClient.Visible       := False;
-     End;
-end;            
+end;
 
 procedure TFrmMain.ActClientesExecute(Sender: TObject);
 begin
@@ -7384,10 +7337,6 @@ begin
 
   if frmCadTipoContrato = nil  then
   begin
-    if FrmMain.MDIChildCount > 0 then
-       opFechar.OnClick(opFechar);
-    Application.ProcessMessages;
-
     frmCadTipoContrato := TfrmCadTipoContrato.Create(Self);
     frmCadTipoContrato.Showmodal;
     frmCadTipoContrato.Free;
@@ -7442,19 +7391,19 @@ begin
   If FrmMain.MDIChildCount > 1 Then
      Exit;
 
-  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProblemaIdentificado', True)) then
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMotivoChamado', True)) then
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
     Exit;
 
-  if frmCadProblemaIdentificado = nil  then
+  if frmCadMotivoChamado = nil  then
   begin
     Application.ProcessMessages;
-    frmCadProblemaIdentificado := TfrmCadProblemaIdentificado.Create(Self);
-    frmCadProblemaIdentificado.Showmodal;
-    frmCadProblemaIdentificado.Free;
-    frmCadProblemaIdentificado := Nil;
+    frmCadMotivoChamado := TfrmCadMotivoChamado.Create(Self);
+    frmCadMotivoChamado.Showmodal;
+    frmCadMotivoChamado.Free;
+    frmCadMotivoChamado := Nil;
   end;
 end;
 
@@ -7497,26 +7446,6 @@ begin
      frmCadSecoesProdutos.Free      ;
      frmCadSecoesProdutos := Nil    ;
   end;
-{ If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadSecoesProdutos', True)) Then
-     Exit;
-  { * * * * * }
- { If DMApp.SelecionarEmpresa = 'N' Then
-     Exit;
-  { * * * * * }
-{  If frmCadSecoesProdutos = Nil Then
-  begin
-
-    If FrmMain.MDIChildCount > 0 Then
-       opFechar.OnClick(opFechar);
-
-    Application.ProcessMessages;
-
-    frmCadSecoesProdutos := TfrmCadSecoesProdutos.Create(Self);
-    frmCadSecoesProdutos.FormStyle   := fsMDIChild;
-    frmCadSecoesProdutos.WindowState := wsMaximized;
-    frmCadSecoesProdutos.BorderStyle := bsNone;
-    PnlClient.Visible     := False;
-  end;   }
 end;
 
 procedure TFrmMain.ListaAtendimentoClick(Sender: TObject);
@@ -8367,23 +8296,16 @@ begin
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
+
+
   { * * * * * }
   If frmCadEventoContabil = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-       //
-       DMPlano       := TDMPlano.Create(Self);
+  Begin
        frmCadEventoContabil := TfrmCadEventoContabil.Create(Self);
-
-
        frmCadEventoContabil.Showmodal ;
        frmCadEventoContabil.Free;
        frmCadEventoContabil := Nil;
-     End;
+  End;
 end;
 
 procedure TFrmMain.btnSincronizarClick(Sender: TObject);
@@ -8716,9 +8638,6 @@ begin
 
   If frmCadLocalizacaoEstoque = Nil Then
      Begin
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       Application.ProcessMessages;
        frmCadLocalizacaoEstoque  := TfrmCadLocalizacaoEstoque.Create(Self);
        frmCadLocalizacaoEstoque.Showmodal ;
        frmCadLocalizacaoEstoque.Free      ;
@@ -9168,31 +9087,7 @@ begin
      FrmCadCategoriaClientes.Free      ;
      FrmCadCategoriaClientes := Nil    ;
   end;
-  Exit;
-  
-  If FrmMain.MDIChildCount > 1 Then
-     Exit;
-  { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmClientesCategoria', True)) Then
-     Exit;
-  { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
-     Exit;
-  { * * * * * }
-  If FrmClientesCategoria = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
 
-       FrmClientesCategoria    := TFrmClientesCategoria.Create(Self);
-       FrmClientesCategoria.Showmodal ;
-
-       FrmClientesCategoria.Free   ;
-       FrmClientesCategoria := Nil ;
-     End;
 end;
 
 procedure TFrmMain.OpRepresentanteClick(Sender: TObject);
