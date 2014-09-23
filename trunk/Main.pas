@@ -1380,7 +1380,7 @@ uses
   UntCadTipoDocumento, UntCadAlegacao, UntCadEventoContabil,
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
-  untCadFornecedores;
+  untCadFornecedores, untCadOS;
 
 {$R *.DFM}
 
@@ -7410,23 +7410,18 @@ end;
 procedure TFrmMain.ActServicoExecute(Sender: TObject);
 begin
   { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmSelOrdens', True)) Then Exit;
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadOS', True)) Then Exit;
 
   { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then Exit;
-
-  {If DMApp.VerificarCaixa = 'N' Then Exit ;}
+  If DMApp.SelecionarEmpresa = 'N' Then
+    Exit;
 
   { * * * * * }
   try
-    if FrmMain.MDIChildCount > 0 then
-      opFechar.OnClick(opFechar);
-
-    Application.ProcessMessages;
-    FrmSelOrdens   := TFrmSelOrdens.Create(Self);
-    FrmSelOrdens.Showmodal ;
+    frmCadOS   := TfrmCadOS.Create(Self);
+    frmCadOS.Showmodal ;
   finally
-    FrmSelOrdens.Destroy   ;
+    frmCadOS.Destroy   ;
   end;
 end;
 

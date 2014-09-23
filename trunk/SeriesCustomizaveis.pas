@@ -678,6 +678,9 @@ type
     ppAppRepresentante: TppDBPipeline;
     ppDBText162: TppDBText;
     ppDBText163: TppDBText;
+    QryOSOS_TROCA_CILINDRO: TIBStringField;
+    QryOSOS_TROCA_FUSAO: TIBStringField;
+    QryOSOS_TROCA_BELT: TIBStringField;
     procedure Configurar_CartaSCPC;
     procedure Configurar_OS;
     procedure Configurar_Devolucao_Carga;    

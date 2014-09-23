@@ -1,6 +1,6 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
-  Left = 98
-  Top = 211
+  Left = 70
+  Top = 112
   Width = 1049
   Height = 594
   Caption = 'frmCadPadraoMaster'
@@ -37,21 +37,12 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
       ImageIndex = 0
       object Grid: TcxGrid
         Left = 0
-        Top = 18
+        Top = 65
         Width = 1025
-        Height = 481
+        Height = 434
         Align = alClient
         TabOrder = 0
         OnEnter = GridEnter
-        object GridDBBandedTableView1: TcxGridDBBandedTableView
-          NavigatorButtons.ConfirmDelete = False
-          DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
-          DataController.Summary.SummaryGroups = <>
-          Bands = <
-            item
-            end>
-        end
         object TVRegistro: TcxGridDBBandedTableView
           OnKeyDown = TVRegistroKeyDown
           NavigatorButtons.ConfirmDelete = False
@@ -81,10 +72,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
         Left = 0
         Top = 0
         Width = 1025
-        Height = 18
+        Height = 65
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
+        OnExit = pnlFiltroExit
       end
     end
     object tbsEdita: TcxTabSheet
@@ -1559,6 +1551,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
       Caption = 'ActFilter'
       Hint = 'Filtrar '
       ShortCut = 119
+      OnExecute = ActFilterExecute
     end
     object ActFechar: TAction
       Caption = 'ActFechar'
@@ -4537,5 +4530,17 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     DataSet = dtListDet8
     Left = 520
     Top = 424
+  end
+  object mtbFiltro: TdxMemData
+    Indexes = <>
+    Persistent.Option = poNone
+    SortOptions = []
+    Left = 77
+    Top = 44
+  end
+  object dsFiltro: TDataSource
+    DataSet = mtbFiltro
+    Left = 47
+    Top = 44
   end
 end
