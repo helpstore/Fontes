@@ -29,7 +29,7 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinscxPCPainter, dxSkinsdxBarPainter, cxStorage,
   dxSkinsForm, dxLayoutControl, cxLabel, cxTextEdit, cxDBEdit,
-  untFormPadrao, dxLayoutcxEditAdapters;
+  untFormPadrao, dxLayoutcxEditAdapters, dxmdaset;
 
 type
   TfrmCadPadraoMaster = class(TFormPadrao)
@@ -91,7 +91,6 @@ type
     cxPropertiesStore: TcxPropertiesStore;
     ActCadLookup: TAction;
     ActImprimir: TAction;
-    GridDBBandedTableView1: TcxGridDBBandedTableView;
     TVRegistro: TcxGridDBBandedTableView;
     ActLayout: TAction;
     cxIntl1: TcxIntl;
@@ -208,6 +207,8 @@ type
     edtCodDet8: TcxDBTextEdit;
     cxLabel1: TcxLabel;
     edtCodigo: TcxDBTextEdit;
+    mtbFiltro: TdxMemData;
+    dsFiltro: TDataSource;
     procedure FormShow(Sender: TObject);
     procedure pgcCadastroChange(Sender: TObject);
     procedure ActFirstExecute(Sender: TObject);
@@ -250,15 +251,17 @@ type
       Shift: TShiftState);
     procedure GridEnter(Sender: TObject);
     procedure PGCSub1Change(Sender: TObject);
+    procedure ActFilterExecute(Sender: TObject);
+    procedure pnlFiltroExit(Sender: TObject);
   private
     { Private declarations }
     Foco : string;
-    campochave : string;
     procedure Alterar;
     procedure LiberaActList(master:boolean=false);
     procedure LiberaActEdit(master:boolean=false);
     procedure ConfiguraSubTabs;
   protected
+    sqlOriginal : string;
     procedure CancelarAction;
     procedure Inserir(DtsEdit: TDataSource ;tbEdit:TcxTabSheet);
     procedure Editar(DtsEdit: TDataSource ;tbEdit:TcxTabSheet);
@@ -289,9 +292,8 @@ procedure TfrmCadPadraoMaster.FormShow(Sender: TObject);
 var
   i : integer;
 begin
-
-  dtList.Close;
-  dtList.Open;
+  inherited;
+  ActFilter.execute;
 
   ConfiguraSubTabs;
 
@@ -652,6 +654,7 @@ begin
   ActCancel.Enabled:= false;
   ActRefresh.Enabled:= true;
   ActFilter.Enabled:= true;
+  TVRegistro.ViewData.Expand(True);
 end;
 
 procedure TfrmCadPadraoMaster.LiberaActEdit;
@@ -1000,6 +1003,10 @@ var
   DirUser, Diretorio, filtro : String;
   AFilterControl: TcxFilterControl;
 begin
+  mtbFiltro.Open;
+  mtbFiltro.Edit;
+
+  sqlOriginal := dtList.sql.text;
   cxPropertiesStore.StorageName := TfrmCadPadraoMaster(Sender).Name;
   cxPropertiesStore.StorageType := stStream;
   FmyStream := TMemoryStream.Create;
@@ -1106,10 +1113,7 @@ end;
 
 procedure TfrmCadPadraoMaster.dtListBeforeOpen(DataSet: TDataSet);
 begin
-  if (DataSet is TIBQuery) Then
-    TIBQuery(DataSet).ParamByName('cnpj').value := dmApp.cnpj
-  else if (DataSet is TIBDataset) Then
-    TIBDataset(DataSet).ParamByName('cnpj').value := dmApp.cnpj;
+    TIBQuery(DataSet).ParamByName('cnpj').value := dmApp.cnpj;
 end;
 
 procedure TfrmCadPadraoMaster.dtEditBeforePost(DataSet: TDataSet);
@@ -1318,6 +1322,21 @@ begin
   PGCSub6.HideTabs := true;
   PGCSub7.HideTabs := true;
   PGCSub8.HideTabs := true;
+end;
+
+procedure TfrmCadPadraoMaster.ActFilterExecute(Sender: TObject);
+begin
+  inherited;
+   //Filtro a ser implementado no fomulario descentente
+  dtList.Close;
+  dtList.Open;
+  TVRegistro.ViewData.Expand(True);
+end;
+
+procedure TfrmCadPadraoMaster.pnlFiltroExit(Sender: TObject);
+begin
+  inherited;
+  ActFilter.Execute;
 end;
 
 end.

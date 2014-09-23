@@ -1,6 +1,6 @@
 object FrmOrdens_Servicos: TFrmOrdens_Servicos
-  Left = 249
-  Top = 100
+  Left = 212
+  Top = 95
   Width = 1011
   Height = 665
   Caption = ' Ordens Servi'#231'os '

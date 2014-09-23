@@ -24,7 +24,7 @@ uses
   cxGridDBBandedTableView, cxGrid, cxPC, Menus, StdCtrls, cxButtons,
   cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
   cxDBLookupComboBox, cxCalendar, cxSpinEdit, cxTimeEdit,
-   cxGroupBox, cxMemo, cxCheckBox, cxCalc;
+   cxGroupBox, cxMemo, cxCheckBox, cxCalc, dxmdaset, cxRadioGroup,DateUtils;
 
 type
   TfrmCadOS = class(TfrmCadPadraoMaster)
@@ -511,6 +511,38 @@ type
     QryProdutosItensCOD_LOCALIZACAO_2: TIntegerField;
     QryProdutosItensCOD_LOCALIZACAO_3: TIntegerField;
     QryProdutosItensCOD_TECNICO: TIntegerField;
+    cxDBCheckBox2: TcxDBCheckBox;
+    dtEditTROCA_FUSAO: TIBStringField;
+    dtEditTROCA_BELT: TIBStringField;
+    cxDBCheckBox3: TcxDBCheckBox;
+    dtListTROCA_BELT: TIBStringField;
+    dtListTROCA_FUSAO: TIBStringField;
+    TVRegistroTROCA_BELT: TcxGridDBBandedColumn;
+    TVRegistroTROCA_FUSAO: TcxGridDBBandedColumn;
+    ActImprimirOS: TAction;
+    BtnImprimirOS: TdxBarButton;
+    mtbFiltroDATA_INICIAL: TDateField;
+    mtbFiltroDATA_FINAL: TDateField;
+    mtbFiltroCLIENTE: TIntegerField;
+    mtbFiltroTIPO_STATUS: TIntegerField;
+    edtInicial: TcxDBDateEdit;
+    cxLabel33: TcxLabel;
+    edtFinal: TcxDBDateEdit;
+    cxLabel34: TcxLabel;
+    cbCliente: TcxDBLookupComboBox;
+    cxLabel35: TcxLabel;
+    QryClienteFiltro: TIBQuery;
+    IntegerField1: TIntegerField;
+    IBStringField1: TIBStringField;
+    IntegerField2: TIntegerField;
+    IBStringField2: TIBStringField;
+    IBStringField3: TIBStringField;
+    cxDBRadioGroup1: TcxDBRadioGroup;
+    mtbFiltroSERIE: TStringField;
+    cxLabel36: TcxLabel;
+    cxDBTextEdit5: TcxDBTextEdit;
+    dtListCNPJ: TIBStringField;
+    dtEditATIVO: TIBStringField;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -532,8 +564,13 @@ type
     procedure TVRegistroDT_CILINDROCustomDrawCell(
       Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+    procedure ActImprimirOSExecute(Sender: TObject);
+    procedure ActFilterExecute(Sender: TObject);
+    procedure pnlFiltroExit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+    Procedure Filtrar(inicial:boolean=false);
   public
     { Public declarations }
   end;
@@ -545,7 +582,8 @@ implementation
 
 uses UntCadStatusServico, UntCadTecnicos, UntCadDefeitos,
   UntCadServicoExecutado, UntCadMotivosDevolucao,
-  UntCadProblemaIdentificado;
+  UntCadProblemaIdentificado, Application_DM, 
+  SerieCustomizaveis_DM, SeriesCustomizaveis, Funcoes;
 
 {$R *.dfm}
 
@@ -585,17 +623,17 @@ begin
   { função adicionada para permitir que o usuário busque diretamente pela serie do
     equipamento objeto da ordem de servico, ao colocar a serie os campos cliente e
     equipamento são automativamente preenchidos}
-  if OrdemSERIE.asString <> '' then
+  if dtEditSERIE.asString <> '' then
   begin
-    QrySelSerie.Close;
-    QrySelSerie.ParamByName('serie').value := OrdemSERIE.asString;
-    QrySelSerie.Open;
+    SelSeries.Close;
+    SelSeries.ParamByName('serie').value := dtEditSERIE.asString;
+    SelSeries.Open;
 
-    if (QrySelSerieCOD_CLIENTE.AsInteger > 0) then
-      dtEditPESSOA_FJ.Value := QrySelSerieCOD_CLIENTE.AsInteger;
+    if (SelSeriesCOD_CLIENTE.AsInteger > 0) then
+      dtEditPESSOA_FJ.Value := SelSeriesCOD_CLIENTE.AsInteger;
 
-    if (QrySelSerieCOD_EQUIPAMENTO.AsString <> '') then
-      dtEditPRODUTO.Value := QrySelSerieCOD_EQUIPAMENTO.value;
+    if (SelSeriesCOD_EQUIPAMENTO.AsString <> '') then
+      dtEditPRODUTO.Value := SelSeriesCOD_EQUIPAMENTO.value;
   end;
 end;
 
@@ -603,18 +641,26 @@ procedure TfrmCadOS.dtEditNewRecord(DataSet: TDataSet);
 var
   StatusPadrao : integer;
   sql : string;
+  DataHora : TDateTime;
 begin
   inherited;
   {Selecionando o Status 'padrão' de abertura}
-  sql := 'select min(s.codigo) from ofc_status s where s.cnpj = '+QuotedStr(dmApp.cnpj)+' and s.padrao_abertura = ''S''';
+  sql := 'select coalesce(min(s.codigo),0) from ofc_status s where s.cnpj = '+QuotedStr(dmApp.cnpj)+' and s.padrao_abertura = ''S''';
   StatusPadrao := RetornaValor(sql);
   if StatusPadrao > 0 then
    dtEditCOD_STATUS.value := StatusPadrao;
+
+   //atribuindo data e hora iniciais da solicitação da OS
+   DataHora := dmApp.DataServidor;
+   dtEditENTRADA.value := DateOf(DataHora);
+   dtEditHR_ENTRADA.value := TimeOf(DataHora);
 
 
 end;
 
 procedure TfrmCadOS.dtEditPESSOA_FJChange(Sender: TField);
+var
+  ativo : string;
 begin
   inherited;
   //Atribuindo a OS a Lat. e Longitude do Cadastro de Clientes, caso ela existe
@@ -622,7 +668,7 @@ begin
   begin
     SelEndereco.Close;
     SelEndereco.parambyname('cnpj').value := dmapp.cnpj;
-    SelEndereco.parambyname('codigo').value := DmServicos.OrdemPESSOA_FJ.Value;
+    SelEndereco.parambyname('codigo').value := dtEditPESSOA_FJ.Value;
     SelEndereco.Open;
 
     dtEditMAP_LAT.value := SelEnderecoMAP_LAT.Value;
@@ -644,6 +690,22 @@ begin
     QryClientes.Locate('CODIGO',dtEditPESSOA_FJ.Value,[loCaseInsensitive]);
     dtEditMECANICO.value :=  QryClientesTECNICO.value ;
   end;
+
+
+  if (dtEditST_FECHADO.AsString = '') then
+      ativo := 'S'
+    else
+      ativo := 'T';
+
+  QryEquipCliente.Close;
+  QryEquipCliente.parambyname('cod_cliente').value := dtEditPESSOA_FJ.value;
+  QryEquipCliente.parambyname('ativo').value := ativo;
+  QryEquipCliente.Open;
+
+  if (QryEquipCliente.RecordCount > 0) then
+    cmbEquipamento.Enabled := true
+  else
+    cmbEquipamento.Enabled := false;
 
 
 end;
@@ -712,25 +774,125 @@ procedure TfrmCadOS.TVRegistroOFC_CODIGOCustomDrawCell(
 var
   ValueGasto, ValueResposta : Variant;
 begin
-    if (dmApp.EXIBE_OFC_CONTROLA_TEMPO_RESPOSTA = 'N') then                    
-    exit;
+  if not (AViewInfo.GridRecord as TcxCustomGridRow).IsFilterRow then
+  begin
+     if (dmApp.EXIBE_OFC_CONTROLA_TEMPO_RESPOSTA = 'N') then
+      exit;
 
 
-   ACanvas.Canvas.Font.Color := clBlack;
-   if TVRegistro.ViewData.Records[AviewInfo.GridRecord.Index].Selected then
+     ACanvas.Canvas.Font.Color := clBlack;
+     if TVRegistro.ViewData.Records[AviewInfo.GridRecord.Index].Selected then
+     begin
+       ACanvas.Canvas.Brush.Color := clYellow;
+       exit;
+     end;
+
+     ACanvas.Canvas.Brush.Style := bsSolid;
+     ValueGasto := TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroTEMPO_GASTO.Index];
+     ValueResposta := TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroCP_TEMPO_RESPOSTA.Index];
+     if (not VarIsNull(ValueGasto) and not VarIsNull(ValueResposta)) then
+     begin
+       if(( ValueGasto + 3) >= ValueResposta)then
+         ACanvas.Canvas.Brush.Color := $008484FF;
+     end
+  end;
+end;
+
+
+
+procedure TfrmCadOS.TVRegistroDT_CILINDROCustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+  //célula que contém a ultima data de troca de cilindro será destacada dem amarelo
+  if not (AViewInfo.GridRecord as TcxCustomGridRow).IsFilterRow then
+  begin
+    ACanvas.Canvas.Font.Color := clBlack;
+    ACanvas.Canvas.Brush.Style := bsSolid;
+    if not VarIsNull(TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroULT_DT_CILINDRO.Index]) then
+      ACanvas.Canvas.Brush.Color := clYellow;
+  end;
+end;
+
+procedure TfrmCadOS.ActImprimirOSExecute(Sender: TObject);
+begin
+  inherited;
+
+   DmSerie_Customizaveis.edtLayoutOS.close;
+   DmSerie_Customizaveis.edtLayoutOS.parambyname('cnpj').value := dmApp.cnpj;
+   DmSerie_Customizaveis.edtLayoutOS.Open;
+
+   If FrmSeriesCustomizaveis = Nil Then
+     FrmSeriesCustomizaveis     := TFrmSeriesCustomizaveis.Create(Self);
+
+   with FrmSeriesCustomizaveis do
    begin
-     ACanvas.Canvas.Brush.Color := clYellow;
-     exit;
+     QryOS.Close;
+     QryOS.Parambyname('cnpj').value := dmApp.cnpj;
+     QryOS.Parambyname('codigo').value := dtEditCodigo.value;
+     QryOS.Parambyname('PESSOA_FJ').value := dtEditPessoa_fj.value;
+     QryOS.Open;
+
+     rptOS.Template.DatabaseSettings.Name := DmSerie_Customizaveis.edtLayoutOSCNPJ.asstring;;
+     rptOS.Template.LoadFromDatabase;
+     rptOS.print;
+   end;
+   FrmSeriesCustomizaveis := Nil;
+   exit;
+end;
+
+procedure TfrmCadOS.ActFilterExecute(Sender: TObject);
+Begin
+  Filtrar(true);
+  inherited;
+
+end;
+
+procedure TfrmCadOS.Filtrar(inicial: boolean);
+var
+  filtro : string;
+Begin
+  if (inicial) then
+    mtbFiltroDATA_INICIAL.Value := dmApp.OFC_DATA_BASE_MAN_OS;
+
+
+  if ((mtbFiltroDATA_INICIAL.Value < dmApp.OFC_DATA_BASE_MAN_OS) and ((dmApp.OFC_DATA_BASE_MAN_OS) > 0)) then
+  begin
+    Application.MessageBox(Pchar('Data Inicial Inválida. Data inferior ao parametrizado como Data Base para Listagem de OS: '+DateToStr(dmApp.OFC_DATA_BASE_MAN_OS)),'Aviso',mb_ok+mb_ok+mb_iconinformation);
+    mtbFiltroDATA_INICIAL.Value := dmApp.OFC_DATA_BASE_MAN_OS;
+    edtInicial.SetFocus;
+    exit;
+  end;
+
+  filtro := '';
+    dtList.Close;
+    if mtbFiltroDATA_INICIAL.Value > 0 then
+      filtro := ' and ofc.data >= '''+FormatDateTime('mm/dd/yyyy',mtbFiltroDATA_INICIAL.Value)+'''';
+
+    if mtbFiltroDATA_FINAL.Value > 0 then
+      filtro := filtro + ' and ofc.data <= '''+FormatDateTime('mm/dd/yyyy',mtbFiltroDATA_FINAL.value)+'''';
+
+   case mtbFiltroTIPO_STATUS.value of
+     0 : filtro := filtro +' and coalesce(st.fechado,''N'') = ''N''';
+     1 : filtro := filtro +' and coalesce(st.fechado,''N'') <> ''N''';
    end;
 
-  ACanvas.Canvas.Brush.Style := bsSolid;
-  ValueGasto := TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroTEMPO_GASTO.Index];
-  ValueResposta := TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroCP_TEMPO_RESPOSTA.Index];
-  if (not VarIsNull(ValueGasto) and not VarIsNull(ValueResposta)) then
-  begin
-    if(( ValueGasto + 3) >= ValueResposta)then
-      ACanvas.Canvas.Brush.Color := $008484FF;
-  end
+   if (mtbFiltroCLIENTE.asInteger > 0) then
+     filtro := filtro + ' and ofc.pessoa_fj = '+mtbFiltroCLIENTE.AsString;
+
+   if trim(edtSerie.Text) <> '' then
+     filtro := filtro + ' and prd.serie = '+QuoTedStr(mtbFiltroSERIE.AsString);
+
+   dtList.sql.text := sqloriginal + filtro;
+
+   //Data base de filtro de OS, cliente pode parametrizar uma data minima para o filtro a fim melhorar o desempenho do sistema
+   if (dmApp.OFC_DATA_BASE_MAN_OS > 0) then
+     dtList.parambyname('OFC_DATA_BASE_MAN_OS').AsDate := dmApp.OFC_DATA_BASE_MAN_OS
+   else
+     dtList.parambyname('OFC_DATA_BASE_MAN_OS').AsDate := StrToDate('01/01/2001');
+  
+
 end;
 
 procedure TfrmCadOS.TVRegistroST_CORCustomDrawCell(
@@ -738,21 +900,24 @@ procedure TfrmCadOS.TVRegistroST_CORCustomDrawCell(
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
   inherited;
-  ACanvas.Canvas.Brush.Style := bsSolid;
- if not VarIsNull(TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroST_COR.Index]) then
-     ACanvas.Canvas.Brush.Color := VarAsType(TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroST_COR.Index], varInteger)
-end;
+  if not (AViewInfo.GridRecord as TcxCustomGridRow).IsFilterRow then
+  begin
+    ACanvas.Canvas.Brush.Style := bsSolid;
+    if not VarIsNull(TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroST_COR.Index]) then
+     ACanvas.Canvas.Brush.Color := VarAsType(TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroST_COR.Index], varInteger);
+  end;
 end;
 
-procedure TfrmCadOS.TVRegistroDT_CILINDROCustomDrawCell(
-  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+procedure TfrmCadOS.pnlFiltroExit(Sender: TObject);
+begin
+  Filtrar(false);
+  inherited;
+end;
+
+procedure TfrmCadOS.FormCreate(Sender: TObject);
 begin
   inherited;
-  ACanvas.Canvas.Font.Color := clBlack;
-  ACanvas.Canvas.Brush.Style := bsSolid;
- if not VarIsNull(GridTV.ViewData.Records[AViewInfo.GridRecord.Index].Values[GridTVULT_DT_CILINDRO.Index]) then
-     ACanvas.Canvas.Brush.Color := clYellow;
+  mtbFiltroTIPO_STATUS.value := 0;
 end;
 
 end.
