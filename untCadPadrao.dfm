@@ -145,7 +145,7 @@ object frmCadPadrao: TfrmCadPadrao
     Transaction = DmApp.Transaction
     BeforePost = dtEditBeforePost
     DataSource = dsLink
-    Left = 144
+    Left = 136
     Top = 4
   end
   object dtList: TIBQuery

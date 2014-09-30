@@ -148,7 +148,6 @@ type
     LVDet8: TcxGridLevel;
     tbsEditaSub8: TcxTabSheet;
     LVDet1: TcxGridLevel;
-    TVDet1: TcxGridDBTableView;
     dsRegistroDet2: TDataSource;
     dsPesquisaDet2: TDataSource;
     dsRegistroDet1: TDataSource;
@@ -209,6 +208,7 @@ type
     edtCodigo: TcxDBTextEdit;
     mtbFiltro: TdxMemData;
     dsFiltro: TDataSource;
+    TVDet1: TcxGridDBBandedTableView;
     procedure FormShow(Sender: TObject);
     procedure pgcCadastroChange(Sender: TObject);
     procedure ActFirstExecute(Sender: TObject);
@@ -253,6 +253,7 @@ type
     procedure PGCSub1Change(Sender: TObject);
     procedure ActFilterExecute(Sender: TObject);
     procedure pnlFiltroExit(Sender: TObject);
+    procedure pnlFiltroEnter(Sender: TObject);
   private
     { Private declarations }
     Foco : string;
@@ -763,7 +764,7 @@ begin
     DtsList.DataSet.Open;
     DtsList.DataSet.GotoBookmark(Posicao);
     DtsList.DataSet.FreeBookMark(Posicao);
-   tbList.Show;
+    tbList.Show;
 
 end;
 
@@ -898,40 +899,42 @@ procedure TfrmCadPadraoMaster.ActDeleteExecute(Sender: TObject);
 begin
 
   if (pgcCadastro.ActivePageIndex = 0) then
-    Excluir(dsRegistro,dsPesquisa,tbsLista)
+  begin
+    Excluir(dsRegistro,dsPesquisa,tbsLista);
+  end
   else
   begin
      case PgcDetalhe.ActivePageIndex of
         0 : begin
-              if PGCSub1.ActivePageIndex = 0 then
+              if (PGCSub1.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet1,dsPesquisaDet1,tbsListaSub1);
             end;
         1 : begin
-              if PGCSub2.ActivePageIndex = 0 then
+              if (PGCSub2.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet2,dsPesquisaDet2,tbsListaSub2);
             end;
         2 : begin
-              if PGCSub3.ActivePageIndex = 0 then
+              if (PGCSub3.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet3,dsPesquisaDet3,tbsListaSub3);
             end;
         3 : begin
-              if PGCSub4.ActivePageIndex = 0 then
+              if (PGCSub4.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet4,dsPesquisaDet4,tbsListaSub4);
             end;
         4 : begin
-              if PGCSub5.ActivePageIndex = 0 then
+              if (PGCSub5.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet5,dsPesquisaDet5,tbsListaSub5);
             end;
         5 : begin
-              if PGCSub6.ActivePageIndex = 0 then
+              if (PGCSub6.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet6,dsPesquisaDet6,tbsListaSub6);
             end;
         6 : begin
-              if PGCSub7.ActivePageIndex = 0 then
+              if (PGCSub7.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet7,dsPesquisaDet7,tbsListaSub7);
             end;
         7 : begin
-              if PGCSub8.ActivePageIndex = 0 then
+              if (PGCSub8.ActivePageIndex = 0) then
                 Excluir(dsRegistroDet8,dsPesquisaDet8,tbsListaSub8);
             end;
      end;
@@ -1328,7 +1331,6 @@ procedure TfrmCadPadraoMaster.ActFilterExecute(Sender: TObject);
 begin
   inherited;
    //Filtro a ser implementado no fomulario descentente
-  dtList.Close;
   dtList.Open;
   TVRegistro.ViewData.Expand(True);
 end;
@@ -1337,6 +1339,13 @@ procedure TfrmCadPadraoMaster.pnlFiltroExit(Sender: TObject);
 begin
   inherited;
   ActFilter.Execute;
+  ActDelete.enabled := true;
+end;
+
+procedure TfrmCadPadraoMaster.pnlFiltroEnter(Sender: TObject);
+begin
+  inherited;
+  ActDelete.enabled := false;
 end;
 
 end.

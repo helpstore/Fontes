@@ -122,18 +122,18 @@ object FrmContratosItens: TFrmContratosItens
       ActivePage = tbsItem
       Align = alClient
       TabOrder = 0
-      ClientRectBottom = 415
-      ClientRectLeft = 2
-      ClientRectRight = 729
-      ClientRectTop = 24
+      ClientRectBottom = 416
+      ClientRectLeft = 4
+      ClientRectRight = 730
+      ClientRectTop = 27
       object tbsItem: TcxTabSheet
         Caption = 'Itens'
         ImageIndex = 0
         object GridItens: TdxDBGrid
           Left = 0
           Top = 190
-          Width = 727
-          Height = 201
+          Width = 726
+          Height = 199
           TabStop = False
           Bands = <
             item
@@ -289,7 +289,7 @@ object FrmContratosItens: TFrmContratosItens
         object Panel2: TPanel
           Left = 0
           Top = 0
-          Width = 727
+          Width = 726
           Height = 190
           Align = alTop
           BevelOuter = bvNone
@@ -995,8 +995,8 @@ object FrmContratosItens: TFrmContratosItens
         object GridDesconto: TcxGrid
           Left = 0
           Top = 0
-          Width = 727
-          Height = 391
+          Width = 726
+          Height = 389
           Align = alClient
           TabOrder = 0
           object GridDescontoDBTableView1: TcxGridDBTableView

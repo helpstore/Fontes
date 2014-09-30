@@ -2641,7 +2641,7 @@ begin
                try
                   SetLength (Aux,14);
 
-                  Daruma_FI_SubTotal (Aux) ;
+            //      Daruma_FI_SubTotal (Aux) ;
 
                   Len := Length(Aux);
 

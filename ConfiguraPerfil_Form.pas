@@ -203,7 +203,6 @@ type
 var
   FrmConfigurarPerfil: TFrmConfigurarPerfil;
 
-  function Daruma_FI_LerAliquotasComIndice(AliquotasComIndice: String ): Integer; StdCall; External 'Daruma32.dll';
 
 implementation
 
@@ -377,7 +376,6 @@ begin
 
  SetLength (Str_Informacao,300);
 
- Int_Retorno := Daruma_FI_LerAliquotasComIndice(Str_Informacao);
 
  Showmessage(trim(Str_Informacao));
 end;

@@ -8,7 +8,6 @@ inherited frmCadFornecedores: TfrmCadFornecedores
   inherited pgcCadastro: TcxPageControl
     Width = 749
     Height = 378
-    ActivePage = tbsEdita
     ClientRectBottom = 374
     ClientRectRight = 745
     inherited tbsLista: TcxTabSheet

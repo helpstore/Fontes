@@ -1,6 +1,6 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
-  Left = 70
-  Top = 112
+  Left = 304
+  Top = 82
   Width = 1049
   Height = 594
   Caption = 'frmCadPadraoMaster'
@@ -24,7 +24,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Top = 0
     Width = 1033
     Height = 530
-    ActivePage = tbsLista
+    ActivePage = tbsEdita
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange
@@ -76,6 +76,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
+        OnEnter = pnlFiltroEnter
         OnExit = pnlFiltroExit
       end
     end
@@ -103,7 +104,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
             Top = 0
             Width = 1023
             Height = 277
-            ActivePage = tbsDetalhe2
+            ActivePage = tbsDetalhe1
             Align = alClient
             Color = clBtnFace
             HotTrack = True
@@ -123,7 +124,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub1
+                ActivePage = tbsListaSub1
                 Align = alClient
                 TabOrder = 0
                 OnChange = PGCSub1Change
@@ -137,40 +138,18 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet1: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet1: TcxGridDBTableView
+                    object TVDet1: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet1
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -179,9 +158,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet1: TcxGridLevel
                       GridView = TVDet1
@@ -220,7 +201,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub2
+                ActivePage = tbsListaSub2
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
@@ -233,7 +214,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet2: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
@@ -316,7 +297,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub3
+                ActivePage = tbsListaSub3
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
@@ -329,7 +310,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet3: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
@@ -508,7 +489,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub5
+                ActivePage = tbsListaSub5
                 Align = alClient
                 Enabled = False
                 TabOrder = 0
@@ -522,7 +503,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet5: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
@@ -605,7 +586,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub6
+                ActivePage = tbsListaSub6
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
@@ -618,7 +599,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet6: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
@@ -701,7 +682,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub7
+                ActivePage = tbsListaSub7
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
@@ -714,7 +695,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet7: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
@@ -797,7 +778,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 1015
                 Height = 246
-                ActivePage = tbsEditaSub8
+                ActivePage = tbsListaSub8
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
@@ -810,7 +791,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet8: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 735
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0

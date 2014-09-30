@@ -278,7 +278,7 @@ uses Usuarios_DM,
      Funcoes,
      Vendas_Dm,
      NotaPromissoria_FRel,
-     ModuloMp20CI, Cadastros_DM, Vendas_DM2;
+     Cadastros_DM, Vendas_DM2;
 
 {$R *.DFM}
 
@@ -3511,10 +3511,8 @@ begin
 
                ret := 0;
 
-               ret := FechaPorta();
 
                //MP20CI
-               Ret := ConfiguraModeloImpressora(1);
 
                If Ret = -2
                Then BEGIN
@@ -3522,7 +3520,6 @@ begin
                     Exit;
                END;
 
-               ret := IniciaPorta(Pchar('LPT1'));
 
 //               HabilitaExtratoLongo(1);
 
@@ -3536,22 +3533,7 @@ begin
 
 
                //ITALICO + NEGRITO
-               FormataTX(Replicate('-', 36), 3, 1, 0, 0, 1);
 
-               FormataTX(FormataMp20Ci(FormataMp20Ci('PEDIDO ' + NPEDIDO)), 3, 1, 0, 0, 1);
-
-               FormataTX(FormataMp20Ci(FormataMp20Ci('VENDEDOR ' + NomeVendedor)), 3, 1, 0, 0, 1);
-
-               FormataTX(FormataMp20Ci(FormataMp20Ci('NOME ' + Razao)), 3, 1, 0, 0, 1);
-
-               FormataTX(FormataMp20Ci('DATA ' + Data), 3, 1, 0, 0, 1);
-
-               FormataTX(Replicate('-', 36), 3, 1, 0, 0, 1);
-
-               //CABECALHO DO PEDIDO
-               FormataTX(FormataMp20Ci('Produto           Qtd   Unit   Total'), 3, 1, 0, 0, 1);
-
-               FormataTX(Replicate('=', 36), 3, 1, 0, 0, 1);
 
                //
                Item  := 00;
@@ -3600,7 +3582,6 @@ begin
                   Produto := Produto + Str  ;
 
                   //IMPRIME PRODUTOS
-                  FormataTX(FormataMp20Ci(Produto), 3, 1, 0, 0, 1);
 
                   Consulta_Venda_Itens.Next;
 
@@ -3608,7 +3589,6 @@ begin
 
                end;//
 
-               FormataTX(Replicate('=', 36), 3, 1, 0, 0, 1);
 
                //DESCONTO
                IF ARREDONDA(CONSULTA_VENDADESC_ACRES.Value,2) <> 0
@@ -3621,7 +3601,6 @@ begin
                          STR := ' ' + STR ;
                     END;
 
-                    FormataTX('          BRUTO..........:' + Str , 3, 1, 0, 0, 1);
 
 
                     //DESCONTO
@@ -3632,7 +3611,6 @@ begin
                          STR := ' ' + STR ;
                     END;
 
-                    FormataTX('          DESCONTO.......:' + Str , 3, 1, 0, 0, 1);
                END;
 
                //TOTAL
@@ -3642,7 +3620,6 @@ begin
                     STR := ' ' + STR ;
                END;
 
-               FormataTX('          TOTAL..........:' + Str , 3, 1, 0, 0, 1);
 
                //PECAS
                STR :=  FORMATFLOAT ('###,###,##0', Item );
@@ -3659,18 +3636,14 @@ begin
 
                Produto := Produto + Str ;
 
-               FormataTX(Produto, 3, 1, 0, 0, 1);
 
                If UPPERCASE(Consulta_VendaTIPO_VENDA.Value) = 'VEN'
                THEN BEGIN
-                    FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
 
-                    FormataTX('---------FORMAS DE PAGAMENTO--------', 3, 1, 0, 0, 1);
 
                     //ENTRADA
                     IF ARREDONDA(CONSULTA_VENDAENTRADA.Value,2) > 0
                     THEN BEGIN
-                         FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
 
                          //TOTAL
                          STR := FORMATFLOAT('###,##0.00', ARREDONDA(CONSULTA_VENDAENTRADA.Value,2));
@@ -3679,9 +3652,7 @@ begin
                               STR := ' ' + STR ;
                          END;
 
-                         FormataTX('          ENTRADA........:' + Str , 3, 1, 0, 0, 1);
 
-                         FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
                     END;
 
                     //PARCELAS
@@ -3704,35 +3675,16 @@ begin
                             STR := ' ' + STR ;
                        END;
 
-                       FormataTX( FormataMp20Ci(Produto+STR) , 3, 1, 0, 0, 1);
 
                        Consulta_Venda_Parc.next ;
                     end;
                END
                ELSE BEGIN
-                    FormataTX('-------------CONDICIONAL------------', 3, 1, 0, 0, 1);
 
                     Produto := RAZAO ;
 
-                    FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-                    FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-                    FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-
-                    FormataTX(FormataMp20Ci(Produto) , 3, 1, 0, 0, 1);
                END;
 
-               FormataTX(Replicate('-', 36) , 3, 1, 0, 0, 1);
-
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-               FormataTX(Replicate(' ', 36), 3, 1, 0, 0, 1);
-
-               FechaPorta;
           end;
 
 

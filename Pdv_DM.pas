@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   Db, IBCustomDataSet, Serial, IBQuery, ExtCtrls, IBStoredProc, RDprint,
-    Printers, IBSQL, SbrCupomFiscal, variants, ppDB, ppParameter,
+    Printers, IBSQL, variants, ppDB, ppParameter,
   ppBands, ppCtrls, ppPrnabl, ppClass, ppVar, ppCache, ppProd, ppReport,
   ppComm, ppRelatv, ppDBPipe, ppModule, daDataModule, dxmdaset, ACBrBase,
   ACBrExtenso;
@@ -389,7 +389,6 @@ type
     SelMesasPdvCODIGO_2: TIBStringField;
     SelMesasPdvTOTAL: TFloatField;
     SelMesasPdvCNPJ: TIBStringField;
-    CupomFiscal: TSbrCupomFiscal;
     Pdv_ItensICM: TFloatField;
     Pdv_ItensICM_SUBS: TFloatField;
     Pdv_ItensIPI: TFloatField;
@@ -538,7 +537,6 @@ type
     procedure CapturaTimer(Sender: TObject);
     procedure LeitorAfterReceive(Sender: TObject; data: String);
     procedure Pdv_ItensAfterPost(DataSet: TDataSet);
-    procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure BalancaAfterReceive(Sender: TObject; data: String);
     procedure PdvTROCOValidate(Sender: TField);
@@ -658,58 +656,6 @@ var
    Documentos, Doctos, IERG : String;
 
 
-   function AFRAC_AbrirPorta(Porta: PChar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_LeituraX: integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_AbrirCupom: integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_FecharPorta: integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_VenderItem(codigo, Descricao, Qtde, Valor_Unitario,Acres_desc,
-                             Perc_valor, Valor_acresdesc,  Valor_total, Aliquota, Unidade,
-                             ForcarImpressaoUmaLinha : pchar): Integer; Stdcall; external 'ecfafrac.dll';
-   function AFRAC_FormaPagamento(descForma: Pchar; Indice: Pchar; Valor: PChar;
-                                Mensagem: Pchar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_FecharCupom(vinculado: PChar; Adicional:PChar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_CancelarItem(NumeroItem: Pchar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_CancelarCupom(COO: Pchar):integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_ArredondarTruncar(Metodo: Pchar):integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_AcrescimoDescontoCupom(acres_desc:PChar; perc_valor: PChar;
-               ValorAcresDesc: PChar; Descricao: Pchar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_FecharAcrescimoDesconto(padrao_desc: Pchar; padrao_acres: Pchar;
-                           ValorLiquido: PChar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_AbrirGaveta: integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_PegarCodigoErro(codigoErro, Mensagem, Acao: Pchar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_LerAliquotas(retorno: PChar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_LerInformacaoImpressora(CodInformacao, Retorno: PChar):integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_AbrirVinculado(coo:Pchar; FormPagto: Pchar; valor: PChar):integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_ImprimirVinculado(Linha1, Linha2: Pchar):integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_FecharVinculado: integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_CancelarVinculado: integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_InformarMensagemCupom(Mensagem: Pchar): integer; stdcall; external 'ecfafrac.dll';
-   function AFRAC_ReducaoZ(data: PChar): integer; stdcall; external 'ecfafrac.dll';
-
-
-   //DARUMA
-   function Daruma_FI_FechaPortaSerial: Integer; StdCall; External 'Daruma32.dll'
-   function Daruma_FI_SubTotal( SubTotal: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_AbrePortaSerial: Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_AbreCupom( CPF_ou_CNPJ: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_CancelaCupom: Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_AcionaGaveta: Integer; StdCall; External 'Daruma32.dll'
-   function Daruma_FI_CancelaItemAnterior: Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_CancelaItemGenerico( Numero_Item: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_IniciaFechamentoCupom( Acrescimo_ou_Desconto: String; Tipo_do_Acrescimo_ou_Desconto: String; Valor_do_Acrescimo_ou_Desconto: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_EfetuaFormaPagamento( Descricao_da_Forma_Pagamento: String; Valor_da_Forma_Pagamento: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_IdentificaConsumidor( Nome_do_Consumidor: String; Endereco: String; CPF_ou_CNPJ: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_TerminaFechamentoCupom( Mensagem_Promocional: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_NumeroCupom( NumeroCupom: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_VendeItem( Codigo: String; Descricao: String; Aliquota: String; Tipo_de_Quantidade: String; Quantidade: String; Casas_Decimais: Integer; Valor_Unitario: String; Tipo_de_Desconto: String; Valor_do_Desconto: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_LeituraX: Integer; StdCall; External 'Daruma32.dll' ;
-   function Daruma_FI_ReducaoZ( Data: String; Hora: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_Sangria( Valor_da_Sangria: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_Suprimento( Valor_da_Sangria: String ): Integer; StdCall; External 'Daruma32.dll';
-
-   function Daruma_FI_AbreComprovanteNaoFiscalVinculado( Forma_de_Pagamento: String; Valor_Pago: String; Numero_do_Cupom: String ): Integer; StdCall; External 'Daruma32.dll';
-   function Daruma_FI_UsaComprovanteNaoFiscalVinculado( Texto_Livre: String ): Integer; StdCall; External 'Daruma32.dll'
-   function Daruma_FI_FechaComprovanteNaoFiscalVinculado: Integer; StdCall; External 'Daruma32.dll';
 
 
 
@@ -726,7 +672,6 @@ uses Application_DM,
      SenhaGerencialPdv_Form,
      ConveniadoCheque_Form,
      Entra_Data_Cheque_Form,
-     Funcoes_Daruma,
      UDS300,
      MensagemFaturamento_Form,
      MensagemClassificacao_Form,
@@ -1265,12 +1210,12 @@ begin
 
           If DmApp.Pdv_Ecf = 'S'
           Then begin
-              If AbreCupomFiscal <> 0
+             { If AbreCupomFiscal <> 0
               then begin
                    FrmPdv.STatus.Caption := 'Aguardando Comandos' ;
 
                    Abort ;
-              end;
+              end;}
           end
           Else
               ZerarLogo ;
@@ -2125,105 +2070,25 @@ begin
   PdvQuantidade := 0;
   //ImprimeItem
   If DmApp.Pdv_Ecf = 'S' Then
-    ImprimeItem (Pdv_ItensPRODUTO.Value, Pdv_ItensNOME_PRODUTO.Value, Pdv_ItensALIQUOTA.Value, Pdv_ItensQUANTIDADE.Value, Pdv_ItensPRC_UNITARIO.Value, Pdv_ItensUNIDADE.Value ) ;
+  //  ImprimeItem (Pdv_ItensPRODUTO.Value, Pdv_ItensNOME_PRODUTO.Value, Pdv_ItensALIQUOTA.Value, Pdv_ItensQUANTIDADE.Value, Pdv_ItensPRC_UNITARIO.Value, Pdv_ItensUNIDADE.Value ) ;
 
   Calcular_ItensPDV;
   FrmPdv.EdDigitacao.SetFocus;
   Pdv_Itens.Insert ;
 end;
 
-procedure TDmPdv.DataModuleCreate(Sender: TObject);
-begin
-     Iniciado := false ;
-     Modo_Insercao := false ;
-
-     //INICIA O COMPONENTE PARA DARUMA
-     CUPOMFISCAL.MensagemFinal := dmapp.PDV_MENSAGEM ;
-
-     CUPOMFISCAL.CarregarConfiguracoes ;
-
-     If DmApp.LeitorPorta = 'COM1'
-     THEN BEGIN
-          Lei := cpCOM1 ;
-     END
-     ELSE BEGIN
-          If DmApp.LeitorPorta = 'COM2'
-          THEN BEGIN
-               Lei := cpCOM2 ;
-          END
-          ELSE BEGIN
-               If DmApp.LeitorPorta = 'COM3'
-               THEN BEGIN
-                    Lei := cpCOM3 ;
-               END
-               ELSE BEGIN
-
-               END;
-          END;
-     END;
-
-     //BALANCA
-     If DmApp.BalancaPorta = 'COM1'
-     THEN BEGIN
-          Bal := cpCOM1 ;
-     END
-     ELSE BEGIN
-          If DmApp.BalancaPorta = 'COM2'
-          THEN BEGIN
-               Bal := cpCOM2 ;
-          END
-          ELSE BEGIN
-               If DmApp.BalancaPorta = 'COM3'
-               THEN BEGIN
-                    Bal := cpCOM3 ;
-               END;
-          END
-     END;
-
-     If DmApp.LeitorPorta <> 'N'
-     THEN BEGIN
-          if Leitor.OpenPort(Lei)
-          then begin
-               beep;
-          end
-          Else begin
-               beep;
-               MensagemPdv('Erro ao Abrir a Porta COM2');
-          end;
-     END;
-
-     IF DmApp.BalancaPorta <> 'N'
-     THEN BEGIN
-          if Balanca.OpenPort(Bal)
-          then begin
-               beep;
-          end
-          Else begin
-               beep;
-               MensagemPdv('Erro ao Abrir a Porta COM1');
-          end;
-     END;
-
-     MsgCont := 1;
-
-     Msg     := '';
-
-     ConsultandoPreco := False ;
-     MesaAberta       := False ;
-end;
-
 procedure TDmPdv.DataModuleDestroy(Sender: TObject);
 begin
      If DmApp.Pdv_Ecf = 'S' Then
      begin
-          If DmaPP.Pdv_Modelo = 'Sweda' then
+         { If DmaPP.Pdv_Modelo = 'Sweda' then
                Ret := TrataErroCupom ( AFRAC_FecharPorta, 'Fechado Porta'  ) ;
 
           If DmaPP.Pdv_Modelo = 'Bematech' then
                Funcoes.FechaPortaSerial ;
 
           If DmaPP.Pdv_Modelo = 'Dar32Dll' then
-               Ret := Daruma_FI_FechaPortaSerial ;
+               Ret := Daruma_FI_FechaPortaSerial ;}
      end;
 
      if Leitor.ClosePort then
@@ -2243,18 +2108,6 @@ procedure TDmPdv.ArredondaTrunca(Tipo: String);
 var
    Metodo: array[0..5] of char;
 Begin
-     //Arredonda Trunca Valores da Impressora
-     //0 = Arredonda
-     //1 = Trunca
-     If Tipo = '0'
-     then begin
-          Metodo:=#0;
-          AFRAC_ArredondarTruncar(Metodo);
-     end
-     else begin
-          Metodo:=#1;
-          AFRAC_ArredondarTruncar(Metodo);
-     end;
 end;
 
 procedure TDmPdv.AtualizaValores ( Final: String );
@@ -2264,9 +2117,9 @@ Var
    Aux, Aux2: String;
    Len, I: Integer;
 begin
-     If DmaPP.Pdv_Modelo = 'Sweda'
-     then begin
-          If ( DmApp.Pdv_Ecf = 'S' ) and ( Final = 'S' )
+     If DmaPP.Pdv_Modelo = 'Sweda'     then
+     begin
+          {If ( DmApp.Pdv_Ecf = 'S' ) and ( Final = 'S' )
           then begin
                retorno:=#0;
 
@@ -2321,7 +2174,8 @@ begin
 
                FRMPDV.PNTOTAL.Caption  := formatfloat('###,###,##0.00  ', arredonda(Total - DesctoCpCanc,2)) ;
           end
-          else begin
+          else}
+          begin
                If Pdv_Itens.state in [ dsinsert, dsedit ]
                then begin
                     If ( trim(Pdv_ItensPRODUTO.Value) <> '' )
@@ -2845,13 +2699,6 @@ Begin
 //          Ret := TrataErroCupom ( Daruma_FI_AbrePortaSerial(), 'Abrindo Porta');
      end ;
 
-     If DmaPP.Pdv_Modelo = 'Daruma'
-     then begin
-          //
-          CUPOMFISCAL.AbrirPortaSerial ;
-
-          MensagemDaruma ( CUPOMFISCAL.MensagemImpressora);
-     end ;
 end;
 
 Function TDmPdv.AbreCupomFiscal:Integer;
@@ -2860,7 +2707,7 @@ Begin
 
      If DmApp.Pdv_Ecf = 'S'
      Then begin
-          If DmaPP.Pdv_Modelo = 'Sweda'
+       {   If DmaPP.Pdv_Modelo = 'Sweda'
           then begin
                Result := TrataErroCupom ( AFRAC_AbrirCupom, 'Abrindo Cupom Fiscal');
           end;
@@ -2888,7 +2735,7 @@ Begin
                AbreCupomEpson ('');
 
                Result := 0;
-          end;
+          end;  }
      end
      ELSE BEGIN
           If DmaPP.Pdv_Modelo = 'Epson'
@@ -2950,7 +2797,7 @@ Begin
 
      If DmApp.Pdv_Ecf = 'S'
      Then Begin
-          If DmaPP.Pdv_Modelo = 'Sweda'
+         { If DmaPP.Pdv_Modelo = 'Sweda'
           then begin
                Ret := TrataErroCupom ( AFRAC_CancelarCupom('000000'), 'Cancelando Cupom');
           end;
@@ -2969,7 +2816,7 @@ Begin
           then begin
                CUPOMFISCAL.CancelarCupom ;
                mensagemdaruma ( CUPOMFISCAL.mensagemimpressora );
-          end;
+          end;}
      end;
      DMApp.Transaction.CommitRetaining;
 end;
@@ -2978,7 +2825,7 @@ procedure TDmPdv.Sangria(Valor: Real);
 begin
      If DmApp.Pdv_Ecf = 'S'
      Then begin
-          //Sangria na Impressora Fiscal
+         { //Sangria na Impressora Fiscal
           If DmaPP.Pdv_Modelo = 'Sweda'
           then begin
 
@@ -2999,13 +2846,13 @@ begin
           If DmaPP.Pdv_Modelo = 'Daruma'
           then begin
 
-          end;
+          end; }
      end;
 end;
 
 procedure TDmPdv.Suprimento(Valor: Real);
 begin
-     If DmApp.Pdv_Ecf = 'S'
+   {  If DmApp.Pdv_Ecf = 'S'
      Then begin
           //Sangria na Impressora Fiscal
           If DmaPP.Pdv_Modelo = 'Sweda'
@@ -3029,14 +2876,14 @@ begin
           then begin
 
           end;
-     end;
+     end;  }
 end;
 
 procedure TDmPdv.AbrirGaveta;
 Begin
      If DmApp.Pdv_Ecf = 'S'
      Then begin
-          If DmaPP.Pdv_Modelo = 'Sweda'
+        {  If DmaPP.Pdv_Modelo = 'Sweda'
           then begin
                Ret := TrataErroCupom ( AFRAC_AbrirGaveta, 'Abrindo Gaveta');
           end;
@@ -3055,7 +2902,7 @@ Begin
           then begin
                CUPOMFISCAL.AbrirGaveta ;
                mensagemdaruma ( CUPOMFISCAL.mensagemimpressora );
-          end;
+          end; }
      end;
 end;
 
@@ -3089,20 +2936,6 @@ var
    retorno: array[0..512] of char;
    I: Integer;
 begin
-     If DmaPP.Pdv_Modelo = 'Sweda'
-     then begin
-          //Captura as Aliquotas para analise
-          retorno:=#0;
-
-          AFRAC_LerAliquotas(retorno);
-
-          For I := 0 TO 5 DO
-          BEGIN
-               ConfereAliquotas[I] := '';
-          END;
-
-          trataaliquotas (strpas(retorno));
-     end;
 end;
 
 procedure TDmPdv.AcrescrimoDesconto;
@@ -3113,7 +2946,7 @@ Var
 Begin
      If DmApp.Pdv_Ecf = 'S'
      Then Begin
-          If DmaPP.Pdv_Modelo = 'Sweda'
+        {  If DmaPP.Pdv_Modelo = 'Sweda'
           then begin
                //Criar Formulario
                FrmAcrescimoDescontoPdv := TFrmAcrescimoDescontoPdv.Create(Self);
@@ -3149,13 +2982,13 @@ Begin
                  ValorStr := Formatfloat ('###,###,##0.00', arredonda(Valor,2));
                  ValorStr := ValoresNumericosCupom ( ValorStr, 'N' );
                  Forma := '1' ;//Sempre Será Por Valor
-                 Ret := TrataErroCupom ( AFRAC_AcrescimoDescontoCupom(pchar(Tipo),'1', Pchar(ValorStr),''),'Acréscimo/Desconto');
+              //   Ret := TrataErroCupom ( AFRAC_AcrescimoDescontoCupom(pchar(Tipo),'1', Pchar(ValorStr),''),'Acréscimo/Desconto');
                end;
 
                //liberar Formulario
                FrmAcrescimoDescontoPdv.Free   ;
                FrmAcrescimoDescontoPdv := Nil ;
-          end;
+          end;  }
      end;
 end;
 
@@ -3179,7 +3012,7 @@ begin
                     Aux := '0' + Aux ;
                end;
 
-               Ret := TrataErroCupom ( AFRAC_CancelarItem(Pchar(aux)), 'Cancelamento de Item');
+             //  Ret := TrataErroCupom ( AFRAC_CancelarItem(Pchar(aux)), 'Cancelamento de Item');
 
                If Ret <> 0
                then
@@ -3213,7 +3046,7 @@ begin
                     Aux := '0' + Aux ;
                end;
 
-               Ret := TrataErroCupom ( AFRAC_CancelarItem(Pchar(aux)), 'Cancelamento de Item');
+//               Ret := TrataErroCupom ( AFRAC_CancelarItem(Pchar(aux)), 'Cancelamento de Item');
 
                If Ret <> 0
                then
@@ -3237,7 +3070,7 @@ begin
                     Aux := '0' + Aux ;
                end;
 
-               Ret := TrataErroCupom ( Daruma_FI_CancelaItemAnterior(), 'Cancelamento de Item');
+         //      Ret := TrataErroCupom ( Daruma_FI_CancelaItemAnterior(), 'Cancelamento de Item');
 
                If Ret <> 0
                then
@@ -3271,7 +3104,7 @@ begin
                     Aux := '0' + Aux ;
                end;
 
-               Ret := TrataErroCupom ( Daruma_FI_CancelaItemGenerico(Pchar(aux)), 'Cancelamento de Item');
+              // Ret := TrataErroCupom ( Daruma_FI_CancelaItemGenerico(Pchar(aux)), 'Cancelamento de Item');
 
                If Ret <> 0
                then
@@ -3325,9 +3158,7 @@ begin
      then begin
           If Item = 0
           then begin //CANCELA O ULTIMO ITEM
-               CUPOMFISCAL.CancelarItemAnterior ;
 
-               MENSAGEMDARUMA ( CUPOMFISCAL.MENSAGEMIMPRESSORA );
 
                If ( Pdv_Itens.State in [ dsinsert, dsedit ] )
                THEN BEGIN
@@ -3350,11 +3181,6 @@ begin
                Pdv_Itens.Delete ;
           END
           ELSE BEGIN
-               CUPOMFISCAL.ItemNumero := inttostr(item)   ;
-
-               CUPOMFISCAL.CancelarItemGenerico ;
-
-               mensagemdaruma ( CUPOMFISCAL.mensagemimpressora );
 
                Imprime ('<B><P align="left"><FONT color="#FFFF00">'+ 'Item Cancelado => ' + Produto + '-' + Nome + '</FONT></P></B><br>', 'QNTDE');
           END;
@@ -3505,17 +3331,13 @@ Begin
           liquido:=#0;
 
 
-          If ((DmaPP.Pdv_Modelo = 'Sweda') and (dmApp.BCH_ATIVO <> 'S'))
-          then begin
-               Ret := TrataErroCupom (AFRAC_FecharAcrescimoDesconto('','',Liquido),'Fechando Formas de Pagamento');
-          end;
      end;
 
      If ((DmaPP.Pdv_Modelo = 'Dar32DLL') and (dmApp.BCH_ATIVO <> 'S'))
      then begin
           liquido:=#0;
 
-          Ret := TrataErroCupom (Daruma_FI_IniciaFechamentoCupom( 'D', '$', pchar('0,00') ),'Fechando Formas de Pagamento');
+       //   Ret := TrataErroCupom (Daruma_FI_IniciaFechamentoCupom( 'D', '$', pchar('0,00') ),'Fechando Formas de Pagamento');
      end;
 
      If ((DmaPP.Pdv_Modelo = 'Bematech') and (dmApp.BCH_ATIVO <> 'S'))
@@ -3525,12 +3347,10 @@ Begin
 
      If DmaPP.Pdv_Modelo = 'Daruma'
      then begin
-          CupomFiscal.totalizacupom (PdvDESC_ACRES.Value);
      END;
 
      {If ( DmaPP.Pdv_Modelo = 'Epson' ) or ( DmaPP.Pdv_Modelo = 'Texto' )
      then begin
-          CupomFiscal.totalizacupom (PdvDESC_ACRES.Value);
      END;}
 
      If Arredonda(PdvDINHEIRO.Value,2) > 0
@@ -3541,7 +3361,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( AFRAC_FormaPagamento('DINHEIRO','00', pchar(Valor), ''), ' Forma Dinheiro');
+         //      Ret   := TrataErroCupom ( AFRAC_FormaPagamento('DINHEIRO','00', pchar(Valor), ''), ' Forma Dinheiro');
           end;
 
           If ((DmaPP.Pdv_Modelo = 'Dar32DLL') and (dmApp.BCH_ATIVO <> 'S'))
@@ -3550,7 +3370,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'DINHEIRO' ), pchar(Valor) ), ' Forma Dinheiro');
+            //   Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'DINHEIRO' ), pchar(Valor) ), ' Forma Dinheiro');
           end;
 
           If ((DmaPP.Pdv_Modelo = 'Bematech') and (dmApp.BCH_ATIVO <> 'S'))
@@ -3569,9 +3389,6 @@ Begin
 
           If DmaPP.Pdv_Modelo = 'Daruma'
           then begin
-               CUPOMFISCAL.ImprimirFormaPagto ( 'DIN', Arredonda(PdvDINHEIRO.Value,2) );
-
-               MENSAGEMDARUMA ( CUPOMFISCAL.MENSAGEMIMPRESSORA );
           end;
      end;
 
@@ -3583,7 +3400,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( AFRAC_FormaPagamento('CHEQUE','01', pchar(Valor), ''), ' Forma Cheque');
+         //      Ret   := TrataErroCupom ( AFRAC_FormaPagamento('CHEQUE','01', pchar(Valor), ''), ' Forma Cheque');
           end;
 
           If DmaPP.Pdv_Modelo = 'Dar32DLL'
@@ -3592,7 +3409,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'CHEQUE' ), pchar(Valor) ), ' Forma Cheque');
+         //      Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'CHEQUE' ), pchar(Valor) ), ' Forma Cheque');
           end;
 
           If ( DmaPP.Pdv_Modelo = 'Texto' )
@@ -3611,9 +3428,6 @@ Begin
 
           If DmaPP.Pdv_Modelo = 'Daruma'
           then begin
-               CUPOMFISCAL.ImprimirFormaPagto ( 'CHQ', Arredonda(PdvCHEQUE.Value,2) );
-
-               MENSAGEMDARUMA ( CUPOMFISCAL.MENSAGEMIMPRESSORA );
           end;
      end;
 
@@ -3625,7 +3439,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( AFRAC_FormaPagamento('TICKET','03', pchar(Valor), ''), ' Forma Ticket');
+           //    Ret   := TrataErroCupom ( AFRAC_FormaPagamento('TICKET','03', pchar(Valor), ''), ' Forma Ticket');
           end;
 
           If DmaPP.Pdv_Modelo = 'Dar32DLL'
@@ -3634,7 +3448,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'TICKET' ), pchar(Valor) ), ' Forma Ticket');
+           //    Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'TICKET' ), pchar(Valor) ), ' Forma Ticket');
           end;
 
           If ( DmaPP.Pdv_Modelo = 'Texto' )
@@ -3653,9 +3467,6 @@ Begin
 
           If DmaPP.Pdv_Modelo = 'Daruma'
           then begin
-               CUPOMFISCAL.ImprimirFormaPagto ( 'TCK', Arredonda(PdvTICKET.Value,2) );
-
-               MENSAGEMDARUMA ( CUPOMFISCAL.MENSAGEMIMPRESSORA );
           end;
 
           //VERIFICA SE TEM VALE TROCO AQUI
@@ -3674,7 +3485,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( AFRAC_FormaPagamento('CONVENIO', '', pchar(Valor), ''), ' Forma Convênio');
+          //     Ret   := TrataErroCupom ( AFRAC_FormaPagamento('CONVENIO', '', pchar(Valor), ''), ' Forma Convênio');
           End;
 
           If DmaPP.Pdv_Modelo = 'Dar32DLL'
@@ -3683,7 +3494,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'CONVENIO' ), pchar(Valor) ), ' Forma Convênio');
+          //     Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'CONVENIO' ), pchar(Valor) ), ' Forma Convênio');
           end;
 
           If ( DmaPP.Pdv_Modelo = 'Texto' )
@@ -3702,9 +3513,6 @@ Begin
 
           If DmaPP.Pdv_Modelo = 'Daruma'
           then begin
-               CUPOMFISCAL.ImprimirFormaPagto ( 'CNV', Arredonda(PdvVLR_PARC_LC.Value,2) );
-
-               MENSAGEMDARUMA ( CUPOMFISCAL.MENSAGEMIMPRESSORA );
           end;
 
           Imprime := True ;
@@ -3718,7 +3526,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( AFRAC_FormaPagamento('CARTAO','02', pchar(Valor), ''), ' Forma Cartão');
+            //   Ret   := TrataErroCupom ( AFRAC_FormaPagamento('CARTAO','02', pchar(Valor), ''), ' Forma Cartão');
           end;
 
           If DmaPP.Pdv_Modelo = 'Dar32DLL'
@@ -3727,7 +3535,7 @@ Begin
 
                Valor := ValoresNumericosCupom ( Valor, 'N' );
 
-               Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'CARTAO' ), pchar(Valor) ), ' Forma Cartao');
+         //      Ret   := TrataErroCupom ( Daruma_FI_EfetuaFormaPagamento( pchar( 'CARTAO' ), pchar(Valor) ), ' Forma Cartao');
           end;
 
           If ( DmaPP.Pdv_Modelo = 'Texto' )
@@ -3746,9 +3554,6 @@ Begin
 
           If DmaPP.Pdv_Modelo = 'Daruma'
           then begin
-               CUPOMFISCAL.ImprimirFormaPagto ( 'CRT', Arredonda(PdvCARTAO.Value,2) );
-
-               MENSAGEMDARUMA ( CUPOMFISCAL.MENSAGEMIMPRESSORA );
           end;
      end;
 
@@ -3763,16 +3568,6 @@ Begin
 
      Linha1 := DmApp.PDV_MENSAGEM  ; //aqui
 
-     If DmaPP.Pdv_Modelo = 'Sweda'
-     then begin
-          Ret := TrataErroCupom ( AFRAC_InformarMensagemCupom(PChar(Linha1)), 'Mensagem do Cupom');
-
-          If Arredonda(PdvVLR_PARC_LC.Value,2) > 0
-          then
-              Ret := TrataErroCupom ( AFRAC_FecharCupom('1','0'), 'Totalizando' )
-          else
-              Ret := TrataErroCupom ( AFRAC_FecharCupom('0','0'), 'Totalizando' );
-     END;
 
      If DmaPP.Pdv_Modelo = 'Bematech'
      then begin
@@ -3937,40 +3732,10 @@ Begin
                     //NOME
                     Docs := '';
 
-                    CUPOMFISCAL.NOMECONSUMIDOR := Completa ( COPY(PdvNOME_CONSUMIDOR.VALUE,1,48), ' ', 48 );
-
-                    CUPOMFISCAL.ENDCONSUMIDOR  := Completa ( COPY(PdvENDERECO_CONSUMIDOR.VALUE,1,48), ' ', 48 );
-
-                    //DOCUMENTOS
-                    Docs := '';
-
-                    CUPOMFISCAL.DOCCONSUMIDOR  := Completa ( COPY('CPF ' + PdvDOCUMENTOS_CONSUMIDOR.VALUE ,1,48), ' ', 48 );
-               END
-               ELSE BEGIN
-                    //NOME
-                    CUPOMFISCAL.NOMECONSUMIDOR := COPY(Razao,1,42) ;
-
-                    //ENDERECO
-                    CUPOMFISCAL.ENDCONSUMIDOR := COPY(Endereco,1,42) ;
-
-                    //DOCUMENTOS
-                    Docs := COPY('CPF ' + Doctos + ' RG: ' + IERG,1,42);
-
-                    IF TRIM( DOCS ) = ''
-                    THEN
-                        DOCS := '0';
-
-                    CUPOMFISCAL.DOCCONSUMIDOR := DOCS ;
                END;
           end;
 
-          CUPOMFISCAL.ImprimirConsumidor ;
 
-          MENSAGEMDARUMA ( CUPOMFISCAL.MensagemImpressora );
-
-          CUPOMFISCAL.FecharCupom ;
-
-          MENSAGEMDARUMA ( CUPOMFISCAL.MensagemImpressora );
      END;
 
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
@@ -4002,19 +3767,19 @@ Begin
                IF ( PdvNOME_CONSUMIDOR.VALUE <> '' ) AND ( UPPERCASE(PdvNOME_CONSUMIDOR.VALUE) <> 'CONSUMIDOR' )
                AND ( PdvPESSOA_FJ.VALUE = 1 )
                THEN BEGIN
-                    TrataErroCupom ( Daruma_FI_IdentificaConsumidor( pchar( COPY(PdvNOME_CONSUMIDOR.VALUE,1,42) ), pchar( COPY(PdvENDERECO_CONSUMIDOR.VALUE,1,42) ), pchar( COPY('CPF ' + PdvDOCUMENTOS_CONSUMIDOR.VALUE ,1,42) ) ), 'Mensagem do Cupom');
+         //           TrataErroCupom ( Daruma_FI_IdentificaConsumidor( pchar( COPY(PdvNOME_CONSUMIDOR.VALUE,1,42) ), pchar( COPY(PdvENDERECO_CONSUMIDOR.VALUE,1,42) ), pchar( COPY('CPF ' + PdvDOCUMENTOS_CONSUMIDOR.VALUE ,1,42) ) ), 'Mensagem do Cupom');
                END
                ELSE BEGIN
-                    TrataErroCupom ( Daruma_FI_IdentificaConsumidor( pchar( COPY(Razao,1,42) ), pchar( COPY(Endereco,1,42) ), pchar( COPY('CPF ' + Doctos + ' RG: ' + IERG,1,42) ) ), 'Mensagem do Cupom');
+         //           TrataErroCupom ( Daruma_FI_IdentificaConsumidor( pchar( COPY(Razao,1,42) ), pchar( COPY(Endereco,1,42) ), pchar( COPY('CPF ' + Doctos + ' RG: ' + IERG,1,42) ) ), 'Mensagem do Cupom');
                END;
           END;
 
 
-               If trim(DmApp.PDV_MENSAGEM) <> ''
+              { If trim(DmApp.PDV_MENSAGEM) <> ''
                then
                    TrataErroCupom ( Daruma_FI_TerminaFechamentoCupom( ( DmApp.PDV_MENSAGEM + Pedido + IntToStr(DmApp.usuariocaixa) + '-' + DmApp.NomeCaixa)), 'Fechando Cupom')
                else
-                   TrataErroCupom ( Daruma_FI_TerminaFechamentoCupom( ( 'OBRIGADO VOLTE SEMPRE!'+Pedido )), 'Fechando Cupom');
+                   TrataErroCupom ( Daruma_FI_TerminaFechamentoCupom( ( 'OBRIGADO VOLTE SEMPRE!'+Pedido )), 'Fechando Cupom');    }
           
      END;
 
@@ -4029,14 +3794,11 @@ Begin
                Coo := '';
 
                //023 retorna o numero do ultimo cupom
-               If DmaPP.Pdv_Modelo = 'Sweda' then
-                 Ret   := TrataErroCupom ( AFRAC_LerInformacaoImpressora('023',coo), 'Buscando Nº do Cupom');
-
                //retorna o numero do ultimo cupom
                If DmaPP.Pdv_Modelo = 'Dar32DLL' then
                begin
                  SetLength (Num_Cupom,6);
-                 Ret   := TrataErroCupom ( Daruma_FI_NumeroCupom(Num_Cupom), 'Buscando Nº do Cupom');
+              //   Ret   := TrataErroCupom ( Daruma_FI_NumeroCupom(Num_Cupom), 'Buscando Nº do Cupom');
                end;
 
                //023 retorna o numero do ultimo cupom
@@ -4046,8 +3808,6 @@ Begin
                //023 retorna o numero do ultimo cupom
                If DmaPP.Pdv_Modelo = 'Daruma' then
                begin
-                 Ret := CupomFiscal.ObterUltimoCupom ;
-                 MENSAGEMDARUMA ( CUPOMFISCAL.MensagemImpressora );
                end;
 
                Cliente := FrmConveniadoPdv.Cliente ;
@@ -4552,123 +4312,6 @@ Begin
        exit;
      end;
 
-     IF DMAPP.Perfil_ComputadorTIPO_IMP_PDV.VALUE = 'DS300' THEN
-     BEGIN
-          Int_Retorno := Daruma_Registry_DUAL_Porta(DmApp.Perfil_ComputadorPORTA_PDV.Value);
-
-          if Int_Retorno = 1 then
-          begin
-               IF DmApp.Perfil_ComputadorPORTA_PDV.Value = 'LPT1'
-               THEN
-                   //Prepara para Porta Paralela
-                   Int_Retorno := Daruma_Registry_DUAL_ModoEscrita('0')
-               ELSE
-                   //Prepara para Porta Paralela
-                   Int_Retorno := Daruma_Registry_DUAL_ModoEscrita('0');
-          end;
-
-          Daruma_DUAL_ImprimirTextoFormatado ( pchar(StrDs300(DMAPP.Nome, ' ')),  1, 0, 0, 0, 0, 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300(DMAPP.ENDER, ' '), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300(DmApp.FONE, ' '), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300(Replicate('-', 40),'-'), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300('VENDA No ' + PdvCODIGO.TEXT + '  TICKET DO CLIENTE', ' '), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300('2a VIA - CLIENTE       1a VIA - EMPRESA', ' '), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300(Replicate('-', 40), '-'), 0);
-
-          SLEEP ( 10 );
-
-          IF PdvPESSOA_FJ.VALUE <> 1
-          Then
-               Daruma_DUAL_ImprimirTexto(StrDs300('CLIENTE: ' + copy(PdvPESSOA_FJ.text + '-' + PdvNOME.VALUE,1,30),'-'), 0)
-          else
-               Daruma_DUAL_ImprimirTexto(StrDs300('CLIENTE: ' + copy(PdvPESSOA_FJ.text + '-' + PdvNOME_CONSUMIDOR.VALUE,1,30),'-'), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300('DATA   : ' + PdvDATA.TEXT, ' '), 0);
-
-          SLEEP ( 10 );
-
-          IF PDVVLR_PARC_LC.VALUE > 0
-          THEN
-              Daruma_DUAL_ImprimirTextoFormatado ( StrDs300('VALOR : ' + PDVVLR_PARC_LC.text, ' ' ),  1, 0, 0, 1, 0, 0)
-          ELSE
-              Daruma_DUAL_ImprimirTextoFormatado ( StrDs300('VALOR : ' + PDVTOTAL.text, ' ' ),  1, 0, 0, 1, 0, 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto('<ce></ce><sl>2</sl>', 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300(Replicate('-', 40),'-'), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300('HORA   : ' + TIMETOSTR(TIME),' '), 0);
-
-          SLEEP ( 10 );
-
-          Daruma_DUAL_ImprimirTexto(StrDs300(Replicate('-', 40),'-'), 0);
-
-          SLEEP ( 10 );
-
-          IF PdvPESSOA_FJ.VALUE <> 1
-          Then
-              Daruma_DUAL_ImprimirTexto(StrDs300(PdvNOME.VALUE, ' '), 0)
-          else
-              Daruma_DUAL_ImprimirTexto(StrDs300(PdvNOME_CONSUMIDOR.VALUE, ' '), 0);
-
-          IF DmApp.PDV_IMP_END_PRAZO = 'S'
-          THEN BEGIN
-               VerPessoa ( PdvPESSOA_FJ.Value );
-
-               Daruma_DUAL_ImprimirTexto(StrDs300(Copy(Endereco  ,1,40),' '), 0);
-               SLEEP ( 10 );
-               Daruma_DUAL_ImprimirTexto(StrDs300(Copy(NomeBairro,1,40),' '), 0);
-               SLEEP ( 10 );
-               Daruma_DUAL_ImprimirTexto(StrDs300(Copy(NumeroFone,1,40),' '), 0);
-               SLEEP ( 10 );
-               Daruma_DUAL_ImprimirTexto(StrDs300(Copy(Doctos,1,40),' '), 0);
-               SLEEP ( 10 );
-
-               Daruma_DUAL_ImprimirTexto('<ce></ce><sl>2</sl>', 0);
-               SLEEP ( 10 );
-               Daruma_DUAL_ImprimirTexto('<ce></ce><sl>2</sl>', 0);
-               SLEEP ( 10 );
-               Daruma_DUAL_ImprimirTexto('<ce></ce><sl>2</sl>', 0);
-               SLEEP ( 10 );
-          END
-          ELSE BEGIN
-               Daruma_DUAL_ImprimirTexto('<ce></ce><sl>2</sl>', 0);
-               SLEEP ( 10 );
-               Daruma_DUAL_ImprimirTexto('<ce></ce><sl>2</sl>', 0);
-               SLEEP ( 10 );
-               Daruma_DUAL_ImprimirTexto('<ce></ce><sl>2</sl>', 0);
-               SLEEP ( 10 );
-          END;
-
-          Daruma_DUAL_ImprimirTexto(StrDs300(Replicate('-', 40), '-'), 0);
-     END
-     ELSE
      BEGIN
           IF TRIM(DmApp.Perfil_ComputadorPORTA_PDV.VALUE  ) <> ''
           THEN BEGIN
@@ -4754,10 +4397,10 @@ Begin
      If DmaPP.Pdv_Modelo = 'Bematech'
      THEN BEGIN
           //IMPRESSAO DO CONTRA VALE QUE FICA NO CAIXA
-          Ret := Bematech_FI_AbreComprovanteNaoFiscalVinculado
+     {    Ret := Bematech_FI_AbreComprovanteNaoFiscalVinculado
           ( pchar( 'CHEQUE' ),              //gambiarra pra imprimir os trem
           pchar( formatfloat('###,##0.00', (Valor_Cheque)) ),
-          pchar( Str_Numero_do_Cupom ) );
+          pchar( Str_Numero_do_Cupom ) ); }
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '' ;
@@ -4774,7 +4417,7 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+       //   Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
 
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
@@ -4792,17 +4435,17 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
-          Ret := Bematech_FI_FechaComprovanteNaoFiscalVinculado();
+      //    Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+      //    Ret := Bematech_FI_FechaComprovanteNaoFiscalVinculado();
      END;
 
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
      THEN BEGIN
           //IMPRESSAO DO CONTRA VALE QUE FICA NO CAIXA
-          Ret := Daruma_FI_AbreComprovanteNaoFiscalVinculado
+        {  Ret := Daruma_FI_AbreComprovanteNaoFiscalVinculado
           ( pchar( 'CHEQUE' ),              //gambiarra pra imprimir os trem
           pchar( formatfloat('###,##0.00', (Valor_Cheque)) ),
-          pchar( Str_Numero_do_Cupom ) );
+          pchar( Str_Numero_do_Cupom ) );}
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '' ;
@@ -4819,7 +4462,7 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+       //   Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '';
@@ -4836,8 +4479,8 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
-          Ret := Daruma_FI_FechaComprovanteNaoFiscalVinculado();
+       {   Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+          Ret := Daruma_FI_FechaComprovanteNaoFiscalVinculado();   }
      END;
 End;
 
@@ -4850,10 +4493,10 @@ Begin
      If DmaPP.Pdv_Modelo = 'Bematech'
      THEN BEGIN
           //IMPRESSAO DO CONTRA VALE QUE FICA NO CAIXA
-          Ret := Bematech_FI_AbreComprovanteNaoFiscalVinculado
+       {   Ret := Bematech_FI_AbreComprovanteNaoFiscalVinculado
           ( pchar( 'TICKET' ),
           pchar( formatfloat('###,##0.00', (Valor_Ticket)) ),
-          pchar( Str_Numero_do_Cupom ) );
+          pchar( Str_Numero_do_Cupom ) ); }
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '' ;
@@ -4869,7 +4512,7 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+      //    Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
 
           TEXTO := '';
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
@@ -4887,17 +4530,17 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
-          Ret := Bematech_FI_FechaComprovanteNaoFiscalVinculado();
+   {       Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+          Ret := Bematech_FI_FechaComprovanteNaoFiscalVinculado();  }
      END;
 
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
      THEN BEGIN
           //IMPRESSAO DO CONTRA VALE QUE FICA NO CAIXA
-          Ret := Daruma_FI_AbreComprovanteNaoFiscalVinculado
+      {    Ret := Daruma_FI_AbreComprovanteNaoFiscalVinculado
           ( pchar( 'TICKET' ),              //gambiarra pra imprimir os trem
           pchar( formatfloat('###,##0.00', (Valor_Ticket)) ),
-          pchar( Str_Numero_do_Cupom ) );
+          pchar( Str_Numero_do_Cupom ) );}
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '' ;
@@ -4913,7 +4556,7 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+     //     Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '' ;
@@ -4931,8 +4574,8 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
-          Ret := Daruma_FI_FechaComprovanteNaoFiscalVinculado();
+     {     Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+          Ret := Daruma_FI_FechaComprovanteNaoFiscalVinculado();     }
      END;
 End;
 
@@ -4944,10 +4587,10 @@ Begin
 
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
      THEN BEGIN
-          Ret := Daruma_FI_AbreComprovanteNaoFiscalVinculado
+       {   Ret := Daruma_FI_AbreComprovanteNaoFiscalVinculado
           ( pchar( 'CONVENIO' ),
           pchar( formatfloat('###,##0.00', PDVVLR_PARC_LC.value ) ),
-          pchar( Str_Numero_do_Cupom ) );
+          pchar( Str_Numero_do_Cupom ) );}
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '' ;
@@ -4966,7 +4609,7 @@ Begin
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
 
-          Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado( pchar( Texto ) );
+         // Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado( pchar( Texto ) );
 
           //IMPRIME O CONTRA VALE DO CONVENIO
           IF (( DMAPP.Perfil_ComputadorPDV_CONTRA_VALE.VALUE = 'S' ) and ( arredonda(PdvTROCO.VALUE, 2) <> 0 ))
@@ -4986,7 +4629,7 @@ Begin
               TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-              Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+             // Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
 
               //MONTANDO O TEXTO DO CUPOM NAO FISCAL
               TEXTO := '';
@@ -5004,18 +4647,18 @@ Begin
               TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-              Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+              //Ret := Daruma_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
           END;
 
-          Ret := Daruma_FI_FechaComprovanteNaoFiscalVinculado();
+        //  Ret := Daruma_FI_FechaComprovanteNaoFiscalVinculado();
      END;
 
      If DmaPP.Pdv_Modelo = 'Bematech'
      THEN BEGIN
-          Ret := Bematech_FI_AbreComprovanteNaoFiscalVinculado
+        {  Ret := Bematech_FI_AbreComprovanteNaoFiscalVinculado
           ( pchar( 'CONVENIO' ),
           pchar( formatfloat('###,##0.00', PDVVLR_PARC_LC.value ) ),
-          pchar( Str_Numero_do_Cupom ) );
+          pchar( Str_Numero_do_Cupom ) );    }
 
           //MONTANDO O TEXTO DO CUPOM NAO FISCAL
           TEXTO := '' ;
@@ -5029,7 +4672,7 @@ Begin
           TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
           TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-          Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado( pchar( Texto ) );
+         // Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado( pchar( Texto ) );
 
           //IMPRIME O CONTRA VALE DO CONVENIO
           IF (( DMAPP.Perfil_ComputadorPDV_CONTRA_VALE.VALUE = 'S' ) and ( arredonda(PdvTROCO.VALUE, 2) <> 0 ))
@@ -5049,7 +4692,7 @@ Begin
               TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-              Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+           //   Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
 
               //MONTANDO O TEXTO DO CUPOM NAO FISCAL
               TEXTO := '';
@@ -5066,10 +4709,10 @@ Begin
               TEXTO := TEXTO + COMPLETA(Endereco, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(NomeBairro, ' ', 48) ;
               TEXTO := TEXTO + COMPLETA(Doctos, ' ', 48) ;
-              Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
+            //  Ret := Bematech_FI_UsaComprovanteNaoFiscalVinculado(pchar(COPY(Texto,1,618)));
           END;
 
-          Ret := Bematech_FI_FechaComprovanteNaoFiscalVinculado();
+        //  Ret := Bematech_FI_FechaComprovanteNaoFiscalVinculado();
      END;
 End;
 
@@ -5183,7 +4826,7 @@ begin
           THEN
               Tributacao := ConfereAliquotas[I];
 
-          Ret := TrataErroCupom ( Afrac_VenderItem(pchar(Codigo),pchar(nome),pchar(qntde), pchar(vlrunit),'0','0', '00000000000', Liquido, PCHAR(Tributacao), PChar(Unidade), '0'), 'Imprimindo Itens');
+        //  Ret := TrataErroCupom ( Afrac_VenderItem(pchar(Codigo),pchar(nome),pchar(qntde), pchar(vlrunit),'0','0', '00000000000', Liquido, PCHAR(Tributacao), PChar(Unidade), '0'), 'Imprimindo Itens');
      end;
 
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
@@ -5496,7 +5139,6 @@ begin
 
           Tributacao := trim( Tributacao );
 
-          Cupomfiscal.ImprimirItem ( Codigo, Quantidade, Unidade, Nome, 0, Unitario, Tributacao );
      end;
 
      If Ret = 0
@@ -5535,14 +5177,10 @@ begin
       end;
 
 
-     If DmaPP.Pdv_Modelo = 'Sweda'
-     then begin
-          Ret := TrataErroCupom ( Afrac_LeituraX, 'Leitura X');
-     END;
 
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
      then begin
-          Ret := TrataErroCupom ( Daruma_FI_LeituraX(), 'Leitura X');
+      //    Ret := TrataErroCupom ( Daruma_FI_LeituraX(), 'Leitura X');
      END;
 
      If DmaPP.Pdv_Modelo = 'Bematech'
@@ -5552,9 +5190,6 @@ begin
 
      If DmaPP.Pdv_Modelo = 'Daruma'
      then begin
-          cupomfiscal.EmitirLeituraX ;
-
-          mensagemdaruma ( cupomfiscal.mensagemimpressora );
      END;
 end;
 
@@ -5572,7 +5207,7 @@ begin
 
                Data := Copy(Str, 1, 2 ) + Copy(Str, 4, 2 ) + Copy(Str, 7, 4 );
 
-               Ret  := TrataErroCupom ( AFRAC_ReducaoZ(Pchar(Data)), 'Leitura Z');
+             //  Ret  := TrataErroCupom ( AFRAC_ReducaoZ(Pchar(Data)), 'Leitura Z');
           end;
           FrmEntraPeriodoPdv.Free ;
           FrmEntraPeriodoPdv := Nil ;
@@ -5580,7 +5215,7 @@ begin
 
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
      then begin
-          Ret  := TrataErroCupom ( Daruma_FI_ReducaoZ(' ', ' '), 'Leitura Z');
+     //     Ret  := TrataErroCupom ( Daruma_FI_ReducaoZ(' ', ' '), 'Leitura Z');
      end;
 
      If DmaPP.Pdv_Modelo = 'Bematech'
@@ -5590,9 +5225,6 @@ begin
 
      If DmaPP.Pdv_Modelo = 'Daruma'
      then begin
-          CupomFiscal.EmitirReducaoZ ;
-
-          mensagemdaruma ( CupomFiscal.mensagemimpressora );
      end;
 end;
 
@@ -5608,7 +5240,6 @@ begin
           mensagem:=#0;
           acao:=#0;
 
-          AFRAC_PegarCodigoErro(codigoErro, Mensagem, Acao);
 
           if StrPas(codigoerro) <> '0000'
           then begin
@@ -6166,7 +5797,7 @@ begin
 }
 //     Str_Descricao := COPY(TRIM(Str_Descricao),1, 7);
 
-     Daruma_FI_VendeItem
+    { Daruma_FI_VendeItem
      (
      pchar( Str_Codigo ),
      pchar( Str_Descricao),
@@ -6177,7 +5808,7 @@ begin
      pchar( Str_Valor_Unitario ),
      pchar( Str_Tipo_de_Desconto ),
      pchar( Str_Valor_do_Desconto )
-     );
+     );  }
 end;
 
 
@@ -6189,18 +5820,11 @@ Var
 begin
      Coo := '';
 
-     //023 retorna o numero do ultimo cupom
-     If DmaPP.Pdv_Modelo = 'Sweda'
-     then begin
-          Ret   := TrataErroCupom ( AFRAC_LerInformacaoImpressora('023',coo), 'Buscando Nº do Cupom');
-          result := coo ;
-     end;
-
      //retorna o numero do ultimo cupom
      If DmaPP.Pdv_Modelo = 'Dar32DLL'
      then begin
           SetLength (Cupom,6);
-          Ret   := TrataErroCupom ( Daruma_FI_NumeroCupom(Cupom), 'Buscando Nº do Cupom');
+        //  Ret   := TrataErroCupom ( Daruma_FI_NumeroCupom(Cupom), 'Buscando Nº do Cupom');
 
           Aux := strtoint(CUPOM);
 
@@ -6221,9 +5845,6 @@ begin
      //023 retorna o numero do ultimo cupom
      If DmaPP.Pdv_Modelo = 'Daruma'
      then begin
-          Cupom := inttostr(CupomFiscal.ObterUltimoCupom) ;
-          MENSAGEMDARUMA ( CUPOMFISCAL.MensagemImpressora );
-          result := Cupom ;
      end;
 end;
 

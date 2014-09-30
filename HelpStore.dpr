@@ -183,7 +183,6 @@ uses
   Inclui_Nota_Fatura_Form in 'Inclui_Nota_Fatura_Form.pas' {FrmIncluirNotaFatura},
   EtiquetasTinta_FRel in 'EtiquetasTinta_FRel.pas' {FRelEtiquetasTinta},
   PosicaoEstoqueContagem_FRel in 'PosicaoEstoqueContagem_FRel.pas' {FRelPosicaoEstoqueContagem},
-  Retorno_Bematech in 'Retorno_Bematech.pas' {FrmRetornoBematech},
   Entra_Dados_Consumidor_Form in 'Entra_Dados_Consumidor_Form.pas' {FrmEntraDadosConsumidor},
   Cidades_Form in 'Cidades_Form.pas' {FrmCidades},
   Dados_Baixa_Loja_Form in 'Dados_Baixa_Loja_Form.pas' {FrmDadosBaixaLoja},
@@ -231,7 +230,6 @@ uses
   SelVendasCanceladas_Form in 'SelVendasCanceladas_Form.pas' {FrmSelVendasCanceladas},
   VendasCanceladas_FRel in 'VendasCanceladas_FRel.pas' {FRelVendasCanceladas},
   ConveniadoCheque_Form in 'ConveniadoCheque_Form.pas' {FrmConveniadoCheque},
-  ModuloMp20CI in 'ModuloMp20CI.pas',
   BxReceberAlf_FRel in 'BxReceberAlf_FRel.pas' {FRelRecebidasAlfabetico},
   ConsultaVendasIndicados_Form in 'ConsultaVendasIndicados_Form.pas' {FrmConsultaVendasIndicados},
   Extorna_Caixa_Form in 'Extorna_Caixa_Form.pas' {FrmExtornaCaixa},
@@ -263,7 +261,6 @@ uses
   Material_Form in 'Material_Form.pas' {FrmMateriais},
   Grades_Form in 'Grades_Form.pas' {FrmGrades},
   PrecosEspeciaisPessoas_Form in 'PrecosEspeciaisPessoas_Form.pas' {FrmPrecosEspeciais},
-  Funcoes_Daruma in 'Funcoes_Daruma.pas',
   Ctb_Conf_Rel_Form in 'Ctb_Conf_Rel_Form.pas' {FrmCtbConfRel},
   Cobrador_Form in 'Cobrador_Form.pas' {FrmCobrador},
   Ctb_Configuracoes_Form in 'Ctb_Configuracoes_Form.pas' {FrmCfgCtb},
@@ -349,7 +346,6 @@ uses
   ContagemGrade_Form in 'ContagemGrade_Form.pas' {FrmContagemGrade},
   Produtos_Tribut_Revenda_Form in 'Produtos_Tribut_Revenda_Form.pas' {FrmProdutos_Tribut_Revenda},
   Rel_Vendas_Servicos_FRel in 'Rel_Vendas_Servicos_FRel.pas' {FRelVendasServicos},
-  UDS300 in 'UDS300.pas',
   Localizar_Produto_Cadastro_Auto in 'Localizar_Produto_Cadastro_Auto.pas' {FrmLocProdutoCadastro_Auto},
   Entra_EstadoCheque_Form in 'Entra_EstadoCheque_Form.pas' {FrmEntraEstadoCheque},
   Localizar_Grade_Pdv in 'Localizar_Grade_Pdv.pas' {Frm_Localizar_Grades_Pdv},
@@ -583,7 +579,8 @@ uses
   untCadFornecedores in 'untCadFornecedores.pas' {frmCadFornecedores},
   untCadClientes in 'untCadClientes.pas' {frmCadClientes},
   untFormPadrao in 'untFormPadrao.pas' {FormPadrao},
-  untCadOS in 'untCadOS.pas' {frmCadOS};
+  untCadOS in 'untCadOS.pas' {frmCadOS},
+  untCadContratoAtendimento in 'untCadContratoAtendimento.pas' {frmCadContratoAtendimento};
 
 {$R *.RES}
 

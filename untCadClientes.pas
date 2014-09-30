@@ -24,7 +24,7 @@ uses
   cxGridDBBandedTableView, cxGrid, cxPC, cxCheckBox, cxButtonEdit,
   cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
   cxDBLookupComboBox, Menus, cxGroupBox, cxCalendar, cxMemo, cxCalc,
-  cxRadioGroup, cxSpinEdit, StdCtrls, cxButtons;
+  cxRadioGroup, cxSpinEdit, StdCtrls, cxButtons, dxmdaset;
 
 type
   TfrmCadClientes = class(TfrmCadPadraoMaster)

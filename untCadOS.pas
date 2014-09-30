@@ -24,7 +24,8 @@ uses
   cxGridDBBandedTableView, cxGrid, cxPC, Menus, StdCtrls, cxButtons,
   cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
   cxDBLookupComboBox, cxCalendar, cxSpinEdit, cxTimeEdit,
-   cxGroupBox, cxMemo, cxCheckBox, cxCalc, dxmdaset, cxRadioGroup,DateUtils;
+   cxGroupBox, cxMemo, cxCheckBox, cxCalc, dxmdaset, cxRadioGroup,DateUtils,
+  Grids, DBGrids;
 
 type
   TfrmCadOS = class(TfrmCadPadraoMaster)
@@ -180,107 +181,6 @@ type
     cxLabel25: TcxLabel;
     cxDBMemo1: TcxDBMemo;
     cxLabel20: TcxLabel;
-    dtEditCNPJ: TIBStringField;
-    dtEditCODIGO: TIntegerField;
-    dtEditDATA: TDateTimeField;
-    dtEditPESSOA_FJ: TIntegerField;
-    dtEditNOME: TIBStringField;
-    dtEditNATUREZA: TIntegerField;
-    dtEditMECANICO: TIntegerField;
-    dtEditVIAJANTE: TIntegerField;
-    dtEditENTRADA: TDateTimeField;
-    dtEditHR_ENTRADA: TTimeField;
-    dtEditHISTORICO: TIBStringField;
-    dtEditCHASSI: TIBStringField;
-    dtEditINFORMACOES: TBlobField;
-    dtEditTOTAL: TFloatField;
-    dtEditDESC_ACRESC: TFloatField;
-    dtEditCLIENTE: TIBStringField;
-    dtEditFECHADO: TIBStringField;
-    dtEditNOME_NATUREZA: TIBStringField;
-    dtEditNOME_MECANICO: TIBStringField;
-    dtEditNOME_VIAJANTE: TIBStringField;
-    dtEditMOTOR: TIntegerField;
-    dtEditNOME_MOTOR: TIBStringField;
-    dtEditENVIADA_CAIXA: TIBStringField;
-    dtEditPLACA: TIBStringField;
-    dtEditDATA_FECHAMENTO: TDateTimeField;
-    dtEditHR_FECHAMENTO: TTimeField;
-    dtEditOBS_FECHAMENTO: TBlobField;
-    dtEditFORMA_PAGTO: TIntegerField;
-    dtEditNOME_FORMA: TIBStringField;
-    dtEditTIPO_DOCTO: TIBStringField;
-    dtEditLOCAL_COBRANCA: TIntegerField;
-    dtEditVLR_PARC_LC: TFloatField;
-    dtEditVLR_ENTRADA: TFloatField;
-    dtEditCREDITOS: TFloatField;
-    dtEditDEBITOS: TFloatField;
-    dtEditNF: TIntegerField;
-    dtEditALIQUOTA_ISS: TFloatField;
-    dtEditORCAMENTO: TIntegerField;
-    dtEditMED_VIRABREQUIM: TIBStringField;
-    dtEditMED_BIELA: TIBStringField;
-    dtEditMED_CILINDRO: TIBStringField;
-    dtEditMED_CARCACA: TIBStringField;
-    dtEditNUMERO_VENDA: TIntegerField;
-    dtEditDEFEITO_RECLAMADO: TIntegerField;
-    dtEditCONDICAO_FINAL_EQUIPAMENTO: TIBStringField;
-    dtEditHORA_CHEGADA: TTimeField;
-    dtEditHORA_SAIDA: TTimeField;
-    dtEditCONTADOR_TOTAL: TFloatField;
-    dtEditCONTADOR_CILINDRO: TFloatField;
-    dtEditCONTADOR_REVELADOR: TFloatField;
-    dtEditNOME_DEFEITO: TIBStringField;
-    dtEditPROPRIEDADE: TIntegerField;
-    dtEditNOME_PROPRIEDADE: TIBStringField;
-    dtEditCAUSA_CHAMADO: TIBStringField;
-    dtEditTIPO_ATENDIMENTO: TIBStringField;
-    dtEditCONTADOR_COR: TFloatField;
-    dtEditCONTADOR_PRETO: TFloatField;
-    dtEditCONTADOR_IMPRESSAO: TFloatField;
-    dtEditVENDA: TIntegerField;
-    dtEditPRODUTO: TIBStringField;
-    dtEditID_MOTIVO_CHAMADO: TIntegerField;
-    dtEditID_TIPO_ATENDIMENTO: TIntegerField;
-    dtEditCOD_STATUS: TIntegerField;
-    dtEditDT_ATRIBUICAO: TDateTimeField;
-    dtEditHR_ATRIBUICAO: TTimeField;
-    dtEditDT_INICIALIZACAO: TDateTimeField;
-    dtEditHR_INICIALIZACAO: TTimeField;
-    dtEditDT_FINALIZACAO: TDateTimeField;
-    dtEditHR_FINALIZACAO: TTimeField;
-    dtEditCT_REVELADOR: TIntegerField;
-    dtEditDT_REVELADOR: TDateTimeField;
-    dtEditDT_CILINDRO: TDateTimeField;
-    dtEditCT_CILINDRO: TIntegerField;
-    dtEditKM_INICIAL: TFloatField;
-    dtEditKM_FINAL: TFloatField;
-    dtEditOS_RECHAMADO: TIntegerField;
-    dtEditKM_RODADO: TFloatField;
-    dtEditHORAS_TRABALHADAS: TFloatField;
-    dtEditTEMPO_RESPOSTA: TFloatField;
-    dtEditTIPO_TECNICO: TIBStringField;
-    dtEditPREVENTIVO: TIBStringField;
-    dtEditID_CONTRATO: TIntegerField;
-    dtEditCOD_CONTATO: TIntegerField;
-    dtEditPRIORIDADE: TIntegerField;
-    dtEditCUSTO_OS: TFloatField;
-    dtEditCONTROLE: TIntegerField;
-    dtEditASSUNTO: TIBStringField;
-    dtEditVEICULO: TIntegerField;
-    dtEditKM: TIntegerField;
-    dtEditPROTOCOLO: TIBStringField;
-    dtEditCOD_GRAVIDADE: TIntegerField;
-    dtEditMAP_LAT: TIBStringField;
-    dtEditMAP_LONG: TIBStringField;
-    dtEditTAG: TIBStringField;
-    dtEditSERIE: TIBStringField;
-    dtEditULT_DT_CILINDRO: TDateField;
-    dtEditULT_CT_CILINDRO: TIntegerField;
-    dtEditGCNPJ: TIBStringField;
-    dtEditGCODIGO: TIntegerField;
-    dtEditTITULO: TIBStringField;
-    dtEditST_FECHADO: TIBStringField;
     QryStatus: TIBQuery;
     QryStatusCNPJ: TIBStringField;
     QryStatusCODIGO: TIntegerField;
@@ -338,12 +238,12 @@ type
     SelEnderecoCIDADE: TIBStringField;
     SelEnderecoUF: TIBStringField;
     cxGroupBox3: TcxGroupBox;
-    cxDBDateEdit2: TcxDBDateEdit;
+    edtDataFechamento: TcxDBDateEdit;
     cxDBTimeEdit2: TcxDBTimeEdit;
     cxLabel21: TcxLabel;
     cxLabel26: TcxLabel;
     cxGroupBox4: TcxGroupBox;
-    cxDBTextEdit1: TcxDBTextEdit;
+    EdtContadorTotal: TcxDBTextEdit;
     cxLabel27: TcxLabel;
     cxLabel28: TcxLabel;
     cxDBTextEdit2: TcxDBTextEdit;
@@ -351,7 +251,6 @@ type
     cxLabel29: TcxLabel;
     cxDBMemo2: TcxDBMemo;
     cxDBCheckBox1: TcxDBCheckBox;
-    dtEditTROCA_CILINDRO: TIBStringField;
     dtListTROCA_CILINDRO: TIBStringField;
     TVRegistroTROCA_CILINDRO: TcxGridDBBandedColumn;
     cxDBTextEdit4: TcxDBTextEdit;
@@ -371,18 +270,6 @@ type
     dtListDet1NOME_PRODUTO: TIBStringField;
     dtListDet1NOMETEC: TIBStringField;
     dtListDet1TIPO_SERVICO: TIBStringField;
-    TVDet1CNPJ: TcxGridDBColumn;
-    TVDet1CODIGO: TcxGridDBColumn;
-    TVDet1NOME: TcxGridDBColumn;
-    TVDet1QUANTIDADE: TcxGridDBColumn;
-    TVDet1SERVICO: TcxGridDBColumn;
-    TVDet1UNITARIO: TcxGridDBColumn;
-    TVDet1SELECIONADO: TcxGridDBColumn;
-    TVDet1COD_PRODUTO: TcxGridDBColumn;
-    TVDet1CODIGO_TECNICO: TcxGridDBColumn;
-    TVDet1NOME_PRODUTO: TcxGridDBColumn;
-    TVDet1NOMETEC: TcxGridDBColumn;
-    TVDet1TIPO_SERVICO: TcxGridDBColumn;
     dtListDet1SELECIONADO: TIBStringField;
     dtEditDet1CNPJ: TIBStringField;
     dtEditDet1CODIGO: TIntegerField;
@@ -512,8 +399,6 @@ type
     QryProdutosItensCOD_LOCALIZACAO_3: TIntegerField;
     QryProdutosItensCOD_TECNICO: TIntegerField;
     cxDBCheckBox2: TcxDBCheckBox;
-    dtEditTROCA_FUSAO: TIBStringField;
-    dtEditTROCA_BELT: TIBStringField;
     cxDBCheckBox3: TcxDBCheckBox;
     dtListTROCA_BELT: TIBStringField;
     dtListTROCA_FUSAO: TIBStringField;
@@ -542,7 +427,232 @@ type
     cxLabel36: TcxLabel;
     cxDBTextEdit5: TcxDBTextEdit;
     dtListCNPJ: TIBStringField;
+    dtEditCNPJ: TIBStringField;
+    dtEditCODIGO: TIntegerField;
+    dtEditDATA: TDateTimeField;
+    dtEditPESSOA_FJ: TIntegerField;
+    dtEditNOME: TIBStringField;
+    dtEditNATUREZA: TIntegerField;
+    dtEditMECANICO: TIntegerField;
+    dtEditVIAJANTE: TIntegerField;
+    dtEditENTRADA: TDateTimeField;
+    dtEditHR_ENTRADA: TTimeField;
+    dtEditHISTORICO: TIBStringField;
+    dtEditCHASSI: TIBStringField;
+    dtEditINFORMACOES: TBlobField;
+    dtEditTOTAL: TFloatField;
+    dtEditDESC_ACRESC: TFloatField;
+    dtEditCLIENTE: TIBStringField;
+    dtEditFECHADO: TIBStringField;
+    dtEditNOME_NATUREZA: TIBStringField;
+    dtEditNOME_MECANICO: TIBStringField;
+    dtEditNOME_VIAJANTE: TIBStringField;
+    dtEditMOTOR: TIntegerField;
+    dtEditNOME_MOTOR: TIBStringField;
+    dtEditENVIADA_CAIXA: TIBStringField;
+    dtEditPLACA: TIBStringField;
+    dtEditDATA_FECHAMENTO: TDateTimeField;
+    dtEditHR_FECHAMENTO: TTimeField;
+    dtEditOBS_FECHAMENTO: TBlobField;
+    dtEditFORMA_PAGTO: TIntegerField;
+    dtEditNOME_FORMA: TIBStringField;
+    dtEditTIPO_DOCTO: TIBStringField;
+    dtEditLOCAL_COBRANCA: TIntegerField;
+    dtEditVLR_PARC_LC: TFloatField;
+    dtEditVLR_ENTRADA: TFloatField;
+    dtEditCREDITOS: TFloatField;
+    dtEditDEBITOS: TFloatField;
+    dtEditNF: TIntegerField;
+    dtEditALIQUOTA_ISS: TFloatField;
+    dtEditORCAMENTO: TIntegerField;
+    dtEditMED_VIRABREQUIM: TIBStringField;
+    dtEditMED_BIELA: TIBStringField;
+    dtEditMED_CILINDRO: TIBStringField;
+    dtEditMED_CARCACA: TIBStringField;
+    dtEditNUMERO_VENDA: TIntegerField;
+    dtEditDEFEITO_RECLAMADO: TIntegerField;
+    dtEditCONDICAO_FINAL_EQUIPAMENTO: TIBStringField;
+    dtEditHORA_CHEGADA: TTimeField;
+    dtEditHORA_SAIDA: TTimeField;
+    dtEditCONTADOR_TOTAL: TFloatField;
+    dtEditCONTADOR_CILINDRO: TFloatField;
+    dtEditCONTADOR_REVELADOR: TFloatField;
+    dtEditNOME_DEFEITO: TIBStringField;
+    dtEditPROPRIEDADE: TIntegerField;
+    dtEditNOME_PROPRIEDADE: TIBStringField;
+    dtEditCAUSA_CHAMADO: TIBStringField;
+    dtEditTIPO_ATENDIMENTO: TIBStringField;
+    dtEditCONTADOR_COR: TFloatField;
+    dtEditCONTADOR_PRETO: TFloatField;
+    dtEditCONTADOR_IMPRESSAO: TFloatField;
+    dtEditVENDA: TIntegerField;
+    dtEditPRODUTO: TIBStringField;
+    dtEditID_MOTIVO_CHAMADO: TIntegerField;
+    dtEditID_TIPO_ATENDIMENTO: TIntegerField;
+    dtEditCOD_STATUS: TIntegerField;
+    dtEditDT_ATRIBUICAO: TDateTimeField;
+    dtEditHR_ATRIBUICAO: TTimeField;
+    dtEditDT_INICIALIZACAO: TDateTimeField;
+    dtEditHR_INICIALIZACAO: TTimeField;
+    dtEditDT_FINALIZACAO: TDateTimeField;
+    dtEditHR_FINALIZACAO: TTimeField;
+    dtEditCT_REVELADOR: TIntegerField;
+    dtEditDT_REVELADOR: TDateTimeField;
+    dtEditDT_CILINDRO: TDateTimeField;
+    dtEditCT_CILINDRO: TIntegerField;
+    dtEditKM_INICIAL: TFloatField;
+    dtEditKM_FINAL: TFloatField;
+    dtEditOS_RECHAMADO: TIntegerField;
+    dtEditKM_RODADO: TFloatField;
+    dtEditHORAS_TRABALHADAS: TFloatField;
+    dtEditTEMPO_RESPOSTA: TFloatField;
+    dtEditTIPO_TECNICO: TIBStringField;
+    dtEditPREVENTIVO: TIBStringField;
+    dtEditID_CONTRATO: TIntegerField;
+    dtEditCOD_CONTATO: TIntegerField;
+    dtEditPRIORIDADE: TIntegerField;
+    dtEditCUSTO_OS: TFloatField;
+    dtEditCONTROLE: TIntegerField;
+    dtEditASSUNTO: TIBStringField;
+    dtEditVEICULO: TIntegerField;
+    dtEditKM: TIntegerField;
+    dtEditPROTOCOLO: TIBStringField;
+    dtEditCOD_GRAVIDADE: TIntegerField;
+    dtEditMAP_LAT: TIBStringField;
+    dtEditMAP_LONG: TIBStringField;
+    dtEditTAG: TIBStringField;
+    dtEditSERIE: TIBStringField;
+    dtEditULT_DT_CILINDRO: TDateField;
+    dtEditULT_CT_CILINDRO: TIntegerField;
+    dtEditTROCA_CILINDRO: TIBStringField;
+    dtEditTROCA_FUSAO: TIBStringField;
+    dtEditTROCA_BELT: TIBStringField;
     dtEditATIVO: TIBStringField;
+    dtEditST_FECHADO: TIBStringField;
+    cxDBDateEdit3: TcxDBDateEdit;
+    cxLabel37: TcxLabel;
+    dtListDet2CNPJ: TIBStringField;
+    dtListDet2CODIGO: TIntegerField;
+    dtListDet2DT_FIM: TDateField;
+    dtListDet2DT_INICIO: TDateField;
+    dtListDet2HR_INICIO: TTimeField;
+    dtListDet2HR_FIM: TTimeField;
+    dtListDet2SEQUENCIA: TIntegerField;
+    dtListDet2OBSERVACAO: TIBStringField;
+    dtListDet2QTDE_HORA: TFloatField;
+    dtListDet2KM_RODADO: TFloatField;
+    dtListDet2KM_INICIAL: TFloatField;
+    dtListDet2KM_FINAL: TFloatField;
+    dtListDet2TEMPO_VIAJEM: TFloatField;
+    dtListDet2USUARIO: TIntegerField;
+    dtListDet2COD_TIPO_MOVTO: TIntegerField;
+    dtListDet2NOME_USUARIO: TIBStringField;
+    dtListDet2NOME_TECNICO: TIBStringField;
+    dtListDet2COD_TECNICO: TIntegerField;
+    dtListDet2CUSTO_HORA: TFloatField;
+    dtListDet2CUSTO_ATIVIDADE: TFloatField;
+    dtListDet2TIPO: TIBStringField;
+    dtListDet2DT_LANCTO: TDateField;
+    dtListDet2DT_VENCTO: TDateField;
+    dtListDet2DT_CONCLUSAO: TDateField;
+    dtListDet2COD_CONTATO: TIntegerField;
+    dtListDet2COD_STATUS: TIntegerField;
+    dtListDet2COD_VEICULO: TIBStringField;
+    TVDet2CNPJ: TcxGridDBColumn;
+    TVDet2CODIGO: TcxGridDBColumn;
+    TVDet2DT_FIM: TcxGridDBColumn;
+    TVDet2DT_INICIO: TcxGridDBColumn;
+    TVDet2HR_INICIO: TcxGridDBColumn;
+    TVDet2HR_FIM: TcxGridDBColumn;
+    TVDet2SEQUENCIA: TcxGridDBColumn;
+    TVDet2OBSERVACAO: TcxGridDBColumn;
+    TVDet2QTDE_HORA: TcxGridDBColumn;
+    TVDet2KM_RODADO: TcxGridDBColumn;
+    TVDet2KM_INICIAL: TcxGridDBColumn;
+    TVDet2KM_FINAL: TcxGridDBColumn;
+    TVDet2TEMPO_VIAJEM: TcxGridDBColumn;
+    TVDet2USUARIO: TcxGridDBColumn;
+    TVDet2COD_TIPO_MOVTO: TcxGridDBColumn;
+    TVDet2NOME_USUARIO: TcxGridDBColumn;
+    TVDet2NOME_TECNICO: TcxGridDBColumn;
+    TVDet2COD_TECNICO: TcxGridDBColumn;
+    TVDet2CUSTO_HORA: TcxGridDBColumn;
+    TVDet2CUSTO_ATIVIDADE: TcxGridDBColumn;
+    TVDet2TIPO: TcxGridDBColumn;
+    TVDet2DT_LANCTO: TcxGridDBColumn;
+    TVDet2DT_VENCTO: TcxGridDBColumn;
+    TVDet2DT_CONCLUSAO: TcxGridDBColumn;
+    TVDet2COD_CONTATO: TcxGridDBColumn;
+    TVDet2COD_STATUS: TcxGridDBColumn;
+    TVDet2COD_VEICULO: TcxGridDBColumn;
+    dtEditDet2CNPJ: TIBStringField;
+    dtEditDet2CODIGO: TIntegerField;
+    dtEditDet2SEQUENCIA: TIntegerField;
+    dtEditDet2DT_INICIO: TDateField;
+    dtEditDet2HR_INICIO: TTimeField;
+    dtEditDet2DT_FIM: TDateField;
+    dtEditDet2HR_FIM: TTimeField;
+    dtEditDet2QTDE_HORA: TFloatField;
+    dtEditDet2OBSERVACAO: TIBStringField;
+    dtEditDet2KM_RODADO: TFloatField;
+    dtEditDet2KM_INICIAL: TFloatField;
+    dtEditDet2KM_FINAL: TFloatField;
+    dtEditDet2TEMPO_VIAJEM: TFloatField;
+    dtEditDet2MSG: TIBStringField;
+    dtEditDet2USUARIO: TIntegerField;
+    dtEditDet2COD_TECNICO: TIntegerField;
+    dtEditDet2CUSTO_INTERVALO: TFloatField;
+    dtEditDet2CUSTO_HORA: TFloatField;
+    dtEditDet2TIPO: TIBStringField;
+    dtEditDet2DT_LANCTO: TDateField;
+    dtEditDet2DT_VENCTO: TDateField;
+    dtEditDet2DT_CONCLUSAO: TDateField;
+    dtEditDet2COD_STATUS: TIntegerField;
+    dtEditDet2COD_CONTATO: TIntegerField;
+    dtEditDet2COD_VEICULO: TIBStringField;
+    dtEditDet2COD_TIPO_MOVTO: TIntegerField;
+    dtEditDet2OBSERVACAO2: TMemoField;
+    cxDBDateEdit4: TcxDBDateEdit;
+    cxDBTextEdit1: TcxDBTextEdit;
+    Label11: TcxLabel;
+    Label14: TcxLabel;
+    cxGroupBox5: TcxGroupBox;
+    dtInicial: TcxDBDateEdit;
+    Label2: TcxLabel;
+    hrInicial: TcxDBTimeEdit;
+    Label3: TcxLabel;
+    dtFinal: TcxDBDateEdit;
+    Label6: TcxLabel;
+    hrFinal: TcxDBTimeEdit;
+    Label5: TcxLabel;
+    hrTotal: TcxDBTextEdit;
+    Label8: TcxLabel;
+    cxGroupBox6: TcxGroupBox;
+    cxDBDateEdit2: TcxDBDateEdit;
+    cxDBDateEdit5: TcxDBDateEdit;
+    Label16: TcxLabel;
+    Label15: TcxLabel;
+    Label20: TcxLabel;
+    Label17: TcxLabel;
+    Label18: TcxLabel;
+    bTfrmCadStatusServico: TcxDBLookupComboBox;
+    cxButton1: TcxButton;
+    cmbContato: TcxDBLookupComboBox;
+    cxButton2: TcxButton;
+    cxButton3: TcxButton;
+    cmbTipoMovimento: TcxDBLookupComboBox;
+    cxGroupBox7: TcxGroupBox;
+    cxDBTextEdit6: TcxDBTextEdit;
+    cxDBSpinEdit2: TcxDBSpinEdit;
+    cxLabel38: TcxLabel;
+    cxLabel39: TcxLabel;
+    cxDBSpinEdit4: TcxDBSpinEdit;
+    cxLabel40: TcxLabel;
+    Label4: TcxLabel;
+    cxDBCalcEdit4: TcxDBCalcEdit;
+    cxButton4: TcxButton;
+    cxDBLookupComboBox2: TcxDBLookupComboBox;
+    cxLabel41: TcxLabel;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -566,11 +676,16 @@ type
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure ActImprimirOSExecute(Sender: TObject);
     procedure ActFilterExecute(Sender: TObject);
-    procedure pnlFiltroExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure dtEditBeforePost(DataSet: TDataSet);
+    procedure dtEditDet2NewRecord(DataSet: TDataSet);
+    procedure dtEditDet2AfterPost(DataSet: TDataSet);
+    procedure dtEditDet1BeforePost(DataSet: TDataSet);
   private
     { Private declarations }
-    Procedure Filtrar(inicial:boolean=false);
+    Procedure Filtrar;
+    procedure EnviaEmailTecnico(Origem,NOrigem,Destino,NDestino,Assunto,Mensagem : string);
+    procedure EnviaEmailAb_Fec(cliente,NCliente,Contato,NContato,Assunto,Mensagem,TIPO : string);
   public
     { Public declarations }
   end;
@@ -653,6 +768,7 @@ begin
    //atribuindo data e hora iniciais da solicitação da OS
    DataHora := dmApp.DataServidor;
    dtEditENTRADA.value := DateOf(DataHora);
+   dtEditDATA.value := DateOf(DataHora);
    dtEditHR_ENTRADA.value := TimeOf(DataHora);
 
 
@@ -693,12 +809,12 @@ begin
 
 
   if (dtEditST_FECHADO.AsString = '') then
-      ativo := 'S'
-    else
-      ativo := 'T';
+    ativo := 'S'
+  else
+    ativo := 'T';
 
   QryEquipCliente.Close;
-  QryEquipCliente.parambyname('cod_cliente').value := dtEditPESSOA_FJ.value;
+  QryEquipCliente.parambyname('pessoa_fj').value := dtEditPESSOA_FJ.value;
   QryEquipCliente.parambyname('ativo').value := ativo;
   QryEquipCliente.Open;
 
@@ -720,7 +836,7 @@ begin
   //verificando se o tecnico da OS é o tecnico 'titular' do equipamento (alguns equipamentos mais complexos possuem
   // tecnicos especificos que cuidam da manutenção), caso não seja o sistema sugirirá o tecnico titular do equipamento
 
-  sql := 'select prd.cod_tecnico from est_produtos prd where prd.cnpj ='+QuotedStr(dmApp.cnpj)+' and prd.codigo = '+QuotedStr(dtEditPRODUTO.value);
+  sql := 'select coalesce(prd.cod_tecnico,0) from est_produtos prd where prd.cnpj ='+QuotedStr(dmApp.cnpj)+' and prd.codigo = '+QuotedStr(dtEditPRODUTO.value);
   TecnicoPadrao := RetornaValor(sql);
 
   if TecnicoPadrao > 0 then
@@ -745,14 +861,14 @@ begin
   if ((QryStatusFECHADO.value = 'S') and (dtEditDATA_FECHAMENTO.IsNull)) then
   begin
     DataHora := dmApp.DataServidor;
-    dtEditDATA_FECHAMENTO.Value := DataHora;
-    dtEditHR_FECHAMENTO.Value := DataHora;
+    dtEditDATA_FECHAMENTO.Value := DateOf(DataHora);
+    dtEditHR_FECHAMENTO.Value := TimeOf(DataHora);
   end
   else if ((QryStatusPADRAO_ENVIO.value = 'S') and (dtEditDT_ATRIBUICAO.IsNull)) then
   begin
     DataHora := dmApp.DataServidor;
-    dtEditDT_ATRIBUICAO.Value := DataHora;
-    dtEditHR_ATRIBUICAO.Value := DataHora;
+    dtEditDT_ATRIBUICAO.Value := DateOf(DataHora);
+    dtEditHR_ATRIBUICAO.Value := TimeOf(DataHora);
   end;
 end;
 
@@ -774,6 +890,9 @@ procedure TfrmCadOS.TVRegistroOFC_CODIGOCustomDrawCell(
 var
   ValueGasto, ValueResposta : Variant;
 begin
+  //Procedimento irá pintar de vermelho a linha em que o atendimento tenha 'estourado' o tempo resposta delimitado
+  //no contrato de atendimento
+
   if not (AViewInfo.GridRecord as TcxCustomGridRow).IsFilterRow then
   begin
      if (dmApp.EXIBE_OFC_CONTROLA_TEMPO_RESPOSTA = 'N') then
@@ -844,19 +963,15 @@ end;
 
 procedure TfrmCadOS.ActFilterExecute(Sender: TObject);
 Begin
-  Filtrar(true);
+  Filtrar;
   inherited;
 
 end;
 
-procedure TfrmCadOS.Filtrar(inicial: boolean);
+procedure TfrmCadOS.Filtrar;
 var
   filtro : string;
 Begin
-  if (inicial) then
-    mtbFiltroDATA_INICIAL.Value := dmApp.OFC_DATA_BASE_MAN_OS;
-
-
   if ((mtbFiltroDATA_INICIAL.Value < dmApp.OFC_DATA_BASE_MAN_OS) and ((dmApp.OFC_DATA_BASE_MAN_OS) > 0)) then
   begin
     Application.MessageBox(Pchar('Data Inicial Inválida. Data inferior ao parametrizado como Data Base para Listagem de OS: '+DateToStr(dmApp.OFC_DATA_BASE_MAN_OS)),'Aviso',mb_ok+mb_ok+mb_iconinformation);
@@ -881,17 +996,11 @@ Begin
    if (mtbFiltroCLIENTE.asInteger > 0) then
      filtro := filtro + ' and ofc.pessoa_fj = '+mtbFiltroCLIENTE.AsString;
 
-   if trim(edtSerie.Text) <> '' then
+   if trim(mtbFiltroSERIE.AsString) <> '' then
      filtro := filtro + ' and prd.serie = '+QuoTedStr(mtbFiltroSERIE.AsString);
 
    dtList.sql.text := sqloriginal + filtro;
 
-   //Data base de filtro de OS, cliente pode parametrizar uma data minima para o filtro a fim melhorar o desempenho do sistema
-   if (dmApp.OFC_DATA_BASE_MAN_OS > 0) then
-     dtList.parambyname('OFC_DATA_BASE_MAN_OS').AsDate := dmApp.OFC_DATA_BASE_MAN_OS
-   else
-     dtList.parambyname('OFC_DATA_BASE_MAN_OS').AsDate := StrToDate('01/01/2001');
-  
 
 end;
 
@@ -908,16 +1017,391 @@ begin
   end;
 end;
 
-procedure TfrmCadOS.pnlFiltroExit(Sender: TObject);
-begin
-  Filtrar(false);
-  inherited;
-end;
-
 procedure TfrmCadOS.FormCreate(Sender: TObject);
 begin
   inherited;
   mtbFiltroTIPO_STATUS.value := 0;
+  //se houver uma data padrao minima de listagem de OS, então sera atribuida inicialmente ao filtro
+  if dmApp.OFC_DATA_BASE_MAN_OS > 0 then
+     mtbFiltroDATA_INICIAL.Value := dmApp.OFC_DATA_BASE_MAN_OS;
+end;
+
+procedure TfrmCadOS.dtEditBeforePost(DataSet: TDataSet);
+var
+  sql: string;
+  ultimocodigo, cttotal: integer;
+  DATA_INI  , DATA_FIM,
+  HORA_INI  , HORA_FIM,
+  INTER_INI , INTER_FIM,
+  TRAB_INI  , TRAB_FIM : STRING;
+
+begin
+  
+  if ((dtEditHR_FECHAMENTO.value = StrToTime('00:00:00')) and (dtEditDATA_FECHAMENTO.value > 0)) then
+  begin
+    Application.MessageBox('Impossível salvar alterações. Defina um horário de fechamento válido','Aviso',mb_iconerror + mb_ok);
+    dtEditHR_FECHAMENTO.value := TimeOF(dmapp.Data_Servidor);
+    abort;
+    exit;
+  end;
+
+  //-----------------Armazenando o tempo resposta-------------------------//
+  if (not dtEditDATA_FECHAMENTO.IsNull) and (not dtEditHR_FECHAMENTO.IsNull) then
+  begin
+    DATA_INI := DateToStr(dtEditENTRADA.asDateTime);
+    DATA_FIM := DateToStr(dtEditDATA_FECHAMENTO.asDateTime);
+
+    if StrtoDate(DATA_INI) > StrtoDate(DATA_FIM) then //
+    begin
+      dtEditTEMPO_RESPOSTA.VALUE := 0;
+      Application.MessageBox('Data de entrada está maior que data do fechamento','Aviso',mb_ok+mb_iconinformation);
+      edtDataFechamento.SetFocus;
+      Abort;
+      exit;
+    end;
+
+    HORA_INI := TimeToStr(dtEditHR_ENTRADA.value);
+    HORA_FIM := TimeToStr(dtEditHR_FECHAMENTO.value);
+    INTER_INI:= '11:00:00';
+    INTER_FIM:= '13:00:00';
+    TRAB_INI := '08:00:00';
+    TRAB_FIM := '18:00:00';
+    dtEditTEMPO_RESPOSTA.VALUE    := HORAS_CORRIDA(DATA_INI  , DATA_FIM,
+                                            HORA_INI  , HORA_FIM,
+                                                              INTER_INI , INTER_FIM,
+                                                              TRAB_INI  , TRAB_FIM);
+  end;
+
+  //-----------------Encontrando o ultimo codigo de os, para validação do contador total---------------------------------//
+  if (dtEditDATA_FECHAMENTO.value > 0) then
+  begin
+    //pegando a ultima OS fechada do equipamento em questão
+    sql := ' select coalesce(max(o.codigo),0) codigo from ofc_ordem_servico o '+
+            ' where o.data_fechamento is not null and o.produto = '+QuotedStr(dtEditPRODUTO.value)+ ' and o.contador_total > 0 '+
+            ' and o.cnpj = '+QuotedStr(dmApp.cnpj)+' and o.codigo < '+dtEditCODIGO.AsString;
+    ultimocodigo := RetornaValor(sql);
+
+    //pegando o contador total da os previamente selecoinada
+    sql := ' select coalesce(o.contador_total,0) contador_total from ofc_ordem_servico o '+
+           ' where o.cnpj = '+QuotedStr(dmApp.cnpj)+' and o.codigo = '+ inttostr(ultimocodigo);
+    cttotal := RetornaValor(sql);
+
+    if (cttotal > dtEditCONTADOR_TOTAL.value) then
+    begin
+      if application.messagebox(Pchar('O valor do CONTADOR TOTAL ( '+dtEditCONTADOR_TOTAL.asString+' ) é inferior ao valor do CONTADOR TOTAL('+IntToStr(cttotal)+') da OS Nº - '+IntToStr(ultimocodigo)+#13+' Deseja realmente salvar a OS com este valor?'),'Aviso', mb_yesno + mb_iconquestion) = id_no then
+      begin
+       EdtContadorTotal.setfocus;
+       abort;
+       exit;
+      end;
+    end;
+  end;
+
+  inherited;
+end;
+
+procedure TfrmCadOS.dtEditDet2NewRecord(DataSet: TDataSet);
+var
+  DataServidor : TDateTime;
+begin
+  inherited;
+  DataServidor := DMApp.DataServidor;
+
+  dtEditDet2CNPJ.Value      := DMApp.Cnpj;
+  dtEditDet2CODIGO.Value    := dtEditCODIGO.value;
+  dtEditDet2DT_INICIO.Value := DateOF(DataServidor);
+  dtEditDet2HR_INICIO.Value := TimeOF(DataServidor)-0.003;
+  dtEditDet2DT_FIM.Value := DateOF(DataServidor);
+  dtEditDet2HR_FIM.Value := TimeOF(DataServidor);
+  dtEditDet2USUARIO.value := dmApp.USR_CONECTADO;
+  dtEditDet2COD_TECNICO.value := dtEditMECANICO.value;
+end;
+
+procedure TfrmCadOS.dtEditDet2AfterPost(DataSet: TDataSet);
+{var
+  existe : variant;
+  sql : string;}
+begin
+  inherited;
+ { if (dmApp.EXIBE_EMAIL_AUTOMATICO = 'S') then
+  begin
+    if (((dtEditDet2.RecordCount = 1) or (dtEditDet2TIPO.Value = 'A')) and (dtEditDet2_EMAIL.RecordCount = 0)) then
+    begin
+       FrmOrdens_Servicos.EnviaEmailAb_Fec(dmCadastros2.SelClientesEMAIL.AsString,dmCadastros2.SelClientesNOME_RAZAO.AsString,
+                                           dmCadastros2.SelClientes2EMAIL.AsString,dmCadastros2.SelClientes2NOME_RAZAO.AsString,
+                                           'Caso '+Completaesq(OrdemCODIGO.asString,'0',9)+' - Abertura',OrdemINFORMACOES.Value,'A');
+    end
+    else if (dtEditDet2TIPO.Value = 'F') then
+    begin
+      sql := ' select count(*) from ofc_o_s_intervalo_email e  where e.cnpj = '+QuotedStr(dmApp.cnpj)+' and e.cod_intervalo = '+dtEditDet2CODIGO.AsString
+             +' and e.tipo = ''F'' and e.enviado = ''1'' and e.sequencia = '+dtEditDet2SEQUENCIA.AsString;
+
+      existe := RetornaValor(sql,dmapp.Transaction);
+      if (existe <= 0) then
+        FrmOrdens_Servicos.EnviaEmailAb_Fec(dmCadastros2.SelClientesEMAIL.AsString,dmCadastros2.SelClientesNOME_RAZAO.AsString,
+                                           dmCadastros2.SelClientes2EMAIL.AsString,dmCadastros2.SelClientes2NOME_RAZAO.AsString,
+                                           'Caso '+Completaesq(OrdemCODIGO.asString,'0',9)+' - Fechamento',OrdemOBS_FECHAMENTO.Value,'F');
+    end;
+  end; }
+end;
+
+procedure TfrmCadOS.EnviaEmailAb_Fec(cliente, NCliente, Contato, NContato,
+  Assunto, Mensagem, TIPO: string);
+ {xAnexo,i : Integer;
+ hThreadID :THandle;
+ ThreadID :DWord;}
+begin
+ { comentado, em caso de implementação avalie o codigo antigo
+ dmApp.IdMessage.Clear;
+  with dmApp.IdMessage do
+  begin
+    Body.Add(Mensagem);
+    From.Address := DMApp.EMAIL_PADRAO; //opcional
+    From.Name := dmApp.NOME_USUARIO; //opcional
+
+    if (Cliente = '') then
+    begin
+      Application.Messagebox('Defina um email para o cliente ','Aviso',mb_ok + mb_iconerror);
+      exit;
+    end;
+    i := 0;
+    Recipients.Add;
+    Recipients.Items[i].Address := cliente;
+    Recipients.Items[i].Name := NCliente;
+
+    {if (Contato = '') then
+    begin
+      Application.Messagebox('Defina um email para o contato ','Aviso',mb_ok + mb_iconerror);
+      exit;
+    end;}
+
+ {   if (Contato <> '') then
+    begin
+      i := i + 1;
+      Recipients.Add;
+      Recipients.Items[i].Address := contato;
+      Recipients.Items[i].Name := NContato;
+    end;
+
+    if (dmapp.EMAIL_CONTROLE <> '') then
+    begin
+      i := i + 1;
+      Recipients.Add;
+      Recipients.Items[i].Address := dmapp.EMAIL_CONTROLE;
+      Recipients.Items[i].Name := 'Supervisao'; //opcional
+    end;
+
+    Subject := 'Caso '+Completaesq(dtEditCODIGO.asString,'0',9)+': '+dtEditASSUNTO.asString;;
+    //Priority := mpHigh;
+    ReceiptRecipient.Text := From.Text;
+
+    OS_INTERVALO_EMAIL_INSERT.open;
+    OS_INTERVALO_EMAIL_INSERT.Append;
+    OS_INTERVALO_EMAIL_INSERTASSUNTO.value := Assunto;
+    OS_INTERVALO_EMAIL_INSERTDE.value := dmapp.EMAIL_PADRAO;
+    OS_INTERVALO_EMAIL_INSERTPARA.value := Cliente+';'+Contato+';'+dmapp.EMAIL_CONTROLE;
+    OS_INTERVALO_EMAIL_INSERTDATA.Value := DmApp.Data_Servidor;
+    OS_INTERVALO_EMAIL_INSERTSEQUENCIA.value := OS_INTERVALOSEQUENCIA.VALUE;
+    OS_INTERVALO_EMAIL_INSERTCOD_INTERVALO.value := OS_INTERVALOCODIGO.VALUE;
+    OS_INTERVALO_EMAIL_INSERTTIPO.value := OS_INTERVALOTIPO.value;
+
+  end;
+  hThreadID := CreateThread(nil, 0, @EnviaEmailGenerico, nil, 0, ThreadID);
+  {try
+    if not (dmApp.IdSMTP.Connected) then
+      dmApp.IdSMTP.Connect();
+
+    dmApp.IdSMTP.Send(dmApp.IdMessage);
+
+    if (dmApp.IdSMTP.Connected) then
+      dmApp.IdSMTP.Disconnect;
+
+    OS_INTERVALO_EMAILENVIADO.value := '1';
+  except
+     On E:Exception Do
+     begin
+       Application.Messagebox(Pchar('Falha ao enviar a mensagem: '+ E.Message),'Aviso',mb_ok + mb_iconerror);
+       dmServicos.OS_INTERVALO_EMAILENVIADO.value := '0';
+       dmServicos.OS_INTERVALO_EMAIL.POST;
+       exit;
+     end
+   end;
+   Application.Messagebox('Mensagem enviada com sucesso','Aviso',mb_ok + mb_iconinformation);
+   dmServicos.OS_INTERVALO_EMAIL.POST;}
+
+end;
+
+procedure TfrmCadOS.EnviaEmailTecnico(Origem, NOrigem, Destino, NDestino,
+  Assunto, Mensagem: string);
+{ xAnexo : Integer;
+ hThreadID :THandle;
+ ThreadID :DWord;}
+begin
+  {dmApp.IdMessage.Clear;
+  with dmApp.IdMessage do
+  begin
+    Body.Add(Mensagem);
+    From.Address := Origem; //opcional
+    From.Name := NOrigem; //opcional
+
+    if (Destino = '') then
+    begin
+      Application.Messagebox('Defina um email para o destinatário ','Aviso',mb_ok + mb_iconerror);
+      exit;
+    end;
+
+    Recipients.Add;
+    Recipients.Items[0].Address := Destino;
+    Recipients.Items[0].Name := NDestino; //opcional
+
+    if (dmapp.EMAIL_CONTROLE <> '') then
+    begin
+      Recipients.Add;
+      Recipients.Items[1].Address := dmapp.EMAIL_CONTROLE;
+      Recipients.Items[1].Name := 'Supervisao'; //opcional
+    end;
+
+    Subject := 'Caso '+Completaesq( OrdemCODIGO.asString,'0',9)+': '+ OrdemASSUNTO.asString;;
+    //Priority := mpHigh;
+    ReceiptRecipient.Text := From.Text;
+
+    TIdAttachment.create(idmessage.MessageParts, TFileName('c:\texte.txt'));
+      dtEditDet2.Append;
+      dtEditDet2CNPJ.value := dmApp.cnpj;
+      dtEditDet2DT_INICIO.value := dmApp.DataServidor;
+      dtEditDet2HR_INICIO.value := TimeOF(dmApp.DataServidor);
+      dtEditDet2DT_FIM.value := dmApp.DataServidor;
+      dtEditDet2HR_FIM.value := TimeOF(dmApp.DataServidor);
+      dtEditDet2OBSERVACAO.Value :=  ' Caso Transferido de '+NOrigem+' para '+NDestino;
+      dtEditDet2.Post;
+
+      dtEditDet2_EMAIL_INSERT.open;
+      dtEditDet2_EMAIL_INSERT.Append;
+      dtEditDet2_EMAIL_INSERTASSUNTO.value := ' Caso Transferido de '+NOrigem+' para '+NDestino; ;
+      dtEditDet2_EMAIL_INSERTDE.value := dmapp.EMAIL_PADRAO;
+      dtEditDet2_EMAIL_INSERTPARA.value := Destino+';'+dmapp.EMAIL_CONTROLE;
+      dtEditDet2_EMAIL_INSERTDATA.Value := DmApp.Data_Servidor;
+      dtEditDet2_EMAIL_INSERTSEQUENCIA.value := dtEditDet2SEQUENCIA.VALUE;
+      dtEditDet2_EMAIL_INSERTCOD_INTERVALO.value := dtEditDet2CODIGO.VALUE;
+
+  end;
+  hThreadID := CreateThread(nil, 0, @EnviaEmailGenerico, nil, 0, ThreadID);
+
+  {try
+    if not (dmApp.IdSMTP.Connected) then
+      dmApp.IdSMTP.Connect();
+
+    dmApp.IdSMTP.Send(dmApp.IdMessage);
+
+    if (dmApp.IdSMTP.Connected) then
+      dmApp.IdSMTP.Disconnect;
+
+     dtEditDet2_EMAILENVIADO.value := '1';
+  except
+     On E:Exception Do
+     begin
+       Application.Messagebox(Pchar('Falha ao enviar a mensagem: '+ E.Message),'Aviso',mb_ok + mb_iconerror);
+        dtEditDet2_EMAILENVIADO.value := '0';
+        dtEditDet2_EMAIL.POST;
+       exit;
+     end
+   end;
+   Application.Messagebox('Mensagem enviada com sucesso','Aviso',mb_ok + mb_iconinformation);
+    dtEditDet2_EMAIL.POST;}
+
+end;
+
+procedure TfrmCadOS.dtEditDet1BeforePost(DataSet: TDataSet);
+var
+  DATA_INI  , DATA_FIM,
+  HORA_INI  , HORA_FIM,
+  INTER_INI , INTER_FIM,
+  TRAB_INI  , TRAB_FIM : String;
+  DtFim : TDate;
+  HrFim : TTime;
+  MsgData, MsgHora : string;
+begin
+  inherited;
+
+  if ((dtEditDet2DT_INICIO.IsNull)  OR (dtEditDet2HR_INICIO.IsNull) OR (dtEditDet2DT_FIM.IsNull) OR (dtEditDet2HR_FIM.IsNull))   then
+  begin
+    Application.MessageBox('Defina uma data de inicio','Aviso',mb_iconerror+mb_ok);
+    Abort;
+  end;
+
+  //-->> Validando Hora/Data [PROGRAMAÇÃO e INICIO ATIVIDADE]
+ { MsgData := 'Dt. de Programação não pode ser superior a Dt. de Inicialização do serviço';
+  MsgHora := 'Hr. de Programação não pode ser superior a Hr. de Inicialização do serviço';
+  if ValidaDataHora(DateToStr(OrdemDT_ATRIBUICAO.value),DateToStr(OS_INTERVALODT_INICIO.value),OrdemHR_ATRIBUICAO.value, OS_INTERVALOHR_INICIO.value, MsgData, MsgHora) then
+  begin
+    abort;
+    exit;
+  end;}
+
+  //-->> Validando Hora/Data [INICIO ATIVIDADE e FIM ATIVIDADE]
+  {MsgData := 'Dt. de Inicialização não pode ser superior a Dt. de Finalização do serviço';
+  MsgHora := 'Hr. de Inicialização não pode ser superior a Hr. de Finalização do serviço';
+
+  if ValidaDataHora(DateToStr(OS_INTERVALODT_INICIO.value),DateToStr(OS_INTERVALODT_FIM.value),OS_INTERVALOHR_INICIO.value,OS_INTERVALOHR_FIM.value, MsgData, MsgHora) then
+  begin
+    abort;
+    exit;
+  end;}
+
+  //-->> Validando Hora/Data [FIM ATIVIDADE e FECHAMENTO]
+  if (dtEditDATA_FECHAMENTO.isNull) then
+    DtFim := Date
+  else
+    DtFim := dtEditDATA_FECHAMENTO.value;
+
+  if (dtEditHR_FECHAMENTO.isNull) then
+    HrFim := Time
+  else
+    HrFim := dtEditHR_FECHAMENTO.value;
+
+
+  {MsgData := 'Dt. de Finalização não pode ser superior a Dt. de Fechamento da OS';
+  MsgHora := 'Hr. de Finalização não pode ser superior a Hr. de Fechamento da OS';
+  if ValidaDataHora(DateToStr(dtEditDet2DT_FIM.value),DateToStr(DtFim), dtEditDet2HR_FIM.value, HrFim, MsgData, MsgHora) then
+  begin
+    abort;
+    exit;
+  end;}
+
+
+  DATA_INI := DateToStr(dtEditDet2DT_INICIO.Value);
+  HORA_INI := TimeToStr(dtEditDet2HR_INICIO.Value);
+
+  //** Data_Fim se não estiver preenchido pegara data_atual
+  if dtEditDet2DT_FIM.Text='' then
+    DATA_FIM := DateToStr(dmapp.DataServidor)
+  else
+    DATA_FIM := DateToStr(dtEditDet2DT_FIM.Value   );
+
+  //** Hora_Fim se não estiver preenchido pegara hora_atual
+  if dtEditDet2HR_FIM.Text='00:00:00' then
+    HORA_FIM := TimeToStr(dmapp.DataServidor)
+  else
+    HORA_FIM := TimeToStr(dtEditDet2HR_FIM.Value   );
+
+  INTER_INI:= '11:00:00';
+  INTER_FIM:= '13:00:00';
+  TRAB_INI := '08:00:00';
+  TRAB_FIM := '18:00:00';
+
+  dtEditDet2QTDE_HORA.Value  := HORAS_TRABALHADAS(DATA_INI  , DATA_FIM,
+                                                  HORA_INI  , HORA_FIM,
+                                                  INTER_INI , INTER_FIM,
+                                                  TRAB_INI  , TRAB_FIM);
+
+
+
+  if dtEditDet2KM_FINAL.value < dtEditDet2KM_INICIAL.value then
+  begin
+    application.messagebox('Km. Final não poderá ser inferior a km. Inicial','Aviso',mb_iconerror + mb_ok);
+    abort;//aqui boy
+    exit;
+  end;
 end;
 
 end.

@@ -10,12 +10,14 @@ inherited frmCadClientes: TfrmCadClientes
   inherited pgcCadastro: TcxPageControl
     Width = 863
     Height = 614
+    ActivePage = tbsEdita
     ClientRectBottom = 610
     ClientRectRight = 859
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
+        Top = 13
         Width = 855
-        Height = 566
+        Height = 570
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -439,8 +441,9 @@ inherited frmCadClientes: TfrmCadClientes
           end
         end
       end
-      inherited Panel1: TPanel
+      inherited pnlFiltro: TPanel
         Width = 855
+        Height = 13
       end
     end
     inherited tbsEdita: TcxTabSheet
@@ -461,7 +464,6 @@ inherited frmCadClientes: TfrmCadClientes
               inherited PGCSub1: TcxPageControl
                 Width = 845
                 Height = 204
-                ActivePage = tbsListaSub1
                 ClientRectBottom = 200
                 ClientRectRight = 841
                 inherited tbsListaSub1: TcxTabSheet
