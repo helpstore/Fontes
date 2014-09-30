@@ -904,8 +904,7 @@ begin
 
     with dmServicos do
     begin
-
-       //OS Sistemaq, validando se contrato precisa ser renegociado
+      //OS Sistemaq, validando se contrato precisa ser renegociado
       if ((qryEquipamentoDT_FIM.value < dmapp.DataServidor) and (qryEquipamentoDT_FIM.value > 0)) then
       begin
         Application.MessageBox('Impossível salvar. Contrato necessita de renegociação.','Aviso',MB_ICONERROR + mb_ok);
@@ -958,7 +957,7 @@ begin
             INTER_FIM:= '13:00:00';
             TRAB_INI := '08:00:00';
             TRAB_FIM := '18:00:00';
-            DmServicos.OrdemTEMPO_RESPOSTA.VALUE    := DmServicos.HORAS_CORRIDA(DATA_INI  , DATA_FIM,
+            DmServicos.OrdemTEMPO_RESPOSTA.VALUE    := HORAS_CORRIDA(DATA_INI  , DATA_FIM,
                                                                                 HORA_INI  , HORA_FIM,
                                                                                 INTER_INI , INTER_FIM,
                                                                                 TRAB_INI  , TRAB_FIM);

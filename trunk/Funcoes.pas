@@ -6,7 +6,7 @@ uses Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, M
      ExtCtrls, IniFiles, Buttons, StdCtrls, Db, DBGrids, DBTables, quickrpt, Qrctrls, DBCtrls, Mask,
      ActnList, RDprint, dxBarExtItems, dxsbar,    Printers,
      DxDBELib, dxCntner, dxEdLib, dxDBGrid, dxDBTLCl,  dxGrClms, dxTL, dxDBCtrl,
-     SbrCupomFiscal, IBDatabase, IBQuery,IBSQL,  ShellApi, Math,
+      IBDatabase, IBQuery,IBSQL,  ShellApi, Math,
      FileCtrl,cxButtons,cxLabel;
 
 
@@ -179,61 +179,6 @@ Procedure CancelaItemAterior ;
 procedure CancelaItemGenerico ( Item: Integer );
 function  SetarDataSistema(Data: TDateTime; Hora, Minutos: Word ): Boolean;
 
-function Bematech_FI_RetornoImpressora(Var ACK: Integer; Var ST1: Integer; Var ST2: Integer): Integer; StdCall; External 'BEMAFI32.DLL';
-function Bematech_FI_VerificaImpressoraLigada:Integer; StdCall; External 'BemaFI32.dll' Name 'Bematech_FI_VerificaImpressoraLigada';
-function Bematech_FI_AbrePortaSerial:Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_LeituraX:Integer; StdCall; External 'BemaFI32.dll' ;
-function Bematech_FI_FechaPortaSerial:Integer; StdCall; External 'BemaFI32.dll' Name 'Bematech_FI_FechaPortaSerial';
-function Bematech_FI_ReducaoZ(Data: String; Hora: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_CancelaCupom: Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_AcionaGaveta:Integer; StdCall; External 'BemaFI32.dll' Name 'Bematech_FI_AcionaGaveta';
-function Bematech_FI_AbreCupom(CGC_CPF: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_VendeItem(Codigo: String; Descricao: String; Aliquota: String; TipoQuantidade: String; Quantidade: String; CasasDecimais: Integer; ValorUnitario: String; TipoDesconto: String; Desconto: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_IniciaFechamentoCupom(AcrescimoDesconto: String; TipoAcrescimoDesconto: String; ValorAcrescimoDesconto: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_EfetuaFormaPagamento(FormaPagamento: String; ValorFormaPagamento: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_TerminaFechamentoCupom(Mensagem: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_NumeroCupom(NumeroCupom: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_Sangria(Valor: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_Suprimento(Valor: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_LeituraMemoriaFiscalData(DataInicial: String; DataFinal: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_SubTotal(SubTotal: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_CancelaItemAnterior: Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_CancelaItemGenerico(NumeroItem: String): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_ProgramaAliquota(Aliquota: String; Vinculo: Integer): Integer; StdCall; External 'BemaFI32.dll';
-
-function Bematech_FI_AbreComprovanteNaoFiscalVinculado( Forma_de_Pagamento: String; Valor_Pago: String; Numero_do_Cupom: String ): Integer; StdCall; External 'BemaFI32.dll';
-function Bematech_FI_UsaComprovanteNaoFiscalVinculado( Texto_Livre: String ): Integer; StdCall; External 'BemaFI32.dll'
-function Bematech_FI_FechaComprovanteNaoFiscalVinculado: Integer; StdCall; External 'BemaFI32.dll';
-
-function Daruma_FI_LeituraMemoriaFiscalData( Data_Inicial: String; Data_Final: String ): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_ProgramaFormasPagamento( Descricao_das_Formas_Pagamento: String ): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_ProgramaVinculados( Descricao_das_Formas_Pagamento: String ): Integer; StdCall; External 'Daruma32.dll';
-
-function Daruma_FI_RetornoImpressora(Var ACK: Integer; Var ST1: Integer; Var ST2: Integer): Integer; StdCall; External 'Daruma32.DLL';
-function Daruma_FI_VerificaImpressoraLigada:Integer; StdCall; External 'Daruma32.dll' Name 'Daruma_FI_VerificaImpressoraLigada';
-function Daruma_FI_AbrePortaSerial:Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_LeituraX:Integer; StdCall; External 'Daruma32.dll' ;
-function Daruma_FI_FechaPortaSerial:Integer; StdCall; External 'Daruma32.dll' Name 'Daruma_FI_FechaPortaSerial';
-function Daruma_FI_ReducaoZ(Data: String; Hora: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_CancelaCupom: Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_AcionaGaveta:Integer; StdCall; External 'Daruma32.dll' Name 'Daruma_FI_AcionaGaveta';
-function Daruma_FI_AbreCupom(CGC_CPF: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_VendeItem(Codigo: String; Descricao: String; Aliquota: String; TipoQuantidade: String; Quantidade: String; CasasDecimais: Integer; ValorUnitario: String; TipoDesconto: String; Desconto: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_IniciaFechamentoCupom(AcrescimoDesconto: String; TipoAcrescimoDesconto: String; ValorAcrescimoDesconto: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_EfetuaFormaPagamento(FormaPagamento: String; ValorFormaPagamento: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_TerminaFechamentoCupom(Mensagem: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_NumeroCupom(NumeroCupom: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_Sangria(Valor: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_Suprimento(Valor: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_SubTotal(SubTotal: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_CancelaItemAnterior: Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_CancelaItemGenerico(NumeroItem: String): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_ProgramaAliquota(Aliquota: String; Vinculo: Integer): Integer; StdCall; External 'Daruma32.dll';
-
-function Daruma_FI_AbreComprovanteNaoFiscalVinculado( Forma_de_Pagamento: String; Valor_Pago: String; Numero_do_Cupom: String ): Integer; StdCall; External 'Daruma32.dll';
-function Daruma_FI_UsaComprovanteNaoFiscalVinculado( Texto_Livre: String ): Integer; StdCall; External 'Daruma32.dll'
-function Daruma_FI_FechaComprovanteNaoFiscalVinculado: Integer; StdCall; External 'Daruma32.dll';
-
 
 // Funções Fabiano
 function RetornaValor(sSql: string;Trans: TIBTransaction=nil;db :TIBDatabase=nil):Variant;
@@ -248,11 +193,12 @@ function StrOfChr(Ch: Char; Count: integer): string;
 function PlnCtaMain(Cta: PChar): PChar;
 function InternalClear(Cta: PChar): PChar;
 Function ChkInscEstadual(const ie, uf : string) : Boolean;
+function DifDateUtil(dataini, datafin: string): integer;
+function HORAS_TRABALHADAS(DATA_INI,DATA_FIM,     HORA_INI,HORA_FIM,     INTER_INI,INTER_FIM,   TRAB_INI,TRAB_FIM : STRING ) :REAL;
+function HORAS_CORRIDA(DATA_INI,DATA_FIM,  HORA_INI,HORA_FIM,     INTER_INI,INTER_FIM,   TRAB_INI,TRAB_FIM : STRING ) :Real;
 
 
 //Funções tiradas da Net, para manipulação de arquivos / Paulo
-
-
 function fileSize(const FileName: String): LongInt;
 function GetFileDate(TheFileName: string): string;
 function FileDate(Arquivo: String): String;
@@ -281,7 +227,6 @@ USES
     Perguntas,
     PerguntasPdv,
     Plano_Dm,
-    Retorno_Bematech,
     Main,
     Pdv_Dm,
     Pdv_Frm,
@@ -300,6 +245,253 @@ const
     NULL_STRING = '';
 
 
+FUNCTION HORAS_TRABALHADAS(DATA_INI,DATA_FIM,     HORA_INI,HORA_FIM,     INTER_INI,INTER_FIM,   TRAB_INI,TRAB_FIM : STRING ) :REAL;
+var
+  H1,H2 : real;
+begin
+    h1 := 0;  //-->> Horas percorridas entre hora_ini e hora_fim
+    if StrtoDate(DATA_INI) <> StrtoDate(DATA_FIM) then
+    begin
+      Application.MessageBox('Data inicial de trabalho deverá ser a igual a data final','Aviso',mb_iconerror + mb_ok);
+      exit;
+    end;
+
+    if (StrtoTime(HORA_INI) > StrtoTime(HORA_FIM)) then
+      HORA_INI := HORA_FIM;
+
+    // horas passadas sem contar desconto de intervalo, pegando somente as horas
+    h1 := StrtoInt(Copy(TimetoStr((StrTotime(HORA_FIM) - StrTotime(HORA_INI))),1,2));
+
+    //Pengando os minutos e transformando em decimal
+    H2 := StrtoInt(Copy(TimetoStr((StrTotime(HORA_FIM) - StrTotime(HORA_INI))),4,2));
+
+    //aqui retorna o percentual de hora que 'valem' os minutos
+    H2 := ((h2*100)/60);
+
+    //Trasformanos o percentual de hora em valor decimal
+    RESULT :=(h1+(h2/100));
+end;
+
+function HORAS_CORRIDA(DATA_INI,DATA_FIM,  HORA_INI,HORA_FIM,     INTER_INI,INTER_FIM,   TRAB_INI,TRAB_FIM : STRING ) :Real;
+var
+  H1 {horas percorridas sem descontos na data inicial},
+  H2 {horas percorridas sem descontos na data final},
+  H3 {horas para descontar},
+  H4 {horas corridas em dias uteis, ja descontado hora de intervalo},
+  AUX,M2  : Double;
+  ST, AUX1, AUX2, AUX3, AUX4 : String;
+begin
+{ --- <clayton 17.09.2007> -----------
+
+ --- REGRA HORA FIM -----------------------------------------------------------
+    HORA_FIM        |  PASSARÁ FICAR                  onde: HORA_FIM é a
+    --------------------------------                  hora da vizualização dos
+    00:00 as 08:00  |  08:00                          dados.
+    09:00 as 11:59  |  não faz nada                   Ps.: 12:00 as 14:00 é
+    12:00 as 14:00  |  '12:00'                        hora do intervalo.
+    14:01 as 18:00  |  não faz nada
+    após  as 18:01  |  18:00
+
+ --- REGRA HORA INI -----------------------------------------------------------
+    HORA_INI        |  PASSARÁ FICAR                  onde: HORA_INI é a
+    --------------------------------                  hora da abertura
+    00:00 as 08:00  |  08:00                          da OS.
+    09:00 as 11:59  |  não faz nada                   Ps.: 12:00 as 14:00 é
+    12:00 as 14:00  |  '14:00'                        hora do intervalo.
+    14:01 as 18:00  |  não faz nada
+    após  as 18:01  |  18:00
+
+ --- REGRA DATA INI -----------------------------------------------------------
+    DATA_INI        |  INCREMENTA     |   PASSARÁ FICAR        onde: DATA_INI é
+    -------------------------------------------------------    a data do cadastro
+    1 - DOMINGO     |  DATA_INI + 1   |   HORA_INI = 08:00     da OS.
+    2 - SEGUNDA     |  não faz nada   |   não faz nada
+    3 - TERÇA       |  não faz nada   |   não faz nada
+    4 - QUARTA      |  não faz nada   |   não faz nada
+    5 - QUINTA      |  não faz nada   |   não faz nada
+    6 - SEXTA       |  não faz nada   |   não faz nada
+    7 - SABADO      |  DATA_INI + 2   |   HORA_INI = 08:00
+
+ --- REGRA DATA FIM -----------------------------------------------------------
+    DATA_FIM        |  INCREMENTA     |   PASSARÁ FICAR        onde: DATA_FIM é
+    -------------------------------------------------------    a data atual da
+    1 - DOMINGO     |  DATA_FIM - 1   |   HORA_FIM = 18:00     visualização.
+    2 - SEGUNDA     |  não faz nada   |   não faz nada
+    3 - TERÇA       |  não faz nada   |   não faz nada
+    4 - QUARTA      |  não faz nada   |   não faz nada
+    5 - QUINTA      |  não faz nada   |   não faz nada
+    6 - SEXTA       |  não faz nada   |   não faz nada
+    7 - SABADO      |  DATA_FIM - 2   |   HORA_FIM = 18:00
+
+}
+
+    h1 := 0;  //-->> Horas percorridas entre hora_ini e hora_fim
+    h2 := 0;
+    h3 := 0;  //-->> Armazena quantidade de horas a serem descontadas
+    h4 := 0;  //-->> Horas trabalhadas nos dias uteis
+
+    if StrtoDate(DATA_INI) > StrtoDate(DATA_FIM) then
+    begin
+      showMESSAGE('Impossivel Calcular data inicial maior que data final');
+      exit;
+    end;
+
+//------- REGRA HORA INI - FINAL DE SEMANA -------------------------------------
+    if (DayOfWeek(StrtoDate(DATA_INI)) = 7) then
+    begin
+      DATA_INI := DatetoStr(StrtoDate(DATA_INI) + 2);
+      HORA_INI := TRAB_INI;
+    end;
+    if (DayOfWeek(StrtoDate(DATA_INI)) = 1) then
+    begin
+      DATA_INI := DatetoStr(StrtoDate(DATA_INI) + 1);
+      HORA_INI := TRAB_INI;
+    end;
+//------- REGRA HORA FIM - FINAL DE SEMANA -------------------------------------
+    if (DayOfWeek(StrtoDate(DATA_FIM)) = 7) then
+    begin
+      DATA_FIM := DatetoStr(StrtoDate(DATA_FIM) - 1);
+      HORA_FIM := TRAB_FIM;
+    end;
+    if (DayOfWeek(StrtoDate(DATA_FIM)) = 1) then
+    begin
+      DATA_FIM := DatetoStr(StrtoDate(DATA_FIM) - 2);
+      HORA_FIM := TRAB_FIM;
+    end;
+
+//------- REGRA HORA INI--------------------------------------------------------
+    if StrtoTime(HORA_INI) < StrtoTime(TRAB_INI) then
+      HORA_INI := TRAB_INI;
+    if (StrtoTime(HORA_INI)>=StrtoTime(INTER_INI)) and (StrtoTime(HORA_INI)<StrtoTime(INTER_FIM)) then
+      HORA_INI := INTER_FIM;
+    if (StrtoTime(HORA_INI)>=StrtoTime(TRAB_FIM)) then
+      HORA_INI := TRAB_FIM;
+
+//------- REGRA HORA FIM--------------------------------------------------------
+    if StrtoTime(HORA_FIM) < StrtoTime(TRAB_INI) then
+      HORA_FIM := TRAB_INI;
+    if (StrtoTime(HORA_FIM)>=StrtoTime(INTER_INI)) and (StrtoTime(HORA_FIM)<StrtoTime(INTER_FIM)) then
+      HORA_FIM := INTER_INI;
+    if (StrtoTime(HORA_FIM)>=StrtoTime(TRAB_FIM)) then
+      HORA_FIM := TRAB_FIM;
+
+//------------------------------------------------------------------------------
+    //-->> Data inicio e data_atual igual
+    if DATA_INI = DATA_FIM then
+    begin
+      if (StrtoTime(HORA_INI) > StrtoTime(HORA_FIM)) then
+        HORA_INI := HORA_FIM;
+
+      //-->> horas passadas sem contar desconto de intervalo
+      h1 := StrtoInt(Copy(TimetoStr(       (StrTotime(HORA_FIM) - StrTotime(HORA_INI))      ),1,2));
+      aux := StrtoFloat(Copy(TimetoStr(       (StrTotime(HORA_FIM) - StrTotime(HORA_INI))      ),4,2));
+      aux1 := FloatToStr(arredonda(aux/60.00,2));
+
+      //hora_fim está dentro do intervalo
+      if (StrtoTime(HORA_FIM) > StrToTime(INTER_INI)) and (StrtoTime(HORA_FIM) < StrToTime(INTER_FIM)) then
+      begin
+        h3 := Strtoint(Copy(TimetoStr(     (StrtoTime(HORA_FIM) - StrToTime(INTER_INI))             ),1,2));
+        aux := StrtoFloat(Copy(TimetoStr(     (StrtoTime(HORA_FIM) - StrToTime(INTER_INI))             ),4,2));
+        aux3 := floattostr(arredonda(aux/60.00,2));
+      end;
+
+      //hora_ini começou antes do intervalo e hora_fim está após intervalo
+      if (StrtoTime(HORA_FIM) >= StrToTime(INTER_FIM))and(StrtoTime(HORA_INI)<=StrtoTime(INTER_INI)) then
+      begin
+        h3 := Strtoint(Copy(TimetoStr(     (StrToTime(INTER_FIM) - StrToTime(INTER_INI))      ),1,2));
+        {aux := StrtoFloat(Copy(TimetoStr(     (StrToTime(INTER_FIM) - StrToTime(INTER_INI))      ),4,2));
+        aux3 := floattostr(arredonda(aux/60.00,2));}
+      end;
+    end;
+//------------------------------------------------------------------------------
+    //-->> Data inicio e data_atual diferentes
+    if StrtoDate(DATA_INI) < StrtoDate(DATA_FIM) then
+    begin
+      //-->> horas passadas do dia inicial sem contar desconto de intervalo
+      h1 := StrtoInt(Copy(TimetoStr(       (StrTotime(TRAB_FIM) - StrTotime(HORA_INI))      ),1,2));
+      aux := StrtoFloat(Copy(TimetoStr(       (StrTotime(TRAB_FIM) - StrTotime(HORA_INI))      ),4,2));
+      aux1 := FloatToStr(arredonda(aux/60.00,2));
+
+      //hora_ini começou antes do intervalo
+      if (StrtoTime(HORA_INI) <= StrToTime(INTER_INI)) then
+      begin
+        //Aparentemente aqui esta calculando o intervalo (para desconto)
+        h3 := Strtoint(Copy(TimetoStr((StrToTime(INTER_FIM) - StrToTime(INTER_INI))),1,2));
+        {aux3 := StrtoFloat(Copy(TimetoStr((StrToTime(INTER_FIM) - StrToTime(INTER_INI))),4,2));
+        aux3 := FloatToStr(arredonda(aux/60.00,2));}
+      end;
+
+      //-->> horas passadas do dia final sem contar desconto de intervalo
+      h2 := StrtoFloat(Copy(TimetoStr((StrTotime(HORA_FIM) - StrTotime(TRAB_INI))      ),1,2));
+      //Contabilizando os minutos em horas
+      aux := StrtoFloat( Copy(TimetoStr((StrTotime(HORA_FIM) - StrTotime(TRAB_INI))),4,2));
+      aux2 := floattostr(arredonda(aux/60.00,2));
+
+      //hora_ini começou antes do intervalo
+      if (StrtoTime(HORA_FIM) >= StrToTime(INTER_FIM)) then
+      begin
+        h3 := h3 + Strtoint(Copy(TimetoStr((StrToTime(INTER_FIM) - StrToTime(INTER_INI))      ),1,2));
+        {aux :=     resolver isso aqui
+        aux3 := aux3 + StrtoFloat(Copy(TimetoStr((StrToTime(INTER_FIM) - StrToTime(INTER_INI))      ),4,2));}
+
+      end;
+
+      h1 := h1 + h2 + strtofloat(aux2)+ strtofloat(aux1);
+      //-->> horas uteis
+      h4 := (DifDateUtil(DATA_INI,DATA_FIM) - 1) * 8;
+    end;
+
+    RESULT := (h1 + h4 - h3);
+end;
+
+function DifDateUtil(dataini, datafin: string): integer;
+{Retorna a quantidade de dias uteis entre duas datas}
+var
+    a,b,c:tdatetime;
+    ct,s:integer;
+begin
+      if StrToDate(DataFin) < StrtoDate(DataIni) then
+      begin
+         Result := 0;
+         exit;
+      end;
+      ct := 0;
+      s := 1;
+      a := strtodate(dataFin);
+      b := strtodate(dataIni);
+
+      if a > b then
+      begin
+           c := a;
+           a := b;
+           b := c;
+           s := 1;
+      end;
+
+      a := a + 1;
+
+      while (dayofweek(a)<>2) and (a <= b) do
+      begin
+        if dayofweek(a) in [2..6] then
+           inc(ct);
+        a := a + 1;
+      end;
+
+      ct := ct + round((5*int((b-a)/7)));
+      a := a + (7*int((b-a)/7));
+
+      while a <= b do
+      begin
+        if dayofweek(a) in [2..6] then
+         inc(ct);
+        a := a + 1;
+      end;
+
+      if ct < 0 then
+         ct := 0;
+
+      result := s*ct;
+end;
 
 function SoNumeros(Const Texto:String):String;
 //
@@ -710,11 +902,6 @@ begin
                     cNumeroCupom := cNumeroCupom + ' '
                End;
 
-               iRetorno := Bematech_FI_NumeroCupom( cNumeroCupom );
-
-               Analisa_iRetorno(iRetorno);
-
-               Retorno_Impressora(iRetorno);
 
                if trim(cNumeroCupom) <> ''
                then begin
@@ -725,27 +912,6 @@ begin
                end;
           end;
 
-          If DmaPP.Pdv_Modelo = 'Dar32DLL'
-          THEN BEGIN
-               For iConta := 1 To 6 Do
-               Begin
-                    cNumeroCupom := cNumeroCupom + ' '
-               End;
-
-               iRetorno := Daruma_FI_NumeroCupom( cNumeroCupom );
-
-               Analisa_iRetorno(iRetorno);
-
-               Retorno_Impressora(iRetorno);
-
-               if trim(cNumeroCupom) <> ''
-               then begin
-                    Result := StrToInt(cNumeroCupom) ;
-               end
-               else begin
-                    Result := -1 ;
-               end;
-          end;
      END;
 End;
 
@@ -753,57 +919,7 @@ End;
 Procedure MemoriaFiscal ;
 var
    Inicial, Final: String;
-   Cupom: TSbrCupomFiscal;
 begin
-     If DmApp.PDV_PORTA <> 'N'
-     THEN BEGIN
-          Application.CreateForm(TFrmEntraPeriodo, FrmEntraPeriodo);
-
-          If FrmEntraPeriodo.Showmodal = MrOk
-          then begin
-               Inicial := FrmEntraPeriodo.Ini.Text ;
-               Final   := FrmEntraPeriodo.Fim.Text ;
-          end;
-
-          FrmEntraPeriodo.Free   ;
-          FrmEntraPeriodo := Nil ;
-
-          IF DMAPP.PDV_MODELO = 'Bematech'
-          THEN BEGIN
-               iRetorno := Bematech_FI_LeituraMemoriaFiscalData( Inicial, Final);
-
-               Analisa_iRetorno(iRetorno);
-
-               Retorno_Impressora(iRetorno);
-          END;
-
-          IF DMAPP.PDV_MODELO = 'Dar32DLL'
-          THEN BEGIN
-               iRetorno := Daruma_FI_LeituraMemoriaFiscalData( Inicial, Final);
-
-               Analisa_iRetorno(iRetorno);
-
-               Retorno_Impressora(iRetorno);
-          END;
-
-          IF DMAPP.PDV_MODELO = 'Sweda'
-          THEN BEGIN
-               iRetorno := Bematech_FI_LeituraMemoriaFiscalData( Inicial, Final);
-          END;
-
-          IF DMAPP.PDV_MODELO = 'Daruma'
-          THEN BEGIN
-            Cupom := TSbrCupomFiscal.Create(Application);
-            Cupom.PathImpressoraIni := 'C:\WINDOWS\SYSTEM32';
-            Cupom.CarregarConfiguracoes;
-            Cupom.AbrirPortaSerial;
-            Cupom.DataIMemoria := StrToDate(Inicial);
-            Cupom.DataFMemoria := StrToDate(Final);
-            Cupom.EmitirMemoriaFiscal;
-            Cupom.FecharPortaSerial;
-            FreeAndNil(Cupom);
-          END;
-     END;
 end;
 
 function  LinhaCupom( Linha: String ): String;
@@ -824,31 +940,6 @@ Function SubtotalCupom: String;
 Begin
      If DmApp.PDV_PORTA <> 'N'
      THEN BEGIN
-          If DmaPP.Pdv_Modelo = 'Daruma'
-          then begin
-               IF DmPdv <> Nil
-               THEN BEGIN
-                    Result := currtostr(DmPdv.CupomFiscal.obtersubtotal) ;
-               END;
-          end ;
-
-          If DmaPP.Pdv_Modelo = 'Bematech'
-          then begin
-               cSubTotal := '' ;
-
-               For iConta := 1 To 14 Do
-               Begin
-                    cSubTotal := cSubTotal + ' '
-               End;
-
-               iRetorno := Bematech_FI_SubTotal( cSubTotal );
-
-               Result := cSubTotal ;
-
-               Analisa_iRetorno(iRetorno);
-
-               Retorno_Impressora(iRetorno);
-          END;
      end;
 End;
 
@@ -856,47 +947,12 @@ Procedure CancelaItemAterior;
 Begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_CancelaItemAnterior();
-            Analisa_iRetorno(iRetorno);
 
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Daruma32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_CancelaItemAnterior();
-            Analisa_iRetorno(iRetorno);
-
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 End;
 
 Procedure CancelaItemGenerico ( Item: Integer );
 Begin
-  If DmApp.PDV_PORTA <> 'N'
-  THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_CancelaItemGenerico( IntToStr(Item) );
-
-            Analisa_iRetorno(iRetorno);
-
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_CancelaItemGenerico( IntToStr(Item) );
-
-            Analisa_iRetorno(iRetorno);
-
-            Retorno_Impressora(iRetorno);
-       end;
-
-  END;
 End;
 
 function  PedirSenha( Mensagem, Mensagem1, Mensagem2: String ) :Boolean ;
@@ -932,42 +988,6 @@ end;
 
 Function  AbrePorta: Boolean ;
 begin
-{     If (( DmApp.PDV_ECF = 'S' ) AND ( DmApp.PDV_PORTA <> 'N' ))
-     THEN BEGIN
-          If DmaPP.Pdv_Modelo = 'Bematech'
-          THEN BEGIN
-               iRetorno := Bematech_FI_AbrePortaSerial();
-
-               If iRetorno <> 0
-               then begin
-                    Analisa_iRetorno(iRetorno);
-                    Retorno_Impressora(iRetorno);
-                    Result := false ;
-               end
-               else begin
-                    Result := True ;
-               end;
-          end;
-
-{          If DmaPP.Pdv_Modelo = 'Dar32DLL'
-          THEN BEGIN
-               iRetorno := Daruma_FI_AbrePortaSerial();
-
-               If iRetorno <> 0
-               then begin
-                    Analisa_iRetorno(iRetorno);
-                    Retorno_Impressora(iRetorno);
-                    Result := false ;
-               end
-               else begin
-                    Result := True ;
-               end;
-          end;
- }
-//     END
-  //   ELSE BEGIN
-          Result := True ;
-    // END;
 end;
 
 procedure Sangria( Data: TDateTime; Usuario: Integer; Conta: Integer; Turno: Integer );
@@ -1023,21 +1043,6 @@ begin
 
              If DmApp.PDV_PORTA <> ''
              THEN BEGIN
-                  If DmaPP.Pdv_Modelo = 'Bematech'
-                  THEN BEGIN
-                       //Sangria na Impressora Fiscal
-                       IRetorno := Bematech_FI_Sangria(PChar(Valor));
-                       Analisa_iRetorno(iRetorno);
-                       Retorno_Impressora(iRetorno);
-                  end;
-
-                  If DmaPP.Pdv_Modelo = 'Dar32DLL'
-                  THEN BEGIN
-                       //Sangria na Impressora Fiscal
-                       IRetorno := Daruma_FI_Sangria(PChar(Valor));
-                       Analisa_iRetorno(iRetorno);
-                       Retorno_Impressora(iRetorno);
-                  end;
              END;
         end ;
 
@@ -1051,23 +1056,7 @@ procedure VendeItem ( Codigo, Produto, Incid, sTipoQtde, Quantidade: String; IDe
 begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN        //Pchar(trim(Codigo)), Pchar(trim(Produto)), Pchar(Incid),
-            iRetorno := Bematech_FI_VendeItem( Pchar((Codigo)), Pchar((Produto)), Pchar(Incid),
-                 Pchar(sTipoQtde), Pchar(Quantidade) , iDecimal, Pchar(Unitario),
-                 Pchar(sTipoDesconto), Pchar(Desc) );
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
 
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_VendeItem( Pchar(Codigo), Pchar(Produto), Pchar(Incid),
-                 Pchar(sTipoQtde), Pchar(Quantidade) , iDecimal, Pchar(Unitario),
-                 Pchar(sTipoDesconto), Pchar(Desc) );
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 end;
 
@@ -1075,19 +1064,6 @@ procedure FormaPagamento ( Nome, Valor: String );
 begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_EfetuaFormaPagamento(Pchar(Nome), Pchar(Valor));
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_EfetuaFormaPagamento(Pchar(Nome), Pchar(Valor));
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 end;
 
@@ -1095,19 +1071,7 @@ procedure FechaCupom ( Texto: String );
 begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_TerminaFechamentoCupom(PChar(Texto));
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
 
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_TerminaFechamentoCupom(PChar(Texto));
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 end;
 
@@ -1115,19 +1079,7 @@ procedure IniciaFechamentoCupom (sAcreDesc, sTipoAcreDesc, Valor: String );
 Begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_IniciaFechamentoCupom(Pchar(sAcreDesc), Pchar(sTipoAcreDesc), Pchar(Valor));
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
 
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_IniciaFechamentoCupom(Pchar(sAcreDesc), Pchar(sTipoAcreDesc), Pchar(Valor));
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   end;
 end;
 
@@ -1135,19 +1087,7 @@ procedure AbreCupomFiscal;
 begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_AbreCupom ('');
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
 
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_AbreCupom ('');
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 end;
 
@@ -1158,41 +1098,6 @@ Var
 begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            Ult_Cupom := NumeroUltimoCupom ;
-
-            //Cancela Venda pelo Cupom
-            VENDA := DMAPP.VER_VENDA_CF ( Ult_Cupom );
-
-            IF ( VENDA > 0 )
-            THEN BEGIN
-                 //Devolve a Venda Para o Balcao
-                 DMAPP.Devolve_Balcao ( DMAPP.CNPJ, VENDA );
-            END;
-
-            iRetorno := Bematech_FI_CancelaCupom();
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            Ult_Cupom := NumeroUltimoCupom ;
-
-            //Cancela Venda pelo Cupom
-            VENDA := DMAPP.VER_VENDA_CF ( Ult_Cupom );
-
-            IF ( VENDA > 0 )
-            THEN BEGIN
-                 //Devolve a Venda Para o Balcao
-                 DMAPP.Devolve_Balcao ( DMAPP.CNPJ, VENDA );
-            END;
-
-            iRetorno := Daruma_FI_CancelaCupom();
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 end;
 
@@ -1200,25 +1105,6 @@ procedure AbreGaveta ;
 begin
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            // Função para Abrir a gaveta de dinheiro
-            iRetorno := Bematech_FI_AcionaGaveta();
-            // Procedure que analisa o retorno da função
-            Analisa_iRetorno(iRetorno);
-            // Procedure que analisa o retorno da Impressora
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            // Função para Abrir a gaveta de dinheiro
-            iRetorno := Daruma_FI_AcionaGaveta();
-            // Procedure que analisa o retorno da função
-            Analisa_iRetorno(iRetorno);
-            // Procedure que analisa o retorno da Impressora
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 end;
 
@@ -1226,19 +1112,6 @@ procedure LeituraX ;
 BEGIN
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_LeituraX();
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_LeituraX();
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 END;
 
@@ -1246,19 +1119,6 @@ procedure ProgramaAliquota(Aliq: String) ;
 BEGIN
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_ProgramaAliquota(PChar(ALIQ), 1);
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_ProgramaAliquota(PChar(ALIQ), 1);
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
   END;
 END;
 
@@ -1266,42 +1126,11 @@ procedure ProgramaForma(Forma: String) ;
 BEGIN
   If DmApp.PDV_PORTA <> 'N'
   THEN BEGIN
-     If DmaPP.Pdv_Modelo = 'Bematech'
-     THEN BEGIN
-          Showmessage('Neste modelo a Forma de Pagamento é automática!');
-     end;
-
-     If DmaPP.Pdv_Modelo = 'Dar32DLL'
-     THEN BEGIN
-          iRetorno := Daruma_FI_ProgramaVinculados( pchar( Forma ) );
-          Analisa_iRetorno(iRetorno);
-          Retorno_Impressora(iRetorno);
-
-          iRetorno := Daruma_FI_ProgramaFormasPagamento( pchar( Forma ) );
-          Analisa_iRetorno(iRetorno);
-          Retorno_Impressora(iRetorno);
-     end;
   END;
 END;
 
 procedure ReducaoZ ;
 BEGIN
-  If DmApp.PDV_PORTA <> 'N'
-  THEN BEGIN
-       If DmaPP.Pdv_Modelo = 'Bematech'
-       THEN BEGIN
-            iRetorno := Bematech_FI_ReducaoZ('', '');
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
-
-       If DmaPP.Pdv_Modelo = 'Dar32DLL'
-       THEN BEGIN
-            iRetorno := Daruma_FI_ReducaoZ('', '');
-            Analisa_iRetorno(iRetorno);
-            Retorno_Impressora(iRetorno);
-       end;
-  END;
 END;
 
 procedure FechaPortaSerial ;
@@ -1330,7 +1159,6 @@ begin
      THEN BEGIN
           If DmaPP.Pdv_Modelo = 'Bematech'
           THEN BEGIN
-               iRetorno := Bematech_FI_VerificaImpressoraLigada();
 
                if iRetorno = -6
                then begin
@@ -1346,7 +1174,7 @@ begin
 
           If DmaPP.Pdv_Modelo = 'Dar32DLL'
           THEN BEGIN
-               iRetorno := Daruma_FI_VerificaImpressoraLigada();
+             //  iRetorno := Daruma_FI_VerificaImpressoraLigada();
 
                if iRetorno = -6
                then begin
@@ -1452,59 +1280,8 @@ Procedure Retorno_Impressora( iRetorno: Integer );
 Var
    iACK, iST1, iST2: Integer;
 Begin
-    iACK := 0; iST1 := 0; iST2 := 0;
-
-    iRetorno := Bematech_FI_RetornoImpressora(iACK, iST1, iST2);
-
-    If IRetorno <> 1
-    then begin
-         If iACK = 6
-         then Begin
-              FrmRetornoBematech := TFrmRetornoBematech.Create(FrmRetornoBematech);
-
-              With FrmRetornoBematech do
-              begin
-                   RadioButton1.Checked := True;
-
-                   // Verifica ST1
-
-                   IF iST1 >= 128 Then BEGIN iST1 := iST1 - 128; label4.Enabled  := True; END;
-                   IF iST1 >= 64  Then BEGIN iST1 := iST1 - 64;  label5.Enabled  := True; END;
-                   IF iST1 >= 32  Then BEGIN iST1 := iST1 - 32;  label6.Enabled  := True; END;
-                   IF iST1 >= 16  Then BEGIN iST1 := iST1 - 16;  label7.Enabled  := True; END;
-                   IF iST1 >= 8   Then BEGIN iST1 := iST1 - 8;   label8.Enabled  := True; END;
-                   IF iST1 >= 4   Then BEGIN iST1 := iST1 - 4;   label9.Enabled  := True; END;
-                   IF iST1 >= 2   Then BEGIN iST1 := iST1 - 2;   label10.Enabled := True; END;
-                   IF iST1 >= 1   Then BEGIN iST1 := iST1 - 1;   label11.Enabled := True; END;
-
-                   // Verifica ST2
-
-                   IF iST2 >= 128 Then BEGIN iST2 := iST2 - 128; label12.Enabled := True; END;
-                   IF iST2 >= 64  Then BEGIN iST2 := iST2 - 64;  label13.Enabled := True; END;
-                   IF iST2 >= 32  Then BEGIN iST2 := iST2 - 32;  label14.Enabled := True; END;
-                   IF iST2 >= 16  Then BEGIN iST2 := iST2 - 16;  label15.Enabled := True; END;
-                   IF iST2 >= 8   Then BEGIN iST2 := iST2 - 8;   label16.Enabled := True; END;
-                   IF iST2 >= 4   Then BEGIN iST2 := iST2 - 4;   label17.Enabled := True; END;
-                   IF iST2 >= 2   Then BEGIN iST2 := iST2 - 2;   label18.Enabled := True; END;
-                   IF iST2 >= 1   Then BEGIN iST2 := iST2 - 1;   label19.Enabled := True; END;
-              End;//WITH
-
-              FrmRetornoBematech.Showmodal ;
-
-              FrmRetornoBematech.Free ;
-              FrmRetornoBematech := Nil ;
-         end ;//with
 
 
-
-         If iACK = 21
-         Then BEGIN
-              showmessage( 'Atenção!!!' + #13 + #10 +
-                    'A Impressora retornou NAK. O programa será abortado.');
-              Application.Terminate;
-              Exit;
-         end;
-    end;
 End;
 
 function SalvaFiltroGrid:boolean;

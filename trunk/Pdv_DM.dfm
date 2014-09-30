@@ -1,6 +1,5 @@
 object DmPdv: TDmPdv
   OldCreateOrder = False
-  OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
   Left = 284
   Top = 152
@@ -3407,17 +3406,6 @@ object DmPdv: TDmPdv
       Origin = '"FAT_VENDAS_ITENS"."SEQUENCIA"'
       Required = True
     end
-  end
-  object CupomFiscal: TSbrCupomFiscal
-    Impressora = miBematech
-    Porta = pcCOM1
-    CasasDecimaisValor = cdDois
-    TipoQuantidade = tqInteiro
-    TamanhoDescricao = 29
-    TipoDesconto = tdValor
-    PathImpressoraIni = 'C:\WINDOWS\SYSTEM32'
-    Left = 424
-    Top = 16
   end
   object QryIndices: TIBQuery
     Database = DmApp.Database

@@ -60,6 +60,9 @@ type
     cxDBCheckBox1: TcxDBCheckBox;
     cxDBCheckBox4: TcxDBCheckBox;
     cxDBCheckBox5: TcxDBCheckBox;
+    cxLabel4: TcxLabel;
+    GridDBBandedTableView2PADRAO_ENVIO: TcxGridDBBandedColumn;
+    GridDBBandedTableView2PADRAO_ABERTURA: TcxGridDBBandedColumn;
   private
     { Private declarations }
   public

@@ -10,7 +10,6 @@ inherited frmCadStatusServico: TfrmCadStatusServico
   inherited pgcCadastro: TcxPageControl
     Width = 611
     Height = 336
-    ActivePage = tbsEdita
     ClientRectBottom = 332
     ClientRectRight = 607
     inherited tbsLista: TcxTabSheet
@@ -49,9 +48,11 @@ inherited frmCadStatusServico: TfrmCadStatusServico
           object GridDBBandedTableView2FECHADO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'FECHADO'
             PropertiesClassName = 'TcxCheckBoxProperties'
-            Width = 47
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            Width = 81
             Position.BandIndex = 0
-            Position.ColIndex = 4
+            Position.ColIndex = 6
             Position.RowIndex = 0
           end
           object GridDBBandedTableView2OS: TcxGridDBBandedColumn
@@ -59,7 +60,7 @@ inherited frmCadStatusServico: TfrmCadStatusServico
             PropertiesClassName = 'TcxCheckBoxProperties'
             Width = 37
             Position.BandIndex = 0
-            Position.ColIndex = 5
+            Position.ColIndex = 4
             Position.RowIndex = 0
           end
           object GridDBBandedTableView2MOVIMENTO: TcxGridDBBandedColumn
@@ -67,7 +68,27 @@ inherited frmCadStatusServico: TfrmCadStatusServico
             PropertiesClassName = 'TcxCheckBoxProperties'
             Width = 74
             Position.BandIndex = 0
-            Position.ColIndex = 6
+            Position.ColIndex = 5
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2PADRAO_ENVIO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'PADRAO_ENVIO'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            Width = 85
+            Position.BandIndex = 0
+            Position.ColIndex = 7
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2PADRAO_ABERTURA: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'PADRAO_ABERTURA'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            Width = 62
+            Position.BandIndex = 0
+            Position.ColIndex = 8
             Position.RowIndex = 0
           end
         end
@@ -142,35 +163,57 @@ inherited frmCadStatusServico: TfrmCadStatusServico
           object cxDBCheckBox1: TcxDBCheckBox
             Left = 5
             Top = 25
+            Hint = 
+              'Se selecionado, atribui a OS, data e hora de fechamento automati' +
+              'camente e a considera fechada.'
             Caption = 'Fechamento'
             DataBinding.DataField = 'FECHADO'
             DataBinding.DataSource = dsRegistro
+            ParentShowHint = False
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
+            ShowHint = True
             TabOrder = 0
             Width = 84
           end
           object cxDBCheckBox4: TcxDBCheckBox
             Left = 93
             Top = 25
+            Hint = 
+              'Se selecionado,  atribui a OS data e hora de programa'#231#227'o de serv' +
+              'i'#231'o automaticamente .'
             Caption = 'Programa'#231#227'o'
             DataBinding.DataField = 'PADRAO_ENVIO'
             DataBinding.DataSource = dsRegistro
+            ParentShowHint = False
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
+            ShowHint = True
             TabOrder = 1
             Width = 92
           end
           object cxDBCheckBox5: TcxDBCheckBox
             Left = 189
             Top = 25
+            Hint = 
+              'Define se o registro '#233' o Status padr'#227'o a ser sugerido na abertur' +
+              'a da OS'
             Caption = 'Abertura'
             DataBinding.DataField = 'PADRAO_ABERTURA'
             DataBinding.DataSource = dsRegistro
+            ParentShowHint = False
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
+            ShowHint = True
             TabOrder = 2
             Width = 76
+          end
+          object cxLabel4: TcxLabel
+            Left = 7
+            Top = 47
+            Properties.WordWrap = True
+            Transparent = True
+            Width = 7
           end
         end
       end
@@ -310,7 +353,7 @@ inherited frmCadStatusServico: TfrmCadStatusServico
       Origin = '"OFC_STATUS"."COR"'
     end
     object dtListFECHADO: TIBStringField
-      DisplayLabel = 'Fechado'
+      DisplayLabel = 'Fechamento'
       FieldName = 'FECHADO'
       Origin = '"OFC_STATUS"."FECHADO"'
       FixedChar = True
@@ -330,14 +373,14 @@ inherited frmCadStatusServico: TfrmCadStatusServico
       Size = 1
     end
     object dtListPADRAO_ENVIO: TIBStringField
-      DisplayLabel = 'Status Padr'#227'o Programa'#231#227'o'
+      DisplayLabel = 'Programa'#231#227'o'
       FieldName = 'PADRAO_ENVIO'
       Origin = '"OFC_STATUS"."PADRAO_ENVIO"'
       FixedChar = True
       Size = 1
     end
     object dtListPADRAO_ABERTURA: TIBStringField
-      DisplayLabel = 'Status Padr'#227'o Abertura'
+      DisplayLabel = 'Abertura'
       FieldName = 'PADRAO_ABERTURA'
       Origin = '"OFC_STATUS"."PADRAO_ABERTURA"'
       FixedChar = True

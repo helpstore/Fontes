@@ -10390,8 +10390,8 @@ object DmServicos: TDmServicos
       '  CODIGO = :OLD_CODIGO and'
       '  SEQUENCIA = :OLD_SEQUENCIA')
     DataSource = DsOrdem
-    Left = 864
-    Top = 179
+    Left = 1144
+    Top = 259
     object OS_INTERVALOCNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."CNPJ"'
@@ -11667,8 +11667,8 @@ object DmServicos: TDmServicos
     GeneratorField.Generator = 'GEN_OFC_O_S_INTERVALO_EMAIL_ID'
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsIntervalo
-    Left = 840
-    Top = 454
+    Left = 992
+    Top = 382
     object OS_INTERVALO_EMAILCNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"OFC_O_S_INTERVALO_EMAIL"."CNPJ"'
@@ -11863,8 +11863,8 @@ object DmServicos: TDmServicos
     GeneratorField.Generator = 'GEN_OFC_O_S_INTERVALO_EMAIL_ID'
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsIntervalo
-    Left = 856
-    Top = 270
+    Left = 992
+    Top = 446
     object OS_INTERVALO_ANEXOCNPJ: TIBStringField
       DisplayLabel = 'Cnpj'
       FieldName = 'CNPJ'
@@ -11968,8 +11968,8 @@ object DmServicos: TDmServicos
     GeneratorField.Field = 'CODIGO'
     GeneratorField.Generator = 'GEN_OFC_O_S_INTERVALO_EMAIL_ID'
     GeneratorField.ApplyEvent = gamOnPost
-    Left = 840
-    Top = 366
+    Left = 1152
+    Top = 374
     object OS_INTERVALO_EMAIL_INSERTCNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"OFC_O_S_INTERVALO_EMAIL"."CNPJ"'
