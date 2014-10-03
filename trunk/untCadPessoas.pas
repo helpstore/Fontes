@@ -236,6 +236,9 @@ uses untCadLogradouro, untCadBairros, untCadCidades, untCadAtividades,
 
 {$R *.dfm}
 
+initialization
+ RegisterClass(TfrmCadPessoas);
+
 
 procedure TfrmCadPessoas.FormShow(Sender: TObject);
 begin

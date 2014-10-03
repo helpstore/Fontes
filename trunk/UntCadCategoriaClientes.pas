@@ -47,4 +47,7 @@ implementation
 
 {$R *.dfm}
 
+initialization
+ RegisterClass(TFrmCadCategoriaClientes;);
+ 
 end.

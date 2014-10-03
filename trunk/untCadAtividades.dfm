@@ -6,8 +6,6 @@ inherited frmCadAtividades: TfrmCadAtividades
   inherited pgcCadastro: TcxPageControl
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 767
-        Height = 332
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -28,9 +26,6 @@ inherited frmCadAtividades: TfrmCadAtividades
             Position.RowIndex = 0
           end
         end
-      end
-      inherited Panel1: TPanel
-        Width = 767
       end
     end
     inherited tbsEdita: TcxTabSheet

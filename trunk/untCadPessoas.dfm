@@ -1,6 +1,6 @@
 inherited frmCadPessoas: TfrmCadPessoas
-  Left = 176
-  Top = 79
+  Left = 375
+  Top = 224
   Width = 790
   Height = 515
   Caption = 'Pessoas PF/PJ'
@@ -8,14 +8,15 @@ inherited frmCadPessoas: TfrmCadPessoas
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 774
-    Height = 451
-    ClientRectBottom = 447
-    ClientRectRight = 770
+    Width = 782
+    Height = 462
+    ActivePage = tbsEdita
+    ClientRectBottom = 458
+    ClientRectRight = 778
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 766
-        Height = 403
+        Width = 774
+        Height = 414
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -238,13 +239,13 @@ inherited frmCadPessoas: TfrmCadPessoas
         end
       end
       inherited Panel1: TPanel
-        Width = 766
+        Width = 774
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 766
-        Height = 420
+        Width = 774
+        Height = 431
         inherited edtNome: TcxDBTextEdit
           DataBinding.DataField = 'NOME_RAZAO'
           Width = 528

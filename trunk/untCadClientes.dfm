@@ -1,6 +1,6 @@
 inherited frmCadClientes: TfrmCadClientes
-  Left = 170
-  Top = 75
+  Left = 427
+  Top = 57
   Width = 879
   Height = 678
   Caption = 'Clientes'
@@ -8,11 +8,10 @@ inherited frmCadClientes: TfrmCadClientes
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 863
-    Height = 614
-    ActivePage = tbsEdita
-    ClientRectBottom = 610
-    ClientRectRight = 859
+    Width = 871
+    Height = 625
+    ClientRectBottom = 621
+    ClientRectRight = 867
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 13
@@ -448,112 +447,157 @@ inherited frmCadClientes: TfrmCadClientes
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 855
-        Height = 583
+        Width = 863
+        Height = 594
         inherited pnlSubCad: TPanel
-          Top = 347
-          Width = 853
+          Top = 358
+          Width = 861
           Height = 235
           inherited PgcDetalhe: TcxPageControl
-            Width = 853
+            Width = 861
             Height = 235
-            ActivePage = tbsDetalhe1
             ClientRectBottom = 231
-            ClientRectRight = 849
+            ClientRectRight = 857
             inherited tbsDetalhe1: TcxTabSheet
+              Caption = 'Pre'#231'os Especiais'
               inherited PGCSub1: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 837
+                    Width = 845
                     Height = 173
                   end
                 end
               end
             end
             inherited tbsDetalhe2: TcxTabSheet
+              Caption = 'Ve'#237'culos'
               inherited PGCSub2: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
+                inherited tbsListaSub2: TcxTabSheet
+                  inherited GridDet2: TcxGrid
+                    Width = 845
+                    Height = 173
+                  end
+                end
               end
             end
             inherited tbsDetalhe3: TcxTabSheet
+              Caption = 'Propriedades'
               inherited PGCSub3: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
+                inherited tbsListaSub3: TcxTabSheet
+                  inherited GridDet3: TcxGrid
+                    Width = 845
+                    Height = 173
+                  end
+                end
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
+              Caption = 'Contas Correntes'
               inherited PGCSub4: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
-                    Width = 837
+                    Width = 845
                     Height = 173
                   end
                 end
               end
             end
             inherited tbsDetalhe5: TcxTabSheet
+              TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
+                inherited tbsListaSub5: TcxTabSheet
+                  inherited GridDet5: TcxGrid
+                    Width = 845
+                    Height = 173
+                  end
+                end
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
+              TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
+                inherited tbsListaSub6: TcxTabSheet
+                  inherited GridDet6: TcxGrid
+                    Width = 845
+                    Height = 173
+                  end
+                end
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
+              TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
+                inherited tbsListaSub7: TcxTabSheet
+                  inherited GridDet7: TcxGrid
+                    Width = 845
+                    Height = 173
+                  end
+                end
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
+              TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 845
+                Width = 853
                 Height = 204
                 ClientRectBottom = 200
-                ClientRectRight = 841
+                ClientRectRight = 849
+                inherited tbsListaSub8: TcxTabSheet
+                  inherited GridDet8: TcxGrid
+                    Width = 845
+                    Height = 173
+                  end
+                end
               end
             end
           end
         end
         inherited pnlMaster: TPanel
-          Width = 853
-          Height = 346
+          Width = 861
+          Height = 357
           inherited PgcMaster: TcxPageControl
-            Width = 853
-            Height = 346
-            ClientRectBottom = 342
-            ClientRectRight = 849
+            Width = 861
+            Height = 357
+            ClientRectBottom = 353
+            ClientRectRight = 857
             inherited tbsMaster1: TcxTabSheet
+              Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit
                 DataBinding.DataField = 'PESSOA_FJ'
+                TabOrder = 3
               end
-              object cbPessoaFJ: TcxDBLookupComboBox
+              object aTfrmCadPessoas: TcxDBLookupComboBox
                 Tag = 1
                 Left = 75
-                Top = 24
+                Top = 16
                 DataBinding.DataField = 'PESSOA_FJ'
                 DataBinding.DataSource = dsRegistro
                 Properties.CharCase = ecUpperCase
@@ -563,62 +607,49 @@ inherited frmCadClientes: TfrmCadClientes
                     FieldName = 'NOME_RAZAO'
                   end>
                 Properties.ListSource = dsPessoa
-                TabOrder = 2
+                TabOrder = 1
                 Width = 502
               end
               object cxLabel12: TcxLabel
                 Left = 74
-                Top = 8
+                Top = 0
                 Caption = 'Pessoa '
                 Transparent = True
               end
-              object btnPessoa: TcxButtonEdit
-                Left = 577
-                Top = 24
-                Properties.Buttons = <
-                  item
-                    Caption = 'F4'
-                    Default = True
-                    Kind = bkText
-                  end>
-                Properties.ViewStyle = vsButtonsOnly
-                TabOrder = 4
-                Text = 'btnPessoa'
-                Width = 25
-              end
               object ckCompartilha: TcxDBCheckBox
-                Left = 610
-                Top = 28
+                Left = 606
+                Top = 20
                 Caption = 'Compartilha c/Filiais'
                 DataBinding.DataField = 'SINCRONIZA_FILIAIS'
                 DataBinding.DataSource = dsRegistro
                 Properties.ValueChecked = 'S'
                 Properties.ValueUnchecked = 'N'
-                TabOrder = 5
+                TabOrder = 2
                 Width = 121
               end
               object PCCLIENTE: TcxPageControl
                 Left = 0
-                Top = 51
-                Width = 845
+                Top = 62
+                Width = 853
                 Height = 264
                 ActivePage = dxTabSheet1
                 Align = alBottom
                 HotTrack = True
-                TabOrder = 6
+                TabOrder = 5
                 ClientRectBottom = 260
                 ClientRectLeft = 4
-                ClientRectRight = 841
+                ClientRectRight = 849
                 ClientRectTop = 27
                 object dxTabSheet1: TcxTabSheet
                   Caption = 'Dados Cliente'
                   object Btnclassificacao: TcxButton
-                    Left = 460
+                    Left = 464
                     Top = 25
-                    Width = 23
+                    Width = 25
                     Height = 22
                     Cursor = crHandPoint
                     TabOrder = 15
+                    OnClick = BtnclassificacaoClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -652,6 +683,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Width = 22
                     Height = 22
                     Cursor = crHandPoint
+                    Enabled = False
                     TabOrder = 16
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
@@ -696,7 +728,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Transparent = True
                   end
                   object cxDBMaskEdit11: TcxDBMaskEdit
-                    Left = 364
+                    Left = 366
                     Top = 107
                     DataBinding.DataField = 'FONE'
                     DataBinding.DataSource = dsRegistro
@@ -706,12 +738,12 @@ inherited frmCadClientes: TfrmCadClientes
                     Width = 117
                   end
                   object cxLabel29: TcxLabel
-                    Left = 364
+                    Left = 366
                     Top = 90
                     Caption = 'Fone'
                     Transparent = True
                   end
-                  object cmbVendedor: TcxDBLookupComboBox
+                  object aTfrmCadVendedor2: TcxDBLookupComboBox
                     Left = 4
                     Top = 66
                     DataBinding.DataField = 'COD_VEND'
@@ -721,9 +753,10 @@ inherited frmCadClientes: TfrmCadClientes
                       item
                         FieldName = 'NOME'
                       end>
+                    Properties.ListSource = dsVendedor
                     Properties.Revertable = True
                     TabOrder = 2
-                    Width = 262
+                    Width = 223
                   end
                   object cxLabel42: TcxLabel
                     Left = 4
@@ -741,6 +774,7 @@ inherited frmCadClientes: TfrmCadClientes
                       item
                         FieldName = 'NOME'
                       end>
+                    Properties.ListSource = dsFormaPagto
                     Properties.Revertable = True
                     TabOrder = 5
                     Width = 223
@@ -752,13 +786,13 @@ inherited frmCadClientes: TfrmCadClientes
                     Transparent = True
                   end
                   object cxLabel46: TcxLabel
-                    Left = 252
+                    Left = 253
                     Top = 90
                     Caption = 'Dia Fat.'
                     Transparent = True
                   end
                   object cxDBSpinEdit3: TcxDBSpinEdit
-                    Left = 252
+                    Left = 253
                     Top = 107
                     DataBinding.DataField = 'DIA_PREF_FAT'
                     DataBinding.DataSource = dsRegistro
@@ -767,21 +801,21 @@ inherited frmCadClientes: TfrmCadClientes
                     Width = 53
                   end
                   object cxLabel83: TcxLabel
-                    Left = 392
+                    Left = 372
                     Top = 48
                     Caption = 'Lmt. Tempo(dias)'
                     Transparent = True
                   end
                   object cxDBSpinEdit4: TcxDBSpinEdit
-                    Left = 394
+                    Left = 374
                     Top = 67
                     DataBinding.DataField = 'LIMITE_TEMPO'
                     DataBinding.DataSource = dsRegistro
                     TabOrder = 4
-                    Width = 88
+                    Width = 111
                   end
                   object cxDBSpinEdit5: TcxDBSpinEdit
-                    Left = 305
+                    Left = 307
                     Top = 107
                     DataBinding.DataField = 'PRAZO'
                     DataBinding.DataSource = dsRegistro
@@ -790,7 +824,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Width = 57
                   end
                   object cxLabel85: TcxLabel
-                    Left = 305
+                    Left = 307
                     Top = 90
                     Caption = 'Prazo'
                     Transparent = True
@@ -842,7 +876,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Transparent = True
                   end
                   object cxDBRadioGroup1: TcxDBRadioGroup
-                    Left = 423
+                    Left = 427
                     Top = 169
                     DataBinding.DataField = 'BLOQUEADO'
                     DataBinding.DataSource = dsRegistro
@@ -857,11 +891,11 @@ inherited frmCadClientes: TfrmCadClientes
                       end>
                     TabOrder = 11
                     Height = 49
-                    Width = 89
+                    Width = 94
                   end
                   object cxDBRadioGroup4: TcxDBRadioGroup
-                    Left = 230
-                    Top = 169
+                    Left = 234
+                    Top = 167
                     Caption = 'Avalia'#231#227'o'
                     DataBinding.DataField = 'CLASSIF'
                     DataBinding.DataSource = dsRegistro
@@ -892,7 +926,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Width = 189
                   end
                   object cxDBRadioGroup5: TcxDBRadioGroup
-                    Left = 5
+                    Left = 6
                     Top = 169
                     Caption = 'Tipo'
                     DataBinding.DataField = 'FREQUENCIA'
@@ -921,16 +955,16 @@ inherited frmCadClientes: TfrmCadClientes
                     Style.IsFontAssigned = True
                     TabOrder = 10
                     Height = 50
-                    Width = 218
+                    Width = 226
                   end
                   object cxLabel88: TcxLabel
-                    Left = 247
+                    Left = 253
                     Top = 8
                     Caption = 'Classifica'#231#227'o'
                     Transparent = True
                   end
                   object CmbClassificacao: TcxDBLookupComboBox
-                    Left = 249
+                    Left = 253
                     Top = 26
                     DataBinding.DataField = 'COD_CLASSIF'
                     DataBinding.DataSource = dsRegistro
@@ -939,25 +973,26 @@ inherited frmCadClientes: TfrmCadClientes
                       item
                         FieldName = 'NOME'
                       end>
+                    Properties.ListSource = dsClassificacao
                     Properties.Revertable = True
                     TabOrder = 1
-                    Width = 210
+                    Width = 212
                   end
                   object cxLabel89: TcxLabel
-                    Left = 272
+                    Left = 253
                     Top = 48
                     Caption = 'Limite Cr'#233'dito'
                     Transparent = True
                   end
                   object cxDBCalcEdit6: TcxDBCalcEdit
-                    Left = 271
+                    Left = 253
                     Top = 66
                     DataBinding.DataField = 'LIMITE_CREDITO'
                     DataBinding.DataSource = dsRegistro
                     TabOrder = 3
                     Width = 120
                   end
-                  object cmbCategorias: TcxDBLookupComboBox
+                  object aTFrmCadCategoriaClientes: TcxDBLookupComboBox
                     Left = 4
                     Top = 26
                     DataBinding.DataField = 'CATEGORIA'
@@ -967,9 +1002,10 @@ inherited frmCadClientes: TfrmCadClientes
                       item
                         FieldName = 'NOME'
                       end>
+                    Properties.ListSource = dsCategoria
                     Properties.Revertable = True
                     TabOrder = 28
-                    Width = 210
+                    Width = 223
                   end
                   object cxLabel10: TcxLabel
                     Left = 4
@@ -978,12 +1014,13 @@ inherited frmCadClientes: TfrmCadClientes
                     Transparent = True
                   end
                   object btnCategoria: TcxButton
-                    Left = 218
+                    Left = 227
                     Top = 25
-                    Width = 23
+                    Width = 24
                     Height = 22
                     Cursor = crHandPoint
                     TabOrder = 30
+                    OnClick = btnCategoriaClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1021,6 +1058,41 @@ inherited frmCadClientes: TfrmCadClientes
                     Properties.ValueUnchecked = 'N'
                     TabOrder = 31
                     Width = 121
+                  end
+                  object btnCadVendedor: TcxButton
+                    Left = 227
+                    Top = 65
+                    Width = 24
+                    Height = 22
+                    Cursor = crHandPoint
+                    TabOrder = 32
+                    OnClick = btnCadVendedorClick
+                    Glyph.Data = {
+                      06030000424D06030000000000003600000028000000100000000F0000000100
+                      180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                      FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                      FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                      FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                      FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                      0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                      000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                      FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                      0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                      BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                      FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                      0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                      FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                      BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                      00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                      00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBF}
                   end
                 end
                 object dxTabSheet8: TcxTabSheet
@@ -1295,6 +1367,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Height = 22
                     Cursor = crHandPoint
                     TabOrder = 15
+                    OnClick = BtnAtividadeClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1329,6 +1402,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Height = 22
                     Cursor = crHandPoint
                     TabOrder = 16
+                    OnClick = BtnEnderecoPaiClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1357,12 +1431,13 @@ inherited frmCadClientes: TfrmCadClientes
                       BFBFBFBFBFBFBFBFBFBF}
                   end
                   object BtnCidadePai: TcxButton
-                    Left = 582
+                    Left = 631
                     Top = 97
                     Width = 23
                     Height = 22
                     Cursor = crHandPoint
                     TabOrder = 17
+                    OnClick = BtnCidadePaiClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1411,7 +1486,7 @@ inherited frmCadClientes: TfrmCadClientes
                     DataBinding.DataField = 'TEMPO_SERVICO'
                     DataBinding.DataSource = dsRegistro
                     Properties.CharCase = ecUpperCase
-                    TabOrder = 5
+                    TabOrder = 4
                     Width = 90
                   end
                   object cxLabel105: TcxLabel
@@ -1425,7 +1500,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Top = 25
                     DataBinding.DataField = 'NUMERO_TRABALHO'
                     DataBinding.DataSource = dsRegistro
-                    TabOrder = 2
+                    TabOrder = 1
                     Width = 59
                   end
                   object cxLabel106: TcxLabel
@@ -1440,7 +1515,7 @@ inherited frmCadClientes: TfrmCadClientes
                     DataBinding.DataField = 'DATA_INICIAL'
                     DataBinding.DataSource = dsRegistro
                     Properties.DateOnError = deToday
-                    TabOrder = 7
+                    TabOrder = 6
                     Width = 97
                   end
                   object cxLabel107: TcxLabel
@@ -1461,7 +1536,7 @@ inherited frmCadClientes: TfrmCadClientes
                     DataBinding.DataField = 'ADMISSAO'
                     DataBinding.DataSource = dsRegistro
                     Properties.DateOnError = deToday
-                    TabOrder = 6
+                    TabOrder = 5
                     Width = 90
                   end
                   object cxLabel109: TcxLabel
@@ -1470,7 +1545,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Caption = 'Atividade'
                     Transparent = True
                   end
-                  object CmbAtividade: TcxDBLookupComboBox
+                  object aTfrmCadAtividades: TcxDBLookupComboBox
                     Left = 4
                     Top = 62
                     DataBinding.DataField = 'ATIVIDADE'
@@ -1481,7 +1556,7 @@ inherited frmCadClientes: TfrmCadClientes
                         FieldName = 'NOME'
                       end>
                     Style.BorderStyle = ebsUltraFlat
-                    TabOrder = 8
+                    TabOrder = 7
                     Width = 239
                   end
                   object cxLabel110: TcxLabel
@@ -1496,7 +1571,7 @@ inherited frmCadClientes: TfrmCadClientes
                     DataBinding.DataField = 'PAI'
                     DataBinding.DataSource = dsRegistro
                     Properties.CharCase = ecUpperCase
-                    TabOrder = 9
+                    TabOrder = 8
                     Width = 252
                   end
                   object cxLabel111: TcxLabel
@@ -1511,7 +1586,7 @@ inherited frmCadClientes: TfrmCadClientes
                     DataBinding.DataField = 'MAE'
                     DataBinding.DataSource = dsRegistro
                     Properties.CharCase = ecUpperCase
-                    TabOrder = 10
+                    TabOrder = 9
                     Width = 253
                   end
                   object cxLabel112: TcxLabel
@@ -1520,7 +1595,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Caption = 'Endere'#231'o'
                     Transparent = True
                   end
-                  object cmbLogradouroPai: TcxDBLookupComboBox
+                  object aTfrmCadLogradouro: TcxDBLookupComboBox
                     Left = 4
                     Top = 100
                     DataBinding.DataField = 'ENDERECO_PAIS'
@@ -1530,8 +1605,9 @@ inherited frmCadClientes: TfrmCadClientes
                       item
                         FieldName = 'NOME'
                       end>
+                    Properties.ListSource = dsLogradouros
                     Style.BorderStyle = ebsUltraFlat
-                    TabOrder = 11
+                    TabOrder = 10
                     Width = 239
                   end
                   object cxLabel113: TcxLabel
@@ -1546,7 +1622,7 @@ inherited frmCadClientes: TfrmCadClientes
                     Caption = 'Cidade'
                     Transparent = True
                   end
-                  object cmbCidadePai: TcxDBLookupComboBox
+                  object aTfrmCadCidades: TcxDBLookupComboBox
                     Left = 344
                     Top = 99
                     DataBinding.DataField = 'CIDADE_PAIS'
@@ -1556,9 +1632,10 @@ inherited frmCadClientes: TfrmCadClientes
                       item
                         FieldName = 'NOME'
                       end>
+                    Properties.ListSource = dsCidades
                     Style.BorderStyle = ebsUltraFlat
-                    TabOrder = 13
-                    Width = 235
+                    TabOrder = 12
+                    Width = 285
                   end
                   object cxLabel115: TcxLabel
                     Left = 327
@@ -1573,7 +1650,7 @@ inherited frmCadClientes: TfrmCadClientes
                     DataBinding.DataSource = dsRegistro
                     Properties.EditMask = '!\(99\)0000-0000;1;_'
                     Properties.MaxLength = 0
-                    TabOrder = 3
+                    TabOrder = 2
                     Width = 119
                   end
                   object cxLabel116: TcxLabel
@@ -1589,21 +1666,21 @@ inherited frmCadClientes: TfrmCadClientes
                     DataBinding.DataSource = dsRegistro
                     Properties.EditMask = '!\(99\)0000-0000;1;_'
                     Properties.MaxLength = 0
-                    TabOrder = 4
+                    TabOrder = 3
                     Width = 47
                   end
                   object cxLabel117: TcxLabel
-                    Left = 608
+                    Left = 656
                     Top = 82
                     Caption = 'Renda Cliente'
                     Transparent = True
                   end
                   object cxDBCalcEdit11: TcxDBCalcEdit
-                    Left = 608
+                    Left = 656
                     Top = 99
                     DataBinding.DataField = 'RENDA_MENSAL'
                     DataBinding.DataSource = dsRegistro
-                    TabOrder = 14
+                    TabOrder = 13
                     Width = 121
                   end
                   object cxDBMaskEdit15: TcxDBMaskEdit
@@ -1611,14 +1688,14 @@ inherited frmCadClientes: TfrmCadClientes
                     Top = 99
                     DataBinding.DataField = 'NUMERO_PAIS'
                     DataBinding.DataSource = dsRegistro
-                    TabOrder = 12
+                    TabOrder = 11
                     Width = 73
                   end
                   object cxGroupBox7: TcxGroupBox
                     Left = 4
                     Top = 127
                     Caption = 'Dados do Conjuge'
-                    TabOrder = 1
+                    TabOrder = 14
                     Height = 102
                     Width = 780
                     object BtnEnderecoTrab: TcxButton
@@ -1784,6 +1861,50 @@ inherited frmCadClientes: TfrmCadClientes
                     end
                   end
                 end
+                object cxTabSheet1: TcxTabSheet
+                  Caption = 'Ordens de Servi'#231'o'
+                  ImageIndex = 3
+                end
+                object cxTabSheet2: TcxTabSheet
+                  Caption = 'Localiza'#231#227'o Geogr'#225'fica'
+                  ImageIndex = 4
+                end
+              end
+              object btnCadPessoa: TcxButton
+                Left = 577
+                Top = 15
+                Width = 23
+                Height = 22
+                Cursor = crHandPoint
+                TabOrder = 6
+                TabStop = False
+                OnClick = btnCadPessoaClick
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
               end
             end
           end
@@ -2747,131 +2868,185 @@ inherited frmCadClientes: TfrmCadClientes
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
   end
+  inherited cxIntl1: TcxIntl
+    Left = 464
+  end
+  inherited cxIntl2: TcxIntl
+    Left = 464
+  end
   inherited dsRegistroDet2: TDataSource
-    Top = 446
+    Left = 336
+    Top = 118
   end
   inherited dsPesquisaDet2: TDataSource
-    Top = 446
+    Left = 304
+    Top = 118
   end
   inherited dsRegistroDet1: TDataSource
-    Top = 446
+    Left = 264
+    Top = 118
   end
   inherited dsPesquisaDet1: TDataSource
-    Top = 446
+    Left = 232
+    Top = 118
   end
   inherited dtListDet1: TIBQuery
-    Top = 414
+    Left = 232
+    Top = 86
   end
   inherited dtEditDet1: TIBDataSet
-    Top = 414
+    Left = 264
+    Top = 86
   end
   inherited dsLinkDet2: TDataSource
-    Top = 378
+    Left = 320
+    Top = 50
   end
   inherited dsLinkDet1: TDataSource
-    Top = 378
+    Left = 248
+    Top = 50
   end
   inherited dtEditDet2: TIBDataSet
-    Top = 414
+    Left = 336
+    Top = 86
   end
   inherited dtListDet2: TIBQuery
-    Top = 414
+    Left = 304
+    Top = 86
   end
   inherited dsRegistroDet3: TDataSource
-    Top = 446
+    Left = 400
+    Top = 118
   end
   inherited dtEditDet3: TIBDataSet
-    Top = 414
+    Left = 400
+    Top = 86
   end
   inherited dsLinkDet3: TDataSource
-    Top = 378
+    Left = 384
+    Top = 50
   end
   inherited dtListDet3: TIBQuery
-    Top = 414
+    Left = 368
+    Top = 86
   end
   inherited dsPesquisaDet3: TDataSource
-    Top = 446
+    Left = 368
+    Top = 118
   end
   inherited dsRegistroDet4: TDataSource
-    Top = 446
+    Left = 464
+    Top = 118
   end
   inherited dtEditDet4: TIBDataSet
-    Top = 414
+    Left = 464
+    Top = 86
   end
   inherited dsLinkDet4: TDataSource
-    Top = 378
+    Left = 448
+    Top = 50
   end
   inherited dtListDet4: TIBQuery
-    Top = 414
+    Left = 432
+    Top = 86
   end
   inherited dsPesquisaDet4: TDataSource
-    Top = 446
+    Left = 432
+    Top = 118
   end
   inherited dsRegistroDet5: TDataSource
-    Top = 446
+    Left = 528
+    Top = 118
   end
   inherited dtEditDet5: TIBDataSet
-    Top = 414
+    Left = 528
+    Top = 86
   end
   inherited dsLinkDet5: TDataSource
-    Top = 378
+    Left = 512
+    Top = 50
   end
   inherited dtListDet5: TIBQuery
-    Top = 414
+    Left = 496
+    Top = 86
   end
   inherited dsPesquisaDet5: TDataSource
-    Top = 446
+    Left = 496
+    Top = 118
   end
   inherited dsRegistroDet6: TDataSource
-    Top = 446
+    Left = 592
+    Top = 118
   end
   inherited dtEditDet6: TIBDataSet
-    Top = 414
+    Left = 592
+    Top = 86
   end
   inherited dsLinkDet6: TDataSource
-    Top = 378
+    Left = 576
+    Top = 50
   end
   inherited dtListDet6: TIBQuery
-    Top = 414
+    Left = 560
+    Top = 86
   end
   inherited dsPesquisaDet6: TDataSource
-    Top = 446
+    Left = 560
+    Top = 118
   end
   inherited dsRegistroDet7: TDataSource
-    Top = 446
+    Left = 656
+    Top = 118
   end
   inherited dtEditDet7: TIBDataSet
-    Top = 414
+    Left = 656
+    Top = 86
   end
   inherited dsLinkDet7: TDataSource
-    Top = 378
+    Left = 640
+    Top = 50
   end
   inherited dtListDet7: TIBQuery
-    Top = 414
+    Left = 624
+    Top = 86
   end
   inherited dsPesquisaDet7: TDataSource
-    Top = 446
+    Left = 624
+    Top = 118
   end
   inherited dsRegistroDet8: TDataSource
-    Top = 446
+    Left = 720
+    Top = 118
   end
   inherited dtEditDet8: TIBDataSet
-    Top = 414
+    Left = 720
+    Top = 86
   end
   inherited dsLinkDet8: TDataSource
-    Top = 378
+    Left = 704
+    Top = 50
   end
   inherited dtListDet8: TIBQuery
-    Top = 414
+    Left = 688
+    Top = 86
   end
   inherited dsPesquisaDet8: TDataSource
-    Top = 446
+    Left = 688
+    Top = 118
+  end
+  inherited mtbFiltro: TdxMemData
+    Left = 461
+    Top = 4
+  end
+  inherited dsFiltro: TDataSource
+    Left = 503
+    Top = 4
   end
   object dsPessoa: TDataSource
     AutoEdit = False
     DataSet = QryPessoa
-    Left = 635
-    Top = 72
+    Left = 634
+    Top = 304
   end
   object QryPessoa: TIBQuery
     Tag = 4
@@ -2883,8 +3058,8 @@ inherited frmCadClientes: TfrmCadClientes
       'select psa.codigo, psa.nome_razao from glo_pessoas_fj psa'
       'where psa.cnpj = :cnpj'
       'order by psa.nome_razao')
-    Left = 664
-    Top = 72
+    Left = 632
+    Top = 336
     ParamData = <
       item
         DataType = ftString
@@ -2902,5 +3077,414 @@ inherited frmCadClientes: TfrmCadClientes
       Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
       Size = 50
     end
+  end
+  object dsCategoria: TDataSource
+    AutoEdit = False
+    DataSet = QryCategoria
+    Left = 665
+    Top = 304
+  end
+  object QryCategoria: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      'select * from glo_clientes_categoria c'
+      'where c.cnpj = :cnpj'
+      'order by c.nome')
+    Left = 664
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryCategoriaCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"GLO_CLIENTES_CATEGORIA"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryCategoriaCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_CLIENTES_CATEGORIA"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryCategoriaNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"GLO_CLIENTES_CATEGORIA"."NOME"'
+      Size = 50
+    end
+  end
+  object QryClassificacao: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      'select '
+      '        CNPJ, '
+      '        CODIGO, '
+      '        NOME,'
+      '        DIG_SENHA '
+      'from GLO_CLASSIFICACAO'
+      'Where Cnpj = :CNPJ'
+      'order by NOME')
+    Left = 696
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryClassificacaoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"GLO_CLASSIFICACAO"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryClassificacaoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_CLASSIFICACAO"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryClassificacaoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"GLO_CLASSIFICACAO"."NOME"'
+      Size = 50
+    end
+    object QryClassificacaoDIG_SENHA: TIBStringField
+      FieldName = 'DIG_SENHA'
+      Origin = '"GLO_CLASSIFICACAO"."DIG_SENHA"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object dsClassificacao: TDataSource
+    AutoEdit = False
+    DataSet = QryClassificacao
+    Left = 697
+    Top = 304
+  end
+  object QryVendedor: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      'SELECT CNPJ, '
+      '               CODIGO, '
+      '               NOME, '
+      '               COM_VISTA, '
+      '               COM_PRAZO,'
+      '               PESSOA_FJ,'
+      '               SENHA,'
+      '               ATIVO,'
+      '               COD_PERFIL, '
+      '               COD_PERFIL_PAGTO'
+      'FROM FAT_VENDEDOR'
+      'WHERE CNPJ = :CNPJ '
+      'ORDER BY NOME')
+    Left = 728
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryVendedorCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"FAT_VENDEDOR"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryVendedorCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"FAT_VENDEDOR"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryVendedorNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"FAT_VENDEDOR"."NOME"'
+      Size = 50
+    end
+    object QryVendedorCOM_VISTA: TFloatField
+      FieldName = 'COM_VISTA'
+      Origin = '"FAT_VENDEDOR"."COM_VISTA"'
+    end
+    object QryVendedorCOM_PRAZO: TFloatField
+      FieldName = 'COM_PRAZO'
+      Origin = '"FAT_VENDEDOR"."COM_PRAZO"'
+    end
+    object QryVendedorPESSOA_FJ: TIntegerField
+      FieldName = 'PESSOA_FJ'
+      Origin = '"FAT_VENDEDOR"."PESSOA_FJ"'
+    end
+    object QryVendedorSENHA: TIBStringField
+      FieldName = 'SENHA'
+      Origin = '"FAT_VENDEDOR"."SENHA"'
+      Size = 6
+    end
+    object QryVendedorATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"FAT_VENDEDOR"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryVendedorCOD_PERFIL: TIntegerField
+      FieldName = 'COD_PERFIL'
+      Origin = '"FAT_VENDEDOR"."COD_PERFIL"'
+    end
+    object QryVendedorCOD_PERFIL_PAGTO: TIntegerField
+      FieldName = 'COD_PERFIL_PAGTO'
+      Origin = '"FAT_VENDEDOR"."COD_PERFIL_PAGTO"'
+    end
+  end
+  object dsVendedor: TDataSource
+    AutoEdit = False
+    DataSet = QryVendedor
+    Left = 729
+    Top = 304
+  end
+  object QryFormaPagto: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      'SELECT CNPJ, '
+      '               CODIGO, '
+      '               NOME, '
+      '               COM_VISTA, '
+      '               COM_PRAZO,'
+      '               PESSOA_FJ,'
+      '               SENHA,'
+      '               ATIVO,'
+      '               COD_PERFIL, '
+      '               COD_PERFIL_PAGTO'
+      'FROM FAT_VENDEDOR'
+      'WHERE CNPJ = :CNPJ '
+      'ORDER BY NOME')
+    Left = 759
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object IBStringField1: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"FAT_VENDEDOR"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object IntegerField1: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"FAT_VENDEDOR"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object IBStringField2: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"FAT_VENDEDOR"."NOME"'
+      Size = 50
+    end
+    object FloatField1: TFloatField
+      FieldName = 'COM_VISTA'
+      Origin = '"FAT_VENDEDOR"."COM_VISTA"'
+    end
+    object FloatField2: TFloatField
+      FieldName = 'COM_PRAZO'
+      Origin = '"FAT_VENDEDOR"."COM_PRAZO"'
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'PESSOA_FJ'
+      Origin = '"FAT_VENDEDOR"."PESSOA_FJ"'
+    end
+    object IBStringField3: TIBStringField
+      FieldName = 'SENHA'
+      Origin = '"FAT_VENDEDOR"."SENHA"'
+      Size = 6
+    end
+    object IBStringField4: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"FAT_VENDEDOR"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'COD_PERFIL'
+      Origin = '"FAT_VENDEDOR"."COD_PERFIL"'
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'COD_PERFIL_PAGTO'
+      Origin = '"FAT_VENDEDOR"."COD_PERFIL_PAGTO"'
+    end
+  end
+  object dsFormaPagto: TDataSource
+    AutoEdit = False
+    DataSet = QryFormaPagto
+    Left = 760
+    Top = 304
+  end
+  object QryAtividades: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               CODIGO, '
+      '               NOME '
+      'FROM GLO_ATIVIDADES'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
+    Left = 791
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryAtividadesCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"GLO_ATIVIDADES"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryAtividadesCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_ATIVIDADES"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryAtividadesNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"GLO_ATIVIDADES"."NOME"'
+      Size = 50
+    end
+  end
+  object dsAtividade: TDataSource
+    AutoEdit = False
+    DataSet = QryAtividades
+    Left = 792
+    Top = 304
+  end
+  object dsLogradouros: TDataSource
+    AutoEdit = False
+    DataSet = QryLogradouros
+    Left = 632
+    Top = 368
+  end
+  object QryLogradouros: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               CODIGO, '
+      '               NOME '
+      'FROM GLO_ATIVIDADES'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
+    Left = 631
+    Top = 400
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object IBStringField5: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"GLO_ATIVIDADES"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object IntegerField5: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_ATIVIDADES"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object IBStringField6: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"GLO_ATIVIDADES"."NOME"'
+      Size = 50
+    end
+  end
+  object QryCidades: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      'select c.*'
+      'from glo_cidades c'
+      'where c.cnpj = :cnpj'
+      'order by c.nome')
+    Left = 662
+    Top = 400
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryCidadesCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"GLO_CIDADES"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryCidadesCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_CIDADES"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryCidadesNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"GLO_CIDADES"."NOME"'
+      Size = 50
+    end
+    object QryCidadesUF: TIBStringField
+      FieldName = 'UF'
+      Origin = '"GLO_CIDADES"."UF"'
+      FixedChar = True
+      Size = 2
+    end
+    object QryCidadesCOD_IBGE: TIBStringField
+      FieldName = 'COD_IBGE'
+      Origin = '"GLO_CIDADES"."COD_IBGE"'
+      Size = 7
+    end
+    object QryCidadesCOD_IAGRO: TIntegerField
+      FieldName = 'COD_IAGRO'
+      Origin = '"GLO_CIDADES"."COD_IAGRO"'
+    end
+  end
+  object dsCidades: TDataSource
+    AutoEdit = False
+    DataSet = QryCidades
+    Left = 663
+    Top = 368
   end
 end
