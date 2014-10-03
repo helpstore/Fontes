@@ -207,7 +207,7 @@ uses Pdv_DM,
      SenhaGerencialPdv_Form,
      Localizar_Mesa,
      Usuarios_DM,
-     UDS300, Calculadora_Pdv_Form, Localizar_Natureza,
+      Calculadora_Pdv_Form, Localizar_Natureza,
   Localizar_Vendedor_PDV, Help_Form, Cadastros_DM, Vendas_DM2,
   SerieCustomizaveis_DM, Baixa_Receber_Multiplos_Parc_Form,
   IndicesPdv_Form, Comandas_Form;

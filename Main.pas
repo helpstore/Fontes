@@ -1380,7 +1380,7 @@ uses
   UntCadTipoDocumento, UntCadAlegacao, UntCadEventoContabil,
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
-  untCadFornecedores, untCadOS;
+  untCadFornecedores, untCadOS, untCadContratoAtendimento;
 
 {$R *.DFM}
 
@@ -7744,6 +7744,20 @@ end;
 
 procedure TFrmMain.btnContratoClick(Sender: TObject);
 begin
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadContratoAtendimento', True)) then
+    Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' then
+     Exit;
+
+  if frmCadContratoAtendimento = nil  then
+  begin
+    frmCadContratoAtendimento := TfrmCadContratoAtendimento.Create(Self);
+    frmCadContratoAtendimento.ShowModal;
+    frmCadContratoAtendimento.Free      ;
+    frmCadContratoAtendimento := Nil    ;
+  end;
+
   if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmContratosClientesProdutos', True)) then
     Exit;
 

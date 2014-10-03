@@ -1,23 +1,23 @@
 inherited frmCadOS: TfrmCadOS
-  Left = -1
-  Top = 46
-  Width = 1296
-  Height = 776
+  Left = 1
+  Top = 0
+  Width = 1278
+  Height = 728
   Caption = 'Manuten'#231#227'o de Ordens de Servi'#231'o'
   OldCreateOrder = True
   WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1280
-    Height = 712
-    ClientRectBottom = 708
-    ClientRectRight = 1276
+    Width = 1262
+    Height = 664
+    ClientRectBottom = 660
+    ClientRectRight = 1258
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 124
-        Width = 1272
-        Height = 557
+        Width = 1254
+        Height = 509
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroST_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_CODIGO'
@@ -423,7 +423,7 @@ inherited frmCadOS: TfrmCadOS
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1272
+        Width = 1254
         Height = 124
         Color = clWhite
         object edtInicial: TcxDBDateEdit
@@ -595,29 +595,29 @@ inherited frmCadOS: TfrmCadOS
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1272
-        Height = 681
+        Width = 1254
+        Height = 633
         inherited pnlSubCad: TPanel
-          Top = 384
-          Width = 1270
+          Top = 336
+          Width = 1252
           Height = 296
           inherited PgcDetalhe: TcxPageControl
-            Width = 1270
+            Width = 1252
             Height = 296
             ActivePage = tbsDetalhe2
             ClientRectBottom = 292
-            ClientRectRight = 1266
+            ClientRectRight = 1248
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Itens'
               inherited PGCSub1: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ActivePage = tbsEditaSub1
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 1254
+                    Width = 1236
                     Height = 234
                   end
                 end
@@ -794,14 +794,14 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe2: TcxTabSheet
               Caption = 'Movimentos'
               inherited PGCSub2: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ActivePage = tbsEditaSub2
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
-                    Width = 1254
+                    Width = 1236
                     Height = 234
                     inherited TVDet2: TcxGridDBTableView
                       object TVDet2CNPJ: TcxGridDBColumn
@@ -1559,19 +1559,19 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Height = 234
@@ -1582,37 +1582,37 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 1262
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1258
+                ClientRectRight = 1240
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 1254
@@ -1624,13 +1624,13 @@ inherited frmCadOS: TfrmCadOS
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1270
-          Height = 383
+          Width = 1252
+          Height = 335
           inherited PgcMaster: TcxPageControl
-            Width = 1270
-            Height = 383
-            ClientRectBottom = 379
-            ClientRectRight = 1266
+            Width = 1252
+            Height = 335
+            ClientRectBottom = 331
+            ClientRectRight = 1248
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit
@@ -4208,10 +4208,7 @@ inherited frmCadOS: TfrmCadOS
       OnExecute = ActImprimirOSExecute
     end
   end
-  inherited cxImageList1: TcxImageList
-    FormatVersion = 1
-  end
-  object QryClientes: TIBQuery [11]
+  object QryClientes: TIBQuery [7]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -4266,12 +4263,12 @@ inherited frmCadOS: TfrmCadOS
       Size = 55
     end
   end
-  object dsClientes: TDataSource [12]
+  object dsClientes: TDataSource [8]
     DataSet = QryClientes
     Left = 535
     Top = 2
   end
-  object QryStatus: TIBQuery [13]
+  object QryStatus: TIBQuery [9]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -4342,7 +4339,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 1
     end
   end
-  object QryTecnico: TIBQuery [14]
+  object QryTecnico: TIBQuery [10]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -4386,7 +4383,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 8
     end
   end
-  object QryMotivoChamado: TIBQuery [15]
+  object QryMotivoChamado: TIBQuery [11]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -4428,7 +4425,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 1
     end
   end
-  object QryDefeito: TIBQuery [16]
+  object QryDefeito: TIBQuery [12]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -4475,7 +4472,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 1
     end
   end
-  object QryServicoExecutado: TIBQuery [17]
+  object QryServicoExecutado: TIBQuery [13]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -4492,7 +4489,7 @@ inherited frmCadOS: TfrmCadOS
         ParamType = ptUnknown
       end>
   end
-  object QryEquipCliente: TIBQuery [18]
+  object QryEquipCliente: TIBQuery [14]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -4622,37 +4619,37 @@ inherited frmCadOS: TfrmCadOS
       Size = 50
     end
   end
-  object dsEquipamento: TDataSource [19]
+  object dsEquipamento: TDataSource [15]
     DataSet = QryEquipCliente
     Left = 567
     Top = 2
   end
-  object dsStatus: TDataSource [20]
+  object dsStatus: TDataSource [16]
     DataSet = QryStatus
     Left = 599
     Top = 2
   end
-  object dsTecnico: TDataSource [21]
+  object dsTecnico: TDataSource [17]
     DataSet = QryTecnico
     Left = 631
     Top = 2
   end
-  object dsDefeitoReclamado: TDataSource [22]
+  object dsDefeitoReclamado: TDataSource [18]
     DataSet = QryDefeito
     Left = 663
     Top = 2
   end
-  object dsServicoExecutado: TDataSource [23]
+  object dsServicoExecutado: TDataSource [19]
     DataSet = QryServicoExecutado
     Left = 695
     Top = 2
   end
-  object dsMotivoChamado: TDataSource [24]
+  object dsMotivoChamado: TDataSource [20]
     DataSet = QryMotivoChamado
     Left = 727
     Top = 2
   end
-  object SelSeries: TIBQuery [25]
+  object SelSeries: TIBQuery [21]
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     SQL.Strings = (
@@ -4701,7 +4698,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 15
     end
   end
-  object SelEndereco: TIBQuery [26]
+  object SelEndereco: TIBQuery [22]
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     SQL.Strings = (
@@ -4760,7 +4757,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 2
     end
   end
-  object QryProdutosItens: TIBQuery [27]
+  object QryProdutosItens: TIBQuery [23]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -5283,10 +5280,13 @@ inherited frmCadOS: TfrmCadOS
       Origin = '"EST_PRODUTOS"."COD_TECNICO"'
     end
   end
-  object dsProdutosItens: TDataSource [28]
+  object dsProdutosItens: TDataSource [24]
     DataSet = QryProdutosItens
     Left = 816
     Top = 260
+  end
+  inherited cxImageList1: TcxImageList
+    FormatVersion = 1
   end
   inherited cxPropertiesStore: TcxPropertiesStore
     Components = <
