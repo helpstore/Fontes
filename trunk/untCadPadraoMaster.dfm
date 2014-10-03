@@ -1,6 +1,6 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
-  Left = 304
-  Top = 82
+  Left = 231
+  Top = 84
   Width = 1049
   Height = 594
   Caption = 'frmCadPadraoMaster'
@@ -1567,6 +1567,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     object ActCadLookup: TAction
       Caption = 'ActCadLookup'
       ShortCut = 115
+      OnExecute = ActCadLookupExecute
     end
     object ActImprimir: TAction
       Caption = 'ActImprimir'

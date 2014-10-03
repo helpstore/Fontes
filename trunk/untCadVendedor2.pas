@@ -23,7 +23,7 @@ uses
   cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridBandedTableView, cxGridDBBandedTableView, cxGrid, cxPC,
   cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox,
-  cxButtonEdit, cxMaskEdit, cxCalc;
+  cxButtonEdit, cxMaskEdit, cxCalc, dxmdaset;
 
 type
   TfrmCadVendedor2 = class(TfrmCadPadraoMaster)
@@ -78,11 +78,6 @@ type
     dtEditDet1PRAZO: TFloatField;
     dtEditDet1VALOR: TFloatField;
     dtEditDet1VISTA: TFloatField;
-    TVDet1CNPJ: TcxGridDBColumn;
-    TVDet1CODIGO: TcxGridDBColumn;
-    TVDet1VALOR: TcxGridDBColumn;
-    TVDet1PRAZO: TcxGridDBColumn;
-    TVDet1VISTA: TcxGridDBColumn;
     cxDBCalcEdit3: TcxDBCalcEdit;
     cxLabel14: TcxLabel;
     cxDBCalcEdit4: TcxDBCalcEdit;
@@ -95,6 +90,12 @@ type
     QryPessoa: TIBQuery;
     QryPessoaCODIGO: TIntegerField;
     QryPessoaNOME_RAZAO: TIBStringField;
+    TVDet1CNPJ: TcxGridDBBandedColumn;
+    TVDet1CODIGO: TcxGridDBBandedColumn;
+    TVDet1VALOR: TcxGridDBBandedColumn;
+    TVDet1PRAZO: TcxGridDBBandedColumn;
+    TVDet1VISTA: TcxGridDBBandedColumn;
+    TVDet1ID: TcxGridDBBandedColumn;
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure cxDBCalcEdit5KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);

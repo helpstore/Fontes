@@ -1064,8 +1064,7 @@ object FrmContratosItens: TFrmContratosItens
   object DataSource: TDataSource
     DataSet = dmCadastros2.ContratosItens
     OnStateChange = DataSourceStateChange
-    Left = 24
-    Top = 48
+    Left = 240
   end
   object dsProdutos: TDataSource
     AutoEdit = False
@@ -1117,7 +1116,6 @@ object FrmContratosItens: TFrmContratosItens
   object dsDescontos: TDataSource
     DataSet = dmCadastros2.CtItensDesconto
     OnStateChange = DataSourceStateChange
-    Left = 72
-    Top = 48
+    Left = 208
   end
 end

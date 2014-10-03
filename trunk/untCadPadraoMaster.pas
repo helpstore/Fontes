@@ -254,6 +254,7 @@ type
     procedure ActFilterExecute(Sender: TObject);
     procedure pnlFiltroExit(Sender: TObject);
     procedure pnlFiltroEnter(Sender: TObject);
+    procedure ActCadLookupExecute(Sender: TObject);
   private
     { Private declarations }
     Foco : string;
@@ -1346,6 +1347,43 @@ procedure TfrmCadPadraoMaster.pnlFiltroEnter(Sender: TObject);
 begin
   inherited;
   ActDelete.enabled := false;
+end;
+
+procedure TfrmCadPadraoMaster.ActCadLookupExecute(Sender: TObject);
+var
+  campo,classe : string;
+  Formulario: TFormClass;
+begin
+  inherited;
+  {Para que o lookup funcione corretamente são necessários os seguintes passos:
+   1 - Colocar o nome do componente de controle (dblookup) letra+NOME DO FORM A SER CRIADO
+       ex: no cadastro de fornecedores de tem o dblookup de bancos, logo o nome do dblookup precisa ser
+       aTfrmCadBancos.
+
+   2 - Em todo formulario que for instanciado por lookup (como é o caso de FrmCadbancos) é necessário
+       colocar a clausula inicialization da classe
+
+   3 - Já para que o botão funcione, basta manter o mesmo padrao do que já é utilzado
+   ex: colocar no onclick do botao ---> CadastroLookup(TfrmCadBancos,dtEdit,'BANCO_C1',QryBanco1);
+  }
+  if (TcxDBLookupComboBox(Screen.ActiveControl).Parent is TcxDBLookupComboBox) then
+  begin
+    //'extraindo' a classe do nome do controle
+    Classe := copy(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).name,2,50);
+
+    //capturando a classe, so ira funcionar se ela estiver inicializada, por isso a necessidade do inicialization
+    Formulario := TFormClass(GetClass(Classe));
+
+    //pegando o nome do field no controle
+    campo := TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).DataBinding.DataField;
+
+    if not Assigned(Formulario) then
+      exit;
+      
+    //chamando a rotina de lookup
+    CadastroLookup(Formulario,dtEdit,campo,TIBQuery(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).Properties.listsource.dataset));
+  end;
+
 end;
 
 end.

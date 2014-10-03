@@ -1,6 +1,6 @@
 object FrmTipos_Contratos: TFrmTipos_Contratos
-  Left = 270
-  Top = 195
+  Left = 277
+  Top = 196
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Tipos de Contrato'
@@ -162,8 +162,8 @@ object FrmTipos_Contratos: TFrmTipos_Contratos
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

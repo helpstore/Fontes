@@ -1,6 +1,6 @@
 inherited frmCadTipoContrato: TfrmCadTipoContrato
-  Left = 219
-  Top = 239
+  Left = 230
+  Top = 243
   Caption = 'Tipos de Contrato'
   OldCreateOrder = True
   PixelsPerInch = 96
@@ -77,6 +77,9 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
+    GeneratorField.Field = 'CODIGO'
+    GeneratorField.Generator = 'GLO_CONTRATOS_GE'
+    GeneratorField.ApplyEvent = gamOnPost
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"GLO_TIPO_CONTRATO"."CNPJ"'
@@ -105,6 +108,8 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       'FROM GLO_TIPO_CONTRATO'
       'WHERE CNPJ = :CNPJ'
       'ORDER BY NOME')
+    Left = 89
+    Top = 4
     ParamData = <
       item
         DataType = ftUnknown

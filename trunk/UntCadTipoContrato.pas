@@ -46,5 +46,7 @@ var
 implementation
 
 {$R *.dfm}
+initialization
+ RegisterClass(TfrmCadTipoContrato);
 
 end.

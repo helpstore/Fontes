@@ -603,7 +603,6 @@ end;
 procedure TfrmCadPadrao.ActCadLookupExecute(Sender: TObject);
 var
   campo,classe : string;
-  temp_comp: TcxButtonEdit;
   Formulario: TFormClass;
 begin
   inherited;
