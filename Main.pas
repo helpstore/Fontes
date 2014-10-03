@@ -3332,30 +3332,21 @@ end;
 
 procedure TFrmMain.OpClassificacaoClick(Sender: TObject);
 begin
-  { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmClassificacoes', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadClassificacao', True)) Then
      Exit;
   { * * * * * }
   If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
   { * * * * * }
-  If FrmClassificacoes = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-       //
-//       DMCadastros  := TDMCadastros.Create(Self);
 
-       FrmClassificacoes   := TFrmClassificacoes.Create(Self);
-       //
-       FrmClassificacoes.FormStyle   := fsMDIChild;
-       FrmClassificacoes.WindowState := wsMaximized;
-       FrmClassificacoes.BorderStyle := bsNone;
-       PnlClient.Visible       := False;
-     End;
+  if frmCadClassificacao = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadClassificacao := TfrmCadClassificacao.Create(Self);
+     frmCadClassificacao.ShowMODAL ;
+     frmCadClassificacao.Free      ;
+     frmCadClassificacao := Nil    ;
+  end;
 end;
 
 procedure TFrmMain.relProdutosFornecedorClick(Sender: TObject);

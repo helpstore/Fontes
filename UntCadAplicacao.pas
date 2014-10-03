@@ -1,4 +1,4 @@
-unit untCadAtividades;
+unit UntCadAplicacao;
 
 interface
 
@@ -16,24 +16,24 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinscxPCPainter, cxStyles, cxCustomData, cxFilter,
   cxData, cxDataStorage, cxEdit, DB, cxDBData, cxContainer,
-  dxSkinsdxBarPainter, cxIntlBase, cxintl, cxPropertiesStore, ACBrBase,
-  ACBrEnterTab, cxGridCustomPopupMenu, cxGridPopupMenu, dxBarDBNav,
-  ImgList, ActnList, dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel,
-  cxTextEdit, cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView,
-  cxGridCustomTableView, cxGridTableView, cxGridBandedTableView,
-  cxGridDBBandedTableView, cxGrid, cxPC;
+  dxSkinsdxBarPainter, cxIntlBase, cxintl, cxPropertiesStore,
+  cxGridCustomPopupMenu, cxGridPopupMenu, dxBarDBNav, ImgList, ActnList,
+  dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
+  cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
+  cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
+  cxPC;
 
 type
-  TfrmCadAtividades = class(TfrmCadPadrao)
+  TfrmCadAplicacao = class(TfrmCadPadrao)
     dtListCNPJ: TIBStringField;
     dtListCODIGO: TIntegerField;
     dtListNOME: TIBStringField;
-    dtEditCNPJ: TIBStringField;
-    dtEditCODIGO: TIntegerField;
-    dtEditNOME: TIBStringField;
     GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn;
     GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn;
     GridDBBandedTableView2NOME: TcxGridDBBandedColumn;
+    dtEditCNPJ: TIBStringField;
+    dtEditCODIGO: TIntegerField;
+    dtEditNOME: TIBStringField;
   private
     { Private declarations }
   public
@@ -41,13 +41,10 @@ type
   end;
 
 var
-  frmCadAtividades: TfrmCadAtividades;
+  frmCadAplicacao: TfrmCadAplicacao;
 
 implementation
 
 {$R *.dfm}
-
-initialization
- RegisterClass(TfrmCadAtividades);
 
 end.

@@ -1,11 +1,9 @@
-inherited frmCadLogradouro: TfrmCadLogradouro
-  Left = 204
-  Top = 151
-  Caption = 'Logradouros'
-  OldCreateOrder = True
+inherited frmCadAplicacao: TfrmCadAplicacao
+  Caption = 'Aplica'#231#245'es - Produtos'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
@@ -44,12 +42,12 @@ inherited frmCadLogradouro: TfrmCadLogradouro
   end
   inherited dtEdit: TIBDataSet
     DeleteSQL.Strings = (
-      'delete from GLO_LOGRADOUROS'
+      'delete from EST_APLICACOES'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
-      'insert into GLO_LOGRADOUROS'
+      'insert into EST_APLICACOES'
       '  (CNPJ, CODIGO, NOME)'
       'values'
       '  (:CNPJ, :CODIGO, :NOME)')
@@ -58,7 +56,7 @@ inherited frmCadLogradouro: TfrmCadLogradouro
       '  CNPJ,'
       '  CODIGO,'
       '  NOME'
-      'from GLO_LOGRADOUROS '
+      'from EST_APLICACOES '
       'where'
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
@@ -66,12 +64,10 @@ inherited frmCadLogradouro: TfrmCadLogradouro
       'SELECT CNPJ,'
       '               CODIGO, '
       '               NOME '
-      'FROM GLO_LOGRADOUROS'
-      'WHERE CODIGO = :CODIGO'
-      'and CNPJ = :CNPJ'
-      '')
+      'FROM EST_APLICACOES'
+      'WHERE CODIGO =:CODIGO')
     ModifySQL.Strings = (
-      'update GLO_LOGRADOUROS'
+      'update EST_APLICACOES'
       'set'
       '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
@@ -79,12 +75,12 @@ inherited frmCadLogradouro: TfrmCadLogradouro
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
-    GeneratorField.Field = 'coDIGO'
-    GeneratorField.Generator = 'GLO_LOGRADOUROS_GE'
+    GeneratorField.Field = 'CODIGO'
+    GeneratorField.Generator = 'EST_APLICACOES_GE'
     GeneratorField.ApplyEvent = gamOnPost
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"GLO_LOGRADOUROS"."CNPJ"'
+      Origin = '"EST_APLICACOES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
@@ -92,13 +88,13 @@ inherited frmCadLogradouro: TfrmCadLogradouro
     end
     object dtEditCODIGO: TIntegerField
       FieldName = 'CODIGO'
-      Origin = '"GLO_LOGRADOUROS"."CODIGO"'
+      Origin = '"EST_APLICACOES"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtEditNOME: TIBStringField
       FieldName = 'NOME'
-      Origin = '"GLO_LOGRADOUROS"."NOME"'
+      Origin = '"EST_APLICACOES"."NOME"'
       Size = 50
     end
   end
@@ -107,7 +103,7 @@ inherited frmCadLogradouro: TfrmCadLogradouro
       'SELECT CNPJ,'
       '               CODIGO, '
       '               NOME '
-      'FROM GLO_LOGRADOUROS'
+      'FROM EST_APLICACOES'
       'WHERE CNPJ = :CNPJ'
       'ORDER BY NOME')
     ParamData = <
@@ -118,7 +114,7 @@ inherited frmCadLogradouro: TfrmCadLogradouro
       end>
     object dtListCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"GLO_LOGRADOUROS"."CNPJ"'
+      Origin = '"EST_APLICACOES"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
@@ -127,14 +123,14 @@ inherited frmCadLogradouro: TfrmCadLogradouro
     object dtListCODIGO: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
-      Origin = '"GLO_LOGRADOUROS"."CODIGO"'
+      Origin = '"EST_APLICACOES"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtListNOME: TIBStringField
       DisplayLabel = 'Nome'
       FieldName = 'NOME'
-      Origin = '"GLO_LOGRADOUROS"."NOME"'
+      Origin = '"EST_APLICACOES"."NOME"'
       Size = 50
     end
   end

@@ -1,15 +1,13 @@
 inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
   Left = 235
   Top = 216
-  Caption = 'Aplica'#231#227'o'
+  Caption = 'Produto / Aplica'#231#227'o'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 767
-        Height = 332
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -37,9 +35,6 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
             Position.RowIndex = 0
           end
         end
-      end
-      inherited Panel1: TPanel
-        Width = 767
       end
     end
     inherited tbsEdita: TcxTabSheet

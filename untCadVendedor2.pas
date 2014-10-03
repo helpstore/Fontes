@@ -126,4 +126,7 @@ begin
 
 end;
 
+initialization
+ RegisterClass(TfrmCadVendedor2);
+
 end.

@@ -1,6 +1,6 @@
 object FrmClassificacoes: TFrmClassificacoes
-  Left = 130
-  Top = 151
+  Left = 417
+  Top = 110
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Classifica'#231#245'es '

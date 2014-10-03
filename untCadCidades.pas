@@ -100,4 +100,8 @@ begin
     cbUF.OnClick(cbUF);
 end;
 
+
+initialization
+ RegisterClass(TfrmCadCidades);
+
 end.

@@ -31,6 +31,9 @@ type
     GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn;
     GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn;
     GridDBBandedTableView2NOME: TcxGridDBBandedColumn;
+    dtEditCNPJ: TIBStringField;
+    dtEditCODIGO: TIntegerField;
+    dtEditNOME: TIBStringField;
   private
     { Private declarations }
   public

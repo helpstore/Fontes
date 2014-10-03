@@ -580,7 +580,8 @@ uses
   untCadClientes in 'untCadClientes.pas' {frmCadClientes},
   untFormPadrao in 'untFormPadrao.pas' {FormPadrao},
   untCadOS in 'untCadOS.pas' {frmCadOS},
-  untCadContratoAtendimento in 'untCadContratoAtendimento.pas' {frmCadContratoAtendimento};
+  untCadContratoAtendimento in 'untCadContratoAtendimento.pas' {frmCadContratoAtendimento},
+  UntCadClassificacao in 'UntCadClassificacao.pas' {frmCadClassificacao};
 
 {$R *.RES}
 

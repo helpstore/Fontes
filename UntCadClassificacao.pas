@@ -51,4 +51,6 @@ implementation
 
 {$R *.dfm}
 
+initialization
+ RegisterClass(TfrmCadClassificacao);
 end.

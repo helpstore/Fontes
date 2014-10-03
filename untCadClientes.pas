@@ -172,9 +172,8 @@ type
     QryPessoa: TIBQuery;
     QryPessoaCODIGO: TIntegerField;
     QryPessoaNOME_RAZAO: TIBStringField;
-    cbPessoaFJ: TcxDBLookupComboBox;
+    aTfrmCadPessoas: TcxDBLookupComboBox;
     cxLabel12: TcxLabel;
-    btnPessoa: TcxButtonEdit;
     ckCompartilha: TcxDBCheckBox;
     dtEditCNPJ: TIBStringField;
     dtEditPESSOA_FJ: TIntegerField;
@@ -252,7 +251,7 @@ type
     cxLabel16: TcxLabel;
     cxDBMaskEdit11: TcxDBMaskEdit;
     cxLabel29: TcxLabel;
-    cmbVendedor: TcxDBLookupComboBox;
+    aTfrmCadVendedor2: TcxDBLookupComboBox;
     cxLabel42: TcxLabel;
     cmbForma: TcxDBLookupComboBox;
     cxLabel45: TcxLabel;
@@ -274,7 +273,7 @@ type
     CmbClassificacao: TcxDBLookupComboBox;
     cxLabel89: TcxLabel;
     cxDBCalcEdit6: TcxDBCalcEdit;
-    cmbCategorias: TcxDBLookupComboBox;
+    aTFrmCadCategoriaClientes: TcxDBLookupComboBox;
     cxLabel10: TcxLabel;
     btnCategoria: TcxButton;
     cxDBCheckBox1: TcxDBCheckBox;
@@ -327,16 +326,16 @@ type
     cxLabel108: TcxLabel;
     cxDBDateEdit11: TcxDBDateEdit;
     cxLabel109: TcxLabel;
-    CmbAtividade: TcxDBLookupComboBox;
+    aTfrmCadAtividades: TcxDBLookupComboBox;
     cxLabel110: TcxLabel;
     cxDBTextEdit18: TcxDBTextEdit;
     cxLabel111: TcxLabel;
     cxDBTextEdit19: TcxDBTextEdit;
     cxLabel112: TcxLabel;
-    cmbLogradouroPai: TcxDBLookupComboBox;
+    aTfrmCadLogradouro: TcxDBLookupComboBox;
     cxLabel113: TcxLabel;
     cxLabel114: TcxLabel;
-    cmbCidadePai: TcxDBLookupComboBox;
+    aTfrmCadCidades: TcxDBLookupComboBox;
     cxLabel115: TcxLabel;
     cxDBMaskEdit13: TcxDBMaskEdit;
     cxLabel116: TcxLabel;
@@ -362,10 +361,74 @@ type
     cxLabel124: TcxLabel;
     cxLabel125: TcxLabel;
     cxDBTextEdit22: TcxDBTextEdit;
+    btnCadPessoa: TcxButton;
+    cxTabSheet1: TcxTabSheet;
+    cxTabSheet2: TcxTabSheet;
+    dsCategoria: TDataSource;
+    QryCategoria: TIBQuery;
+    QryCategoriaCNPJ: TIBStringField;
+    QryCategoriaCODIGO: TIntegerField;
+    QryCategoriaNOME: TIBStringField;
+    QryClassificacao: TIBQuery;
+    dsClassificacao: TDataSource;
+    QryClassificacaoCNPJ: TIBStringField;
+    QryClassificacaoCODIGO: TIntegerField;
+    QryClassificacaoNOME: TIBStringField;
+    QryClassificacaoDIG_SENHA: TIBStringField;
+    btnCadVendedor: TcxButton;
+    QryVendedor: TIBQuery;
+    dsVendedor: TDataSource;
+    QryVendedorCNPJ: TIBStringField;
+    QryVendedorCODIGO: TIntegerField;
+    QryVendedorNOME: TIBStringField;
+    QryVendedorCOM_VISTA: TFloatField;
+    QryVendedorCOM_PRAZO: TFloatField;
+    QryVendedorPESSOA_FJ: TIntegerField;
+    QryVendedorSENHA: TIBStringField;
+    QryVendedorATIVO: TIBStringField;
+    QryVendedorCOD_PERFIL: TIntegerField;
+    QryVendedorCOD_PERFIL_PAGTO: TIntegerField;
+    QryFormaPagto: TIBQuery;
+    IBStringField1: TIBStringField;
+    IntegerField1: TIntegerField;
+    IBStringField2: TIBStringField;
+    FloatField1: TFloatField;
+    FloatField2: TFloatField;
+    IntegerField2: TIntegerField;
+    IBStringField3: TIBStringField;
+    IBStringField4: TIBStringField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    dsFormaPagto: TDataSource;
+    QryAtividades: TIBQuery;
+    dsAtividade: TDataSource;
+    QryAtividadesCNPJ: TIBStringField;
+    QryAtividadesCODIGO: TIntegerField;
+    QryAtividadesNOME: TIBStringField;
+    dsLogradouros: TDataSource;
+    QryLogradouros: TIBQuery;
+    IBStringField5: TIBStringField;
+    IntegerField5: TIntegerField;
+    IBStringField6: TIBStringField;
+    QryCidades: TIBQuery;
+    dsCidades: TDataSource;
+    QryCidadesCNPJ: TIBStringField;
+    QryCidadesCODIGO: TIntegerField;
+    QryCidadesNOME: TIBStringField;
+    QryCidadesUF: TIBStringField;
+    QryCidadesCOD_IBGE: TIBStringField;
+    QryCidadesCOD_IAGRO: TIntegerField;
+    procedure btnCadPessoaClick(Sender: TObject);
+    procedure btnCategoriaClick(Sender: TObject);
+    procedure BtnclassificacaoClick(Sender: TObject);
+    procedure btnCadVendedorClick(Sender: TObject);
+    procedure BtnAtividadeClick(Sender: TObject);
+    procedure BtnEnderecoPaiClick(Sender: TObject);
+    procedure BtnCidadePaiClick(Sender: TObject);
   private
     { Private declarations }
   public
-     
+
     { Public declarations }
   end;
 
@@ -375,5 +438,50 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadClientes.btnCategoriaClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TFrmCadCategoriaClientes,dtEdit,'CATEGORIA',QryCategoria);
+end;
+
+procedure TfrmCadClientes.btnCadPessoaClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadPessoas,dtEdit,'PESSOA_FJ',QryPessoa);
+end;
+
+procedure TfrmCadClientes.BtnclassificacaoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadClassificacao,dtEdit,'COD_CLASSIF',QryClassificacao);
+end;
+
+procedure TfrmCadClientes.btnCadVendedorClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadVendedor2,dtEdit,'COD_VEND',QryVendedor);
+end;
+
+procedure TfrmCadClientes.BtnAtividadeClick(Sender: TObject);
+begin
+  inherited;
+   CadastroLookup(TfrmCadAtividades,dtEdit,'ATIVIDADE',QryVendedor);
+end;
+
+procedure TfrmCadClientes.BtnEnderecoPaiClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadLogradouro,dtEdit,'ENDERECO_PAIS',QryLogradouros);
+end;
+
+procedure TfrmCadClientes.BtnCidadePaiClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadCidades,dtEdit,'CIDADE_PAIS',QryCidades);
+end;
+
+initialization
+ RegisterClass(TfrmCadClientes);
 
 end.
