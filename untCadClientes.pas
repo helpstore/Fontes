@@ -294,8 +294,6 @@ type
     cxDBCalcEdit7: TcxDBCalcEdit;
     cxLabel94: TcxLabel;
     cxDBSpinEdit6: TcxDBSpinEdit;
-    cxDBDateEdit8: TcxDBDateEdit;
-    cxLabel95: TcxLabel;
     cxLabel96: TcxLabel;
     cxLabel97: TcxLabel;
     cxLabel98: TcxLabel;
@@ -320,8 +318,6 @@ type
     cxDBTextEdit17: TcxDBTextEdit;
     cxLabel105: TcxLabel;
     cxDBMaskEdit12: TcxDBMaskEdit;
-    cxLabel106: TcxLabel;
-    cxDBDateEdit10: TcxDBDateEdit;
     cxLabel107: TcxLabel;
     cxLabel108: TcxLabel;
     cxDBDateEdit11: TcxDBDateEdit;
@@ -418,6 +414,393 @@ type
     QryCidadesUF: TIBStringField;
     QryCidadesCOD_IBGE: TIBStringField;
     QryCidadesCOD_IAGRO: TIntegerField;
+    ContratosItens: TIBQuery;
+    ContratosItensCNPJ: TIBStringField;
+    ContratosItensCODIGO: TIntegerField;
+    ContratosItensCOD_PRODUTO: TIBStringField;
+    ContratosItensCONTRATO: TIntegerField;
+    ContratosItensDT_ADICAO: TDateTimeField;
+    ContratosItensDATA: TDateTimeField;
+    ContratosItensATIVO: TIBStringField;
+    ContratosItensPRODUTO: TIBStringField;
+    ContratosItensSERIE: TIBStringField;
+    ContratosItensTIPO_PRODUTO: TIBStringField;
+    ContratosItensMEDIA_COPIAS: TIntegerField;
+    ContratosItensQTDE_COPIAS_PREVENTIVA: TIntegerField;
+    ContratosItensDIAS_RECHAMADO: TIntegerField;
+    ContratosItensTEMPO_RESPOSTA: TIntegerField;
+    ContratosItensINFORMACOES_ITENS: TMemoField;
+    ContratosItensDT_RETIRADA: TDateField;
+    ContratosItensCOD_INDEXADOR: TIntegerField;
+    ContratosItensDT_VIGENCIA_INICIAL: TDateField;
+    ContratosItensDT_VIGENCIA_FINAL: TDateField;
+    ContratosItensVALOR: TFloatField;
+    ContratosItensMODELO_EQUIPAMENTO: TIBStringField;
+    ContratosItensGERA_LEITURA: TIBStringField;
+    dsEquipamento: TDataSource;
+    dsLinkContrato: TDataSource;
+    Contrato: TIBQuery;
+    ContratoCODIGO: TIntegerField;
+    ContratoNUM_CONTRATO: TIBStringField;
+    ContratoDT_INICIO: TDateTimeField;
+    ContratoDT_FIM: TDateTimeField;
+    ContratoATIVO: TIBStringField;
+    ContratoCOD_CONTRATO: TIntegerField;
+    ContratoTIPO_CONTRATO: TIBStringField;
+    ContratoDATA: TDateField;
+    ContratoCNPJ: TIBStringField;
+    Panel6: TPanel;
+    GridContratos: TcxGrid;
+    TVContratos: TcxGridDBBandedTableView;
+    TVContratosCODIGO: TcxGridDBBandedColumn;
+    TVContratosNUM_CONTRATO: TcxGridDBBandedColumn;
+    TVContratosDT_INICIO: TcxGridDBBandedColumn;
+    TVContratosDT_FIM: TcxGridDBBandedColumn;
+    TVContratosATIVO: TcxGridDBBandedColumn;
+    TVContratosCOD_CONTRATO: TcxGridDBBandedColumn;
+    TVContratosTIPO_CONTRATO: TcxGridDBBandedColumn;
+    TVContratosDATA: TcxGridDBBandedColumn;
+    TVContratosCNPJ: TcxGridDBBandedColumn;
+    LVContratos: TcxGridLevel;
+    GridEquipamento: TcxGrid;
+    TVEquipamentos: TcxGridDBBandedTableView;
+    TVEquipamentosCNPJ: TcxGridDBBandedColumn;
+    TVEquipamentosCODIGO: TcxGridDBBandedColumn;
+    TVEquipamentosCOD_PRODUTO: TcxGridDBBandedColumn;
+    TVEquipamentosCONTRATO: TcxGridDBBandedColumn;
+    TVEquipamentosDT_ADICAO: TcxGridDBBandedColumn;
+    TVEquipamentosDATA: TcxGridDBBandedColumn;
+    TVEquipamentosATIVO: TcxGridDBBandedColumn;
+    TVEquipamentosPRODUTO: TcxGridDBBandedColumn;
+    TVEquipamentosSERIE: TcxGridDBBandedColumn;
+    TVEquipamentosTIPO_PRODUTO: TcxGridDBBandedColumn;
+    TVEquipamentosMEDIA_COPIAS: TcxGridDBBandedColumn;
+    TVEquipamentosQTDE_COPIAS_PREVENTIVA: TcxGridDBBandedColumn;
+    TVEquipamentosDIAS_RECHAMADO: TcxGridDBBandedColumn;
+    TVEquipamentosTEMPO_RESPOSTA: TcxGridDBBandedColumn;
+    TVEquipamentosINFORMACOES_ITENS: TcxGridDBBandedColumn;
+    TVEquipamentosDT_RETIRADA: TcxGridDBBandedColumn;
+    TVEquipamentosCOD_INDEXADOR: TcxGridDBBandedColumn;
+    TVEquipamentosDT_VIGENCIA_INICIAL: TcxGridDBBandedColumn;
+    TVEquipamentosDT_VIGENCIA_FINAL: TcxGridDBBandedColumn;
+    TVEquipamentosVALOR: TcxGridDBBandedColumn;
+    TVEquipamentosMODELO_EQUIPAMENTO: TcxGridDBBandedColumn;
+    TVEquipamentosGERA_LEITURA: TcxGridDBBandedColumn;
+    LVEquipamento: TcxGridLevel;
+    Panel5: TPanel;
+    dtListDet1CNPJ: TIBStringField;
+    dtListDet1PESSOA_FJ: TIntegerField;
+    dtListDet1PORCENTAGEM: TFloatField;
+    dtListDet1PRODUTO: TIBStringField;
+    dtListDet1NOME_PRODUTO: TIBStringField;
+    dtListDet1ORIGINAL: TFloatField;
+    dtListDet1RESULTADO: TFloatField;
+    TVDet1CNPJ: TcxGridDBBandedColumn;
+    TVDet1PESSOA_FJ: TcxGridDBBandedColumn;
+    TVDet1PORCENTAGEM: TcxGridDBBandedColumn;
+    TVDet1PRODUTO: TcxGridDBBandedColumn;
+    TVDet1NOME_PRODUTO: TcxGridDBBandedColumn;
+    TVDet1RESULTADO: TcxGridDBBandedColumn;
+    TVDet1ORIGINAL: TcxGridDBBandedColumn;
+    cxButton1: TcxButton;
+    cmbProduto: TcxDBLookupComboBox;
+    cxLabel11: TcxLabel;
+    dsProduto: TDataSource;
+    QryProduto: TIBQuery;
+    QryProdutoCODIGO: TIBStringField;
+    QryProdutoSERIE: TIBStringField;
+    QryProdutoNOME: TIBStringField;
+    cxDBCalcEdit1: TcxDBCalcEdit;
+    cxLabel13: TcxLabel;
+    cxDBCalcEdit2: TcxDBCalcEdit;
+    cxLabel14: TcxLabel;
+    cxDBCalcEdit3: TcxDBCalcEdit;
+    cxLabel15: TcxLabel;
+    dtEditDet1CNPJ: TIBStringField;
+    dtEditDet1PESSOA_FJ: TIntegerField;
+    dtEditDet1PORCENTAGEM: TFloatField;
+    dtEditDet1PRODUTO: TIBStringField;
+    dtEditDet1ORIGINAL: TFloatField;
+    dtEditDet1RESULTADO: TFloatField;
+    QryProdutoPRC_VENDA: TFloatField;
+    dtListDet2ANO: TSmallintField;
+    dtListDet2CNPJ: TIBStringField;
+    dtListDet2CODIGO: TIntegerField;
+    dtListDet2PESSOA_FJ: TIntegerField;
+    dtListDet2TIPO_VEICULO: TIntegerField;
+    dtListDet2MARCA_VEICULO: TIntegerField;
+    dtListDet2MODELO: TIBStringField;
+    dtListDet2PLACA: TIBStringField;
+    dtListDet2KM_ATUAL: TFloatField;
+    dtListDet2COMBUSTIVEL: TIBStringField;
+    dtListDet2MEDIA_KM: TFloatField;
+    dtListDet2ATIVO: TIBStringField;
+    dtListDet2MOTORISTA: TIBStringField;
+    dtListDet2COR: TIBStringField;
+    dtListDet2N_CHASSI: TIBStringField;
+    dtListDet2MARCA_NOME: TIBStringField;
+    dtListDet2TIPO_NOME: TIBStringField;
+    TVDet2ANO: TcxGridDBBandedColumn;
+    TVDet2CNPJ: TcxGridDBBandedColumn;
+    TVDet2CODIGO: TcxGridDBBandedColumn;
+    TVDet2PESSOA_FJ: TcxGridDBBandedColumn;
+    TVDet2TIPO_VEICULO: TcxGridDBBandedColumn;
+    TVDet2MARCA_VEICULO: TcxGridDBBandedColumn;
+    TVDet2MODELO: TcxGridDBBandedColumn;
+    TVDet2PLACA: TcxGridDBBandedColumn;
+    TVDet2KM_ATUAL: TcxGridDBBandedColumn;
+    TVDet2COMBUSTIVEL: TcxGridDBBandedColumn;
+    TVDet2MEDIA_KM: TcxGridDBBandedColumn;
+    TVDet2ATIVO: TcxGridDBBandedColumn;
+    TVDet2MOTORISTA: TcxGridDBBandedColumn;
+    TVDet2COR: TcxGridDBBandedColumn;
+    TVDet2N_CHASSI: TcxGridDBBandedColumn;
+    TVDet2MARCA_NOME: TcxGridDBBandedColumn;
+    TVDet2TIPO_NOME: TcxGridDBBandedColumn;
+    cxDBTextEdit1: TcxDBTextEdit;
+    cxLabel17: TcxLabel;
+    cxDBTextEdit2: TcxDBTextEdit;
+    cxLabel18: TcxLabel;
+    cxDBTextEdit3: TcxDBTextEdit;
+    cxLabel19: TcxLabel;
+    cxDBTextEdit4: TcxDBTextEdit;
+    cxLabel20: TcxLabel;
+    aTfrmCadTipoVeiculo: TcxDBLookupComboBox;
+    cxButton2: TcxButton;
+    cxLabel21: TcxLabel;
+    cxButton3: TcxButton;
+    aTfrmCadMarcaVeiculo: TcxDBLookupComboBox;
+    cxLabel22: TcxLabel;
+    cxDBCalcEdit4: TcxDBCalcEdit;
+    cxLabel23: TcxLabel;
+    cxLabel24: TcxLabel;
+    cxDBCalcEdit5: TcxDBCalcEdit;
+    cxDBTextEdit5: TcxDBTextEdit;
+    cxLabel25: TcxLabel;
+    cxDBTextEdit6: TcxDBTextEdit;
+    cxLabel26: TcxLabel;
+    cxDBCheckBox2: TcxDBCheckBox;
+    cxDBComboBox1: TcxDBComboBox;
+    dtEditDet2ANO: TSmallintField;
+    dtEditDet2CNPJ: TIBStringField;
+    dtEditDet2CODIGO: TIntegerField;
+    dtEditDet2PESSOA_FJ: TIntegerField;
+    dtEditDet2TIPO_VEICULO: TIntegerField;
+    dtEditDet2MARCA_VEICULO: TIntegerField;
+    dtEditDet2MODELO: TIBStringField;
+    dtEditDet2PLACA: TIBStringField;
+    dtEditDet2KM_ATUAL: TFloatField;
+    dtEditDet2COMBUSTIVEL: TIBStringField;
+    dtEditDet2MEDIA_KM: TFloatField;
+    dtEditDet2ATIVO: TIBStringField;
+    dtEditDet2MOTORISTA: TIBStringField;
+    dtEditDet2COR: TIBStringField;
+    dtEditDet2N_CHASSI: TIBStringField;
+    cxLabel27: TcxLabel;
+    QryTipoVeiculo: TIBQuery;
+    dsTipoVeiculo: TDataSource;
+    QryTipoVeiculoCNPJ: TIBStringField;
+    QryTipoVeiculoCODIGO: TIntegerField;
+    QryTipoVeiculoNOME: TIBStringField;
+    QryMarcaVeiculo: TIBQuery;
+    dsMarcaVeiculo: TDataSource;
+    QryMarcaVeiculoCNPJ: TIBStringField;
+    QryMarcaVeiculoCODIGO: TIntegerField;
+    QryMarcaVeiculoNOME: TIBStringField;
+    dtListDet3CNPJ: TIBStringField;
+    dtListDet3PESSOA_FJ: TIntegerField;
+    dtListDet3PROPRIEDADE: TIntegerField;
+    dtListDet3NOME: TIBStringField;
+    dtListDet3PROPRIETARIO: TIBStringField;
+    dtListDet3IE: TIBStringField;
+    dtListDet3ENDERECO: TIntegerField;
+    dtListDet3COMPLEMENTO: TIBStringField;
+    dtListDet3CIDADE: TIntegerField;
+    dtListDet3UF: TIBStringField;
+    dtListDet3CEP: TIBStringField;
+    dtListDet3AREA_TOTAL: TIBStringField;
+    dtListDet3OBS: TBlobField;
+    dtListDet3NUMERO: TIBStringField;
+    dtListDet3BAIRRO: TIntegerField;
+    dtListDet3ATIVA: TIBStringField;
+    dtListDet3TIPO_CONTRATO: TIntegerField;
+    dtListDet3MODELO: TIntegerField;
+    dtListDet3GARANTIA: TDateTimeField;
+    dtListDet3CPF: TIBStringField;
+    dtListDet3VENDEDOR: TIntegerField;
+    dtListDet3TECNICO: TIntegerField;
+    dtListDet3CONTRATO: TIBStringField;
+    dtListDet3REGIAO: TSmallintField;
+    dtListDet3NOME_CIDADE: TIBStringField;
+    dtListDet3NOME_LOGRADOURO: TIBStringField;
+    dtListDet3NOME_BAIRRO: TIBStringField;
+    dtListDet3NOME_TIPO_CONTRATO: TIBStringField;
+    dtListDet3NOME_MODELO_PROPRIEDADE: TIBStringField;
+    dtListDet3NOME_REGIAO: TIBStringField;
+    TVDet3CNPJ: TcxGridDBBandedColumn;
+    TVDet3PESSOA_FJ: TcxGridDBBandedColumn;
+    TVDet3PROPRIEDADE: TcxGridDBBandedColumn;
+    TVDet3NOME: TcxGridDBBandedColumn;
+    TVDet3PROPRIETARIO: TcxGridDBBandedColumn;
+    TVDet3IE: TcxGridDBBandedColumn;
+    TVDet3ENDERECO: TcxGridDBBandedColumn;
+    TVDet3COMPLEMENTO: TcxGridDBBandedColumn;
+    TVDet3CIDADE: TcxGridDBBandedColumn;
+    TVDet3UF: TcxGridDBBandedColumn;
+    TVDet3CEP: TcxGridDBBandedColumn;
+    TVDet3AREA_TOTAL: TcxGridDBBandedColumn;
+    TVDet3OBS: TcxGridDBBandedColumn;
+    TVDet3NUMERO: TcxGridDBBandedColumn;
+    TVDet3BAIRRO: TcxGridDBBandedColumn;
+    TVDet3ATIVA: TcxGridDBBandedColumn;
+    TVDet3TIPO_CONTRATO: TcxGridDBBandedColumn;
+    TVDet3MODELO: TcxGridDBBandedColumn;
+    TVDet3GARANTIA: TcxGridDBBandedColumn;
+    TVDet3CPF: TcxGridDBBandedColumn;
+    TVDet3VENDEDOR: TcxGridDBBandedColumn;
+    TVDet3TECNICO: TcxGridDBBandedColumn;
+    TVDet3CONTRATO: TcxGridDBBandedColumn;
+    TVDet3REGIAO: TcxGridDBBandedColumn;
+    TVDet3NOME_CIDADE: TcxGridDBBandedColumn;
+    TVDet3NOME_LOGRADOURO: TcxGridDBBandedColumn;
+    TVDet3NOME_BAIRRO: TcxGridDBBandedColumn;
+    TVDet3NOME_TIPO_CONTRATO: TcxGridDBBandedColumn;
+    TVDet3NOME_MODELO_PROPRIEDADE: TcxGridDBBandedColumn;
+    TVDet3NOME_REGIAO: TcxGridDBBandedColumn;
+    qryLogradouro: TIBQuery;
+    qryLogradouroCNPJ: TIBStringField;
+    qryLogradouroCODIGO: TIntegerField;
+    qryLogradouroNOME: TIBStringField;
+    dsLogradouro: TDataSource;
+    QryBairro: TIBQuery;
+    QryBairroCNPJ: TIBStringField;
+    QryBairroCODIGO: TIntegerField;
+    QryBairroNOME: TIBStringField;
+    dsBairros: TDataSource;
+    QryCidadeProp: TIBQuery;
+    IBStringField7: TIBStringField;
+    IntegerField6: TIntegerField;
+    IBStringField8: TIBStringField;
+    IBStringField9: TIBStringField;
+    IBStringField10: TIBStringField;
+    IntegerField7: TIntegerField;
+    dsCidadeProp: TDataSource;
+    qryRegiao: TIBQuery;
+    qryRegiaoCNPJ: TIBStringField;
+    qryRegiaoCODIGO: TIntegerField;
+    qryRegiaoNOME: TIBStringField;
+    qryRegiaoVENDEDOR: TIntegerField;
+    qryRegiaoTERCEIRO: TIntegerField;
+    qryRegiaoDESCRICAO: TIBStringField;
+    qryRegiaoTECNICO: TIntegerField;
+    dsRegiao: TDataSource;
+    dtEditDet3CNPJ: TIBStringField;
+    dtEditDet3PESSOA_FJ: TIntegerField;
+    dtEditDet3PROPRIEDADE: TIntegerField;
+    dtEditDet3NOME: TIBStringField;
+    dtEditDet3PROPRIETARIO: TIBStringField;
+    dtEditDet3IE: TIBStringField;
+    dtEditDet3ENDERECO: TIntegerField;
+    dtEditDet3COMPLEMENTO: TIBStringField;
+    dtEditDet3CIDADE: TIntegerField;
+    dtEditDet3UF: TIBStringField;
+    dtEditDet3CEP: TIBStringField;
+    dtEditDet3AREA_TOTAL: TIBStringField;
+    dtEditDet3OBS: TBlobField;
+    dtEditDet3NUMERO: TIBStringField;
+    dtEditDet3BAIRRO: TIntegerField;
+    dtEditDet3ATIVA: TIBStringField;
+    dtEditDet3TIPO_CONTRATO: TIntegerField;
+    dtEditDet3MODELO: TIntegerField;
+    dtEditDet3GARANTIA: TDateTimeField;
+    dtEditDet3CPF: TIBStringField;
+    dtEditDet3VENDEDOR: TIntegerField;
+    dtEditDet3TECNICO: TIntegerField;
+    dtEditDet3CONTRATO: TIBStringField;
+    dtEditDet3REGIAO: TSmallintField;
+    cxDBTextEdit11: TcxDBTextEdit;
+    cxLabel37: TcxLabel;
+    btnLogradouro: TcxButton;
+    btnBairro: TcxButton;
+    btnRegiao: TcxButton;
+    btnCidade: TcxButton;
+    dtListDet3NOME_VENDEDOR: TIBStringField;
+    dtListDet3NOME_TECNICO: TIBStringField;
+    TVDet3NOME_VENDEDOR: TcxGridDBBandedColumn;
+    TVDet3NOME_TECNICO: TcxGridDBBandedColumn;
+    cxDBMemo1: TcxDBMemo;
+    cxLabel36: TcxLabel;
+    bTfrmCadCidades: TcxDBLookupComboBox;
+    cxLabel34: TcxLabel;
+    cxDBMaskEdit2: TcxDBMaskEdit;
+    cxLabel28: TcxLabel;
+    aTfrmCadRegiao: TcxDBLookupComboBox;
+    cxLabel35: TcxLabel;
+    bTfrmCadLogradouro: TcxDBLookupComboBox;
+    cxLabel32: TcxLabel;
+    cxDBTextEdit9: TcxDBTextEdit;
+    cxLabel31: TcxLabel;
+    cxDBTextEdit7: TcxDBTextEdit;
+    cxLabel30: TcxLabel;
+    aTfrmCadBairros: TcxDBLookupComboBox;
+    cxLabel33: TcxLabel;
+    cxDBMaskEdit1: TcxDBMaskEdit;
+    cxLabel38: TcxLabel;
+    cxDBCalcEdit12: TcxDBCalcEdit;
+    cxLabel39: TcxLabel;
+    cxDBMaskEdit3: TcxDBMaskEdit;
+    cxLabel40: TcxLabel;
+    btnTecnico: TcxButton;
+    aTfrmCadTecnicos: TcxDBLookupComboBox;
+    cxLabel41: TcxLabel;
+    btnVendedor: TcxButton;
+    bTfrmCadVendedor2: TcxDBLookupComboBox;
+    cxLabel43: TcxLabel;
+    QryVendedorProp: TIBQuery;
+    dsVendedorProp: TDataSource;
+    QryTecnicoProp: TIBQuery;
+    dsTecnicoProp: TDataSource;
+    QryTecnicoPropCODIGO: TIntegerField;
+    QryTecnicoPropNOME: TIBStringField;
+    QryVendedorPropCODIGO: TIntegerField;
+    QryVendedorPropNOME: TIBStringField;
+    dtListDet4AGENCIA: TIBStringField;
+    dtListDet4BANCO: TIBStringField;
+    dtListDet4CNPJ: TIBStringField;
+    dtListDet4CONTA: TIBStringField;
+    dtListDet4PESSOA_FJ: TIntegerField;
+    dtListDet4DV_AGENCIA: TIBStringField;
+    dtListDet4DV_CONTA: TIBStringField;
+    dtListDet4NOME_BANCO: TIBStringField;
+    TVDet4AGENCIA: TcxGridDBBandedColumn;
+    TVDet4BANCO: TcxGridDBBandedColumn;
+    TVDet4CNPJ: TcxGridDBBandedColumn;
+    TVDet4CONTA: TcxGridDBBandedColumn;
+    TVDet4PESSOA_FJ: TcxGridDBBandedColumn;
+    TVDet4DV_AGENCIA: TcxGridDBBandedColumn;
+    TVDet4DV_CONTA: TcxGridDBBandedColumn;
+    TVDet4NOME_BANCO: TcxGridDBBandedColumn;
+    dtEditDet4AGENCIA: TIBStringField;
+    dtEditDet4BANCO: TIBStringField;
+    dtEditDet4CNPJ: TIBStringField;
+    dtEditDet4CONTA: TIBStringField;
+    dtEditDet4PESSOA_FJ: TIntegerField;
+    dtEditDet4DV_AGENCIA: TIBStringField;
+    dtEditDet4DV_CONTA: TIBStringField;
+    aTfrmCadBancos: TcxDBLookupComboBox;
+    btnBanco: TcxButton;
+    cxLabel44: TcxLabel;
+    cxDBMaskEdit4: TcxDBMaskEdit;
+    cxLabel47: TcxLabel;
+    cxDBMaskEdit5: TcxDBMaskEdit;
+    cxDBMaskEdit6: TcxDBMaskEdit;
+    cxDBMaskEdit7: TcxDBMaskEdit;
+    cxLabel48: TcxLabel;
+    dsBanco: TDataSource;
+    QryBancos: TIBQuery;
+    QryBancosCODIGO: TIBStringField;
+    QryBancosNOME: TIBStringField;
+    cxDBCheckBox3: TcxDBCheckBox;
     procedure btnCadPessoaClick(Sender: TObject);
     procedure btnCategoriaClick(Sender: TObject);
     procedure BtnclassificacaoClick(Sender: TObject);
@@ -425,6 +808,22 @@ type
     procedure BtnAtividadeClick(Sender: TObject);
     procedure BtnEnderecoPaiClick(Sender: TObject);
     procedure BtnCidadePaiClick(Sender: TObject);
+    procedure dtEditDet1NewRecord(DataSet: TDataSet);
+    procedure dtEditDet1PRODUTOValidate(Sender: TField);
+    procedure dtEditDet1PORCENTAGEMValidate(Sender: TField);
+    procedure dtEditDet1RESULTADOValidate(Sender: TField);
+    procedure dtEditDet2NewRecord(DataSet: TDataSet);
+    procedure cxButton2Click(Sender: TObject);
+    procedure cxButton3Click(Sender: TObject);
+    procedure dtEditDet3NewRecord(DataSet: TDataSet);
+    procedure btnLogradouroClick(Sender: TObject);
+    procedure btnBairroClick(Sender: TObject);
+    procedure btnRegiaoClick(Sender: TObject);
+    procedure btnCidadeClick(Sender: TObject);
+    procedure btnTecnicoClick(Sender: TObject);
+    procedure btnVendedorClick(Sender: TObject);
+    procedure btnBancoClick(Sender: TObject);
+    procedure dtEditDet4NewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -436,6 +835,11 @@ var
   frmCadClientes: TfrmCadClientes;
 
 implementation
+
+uses UntCadCategoriaClientes, untCadPessoas, UntCadClassificacao,
+  untCadVendedor2, untCadAtividades, untCadLogradouro, untCadCidades,
+  Application_DM, Funcoes, untCadTipoVeitulo, untCadMarcaVeiculo,
+  untCadBairros, untCadRegioes, UntCadTecnicos, UntCadBancos;
 
 {$R *.dfm}
 
@@ -479,6 +883,112 @@ procedure TfrmCadClientes.BtnCidadePaiClick(Sender: TObject);
 begin
   inherited;
   CadastroLookup(TfrmCadCidades,dtEdit,'CIDADE_PAIS',QryCidades);
+end;
+
+procedure TfrmCadClientes.dtEditDet1NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditDet1PESSOA_FJ.Value := dtEditPESSOA_FJ.value ;
+  dtEditDet1PORCENTAGEM.Value := 0;
+end;
+
+procedure TfrmCadClientes.dtEditDet1PRODUTOValidate(Sender: TField);
+begin
+  inherited;
+  QryProduto.Locate('CODIGO',dtEditDet1PRODUTO.Value, []);
+  dtEditDet1ORIGINAL.Value := QryProdutoPRC_VENDA.asFloat;
+end;
+
+procedure TfrmCadClientes.dtEditDet1PORCENTAGEMValidate(Sender: TField);
+begin
+  inherited;
+  dtEditDet1RESULTADO.Value := dtEditDet1ORIGINAL.value - (( dtEditDet1ORIGINAL.value * dtEditDet1PORCENTAGEM.value )/100) ;;
+  dtEditDet1RESULTADO.Value := arredonda(dtEditDet1RESULTADO.Value,2);
+end;
+
+procedure TfrmCadClientes.dtEditDet1RESULTADOValidate(Sender: TField);
+begin
+  inherited;
+  if dtEditDet1ORIGINAL.value > 0 then
+  begin
+    dtEditDet1PORCENTAGEM.value  := 100 - (dtEditDet1RESULTADO.Value * 100)/dtEditDet1ORIGINAL.value;
+    dtEditDet1PORCENTAGEM.value  := arredonda(dtEditDet1PORCENTAGEM.value,2);
+  end
+  else
+    dtEditDet1PORCENTAGEM.value := 0;
+end;
+
+procedure TfrmCadClientes.dtEditDet2NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditDet2PESSOA_FJ.value := dtEditPESSOA_FJ.value;
+end;
+
+procedure TfrmCadClientes.cxButton2Click(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadTipoVeiculo,dtEditDet2,'TIPO_VEICULO',QryTipoVeiculo);
+end;
+
+procedure TfrmCadClientes.cxButton3Click(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadMarcaVeiculo,dtEditDet2,'MARCA_VEICULO',QryMarcaVeiculo);
+end;
+
+procedure TfrmCadClientes.dtEditDet3NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditDet3PESSOA_FJ.Value   := dtEditPESSOA_FJ.Value;
+  dtEditDet3PROPRIEDADE.Value := DMApp.GerarCodigoPropriedade(dtEditPESSOA_FJ.Value);
+end;
+
+procedure TfrmCadClientes.btnLogradouroClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadLogradouro,dtEditDet3,'ENDERECO',qryLogradouro);
+end;
+
+procedure TfrmCadClientes.btnBairroClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadBairros,dtEditDet3,'BAIRRO',QryBairro);
+end;
+
+procedure TfrmCadClientes.btnRegiaoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadRegiao,dtEditDet3,'REGIAO',qryRegiao);
+end;
+
+procedure TfrmCadClientes.btnCidadeClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadCidades,dtEditDet3,'CIDADE',QryCidadeProp);
+end;
+
+procedure TfrmCadClientes.btnTecnicoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadTecnicos,dtEditDet3,'TECNICO',QryTecnicoProp);
+end;
+
+procedure TfrmCadClientes.btnVendedorClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadBancos,dtEditDet3,'VENDEDOR',QryVendedorProp);
+end;
+
+procedure TfrmCadClientes.btnBancoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadBancos,dtEditDet4,'BANCO',QryBancos);
+end;
+
+procedure TfrmCadClientes.dtEditDet4NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditDet4PESSOA_FJ.value := dtEditPESSOA_FJ.value;
 end;
 
 initialization

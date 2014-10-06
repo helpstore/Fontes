@@ -8,7 +8,6 @@ inherited frmCadBairros: TfrmCadBairros
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
     Height = 383
-    ActivePage = tbsEdita
     ClientRectBottom = 379
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid

@@ -1,5 +1,6 @@
 inherited FrmCadCategoriaClientes: TFrmCadCategoriaClientes
   Caption = 'Categorias de Cliente'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl

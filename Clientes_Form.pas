@@ -287,8 +287,6 @@ type
     cxDBTextEdit17: TcxDBTextEdit;
     cxLabel105: TcxLabel;
     cxDBMaskEdit12: TcxDBMaskEdit;
-    cxLabel106: TcxLabel;
-    cxDBDateEdit10: TcxDBDateEdit;
     cxLabel107: TcxLabel;
     cxLabel108: TcxLabel;
     cxDBDateEdit11: TcxDBDateEdit;
@@ -386,13 +384,13 @@ type
     Panel5: TPanel;
     Panel6: TPanel;
     dsLinkContrato: TDataSource;
-    Contrato: TIBDataSet;
+    Contrato: TIBQuery;
     ContratoCODIGO: TIntegerField;
     ContratoNUM_CONTRATO: TIBStringField;
     ContratoDT_INICIO: TDateTimeField;
     ContratoDT_FIM: TDateTimeField;
     ContratoATIVO: TIBStringField;
-    ContratosItens: TIBDataSet;
+    ContratosItens: TIBQuery;
     ContratosItensCNPJ: TIBStringField;
     ContratosItensCODIGO: TIntegerField;
     ContratosItensCOD_PRODUTO: TIBStringField;

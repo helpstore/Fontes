@@ -236,9 +236,11 @@ type
     TVRegistroCPF_CGC: TcxGridDBBandedColumn;
     TVRegistroNOME_CONTRATO: TcxGridDBBandedColumn;
     QryProdutoNOME: TIBStringField;
+    cxLabel26: TcxLabel;
     procedure btnTipoContratoClick(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
+    procedure dtEditDet1NewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -287,6 +289,21 @@ begin
 
   inherited;
 
+end;
+
+procedure TfrmCadContratoAtendimento.dtEditDet1NewRecord(
+  DataSet: TDataSet);
+  var
+    DataAtual: TDate;
+begin
+  inherited;
+  DataAtual := dmApp.DataServidor;
+  dtEditDet1DATA.value := DataAtual;
+  dtEditDet1ATIVO.value := 'S';
+  dtEditDet1DT_ADICAO.value := DataAtual;
+  dtEditDet1DT_VIGENCIA_INICIAL.value := DataAtual;
+
+  dtEditDet1CONTRATO.value := dtEditCODIGO.value;
 end;
 
 end.

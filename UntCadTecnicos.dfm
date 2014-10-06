@@ -5,7 +5,6 @@ inherited frmCadTecnicos: TfrmCadTecnicos
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
@@ -562,11 +561,6 @@ inherited frmCadTecnicos: TfrmCadTecnicos
       0
       0
       26)
-  end
-  inherited ActionList1: TActionList
-    inherited ActCadLookup: TAction
-      OnExecute = ActCadLookupExecute
-    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1

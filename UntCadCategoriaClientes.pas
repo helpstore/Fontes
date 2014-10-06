@@ -48,6 +48,6 @@ implementation
 {$R *.dfm}
 
 initialization
- RegisterClass(TFrmCadCategoriaClientes;);
+ RegisterClass(TFrmCadCategoriaClientes);
  
 end.

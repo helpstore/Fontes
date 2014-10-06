@@ -7,8 +7,8 @@ inherited frmCadVendedor2: TfrmCadVendedor2
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Height = 473
-    ClientRectBottom = 469
+    Height = 462
+    ClientRectBottom = 458
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Height = 414
@@ -84,9 +84,9 @@ inherited frmCadVendedor2: TfrmCadVendedor2
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Height = 442
+        Height = 431
         inherited pnlSubCad: TPanel
-          Top = 164
+          Top = 153
           inherited PgcDetalhe: TcxPageControl
             inherited tbsDetalhe1: TcxTabSheet
               Caption = '  Faixas de Comiss'#227'o     '
@@ -287,10 +287,10 @@ inherited frmCadVendedor2: TfrmCadVendedor2
           end
         end
         inherited pnlMaster: TPanel
-          Height = 163
+          Height = 152
           inherited PgcMaster: TcxPageControl
-            Height = 163
-            ClientRectBottom = 159
+            Height = 152
+            ClientRectBottom = 148
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Vendedor'
               inherited edtCodigo: TcxDBTextEdit

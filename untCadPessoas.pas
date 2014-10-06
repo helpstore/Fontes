@@ -205,7 +205,6 @@ type
     QryBairroNOME: TIBStringField;
     dtEditFJ: TIBStringField;
     QryConvenioCODIGO: TIntegerField;
-    procedure FormShow(Sender: TObject);
     procedure btnLogradouroClick(Sender: TObject);
     procedure btnBairroClick(Sender: TObject);
     procedure btnCidadeClick(Sender: TObject);
@@ -236,21 +235,9 @@ uses untCadLogradouro, untCadBairros, untCadCidades, untCadAtividades,
 
 {$R *.dfm}
 
-initialization
- RegisterClass(TfrmCadPessoas);
 
 
-procedure TfrmCadPessoas.FormShow(Sender: TObject);
-begin
-  inherited;
-  AbreDataSet(TDataSet(QryBairro));
-  AbreDataSet(TDataSet(QryCidades));
-  AbreDataSet(TDataSet(QryRegiao));
-  AbreDataSet(TDataSet(QryAtividade));
-  AbreDataSet(TDataSet(QryConvenio));
-  AbreDataSet(TDataSet(QryLogradouro));
 
-end;
 
 procedure TfrmCadPessoas.btnLogradouroClick(Sender: TObject);
 begin
