@@ -177,4 +177,7 @@ begin
     btnPessoa.OnClick(Self)
 end;
 
+
+initialization
+ RegisterClass(TfrmCadTecnicos);
 end.

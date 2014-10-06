@@ -96,4 +96,7 @@ implementation
 
 {$R *.dfm}
 
+initialization
+ RegisterClass(TfrmCadRegiao);
+
 end.

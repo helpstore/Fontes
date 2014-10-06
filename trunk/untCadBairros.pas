@@ -46,5 +46,6 @@ var
 implementation
 
 {$R *.dfm}
-
+initialization
+ RegisterClass(TfrmCadBairros);
 end.

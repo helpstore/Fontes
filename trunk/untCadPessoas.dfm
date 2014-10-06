@@ -1,6 +1,6 @@
 inherited frmCadPessoas: TfrmCadPessoas
-  Left = 375
-  Top = 224
+  Left = 346
+  Top = 108
   Width = 790
   Height = 515
   Caption = 'Pessoas PF/PJ'
@@ -8,15 +8,14 @@ inherited frmCadPessoas: TfrmCadPessoas
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 782
-    Height = 462
-    ActivePage = tbsEdita
-    ClientRectBottom = 458
-    ClientRectRight = 778
+    Width = 774
+    Height = 451
+    ClientRectBottom = 447
+    ClientRectRight = 770
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 774
-        Height = 414
+        Width = 766
+        Height = 403
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -239,13 +238,13 @@ inherited frmCadPessoas: TfrmCadPessoas
         end
       end
       inherited Panel1: TPanel
-        Width = 774
+        Width = 766
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 774
-        Height = 431
+        Width = 766
+        Height = 420
         inherited edtNome: TcxDBTextEdit
           DataBinding.DataField = 'NOME_RAZAO'
           Width = 528
@@ -2470,6 +2469,7 @@ inherited frmCadPessoas: TfrmCadPessoas
     Top = 168
   end
   object QryBairro: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa
@@ -2511,6 +2511,7 @@ inherited frmCadPessoas: TfrmCadPessoas
     Top = 168
   end
   object QryCidades: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa
@@ -2567,6 +2568,7 @@ inherited frmCadPessoas: TfrmCadPessoas
     Top = 176
   end
   object qryRegiao: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa
@@ -2625,6 +2627,7 @@ inherited frmCadPessoas: TfrmCadPessoas
     Top = 216
   end
   object qryAtividade: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa
@@ -2660,6 +2663,7 @@ inherited frmCadPessoas: TfrmCadPessoas
     end
   end
   object QryConvenio: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa
@@ -2708,6 +2712,7 @@ inherited frmCadPessoas: TfrmCadPessoas
     Top = 216
   end
   object qryLogradouro: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     DataSource = dsPesquisa

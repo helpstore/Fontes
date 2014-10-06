@@ -581,7 +581,9 @@ uses
   untFormPadrao in 'untFormPadrao.pas' {FormPadrao},
   untCadOS in 'untCadOS.pas' {frmCadOS},
   untCadContratoAtendimento in 'untCadContratoAtendimento.pas' {frmCadContratoAtendimento},
-  UntCadClassificacao in 'UntCadClassificacao.pas' {frmCadClassificacao};
+  UntCadClassificacao in 'UntCadClassificacao.pas' {frmCadClassificacao},
+  untCadTipoVeitulo in 'untCadTipoVeitulo.pas' {frmCadTipoVeiculo},
+  untCadMarcaVeiculo in 'untCadMarcaVeiculo.pas' {frmCadMarcaVeiculo};
 
 {$R *.RES}
 

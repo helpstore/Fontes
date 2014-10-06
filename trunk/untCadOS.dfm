@@ -604,7 +604,6 @@ inherited frmCadOS: TfrmCadOS
           inherited PgcDetalhe: TcxPageControl
             Width = 1252
             Height = 296
-            ActivePage = tbsDetalhe2
             ClientRectBottom = 292
             ClientRectRight = 1248
             inherited tbsDetalhe1: TcxTabSheet
@@ -612,7 +611,6 @@ inherited frmCadOS: TfrmCadOS
               inherited PGCSub1: TcxPageControl
                 Width = 1244
                 Height = 265
-                ActivePage = tbsEditaSub1
                 ClientRectBottom = 261
                 ClientRectRight = 1240
                 inherited tbsListaSub1: TcxTabSheet
@@ -2002,6 +2000,7 @@ inherited frmCadOS: TfrmCadOS
                 DataBinding.DataField = 'CLIENTE'
                 DataBinding.DataSource = dsRegistro
                 ParentFont = False
+                Properties.CharCase = ecUpperCase
                 Style.Font.Charset = DEFAULT_CHARSET
                 Style.Font.Color = clWindowText
                 Style.Font.Height = -11
@@ -7360,14 +7359,16 @@ inherited frmCadOS: TfrmCadOS
     Top = 424
     ParamData = <
       item
-        DataType = ftUnknown
-        Name = 'cnpj'
+        DataType = ftFixedChar
+        Name = 'CNPJ'
         ParamType = ptUnknown
+        Size = 15
       end
       item
-        DataType = ftUnknown
-        Name = 'codigo'
+        DataType = ftInteger
+        Name = 'CODIGO'
         ParamType = ptUnknown
+        Size = 4
       end>
     object dtListDet1CNPJ: TIBStringField
       FieldName = 'CNPJ'
@@ -7825,27 +7826,22 @@ inherited frmCadOS: TfrmCadOS
       
         'left join ofc_mecanicos t on (t.cnpj = s.cnpj and t.codigo = s.c' +
         'od_tecnico)'
-      
-        'WHERE s.CNPJ = :CNPJ AND s.CODIGO = :CODIGO /*and s.Sequencia = ' +
-        ':Sequencia*/'
+      'WHERE s.CNPJ = :CNPJ AND s.CODIGO = :CODIGO '
       'ORDER BY  DT_INICIO, HR_INICIO ')
     Left = 712
     Top = 424
     ParamData = <
       item
-        DataType = ftUnknown
+        DataType = ftFixedChar
         Name = 'CNPJ'
         ParamType = ptUnknown
+        Size = 15
       end
       item
-        DataType = ftUnknown
+        DataType = ftInteger
         Name = 'CODIGO'
         ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'Sequencia*/'
-        ParamType = ptUnknown
+        Size = 4
       end>
     object dtListDet2CNPJ: TIBStringField
       FieldName = 'CNPJ'

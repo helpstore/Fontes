@@ -451,9 +451,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     object cxDBDateEdit2: TcxDBDateEdit
                       Left = 91
                       Top = 32
+                      Hint = 
+                        'Data em que o equipamento foi adicionado no contrato de atendime' +
+                        'nto.'
                       DataBinding.DataField = 'DT_ADICAO'
                       DataBinding.DataSource = dsRegistroDet1
                       ParentFont = False
+                      ParentShowHint = False
+                      ShowHint = True
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -473,9 +478,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     object cxDBDateEdit3: TcxDBDateEdit
                       Left = 176
                       Top = 32
+                      Hint = 
+                        'Data em que o equipamento foi retirado do contrato de atendiment' +
+                        'o.'
                       DataBinding.DataField = 'DT_RETIRADA'
                       DataBinding.DataSource = dsRegistroDet1
                       ParentFont = False
+                      ParentShowHint = False
+                      ShowHint = True
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -511,9 +521,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     object cxDBDateEdit5: TcxDBDateEdit
                       Left = 346
                       Top = 32
+                      Hint = 
+                        'Data de vig'#234'ncia final do equipamento no contrato de atendimento' +
+                        '.'
                       DataBinding.DataField = 'DT_VIGENCIA_FINAL'
                       DataBinding.DataSource = dsRegistroDet1
                       ParentFont = False
+                      ParentShowHint = False
+                      ShowHint = True
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -540,9 +555,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     object cxDBDateEdit6: TcxDBDateEdit
                       Left = 261
                       Top = 32
+                      Hint = 
+                        'Data de vig'#234'ncia inicial do equipamento no contrato de atendimen' +
+                        'to.'
                       DataBinding.DataField = 'DT_VIGENCIA_INICIAL'
                       DataBinding.DataSource = dsRegistroDet1
                       ParentFont = False
+                      ParentShowHint = False
+                      ShowHint = True
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -558,16 +578,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     Left = 455
                     Top = 51
                     TabStop = True
-                    Caption = 'Par'#226'metros - Dias'
+                    Caption = 'Par'#226'metros - Dias/Horas'
                     TabOrder = 5
                     Height = 69
                     Width = 234
                     object cxDBSpinEdit3: TcxDBSpinEdit
                       Left = 80
                       Top = 32
-                      Hint = 
-                        'Tempo resposta (Hrs) combinado em contrato para efetuar o atendi' +
-                        'mento. '
+                      Hint = 'N'#186' de dias para disparar uma visita preventiva.'
                       DataBinding.DataField = 'QTDE_COPIAS_PREVENTIVA'
                       DataBinding.DataSource = dsRegistroDet1
                       ParentFont = False
@@ -597,7 +615,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     object cxDBSpinEdit2: TcxDBSpinEdit
                       Left = 152
                       Top = 32
-                      Hint = 'N'#186' de c'#243'pias para sugeria uma visita preventiva'
+                      Hint = 'Tempo de resposta definido em contrato. '
                       DataBinding.DataField = 'TEMPO_RESPOSTA'
                       DataBinding.DataSource = dsRegistroDet1
                       ParentFont = False
@@ -1081,6 +1099,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                 Top = 16
                 DataBinding.DataField = 'NUM_CONTRATO'
                 DataBinding.DataSource = dsRegistro
+                Properties.CharCase = ecUpperCase
                 TabOrder = 3
                 Width = 122
               end
@@ -1242,12 +1261,18 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               end
               object cxDBMemo2: TcxDBMemo
                 Left = 291
-                Top = 41
+                Top = 57
                 DataBinding.DataField = 'INFORMACOES'
                 DataBinding.DataSource = dsRegistro
                 TabOrder = 5
-                Height = 76
+                Height = 60
                 Width = 474
+              end
+              object cxLabel26: TcxLabel
+                Left = 290
+                Top = 40
+                Caption = 'Observa'#231#245'es'
+                Transparent = True
               end
             end
           end
@@ -3353,6 +3378,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
     end
   end
   inherited dtEditDet1: TIBDataSet
+    OnNewRecord = dtEditDet1NewRecord
     DeleteSQL.Strings = (
       'delete from ofc_contratos_itens'
       'where'

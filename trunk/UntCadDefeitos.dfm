@@ -2,6 +2,7 @@ inherited frmCadDefeitos: TfrmCadDefeitos
   Left = 231
   Top = 198
   Caption = 'Defeitos'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
@@ -28,6 +29,16 @@ inherited frmCadDefeitos: TfrmCadDefeitos
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
+          object GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'ATIVO'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            Width = 29
+            Position.BandIndex = 0
+            Position.ColIndex = 3
+            Position.RowIndex = 0
+          end
         end
       end
     end
@@ -38,6 +49,18 @@ inherited frmCadDefeitos: TfrmCadDefeitos
         end
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
+        end
+        object cxDBCheckBox1: TcxDBCheckBox
+          Left = 572
+          Top = 37
+          Caption = 'Ativo'
+          DataBinding.DataField = 'ATIVO'
+          DataBinding.DataSource = dsRegistro
+          Properties.ValueChecked = 'S'
+          Properties.ValueUnchecked = 'N'
+          Style.TransparentBorder = True
+          TabOrder = 4
+          Width = 66
         end
       end
     end
@@ -50,25 +73,27 @@ inherited frmCadDefeitos: TfrmCadDefeitos
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
       'insert into OFC_DEFEITO'
-      '  (CNPJ, CODIGO, NOME)'
+      '  (ATIVO, CNPJ, CODIGO, NOME)'
       'values'
-      '  (:CNPJ, :CODIGO, :NOME)')
+      '  (:ATIVO, :CNPJ, :CODIGO, :NOME)')
     RefreshSQL.Strings = (
       'Select '
       '  CNPJ,'
       '  CODIGO,'
-      '  NOME'
+      '  NOME,'
+      '  ATIVO'
       'from OFC_DEFEITO '
       'where'
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'select CNPJ, CODIGO, NOME '
+      'select CNPJ, CODIGO, NOME, ATIVO '
       'from OFC_DEFEITO'
       'Where codigo =:codigo')
     ModifySQL.Strings = (
       'update OFC_DEFEITO'
       'set'
+      '  ATIVO = :ATIVO,'
       '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
       '  NOME = :NOME'
@@ -78,10 +103,35 @@ inherited frmCadDefeitos: TfrmCadDefeitos
     GeneratorField.Field = 'CODIGO'
     GeneratorField.Generator = 'OFC_DEFEITO_GE'
     GeneratorField.ApplyEvent = gamOnPost
+    object dtEditCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_DEFEITO"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object dtEditCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_DEFEITO"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object dtEditNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"OFC_DEFEITO"."NOME"'
+      Size = 50
+    end
+    object dtEditATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"OFC_DEFEITO"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'select CNPJ, CODIGO, NOME '
+      'select CNPJ, CODIGO, NOME, ATIVO '
       'from OFC_DEFEITO'
       'Where CNPJ = :CNPJ '
       'order by NOME')
@@ -111,6 +161,13 @@ inherited frmCadDefeitos: TfrmCadDefeitos
       FieldName = 'NOME'
       Origin = '"OFC_DEFEITO"."NOME"'
       Size = 50
+    end
+    object dtListATIVO: TIBStringField
+      DisplayLabel = 'Ativo'
+      FieldName = 'ATIVO'
+      Origin = '"OFC_DEFEITO"."ATIVO"'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -227,6 +284,41 @@ inherited frmCadDefeitos: TfrmCadDefeitos
           'Styles'
           'Synchronization'
           'Tag')
+      end
+      item
+        Component = GridDBBandedTableView2ATIVO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
       end
       item
         Component = GridDBBandedTableView2CNPJ

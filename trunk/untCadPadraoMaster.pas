@@ -105,8 +105,6 @@ type
     tbsDetalhe2: TcxTabSheet;
     PGCSub2: TcxPageControl;
     tbsListaSub2: TcxTabSheet;
-    TVDet2: TcxGridDBTableView;
-    LVDet2: TcxGridLevel;
     tbsEditaSub2: TcxTabSheet;
     pnlMaster: TPanel;
     PgcMaster: TcxPageControl;
@@ -119,33 +117,21 @@ type
     tbsDetalhe8: TcxTabSheet;
     PGCSub3: TcxPageControl;
     tbsListaSub3: TcxTabSheet;
-    TVDet3: TcxGridDBTableView;
-    LVDet3: TcxGridLevel;
     tbsEditaSub3: TcxTabSheet;
     PGCSub4: TcxPageControl;
     tbsListaSub4: TcxTabSheet;
-    TVDet4: TcxGridDBTableView;
-    LVDet4: TcxGridLevel;
     tbsEditaSub4: TcxTabSheet;
     PGCSub5: TcxPageControl;
     tbsListaSub5: TcxTabSheet;
-    TVDet5: TcxGridDBTableView;
-    LVDet5: TcxGridLevel;
     tbsEditaSub5: TcxTabSheet;
     PGCSub6: TcxPageControl;
     tbsListaSub6: TcxTabSheet;
-    TVDet6: TcxGridDBTableView;
-    LVDet6: TcxGridLevel;
     tbsEditaSub6: TcxTabSheet;
     PGCSub7: TcxPageControl;
     tbsListaSub7: TcxTabSheet;
-    TVDet7: TcxGridDBTableView;
-    LVDet7: TcxGridLevel;
     tbsEditaSub7: TcxTabSheet;
     PGCSub8: TcxPageControl;
     tbsListaSub8: TcxTabSheet;
-    TVDet8: TcxGridDBTableView;
-    LVDet8: TcxGridLevel;
     tbsEditaSub8: TcxTabSheet;
     LVDet1: TcxGridLevel;
     dsRegistroDet2: TDataSource;
@@ -209,6 +195,27 @@ type
     mtbFiltro: TdxMemData;
     dsFiltro: TDataSource;
     TVDet1: TcxGridDBBandedTableView;
+    GridDet2: TcxGrid;
+    TVDet2: TcxGridDBBandedTableView;
+    LVDet2: TcxGridLevel;
+    GridDet3: TcxGrid;
+    TVDet3: TcxGridDBBandedTableView;
+    LVDet3: TcxGridLevel;
+    GridDet4: TcxGrid;
+    TVDet4: TcxGridDBBandedTableView;
+    LVDet4: TcxGridLevel;
+    GridDet5: TcxGrid;
+    TVDet5: TcxGridDBBandedTableView;
+    LVDet5: TcxGridLevel;
+    GridDet6: TcxGrid;
+    TVDet6: TcxGridDBBandedTableView;
+    LVDet6: TcxGridLevel;
+    GridDet7: TcxGrid;
+    TVDet7: TcxGridDBBandedTableView;
+    LVDet7: TcxGridLevel;
+    GridDet8: TcxGrid;
+    TVDet8: TcxGridDBBandedTableView;
+    LVDet8: TcxGridLevel;
     procedure FormShow(Sender: TObject);
     procedure pgcCadastroChange(Sender: TObject);
     procedure ActFirstExecute(Sender: TObject);
@@ -245,7 +252,6 @@ type
     procedure tbsDetalhe7Enter(Sender: TObject);
     procedure tbsDetalhe8Enter(Sender: TObject);
     procedure tbsEditaShow(Sender: TObject);
-    procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure dtEditDet1BeforeInsert(DataSet: TDataSet);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -255,6 +261,14 @@ type
     procedure pnlFiltroExit(Sender: TObject);
     procedure pnlFiltroEnter(Sender: TObject);
     procedure ActCadLookupExecute(Sender: TObject);
+    procedure dtEditDet1NewRecord(DataSet: TDataSet);
+    procedure dtEditDet2NewRecord(DataSet: TDataSet);
+    procedure dtEditDet3NewRecord(DataSet: TDataSet);
+    procedure dtEditDet4NewRecord(DataSet: TDataSet);
+    procedure dtEditDet5NewRecord(DataSet: TDataSet);
+    procedure dtEditDet6NewRecord(DataSet: TDataSet);
+    procedure dtEditDet7NewRecord(DataSet: TDataSet);
+    procedure dtEditDet8NewRecord(DataSet: TDataSet);
   private
     { Private declarations }
     Foco : string;
@@ -1244,11 +1258,6 @@ begin
   PgcDetalhe.ActivePageIndex := 0;
 end;
 
-procedure TfrmCadPadraoMaster.dtEditDet1BeforePost(DataSet: TDataSet);
-begin
-  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
-end;
-
 procedure TfrmCadPadraoMaster.dtEditDet1BeforeInsert(DataSet: TDataSet);
 begin
   if (dtEdit.state in [dsInsert,dsEdit]) then
@@ -1384,6 +1393,54 @@ begin
     CadastroLookup(Formulario,dtEdit,campo,TIBQuery(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).Properties.listsource.dataset));
   end;
 
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet1NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet2NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet3NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet4NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet5NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet6NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet7NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
+end;
+
+procedure TfrmCadPadraoMaster.dtEditDet8NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TIBDataSet(DataSet).FieldByName('cnpj').value := dmApp.cnpj;
 end;
 
 end.

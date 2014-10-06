@@ -21,7 +21,7 @@ uses
   dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
-  cxPC;
+  cxPC, cxCheckBox;
 
 type
   TfrmCadDefeitos = class(TfrmCadPadrao)
@@ -31,6 +31,13 @@ type
     GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn;
     GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn;
     GridDBBandedTableView2NOME: TcxGridDBBandedColumn;
+    cxDBCheckBox1: TcxDBCheckBox;
+    dtEditCNPJ: TIBStringField;
+    dtEditCODIGO: TIntegerField;
+    dtEditNOME: TIBStringField;
+    dtEditATIVO: TIBStringField;
+    dtListATIVO: TIBStringField;
+    GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn;
   private
     { Private declarations }
   public

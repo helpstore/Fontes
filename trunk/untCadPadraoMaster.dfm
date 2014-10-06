@@ -22,15 +22,15 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
   object pgcCadastro: TcxPageControl
     Left = 0
     Top = 0
-    Width = 1041
-    Height = 541
+    Width = 1033
+    Height = 530
     ActivePage = tbsEdita
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange
-    ClientRectBottom = 537
+    ClientRectBottom = 526
     ClientRectLeft = 4
-    ClientRectRight = 1037
+    ClientRectRight = 1029
     ClientRectTop = 27
     object tbsLista: TcxTabSheet
       Caption = 'Pesquisa'
@@ -87,14 +87,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 1033
-        Height = 510
+        Width = 1025
+        Height = 499
         Align = alClient
         TabOrder = 0
         object pnlSubCad: TPanel
           Left = 1
-          Top = 232
-          Width = 1031
+          Top = 221
+          Width = 1023
           Height = 277
           Align = alBottom
           BevelOuter = bvNone
@@ -102,9 +102,9 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
           object PgcDetalhe: TcxPageControl
             Left = 0
             Top = 0
-            Width = 1031
+            Width = 1023
             Height = 277
-            ActivePage = tbsDetalhe1
+            ActivePage = tbsDetalhe3
             Align = alClient
             Color = clBtnFace
             HotTrack = True
@@ -113,7 +113,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
             TabStop = False
             ClientRectBottom = 273
             ClientRectLeft = 4
-            ClientRectRight = 1027
+            ClientRectRight = 1019
             ClientRectTop = 27
             object tbsDetalhe1: TcxTabSheet
               Caption = 'tbsDetalhe1'
@@ -122,7 +122,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub1: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
                 ActivePage = tbsListaSub1
                 Align = alClient
@@ -130,7 +130,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 OnChange = PGCSub1Change
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub1: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -138,7 +138,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet1: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 1015
+                    Width = 1007
                     Height = 215
                     Align = alClient
                     TabOrder = 0
@@ -199,14 +199,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub2: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
                 ActivePage = tbsListaSub2
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub2: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -219,35 +219,13 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet2: TcxGridDBTableView
+                    object TVDet2: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet2
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -256,9 +234,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet2: TcxGridLevel
                       GridView = TVDet2
@@ -295,14 +275,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub3: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
-                ActivePage = tbsListaSub3
+                ActivePage = tbsEditaSub3
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub3: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -315,35 +295,13 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet3: TcxGridDBTableView
+                    object TVDet3: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet3
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -352,9 +310,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet3: TcxGridLevel
                       GridView = TVDet3
@@ -374,7 +334,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Left = 8
                     Top = 24
                     TabStop = False
-                    DataBinding.DataSource = dsRegistroDet1
+                    DataBinding.DataSource = dsRegistroDet3
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
@@ -391,14 +351,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub4: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
-                ActivePage = tbsListaSub4
+                ActivePage = tbsEditaSub4
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub4: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -411,35 +371,13 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet4: TcxGridDBTableView
+                    object TVDet4: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet4
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -448,9 +386,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet4: TcxGridLevel
                       GridView = TVDet4
@@ -464,7 +404,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Left = 8
                     Top = 24
                     TabStop = False
-                    DataBinding.DataSource = dsRegistroDet1
+                    DataBinding.DataSource = dsRegistroDet4
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
@@ -487,15 +427,15 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub5: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
-                ActivePage = tbsListaSub5
+                ActivePage = tbsEditaSub5
                 Align = alClient
                 Enabled = False
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub5: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -508,35 +448,13 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet5: TcxGridDBTableView
+                    object TVDet5: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet5
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -545,9 +463,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet5: TcxGridLevel
                       GridView = TVDet5
@@ -561,7 +481,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Left = 8
                     Top = 24
                     TabStop = False
-                    DataBinding.DataSource = dsRegistroDet1
+                    DataBinding.DataSource = dsRegistroDet5
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
@@ -584,14 +504,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub6: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
-                ActivePage = tbsListaSub6
+                ActivePage = tbsEditaSub6
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub6: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -604,35 +524,13 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet6: TcxGridDBTableView
+                    object TVDet6: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet6
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -641,9 +539,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet6: TcxGridLevel
                       GridView = TVDet6
@@ -657,7 +557,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Left = 8
                     Top = 24
                     TabStop = False
-                    DataBinding.DataSource = dsRegistroDet1
+                    DataBinding.DataSource = dsRegistroDet6
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
@@ -680,14 +580,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub7: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
-                ActivePage = tbsListaSub7
+                ActivePage = tbsEditaSub7
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub7: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -700,35 +600,13 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet7: TcxGridDBTableView
+                    object TVDet7: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet7
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -737,9 +615,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet7: TcxGridLevel
                       GridView = TVDet7
@@ -759,7 +639,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Left = 8
                     Top = 24
                     TabStop = False
-                    DataBinding.DataSource = dsRegistroDet1
+                    DataBinding.DataSource = dsRegistroDet7
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
@@ -776,14 +656,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub8: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 1023
+                Width = 1015
                 Height = 246
-                ActivePage = tbsListaSub8
+                ActivePage = tbsEditaSub8
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 1019
+                ClientRectRight = 1011
                 ClientRectTop = 27
                 object tbsListaSub8: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -796,35 +676,13 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Align = alClient
                     TabOrder = 0
                     OnEnter = GridEnter
-                    object TVDet8: TcxGridDBTableView
+                    object TVDet8: TcxGridDBBandedTableView
                       OnKeyDown = TVRegistroKeyDown
                       NavigatorButtons.ConfirmDelete = False
-                      NavigatorButtons.First.Visible = True
-                      NavigatorButtons.PriorPage.Visible = True
-                      NavigatorButtons.Prior.Visible = True
-                      NavigatorButtons.Next.Visible = True
-                      NavigatorButtons.NextPage.Visible = True
-                      NavigatorButtons.Last.Visible = True
-                      NavigatorButtons.Insert.Visible = False
-                      NavigatorButtons.Append.Enabled = False
-                      NavigatorButtons.Append.Visible = False
-                      NavigatorButtons.Delete.Visible = False
-                      NavigatorButtons.Edit.Visible = False
-                      NavigatorButtons.Post.Visible = False
-                      NavigatorButtons.Cancel.Visible = False
-                      NavigatorButtons.Refresh.Enabled = False
-                      NavigatorButtons.Refresh.Visible = False
-                      NavigatorButtons.SaveBookmark.Enabled = False
-                      NavigatorButtons.SaveBookmark.Visible = False
-                      NavigatorButtons.GotoBookmark.Visible = False
-                      NavigatorButtons.Filter.Visible = True
                       DataController.DataSource = dsPesquisaDet8
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      OptionsBehavior.IncSearch = True
-                      OptionsBehavior.NavigatorHints = True
-                      OptionsCustomize.ColumnHiding = True
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -833,9 +691,11 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                       OptionsSelection.CellSelect = False
                       OptionsSelection.InvertSelect = False
                       OptionsSelection.UnselectFocusedRecordOnExit = False
-                      OptionsView.FooterAutoHeight = True
                       OptionsView.GroupByBox = False
-                      Preview.Visible = True
+                      OptionsView.BandHeaders = False
+                      Bands = <
+                        item
+                        end>
                     end
                     object LVDet8: TcxGridLevel
                       GridView = TVDet8
@@ -855,7 +715,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Left = 8
                     Top = 24
                     TabStop = False
-                    DataBinding.DataSource = dsRegistroDet1
+                    DataBinding.DataSource = dsRegistroDet8
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
@@ -870,8 +730,8 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
         object pnlMaster: TPanel
           Left = 1
           Top = 1
-          Width = 1031
-          Height = 231
+          Width = 1023
+          Height = 220
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
@@ -879,16 +739,16 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
           object PgcMaster: TcxPageControl
             Left = 0
             Top = 0
-            Width = 1031
-            Height = 231
+            Width = 1023
+            Height = 220
             ActivePage = tbsMaster1
             Align = alClient
             Focusable = False
             HotTrack = True
             TabOrder = 0
-            ClientRectBottom = 227
+            ClientRectBottom = 216
             ClientRectLeft = 4
-            ClientRectRight = 1027
+            ClientRectRight = 1019
             ClientRectTop = 27
             object tbsMaster1: TcxTabSheet
               Caption = 'tbsMaster1'
@@ -947,8 +807,8 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
   object dxBarManager: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     Categories.Strings = (
       'Defaut'
@@ -4282,7 +4142,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet1NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet1
     Left = 96
@@ -4302,7 +4162,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet2NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet2
     Left = 168
@@ -4325,7 +4185,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet3NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet3
     Left = 232
@@ -4358,7 +4218,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet4NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet4
     Left = 296
@@ -4391,7 +4251,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet5NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet5
     Left = 360
@@ -4424,7 +4284,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet6NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet6
     Left = 424
@@ -4457,7 +4317,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet7NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet7
     Left = 488
@@ -4490,7 +4350,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeInsert = dtEditDet1BeforeInsert
-    BeforePost = dtEditDet1BeforePost
+    OnNewRecord = dtEditDet8NewRecord
     GeneratorField.ApplyEvent = gamOnPost
     DataSource = dsLinkDet8
     Left = 552

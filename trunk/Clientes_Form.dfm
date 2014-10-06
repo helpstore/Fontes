@@ -21,8 +21,8 @@ object FrmClientes: TFrmClientes
   object pnlClient: TPanel
     Left = 0
     Top = 0
-    Width = 822
-    Height = 650
+    Width = 814
+    Height = 639
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -37,16 +37,16 @@ object FrmClientes: TFrmClientes
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 616
-      Width = 818
+      Top = 605
+      Width = 810
       Height = 2
       Align = alBottom
       Shape = bsTopLine
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 618
-      Width = 818
+      Top = 607
+      Width = 810
       Height = 30
       Align = alBottom
       BevelOuter = bvNone
@@ -54,7 +54,7 @@ object FrmClientes: TFrmClientes
       object dxBarDockControl1: TdxBarDockControl
         Left = 0
         Top = 2
-        Width = 818
+        Width = 810
         Height = 26
         Align = dalTop
         BarManager = BarMgr
@@ -62,7 +62,7 @@ object FrmClientes: TFrmClientes
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 818
+        Width = 810
         Height = 2
         Align = alTop
         BevelOuter = bvNone
@@ -72,24 +72,24 @@ object FrmClientes: TFrmClientes
     object PCPES: TcxPageControl
       Left = 2
       Top = 47
-      Width = 818
-      Height = 569
+      Width = 810
+      Height = 558
       ActivePage = dxTabSheet4
       Align = alClient
       HotTrack = True
       TabOrder = 0
       OnChange = PCPESChange
       OnEnter = PCPESEnter
-      ClientRectBottom = 565
+      ClientRectBottom = 554
       ClientRectLeft = 4
-      ClientRectRight = 814
+      ClientRectRight = 806
       ClientRectTop = 27
       object dxTabSheet4: TcxTabSheet
         Caption = '&1 Clientes'
         object Shape3: TShape
           Left = 0
           Top = 0
-          Width = 810
+          Width = 802
           Height = 1
           Align = alTop
           Pen.Color = clBtnShadow
@@ -100,8 +100,8 @@ object FrmClientes: TFrmClientes
           Align = alClient
           Caption = 'Dados '
           TabOrder = 0
-          Height = 537
-          Width = 810
+          Height = 526
+          Width = 802
           object BtnAtividadePes: TcxButton
             Left = 397
             Top = 89
@@ -635,17 +635,17 @@ object FrmClientes: TFrmClientes
           end
           object PCCLIENTE: TcxPageControl
             Left = 3
-            Top = 278
-            Width = 804
+            Top = 267
+            Width = 796
             Height = 251
-            ActivePage = dxTabSheet10
+            ActivePage = dxTabSheet8
             Align = alBottom
             HotTrack = True
             TabOrder = 21
             OnEnter = PCCLIENTEEnter
             ClientRectBottom = 247
             ClientRectLeft = 4
-            ClientRectRight = 800
+            ClientRectRight = 792
             ClientRectTop = 27
             object dxTabSheet1: TcxTabSheet
               Caption = 'Dados Cliente'
@@ -2226,7 +2226,7 @@ object FrmClientes: TFrmClientes
                 Left = 380
                 Top = 61
                 DataBinding.DataField = 'DATA_INICIAL'
-                DataBinding.DataSource = dsEndereco
+                DataBinding.DataSource = DataSource
                 TabOrder = 9
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
@@ -2376,7 +2376,7 @@ object FrmClientes: TFrmClientes
                 Width = 23
                 Height = 22
                 Cursor = crHandPoint
-                TabOrder = 15
+                TabOrder = 14
                 OnClick = BtnAtividadeClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
@@ -2411,7 +2411,7 @@ object FrmClientes: TFrmClientes
                 Width = 23
                 Height = 22
                 Cursor = crHandPoint
-                TabOrder = 16
+                TabOrder = 15
                 OnClick = BtnEnderecoPaiClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
@@ -2446,7 +2446,7 @@ object FrmClientes: TFrmClientes
                 Width = 23
                 Height = 22
                 Cursor = crHandPoint
-                TabOrder = 17
+                TabOrder = 16
                 OnClick = BtnCidadePaiClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
@@ -2522,24 +2522,6 @@ object FrmClientes: TFrmClientes
                 OnKeyDown = EdCodigoKeyDown
                 Width = 59
               end
-              object cxLabel106: TcxLabel
-                Left = 675
-                Top = 8
-                Caption = 'Aj. Aut. Pre'#231'os'
-                Transparent = True
-              end
-              object cxDBDateEdit10: TcxDBDateEdit
-                Left = 679
-                Top = 25
-                DataBinding.DataField = 'DATA_INICIAL'
-                DataBinding.DataSource = dsEndereco
-                Properties.DateOnError = deToday
-                TabOrder = 7
-                OnEnter = EdInicialEnter
-                OnExit = EdInicialExit
-                OnKeyDown = EdCodigoKeyDown
-                Width = 97
-              end
               object cxLabel107: TcxLabel
                 Left = 267
                 Top = 8
@@ -2582,7 +2564,7 @@ object FrmClientes: TFrmClientes
                   end>
                 Properties.ListSource = DsAtividade
                 Style.BorderStyle = ebsUltraFlat
-                TabOrder = 8
+                TabOrder = 7
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
                 OnKeyDown = EdCodigoKeyDown
@@ -2600,7 +2582,7 @@ object FrmClientes: TFrmClientes
                 DataBinding.DataField = 'PAI'
                 DataBinding.DataSource = DataSource
                 Properties.CharCase = ecUpperCase
-                TabOrder = 9
+                TabOrder = 8
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
                 OnKeyDown = EdCodigoKeyDown
@@ -2618,7 +2600,7 @@ object FrmClientes: TFrmClientes
                 DataBinding.DataField = 'MAE'
                 DataBinding.DataSource = DataSource
                 Properties.CharCase = ecUpperCase
-                TabOrder = 10
+                TabOrder = 9
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
                 OnKeyDown = EdCodigoKeyDown
@@ -2642,7 +2624,7 @@ object FrmClientes: TFrmClientes
                   end>
                 Properties.ListSource = dsLogradouros
                 Style.BorderStyle = ebsUltraFlat
-                TabOrder = 11
+                TabOrder = 10
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
                 OnKeyDown = EdCodigoKeyDown
@@ -2672,7 +2654,7 @@ object FrmClientes: TFrmClientes
                   end>
                 Properties.ListSource = dsCidades
                 Style.BorderStyle = ebsUltraFlat
-                TabOrder = 13
+                TabOrder = 12
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
                 OnKeyDown = EdCodigoKeyDown
@@ -2727,7 +2709,7 @@ object FrmClientes: TFrmClientes
                 Top = 99
                 DataBinding.DataField = 'RENDA_MENSAL'
                 DataBinding.DataSource = DataSource
-                TabOrder = 14
+                TabOrder = 13
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
                 OnKeyDown = EdCodigoKeyDown
@@ -2738,7 +2720,7 @@ object FrmClientes: TFrmClientes
                 Top = 99
                 DataBinding.DataField = 'NUMERO_PAIS'
                 DataBinding.DataSource = DataSource
-                TabOrder = 12
+                TabOrder = 11
                 OnEnter = EdInicialEnter
                 OnExit = EdInicialExit
                 OnKeyDown = EdCodigoKeyDown
@@ -3482,8 +3464,8 @@ object FrmClientes: TFrmClientes
           StyleHot.LookAndFeel.Kind = lfOffice11
           StyleHot.LookAndFeel.NativeStyle = True
           TabOrder = 0
-          Height = 538
-          Width = 810
+          Height = 527
+          Width = 802
           object btnCidade: TcxButton
             Left = 696
             Top = 31
@@ -4071,8 +4053,8 @@ object FrmClientes: TFrmClientes
         ImageIndex = 4
         object Panel4: TPanel
           Left = 0
-          Top = 471
-          Width = 810
+          Top = 460
+          Width = 802
           Height = 67
           Align = alBottom
           TabOrder = 0
@@ -4151,8 +4133,8 @@ object FrmClientes: TFrmClientes
         object WebBrowser1: TWebBrowser
           Left = 0
           Top = 0
-          Width = 810
-          Height = 430
+          Width = 802
+          Height = 419
           Align = alClient
           TabOrder = 1
           OnCommandStateChange = WebBrowser1CommandStateChange
@@ -4165,8 +4147,8 @@ object FrmClientes: TFrmClientes
         end
         object pnlConexao: TPanel
           Left = 0
-          Top = 430
-          Width = 810
+          Top = 419
+          Width = 802
           Height = 41
           Align = alBottom
           Caption = 'Sem Conex'#227'o com  Internet'
@@ -4186,8 +4168,8 @@ object FrmClientes: TFrmClientes
         object GridEquipamento: TcxGrid
           Left = 0
           Top = 235
-          Width = 810
-          Height = 303
+          Width = 802
+          Height = 292
           Align = alClient
           TabOrder = 0
           OnMouseEnter = GridEquipamentoMouseEnter
@@ -4583,7 +4565,7 @@ object FrmClientes: TFrmClientes
         object GridContratos: TcxGrid
           Left = 0
           Top = 37
-          Width = 810
+          Width = 802
           Height = 164
           Align = alTop
           TabOrder = 1
@@ -4759,7 +4741,7 @@ object FrmClientes: TFrmClientes
         object Panel5: TPanel
           Left = 0
           Top = 201
-          Width = 810
+          Width = 802
           Height = 34
           Align = alTop
           Caption = 'Equipamentos do Contrato'
@@ -4774,7 +4756,7 @@ object FrmClientes: TFrmClientes
         object Panel6: TPanel
           Left = 0
           Top = 0
-          Width = 810
+          Width = 802
           Height = 37
           Align = alTop
           Caption = 'Contratos'
@@ -4791,7 +4773,7 @@ object FrmClientes: TFrmClientes
     object Panel2: TPanel
       Left = 2
       Top = 2
-      Width = 818
+      Width = 810
       Height = 45
       Align = alTop
       BevelOuter = bvNone
@@ -4935,8 +4917,8 @@ object FrmClientes: TFrmClientes
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (
@@ -12258,18 +12240,19 @@ object FrmClientes: TFrmClientes
   object dsEquipamento: TDataSource
     AutoEdit = False
     DataSet = ContratosItens
-    Left = 546
-    Top = 45
+    Left = 586
+    Top = 173
   end
   object dsLinkContrato: TDataSource
     DataSet = Contrato
-    Left = 592
-    Top = 32
+    Left = 584
+    Top = 136
   end
-  object Contrato: TIBDataSet
+  object Contrato: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
-    SelectSQL.Strings = (
+    DataSource = DataSource
+    SQL.Strings = (
       'select'
       '    cp.cnpj,'
       '    cp.CODIGO,'
@@ -12288,9 +12271,19 @@ object FrmClientes: TFrmClientes
     GeneratorField.Field = 'CODIGO'
     GeneratorField.Generator = 'GEN_OFC_CONTRATOS_ID'
     GeneratorField.ApplyEvent = gamOnPost
-    DataSource = DataSource
-    Left = 784
-    Top = 56
+    Left = 616
+    Top = 136
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PESSOA_FJ'
+        ParamType = ptUnknown
+      end>
     object ContratoCODIGO: TIntegerField
       DisplayLabel = 'C'#243'd. Contrato'
       FieldName = 'CODIGO'
@@ -12346,10 +12339,11 @@ object FrmClientes: TFrmClientes
       Size = 14
     end
   end
-  object ContratosItens: TIBDataSet
+  object ContratosItens: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
-    SelectSQL.Strings = (
+    DataSource = dsLinkContrato
+    SQL.Strings = (
       'select cti.*, prd.nome produto, mdl.nome modelo_equipamento,'
       'case prd.servico'
       '                         when '#39'S'#39' then '#39'Servi'#231'o'#39
@@ -12366,9 +12360,19 @@ object FrmClientes: TFrmClientes
     GeneratorField.Field = 'CODIGO'
     GeneratorField.Generator = 'GEN_OFC_CONTRATOS_ITENS_ID'
     GeneratorField.ApplyEvent = gamOnPost
-    DataSource = dsLinkContrato
-    Left = 776
-    Top = 16
+    Left = 624
+    Top = 176
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'codigo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
     object ContratosItensCNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"GLO_CLIENTES_PRODUTOS_ITENS"."CNPJ"'
