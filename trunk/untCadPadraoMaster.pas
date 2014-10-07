@@ -1269,7 +1269,7 @@ procedure TfrmCadPadraoMaster.CancelarAction;
 begin
    if ((dsRegistro.DataSet.State in [DSINSERT,DSEDIT] ) and (Foco = 'Master')) then
   begin
-    Salvar(dsRegistro,dsPesquisa,tbsLista);
+    Cancelar(dsRegistro,dsPesquisa,tbsLista);
     VerificaStatus(dsRegistro,true);
     Grid.SetFocus;
   end

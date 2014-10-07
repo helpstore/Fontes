@@ -174,7 +174,6 @@ type
     QryPessoaNOME_RAZAO: TIBStringField;
     aTfrmCadPessoas: TcxDBLookupComboBox;
     cxLabel12: TcxLabel;
-    ckCompartilha: TcxDBCheckBox;
     dtEditCNPJ: TIBStringField;
     dtEditPESSOA_FJ: TIntegerField;
     dtEditCOMPRADOR: TIBStringField;
@@ -270,7 +269,7 @@ type
     cxDBRadioGroup4: TcxDBRadioGroup;
     cxDBRadioGroup5: TcxDBRadioGroup;
     cxLabel88: TcxLabel;
-    CmbClassificacao: TcxDBLookupComboBox;
+    aTfrmCadClassificacao: TcxDBLookupComboBox;
     cxLabel89: TcxLabel;
     cxDBCalcEdit6: TcxDBCalcEdit;
     aTFrmCadCategoriaClientes: TcxDBLookupComboBox;
@@ -385,16 +384,6 @@ type
     QryVendedorCOD_PERFIL: TIntegerField;
     QryVendedorCOD_PERFIL_PAGTO: TIntegerField;
     QryFormaPagto: TIBQuery;
-    IBStringField1: TIBStringField;
-    IntegerField1: TIntegerField;
-    IBStringField2: TIBStringField;
-    FloatField1: TFloatField;
-    FloatField2: TFloatField;
-    IntegerField2: TIntegerField;
-    IBStringField3: TIBStringField;
-    IBStringField4: TIBStringField;
-    IntegerField3: TIntegerField;
-    IntegerField4: TIntegerField;
     dsFormaPagto: TDataSource;
     QryAtividades: TIBQuery;
     dsAtividade: TDataSource;
@@ -678,12 +667,6 @@ type
     QryBairroNOME: TIBStringField;
     dsBairros: TDataSource;
     QryCidadeProp: TIBQuery;
-    IBStringField7: TIBStringField;
-    IntegerField6: TIntegerField;
-    IBStringField8: TIBStringField;
-    IBStringField9: TIBStringField;
-    IBStringField10: TIBStringField;
-    IntegerField7: TIntegerField;
     dsCidadeProp: TDataSource;
     qryRegiao: TIBQuery;
     qryRegiaoCNPJ: TIBStringField;
@@ -801,6 +784,22 @@ type
     QryBancosCODIGO: TIBStringField;
     QryBancosNOME: TIBStringField;
     cxDBCheckBox3: TcxDBCheckBox;
+    QryCidadePropCNPJ: TIBStringField;
+    QryCidadePropCODIGO: TIntegerField;
+    QryCidadePropNOME: TIBStringField;
+    QryCidadePropUF: TIBStringField;
+    QryCidadePropCOD_IBGE: TIBStringField;
+    QryCidadePropCOD_IAGRO: TIntegerField;
+    QryFormaPagtoCNPJ: TIBStringField;
+    QryFormaPagtoCODIGO: TIntegerField;
+    QryFormaPagtoNOME: TIBStringField;
+    QryFormaPagtoCOM_VISTA: TFloatField;
+    QryFormaPagtoCOM_PRAZO: TFloatField;
+    QryFormaPagtoPESSOA_FJ: TIntegerField;
+    QryFormaPagtoSENHA: TIBStringField;
+    QryFormaPagtoATIVO: TIBStringField;
+    QryFormaPagtoCOD_PERFIL: TIntegerField;
+    QryFormaPagtoCOD_PERFIL_PAGTO: TIntegerField;
     procedure btnCadPessoaClick(Sender: TObject);
     procedure btnCategoriaClick(Sender: TObject);
     procedure BtnclassificacaoClick(Sender: TObject);
@@ -824,6 +823,7 @@ type
     procedure btnVendedorClick(Sender: TObject);
     procedure btnBancoClick(Sender: TObject);
     procedure dtEditDet4NewRecord(DataSet: TDataSet);
+    procedure dtEditBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -989,6 +989,23 @@ procedure TfrmCadClientes.dtEditDet4NewRecord(DataSet: TDataSet);
 begin
   inherited;
   dtEditDet4PESSOA_FJ.value := dtEditPESSOA_FJ.value;
+end;
+
+procedure TfrmCadClientes.dtEditBeforePost(DataSet: TDataSet);
+var
+  OldValue,NewValue:String;
+begin
+  OldValue := dtEditPESSOA_FJ.OldValue;
+  NewValue := dtEditPESSOA_FJ.NewValue;
+  if (( OldValue <> '') and (OldValue <> NewValue)) then
+  begin
+    Application.MessageBox(Pchar('Alteração Indevida: Cadastro de Pessoa '+OldValue+' modificado para '+NewValue),'Aviso',mb_ok+mb_iconerror);
+    ActCancel.Execute;
+    abort;
+    exit;
+  end;
+  inherited;
+
 end;
 
 initialization

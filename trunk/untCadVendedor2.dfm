@@ -1,17 +1,22 @@
 inherited frmCadVendedor2: TfrmCadVendedor2
   Left = 278
   Top = 114
-  Height = 526
+  Width = 905
+  Height = 482
   Caption = 'Vendedores'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Height = 462
-    ClientRectBottom = 458
+    Width = 897
+    Height = 429
+    ClientRectBottom = 425
+    ClientRectRight = 893
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Height = 414
+        Top = 0
+        Width = 889
+        Height = 398
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -81,23 +86,35 @@ inherited frmCadVendedor2: TfrmCadVendedor2
           end
         end
       end
+      inherited pnlFiltro: TPanel
+        Width = 889
+        Height = 0
+      end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Height = 431
+        Width = 889
+        Height = 398
         inherited pnlSubCad: TPanel
-          Top = 153
+          Top = 120
+          Width = 887
           inherited PgcDetalhe: TcxPageControl
+            Width = 887
+            ActivePage = tbsDetalhe1
+            ClientRectRight = 883
             inherited tbsDetalhe1: TcxTabSheet
               Caption = '  Faixas de Comiss'#227'o     '
               inherited PGCSub1: TcxPageControl
-                ActivePage = tbsEditaSub1
+                Width = 879
+                ClientRectRight = 875
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
+                    Width = 871
                     inherited TVDet1: TcxGridDBBandedTableView
                       DataController.DetailKeyFieldNames = 'CODIGO'
                       object TVDet1CNPJ: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CNPJ'
+                        Visible = False
                         Position.BandIndex = 0
                         Position.ColIndex = 0
                         Position.RowIndex = 0
@@ -265,32 +282,69 @@ inherited frmCadVendedor2: TfrmCadVendedor2
             end
             inherited tbsDetalhe2: TcxTabSheet
               TabVisible = False
+              inherited PGCSub2: TcxPageControl
+                Width = 879
+                ClientRectRight = 875
+              end
             end
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
+              inherited PGCSub3: TcxPageControl
+                Width = 879
+                ActivePage = tbsListaSub3
+                ClientRectRight = 875
+                inherited tbsListaSub3: TcxTabSheet
+                  inherited GridDet3: TcxGrid
+                    Width = 871
+                  end
+                end
+              end
             end
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
+              inherited PGCSub4: TcxPageControl
+                Width = 879
+                ClientRectRight = 875
+              end
             end
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
+              inherited PGCSub5: TcxPageControl
+                Width = 879
+                ClientRectRight = 875
+              end
             end
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
+              inherited PGCSub6: TcxPageControl
+                Width = 879
+                ClientRectRight = 875
+              end
             end
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
+              inherited PGCSub7: TcxPageControl
+                Width = 879
+                ClientRectRight = 875
+              end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
+              inherited PGCSub8: TcxPageControl
+                Width = 879
+                ClientRectRight = 875
+              end
             end
           end
         end
         inherited pnlMaster: TPanel
-          Height = 152
+          Width = 887
+          Height = 119
           inherited PgcMaster: TcxPageControl
-            Height = 152
-            ClientRectBottom = 148
+            Width = 887
+            Height = 119
+            ClientRectBottom = 115
+            ClientRectRight = 883
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Vendedor'
               inherited edtCodigo: TcxDBTextEdit
@@ -298,7 +352,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
               end
               object cxDBCalcEdit2: TcxDBCalcEdit
                 Left = 488
-                Top = 64
+                Top = 57
                 DataBinding.DataField = 'COM_PRAZO'
                 DataBinding.DataSource = dsRegistro
                 Properties.ButtonGlyph.Data = {
@@ -331,19 +385,19 @@ inherited frmCadVendedor2: TfrmCadVendedor2
               end
               object cxLabel10: TcxLabel
                 Left = 488
-                Top = 48
+                Top = 41
                 Caption = 'Com '#224' Prazo (%)'
                 Transparent = True
               end
               object cxLabel11: TcxLabel
                 Left = 400
-                Top = 48
+                Top = 41
                 Caption = 'Com '#224' Vista (%)'
                 Transparent = True
               end
               object cxDBCalcEdit1: TcxDBCalcEdit
                 Left = 400
-                Top = 64
+                Top = 57
                 DataBinding.DataField = 'COM_VISTA'
                 DataBinding.DataSource = dsRegistro
                 Properties.ButtonGlyph.Data = {
@@ -377,7 +431,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
               object btnLogradouro: TcxButtonEdit
                 Tag = 4
                 Left = 371
-                Top = 64
+                Top = 57
                 Properties.Buttons = <
                   item
                     Caption = 'F4'
@@ -391,7 +445,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
               end
               object cbPessoaFJ: TcxDBLookupComboBox
                 Left = 8
-                Top = 64
+                Top = 57
                 DataBinding.DataField = 'PESSOA_FJ'
                 DataBinding.DataSource = dsRegistro
                 Properties.CharCase = ecUpperCase
@@ -406,13 +460,13 @@ inherited frmCadVendedor2: TfrmCadVendedor2
               end
               object cxLabel12: TcxLabel
                 Left = 8
-                Top = 48
+                Top = 41
                 Caption = 'Pessoa '
                 Transparent = True
               end
               object edtNome: TcxDBTextEdit
-                Left = 76
-                Top = 24
+                Left = 75
+                Top = 16
                 DataBinding.DataField = 'NOME'
                 DataBinding.DataSource = dsRegistro
                 Properties.CharCase = ecUpperCase
@@ -420,8 +474,8 @@ inherited frmCadVendedor2: TfrmCadVendedor2
                 Width = 493
               end
               object cxLabel13: TcxLabel
-                Left = 76
-                Top = 7
+                Left = 75
+                Top = -1
                 Caption = 'Nome'
                 Transparent = True
               end
