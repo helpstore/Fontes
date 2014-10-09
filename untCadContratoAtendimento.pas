@@ -237,6 +237,8 @@ type
     TVRegistroNOME_CONTRATO: TcxGridDBBandedColumn;
     QryProdutoNOME: TIBStringField;
     cxLabel26: TcxLabel;
+    cxDBMemo1: TcxDBMemo;
+    cxLabel27: TcxLabel;
     procedure btnTipoContratoClick(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);

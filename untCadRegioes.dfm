@@ -84,7 +84,7 @@ inherited frmCadRegiao: TfrmCadRegiao
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
         end
-        object cbVendedor: TcxDBLookupComboBox
+        object aTfrmCadVendedor2: TcxDBLookupComboBox
           Left = 312
           Top = 72
           DataBinding.DataField = 'VENDEDOR'
@@ -117,6 +117,7 @@ inherited frmCadRegiao: TfrmCadRegiao
           Properties.ViewStyle = vsButtonsOnly
           TabOrder = 9
           Text = 'btnVendedor'
+          OnClick = btnVendedorClick
           Width = 25
         end
         object btnTecnico: TcxButtonEdit
@@ -131,9 +132,10 @@ inherited frmCadRegiao: TfrmCadRegiao
           Properties.ViewStyle = vsButtonsOnly
           TabOrder = 10
           Text = 'btnTecnico'
+          OnClick = btnTecnicoClick
           Width = 25
         end
-        object cbTecnico: TcxDBLookupComboBox
+        object aTfrmCadTecnicos: TcxDBLookupComboBox
           Left = 8
           Top = 112
           DataBinding.DataField = 'TECNICO'
@@ -154,7 +156,7 @@ inherited frmCadRegiao: TfrmCadRegiao
           Caption = 'Tecnico'
           Transparent = True
         end
-        object cbTerceiro: TcxDBLookupComboBox
+        object aTFrmCadTerceiro: TcxDBLookupComboBox
           Left = 312
           Top = 112
           DataBinding.DataField = 'TERCEIRO'
@@ -187,6 +189,7 @@ inherited frmCadRegiao: TfrmCadRegiao
           Properties.ViewStyle = vsButtonsOnly
           TabOrder = 13
           Text = 'btnTecnico'
+          OnClick = btnTerceiroClick
           Width = 25
         end
         object cxLabel7: TcxLabel

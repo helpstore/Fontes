@@ -6,7 +6,6 @@ inherited frmCadMotivoChamado: TfrmCadMotivoChamado
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
@@ -29,6 +28,16 @@ inherited frmCadMotivoChamado: TfrmCadMotivoChamado
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
+          object GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'ATIVO'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            Width = 46
+            Position.BandIndex = 0
+            Position.ColIndex = 3
+            Position.RowIndex = 0
+          end
         end
       end
     end
@@ -39,6 +48,17 @@ inherited frmCadMotivoChamado: TfrmCadMotivoChamado
         end
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
+        end
+        object cxDBCheckBox1: TcxDBCheckBox
+          Left = 572
+          Top = 37
+          Caption = 'Ativo'
+          DataBinding.DataField = 'ATIVO'
+          DataBinding.DataSource = dsRegistro
+          Properties.ValueChecked = 'S'
+          Properties.ValueUnchecked = 'N'
+          TabOrder = 4
+          Width = 61
         end
       end
     end
@@ -51,25 +71,27 @@ inherited frmCadMotivoChamado: TfrmCadMotivoChamado
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
       'insert into OFC_MOTIVO_CHAMADO'
-      '  (CNPJ, CODIGO, NOME)'
+      '  (ATIVO, CNPJ, CODIGO, NOME)'
       'values'
-      '  (:CNPJ, :CODIGO, :NOME)')
+      '  (:ATIVO, :CNPJ, :CODIGO, :NOME)')
     RefreshSQL.Strings = (
       'Select '
       '  CNPJ,'
       '  CODIGO,'
-      '  NOME'
+      '  NOME,'
+      '  ATIVO'
       'from OFC_MOTIVO_CHAMADO '
       'where'
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'select CNPJ, CODIGO, NOME'
+      'select CNPJ, CODIGO, NOME, ATIVO'
       'from OFC_MOTIVO_CHAMADO'
       'Where codigo =:codigo')
     ModifySQL.Strings = (
       'update OFC_MOTIVO_CHAMADO'
       'set'
+      '  ATIVO = :ATIVO,'
       '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
       '  NOME = :NOME'
@@ -98,10 +120,16 @@ inherited frmCadMotivoChamado: TfrmCadMotivoChamado
       Origin = '"OFC_MOTIVO_CHAMADO"."NOME"'
       Size = 50
     end
+    object dtEditATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"OFC_MOTIVO_CHAMADO"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'select CNPJ, CODIGO, NOME'
+      'select CNPJ, CODIGO, NOME, ATIVO'
       'from OFC_MOTIVO_CHAMADO'
       'Where CNPJ = :CNPJ '
       'order by NOME')
@@ -131,6 +159,13 @@ inherited frmCadMotivoChamado: TfrmCadMotivoChamado
       FieldName = 'NOME'
       Origin = '"OFC_MOTIVO_CHAMADO"."NOME"'
       Size = 50
+    end
+    object dtListATIVO: TIBStringField
+      DisplayLabel = 'Ativo'
+      FieldName = 'ATIVO'
+      Origin = '"OFC_MOTIVO_CHAMADO"."ATIVO"'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited dxBarManager: TdxBarManager

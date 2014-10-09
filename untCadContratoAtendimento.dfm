@@ -133,6 +133,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
           inherited PgcDetalhe: TcxPageControl
             Width = 1005
             Height = 397
+            ActivePage = tbsDetalhe1
             ClientRectBottom = 393
             ClientRectRight = 1001
             inherited tbsDetalhe1: TcxTabSheet
@@ -337,14 +338,18 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                 end
                 inherited tbsEditaSub1: TcxTabSheet
                   inherited edtCodDet1: TcxDBTextEdit
+                    Top = 15
                     DataBinding.DataField = 'CODIGO'
                   end
+                  inherited cxLabel8: TcxLabel
+                    Top = -1
+                  end
                   object cxButton2: TcxButton
-                    Left = 507
-                    Top = 23
+                    Left = 493
+                    Top = 14
                     Width = 23
                     Height = 22
-                    TabOrder = 9
+                    TabOrder = 10
                     TabStop = False
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
@@ -375,7 +380,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   end
                   object cmbEquipamento: TcxDBLookupComboBox
                     Left = 74
-                    Top = 24
+                    Top = 15
                     DataBinding.DataField = 'COD_PRODUTO'
                     DataBinding.DataSource = dsRegistroDet1
                     Properties.DropDownAutoSize = True
@@ -393,17 +398,17 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     Properties.ListSource = dsProduto
                     Properties.MaxLength = 500
                     TabOrder = 1
-                    Width = 432
+                    Width = 417
                   end
                   object cxLabel15: TcxLabel
                     Left = 74
-                    Top = 8
+                    Top = -1
                     Caption = 'Equipamento'
                     Transparent = True
                   end
                   object edtValor: TcxDBCalcEdit
-                    Left = 531
-                    Top = 24
+                    Left = 520
+                    Top = 15
                     DataBinding.DataField = 'VALOR'
                     DataBinding.DataSource = dsRegistroDet1
                     Properties.ButtonGlyph.Data = {
@@ -435,18 +440,18 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     Width = 125
                   end
                   object cxLabel16: TcxLabel
-                    Left = 531
-                    Top = 8
+                    Left = 499
+                    Top = -1
                     Caption = 'Valor'
                     Transparent = True
                   end
                   object cxGroupBox1: TcxGroupBox
                     Left = 8
-                    Top = 51
+                    Top = 40
                     TabStop = True
                     Caption = 'Par'#226'metros - Datas do Contrato'
                     TabOrder = 4
-                    Height = 69
+                    Height = 64
                     Width = 441
                     object cxDBDateEdit2: TcxDBDateEdit
                       Left = 91
@@ -576,11 +581,11 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   end
                   object cxGroupBox3: TcxGroupBox
                     Left = 455
-                    Top = 51
+                    Top = 40
                     TabStop = True
                     Caption = 'Par'#226'metros - Dias/Horas'
                     TabOrder = 5
-                    Height = 69
+                    Height = 64
                     Width = 234
                     object cxDBSpinEdit3: TcxDBSpinEdit
                       Left = 80
@@ -696,11 +701,11 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   end
                   object GridHistorico: TcxGrid
                     Left = 0
-                    Top = 141
+                    Top = 200
                     Width = 989
-                    Height = 169
+                    Height = 110
                     Align = alBottom
-                    TabOrder = 7
+                    TabOrder = 8
                     TabStop = False
                     object GridHistoricoDBBandedTableView1: TcxGridDBBandedTableView
                       NavigatorButtons.ConfirmDelete = False
@@ -717,8 +722,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                       DataController.Summary.DefaultGroupSummaryItems = <>
                       DataController.Summary.FooterSummaryItems = <>
                       DataController.Summary.SummaryGroups = <>
-                      FilterRow.Visible = True
                       OptionsBehavior.IncSearch = True
+                      OptionsCustomize.ColumnFiltering = False
                       OptionsData.CancelOnExit = False
                       OptionsData.Deleting = False
                       OptionsData.DeletingConfirmation = False
@@ -776,7 +781,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     Width = 989
                     Height = 25
                     Align = alBottom
-                    TabOrder = 12
+                    TabOrder = 13
                     object BitBtn1: TBitBtn
                       Left = 2
                       Top = 1
@@ -824,21 +829,21 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   end
                   object Panel1: TPanel
                     Left = 0
-                    Top = 120
+                    Top = 179
                     Width = 989
                     Height = 21
                     Align = alBottom
                     Caption = 'Hist'#243'rico VMC'
-                    TabOrder = 13
+                    TabOrder = 14
                   end
                   object cxGroupBox4: TcxGroupBox
-                    Left = 693
-                    Top = 51
+                    Left = 401
+                    Top = 107
                     TabStop = True
                     Caption = 'VMC - Volume M'#233'dio de C'#243'pias (Mensal)'
                     Enabled = False
-                    TabOrder = 6
-                    Height = 69
+                    TabOrder = 7
+                    Height = 64
                     Width = 288
                     object cxDBTextEdit2: TcxDBTextEdit
                       Left = 6
@@ -902,8 +907,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     end
                   end
                   object cxDBCheckBox2: TcxDBCheckBox
-                    Left = 663
-                    Top = 28
+                    Left = 647
+                    Top = 19
                     Caption = 'Ativo'
                     DataBinding.DataField = 'ATIVO'
                     DataBinding.DataSource = dsRegistroDet1
@@ -911,7 +916,23 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     Properties.ValueUnchecked = 'N'
                     Style.TransparentBorder = True
                     TabOrder = 3
+                    Transparent = True
                     Width = 58
+                  end
+                  object cxDBMemo1: TcxDBMemo
+                    Left = 7
+                    Top = 122
+                    DataBinding.DataField = 'INFORMACOES_ITENS'
+                    DataBinding.DataSource = dsRegistroDet1
+                    TabOrder = 6
+                    Height = 50
+                    Width = 390
+                  end
+                  object cxLabel27: TcxLabel
+                    Left = 8
+                    Top = 105
+                    Caption = 'Informa'#231#245'es'
+                    Transparent = True
                   end
                 end
               end
@@ -940,8 +961,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                 ClientRectRight = 993
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
-                    Width = 907
-                    Height = 227
+                    Width = 989
+                    Height = 335
                   end
                 end
               end
@@ -1046,6 +1067,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                 Font.Name = 'Tahoma'
                 Font.Style = []
                 ParentFont = False
+                Transparent = True
                 WordWrap = True
               end
               inherited edtCodigo: TcxDBTextEdit
@@ -1257,6 +1279,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                 Properties.ValueUnchecked = 'N'
                 Style.TransparentBorder = True
                 TabOrder = 6
+                Transparent = True
                 Width = 58
               end
               object cxDBMemo2: TcxDBMemo
@@ -1591,11 +1614,6 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       0
       0
       26)
-  end
-  inherited ActionList1: TActionList
-    inherited ActCadLookup: TAction
-      OnExecute = ActCadLookupExecute
-    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
@@ -3378,7 +3396,6 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
     end
   end
   inherited dtEditDet1: TIBDataSet
-    OnNewRecord = dtEditDet1NewRecord
     DeleteSQL.Strings = (
       'delete from ofc_contratos_itens'
       'where'

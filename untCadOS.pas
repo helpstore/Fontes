@@ -255,7 +255,7 @@ type
     TVRegistroTROCA_CILINDRO: TcxGridDBBandedColumn;
     cxDBTextEdit4: TcxDBTextEdit;
     Label10: TcxLabel;
-    cxDBSpinEdit3: TcxDBSpinEdit;
+    EdtKmFinal: TcxDBSpinEdit;
     Label9: TcxLabel;
     Label7: TcxLabel;
     cxDBSpinEdit1: TcxDBSpinEdit;
@@ -693,6 +693,7 @@ type
     procedure dtEditDet2NewRecord(DataSet: TDataSet);
     procedure dtEditDet2AfterPost(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
+    procedure dtEditKM_FINALChange(Sender: TField);
   private
     { Private declarations }
     Procedure Filtrar;
@@ -1048,7 +1049,16 @@ var
   TRAB_INI  , TRAB_FIM : STRING;
 
 begin
-  
+
+  //verifica se km_inicial é menor que km_final
+  if dtEditKM_RODADO.value < 0 then
+  begin
+    Application.MessageBox('Impossível salvar alterações. Km Final menor que Km Inicial.','Aviso',mb_iconerror + mb_ok);
+    EdtKmFinal.setfocus;
+    abort;
+    exit;
+  end;
+
   if ((dtEditHR_FECHAMENTO.value = StrToTime('00:00:00')) and (dtEditDATA_FECHAMENTO.value > 0)) then
   begin
     Application.MessageBox('Impossível salvar alterações. Defina um horário de fechamento válido','Aviso',mb_iconerror + mb_ok);
@@ -1066,7 +1076,7 @@ begin
     if StrtoDate(DATA_INI) > StrtoDate(DATA_FIM) then //
     begin
       dtEditTEMPO_RESPOSTA.VALUE := 0;
-      Application.MessageBox('Data de entrada está maior que data do fechamento','Aviso',mb_ok+mb_iconinformation);
+      Application.MessageBox('Data de fechamento está maior que data do lançamento','Aviso',mb_ok+mb_iconinformation);
       edtDataFechamento.SetFocus;
       Abort;
       exit;
@@ -1414,6 +1424,12 @@ begin
     abort;//aqui boy
     exit;
   end;
+end;
+
+procedure TfrmCadOS.dtEditKM_FINALChange(Sender: TField);
+begin
+  inherited;
+  dtEditKM_RODADO.value := dtEditKM_FINAL.value - dtEditKM_INICIAL.value;
 end;
 
 end.

@@ -21,7 +21,7 @@ uses
   dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
-  cxPC;
+  cxPC, cxCheckBox;
 
 type
   TfrmCadMotivoChamado = class(TfrmCadPadrao)
@@ -34,6 +34,10 @@ type
     dtEditCNPJ: TIBStringField;
     dtEditCODIGO: TIntegerField;
     dtEditNOME: TIBStringField;
+    cxDBCheckBox1: TcxDBCheckBox;
+    dtEditATIVO: TIBStringField;
+    dtListATIVO: TIBStringField;
+    GridDBBandedTableView2ATIVO: TcxGridDBBandedColumn;
   private
     { Private declarations }
   public

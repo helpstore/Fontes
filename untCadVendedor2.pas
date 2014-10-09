@@ -32,7 +32,7 @@ type
     cxLabel11: TcxLabel;
     cxDBCalcEdit1: TcxDBCalcEdit;
     btnLogradouro: TcxButtonEdit;
-    cbPessoaFJ: TcxDBLookupComboBox;
+    aTfrmCadPessoas: TcxDBLookupComboBox;
     cxLabel12: TcxLabel;
     edtNome: TcxDBTextEdit;
     cxLabel13: TcxLabel;
@@ -99,6 +99,7 @@ type
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure cxDBCalcEdit5KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure btnLogradouroClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -109,6 +110,8 @@ var
   frmCadVendedor2: TfrmCadVendedor2;
 
 implementation
+
+uses untCadPessoas;
 
 {$R *.dfm}
 
@@ -124,6 +127,12 @@ begin
   if key = 13 then
     edtCodDet1.SetFocus;
 
+end;
+
+procedure TfrmCadVendedor2.btnLogradouroClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadPessoas,dtEdit,'PESSOA_FJ',QryPessoa);
 end;
 
 initialization
