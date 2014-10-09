@@ -2425,7 +2425,6 @@ inherited frmCadOS: TfrmCadOS
                 Top = 163
                 TabStop = True
                 Caption = 'Programa'#231#227'o'
-                Enabled = False
                 TabOrder = 11
                 Height = 76
                 Width = 181
@@ -2509,7 +2508,6 @@ inherited frmCadOS: TfrmCadOS
                 Top = 163
                 TabStop = True
                 Caption = 'Solicita'#231#227'o'
-                Enabled = False
                 TabOrder = 10
                 Height = 76
                 Width = 182
@@ -2869,7 +2867,7 @@ inherited frmCadOS: TfrmCadOS
                   ParentFont = False
                   Transparent = True
                 end
-                object cxDBSpinEdit3: TcxDBSpinEdit
+                object EdtKmFinal: TcxDBSpinEdit
                   Left = 68
                   Top = 173
                   DataBinding.DataField = 'KM_FINAL'
@@ -4750,10 +4748,12 @@ inherited frmCadOS: TfrmCadOS
     object dtEditKM_INICIAL: TFloatField
       FieldName = 'KM_INICIAL'
       Origin = '"OFC_ORDEM_SERVICO"."KM_INICIAL"'
+      OnChange = dtEditKM_FINALChange
     end
     object dtEditKM_FINAL: TFloatField
       FieldName = 'KM_FINAL'
       Origin = '"OFC_ORDEM_SERVICO"."KM_FINAL"'
+      OnChange = dtEditKM_FINALChange
     end
     object dtEditOS_RECHAMADO: TIntegerField
       FieldName = 'OS_RECHAMADO'

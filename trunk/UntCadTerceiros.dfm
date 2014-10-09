@@ -2,10 +2,10 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
   Left = 257
   Top = 232
   Caption = 'Terceiros'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
@@ -67,7 +67,7 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
         end
-        object cbPessoa: TcxDBLookupComboBox
+        object aTfrmCadPessoas: TcxDBLookupComboBox
           Left = 10
           Top = 88
           DataBinding.DataField = 'PESSOA_FJ'
@@ -118,6 +118,7 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
         object btnPessoa: TcxButtonEdit
           Left = 291
           Top = 88
+          TabStop = False
           Properties.Buttons = <
             item
               Caption = 'F4'
@@ -288,11 +289,6 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
       0
       0
       26)
-  end
-  inherited ActionList1: TActionList
-    inherited ActCadLookup: TAction
-      OnExecute = ActCadLookupExecute
-    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
@@ -614,6 +610,7 @@ inherited FrmCadTerceiro: TFrmCadTerceiro
     Top = 3
   end
   object QryPessoa: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeOpen = dtListBeforeOpen

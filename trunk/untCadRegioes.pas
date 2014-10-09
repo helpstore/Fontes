@@ -26,13 +26,13 @@ uses
 
 type
   TfrmCadRegiao = class(TfrmCadPadrao)
-    cbVendedor: TcxDBLookupComboBox;
+    aTfrmCadVendedor2: TcxDBLookupComboBox;
     cxLabel9: TcxLabel;
     btnVendedor: TcxButtonEdit;
     btnTecnico: TcxButtonEdit;
-    cbTecnico: TcxDBLookupComboBox;
+    aTfrmCadTecnicos: TcxDBLookupComboBox;
     cxLabel3: TcxLabel;
-    cbTerceiro: TcxDBLookupComboBox;
+    aTFrmCadTerceiro: TcxDBLookupComboBox;
     cxLabel4: TcxLabel;
     btnTerceiro: TcxButtonEdit;
     cxLabel7: TcxLabel;
@@ -83,6 +83,9 @@ type
     QryTerceiroCOM_VISTA: TFloatField;
     QryTerceiroNOME: TIBStringField;
     QryTerceiroPESSOA_FJ: TIntegerField;
+    procedure btnTecnicoClick(Sender: TObject);
+    procedure btnTerceiroClick(Sender: TObject);
+    procedure btnVendedorClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -94,7 +97,27 @@ var
 
 implementation
 
+uses UntCadTecnicos, UntCadTerceiros, untCadVendedor2;
+
 {$R *.dfm}
+
+procedure TfrmCadRegiao.btnTecnicoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadTecnicos,dtEdit,'TECNICO',QryTecnico);
+end;
+
+procedure TfrmCadRegiao.btnTerceiroClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TFrmCadTerceiro,dtEdit,'TERCEIRO',QryTerceiro);
+end;
+
+procedure TfrmCadRegiao.btnVendedorClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadVendedor2,dtEdit,'VENDEDOR',QryVendedor);
+end;
 
 initialization
  RegisterClass(TfrmCadRegiao);

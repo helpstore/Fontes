@@ -10,6 +10,7 @@ inherited frmCadPessoas: TfrmCadPessoas
   inherited pgcCadastro: TcxPageControl
     Width = 774
     Height = 451
+    ActivePage = tbsLista
     ClientRectBottom = 447
     ClientRectRight = 770
     inherited tbsLista: TcxTabSheet
@@ -116,12 +117,14 @@ inherited frmCadPessoas: TfrmCadPessoas
           end
           object GridDBBandedTableView2PESSOA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PESSOA'
+            Width = 59
             Position.BandIndex = 0
             Position.ColIndex = 16
             Position.RowIndex = 0
           end
           object GridDBBandedTableView2CPF_CGC: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CPF_CGC'
+            Width = 75
             Position.BandIndex = 0
             Position.ColIndex = 17
             Position.RowIndex = 0
@@ -901,8 +904,24 @@ inherited frmCadPessoas: TfrmCadPessoas
       '               FONE,'
       '               FAX, '
       '               CELULAR, '
-      '               PESSOA, '
-      '               CPF_CGC, '
+      '               PESSOA,'
+      '               case                              '
+      
+        '                 when substring(CPF_CGC from 13 for 1) <> '#39#39' the' +
+        'n'
+      
+        '                ( substring(CPF_CGC from 1 for 2)||'#39'.'#39'||substrin' +
+        'g(CPF_CGC from 3 for 3)||'#39'.'#39'||substring(CPF_CGC from 6 for 3)||'#39 +
+        '/'#39'||substring(CPF_CGC from 9 for 4)||'#39'-'#39'||substring(CPF_CGC from' +
+        ' 13 for 2) )'
+      '                when substring(CPF_CGC from 1 for 1) <> '#39#39' then '
+      
+        '                ( substring(CPF_CGC from 1 for 3)||'#39'.'#39'||substrin' +
+        'g(CPF_CGC from 4 for 3)||'#39'.'#39'||substring(CPF_CGC from 7 for 3)||'#39 +
+        '-'#39'||substring(CPF_CGC from 10 for 2) )'
+      '                else'
+      '                  CPF_CGC'
+      '                end  as CPF_CGC,'
       '               SUBSTRING (RG_IE FROM 1 FOR 15) RG_IE  , '
       '               CONTATO, '
       '               DT_NASCIMENTO, '
@@ -1044,12 +1063,6 @@ inherited frmCadPessoas: TfrmCadPessoas
       FixedChar = True
       Size = 1
     end
-    object dtListCPF_CGC: TIBStringField
-      DisplayLabel = 'CPF/CGC'
-      FieldName = 'CPF_CGC'
-      Origin = '"GLO_PESSOAS_FJ"."CPF_CGC"'
-      Size = 15
-    end
     object dtListRG_IE: TIBStringField
       DisplayLabel = 'RG/IE'
       FieldName = 'RG_IE'
@@ -1147,6 +1160,12 @@ inherited frmCadPessoas: TfrmCadPessoas
       FieldName = 'NOME_REGIAO'
       Origin = '"GLO_REGIOES"."NOME"'
       Size = 50
+    end
+    object dtListCPF_CGC: TIBStringField
+      DisplayLabel = 'CPF/CGC'
+      FieldName = 'CPF_CGC'
+      ProviderFlags = []
+      Size = 79
     end
   end
   inherited dxBarManager: TdxBarManager

@@ -2,10 +2,11 @@ inherited frmCadServicoExecutado: TfrmCadServicoExecutado
   Left = 219
   Top = 184
   Caption = 'Servi'#231'o Executado'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
+    ActivePage = tbsLista
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
@@ -64,10 +65,40 @@ inherited frmCadServicoExecutado: TfrmCadServicoExecutado
     end
   end
   inherited dtEdit: TIBDataSet
+    DeleteSQL.Strings = (
+      'delete from OFC_TIPO_ATENDIMENTO'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    InsertSQL.Strings = (
+      'insert into OFC_TIPO_ATENDIMENTO'
+      '  (CNPJ, CODIGO, NOME, RETORNO)'
+      'values'
+      '  (:CNPJ, :CODIGO, :NOME, :RETORNO)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  CNPJ,'
+      '  CODIGO,'
+      '  NOME,'
+      '  RETORNO'
+      'from OFC_TIPO_ATENDIMENTO '
+      'where'
+      '  CNPJ = :CNPJ and'
+      '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
       'select CNPJ, CODIGO, NOME, retorno'
       'from OFC_TIPO_ATENDIMENTO'
       'Where codigo =:codigo')
+    ModifySQL.Strings = (
+      'update OFC_TIPO_ATENDIMENTO'
+      'set'
+      '  CNPJ = :CNPJ,'
+      '  CODIGO = :CODIGO,'
+      '  NOME = :NOME,'
+      '  RETORNO = :RETORNO'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
     GeneratorField.Field = 'CODIGO'
     GeneratorField.Generator = 'GEN_OFC_TIPO_ATENDIMENTO_ID'
     GeneratorField.ApplyEvent = gamOnPost

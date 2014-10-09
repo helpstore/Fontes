@@ -70,7 +70,6 @@ type
     dtListFAX: TIBStringField;
     dtListCELULAR: TIBStringField;
     dtListPESSOA: TIBStringField;
-    dtListCPF_CGC: TIBStringField;
     dtListRG_IE: TIBStringField;
     dtListCONTATO: TIBStringField;
     dtListDT_NASCIMENTO: TDateTimeField;
@@ -205,6 +204,7 @@ type
     QryBairroNOME: TIBStringField;
     dtEditFJ: TIBStringField;
     QryConvenioCODIGO: TIntegerField;
+    dtListCPF_CGC: TIBStringField;
     procedure btnLogradouroClick(Sender: TObject);
     procedure btnBairroClick(Sender: TObject);
     procedure btnCidadeClick(Sender: TObject);
@@ -319,7 +319,13 @@ begin
       exit;
 
     if (not CGC_Valido(cpf)) then
+    begin
        Application.MessageBox('Campo CNPJ Inválido','Atenção',mb_ok + MB_ICONERROR);
+       abort;
+       edtCPF.SetFocus;
+       exit;
+    end;
+
  end
  else
  begin
@@ -330,7 +336,12 @@ begin
       exit;
 
     if (not CPF_Valido(cpf)) then
+    begin
        Application.MessageBox('Campo CPF Inválido','Atenção',mb_ok + MB_ICONERROR);
+       abort;
+       edtCPF.SetFocus;
+       exit;
+    end;
  end
 end;
 

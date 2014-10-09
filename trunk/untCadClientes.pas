@@ -97,7 +97,6 @@ type
     dtListCATEGORIA: TIntegerField;
     dtListSINCRONIZA_FILIAIS: TIBStringField;
     dtListNOME_RAZAO: TIBStringField;
-    dtListCPF_CGC: TIBStringField;
     TVRegistroCNPJ: TcxGridDBBandedColumn;
     TVRegistroPESSOA_FJ: TcxGridDBBandedColumn;
     TVRegistroCOMPRADOR: TcxGridDBBandedColumn;
@@ -346,7 +345,7 @@ type
     cxLabel119: TcxLabel;
     cxLabel120: TcxLabel;
     cxDBTextEdit21: TcxDBTextEdit;
-    cmbLogradouroTrab: TcxDBLookupComboBox;
+    cTfrmCadLogradouro: TcxDBLookupComboBox;
     cxLabel121: TcxLabel;
     cxDBDateEdit13: TcxDBDateEdit;
     cxLabel122: TcxLabel;
@@ -390,11 +389,8 @@ type
     QryAtividadesCNPJ: TIBStringField;
     QryAtividadesCODIGO: TIntegerField;
     QryAtividadesNOME: TIBStringField;
-    dsLogradouros: TDataSource;
-    QryLogradouros: TIBQuery;
-    IBStringField5: TIBStringField;
-    IntegerField5: TIntegerField;
-    IBStringField6: TIBStringField;
+    dsLogradouroPai: TDataSource;
+    QryLogradouroPai: TIBQuery;
     QryCidades: TIBQuery;
     dsCidades: TDataSource;
     QryCidadesCNPJ: TIBStringField;
@@ -501,9 +497,9 @@ type
     QryProdutoNOME: TIBStringField;
     cxDBCalcEdit1: TcxDBCalcEdit;
     cxLabel13: TcxLabel;
-    cxDBCalcEdit2: TcxDBCalcEdit;
+    edtPorcentagem: TcxDBCalcEdit;
     cxLabel14: TcxLabel;
-    cxDBCalcEdit3: TcxDBCalcEdit;
+    edtResultado: TcxDBCalcEdit;
     cxLabel15: TcxLabel;
     dtEditDet1CNPJ: TIBStringField;
     dtEditDet1PESSOA_FJ: TIntegerField;
@@ -656,11 +652,11 @@ type
     TVDet3NOME_TIPO_CONTRATO: TcxGridDBBandedColumn;
     TVDet3NOME_MODELO_PROPRIEDADE: TcxGridDBBandedColumn;
     TVDet3NOME_REGIAO: TcxGridDBBandedColumn;
-    qryLogradouro: TIBQuery;
-    qryLogradouroCNPJ: TIBStringField;
-    qryLogradouroCODIGO: TIntegerField;
-    qryLogradouroNOME: TIBStringField;
-    dsLogradouro: TDataSource;
+    qryLogradouroConj: TIBQuery;
+    qryLogradouroConjCNPJ: TIBStringField;
+    qryLogradouroConjCODIGO: TIntegerField;
+    qryLogradouroConjNOME: TIBStringField;
+    dsLogradouroConj: TDataSource;
     QryBairro: TIBQuery;
     QryBairroCNPJ: TIBStringField;
     QryBairroCODIGO: TIntegerField;
@@ -790,16 +786,32 @@ type
     QryCidadePropUF: TIBStringField;
     QryCidadePropCOD_IBGE: TIBStringField;
     QryCidadePropCOD_IAGRO: TIntegerField;
+    dtListCPF_CGC: TIBStringField;
     QryFormaPagtoCNPJ: TIBStringField;
     QryFormaPagtoCODIGO: TIntegerField;
     QryFormaPagtoNOME: TIBStringField;
-    QryFormaPagtoCOM_VISTA: TFloatField;
-    QryFormaPagtoCOM_PRAZO: TFloatField;
-    QryFormaPagtoPESSOA_FJ: TIntegerField;
-    QryFormaPagtoSENHA: TIBStringField;
+    QryFormaPagtoACRESCIMO: TFloatField;
+    QryFormaPagtoDESCONTO: TFloatField;
+    QryFormaPagtoNPARCELAS: TIntegerField;
+    QryFormaPagtoCOMENTRADA: TIBStringField;
+    QryFormaPagtoINTERVALO: TIntegerField;
+    QryFormaPagtoAVISTA: TIBStringField;
+    QryFormaPagtoFATURA_FUTURA: TIBStringField;
+    QryFormaPagtoFORMA_ECF: TIBStringField;
+    QryFormaPagtoTIPO_PAGAMENTO: TIBStringField;
     QryFormaPagtoATIVO: TIBStringField;
-    QryFormaPagtoCOD_PERFIL: TIntegerField;
-    QryFormaPagtoCOD_PERFIL_PAGTO: TIntegerField;
+    QryFormaPagtoINTERVALO_PRE_DEFINIDO: TIBStringField;
+    QryFormaPagtoVENCTO_FIXO: TIBStringField;
+    QryFormaPagtoDT_VENCTO_FIXO: TDateField;
+    QryFormaPagtoOUTROS: TIBStringField;
+    QryLogradouroPaiCNPJ: TIBStringField;
+    QryLogradouroPaiCODIGO: TIntegerField;
+    QryLogradouroPaiNOME: TIBStringField;
+    dsLogradouroProp: TDataSource;
+    qryLogradouroProp: TIBQuery;
+    qryLogradouroPropCNPJ: TIBStringField;
+    qryLogradouroPropCODIGO: TIntegerField;
+    qryLogradouroPropNOME: TIBStringField;
     procedure btnCadPessoaClick(Sender: TObject);
     procedure btnCategoriaClick(Sender: TObject);
     procedure BtnclassificacaoClick(Sender: TObject);
@@ -809,8 +821,6 @@ type
     procedure BtnCidadePaiClick(Sender: TObject);
     procedure dtEditDet1NewRecord(DataSet: TDataSet);
     procedure dtEditDet1PRODUTOValidate(Sender: TField);
-    procedure dtEditDet1PORCENTAGEMValidate(Sender: TField);
-    procedure dtEditDet1RESULTADOValidate(Sender: TField);
     procedure dtEditDet2NewRecord(DataSet: TDataSet);
     procedure cxButton2Click(Sender: TObject);
     procedure cxButton3Click(Sender: TObject);
@@ -824,6 +834,10 @@ type
     procedure btnBancoClick(Sender: TObject);
     procedure dtEditDet4NewRecord(DataSet: TDataSet);
     procedure dtEditBeforePost(DataSet: TDataSet);
+    procedure BtnEnderecoTrabClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure edtPorcentagemExit(Sender: TObject);
+    procedure edtResultadoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -876,7 +890,7 @@ end;
 procedure TfrmCadClientes.BtnEnderecoPaiClick(Sender: TObject);
 begin
   inherited;
-  CadastroLookup(TfrmCadLogradouro,dtEdit,'ENDERECO_PAIS',QryLogradouros);
+  CadastroLookup(TfrmCadLogradouro,dtEdit,'ENDERECO_PAIS',QryLogradouroPai);
 end;
 
 procedure TfrmCadClientes.BtnCidadePaiClick(Sender: TObject);
@@ -897,25 +911,7 @@ begin
   inherited;
   QryProduto.Locate('CODIGO',dtEditDet1PRODUTO.Value, []);
   dtEditDet1ORIGINAL.Value := QryProdutoPRC_VENDA.asFloat;
-end;
-
-procedure TfrmCadClientes.dtEditDet1PORCENTAGEMValidate(Sender: TField);
-begin
-  inherited;
-  dtEditDet1RESULTADO.Value := dtEditDet1ORIGINAL.value - (( dtEditDet1ORIGINAL.value * dtEditDet1PORCENTAGEM.value )/100) ;;
-  dtEditDet1RESULTADO.Value := arredonda(dtEditDet1RESULTADO.Value,2);
-end;
-
-procedure TfrmCadClientes.dtEditDet1RESULTADOValidate(Sender: TField);
-begin
-  inherited;
-  if dtEditDet1ORIGINAL.value > 0 then
-  begin
-    dtEditDet1PORCENTAGEM.value  := 100 - (dtEditDet1RESULTADO.Value * 100)/dtEditDet1ORIGINAL.value;
-    dtEditDet1PORCENTAGEM.value  := arredonda(dtEditDet1PORCENTAGEM.value,2);
-  end
-  else
-    dtEditDet1PORCENTAGEM.value := 0;
+  dtEditDet1RESULTADO.Value := QryProdutoPRC_VENDA.asFloat;
 end;
 
 procedure TfrmCadClientes.dtEditDet2NewRecord(DataSet: TDataSet);
@@ -946,7 +942,7 @@ end;
 procedure TfrmCadClientes.btnLogradouroClick(Sender: TObject);
 begin
   inherited;
-  CadastroLookup(TfrmCadLogradouro,dtEditDet3,'ENDERECO',qryLogradouro);
+  CadastroLookup(TfrmCadLogradouro,dtEditDet3,'ENDERECO',qryLogradouroProp);
 end;
 
 procedure TfrmCadClientes.btnBairroClick(Sender: TObject);
@@ -1006,6 +1002,43 @@ begin
   end;
   inherited;
 
+end;
+
+procedure TfrmCadClientes.BtnEnderecoTrabClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadLogradouro,dtEdit,'ENDERECO_TRABALHO',qryLogradouroConj);
+end;
+
+procedure TfrmCadClientes.FormShow(Sender: TObject);
+begin
+  inherited;
+  PCCLIENTE.ActivePageIndex := 0;
+end;
+
+procedure TfrmCadClientes.edtPorcentagemExit(Sender: TObject);
+begin
+  inherited;
+  if dtEditDet1.state in [dsInsert, dsEdit] then
+  begin
+    dtEditDet1RESULTADO.Value := dtEditDet1ORIGINAL.value - (( dtEditDet1ORIGINAL.asFloat * dtEditDet1PORCENTAGEM.asFloat )/100) ;;
+    dtEditDet1RESULTADO.Value := arredonda(dtEditDet1RESULTADO.asFloat,2);
+  end;
+end;
+
+procedure TfrmCadClientes.edtResultadoExit(Sender: TObject);
+begin
+  inherited;
+  if dtEditDet1.state in [dsInsert, dsEdit] then
+  begin
+    if dtEditDet1ORIGINAL.value > 0 then
+    begin
+      dtEditDet1PORCENTAGEM.value  := 100 - (dtEditDet1RESULTADO.Value * 100)/dtEditDet1ORIGINAL.value;
+      dtEditDet1PORCENTAGEM.value  := arredonda(dtEditDet1PORCENTAGEM.value,2);
+    end
+    else
+      dtEditDet1PORCENTAGEM.value := 0;
+  end;
 end;
 
 initialization
