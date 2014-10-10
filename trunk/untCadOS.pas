@@ -144,8 +144,8 @@ type
     QryClientesEMAIL: TIBStringField;
     QryClientesCIDADE: TIBStringField;
     dsClientes: TDataSource;
-    EdCliente2: TcxDBLookupComboBox;
-    btnCliente3: TcxButton;
+    aTfrmCadClientes: TcxDBLookupComboBox;
+    btnCliente: TcxButton;
     aTfrmCadStatusServico: TcxDBLookupComboBox;
     btnStatus: TcxButton;
     btnTecnico: TcxButton;
@@ -261,9 +261,7 @@ type
     cxDBSpinEdit1: TcxDBSpinEdit;
     dtListDet1CNPJ: TIBStringField;
     dtListDet1CODIGO: TIntegerField;
-    dtListDet1NOME: TIBStringField;
     dtListDet1QUANTIDADE: TFloatField;
-    dtListDet1SERVICO: TIntegerField;
     dtListDet1UNITARIO: TFloatField;
     dtListDet1COD_PRODUTO: TIBStringField;
     dtListDet1CODIGO_TECNICO: TIntegerField;
@@ -287,8 +285,6 @@ type
     cxLabel30: TcxLabel;
     cxDBCalcEdit2: TcxDBCalcEdit;
     cxLabel31: TcxLabel;
-    cxDBCalcEdit3: TcxDBCalcEdit;
-    cxLabel32: TcxLabel;
     dtEditDet1Total: TFloatField;
     QryProdutosItens: TIBQuery;
     dsProdutosItens: TDataSource;
@@ -414,7 +410,7 @@ type
     cxLabel33: TcxLabel;
     edtFinal: TcxDBDateEdit;
     cxLabel34: TcxLabel;
-    cbCliente: TcxDBLookupComboBox;
+    bTfrmCadClientes: TcxDBLookupComboBox;
     cxLabel35: TcxLabel;
     QryClienteFiltro: TIBQuery;
     IntegerField1: TIntegerField;
@@ -628,9 +624,7 @@ type
     cxLabel41: TcxLabel;
     TVDet1CNPJ: TcxGridDBBandedColumn;
     TVDet1CODIGO: TcxGridDBBandedColumn;
-    TVDet1NOME: TcxGridDBBandedColumn;
     TVDet1QUANTIDADE: TcxGridDBBandedColumn;
-    TVDet1SERVICO: TcxGridDBBandedColumn;
     TVDet1UNITARIO: TcxGridDBBandedColumn;
     TVDet1COD_PRODUTO: TcxGridDBBandedColumn;
     TVDet1CODIGO_TECNICO: TcxGridDBBandedColumn;
@@ -665,6 +659,14 @@ type
     TVDet2COD_CONTATO: TcxGridDBBandedColumn;
     TVDet2COD_STATUS: TcxGridDBBandedColumn;
     TVDet2COD_VEICULO: TcxGridDBBandedColumn;
+    btnFiltroCliente: TcxButton;
+    dsClienteFiltro: TDataSource;
+    qryFiltroCliente: TIBQuery;
+    qryFiltroClienteCODIGO: TIntegerField;
+    qryFiltroClienteNOME_RAZAO: TIBStringField;
+    qryFiltroClienteTECNICO: TIntegerField;
+    qryFiltroClienteEMAIL: TIBStringField;
+    qryFiltroClienteCIDADE: TIBStringField;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -694,6 +696,9 @@ type
     procedure dtEditDet2AfterPost(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure dtEditKM_FINALChange(Sender: TField);
+    procedure btnClienteClick(Sender: TObject);
+    procedure btnFiltroClienteClick(Sender: TObject);
+    procedure dtEditDet1NewRecord(DataSet: TDataSet);
   private
     { Private declarations }
     Procedure Filtrar;
@@ -711,7 +716,7 @@ implementation
 uses UntCadStatusServico, UntCadTecnicos, UntCadDefeitos,
   UntCadServicoExecutado, UntCadMotivosDevolucao,
   UntCadProblemaIdentificado, Application_DM, 
-  SerieCustomizaveis_DM, SeriesCustomizaveis, Funcoes;
+  SerieCustomizaveis_DM, SeriesCustomizaveis, Funcoes, untCadClientes;
 
 {$R *.dfm}
 
@@ -1430,6 +1435,24 @@ procedure TfrmCadOS.dtEditKM_FINALChange(Sender: TField);
 begin
   inherited;
   dtEditKM_RODADO.value := dtEditKM_FINAL.value - dtEditKM_INICIAL.value;
+end;
+
+procedure TfrmCadOS.btnClienteClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadClientes,dtEdit,'PESSOA_FJ',QryClientes);
+end;
+
+procedure TfrmCadOS.btnFiltroClienteClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadClientes,tibdataset(mtbFiltro),'CLIENTE',QryClientes);
+end;
+
+procedure TfrmCadOS.dtEditDet1NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditDet1CODIGO.value := dtEditCODIGO.value;
 end;
 
 end.

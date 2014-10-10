@@ -73,7 +73,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       Top = 2
       Width = 991
       Height = 554
-      ActivePage = TabMov
+      ActivePage = Tab1
       Align = alClient
       TabOrder = 1
       TabStop = False

@@ -75,5 +75,7 @@ var
 implementation
 
 {$R *.dfm}
+initialization
+ RegisterClass(TfrmCadStatusServico);
 
 end.

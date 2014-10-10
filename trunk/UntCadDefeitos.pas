@@ -50,5 +50,7 @@ var
 implementation
 
 {$R *.dfm}
+initialization
+ RegisterClass(TfrmCadDefeitos);
 
 end.
