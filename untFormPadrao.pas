@@ -109,6 +109,7 @@ begin
 
   AbreDataSet(eDataSetList);
 
+  eDataSet.Edit;
   eDataSet.FieldByName(campo).value := TFormPadrao(Formulario).Codigo ;
 
   Formulario.Free;

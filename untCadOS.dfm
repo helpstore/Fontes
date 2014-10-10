@@ -500,7 +500,7 @@ inherited frmCadOS: TfrmCadOS
           StyleHot.LookAndFeel.SkinName = 'GlassOceans'
           Transparent = True
         end
-        object cbCliente: TcxDBLookupComboBox
+        object bTfrmCadClientes: TcxDBLookupComboBox
           Left = 217
           Top = 32
           DataBinding.DataField = 'CLIENTE'
@@ -510,8 +510,11 @@ inherited frmCadOS: TfrmCadOS
           Properties.ListColumns = <
             item
               FieldName = 'NOME_RAZAO'
+            end
+            item
+              FieldName = 'CODIGO'
             end>
-          Properties.ListSource = dsClientes
+          Properties.ListSource = dsClienteFiltro
           Style.Font.Charset = DEFAULT_CHARSET
           Style.Font.Color = clWindowText
           Style.Font.Height = -11
@@ -569,14 +572,14 @@ inherited frmCadOS: TfrmCadOS
           Width = 223
         end
         object cxLabel36: TcxLabel
-          Left = 576
+          Left = 599
           Top = 16
           Caption = 'S'#233'rie'
           ParentFont = False
           Transparent = True
         end
         object cxDBTextEdit5: TcxDBTextEdit
-          Left = 576
+          Left = 599
           Top = 32
           DataBinding.DataField = 'SERIE'
           DataBinding.DataSource = dsFiltro
@@ -591,6 +594,42 @@ inherited frmCadOS: TfrmCadOS
           TabOrder = 8
           Width = 183
         end
+        object btnFiltroCliente: TcxButton
+          Left = 571
+          Top = 31
+          Width = 23
+          Height = 22
+          TabOrder = 9
+          TabStop = False
+          OnClick = btnFiltroClienteClick
+          Glyph.Data = {
+            06030000424D06030000000000003600000028000000100000000F0000000100
+            180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+            0000000000000000000000000000000000000000000000000000000000000000
+            00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+            FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+            000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+            FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+            FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+            000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+            FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+            0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+            000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+            FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+            0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+            BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+            0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+            FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+            BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+            00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+            00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBF}
+          LookAndFeel.SkinName = 'LiquidSky'
+        end
       end
     end
     inherited tbsEdita: TcxTabSheet
@@ -604,7 +643,6 @@ inherited frmCadOS: TfrmCadOS
           inherited PgcDetalhe: TcxPageControl
             Width = 1252
             Height = 296
-            ActivePage = tbsDetalhe2
             ClientRectBottom = 292
             ClientRectRight = 1248
             inherited tbsDetalhe1: TcxTabSheet
@@ -612,6 +650,7 @@ inherited frmCadOS: TfrmCadOS
               inherited PGCSub1: TcxPageControl
                 Width = 1244
                 Height = 265
+                ActivePage = tbsEditaSub1
                 ClientRectBottom = 261
                 ClientRectRight = 1240
                 inherited tbsListaSub1: TcxTabSheet
@@ -621,6 +660,7 @@ inherited frmCadOS: TfrmCadOS
                     inherited TVDet1: TcxGridDBBandedTableView
                       object TVDet1CNPJ: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CNPJ'
+                        Visible = False
                         Position.BandIndex = 0
                         Position.ColIndex = 0
                         Position.RowIndex = 0
@@ -631,20 +671,8 @@ inherited frmCadOS: TfrmCadOS
                         Position.ColIndex = 1
                         Position.RowIndex = 0
                       end
-                      object TVDet1NOME: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'NOME'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 2
-                        Position.RowIndex = 0
-                      end
                       object TVDet1QUANTIDADE: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'QUANTIDADE'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 3
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1SERVICO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'SERVICO'
                         Position.BandIndex = 0
                         Position.ColIndex = 4
                         Position.RowIndex = 0
@@ -658,43 +686,50 @@ inherited frmCadOS: TfrmCadOS
                       object TVDet1COD_PRODUTO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'COD_PRODUTO'
                         Position.BandIndex = 0
-                        Position.ColIndex = 6
+                        Position.ColIndex = 2
                         Position.RowIndex = 0
                       end
                       object TVDet1CODIGO_TECNICO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CODIGO_TECNICO'
+                        Visible = False
                         Position.BandIndex = 0
-                        Position.ColIndex = 7
+                        Position.ColIndex = 6
                         Position.RowIndex = 0
                       end
                       object TVDet1NOME_PRODUTO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'NOME_PRODUTO'
                         Position.BandIndex = 0
-                        Position.ColIndex = 8
+                        Position.ColIndex = 3
                         Position.RowIndex = 0
                       end
                       object TVDet1NOMETEC: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'NOMETEC'
+                        Visible = False
                         Position.BandIndex = 0
-                        Position.ColIndex = 9
+                        Position.ColIndex = 7
                         Position.RowIndex = 0
                       end
                       object TVDet1TIPO_SERVICO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'TIPO_SERVICO'
                         Position.BandIndex = 0
-                        Position.ColIndex = 10
+                        Position.ColIndex = 8
                         Position.RowIndex = 0
                       end
                       object TVDet1SELECIONADO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'SELECIONADO'
+                        Visible = False
+                        Width = 64
                         Position.BandIndex = 0
-                        Position.ColIndex = 11
+                        Position.ColIndex = 9
                         Position.RowIndex = 0
                       end
                     end
                   end
                 end
                 inherited tbsEditaSub1: TcxTabSheet
+                  inherited edtCodDet1: TcxDBTextEdit
+                    DataBinding.DataField = 'CODIGO'
+                  end
                   object cxDBLookupComboBox1: TcxDBLookupComboBox
                     Left = 73
                     Top = 24
@@ -705,6 +740,9 @@ inherited frmCadOS: TfrmCadOS
                     Properties.ListColumns = <
                       item
                         FieldName = 'NOME'
+                      end
+                      item
+                        FieldName = 'CODIGO'
                       end>
                     Properties.ListSource = dsProdutosItens
                     Style.Font.Charset = DEFAULT_CHARSET
@@ -743,9 +781,9 @@ inherited frmCadOS: TfrmCadOS
                     Top = 23
                     Width = 23
                     Height = 22
+                    Enabled = False
                     TabOrder = 4
                     TabStop = False
-                    OnClick = btnStatusClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -812,36 +850,6 @@ inherited frmCadOS: TfrmCadOS
                   end
                   object cxLabel31: TcxLabel
                     Left = 502
-                    Top = 8
-                    Caption = 'Vlr. Unit'#225'rio'
-                    Style.HotTrack = False
-                    Style.LookAndFeel.Kind = lfUltraFlat
-                    Style.LookAndFeel.NativeStyle = False
-                    Style.LookAndFeel.SkinName = 'GlassOceans'
-                    Style.Shadow = False
-                    Style.TransparentBorder = True
-                    StyleDisabled.LookAndFeel.Kind = lfUltraFlat
-                    StyleDisabled.LookAndFeel.NativeStyle = False
-                    StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleFocused.LookAndFeel.Kind = lfUltraFlat
-                    StyleFocused.LookAndFeel.NativeStyle = False
-                    StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleHot.LookAndFeel.Kind = lfUltraFlat
-                    StyleHot.LookAndFeel.NativeStyle = False
-                    StyleHot.LookAndFeel.SkinName = 'GlassOceans'
-                    Transparent = True
-                  end
-                  object cxDBCalcEdit3: TcxDBCalcEdit
-                    Left = 610
-                    Top = 24
-                    TabStop = False
-                    DataBinding.DataField = 'UNITARIO'
-                    DataBinding.DataSource = dsRegistroDet1
-                    TabOrder = 9
-                    Width = 105
-                  end
-                  object cxLabel32: TcxLabel
-                    Left = 610
                     Top = 8
                     Caption = 'Vlr. Unit'#225'rio'
                     Style.HotTrack = False
@@ -1043,7 +1051,7 @@ inherited frmCadOS: TfrmCadOS
                 end
                 inherited tbsEditaSub2: TcxTabSheet
                   object cxDBDateEdit4: TcxDBDateEdit
-                    Left = 220
+                    Left = 221
                     Top = 24
                     DataBinding.DataField = 'DT_LANCTO'
                     Enabled = False
@@ -1063,7 +1071,7 @@ inherited frmCadOS: TfrmCadOS
                   end
                   object cxDBTextEdit1: TcxDBTextEdit
                     Left = 74
-                    Top = 23
+                    Top = 24
                     DataBinding.DataField = 'NOME_USUARIO'
                     Enabled = False
                     ParentFont = False
@@ -1079,14 +1087,14 @@ inherited frmCadOS: TfrmCadOS
                     Width = 145
                   end
                   object Label11: TcxLabel
-                    Left = 74
+                    Left = 72
                     Top = 8
                     Caption = 'Usu'#225'rio'
                     ParentFont = False
                     Transparent = True
                   end
                   object Label14: TcxLabel
-                    Left = 219
+                    Left = 216
                     Top = 8
                     Caption = 'Dt. Lan'#231'amento'
                     ParentFont = False
@@ -1772,9 +1780,10 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit
+                DataBinding.DataField = 'CODIGO'
                 TabOrder = 0
               end
-              object EdCliente2: TcxDBLookupComboBox
+              object aTfrmCadClientes: TcxDBLookupComboBox
                 Left = 212
                 Top = 16
                 DataBinding.DataField = 'PESSOA_FJ'
@@ -1802,13 +1811,14 @@ inherited frmCadOS: TfrmCadOS
                 TabOrder = 2
                 Width = 355
               end
-              object btnCliente3: TcxButton
+              object btnCliente: TcxButton
                 Left = 568
                 Top = 15
                 Width = 23
                 Height = 22
                 TabOrder = 14
                 TabStop = False
+                OnClick = btnClienteClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2013,6 +2023,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 55
                 Width = 23
                 Height = 22
+                Enabled = False
                 TabOrder = 18
                 TabStop = False
                 Glyph.Data = {
@@ -2078,7 +2089,7 @@ inherited frmCadOS: TfrmCadOS
                   BFBFBFBFBFBFBFBFBFBF}
               end
               object btnMotivo: TcxButton
-                Left = 500
+                Left = 501
                 Top = 95
                 Width = 23
                 Height = 22
@@ -3000,67 +3011,7 @@ inherited frmCadOS: TfrmCadOS
       end
     end
   end
-  object QryClientes: TIBQuery [3]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      
-        'select psa.codigo, psa.nome_razao, reg.tecnico, psa.email, (coal' +
-        'esce(cdd.nome,'#39#39')||'#39' ('#39'||coalesce(psa.uf,'#39#39')||'#39')'#39') cidade'
-      'from glo_pessoas_fj psa'
-      
-        'left join glo_cidades cdd on (psa.cnpj = cdd.cnpj and psa.cidade' +
-        ' = cdd.codigo)'
-      
-        'left join glo_clientes cli on (cli.cnpj = psa.cnpj and cli.pesso' +
-        'a_fj = psa.codigo)'
-      
-        'left join glo_regioes reg on (reg.cnpj = psa.cnpj and reg.codigo' +
-        ' = psa.regiao)'
-      'where psa.cnpj = :cnpj'
-      'order by  psa.nome_razao')
-    Left = 844
-    Top = 130
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end>
-    object QryClientesCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"GLO_PESSOAS_FJ"."CODIGO"'
-      Required = True
-    end
-    object QryClientesNOME_RAZAO: TIBStringField
-      FieldName = 'NOME_RAZAO'
-      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
-      Required = True
-      Size = 50
-    end
-    object QryClientesTECNICO: TIntegerField
-      FieldName = 'TECNICO'
-      Origin = '"GLO_REGIOES"."TECNICO"'
-    end
-    object QryClientesEMAIL: TIBStringField
-      FieldName = 'EMAIL'
-      Origin = '"GLO_PESSOAS_FJ"."EMAIL"'
-      Size = 80
-    end
-    object QryClientesCIDADE: TIBStringField
-      FieldName = 'CIDADE'
-      ProviderFlags = []
-      Size = 55
-    end
-  end
-  object dsClientes: TDataSource [4]
-    DataSet = QryClientes
-    Left = 535
-    Top = 2
-  end
-  object QryStatus: TIBQuery [5]
+  object QryStatus: TIBQuery [1]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -3131,7 +3082,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 1
     end
   end
-  object QryTecnico: TIBQuery [6]
+  object QryTecnico: TIBQuery [2]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -3175,7 +3126,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 8
     end
   end
-  object QryMotivoChamado: TIBQuery [7]
+  object QryMotivoChamado: TIBQuery [3]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -3217,7 +3168,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 1
     end
   end
-  object QryDefeito: TIBQuery [8]
+  object QryDefeito: TIBQuery [4]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -3264,7 +3215,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 1
     end
   end
-  object QryServicoExecutado: TIBQuery [9]
+  object QryServicoExecutado: TIBQuery [5]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -3281,7 +3232,7 @@ inherited frmCadOS: TfrmCadOS
         ParamType = ptUnknown
       end>
   end
-  object QryEquipCliente: TIBQuery [10]
+  object QryEquipCliente: TIBQuery [6]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
@@ -3411,37 +3362,37 @@ inherited frmCadOS: TfrmCadOS
       Size = 50
     end
   end
-  object dsEquipamento: TDataSource [11]
+  object dsEquipamento: TDataSource [7]
     DataSet = QryEquipCliente
     Left = 567
     Top = 2
   end
-  object dsStatus: TDataSource [12]
+  object dsStatus: TDataSource [8]
     DataSet = QryStatus
     Left = 599
     Top = 2
   end
-  object dsTecnico: TDataSource [13]
+  object dsTecnico: TDataSource [9]
     DataSet = QryTecnico
     Left = 631
     Top = 2
   end
-  object dsDefeitoReclamado: TDataSource [14]
+  object dsDefeitoReclamado: TDataSource [10]
     DataSet = QryDefeito
     Left = 663
     Top = 2
   end
-  object dsServicoExecutado: TDataSource [15]
+  object dsServicoExecutado: TDataSource [11]
     DataSet = QryServicoExecutado
     Left = 695
     Top = 2
   end
-  object dsMotivoChamado: TDataSource [16]
+  object dsMotivoChamado: TDataSource [12]
     DataSet = QryMotivoChamado
     Left = 727
     Top = 2
   end
-  object SelSeries: TIBQuery [17]
+  object SelSeries: TIBQuery [13]
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     SQL.Strings = (
@@ -3490,7 +3441,7 @@ inherited frmCadOS: TfrmCadOS
       Size = 15
     end
   end
-  object SelEndereco: TIBQuery [18]
+  object SelEndereco: TIBQuery [14]
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     SQL.Strings = (
@@ -3549,10 +3500,11 @@ inherited frmCadOS: TfrmCadOS
       Size = 2
     end
   end
-  object QryProdutosItens: TIBQuery [19]
+  object QryProdutosItens: TIBQuery [15]
     Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
     SQL.Strings = (
       'select * from est_produtos p'
       'where p.cnpj = :cnpj')
@@ -4072,7 +4024,7 @@ inherited frmCadOS: TfrmCadOS
       Origin = '"EST_PRODUTOS"."COD_TECNICO"'
     end
   end
-  object dsProdutosItens: TDataSource [20]
+  object dsProdutosItens: TDataSource [16]
     DataSet = QryProdutosItens
     Left = 816
     Top = 260
@@ -7473,12 +7425,10 @@ inherited frmCadOS: TfrmCadOS
     SQL.Strings = (
       'select osi.cnpj,'
       '  osi.codigo,'
-      '  osi.nome,'
       '  osi.quantidade,'
-      '  osi.servico,'
       '  osi.unitario,'
       '  osi.selecionado,'
-      '  prd.codigo as cod_produto,'
+      '  osi.produto as cod_produto,'
       '  osi.codigo_tecnico,'
       '  prd.nome nome_produto,'
       '  tec.nome as nometec,'
@@ -7521,22 +7471,11 @@ inherited frmCadOS: TfrmCadOS
       FieldName = 'CODIGO'
       Origin = '"OFC_ORDEM_SERVICO_SERVICO"."CODIGO"'
     end
-    object dtListDet1NOME: TIBStringField
-      DisplayLabel = 'Nome'
-      FieldName = 'NOME'
-      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."NOME"'
-      Size = 50
-    end
     object dtListDet1QUANTIDADE: TFloatField
       DisplayLabel = 'Qtde'
       FieldName = 'QUANTIDADE'
       Origin = '"OFC_ORDEM_SERVICO_SERVICO"."QUANTIDADE"'
       DisplayFormat = '###,##0.0000'
-    end
-    object dtListDet1SERVICO: TIntegerField
-      DisplayLabel = 'Servi'#231'o'
-      FieldName = 'SERVICO'
-      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."SERVICO"'
     end
     object dtListDet1UNITARIO: TFloatField
       DisplayLabel = 'Unit'#225'rio'
@@ -7587,7 +7526,8 @@ inherited frmCadOS: TfrmCadOS
       'delete from ofc_ordem_servico_servico'
       'where'
       '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
+      '  CODIGO = :OLD_CODIGO and'
+      '  PRODUTO = :OLD_PRODUTO')
     InsertSQL.Strings = (
       'insert into ofc_ordem_servico_servico'
       
@@ -7600,11 +7540,12 @@ inherited frmCadOS: TfrmCadOS
         ', :SELECIONADO, '
       '   :SERVICO, :UNITARIO)')
     RefreshSQL.Strings = (
-      'Select * '
+      'Select *'
       'from ofc_ordem_servico_servico '
       'where'
       '  CNPJ = :CNPJ and'
-      '  CODIGO = :CODIGO')
+      '  CODIGO = :CODIGO and'
+      '  PRODUTO = :PRODUTO')
     SelectSQL.Strings = (
       'select osi.*'
       'from ofc_ordem_servico_servico osi'
@@ -7623,7 +7564,8 @@ inherited frmCadOS: TfrmCadOS
       '  UNITARIO = :UNITARIO'
       'where'
       '  CNPJ = :OLD_CNPJ and'
-      '  CODIGO = :OLD_CODIGO')
+      '  CODIGO = :OLD_CODIGO and'
+      '  PRODUTO = :OLD_PRODUTO')
     Left = 672
     Top = 424
     object dtEditDet1CNPJ: TIBStringField
@@ -7654,11 +7596,13 @@ inherited frmCadOS: TfrmCadOS
       FieldName = 'QUANTIDADE'
       Origin = '"OFC_ORDEM_SERVICO_SERVICO"."QUANTIDADE"'
       OnChange = dtEditDet1QUANTIDADEChange
+      DisplayFormat = '###,##0.00'
     end
     object dtEditDet1UNITARIO: TFloatField
       FieldName = 'UNITARIO'
       Origin = '"OFC_ORDEM_SERVICO_SERVICO"."UNITARIO"'
       OnChange = dtEditDet1UNITARIOChange
+      DisplayFormat = '###,##0.00'
     end
     object dtEditDet1SELECIONADO: TIBStringField
       FieldName = 'SELECIONADO'
@@ -7677,7 +7621,7 @@ inherited frmCadOS: TfrmCadOS
     end
   end
   inherited dsLinkDet2: TDataSource
-    Left = 728
+    Left = 736
     Top = 388
   end
   inherited dsLinkDet1: TDataSource
@@ -8276,6 +8220,66 @@ inherited frmCadOS: TfrmCadOS
     Left = 319
     Top = 60
   end
+  object QryClientes: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      
+        'select psa.codigo, psa.nome_razao, reg.tecnico, psa.email, (coal' +
+        'esce(cdd.nome,'#39#39')||'#39' ('#39'||coalesce(psa.uf,'#39#39')||'#39')'#39') cidade'
+      'from glo_pessoas_fj psa'
+      
+        'left join glo_cidades cdd on (psa.cnpj = cdd.cnpj and psa.cidade' +
+        ' = cdd.codigo)'
+      
+        'left join glo_clientes cli on (cli.cnpj = psa.cnpj and cli.pesso' +
+        'a_fj = psa.codigo)'
+      
+        'left join glo_regioes reg on (reg.cnpj = psa.cnpj and reg.codigo' +
+        ' = psa.regiao)'
+      'where psa.cnpj = :cnpj'
+      'order by  psa.nome_razao')
+    Left = 844
+    Top = 130
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryClientesCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_PESSOAS_FJ"."CODIGO"'
+      Required = True
+    end
+    object QryClientesNOME_RAZAO: TIBStringField
+      FieldName = 'NOME_RAZAO'
+      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
+      Required = True
+      Size = 50
+    end
+    object QryClientesTECNICO: TIntegerField
+      FieldName = 'TECNICO'
+      Origin = '"GLO_REGIOES"."TECNICO"'
+    end
+    object QryClientesEMAIL: TIBStringField
+      FieldName = 'EMAIL'
+      Origin = '"GLO_PESSOAS_FJ"."EMAIL"'
+      Size = 80
+    end
+    object QryClientesCIDADE: TIBStringField
+      FieldName = 'CIDADE'
+      ProviderFlags = []
+      Size = 55
+    end
+  end
+  object dsClientes: TDataSource
+    DataSet = QryClientes
+    Left = 535
+    Top = 2
+  end
   object QryClienteFiltro: TIBQuery
     Tag = 4
     Database = DmApp.Database
@@ -8326,6 +8330,66 @@ inherited frmCadOS: TfrmCadOS
       Size = 80
     end
     object IBStringField3: TIBStringField
+      FieldName = 'CIDADE'
+      ProviderFlags = []
+      Size = 55
+    end
+  end
+  object dsClienteFiltro: TDataSource
+    DataSet = qryFiltroCliente
+    Left = 759
+    Top = 2
+  end
+  object qryFiltroCliente: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      
+        'select psa.codigo, psa.nome_razao, reg.tecnico, psa.email, (coal' +
+        'esce(cdd.nome,'#39#39')||'#39' ('#39'||coalesce(psa.uf,'#39#39')||'#39')'#39') cidade'
+      'from glo_pessoas_fj psa'
+      
+        'left join glo_cidades cdd on (psa.cnpj = cdd.cnpj and psa.cidade' +
+        ' = cdd.codigo)'
+      
+        'left join glo_clientes cli on (cli.cnpj = psa.cnpj and cli.pesso' +
+        'a_fj = psa.codigo)'
+      
+        'left join glo_regioes reg on (reg.cnpj = psa.cnpj and reg.codigo' +
+        ' = psa.regiao)'
+      'where psa.cnpj = :cnpj'
+      'order by  psa.nome_razao')
+    Left = 908
+    Top = 130
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object qryFiltroClienteCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_PESSOAS_FJ"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryFiltroClienteNOME_RAZAO: TIBStringField
+      FieldName = 'NOME_RAZAO'
+      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
+      Size = 50
+    end
+    object qryFiltroClienteTECNICO: TIntegerField
+      FieldName = 'TECNICO'
+      Origin = '"GLO_REGIOES"."TECNICO"'
+    end
+    object qryFiltroClienteEMAIL: TIBStringField
+      FieldName = 'EMAIL'
+      Origin = '"GLO_PESSOAS_FJ"."EMAIL"'
+      Size = 80
+    end
+    object qryFiltroClienteCIDADE: TIBStringField
       FieldName = 'CIDADE'
       ProviderFlags = []
       Size = 55

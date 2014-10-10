@@ -29,7 +29,8 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinscxPCPainter, dxSkinsdxBarPainter, cxStorage,
   dxSkinsForm, dxLayoutControl, cxLabel, cxTextEdit, cxDBEdit,
-  untFormPadrao, dxLayoutcxEditAdapters, dxmdaset;
+  untFormPadrao, dxLayoutcxEditAdapters, dxmdaset,
+  Ordens_ServicosItens_Form;
 
 type
   TfrmCadPadraoMaster = class(TFormPadrao)
@@ -1390,7 +1391,8 @@ begin
       exit;
       
     //chamando a rotina de lookup
-    CadastroLookup(Formulario,dtEdit,campo,TIBQuery(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).Properties.listsource.dataset));
+    CadastroLookup(Formulario,TIbDataSet(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).DataBinding.DataSource.DataSet)
+    ,campo,TIBQuery(TcxDBLookupComboBox(TcxDBLookupComboBox(Screen.ActiveControl).Parent).Properties.listsource.dataset));
   end;
 
 end;

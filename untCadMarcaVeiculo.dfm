@@ -1,9 +1,9 @@
 inherited frmCadMarcaVeiculo: TfrmCadMarcaVeiculo
   Caption = 'Marcas de Ve'#237'culo'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsLista
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
