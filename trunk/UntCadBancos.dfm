@@ -66,11 +66,15 @@ inherited frmCadBancos: TfrmCadBancos
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
         inherited edtNome: TcxDBTextEdit
+          Left = 72
           DataBinding.DataField = 'NOME'
         end
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
           Enabled = True
+        end
+        inherited cxLabel2: TcxLabel
+          Left = 72
         end
         object cxLabel3: TcxLabel
           Left = 7
@@ -157,6 +161,7 @@ inherited frmCadBancos: TfrmCadBancos
       '  PADRAO_BOLETO = :PADRAO_BOLETO'
       'where'
       '  CODIGO = :OLD_CODIGO')
+    GeneratorField.Field = 'CODIGO'
     object dtEditCODIGO: TIBStringField
       FieldName = 'CODIGO'
       Origin = '"FIN_BANCO"."CODIGO"'
@@ -198,6 +203,29 @@ inherited frmCadBancos: TfrmCadBancos
       ProviderFlags = [pfInUpdate]
       BlobType = ftMemo
       Size = 8
+    end
+    object dtEditValor: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'Valor'
+      Calculated = True
+    end
+    object dtEditExtenso: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'Extenso'
+      Size = 100
+      Calculated = True
+    end
+    object dtEditNominal: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'Nominal'
+      Size = 100
+      Calculated = True
+    end
+    object dtEditCidade: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'Cidade'
+      Size = 100
+      Calculated = True
     end
   end
   inherited dtList: TIBQuery
@@ -268,6 +296,12 @@ inherited frmCadBancos: TfrmCadBancos
       0
       0
       26)
+  end
+  inherited ActionList1: TActionList
+    object ActConfigCheque: TAction
+      Caption = 'Configurar Cheque'
+      OnExecute = ActConfigChequeExecute
+    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
@@ -616,5 +650,190 @@ inherited frmCadBancos: TfrmCadBancos
           'VisibleForCustomization'
           'Width')
       end>
+  end
+  object Designer: TppDesigner
+    AllowDataSettingsChange = True
+    Caption = 'ReportBuilder'
+    DataSettings.SessionType = 'BDESession'
+    DataSettings.AllowEditSQL = False
+    DataSettings.DatabaseType = dtParadox
+    DataSettings.GuidCollationType = gcString
+    DataSettings.IsCaseSensitive = True
+    DataSettings.SQLType = sqBDELocal
+    Position = poScreenCenter
+    Report = rptConfigCheque
+    IniStorageType = 'IniFile'
+    IniStorageName = '($WINSYS)\RBuilder.ini'
+    WindowHeight = 400
+    WindowLeft = 100
+    WindowTop = 50
+    WindowWidth = 600
+    Left = 600
+    Top = 20
+  end
+  object ppLayout: TppDBPipeline
+    UserName = 'Layout'
+    Left = 568
+    Top = 20
+    object ppLayoutppField1: TppField
+      FieldAlias = 'CODIGO'
+      FieldName = 'CODIGO'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 0
+    end
+    object ppLayoutppField2: TppField
+      FieldAlias = 'NOME'
+      FieldName = 'NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 1
+    end
+    object ppLayoutppField3: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'BOLETO'
+      FieldName = 'BOLETO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 2
+    end
+    object ppLayoutppField4: TppField
+      FieldAlias = 'GERA_ARQUIVO_MAGNETICO'
+      FieldName = 'GERA_ARQUIVO_MAGNETICO'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 3
+    end
+    object ppLayoutppField5: TppField
+      FieldAlias = 'PADRAO_BOLETO'
+      FieldName = 'PADRAO_BOLETO'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 4
+    end
+    object ppLayoutppField6: TppField
+      FieldAlias = 'CONFIG_CH'
+      FieldName = 'CONFIG_CH'
+      FieldLength = 8
+      DataType = dtBLOB
+      DisplayWidth = 10
+      Position = 5
+      Searchable = False
+      Sortable = False
+    end
+    object ppLayoutppField7: TppField
+      FieldAlias = 'CONFIG_CHEQUE'
+      FieldName = 'CONFIG_CHEQUE'
+      FieldLength = 8
+      DataType = dtMemo
+      DisplayWidth = 10
+      Position = 6
+      Searchable = False
+      Sortable = False
+    end
+    object ppLayoutppField8: TppField
+      FieldAlias = 'Valor'
+      FieldName = 'Valor'
+      FieldLength = 0
+      DataType = dtCurrency
+      DisplayWidth = 10
+      Position = 7
+    end
+    object ppLayoutppField9: TppField
+      FieldAlias = 'Extenso'
+      FieldName = 'Extenso'
+      FieldLength = 100
+      DisplayWidth = 100
+      Position = 8
+    end
+    object ppLayoutppField10: TppField
+      FieldAlias = 'Nominal'
+      FieldName = 'Nominal'
+      FieldLength = 100
+      DisplayWidth = 100
+      Position = 9
+    end
+    object ppLayoutppField11: TppField
+      FieldAlias = 'Cidade'
+      FieldName = 'Cidade'
+      FieldLength = 0
+      DisplayWidth = 0
+      Position = 10
+    end
+  end
+  object rptConfigCheque: TppReport
+    AutoStop = False
+    DataPipeline = ppLayout
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    Template.DatabaseSettings.DataPipeline = ppLayout
+    Template.DatabaseSettings.NameField = 'CODIGO'
+    Template.DatabaseSettings.TemplateField = 'CONFIG_CHEQUE'
+    Template.SaveTo = stDatabase
+    Template.Format = ftASCII
+    DeviceType = 'Screen'
+    EmailSettings.ReportFormat = 'PDF'
+    LanguageID = 'Default'
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.FontEncoding = feAnsi
+    PreviewFormSettings.WindowState = wsMaximized
+    PreviewFormSettings.ZoomSetting = zsPercentage
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    Left = 536
+    Top = 20
+    Version = '12.03'
+    mmColumnWidth = 0
+    DataPipelineName = 'ppLayout'
+    object ppHeaderBand1: TppHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+    end
+    object ppDetailBand1: TppDetailBand
+      Background1.Brush.Style = bsClear
+      Background1.Gradient.EndColor = clWhite
+      Background1.Gradient.StartColor = clWhite
+      Background1.Gradient.Style = gsNone
+      Background2.Brush.Style = bsClear
+      Background2.Gradient.EndColor = clWhite
+      Background2.Gradient.StartColor = clWhite
+      Background2.Gradient.Style = gsNone
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+    end
+    object ppFooterBand1: TppFooterBand
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+    end
+    object ppParameterList1: TppParameterList
+    end
   end
 end

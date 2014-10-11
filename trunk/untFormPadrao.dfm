@@ -1,7 +1,7 @@
 object FormPadrao: TFormPadrao
-  Left = 410
-  Top = 151
-  Width = 870
+  Left = 0
+  Top = 24
+  Width = 671
   Height = 500
   Caption = 'FormPadrao'
   Color = clBtnFace
