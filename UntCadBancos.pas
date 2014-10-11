@@ -21,7 +21,8 @@ uses
   dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
-  cxPC, cxCheckBox;
+  cxPC, cxCheckBox, ppParameter, ppBands, ppCache, ppClass, ppProd,
+  ppReport, ppDB, ppRelatv, ppDBPipe, ppComm, ppEndUsr;
 
 type
   TfrmCadBancos = class(TfrmCadPadrao)
@@ -50,6 +51,30 @@ type
     dtEditPADRAO_BOLETO: TIBStringField;
     dtEditCONFIG_CH: TBlobField;
     dtEditCONFIG_CHEQUE: TMemoField;
+    ActConfigCheque: TAction;
+    Designer: TppDesigner;
+    ppLayout: TppDBPipeline;
+    ppLayoutppField1: TppField;
+    ppLayoutppField2: TppField;
+    ppLayoutppField3: TppField;
+    ppLayoutppField4: TppField;
+    ppLayoutppField5: TppField;
+    ppLayoutppField6: TppField;
+    ppLayoutppField7: TppField;
+    ppLayoutppField8: TppField;
+    ppLayoutppField9: TppField;
+    ppLayoutppField10: TppField;
+    ppLayoutppField11: TppField;
+    rptConfigCheque: TppReport;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+    ppParameterList1: TppParameterList;
+    dtEditValor: TFloatField;
+    dtEditExtenso: TStringField;
+    dtEditNominal: TStringField;
+    dtEditCidade: TStringField;
+    procedure ActConfigChequeExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,6 +87,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadBancos.ActConfigChequeExecute(Sender: TObject);
+begin
+  inherited;
+  rptConfigCheque.Template.DatabaseSettings.name := dtEditCODIGO.asstring;
+  rptConfigCheque.Template.LoadFromDatabase;
+  Designer.Show;
+  if not(dtEdit.state in [dsedit,dsedit]) then
+    dtEdit.Edit;
+end;
 
 initialization
  RegisterClass(TfrmCadBancos);

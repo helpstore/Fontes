@@ -9,15 +9,16 @@ inherited frmCadOS: TfrmCadOS
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1262
-    Height = 664
-    ClientRectBottom = 660
-    ClientRectRight = 1258
+    Width = 1270
+    Height = 675
+    ActivePage = tbsLista
+    ClientRectBottom = 671
+    ClientRectRight = 1266
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 124
-        Width = 1254
-        Height = 509
+        Width = 1262
+        Height = 520
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroST_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_CODIGO'
@@ -423,7 +424,7 @@ inherited frmCadOS: TfrmCadOS
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1254
+        Width = 1262
         Height = 124
         Color = clWhite
         object edtInicial: TcxDBDateEdit
@@ -634,25 +635,25 @@ inherited frmCadOS: TfrmCadOS
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1254
-        Height = 633
+        Width = 1262
+        Height = 644
         inherited pnlSubCad: TPanel
-          Top = 336
-          Width = 1252
+          Top = 347
+          Width = 1260
           Height = 296
           inherited PgcDetalhe: TcxPageControl
-            Width = 1252
+            Width = 1260
             Height = 296
             ClientRectBottom = 292
-            ClientRectRight = 1248
+            ClientRectRight = 1256
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Itens'
               inherited PGCSub1: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ActivePage = tbsEditaSub1
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
                     Width = 1236
@@ -875,13 +876,13 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe2: TcxTabSheet
               Caption = 'Movimentos'
               inherited PGCSub2: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
-                    Width = 1236
+                    Width = 1244
                     Height = 234
                     inherited TVDet2: TcxGridDBBandedTableView
                       object TVDet2CNPJ: TcxGridDBBandedColumn
@@ -1705,19 +1706,19 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Height = 234
@@ -1728,37 +1729,37 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 1244
+                Width = 1252
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1248
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 1254
@@ -1770,13 +1771,13 @@ inherited frmCadOS: TfrmCadOS
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1252
-          Height = 335
+          Width = 1260
+          Height = 346
           inherited PgcMaster: TcxPageControl
-            Width = 1252
-            Height = 335
-            ClientRectBottom = 331
-            ClientRectRight = 1248
+            Width = 1260
+            Height = 346
+            ClientRectBottom = 342
+            ClientRectRight = 1256
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit

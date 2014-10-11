@@ -918,6 +918,7 @@ procedure TfrmCadClientes.dtEditDet2NewRecord(DataSet: TDataSet);
 begin
   inherited;
   dtEditDet2PESSOA_FJ.value := dtEditPESSOA_FJ.value;
+  dtEditDet2ATIVO.value := 'S';
 end;
 
 procedure TfrmCadClientes.cxButton2Click(Sender: TObject);

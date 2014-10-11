@@ -76,6 +76,9 @@ inherited frmCadMarcaVeiculo: TfrmCadMarcaVeiculo
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
+    GeneratorField.Field = 'CODIGO'
+    GeneratorField.Generator = 'GLO_MARCA_VEICULO_GE'
+    GeneratorField.ApplyEvent = gamOnPost
     Left = 120
     Top = 12
     object dtEditCNPJ: TIBStringField

@@ -2,10 +2,10 @@ object DmApp: TDmApp
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 478
-  Top = 71
-  Height = 561
-  Width = 802
+  Left = 2
+  Top = 1
+  Height = 517
+  Width = 669
   object Database: TIBDatabase
     Connected = True
     DatabaseName = 'D:\Sistemas\HelpStore\Dados\comparer\HELPSTORE_PADRAO.GDB'
