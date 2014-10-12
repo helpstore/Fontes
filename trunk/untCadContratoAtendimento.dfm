@@ -10,13 +10,16 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
   inherited pgcCadastro: TcxPageControl
     Width = 1015
     Height = 581
+    ActivePage = tbsEdita
     ClientRectBottom = 577
     ClientRectRight = 1011
+    ClientRectTop = 4
     inherited tbsLista: TcxTabSheet
+      TabVisible = False
       inherited Grid: TcxGrid
         Top = 5
         Width = 1007
-        Height = 545
+        Height = 568
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -123,31 +126,31 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       end
     end
     inherited tbsEdita: TcxTabSheet
+      TabVisible = False
       inherited Panel2: TPanel
         Width = 1007
-        Height = 550
+        Height = 573
         inherited pnlSubCad: TPanel
-          Top = 152
+          Top = 151
           Width = 1005
-          Height = 397
+          Height = 421
           inherited PgcDetalhe: TcxPageControl
             Width = 1005
-            Height = 397
+            Height = 421
             ActivePage = tbsDetalhe1
-            ClientRectBottom = 393
+            ClientRectBottom = 417
             ClientRectRight = 1001
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Equipamentos '
               inherited PGCSub1: TcxPageControl
                 Width = 997
-                Height = 366
-                ActivePage = tbsEditaSub1
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
                     Width = 989
-                    Height = 335
+                    Height = 359
                     inherited TVDet1: TcxGridDBBandedTableView
                       OptionsView.BandHeaders = True
                       Bands = <
@@ -701,9 +704,9 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   end
                   object GridHistorico: TcxGrid
                     Left = 0
-                    Top = 200
+                    Top = 180
                     Width = 989
-                    Height = 110
+                    Height = 154
                     Align = alBottom
                     TabOrder = 8
                     TabStop = False
@@ -777,7 +780,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   end
                   object Panel4: TPanel
                     Left = 0
-                    Top = 310
+                    Top = 334
                     Width = 989
                     Height = 25
                     Align = alBottom
@@ -829,7 +832,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   end
                   object Panel1: TPanel
                     Left = 0
-                    Top = 179
+                    Top = 159
                     Width = 989
                     Height = 21
                     Align = alBottom
@@ -941,8 +944,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               TabVisible = False
               inherited PGCSub2: TcxPageControl
                 Width = 997
-                Height = 366
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
@@ -956,8 +959,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               TabVisible = False
               inherited PGCSub3: TcxPageControl
                 Width = 997
-                Height = 366
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
@@ -971,8 +974,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               TabVisible = False
               inherited PGCSub4: TcxPageControl
                 Width = 997
-                Height = 366
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
@@ -986,8 +989,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               TabVisible = False
               inherited PGCSub5: TcxPageControl
                 Width = 997
-                Height = 366
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub5: TcxTabSheet
                   inherited GridDet5: TcxGrid
@@ -1001,8 +1004,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               TabVisible = False
               inherited PGCSub6: TcxPageControl
                 Width = 997
-                Height = 366
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub6: TcxTabSheet
                   inherited GridDet6: TcxGrid
@@ -1016,8 +1019,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               TabVisible = False
               inherited PGCSub7: TcxPageControl
                 Width = 997
-                Height = 366
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub7: TcxTabSheet
                   inherited GridDet7: TcxGrid
@@ -1031,8 +1034,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
               TabVisible = False
               inherited PGCSub8: TcxPageControl
                 Width = 997
-                Height = 366
-                ClientRectBottom = 362
+                Height = 390
+                ClientRectBottom = 386
                 ClientRectRight = 993
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
@@ -1046,11 +1049,11 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
         end
         inherited pnlMaster: TPanel
           Width = 1005
-          Height = 151
+          Height = 150
           inherited PgcMaster: TcxPageControl
             Width = 1005
-            Height = 151
-            ClientRectBottom = 147
+            Height = 150
+            ClientRectBottom = 146
             ClientRectRight = 1001
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'

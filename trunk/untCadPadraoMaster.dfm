@@ -104,7 +104,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
             Top = 0
             Width = 651
             Height = 277
-            ActivePage = tbsDetalhe1
+            ActivePage = tbsDetalhe8
             Align = alClient
             Color = clBtnFace
             HotTrack = True
@@ -124,7 +124,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 643
                 Height = 246
-                ActivePage = tbsListaSub1
+                ActivePage = tbsEditaSub1
                 Align = alClient
                 TabOrder = 0
                 OnChange = PGCSub1Change
@@ -201,7 +201,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 643
                 Height = 246
-                ActivePage = tbsListaSub2
+                ActivePage = tbsEditaSub2
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
@@ -252,7 +252,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                     Left = 8
                     Top = 24
                     TabStop = False
-                    DataBinding.DataSource = dsRegistroDet1
+                    DataBinding.DataSource = dsRegistroDet2
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
@@ -277,7 +277,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 Top = 0
                 Width = 643
                 Height = 246
-                ActivePage = tbsListaSub3
+                ActivePage = tbsEditaSub3
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242

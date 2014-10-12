@@ -583,7 +583,8 @@ uses
   untCadContratoAtendimento in 'untCadContratoAtendimento.pas' {frmCadContratoAtendimento},
   UntCadClassificacao in 'UntCadClassificacao.pas' {frmCadClassificacao},
   untCadTipoVeitulo in 'untCadTipoVeitulo.pas' {frmCadTipoVeiculo},
-  untCadMarcaVeiculo in 'untCadMarcaVeiculo.pas' {frmCadMarcaVeiculo};
+  untCadMarcaVeiculo in 'untCadMarcaVeiculo.pas' {frmCadMarcaVeiculo},
+  UntCadTipoMovimento in 'UntCadTipoMovimento.pas' {frmCadTipoMovimento};
 
 {$R *.RES}
 

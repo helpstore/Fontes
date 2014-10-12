@@ -25,7 +25,7 @@ uses
   cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
   cxDBLookupComboBox, cxCalendar, cxSpinEdit, cxTimeEdit,
    cxGroupBox, cxMemo, cxCheckBox, cxCalc, dxmdaset, cxRadioGroup,DateUtils,
-  Grids, DBGrids;
+  Grids, DBGrids, cxProgressBar;
 
 type
   TfrmCadOS = class(TfrmCadPadraoMaster)
@@ -65,7 +65,6 @@ type
     dtListCP_COD_CONTRATO: TIntegerField;
     dtListTPC_NOME: TIBStringField;
     dtListCIDADE: TIBStringField;
-    dtListTEMPO_RESPOSTA: TFloatField;
     dtListID_CONTRATO: TIntegerField;
     dtListCP_TEMPO_RESPOSTA: TIntegerField;
     dtListCUSTO_OS: TFloatField;
@@ -119,7 +118,6 @@ type
     TVRegistroCP_COD_CONTRATO: TcxGridDBBandedColumn;
     TVRegistroTPC_NOME: TcxGridDBBandedColumn;
     TVRegistroCIDADE: TcxGridDBBandedColumn;
-    TVRegistroTEMPO_RESPOSTA: TcxGridDBBandedColumn;
     TVRegistroID_CONTRATO: TcxGridDBBandedColumn;
     TVRegistroCP_TEMPO_RESPOSTA: TcxGridDBBandedColumn;
     TVRegistroCUSTO_OS: TcxGridDBBandedColumn;
@@ -605,11 +603,11 @@ type
     Label17: TcxLabel;
     Label18: TcxLabel;
     bTfrmCadStatusServico: TcxDBLookupComboBox;
-    cxButton1: TcxButton;
+    BtnMovimentoStatus: TcxButton;
     cmbContato: TcxDBLookupComboBox;
     cxButton2: TcxButton;
-    cxButton3: TcxButton;
-    cmbTipoMovimento: TcxDBLookupComboBox;
+    BtnTipoMovimento: TcxButton;
+    aTfrmCadTipoMovimento: TcxDBLookupComboBox;
     cxGroupBox7: TcxGroupBox;
     cxDBTextEdit6: TcxDBTextEdit;
     cxDBSpinEdit2: TcxDBSpinEdit;
@@ -667,6 +665,43 @@ type
     qryFiltroClienteTECNICO: TIntegerField;
     qryFiltroClienteEMAIL: TIBStringField;
     qryFiltroClienteCIDADE: TIBStringField;
+    dsVeiculos: TDataSource;
+    QryVeiculos: TIBQuery;
+    QryVeiculosPLACA: TIBStringField;
+    QryVeiculosDESCRICAO: TIBStringField;
+    btnTimer: TcxButton;
+    Timer: TTimer;
+    TimerRetroceder: TTimer;
+    pbTimer: TcxProgressBar;
+    QryMovimentoStatus: TIBQuery;
+    IBStringField4: TIBStringField;
+    IntegerField3: TIntegerField;
+    IBStringField5: TIBStringField;
+    IntegerField4: TIntegerField;
+    IBStringField6: TIBStringField;
+    IBStringField7: TIBStringField;
+    IBStringField8: TIBStringField;
+    IBStringField9: TIBStringField;
+    IBStringField10: TIBStringField;
+    DsMovimentoStatus: TDataSource;
+    DsTipoMovimento: TDataSource;
+    QryTipoMovimento: TIBQuery;
+    IBStringField11: TIBStringField;
+    dtListCODIGO: TIntegerField;
+    dtListNOME: TIBStringField;
+    DsContato: TDataSource;
+    QryContato: TIBQuery;
+    QryContatoCONTATO_NOME: TIBStringField;
+    QryContatoOBSERVACAO: TIBStringField;
+    QryContatoIDCLIENTE_RELACIONADO: TIntegerField;
+    QryContatoTIPOCONTATO: TIBStringField;
+    QryContatoCNPJ: TIBStringField;
+    QryContatoID_CLIENTE: TIntegerField;
+    QryContatoIDCLIENTE: TIntegerField;
+    QryContatoTIPO_CONTATO: TIntegerField;
+    QryContatoCELULAR: TIBStringField;
+    QryContatoRESIDENCIAL: TIBStringField;
+    QryContatoCODIGO: TIntegerField;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -699,13 +734,26 @@ type
     procedure btnClienteClick(Sender: TObject);
     procedure btnFiltroClienteClick(Sender: TObject);
     procedure dtEditDet1NewRecord(DataSet: TDataSet);
+    procedure dtEditDet2AfterInsert(DataSet: TDataSet);
+    procedure dtEditDet2HR_FIMChange(Sender: TField);
+    procedure dtEditDet2KM_FINALChange(Sender: TField);
+    procedure btnTimerClick(Sender: TObject);
+    procedure TimerTimer(Sender: TObject);
+    procedure dtListCalcFields(DataSet: TDataSet);
+    procedure TimerRetrocederTimer(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BtnMovimentoStatusClick(Sender: TObject);
+    procedure BtnTipoMovimentoClick(Sender: TObject);
+    procedure dtEditDet2DT_LANCTOChange(Sender: TField);
   private
     { Private declarations }
     Procedure Filtrar;
     procedure EnviaEmailTecnico(Origem,NOrigem,Destino,NDestino,Assunto,Mensagem : string);
     procedure EnviaEmailAb_Fec(cliente,NCliente,Contato,NContato,Assunto,Mensagem,TIPO : string);
+    function GerarTimer(Data: TDateTime):  String;
   public
     { Public declarations }
+     fTempo: Ttime;
   end;
 
 var
@@ -716,7 +764,8 @@ implementation
 uses UntCadStatusServico, UntCadTecnicos, UntCadDefeitos,
   UntCadServicoExecutado, UntCadMotivosDevolucao,
   UntCadProblemaIdentificado, Application_DM, 
-  SerieCustomizaveis_DM, SeriesCustomizaveis, Funcoes, untCadClientes;
+  SerieCustomizaveis_DM, SeriesCustomizaveis, Funcoes, untCadClientes,
+  UntCadTipoMovimento;
 
 {$R *.dfm}
 
@@ -929,9 +978,14 @@ begin
      ValueResposta := TVRegistro.ViewData.Records[AViewInfo.GridRecord.Index].Values[TVRegistroCP_TEMPO_RESPOSTA.Index];
      if (not VarIsNull(ValueGasto) and not VarIsNull(ValueResposta)) then
      begin
-       if(( ValueGasto + 3) >= ValueResposta)then
-         ACanvas.Canvas.Brush.Color := $008484FF;
+       //vai pintar de vermelho se tiver estourado o tempo resposta, e de laranja se tiver faltando 2horas ou menos pra estourar
+       if(ValueGasto >= ValueResposta)then
+         ACanvas.Canvas.Brush.Color := $008484FF
+       else if ((ValueResposta - ValueGasto) <= 2) then
+         ACanvas.Canvas.Brush.Color := $0051A8FF
      end
+     else
+
   end;
 end;
 
@@ -1453,6 +1507,170 @@ procedure TfrmCadOS.dtEditDet1NewRecord(DataSet: TDataSet);
 begin
   inherited;
   dtEditDet1CODIGO.value := dtEditCODIGO.value;
+end;
+
+procedure TfrmCadOS.dtEditDet2AfterInsert(DataSet: TDataSet);
+begin
+  inherited;
+  
+  dtEditDet2CODIGO.Value    := dtEditCODIGO.Value;
+  dtEditDet2DT_INICIO.Value := DateOF(DMApp.DataServidor);
+  dtEditDet2HR_INICIO.Value := TimeOF(DMApp.DataServidor)-0.003;
+  dtEditDet2DT_FIM.Value := DateOF(DMApp.DataServidor);
+  dtEditDet2HR_FIM.Value := TimeOF(DMApp.DataServidor);
+  dtEditDet2USUARIO.value := dmApp.USR_CONECTADO;
+  dtEditDet2COD_TECNICO.value := dtEditMECANICO.value;
+end;
+
+procedure TfrmCadOS.dtEditDet2HR_FIMChange(Sender: TField);
+var
+  DATA_INI  , DATA_FIM,
+  HORA_INI  , HORA_FIM,
+  INTER_INI , INTER_FIM,
+  TRAB_INI  , TRAB_FIM : String;
+  DtFim : TDate;
+  HrFim : TTime;
+begin
+  inherited;
+
+  DATA_INI := DateToStr(dtEditDet2DT_INICIO.Value);
+  HORA_INI := TimeToStr(dtEditDet2HR_INICIO.Value);
+
+  //** Data_Fim se não estiver preenchido pegara data_atual
+  if dtEditDet2DT_FIM.Text='' then
+    DATA_FIM := DateToStr(dmapp.DataServidor)
+  else
+    DATA_FIM := DateToStr(dtEditDet2DT_FIM.Value   );
+
+  //** Hora_Fim se não estiver preenchido pegara hora_atual
+  if dtEditDet2HR_FIM.Text='00:00:00' then
+    HORA_FIM := TimeToStr(dmapp.DataServidor)
+  else
+    HORA_FIM := TimeToStr(dtEditDet2HR_FIM.Value   );
+
+    INTER_INI:= '11:00:00';
+    INTER_FIM:= '13:00:00';
+    TRAB_INI := '08:00:00';
+    TRAB_FIM := '18:00:00';
+
+    dtEditDet2QTDE_HORA.Value  := HORAS_TRABALHADAS(DATA_INI  , DATA_FIM,
+                                                             HORA_INI  , HORA_FIM,
+                                                             INTER_INI , INTER_FIM,
+                                                             TRAB_INI  , TRAB_FIM);
+end;
+
+procedure TfrmCadOS.dtEditDet2KM_FINALChange(Sender: TField);
+begin
+  inherited;
+  dtEditDet2KM_RODADO.value := dtEditDet2KM_FINAL.asFloat - dtEditDet2KM_INICIAL.asFloat;
+end;
+
+procedure TfrmCadOS.btnTimerClick(Sender: TObject);
+begin
+  inherited;
+  Timer.Enabled := not Timer.Enabled;
+  if not Timer.Enabled then
+  begin
+    btnTimer.Colors.Default := $0088C4FF;
+    btnTimer.caption := 'Timer '+IntToStr(Trunc(Timer.Interval/60000))+' Minutos [Desabilitado]';
+    pbTimer.Visible := false;
+    TimerRetroceder.enabled := false;
+  end
+  else
+  begin
+    btnTimer.Colors.Default := $00B3FFB3;
+    btnTimer.caption := 'Timer '+IntToStr(Trunc(Timer.Interval/60000))+' Minutos [Habilitado]';
+    pbTimer.Position := 0;
+    pbTimer.Visible := true;
+    TimerRetroceder.enabled := true;
+  end;
+end;
+
+procedure TfrmCadOS.TimerTimer(Sender: TObject);
+begin
+  inherited;
+  ActFilter.Execute;
+  pbTimer.Position := 0;
+end;
+
+procedure TfrmCadOS.dtListCalcFields(DataSet: TDataSet);
+var
+  DATA_INI  , DATA_FIM,
+  HORA_INI  , HORA_FIM,
+  INTER_INI , INTER_FIM,
+  TRAB_INI  , TRAB_FIM : STRING;
+  DataServidor : TDateTime;
+begin
+  inherited;
+  //-->> Pega o tempo de resposta para cada contrato com seu respectivo produto
+  if (dtListOFC_DATA_FECHAMENTO.IsNull)or(dtListOFC_DATA_FECHAMENTO.AsString = '') then
+  begin
+    DataServidor := dmApp.data_servidor;
+    DATA_INI := DateToStr(dtListOFC_DT_ENTRADA.asDateTime);
+    DATA_FIM := DateToStr(DataServidor);
+
+    if StrtoDate(DATA_INI) > StrtoDate(DATA_FIM) then //
+    begin
+      dtListTEMPO_GASTO.Value := 0;
+      dtListCP_TEMPO_RESPOSTA.value := 10;
+      exit;
+    end;
+
+
+    HORA_INI := TimeToStr(dtListOFC_HR_ENTRADA.value);
+    HORA_FIM := TimeToStr(DataServidor);
+    INTER_INI:= '11:00:00';
+    INTER_FIM:= '13:00:00';
+    TRAB_INI := '08:00:00';
+    TRAB_FIM := '18:00:00';
+    dtListTEMPO_GASTO.Value    := HORAS_CORRIDA(DATA_INI  , DATA_FIM,
+                                                            HORA_INI  , HORA_FIM,
+                                                            INTER_INI , INTER_FIM,
+                                                            TRAB_INI  , TRAB_FIM);
+  end;
+end;
+
+function TfrmCadOS.GerarTimer(Data: TDateTime):  String;
+var
+  iData1, iData2:  String;
+begin
+  iData1 := TimeToStr(Data);
+  iData2 := TimeToStr( (StrToTime(iData1) - 0.0000115741) );
+  iData1 := iData2;
+
+  Result := iData1;
+end;
+
+procedure TfrmCadOS.TimerRetrocederTimer(Sender: TObject);
+begin
+  inherited;
+  pbTimer.Position := pbTimer.Position + 1;
+end;
+
+procedure TfrmCadOS.FormShow(Sender: TObject);
+begin
+  inherited;
+  btnTimer.caption := 'Timer '+IntToStr(Trunc(Timer.Interval/60000))+' Minutos [Desabilitado]';
+  pbTimer.Position := 0;
+  pbTimer.Properties.Max := (Timer.Interval/1000);
+end;
+
+procedure TfrmCadOS.BtnMovimentoStatusClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadStatusServico,dtEditDet2,'COD_STATUS',QryMovimentoStatus);
+end;
+
+procedure TfrmCadOS.BtnTipoMovimentoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadTipoMovimento,dtEditDet2,'COD_TIPO_MOVTO',QryTipoMovimento);
+end;
+
+procedure TfrmCadOS.dtEditDet2DT_LANCTOChange(Sender: TField);
+begin
+  inherited;
+  dtEditDet2DT_LANCTO.value := dmApp.data_servidor
 end;
 
 end.

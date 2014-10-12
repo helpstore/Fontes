@@ -1,10 +1,10 @@
 object DMRelatorios: TDMRelatorios
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 65528
-  Top = 65528
-  Height = 776
-  Width = 1296
+  Left = 1
+  Top = 1
+  Height = 758
+  Width = 1278
   object SelProdutos: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction

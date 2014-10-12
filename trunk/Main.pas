@@ -7433,6 +7433,22 @@ begin
   finally
     frmCadOS.Destroy   ;
   end;
+
+  exit;
+    { * * * * * }
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmSelOrdens', True)) Then Exit;
+
+  { * * * * * }
+  If DMApp.SelecionarEmpresa = 'N' Then
+    Exit;
+
+  { * * * * * }
+  try
+    FrmSelOrdens   := TFrmSelOrdens.Create(Self);
+    FrmSelOrdens.Showmodal ;
+  finally
+    FrmSelOrdens.Destroy   ;
+  end;
 end;
 
 procedure TFrmMain.btnSecaoClick(Sender: TObject);
@@ -7768,6 +7784,7 @@ begin
     frmCadContratoAtendimento := Nil    ;
   end;
 
+ exit; 
   if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmContratosClientesProdutos', True)) then
     Exit;
 

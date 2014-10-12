@@ -135,8 +135,8 @@ object FrmOrdens_Servicos_Horas: TFrmOrdens_Servicos_Horas
           Transparent = True
         end
         object dtInicial: TcxDBDateEdit
-          Left = 8
-          Top = 35
+          Left = 0
+          Top = 43
           DataBinding.DataField = 'DT_INICIO'
           DataBinding.DataSource = DataSource
           ParentFont = False
@@ -995,8 +995,8 @@ object FrmOrdens_Servicos_Horas: TFrmOrdens_Servicos_Horas
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

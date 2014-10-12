@@ -1,6 +1,6 @@
 inherited frmCadVendedor2: TfrmCadVendedor2
-  Left = 278
-  Top = 114
+  Left = 276
+  Top = 133
   Width = 905
   Height = 482
   Caption = 'Vendedores'
@@ -100,12 +100,12 @@ inherited frmCadVendedor2: TfrmCadVendedor2
           Width = 879
           inherited PgcDetalhe: TcxPageControl
             Width = 879
-            ActivePage = tbsDetalhe1
             ClientRectRight = 875
             inherited tbsDetalhe1: TcxTabSheet
               Caption = '  Faixas de Comiss'#227'o     '
               inherited PGCSub1: TcxPageControl
                 Width = 871
+                ActivePage = tbsListaSub1
                 ClientRectRight = 867
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
@@ -121,32 +121,33 @@ inherited frmCadVendedor2: TfrmCadVendedor2
                       end
                       object TVDet1CODIGO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CODIGO'
+                        Visible = False
                         Position.BandIndex = 0
-                        Position.ColIndex = 1
+                        Position.ColIndex = 2
                         Position.RowIndex = 0
                       end
                       object TVDet1VALOR: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'VALOR'
                         Position.BandIndex = 0
-                        Position.ColIndex = 2
+                        Position.ColIndex = 3
                         Position.RowIndex = 0
                       end
                       object TVDet1PRAZO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'PRAZO'
                         Position.BandIndex = 0
-                        Position.ColIndex = 3
+                        Position.ColIndex = 4
                         Position.RowIndex = 0
                       end
                       object TVDet1VISTA: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'VISTA'
                         Position.BandIndex = 0
-                        Position.ColIndex = 4
+                        Position.ColIndex = 5
                         Position.RowIndex = 0
                       end
                       object TVDet1ID: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'ID'
                         Position.BandIndex = 0
-                        Position.ColIndex = 5
+                        Position.ColIndex = 1
                         Position.RowIndex = 0
                       end
                     end
@@ -155,7 +156,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
                 inherited tbsEditaSub1: TcxTabSheet
                   inherited edtCodDet1: TcxDBTextEdit
                     TabStop = True
-                    DataBinding.DataField = 'CODIGO'
+                    DataBinding.DataField = 'ID'
                     Style.Color = clBtnShadow
                     Width = 49
                   end
@@ -285,17 +286,21 @@ inherited frmCadVendedor2: TfrmCadVendedor2
               inherited PGCSub2: TcxPageControl
                 Width = 871
                 ClientRectRight = 867
+                inherited tbsListaSub2: TcxTabSheet
+                  inherited GridDet2: TcxGrid
+                    Width = 863
+                  end
+                end
               end
             end
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
                 Width = 871
-                ActivePage = tbsListaSub3
                 ClientRectRight = 867
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
-                    Width = 871
+                    Width = 863
                   end
                 end
               end
@@ -348,6 +353,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Vendedor'
               inherited edtCodigo: TcxDBTextEdit
+                DataBinding.DataField = 'CODIGO'
                 TabOrder = 5
               end
               object cxDBCalcEdit2: TcxDBCalcEdit
@@ -1139,6 +1145,7 @@ inherited frmCadVendedor2: TfrmCadVendedor2
       DisplayFormat = '###,##0.00'
     end
     object dtListDet1ID: TIntegerField
+      DisplayLabel = 'C'#243'digo'
       FieldName = 'ID'
       Origin = '"FAT_VENDEDOR_FAIXAS"."ID"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
