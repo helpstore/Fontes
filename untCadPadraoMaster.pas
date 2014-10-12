@@ -1179,6 +1179,8 @@ end;
 procedure TfrmCadPadraoMaster.pnlMasterEnter(Sender: TObject);
 begin
    Foco := 'Master';
+   if not (dtEdit.state in [dsInsert,dsEdit]) then
+      dtEdit.Edit;
    VerificaStatus(dsRegistro,true);
 end;
 

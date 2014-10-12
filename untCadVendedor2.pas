@@ -100,6 +100,7 @@ type
     procedure cxDBCalcEdit5KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure btnLogradouroClick(Sender: TObject);
+    procedure dtEditBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -133,6 +134,19 @@ procedure TfrmCadVendedor2.btnLogradouroClick(Sender: TObject);
 begin
   inherited;
   CadastroLookup(TfrmCadPessoas,dtEdit,'PESSOA_FJ',QryPessoa);
+end;
+
+procedure TfrmCadVendedor2.dtEditBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+
+  if dtEditPESSOA_FJ.asinteger = 0 then
+  begin
+    Application.MessageBox('Impossível salvar alterações. Campo Pessoa, não preenchido.','Aviso',mb_iconerror + mb_ok);
+    aTfrmCadPessoas.setfocus;
+    abort;
+    exit;
+  end;
 end;
 
 initialization

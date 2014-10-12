@@ -1,24 +1,24 @@
 inherited frmCadOS: TfrmCadOS
-  Left = 1
-  Top = 0
-  Width = 1278
-  Height = 728
+  Left = 100
+  Top = 46
+  Width = 1270
+  Height = 760
   Caption = 'Manuten'#231#227'o de Ordens de Servi'#231'o'
   OldCreateOrder = True
   WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1270
-    Height = 675
-    ActivePage = tbsLista
-    ClientRectBottom = 671
-    ClientRectRight = 1266
+    Width = 1254
+    Height = 696
+    ActivePage = tbsEdita
+    ClientRectBottom = 692
+    ClientRectRight = 1250
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 124
-        Width = 1262
-        Height = 520
+        Width = 1246
+        Height = 541
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroST_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_CODIGO'
@@ -273,67 +273,60 @@ inherited frmCadOS: TfrmCadOS
             Position.ColIndex = 35
             Position.RowIndex = 0
           end
-          object TVRegistroTEMPO_RESPOSTA: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'TEMPO_RESPOSTA'
-            OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
-            Position.BandIndex = 0
-            Position.ColIndex = 36
-            Position.RowIndex = 0
-          end
           object TVRegistroID_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ID_CONTRATO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 37
+            Position.ColIndex = 36
             Position.RowIndex = 0
           end
           object TVRegistroCP_TEMPO_RESPOSTA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CP_TEMPO_RESPOSTA'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 38
+            Position.ColIndex = 37
             Position.RowIndex = 0
           end
           object TVRegistroCUSTO_OS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CUSTO_OS'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 39
+            Position.ColIndex = 38
             Position.RowIndex = 0
           end
           object TVRegistroINFORMACOES: TcxGridDBBandedColumn
             DataBinding.FieldName = 'INFORMACOES'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 40
+            Position.ColIndex = 39
             Position.RowIndex = 0
           end
           object TVRegistroOBS_FECHAMENTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OBS_FECHAMENTO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 41
+            Position.ColIndex = 40
             Position.RowIndex = 0
           end
           object TVRegistroVEICULO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'VEICULO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 42
+            Position.ColIndex = 41
             Position.RowIndex = 0
           end
           object TVRegistroPLACA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PLACA'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 43
+            Position.ColIndex = 42
             Position.RowIndex = 0
           end
           object TVRegistroMAP_LAT: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MAP_LAT'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 44
+            Position.ColIndex = 43
             Position.RowIndex = 0
           end
           object TVRegistroMAP_LONG: TcxGridDBBandedColumn
@@ -341,92 +334,95 @@ inherited frmCadOS: TfrmCadOS
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Width = 942
             Position.BandIndex = 0
-            Position.ColIndex = 45
+            Position.ColIndex = 44
             Position.RowIndex = 0
           end
           object TVRegistroDT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DT_CILINDRO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 46
+            Position.ColIndex = 45
             Position.RowIndex = 0
           end
           object TVRegistroCT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CT_CILINDRO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 47
+            Position.ColIndex = 46
             Position.RowIndex = 0
           end
           object TVRegistroULT_DT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ULT_DT_CILINDRO'
             OnCustomDrawCell = TVRegistroDT_CILINDROCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 48
+            Position.ColIndex = 47
             Position.RowIndex = 0
           end
           object TVRegistroULT_CT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ULT_CT_CILINDRO'
             OnCustomDrawCell = TVRegistroDT_CILINDROCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 49
+            Position.ColIndex = 48
             Position.RowIndex = 0
           end
           object TVRegistroCONTADOR_TOTAL: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CONTADOR_TOTAL'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 50
+            Position.ColIndex = 49
             Position.RowIndex = 0
           end
           object TVRegistroCT_CILINDRO_SALDO_DIAS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CT_CILINDRO_SALDO_DIAS'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 51
+            Position.ColIndex = 50
             Position.RowIndex = 0
           end
           object TVRegistroCT_CILINDRO_SALDO_CONTADOR: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CT_CILINDRO_SALDO_CONTADOR'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 52
+            Position.ColIndex = 51
             Position.RowIndex = 0
           end
           object TVRegistroTEMPO_GASTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TEMPO_GASTO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 53
+            Position.ColIndex = 52
             Position.RowIndex = 0
           end
           object TVRegistroTROCA_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TROCA_CILINDRO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 54
+            Position.ColIndex = 53
             Position.RowIndex = 0
           end
           object TVRegistroTROCA_BELT: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TROCA_BELT'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 55
+            Position.ColIndex = 54
             Position.RowIndex = 0
           end
           object TVRegistroTROCA_FUSAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TROCA_FUSAO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 56
+            Position.ColIndex = 55
             Position.RowIndex = 0
           end
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1262
+        Width = 1246
         Height = 124
         Color = clWhite
+        DesignSize = (
+          1246
+          124)
         object edtInicial: TcxDBDateEdit
           Left = 8
           Top = 32
@@ -631,32 +627,160 @@ inherited frmCadOS: TfrmCadOS
             BFBFBFBFBFBFBFBFBFBF}
           LookAndFeel.SkinName = 'LiquidSky'
         end
+        object btnTimer: TcxButton
+          Left = 1015
+          Top = 0
+          Width = 230
+          Height = 40
+          Hint = 
+            'Habilita/Desabilita a atualiza'#231#227'o autom'#225'tica das OS listadas, ut' +
+            'ilizado para avaliar o Tempo  Resposta ('
+          Anchors = [akTop, akRight]
+          Caption = 'Timer 3 Minutos [ Desabilitado]'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 10
+          TabStop = False
+          OnClick = btnTimerClick
+          Glyph.Data = {
+            360C0000424D360C000000000000360000002800000020000000200000000100
+            180000000000000C0000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF0000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF00010649819E4A88AC4C88AC4C8BA7478BA8478AA9478AA93F7C
+            9E3C76993D73963E688B395F8237577B3651763044672F3F642A39602E386000
+            000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF0003073E8AA73184AA3384A93A8AA94984AC4C88B24886AF4074
+            A23C6D9D3A6A9A3266942D5B8A2A5282294D7D2C466E273D6623366329366200
+            0011FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF0001060000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF00000091ADB491ADB491ADB491ADB491ADB492A6AB8FABB290AA
+            B696A9B698AAB594AAB694AAB694AAB694AAB691ADB491ADB491ADB491ADB400
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF00000091ADB491ADB491ADB491ADB491ADB492A6AB8EABB28DAB
+            B690AAB694AAB594AAB694AAB694AAB694AAB68AA8B391ADB491ADB496A4AA00
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF000000D2DDE1A0ABAF91ADB491ADB491ADB494A7AE8FAAB48BAB
+            B68FACB590ABB590AAB690AAB690AAB690AAB68FADB891ADB491ADB4C1CFD500
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFF000000A5ACAF91ADB491ADB491ADB499A9B091ADB491AD
+            B491ADB491ADB491ADB491ADB491ADB491ADB491ADB491ADB49AABB4000000FF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFF000001D3D8D9A8ACADFFFEFFFEFEFEB0B9BD91ADB491AD
+            B491ADB491ADB491ADB491ADB491ADB491ADB491ADB4A2AEB4B4BDC105080CFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFF020404CCCECFD5D4D6F8F7F3FFFFFFDBDDDEDCDE
+            DE91ADB491ADB491ADB491ADB491ADB4E1DCDDE7E7E7E4E4E4020000FFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF141414D3D3D3F8F8F8FFFFFFF9F9F9DCDC
+            DCDDDDDDDEDEDEDDDDDDDEDEDED8D8D8E0E0E0DDDDDD000000FFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF262626ECECECFFFFFFFFFFFFD8D8
+            D8DDDDDDDCDCDCDDDDDDDDDDDDD8D8D8EAEAEA282828FFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0F0F0F000000000000EEEE
+            EE91ADB491ADB4DDDDDD000000000000040404FFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
+            0091ADB491ADB4000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
+            0091ADB491ADB4000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
+            0091ADB491ADB4000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
+            0091ADB491ADB4000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000D7DD
+            E2F3FFFF91ADB4000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000100D3D8D9EAF8
+            FE91A5AA98AEB48EA0A7070A12FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000100BFC7C79FA8ABCEE2
+            E795AFB58FACB18FA4AC91ADB4000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000CAE1E3A0AFB2DFEDF391A9
+            AF90AEB38CACB28FA5B186A0A691ADB4010908F6F4F4FFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFF0C0E0E00000098A2A2F6FFFFF8FDFFDFE4E7A2AB
+            AF9BAAAD9AAAB097A4AC97AAB2A2B4BB91ADB4000000000000F7F7F7FFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFF9E9E9E050707E4E9EADAE4E4F6FBFAFDFFFFDADCDDD8DD
+            E091ADB491ADB491ADB491ADB491ADB491ADB491ADB4000000000000FFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFF020000EAEAEAD6DADBDEE6E6FCFDFBFDFDFDD9D9D9DBDD
+            DED9DDDEDBDDDE91ADB491ADB491ADB491ADB491ADB491ADB40000008F8F8FFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFF000000E7E5E5DDDADCFEFDFFFFFFFCEFF0EEDBDCDADDDD
+            DDDFDCDEDFDCDEDDDCDEDFDCDE91ADB491ADB491ADB491ADB491ADB4000000FF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF000000E2E8E3D7E2DAF5FEFBF8FEFDF8FDFFD4D9E2D5DCE5D6DB
+            E4D6DBE4D6DBE4D4DCE3D4DCE3D4DCE3D4DCE3DCDEDEE1DFDEDCDAD9E5E3E200
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF000000B7BCC5B0B0BCB4B0BCB0B1BBB3B6B4B3B6B4B5B6B4B7B5
+            B4B7B5B4B7B5B4B3B5B5B6B8B8B4B6B6B6B6B6B6B8B9B3B6BBB2B5BDB4B6C021
+            2127FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF0002040000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF000B132680983087A73786A73B86A63D87AB3F86AB4086AB397A
+            A03473993270962F6B952C618C2C55822A4E7C2A4070283C6C23376625376002
+            0C1EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFF0000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        end
+        object pbTimer: TcxProgressBar
+          Left = 1016
+          Top = 40
+          Anchors = [akTop, akRight]
+          TabOrder = 11
+          Visible = False
+          Width = 229
+        end
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1262
-        Height = 644
+        Width = 1246
+        Height = 665
         inherited pnlSubCad: TPanel
-          Top = 347
-          Width = 1260
+          Top = 368
+          Width = 1244
           Height = 296
           inherited PgcDetalhe: TcxPageControl
-            Width = 1260
+            Width = 1244
             Height = 296
+            ActivePage = tbsDetalhe2
             ClientRectBottom = 292
-            ClientRectRight = 1256
+            ClientRectRight = 1240
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Itens'
               inherited PGCSub1: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
-                ActivePage = tbsEditaSub1
+                ActivePage = tbsListaSub1
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 1236
+                    Width = 1228
                     Height = 234
                     inherited TVDet1: TcxGridDBBandedTableView
                       object TVDet1CNPJ: TcxGridDBBandedColumn
@@ -876,13 +1000,13 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe2: TcxTabSheet
               Caption = 'Movimentos'
               inherited PGCSub2: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
-                    Width = 1244
+                    Width = 1228
                     Height = 234
                     inherited TVDet2: TcxGridDBBandedTableView
                       object TVDet2CNPJ: TcxGridDBBandedColumn
@@ -1051,10 +1175,14 @@ inherited frmCadOS: TfrmCadOS
                   end
                 end
                 inherited tbsEditaSub2: TcxTabSheet
+                  inherited edtCodDet2: TcxDBTextEdit
+                    DataBinding.DataField = 'CODIGO'
+                  end
                   object cxDBDateEdit4: TcxDBDateEdit
                     Left = 221
                     Top = 24
                     DataBinding.DataField = 'DT_LANCTO'
+                    DataBinding.DataSource = dsRegistroDet2
                     Enabled = False
                     ParentFont = False
                     Style.BorderColor = clBtnShadow
@@ -1073,7 +1201,8 @@ inherited frmCadOS: TfrmCadOS
                   object cxDBTextEdit1: TcxDBTextEdit
                     Left = 74
                     Top = 24
-                    DataBinding.DataField = 'NOME_USUARIO'
+                    DataBinding.DataField = 'USUARIO'
+                    DataBinding.DataSource = dsRegistroDet2
                     Enabled = False
                     ParentFont = False
                     Style.BorderColor = clBtnShadow
@@ -1084,7 +1213,7 @@ inherited frmCadOS: TfrmCadOS
                     Style.Font.Name = 'Tahoma'
                     Style.Font.Style = []
                     Style.IsFontAssigned = True
-                    TabOrder = 3
+                    TabOrder = 1
                     Width = 145
                   end
                   object Label11: TcxLabel
@@ -1106,8 +1235,7 @@ inherited frmCadOS: TfrmCadOS
                     Top = 48
                     TabStop = True
                     Caption = 'Horas Trabalhadas'
-                    Enabled = False
-                    TabOrder = 6
+                    TabOrder = 4
                     Height = 122
                     Width = 299
                     object dtInicial: TcxDBDateEdit
@@ -1243,8 +1371,7 @@ inherited frmCadOS: TfrmCadOS
                     Top = 48
                     TabStop = True
                     Caption = 'Tarefas'
-                    Enabled = False
-                    TabOrder = 7
+                    TabOrder = 6
                     Height = 120
                     Width = 449
                     object cxDBDateEdit2: TcxDBDateEdit
@@ -1300,7 +1427,7 @@ inherited frmCadOS: TfrmCadOS
                       Transparent = True
                     end
                     object Label20: TcxLabel
-                      Left = 229
+                      Left = 205
                       Top = 61
                       Caption = 'Tipo Movimento'
                       ParentFont = False
@@ -1322,7 +1449,7 @@ inherited frmCadOS: TfrmCadOS
                     end
                     object bTfrmCadStatusServico: TcxDBLookupComboBox
                       Left = 229
-                      Top = 35
+                      Top = 34
                       DataBinding.DataField = 'COD_STATUS'
                       DataBinding.DataSource = dsRegistroDet2
                       ParentFont = False
@@ -1331,7 +1458,7 @@ inherited frmCadOS: TfrmCadOS
                         item
                           FieldName = 'NOME'
                         end>
-                      Properties.ListSource = dsStatus
+                      Properties.ListSource = DsMovimentoStatus
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -1342,14 +1469,14 @@ inherited frmCadOS: TfrmCadOS
                       TabOrder = 7
                       Width = 166
                     end
-                    object cxButton1: TcxButton
-                      Left = 372
-                      Top = 34
+                    object BtnMovimentoStatus: TcxButton
+                      Left = 396
+                      Top = 33
                       Width = 23
                       Height = 22
                       TabOrder = 8
                       TabStop = False
-                      OnClick = btnStatusClick
+                      OnClick = BtnMovimentoStatusClick
                       Glyph.Data = {
                         06030000424D06030000000000003600000028000000100000000F0000000100
                         180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1378,17 +1505,20 @@ inherited frmCadOS: TfrmCadOS
                         BFBFBFBFBFBFBFBFBFBF}
                     end
                     object cmbContato: TcxDBLookupComboBox
-                      Left = 11
+                      Left = 8
                       Top = 77
                       DataBinding.DataField = 'COD_CONTATO'
                       DataBinding.DataSource = dsRegistroDet2
                       ParentFont = False
-                      Properties.KeyFieldNames = 'CODIGO'
+                      Properties.KeyFieldNames = 'IDCLIENTE_RELACIONADO'
                       Properties.ListColumns = <
                         item
-                          FieldName = 'NOME'
+                          FieldName = 'CONTATO_NOME'
+                        end
+                        item
+                          FieldName = 'IDCLIENTE_RELACIONADO'
                         end>
-                      Properties.ListSource = dsStatus
+                      Properties.ListSource = DsContato
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -1397,13 +1527,14 @@ inherited frmCadOS: TfrmCadOS
                       Style.HotTrack = False
                       Style.IsFontAssigned = True
                       TabOrder = 9
-                      Width = 166
+                      Width = 169
                     end
                     object cxButton2: TcxButton
-                      Left = 178
+                      Left = 177
                       Top = 75
                       Width = 24
                       Height = 22
+                      Enabled = False
                       TabOrder = 10
                       TabStop = False
                       OnClick = btnStatusClick
@@ -1434,14 +1565,14 @@ inherited frmCadOS: TfrmCadOS
                         BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
                         BFBFBFBFBFBFBFBFBFBF}
                     end
-                    object cxButton3: TcxButton
-                      Left = 394
-                      Top = 75
+                    object BtnTipoMovimento: TcxButton
+                      Left = 397
+                      Top = 76
                       Width = 24
                       Height = 22
-                      TabOrder = 11
+                      TabOrder = 12
                       TabStop = False
-                      OnClick = btnStatusClick
+                      OnClick = BtnTipoMovimentoClick
                       Glyph.Data = {
                         06030000424D06030000000000003600000028000000100000000F0000000100
                         180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1469,8 +1600,8 @@ inherited frmCadOS: TfrmCadOS
                         BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
                         BFBFBFBFBFBFBFBFBFBF}
                     end
-                    object cmbTipoMovimento: TcxDBLookupComboBox
-                      Left = 227
+                    object aTfrmCadTipoMovimento: TcxDBLookupComboBox
+                      Left = 205
                       Top = 77
                       DataBinding.DataField = 'COD_TIPO_MOVTO'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1480,7 +1611,7 @@ inherited frmCadOS: TfrmCadOS
                         item
                           FieldName = 'NOME'
                         end>
-                      Properties.ListSource = dsStatus
+                      Properties.ListSource = DsTipoMovimento
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -1488,8 +1619,8 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Style = []
                       Style.HotTrack = False
                       Style.IsFontAssigned = True
-                      TabOrder = 12
-                      Width = 166
+                      TabOrder = 11
+                      Width = 191
                     end
                   end
                   object cxGroupBox7: TcxGroupBox
@@ -1497,8 +1628,7 @@ inherited frmCadOS: TfrmCadOS
                     Top = 48
                     TabStop = True
                     Caption = 'Deslocamentos'
-                    Enabled = False
-                    TabOrder = 8
+                    TabOrder = 5
                     Height = 122
                     Width = 325
                     object cxDBTextEdit6: TcxDBTextEdit
@@ -1516,7 +1646,7 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Name = 'Tahoma'
                       Style.Font.Style = []
                       Style.IsFontAssigned = True
-                      TabOrder = 0
+                      TabOrder = 3
                       Width = 78
                     end
                     object cxDBSpinEdit2: TcxDBSpinEdit
@@ -1541,7 +1671,7 @@ inherited frmCadOS: TfrmCadOS
                       StyleDisabled.ButtonStyle = btsSimple
                       StyleFocused.LookAndFeel.Kind = lfUltraFlat
                       StyleHot.LookAndFeel.Kind = lfUltraFlat
-                      TabOrder = 1
+                      TabOrder = 2
                       Width = 67
                     end
                     object cxLabel38: TcxLabel
@@ -1580,7 +1710,7 @@ inherited frmCadOS: TfrmCadOS
                       StyleDisabled.ButtonStyle = btsSimple
                       StyleFocused.LookAndFeel.Kind = lfUltraFlat
                       StyleHot.LookAndFeel.Kind = lfUltraFlat
-                      TabOrder = 4
+                      TabOrder = 1
                       Width = 67
                     end
                     object cxLabel40: TcxLabel
@@ -1632,15 +1762,16 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Name = 'Tahoma'
                       Style.Font.Style = []
                       Style.IsFontAssigned = True
-                      TabOrder = 7
+                      TabOrder = 0
                       Width = 89
                     end
                     object cxButton4: TcxButton
                       Left = 177
-                      Top = 74
+                      Top = 75
                       Width = 24
                       Height = 22
-                      TabOrder = 8
+                      Enabled = False
+                      TabOrder = 5
                       TabStop = False
                       OnClick = btnStatusClick
                       Glyph.Data = {
@@ -1676,12 +1807,12 @@ inherited frmCadOS: TfrmCadOS
                       DataBinding.DataField = 'COD_VEICULO'
                       DataBinding.DataSource = dsRegistroDet2
                       ParentFont = False
-                      Properties.KeyFieldNames = 'CODIGO'
+                      Properties.KeyFieldNames = 'PLACA'
                       Properties.ListColumns = <
                         item
-                          FieldName = 'NOME'
+                          FieldName = 'DESCRICAO'
                         end>
-                      Properties.ListSource = dsStatus
+                      Properties.ListSource = dsVeiculos
                       Style.Font.Charset = DEFAULT_CHARSET
                       Style.Font.Color = clWindowText
                       Style.Font.Height = -11
@@ -1689,7 +1820,7 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Style = []
                       Style.HotTrack = False
                       Style.IsFontAssigned = True
-                      TabOrder = 9
+                      TabOrder = 4
                       Width = 166
                     end
                     object cxLabel41: TcxLabel
@@ -1706,19 +1837,19 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Height = 234
@@ -1729,37 +1860,37 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 1252
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1248
+                ClientRectRight = 1232
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 1254
@@ -1771,13 +1902,13 @@ inherited frmCadOS: TfrmCadOS
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1260
-          Height = 346
+          Width = 1244
+          Height = 367
           inherited PgcMaster: TcxPageControl
-            Width = 1260
-            Height = 346
-            ClientRectBottom = 342
-            ClientRectRight = 1256
+            Width = 1244
+            Height = 367
+            ClientRectBottom = 363
+            ClientRectRight = 1240
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit
@@ -2606,7 +2737,7 @@ inherited frmCadOS: TfrmCadOS
                 Properties.ReadOnly = True
                 Style.HotTrack = False
                 TabOrder = 30
-                Height = 329
+                Height = 312
                 Width = 216
               end
               object cxLabel20: TcxLabel
@@ -2631,13 +2762,13 @@ inherited frmCadOS: TfrmCadOS
                 Transparent = True
               end
               object cxGroupBox3: TcxGroupBox
-                Left = 378
-                Top = 121
+                Left = 387
+                Top = 120
                 TabStop = True
                 Caption = 'Dados de Fechamento'
                 TabOrder = 12
-                Height = 224
-                Width = 401
+                Height = 207
+                Width = 391
                 object edtDataFechamento: TcxDBDateEdit
                   Left = 8
                   Top = 30
@@ -2718,8 +2849,8 @@ inherited frmCadOS: TfrmCadOS
                   TabStop = True
                   Caption = 'Contadores'
                   PanelStyle.Active = True
-                  TabOrder = 4
-                  Height = 96
+                  TabOrder = 2
+                  Height = 99
                   Width = 162
                   object EdtContadorTotal: TcxDBTextEdit
                     Left = 8
@@ -2838,24 +2969,24 @@ inherited frmCadOS: TfrmCadOS
                   Top = 29
                   DataBinding.DataField = 'OBS_FECHAMENTO'
                   DataBinding.DataSource = dsRegistro
-                  TabOrder = 5
-                  Height = 123
+                  TabOrder = 3
+                  Height = 84
                   Width = 206
                 end
                 object cxDBCheckBox1: TcxDBCheckBox
                   Left = 175
-                  Top = 162
+                  Top = 114
                   Caption = 'Troca de Cilindro'
                   DataBinding.DataField = 'TROCA_CILINDRO'
                   DataBinding.DataSource = dsRegistro
                   Properties.ValueChecked = 'S'
                   Properties.ValueUnchecked = 'N'
                   Style.TransparentBorder = True
-                  TabOrder = 8
+                  TabOrder = 4
                   Width = 116
                 end
                 object cxDBTextEdit4: TcxDBTextEdit
-                  Left = 130
+                  Left = 183
                   Top = 173
                   DataBinding.DataField = 'KM_RODADO'
                   DataBinding.DataSource = dsRegistro
@@ -2865,22 +2996,22 @@ inherited frmCadOS: TfrmCadOS
                   Style.BorderStyle = ebsSingle
                   Style.Font.Charset = DEFAULT_CHARSET
                   Style.Font.Color = clBlack
-                  Style.Font.Height = -13
+                  Style.Font.Height = -11
                   Style.Font.Name = 'Tahoma'
                   Style.Font.Style = []
                   Style.IsFontAssigned = True
                   TabOrder = 11
-                  Width = 41
+                  Width = 87
                 end
                 object Label10: TcxLabel
-                  Left = 130
+                  Left = 183
                   Top = 156
                   Caption = 'Total'
                   ParentFont = False
                   Transparent = True
                 end
                 object EdtKmFinal: TcxDBSpinEdit
-                  Left = 68
+                  Left = 95
                   Top = 173
                   DataBinding.DataField = 'KM_FINAL'
                   DataBinding.DataSource = dsRegistro
@@ -2890,7 +3021,7 @@ inherited frmCadOS: TfrmCadOS
                   Style.BorderStyle = ebsSingle
                   Style.Font.Charset = DEFAULT_CHARSET
                   Style.Font.Color = clBlack
-                  Style.Font.Height = -13
+                  Style.Font.Height = -11
                   Style.Font.Name = 'Tahoma'
                   Style.Font.Style = []
                   Style.LookAndFeel.Kind = lfUltraFlat
@@ -2901,11 +3032,11 @@ inherited frmCadOS: TfrmCadOS
                   StyleDisabled.ButtonStyle = btsSimple
                   StyleFocused.LookAndFeel.Kind = lfUltraFlat
                   StyleHot.LookAndFeel.Kind = lfUltraFlat
-                  TabOrder = 7
-                  Width = 61
+                  TabOrder = 8
+                  Width = 87
                 end
                 object Label9: TcxLabel
-                  Left = 68
+                  Left = 95
                   Top = 156
                   Caption = 'Km. Final'
                   ParentFont = False
@@ -2929,7 +3060,7 @@ inherited frmCadOS: TfrmCadOS
                   Style.BorderStyle = ebsSingle
                   Style.Font.Charset = DEFAULT_CHARSET
                   Style.Font.Color = clBlack
-                  Style.Font.Height = -13
+                  Style.Font.Height = -11
                   Style.Font.Name = 'Tahoma'
                   Style.Font.Style = []
                   Style.LookAndFeel.Kind = lfUltraFlat
@@ -2940,31 +3071,31 @@ inherited frmCadOS: TfrmCadOS
                   StyleDisabled.ButtonStyle = btsSimple
                   StyleFocused.LookAndFeel.Kind = lfUltraFlat
                   StyleHot.LookAndFeel.Kind = lfUltraFlat
-                  TabOrder = 6
-                  Width = 58
+                  TabOrder = 7
+                  Width = 87
                 end
                 object cxDBCheckBox2: TcxDBCheckBox
                   Left = 175
-                  Top = 182
+                  Top = 134
                   Caption = 'Troca de Fus'#227'o'
                   DataBinding.DataField = 'TROCA_FUSAO'
                   DataBinding.DataSource = dsRegistro
                   Properties.ValueChecked = 'S'
                   Properties.ValueUnchecked = 'N'
                   Style.TransparentBorder = True
-                  TabOrder = 9
+                  TabOrder = 6
                   Width = 116
                 end
                 object cxDBCheckBox3: TcxDBCheckBox
                   Left = 293
-                  Top = 162
+                  Top = 115
                   Caption = 'Troca de Belt'
                   DataBinding.DataField = 'TROCA_BELT'
                   DataBinding.DataSource = dsRegistro
                   Properties.ValueChecked = 'S'
                   Properties.ValueUnchecked = 'N'
                   Style.TransparentBorder = True
-                  TabOrder = 10
+                  TabOrder = 5
                   Width = 87
                 end
               end
@@ -3011,1024 +3142,6 @@ inherited frmCadOS: TfrmCadOS
         end
       end
     end
-  end
-  object QryStatus: TIBQuery [1]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    DataSource = dsRegistro
-    SQL.Strings = (
-      'select * from ofc_status s'
-      'where s.cnpj = :cnpj')
-    Left = 808
-    Top = 96
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'cnpj'
-        ParamType = ptUnknown
-      end>
-    object QryStatusCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"OFC_STATUS"."CNPJ"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      FixedChar = True
-      Size = 14
-    end
-    object QryStatusCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"OFC_STATUS"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object QryStatusNOME: TIBStringField
-      FieldName = 'NOME'
-      Origin = '"OFC_STATUS"."NOME"'
-      Size = 50
-    end
-    object QryStatusCOR: TIntegerField
-      FieldName = 'COR'
-      Origin = '"OFC_STATUS"."COR"'
-    end
-    object QryStatusFECHADO: TIBStringField
-      FieldName = 'FECHADO'
-      Origin = '"OFC_STATUS"."FECHADO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryStatusOS: TIBStringField
-      FieldName = 'OS'
-      Origin = '"OFC_STATUS"."OS"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryStatusMOVIMENTO: TIBStringField
-      FieldName = 'MOVIMENTO'
-      Origin = '"OFC_STATUS"."MOVIMENTO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryStatusPADRAO_ENVIO: TIBStringField
-      FieldName = 'PADRAO_ENVIO'
-      Origin = '"OFC_STATUS"."PADRAO_ENVIO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryStatusPADRAO_ABERTURA: TIBStringField
-      FieldName = 'PADRAO_ABERTURA'
-      Origin = '"OFC_STATUS"."PADRAO_ABERTURA"'
-      FixedChar = True
-      Size = 1
-    end
-  end
-  object QryTecnico: TIBQuery [2]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      
-        'select t.codigo, t.nome, t.email, t.assinatura from ofc_mecanico' +
-        's t'
-      
-        'inner join glo_pessoas_fj psa on (psa.cnpj = t.cnpj and t.pessoa' +
-        '_fj = psa.codigo)'
-      'where t.cnpj = :cnpj')
-    Left = 840
-    Top = 96
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end>
-    object QryTecnicoCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"OFC_MECANICOS"."CODIGO"'
-      Required = True
-    end
-    object QryTecnicoNOME: TIBStringField
-      FieldName = 'NOME'
-      Origin = '"OFC_MECANICOS"."NOME"'
-      Size = 50
-    end
-    object QryTecnicoEMAIL: TIBStringField
-      FieldName = 'EMAIL'
-      Origin = '"OFC_MECANICOS"."EMAIL"'
-      Size = 80
-    end
-    object QryTecnicoASSINATURA: TMemoField
-      FieldName = 'ASSINATURA'
-      Origin = '"OFC_MECANICOS"."ASSINATURA"'
-      ProviderFlags = [pfInUpdate]
-      BlobType = ftMemo
-      Size = 8
-    end
-  end
-  object QryMotivoChamado: TIBQuery [3]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      'select * from ofc_motivo_chamado mc'
-      'where mc.cnpj = :cnpj'
-      'and coalesce(mc.ativo,'#39'N'#39') = '#39'S'#39
-      'order by mc.nome')
-    Left = 904
-    Top = 96
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end>
-    object QryMotivoChamadoCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"OFC_MOTIVO_CHAMADO"."CNPJ"'
-      Required = True
-      FixedChar = True
-      Size = 14
-    end
-    object QryMotivoChamadoCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      Origin = '"OFC_MOTIVO_CHAMADO"."CODIGO"'
-      Required = True
-    end
-    object QryMotivoChamadoNOME: TIBStringField
-      FieldName = 'NOME'
-      Origin = '"OFC_MOTIVO_CHAMADO"."NOME"'
-      Size = 50
-    end
-    object QryMotivoChamadoATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"OFC_MOTIVO_CHAMADO"."ATIVO"'
-      FixedChar = True
-      Size = 1
-    end
-  end
-  object QryDefeito: TIBQuery [4]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      'select CNPJ, CODIGO, NOME, ATIVO'
-      'from OFC_DEFEITO'
-      'Where CNPJ = :CNPJ '
-      'and coalesce(ATIVO,'#39'N'#39') = '#39'S'#39
-      'Order by NOME')
-    Left = 872
-    Top = 96
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end>
-    object QryDefeitoCNPJ: TIBStringField
-      DisplayLabel = 'Cnpj'
-      FieldName = 'CNPJ'
-      Origin = '"OFC_DEFEITO"."CNPJ"'
-      Required = True
-      FixedChar = True
-      Size = 14
-    end
-    object QryDefeitoCODIGO: TIntegerField
-      DisplayLabel = 'C'#243'digo'
-      FieldName = 'CODIGO'
-      Origin = '"OFC_DEFEITO"."CODIGO"'
-      Required = True
-    end
-    object QryDefeitoNOME: TIBStringField
-      DisplayLabel = 'Nome'
-      FieldName = 'NOME'
-      Origin = '"OFC_DEFEITO"."NOME"'
-      Required = True
-      Size = 50
-    end
-    object QryDefeitoATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"OFC_DEFEITO"."ATIVO"'
-      FixedChar = True
-      Size = 1
-    end
-  end
-  object QryServicoExecutado: TIBQuery [5]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      'select * from ofc_tipo_atendimento ta'
-      'where ta.cnpj = :cnpj')
-    Left = 936
-    Top = 96
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end>
-  end
-  object QryEquipCliente: TIBQuery [6]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    DataSource = dsRegistro
-    SQL.Strings = (
-      
-        'select distinct cti.codigo cod_item, prd.codigo||'#39'-'#39'||prd.nome c' +
-        'odigo_nome, prd.codigo, substring(prd.nome from 1 for 25) nome, ' +
-        ' prd.serie, DT_FIM,'
-      'ct.codigo codigo_contrato,cti.ativo ativo2,'
-      'case coalesce(cti.ativo,'#39'N'#39')'
-      '     when '#39'S'#39' then '#39'Ativo'#39
-      '     when '#39'N'#39' then '#39'Inativo'#39
-      'end ativo,'
-      'cti.informacoes_itens,'
-      'mdl.nome modelo,'
-      'tp.nome tipo_contrato'
-      ''
-      'from ofc_contratos_itens cti'
-      
-        'inner join ofc_contratos ct on (ct.codigo = cti.contrato and ct.' +
-        'cnpj = cti.cnpj)'
-      
-        'inner join est_produtos prd on (prd.cnpj = cti.cnpj and prd.codi' +
-        'go = cti.cod_produto)'
-      
-        'left join glo_tipo_contrato tp on (tp.cnpj = ct.cnpj and tp.codi' +
-        'go = ct.COD_CONTRATO)'
-      
-        'left join glo_modelo_propriedade mdl on (prd.cnpj = mdl.cnpj and' +
-        ' prd.modelo = mdl.codigo)'
-      
-        'where ct.cnpj = :cnpj and ct.ativo = '#39'S'#39' and ct.cod_cliente = :p' +
-        'essoa_fj'
-      'and ((cti.ativo = :ativo) or (:ativo = '#39'T'#39'))'
-      
-        'order by  coalesce(cti.ativo,'#39'N'#39'), prd.codigo||'#39'-'#39'||prd.nome des' +
-        'c')
-    Left = 809
-    Top = 131
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'pessoa_fj'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ativo'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ativo'
-        ParamType = ptUnknown
-      end>
-    object QryEquipClienteCODIGO_NOME: TIBStringField
-      FieldName = 'CODIGO_NOME'
-      Required = True
-      Size = 66
-    end
-    object QryEquipClienteCODIGO: TIBStringField
-      FieldName = 'CODIGO'
-      Origin = '"EST_PRODUTOS"."CODIGO"'
-      Required = True
-      Size = 15
-    end
-    object QryEquipClienteSERIE: TIBStringField
-      FieldName = 'SERIE'
-      Origin = '"EST_PRODUTOS"."SERIE"'
-      Size = 30
-    end
-    object QryEquipClienteDT_FIM: TDateTimeField
-      FieldName = 'DT_FIM'
-      Origin = '"OFC_CONTRATOS"."DT_FIM"'
-    end
-    object QryEquipClienteCODIGO_CONTRATO: TIntegerField
-      FieldName = 'CODIGO_CONTRATO'
-      Origin = '"OFC_CONTRATOS"."CODIGO"'
-      Required = True
-    end
-    object QryEquipClienteATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      ProviderFlags = []
-      FixedChar = True
-      Size = 7
-    end
-    object QryEquipClienteINFORMACOES_ITENS: TMemoField
-      FieldName = 'INFORMACOES_ITENS'
-      Origin = '"OFC_CONTRATOS_ITENS"."INFORMACOES_ITENS"'
-      ProviderFlags = [pfInUpdate]
-      BlobType = ftMemo
-      Size = 8
-    end
-    object QryEquipClienteMODELO: TIBStringField
-      DisplayWidth = 25
-      FieldName = 'MODELO'
-      Origin = '"GLO_MODELO_PROPRIEDADE"."NOME"'
-      Size = 50
-    end
-    object QryEquipClienteNOME: TIBStringField
-      DisplayWidth = 25
-      FieldName = 'NOME'
-      ProviderFlags = []
-      Size = 50
-    end
-    object QryEquipClienteATIVO2: TIBStringField
-      FieldName = 'ATIVO2'
-      Origin = '"OFC_CONTRATOS_ITENS"."ATIVO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryEquipClienteCOD_ITEM: TIntegerField
-      FieldName = 'COD_ITEM'
-      Origin = '"OFC_CONTRATOS_ITENS"."CODIGO"'
-      Required = True
-    end
-    object QryEquipClienteTIPO_CONTRATO: TIBStringField
-      FieldName = 'TIPO_CONTRATO'
-      Origin = '"GLO_TIPO_CONTRATO"."NOME"'
-      Size = 50
-    end
-  end
-  object dsEquipamento: TDataSource [7]
-    DataSet = QryEquipCliente
-    Left = 567
-    Top = 2
-  end
-  object dsStatus: TDataSource [8]
-    DataSet = QryStatus
-    Left = 599
-    Top = 2
-  end
-  object dsTecnico: TDataSource [9]
-    DataSet = QryTecnico
-    Left = 631
-    Top = 2
-  end
-  object dsDefeitoReclamado: TDataSource [10]
-    DataSet = QryDefeito
-    Left = 663
-    Top = 2
-  end
-  object dsServicoExecutado: TDataSource [11]
-    DataSet = QryServicoExecutado
-    Left = 695
-    Top = 2
-  end
-  object dsMotivoChamado: TDataSource [12]
-    DataSet = QryMotivoChamado
-    Left = 727
-    Top = 2
-  end
-  object SelSeries: TIBQuery [13]
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    SQL.Strings = (
-      
-        'select o.cod_cliente, psa.nome_razao, p.codigo cod_equipamento f' +
-        'rom ofc_contratos_itens i'
-      
-        'inner join ofc_contratos o on (o.cnpj = i.cnpj and o.codigo = i.' +
-        'contrato)'
-      
-        'inner join glo_pessoas_fj psa on (psa.cnpj =o.cnpj and psa.codig' +
-        'o = o.cod_cliente)'
-      
-        'inner join est_produtos p on (p.cnpj = i.cnpj and p.codigo = i.c' +
-        'od_produto)'
-      
-        'where coalesce(o.ativo,'#39'S'#39') = '#39'S'#39' and coalesce(i.ativo,'#39'S'#39') = '#39'S' +
-        #39
-      'and p.serie = :serie and p.cnpj = :cnpj')
-    Left = 808
-    Top = 218
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'serie'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'cnpj'
-        ParamType = ptUnknown
-      end>
-    object SelSeriesCOD_CLIENTE: TIntegerField
-      FieldName = 'COD_CLIENTE'
-      Origin = '"OFC_CONTRATOS"."COD_CLIENTE"'
-    end
-    object SelSeriesNOME_RAZAO: TIBStringField
-      FieldName = 'NOME_RAZAO'
-      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
-      Size = 50
-    end
-    object SelSeriesCOD_EQUIPAMENTO: TIBStringField
-      FieldName = 'COD_EQUIPAMENTO'
-      Origin = '"EST_PRODUTOS"."CODIGO"'
-      Required = True
-      Size = 15
-    end
-  end
-  object SelEndereco: TIBQuery [14]
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    SQL.Strings = (
-      
-        'select psa.map_lat, psa.map_long, lgd.nome logradouro , psa.nume' +
-        'ro, cdd.nome cidade, psa.uf from glo_pessoas_fj psa'
-      
-        'left join glo_logradouros lgd on (lgd.cnpj = psa.cnpj and psa.en' +
-        'dereco = lgd.codigo)'
-      
-        'left join glo_cidades cdd on (cdd.cnpj = psa.cnpj and cdd.codigo' +
-        ' = psa.cidade)'
-      'where psa.cnpj = :cnpj and psa.codigo = :codigo')
-    Left = 840
-    Top = 217
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'CNPJ'
-        ParamType = ptInput
-      end
-      item
-        DataType = ftUnknown
-        Name = 'codigo'
-        ParamType = ptUnknown
-      end>
-    object SelEnderecoMAP_LAT: TIBStringField
-      FieldName = 'MAP_LAT'
-      Origin = '"GLO_PESSOAS_FJ"."MAP_LAT"'
-      Size = 200
-    end
-    object SelEnderecoMAP_LONG: TIBStringField
-      FieldName = 'MAP_LONG'
-      Origin = '"GLO_PESSOAS_FJ"."MAP_LONG"'
-      Size = 200
-    end
-    object SelEnderecoLOGRADOURO: TIBStringField
-      FieldName = 'LOGRADOURO'
-      Origin = '"GLO_LOGRADOUROS"."NOME"'
-      Size = 50
-    end
-    object SelEnderecoNUMERO: TIBStringField
-      FieldName = 'NUMERO'
-      Origin = '"GLO_PESSOAS_FJ"."NUMERO"'
-      Size = 15
-    end
-    object SelEnderecoCIDADE: TIBStringField
-      FieldName = 'CIDADE'
-      Origin = '"GLO_CIDADES"."NOME"'
-      Size = 50
-    end
-    object SelEnderecoUF: TIBStringField
-      FieldName = 'UF'
-      Origin = '"GLO_PESSOAS_FJ"."UF"'
-      FixedChar = True
-      Size = 2
-    end
-  end
-  object QryProdutosItens: TIBQuery [15]
-    Tag = 4
-    Database = DmApp.Database
-    Transaction = DmApp.Transaction
-    BeforeOpen = dtListBeforeOpen
-    SQL.Strings = (
-      'select * from est_produtos p'
-      'where p.cnpj = :cnpj')
-    Left = 844
-    Top = 258
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'CNPJ'
-        ParamType = ptUnknown
-      end>
-    object QryProdutosItensCNPJ: TIBStringField
-      FieldName = 'CNPJ'
-      Origin = '"EST_PRODUTOS"."CNPJ"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      FixedChar = True
-      Size = 14
-    end
-    object QryProdutosItensCODIGO: TIBStringField
-      FieldName = 'CODIGO'
-      Origin = '"EST_PRODUTOS"."CODIGO"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Size = 15
-    end
-    object QryProdutosItensCODIGO_2: TIBStringField
-      FieldName = 'CODIGO_2'
-      Origin = '"EST_PRODUTOS"."CODIGO_2"'
-      Size = 15
-    end
-    object QryProdutosItensCNPJ_AGRUP: TIBStringField
-      FieldName = 'CNPJ_AGRUP'
-      Origin = '"EST_PRODUTOS"."CNPJ_AGRUP"'
-      FixedChar = True
-      Size = 14
-    end
-    object QryProdutosItensCOD_AGRUP: TIBStringField
-      FieldName = 'COD_AGRUP'
-      Origin = '"EST_PRODUTOS"."COD_AGRUP"'
-      Size = 15
-    end
-    object QryProdutosItensNOME: TIBStringField
-      FieldName = 'NOME'
-      Origin = '"EST_PRODUTOS"."NOME"'
-      Size = 50
-    end
-    object QryProdutosItensMARCA: TIntegerField
-      FieldName = 'MARCA'
-      Origin = '"EST_PRODUTOS"."MARCA"'
-    end
-    object QryProdutosItensNOME_MARCA: TIBStringField
-      FieldName = 'NOME_MARCA'
-      Origin = '"EST_PRODUTOS"."NOME_MARCA"'
-      Size = 50
-    end
-    object QryProdutosItensGRUPO: TIntegerField
-      FieldName = 'GRUPO'
-      Origin = '"EST_PRODUTOS"."GRUPO"'
-    end
-    object QryProdutosItensSUBGRUPO: TIntegerField
-      FieldName = 'SUBGRUPO'
-      Origin = '"EST_PRODUTOS"."SUBGRUPO"'
-    end
-    object QryProdutosItensREDUCAO: TIntegerField
-      FieldName = 'REDUCAO'
-      Origin = '"EST_PRODUTOS"."REDUCAO"'
-    end
-    object QryProdutosItensUNIDADE: TIBStringField
-      FieldName = 'UNIDADE'
-      Origin = '"EST_PRODUTOS"."UNIDADE"'
-      FixedChar = True
-      Size = 4
-    end
-    object QryProdutosItensUND_PRIMARIA: TIBStringField
-      FieldName = 'UND_PRIMARIA'
-      Origin = '"EST_PRODUTOS"."UND_PRIMARIA"'
-      FixedChar = True
-      Size = 4
-    end
-    object QryProdutosItensCTE: TSmallintField
-      FieldName = 'CTE'
-      Origin = '"EST_PRODUTOS"."CTE"'
-    end
-    object QryProdutosItensCTIE: TSmallintField
-      FieldName = 'CTIE'
-      Origin = '"EST_PRODUTOS"."CTIE"'
-    end
-    object QryProdutosItensQTDADE_1: TFloatField
-      FieldName = 'QTDADE_1'
-      Origin = '"EST_PRODUTOS"."QTDADE_1"'
-    end
-    object QryProdutosItensQTDADE_2: TFloatField
-      FieldName = 'QTDADE_2'
-      Origin = '"EST_PRODUTOS"."QTDADE_2"'
-    end
-    object QryProdutosItensLOCALIZACAO_1: TIBStringField
-      FieldName = 'LOCALIZACAO_1'
-      Origin = '"EST_PRODUTOS"."LOCALIZACAO_1"'
-      Size = 30
-    end
-    object QryProdutosItensLOCALIZACAO_2: TIBStringField
-      FieldName = 'LOCALIZACAO_2'
-      Origin = '"EST_PRODUTOS"."LOCALIZACAO_2"'
-      Size = 30
-    end
-    object QryProdutosItensLOCALIZACAO_3: TIBStringField
-      FieldName = 'LOCALIZACAO_3'
-      Origin = '"EST_PRODUTOS"."LOCALIZACAO_3"'
-      Size = 30
-    end
-    object QryProdutosItensNEG_QTDADE_2: TIBStringField
-      FieldName = 'NEG_QTDADE_2'
-      Origin = '"EST_PRODUTOS"."NEG_QTDADE_2"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensQTDADE_MIN: TIntegerField
-      FieldName = 'QTDADE_MIN'
-      Origin = '"EST_PRODUTOS"."QTDADE_MIN"'
-    end
-    object QryProdutosItensQTDADE_MAX: TIntegerField
-      FieldName = 'QTDADE_MAX'
-      Origin = '"EST_PRODUTOS"."QTDADE_MAX"'
-    end
-    object QryProdutosItensCOMPLEMENTO_NF: TIBStringField
-      FieldName = 'COMPLEMENTO_NF'
-      Origin = '"EST_PRODUTOS"."COMPLEMENTO_NF"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensDT_ULT_COMPRA: TDateTimeField
-      FieldName = 'DT_ULT_COMPRA'
-      Origin = '"EST_PRODUTOS"."DT_ULT_COMPRA"'
-    end
-    object QryProdutosItensQT_ULT_COMPRA: TIntegerField
-      FieldName = 'QT_ULT_COMPRA'
-      Origin = '"EST_PRODUTOS"."QT_ULT_COMPRA"'
-    end
-    object QryProdutosItensDT_ULT_VENDA: TDateTimeField
-      FieldName = 'DT_ULT_VENDA'
-      Origin = '"EST_PRODUTOS"."DT_ULT_VENDA"'
-    end
-    object QryProdutosItensMARGEM_BRUTA: TFloatField
-      FieldName = 'MARGEM_BRUTA'
-      Origin = '"EST_PRODUTOS"."MARGEM_BRUTA"'
-    end
-    object QryProdutosItensPRC_REPOS: TFloatField
-      FieldName = 'PRC_REPOS'
-      Origin = '"EST_PRODUTOS"."PRC_REPOS"'
-    end
-    object QryProdutosItensPRC_CUSTO_ANT: TFloatField
-      FieldName = 'PRC_CUSTO_ANT'
-      Origin = '"EST_PRODUTOS"."PRC_CUSTO_ANT"'
-    end
-    object QryProdutosItensPRC_CUSTO_MED: TFloatField
-      FieldName = 'PRC_CUSTO_MED'
-      Origin = '"EST_PRODUTOS"."PRC_CUSTO_MED"'
-    end
-    object QryProdutosItensPRC_VENDA: TFloatField
-      FieldName = 'PRC_VENDA'
-      Origin = '"EST_PRODUTOS"."PRC_VENDA"'
-    end
-    object QryProdutosItensPRC_VENDA_ANT: TFloatField
-      FieldName = 'PRC_VENDA_ANT'
-      Origin = '"EST_PRODUTOS"."PRC_VENDA_ANT"'
-    end
-    object QryProdutosItensPRC_VENDA_MED: TFloatField
-      FieldName = 'PRC_VENDA_MED'
-      Origin = '"EST_PRODUTOS"."PRC_VENDA_MED"'
-    end
-    object QryProdutosItensALIQUOTA_ECF: TIBStringField
-      FieldName = 'ALIQUOTA_ECF'
-      Origin = '"EST_PRODUTOS"."ALIQUOTA_ECF"'
-      FixedChar = True
-      Size = 5
-    end
-    object QryProdutosItensORIGEM: TSmallintField
-      FieldName = 'ORIGEM'
-      Origin = '"EST_PRODUTOS"."ORIGEM"'
-    end
-    object QryProdutosItensPESO_LIQ: TFloatField
-      FieldName = 'PESO_LIQ'
-      Origin = '"EST_PRODUTOS"."PESO_LIQ"'
-    end
-    object QryProdutosItensPERC_FRETE: TFloatField
-      FieldName = 'PERC_FRETE'
-      Origin = '"EST_PRODUTOS"."PERC_FRETE"'
-    end
-    object QryProdutosItensIPI: TFloatField
-      FieldName = 'IPI'
-      Origin = '"EST_PRODUTOS"."IPI"'
-    end
-    object QryProdutosItensVOLUME: TFloatField
-      FieldName = 'VOLUME'
-      Origin = '"EST_PRODUTOS"."VOLUME"'
-    end
-    object QryProdutosItensPROD_PESAVEL: TIBStringField
-      FieldName = 'PROD_PESAVEL'
-      Origin = '"EST_PRODUTOS"."PROD_PESAVEL"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensETIQUETA_ENT: TIBStringField
-      FieldName = 'ETIQUETA_ENT'
-      Origin = '"EST_PRODUTOS"."ETIQUETA_ENT"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensATIVO: TIBStringField
-      FieldName = 'ATIVO'
-      Origin = '"EST_PRODUTOS"."ATIVO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensULTIMO_FORNECEDOR: TIntegerField
-      FieldName = 'ULTIMO_FORNECEDOR'
-      Origin = '"EST_PRODUTOS"."ULTIMO_FORNECEDOR"'
-    end
-    object QryProdutosItensFORNECEDOR: TIntegerField
-      FieldName = 'FORNECEDOR'
-      Origin = '"EST_PRODUTOS"."FORNECEDOR"'
-    end
-    object QryProdutosItensSUBUNIDADE: TIntegerField
-      FieldName = 'SUBUNIDADE'
-      Origin = '"EST_PRODUTOS"."SUBUNIDADE"'
-    end
-    object QryProdutosItensPRC_CUSTO_CODIF: TIBStringField
-      FieldName = 'PRC_CUSTO_CODIF'
-      Origin = '"EST_PRODUTOS"."PRC_CUSTO_CODIF"'
-      Size = 15
-    end
-    object QryProdutosItensCODIGO_INTERNO: TIntegerField
-      FieldName = 'CODIGO_INTERNO'
-      Origin = '"EST_PRODUTOS"."CODIGO_INTERNO"'
-    end
-    object QryProdutosItensDT_ULT_ATU_PRECO: TDateTimeField
-      FieldName = 'DT_ULT_ATU_PRECO'
-      Origin = '"EST_PRODUTOS"."DT_ULT_ATU_PRECO"'
-    end
-    object QryProdutosItensCUSTO_AQUISICAO: TFloatField
-      FieldName = 'CUSTO_AQUISICAO'
-      Origin = '"EST_PRODUTOS"."CUSTO_AQUISICAO"'
-    end
-    object QryProdutosItensVENDE_FRACIONADO: TIBStringField
-      FieldName = 'VENDE_FRACIONADO'
-      Origin = '"EST_PRODUTOS"."VENDE_FRACIONADO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensQNTDE_EXPOSTA: TFloatField
-      FieldName = 'QNTDE_EXPOSTA'
-      Origin = '"EST_PRODUTOS"."QNTDE_EXPOSTA"'
-    end
-    object QryProdutosItensPOSSUI_LOTE: TIBStringField
-      FieldName = 'POSSUI_LOTE'
-      Origin = '"EST_PRODUTOS"."POSSUI_LOTE"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensQNTDE_MAXIMA_VENDA: TFloatField
-      FieldName = 'QNTDE_MAXIMA_VENDA'
-      Origin = '"EST_PRODUTOS"."QNTDE_MAXIMA_VENDA"'
-    end
-    object QryProdutosItensPIS: TIBStringField
-      FieldName = 'PIS'
-      Origin = '"EST_PRODUTOS"."PIS"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensCOFINS: TIBStringField
-      FieldName = 'COFINS'
-      Origin = '"EST_PRODUTOS"."COFINS"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensCOM_VENDA_VLR: TFloatField
-      FieldName = 'COM_VENDA_VLR'
-      Origin = '"EST_PRODUTOS"."COM_VENDA_VLR"'
-    end
-    object QryProdutosItensCOM_VENDA_PCT: TFloatField
-      FieldName = 'COM_VENDA_PCT'
-      Origin = '"EST_PRODUTOS"."COM_VENDA_PCT"'
-    end
-    object QryProdutosItensPARTICIP_LUCRO: TFloatField
-      FieldName = 'PARTICIP_LUCRO'
-      Origin = '"EST_PRODUTOS"."PARTICIP_LUCRO"'
-    end
-    object QryProdutosItensNAO_COBR_JUR_ATE: TIntegerField
-      FieldName = 'NAO_COBR_JUR_ATE'
-      Origin = '"EST_PRODUTOS"."NAO_COBR_JUR_ATE"'
-    end
-    object QryProdutosItensPREVISAO_ENTREGA: TDateTimeField
-      FieldName = 'PREVISAO_ENTREGA'
-      Origin = '"EST_PRODUTOS"."PREVISAO_ENTREGA"'
-    end
-    object QryProdutosItensQNTDE_PEDIDA: TFloatField
-      FieldName = 'QNTDE_PEDIDA'
-      Origin = '"EST_PRODUTOS"."QNTDE_PEDIDA"'
-    end
-    object QryProdutosItensATUALIZA_ARQ_EXTERNO: TIBStringField
-      FieldName = 'ATUALIZA_ARQ_EXTERNO'
-      Origin = '"EST_PRODUTOS"."ATUALIZA_ARQ_EXTERNO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensSERVICO: TIBStringField
-      FieldName = 'SERVICO'
-      Origin = '"EST_PRODUTOS"."SERVICO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensVALIDADE: TIntegerField
-      FieldName = 'VALIDADE'
-      Origin = '"EST_PRODUTOS"."VALIDADE"'
-    end
-    object QryProdutosItensCUSTO_INDEXADO: TFloatField
-      FieldName = 'CUSTO_INDEXADO'
-      Origin = '"EST_PRODUTOS"."CUSTO_INDEXADO"'
-    end
-    object QryProdutosItensCOMPLEMENTO: TIBStringField
-      FieldName = 'COMPLEMENTO'
-      Origin = '"EST_PRODUTOS"."COMPLEMENTO"'
-      Size = 100
-    end
-    object QryProdutosItensATUALIZAR: TIBStringField
-      FieldName = 'ATUALIZAR'
-      Origin = '"EST_PRODUTOS"."ATUALIZAR"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensEST_MIN: TFloatField
-      FieldName = 'EST_MIN'
-      Origin = '"EST_PRODUTOS"."EST_MIN"'
-    end
-    object QryProdutosItensEST_MAX: TFloatField
-      FieldName = 'EST_MAX'
-      Origin = '"EST_PRODUTOS"."EST_MAX"'
-    end
-    object QryProdutosItensMODELO: TIntegerField
-      FieldName = 'MODELO'
-      Origin = '"EST_PRODUTOS"."MODELO"'
-    end
-    object QryProdutosItensNOME_MODELO: TIBStringField
-      FieldName = 'NOME_MODELO'
-      Origin = '"EST_PRODUTOS"."NOME_MODELO"'
-      Size = 80
-    end
-    object QryProdutosItensSERIE: TIBStringField
-      FieldName = 'SERIE'
-      Origin = '"EST_PRODUTOS"."SERIE"'
-      Size = 30
-    end
-    object QryProdutosItensDEBITA_ICMS: TIBStringField
-      FieldName = 'DEBITA_ICMS'
-      Origin = '"EST_PRODUTOS"."DEBITA_ICMS"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensSECAO: TIntegerField
-      FieldName = 'SECAO'
-      Origin = '"EST_PRODUTOS"."SECAO"'
-    end
-    object QryProdutosItensNFE_EXP: TIBStringField
-      FieldName = 'NFE_EXP'
-      Origin = '"EST_PRODUTOS"."NFE_EXP"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensSELECIONADO: TIBStringField
-      FieldName = 'SELECIONADO'
-      Origin = '"EST_PRODUTOS"."SELECIONADO"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensQNTDE_MINIMA_VENDA: TFloatField
-      FieldName = 'QNTDE_MINIMA_VENDA'
-      Origin = '"EST_PRODUTOS"."QNTDE_MINIMA_VENDA"'
-    end
-    object QryProdutosItensVALIDA_MULT_QTDE_MIN: TIBStringField
-      FieldName = 'VALIDA_MULT_QTDE_MIN'
-      Origin = '"EST_PRODUTOS"."VALIDA_MULT_QTDE_MIN"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensFATOR_CONVERSAO: TFloatField
-      FieldName = 'FATOR_CONVERSAO'
-      Origin = '"EST_PRODUTOS"."FATOR_CONVERSAO"'
-    end
-    object QryProdutosItensSINCRONIZA_FILIAIS: TIBStringField
-      FieldName = 'SINCRONIZA_FILIAIS'
-      Origin = '"EST_PRODUTOS"."SINCRONIZA_FILIAIS"'
-      FixedChar = True
-      Size = 1
-    end
-    object QryProdutosItensQNTDE_PDR_CARGA: TFloatField
-      FieldName = 'QNTDE_PDR_CARGA'
-      Origin = '"EST_PRODUTOS"."QNTDE_PDR_CARGA"'
-    end
-    object QryProdutosItensUND_CARREGAMENTO: TIBStringField
-      FieldName = 'UND_CARREGAMENTO'
-      Origin = '"EST_PRODUTOS"."UND_CARREGAMENTO"'
-      FixedChar = True
-      Size = 4
-    end
-    object QryProdutosItensTRIB_ALIQ_EST: TFloatField
-      FieldName = 'TRIB_ALIQ_EST'
-      Origin = '"EST_PRODUTOS"."TRIB_ALIQ_EST"'
-    end
-    object QryProdutosItensTRIB_ALIQ_INT: TFloatField
-      FieldName = 'TRIB_ALIQ_INT'
-      Origin = '"EST_PRODUTOS"."TRIB_ALIQ_INT"'
-    end
-    object QryProdutosItensTRIB_MODALIDADE: TIBStringField
-      FieldName = 'TRIB_MODALIDADE'
-      Origin = '"EST_PRODUTOS"."TRIB_MODALIDADE"'
-      Size = 50
-    end
-    object QryProdutosItensBCH_CODIGO: TIntegerField
-      FieldName = 'BCH_CODIGO'
-      Origin = '"EST_PRODUTOS"."BCH_CODIGO"'
-    end
-    object QryProdutosItensCODIGO_NCM: TIBStringField
-      FieldName = 'CODIGO_NCM'
-      Origin = '"EST_PRODUTOS"."CODIGO_NCM"'
-      Size = 50
-    end
-    object QryProdutosItensAPLICACAO: TMemoField
-      FieldName = 'APLICACAO'
-      Origin = '"EST_PRODUTOS"."APLICACAO"'
-      ProviderFlags = [pfInUpdate]
-      BlobType = ftMemo
-      Size = 8
-    end
-    object QryProdutosItensIMG_2: TBlobField
-      FieldName = 'IMG_2'
-      Origin = '"EST_PRODUTOS"."IMG_2"'
-      ProviderFlags = [pfInUpdate]
-      Size = 8
-    end
-    object QryProdutosItensIMG_1: TBlobField
-      FieldName = 'IMG_1'
-      Origin = '"EST_PRODUTOS"."IMG_1"'
-      ProviderFlags = [pfInUpdate]
-      Size = 8
-    end
-    object QryProdutosItensIMG_3: TBlobField
-      FieldName = 'IMG_3'
-      Origin = '"EST_PRODUTOS"."IMG_3"'
-      ProviderFlags = [pfInUpdate]
-      Size = 8
-    end
-    object QryProdutosItensIMG_4: TBlobField
-      FieldName = 'IMG_4'
-      Origin = '"EST_PRODUTOS"."IMG_4"'
-      ProviderFlags = [pfInUpdate]
-      Size = 8
-    end
-    object QryProdutosItensCODIGO_FABRICANTE: TIBStringField
-      FieldName = 'CODIGO_FABRICANTE'
-      Origin = '"EST_PRODUTOS"."CODIGO_FABRICANTE"'
-      Size = 50
-    end
-    object QryProdutosItensCOR: TIntegerField
-      FieldName = 'COR'
-      Origin = '"EST_PRODUTOS"."COR"'
-    end
-    object QryProdutosItensMATERIAL: TIntegerField
-      FieldName = 'MATERIAL'
-      Origin = '"EST_PRODUTOS"."MATERIAL"'
-    end
-    object QryProdutosItensTRIB_PIS: TIBStringField
-      FieldName = 'TRIB_PIS'
-      Origin = '"EST_PRODUTOS"."TRIB_PIS"'
-      FixedChar = True
-      Size = 2
-    end
-    object QryProdutosItensTRIB_COFINS: TIBStringField
-      FieldName = 'TRIB_COFINS'
-      Origin = '"EST_PRODUTOS"."TRIB_COFINS"'
-      FixedChar = True
-      Size = 2
-    end
-    object QryProdutosItensTRIB_IPI: TIBStringField
-      FieldName = 'TRIB_IPI'
-      Origin = '"EST_PRODUTOS"."TRIB_IPI"'
-      FixedChar = True
-      Size = 2
-    end
-    object QryProdutosItensVENCTO_PRC_VENDA: TDateField
-      FieldName = 'VENCTO_PRC_VENDA'
-      Origin = '"EST_PRODUTOS"."VENCTO_PRC_VENDA"'
-    end
-    object QryProdutosItensCSOSN: TIntegerField
-      FieldName = 'CSOSN'
-      Origin = '"EST_PRODUTOS"."CSOSN"'
-    end
-    object QryProdutosItensCOD_GETIN: TIBStringField
-      FieldName = 'COD_GETIN'
-      Origin = '"EST_PRODUTOS"."COD_GETIN"'
-      Size = 15
-    end
-    object QryProdutosItensCOD_LOCALIZACAO_1: TIntegerField
-      FieldName = 'COD_LOCALIZACAO_1'
-      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_1"'
-    end
-    object QryProdutosItensCOD_LOCALIZACAO_2: TIntegerField
-      FieldName = 'COD_LOCALIZACAO_2'
-      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_2"'
-    end
-    object QryProdutosItensCOD_LOCALIZACAO_3: TIntegerField
-      FieldName = 'COD_LOCALIZACAO_3'
-      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_3"'
-    end
-    object QryProdutosItensCOD_TECNICO: TIntegerField
-      FieldName = 'COD_TECNICO'
-      Origin = '"EST_PRODUTOS"."COD_TECNICO"'
-    end
-  end
-  object dsProdutosItens: TDataSource [16]
-    DataSet = QryProdutosItens
-    Left = 816
-    Top = 260
   end
   inherited dtEdit: TIBDataSet
     OnNewRecord = dtEditNewRecord
@@ -4839,6 +3952,7 @@ inherited frmCadOS: TfrmCadOS
     end
   end
   inherited dtList: TIBQuery
+    OnCalcFields = dtListCalcFields
     SQL.Strings = (
       'select distinct'
       'ofc.cnpj,'
@@ -4881,7 +3995,7 @@ inherited frmCadOS: TfrmCadOS
       'mdl.nome mdl_nome,'
       'ct.cod_contrato cp_cod_contrato,'
       'tpc.nome tpc_nome, cdd.nome cidade,'
-      'ofc.tempo_resposta,'
+      ''
       'ofc.id_contrato,'
       'cti.tempo_resposta cp_tempo_resposta,'
       ''
@@ -5159,17 +4273,13 @@ inherited frmCadOS: TfrmCadOS
       Origin = '"GLO_CIDADES"."NOME"'
       Size = 50
     end
-    object dtListTEMPO_RESPOSTA: TFloatField
-      DisplayLabel = 'Tempo Resposta'
-      FieldName = 'TEMPO_RESPOSTA'
-      Origin = '"OFC_ORDEM_SERVICO"."TEMPO_RESPOSTA"'
-    end
     object dtListID_CONTRATO: TIntegerField
       DisplayLabel = 'ID. Contrato'
       FieldName = 'ID_CONTRATO'
       Origin = '"OFC_ORDEM_SERVICO"."ID_CONTRATO"'
     end
     object dtListCP_TEMPO_RESPOSTA: TIntegerField
+      DisplayLabel = 'Tempo Resposta'
       FieldName = 'CP_TEMPO_RESPOSTA'
       Origin = '"OFC_CONTRATOS_ITENS"."TEMPO_RESPOSTA"'
     end
@@ -7056,41 +6166,6 @@ inherited frmCadOS: TfrmCadOS
           'Width')
       end
       item
-        Component = TVRegistroTEMPO_RESPOSTA
-        Properties.Strings = (
-          'AlternateCaption'
-          'BestFitMaxWidth'
-          'Caption'
-          'DataBinding'
-          'DateTimeGrouping'
-          'FakeComponentLink1'
-          'FakeComponentLink2'
-          'FakeComponentLink3'
-          'FooterAlignmentHorz'
-          'GroupIndex'
-          'GroupSummaryAlignment'
-          'HeaderAlignmentHorz'
-          'HeaderAlignmentVert'
-          'HeaderGlyph'
-          'HeaderGlyphAlignmentHorz'
-          'HeaderGlyphAlignmentVert'
-          'MinWidth'
-          'Name'
-          'Options'
-          'Position'
-          'Properties'
-          'PropertiesClassName'
-          'RepositoryItem'
-          'SortIndex'
-          'SortOrder'
-          'Styles'
-          'Summary'
-          'Tag'
-          'Visible'
-          'VisibleForCustomization'
-          'Width')
-      end
-      item
         Component = TVRegistroTPA_CODIGO
         Properties.Strings = (
           'AlternateCaption'
@@ -7630,6 +6705,7 @@ inherited frmCadOS: TfrmCadOS
     Top = 388
   end
   inherited dtEditDet2: TIBDataSet
+    AfterInsert = dtEditDet2AfterInsert
     AfterPost = dtEditDet2AfterPost
     DeleteSQL.Strings = (
       'delete from OFC_ORDEM_SERVICO_INTERVALO'
@@ -7770,6 +6846,7 @@ inherited frmCadOS: TfrmCadOS
     object dtEditDet2HR_INICIO: TTimeField
       FieldName = 'HR_INICIO'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."HR_INICIO"'
+      OnChange = dtEditDet2HR_FIMChange
     end
     object dtEditDet2DT_FIM: TDateField
       FieldName = 'DT_FIM'
@@ -7778,10 +6855,12 @@ inherited frmCadOS: TfrmCadOS
     object dtEditDet2HR_FIM: TTimeField
       FieldName = 'HR_FIM'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."HR_FIM"'
+      OnChange = dtEditDet2HR_FIMChange
     end
     object dtEditDet2QTDE_HORA: TFloatField
       FieldName = 'QTDE_HORA'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."QTDE_HORA"'
+      DisplayFormat = '###,##0.0000'
     end
     object dtEditDet2OBSERVACAO: TIBStringField
       FieldName = 'OBSERVACAO'
@@ -7795,10 +6874,12 @@ inherited frmCadOS: TfrmCadOS
     object dtEditDet2KM_INICIAL: TFloatField
       FieldName = 'KM_INICIAL'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."KM_INICIAL"'
+      OnChange = dtEditDet2KM_FINALChange
     end
     object dtEditDet2KM_FINAL: TFloatField
       FieldName = 'KM_FINAL'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."KM_FINAL"'
+      OnChange = dtEditDet2KM_FINALChange
     end
     object dtEditDet2TEMPO_VIAJEM: TFloatField
       FieldName = 'TEMPO_VIAJEM'
@@ -7835,6 +6916,7 @@ inherited frmCadOS: TfrmCadOS
     object dtEditDet2DT_LANCTO: TDateField
       FieldName = 'DT_LANCTO'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."DT_LANCTO"'
+      OnChange = dtEditDet2DT_LANCTOChange
     end
     object dtEditDet2DT_VENCTO: TDateField
       FieldName = 'DT_VENCTO'
@@ -8221,6 +7303,1024 @@ inherited frmCadOS: TfrmCadOS
     Left = 319
     Top = 60
   end
+  object SelSeries: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      
+        'select o.cod_cliente, psa.nome_razao, p.codigo cod_equipamento f' +
+        'rom ofc_contratos_itens i'
+      
+        'inner join ofc_contratos o on (o.cnpj = i.cnpj and o.codigo = i.' +
+        'contrato)'
+      
+        'inner join glo_pessoas_fj psa on (psa.cnpj =o.cnpj and psa.codig' +
+        'o = o.cod_cliente)'
+      
+        'inner join est_produtos p on (p.cnpj = i.cnpj and p.codigo = i.c' +
+        'od_produto)'
+      
+        'where coalesce(o.ativo,'#39'S'#39') = '#39'S'#39' and coalesce(i.ativo,'#39'S'#39') = '#39'S' +
+        #39
+      'and p.serie = :serie and p.cnpj = :cnpj')
+    Left = 808
+    Top = 218
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'serie'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object SelSeriesCOD_CLIENTE: TIntegerField
+      FieldName = 'COD_CLIENTE'
+      Origin = '"OFC_CONTRATOS"."COD_CLIENTE"'
+    end
+    object SelSeriesNOME_RAZAO: TIBStringField
+      FieldName = 'NOME_RAZAO'
+      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
+      Size = 50
+    end
+    object SelSeriesCOD_EQUIPAMENTO: TIBStringField
+      FieldName = 'COD_EQUIPAMENTO'
+      Origin = '"EST_PRODUTOS"."CODIGO"'
+      Required = True
+      Size = 15
+    end
+  end
+  object SelEndereco: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    SQL.Strings = (
+      
+        'select psa.map_lat, psa.map_long, lgd.nome logradouro , psa.nume' +
+        'ro, cdd.nome cidade, psa.uf from glo_pessoas_fj psa'
+      
+        'left join glo_logradouros lgd on (lgd.cnpj = psa.cnpj and psa.en' +
+        'dereco = lgd.codigo)'
+      
+        'left join glo_cidades cdd on (cdd.cnpj = psa.cnpj and cdd.codigo' +
+        ' = psa.cidade)'
+      'where psa.cnpj = :cnpj and psa.codigo = :codigo')
+    Left = 840
+    Top = 217
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'CNPJ'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftUnknown
+        Name = 'codigo'
+        ParamType = ptUnknown
+      end>
+    object SelEnderecoMAP_LAT: TIBStringField
+      FieldName = 'MAP_LAT'
+      Origin = '"GLO_PESSOAS_FJ"."MAP_LAT"'
+      Size = 200
+    end
+    object SelEnderecoMAP_LONG: TIBStringField
+      FieldName = 'MAP_LONG'
+      Origin = '"GLO_PESSOAS_FJ"."MAP_LONG"'
+      Size = 200
+    end
+    object SelEnderecoLOGRADOURO: TIBStringField
+      FieldName = 'LOGRADOURO'
+      Origin = '"GLO_LOGRADOUROS"."NOME"'
+      Size = 50
+    end
+    object SelEnderecoNUMERO: TIBStringField
+      FieldName = 'NUMERO'
+      Origin = '"GLO_PESSOAS_FJ"."NUMERO"'
+      Size = 15
+    end
+    object SelEnderecoCIDADE: TIBStringField
+      FieldName = 'CIDADE'
+      Origin = '"GLO_CIDADES"."NOME"'
+      Size = 50
+    end
+    object SelEnderecoUF: TIBStringField
+      FieldName = 'UF'
+      Origin = '"GLO_PESSOAS_FJ"."UF"'
+      FixedChar = True
+      Size = 2
+    end
+  end
+  object QryProdutosItens: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select * from est_produtos p'
+      'where p.cnpj = :cnpj')
+    Left = 876
+    Top = 218
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryProdutosItensCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_PRODUTOS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryProdutosItensCODIGO: TIBStringField
+      FieldName = 'CODIGO'
+      Origin = '"EST_PRODUTOS"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Size = 15
+    end
+    object QryProdutosItensCODIGO_2: TIBStringField
+      FieldName = 'CODIGO_2'
+      Origin = '"EST_PRODUTOS"."CODIGO_2"'
+      Size = 15
+    end
+    object QryProdutosItensCNPJ_AGRUP: TIBStringField
+      FieldName = 'CNPJ_AGRUP'
+      Origin = '"EST_PRODUTOS"."CNPJ_AGRUP"'
+      FixedChar = True
+      Size = 14
+    end
+    object QryProdutosItensCOD_AGRUP: TIBStringField
+      FieldName = 'COD_AGRUP'
+      Origin = '"EST_PRODUTOS"."COD_AGRUP"'
+      Size = 15
+    end
+    object QryProdutosItensNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_PRODUTOS"."NOME"'
+      Size = 50
+    end
+    object QryProdutosItensMARCA: TIntegerField
+      FieldName = 'MARCA'
+      Origin = '"EST_PRODUTOS"."MARCA"'
+    end
+    object QryProdutosItensNOME_MARCA: TIBStringField
+      FieldName = 'NOME_MARCA'
+      Origin = '"EST_PRODUTOS"."NOME_MARCA"'
+      Size = 50
+    end
+    object QryProdutosItensGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = '"EST_PRODUTOS"."GRUPO"'
+    end
+    object QryProdutosItensSUBGRUPO: TIntegerField
+      FieldName = 'SUBGRUPO'
+      Origin = '"EST_PRODUTOS"."SUBGRUPO"'
+    end
+    object QryProdutosItensREDUCAO: TIntegerField
+      FieldName = 'REDUCAO'
+      Origin = '"EST_PRODUTOS"."REDUCAO"'
+    end
+    object QryProdutosItensUNIDADE: TIBStringField
+      FieldName = 'UNIDADE'
+      Origin = '"EST_PRODUTOS"."UNIDADE"'
+      FixedChar = True
+      Size = 4
+    end
+    object QryProdutosItensUND_PRIMARIA: TIBStringField
+      FieldName = 'UND_PRIMARIA'
+      Origin = '"EST_PRODUTOS"."UND_PRIMARIA"'
+      FixedChar = True
+      Size = 4
+    end
+    object QryProdutosItensCTE: TSmallintField
+      FieldName = 'CTE'
+      Origin = '"EST_PRODUTOS"."CTE"'
+    end
+    object QryProdutosItensCTIE: TSmallintField
+      FieldName = 'CTIE'
+      Origin = '"EST_PRODUTOS"."CTIE"'
+    end
+    object QryProdutosItensQTDADE_1: TFloatField
+      FieldName = 'QTDADE_1'
+      Origin = '"EST_PRODUTOS"."QTDADE_1"'
+    end
+    object QryProdutosItensQTDADE_2: TFloatField
+      FieldName = 'QTDADE_2'
+      Origin = '"EST_PRODUTOS"."QTDADE_2"'
+    end
+    object QryProdutosItensLOCALIZACAO_1: TIBStringField
+      FieldName = 'LOCALIZACAO_1'
+      Origin = '"EST_PRODUTOS"."LOCALIZACAO_1"'
+      Size = 30
+    end
+    object QryProdutosItensLOCALIZACAO_2: TIBStringField
+      FieldName = 'LOCALIZACAO_2'
+      Origin = '"EST_PRODUTOS"."LOCALIZACAO_2"'
+      Size = 30
+    end
+    object QryProdutosItensLOCALIZACAO_3: TIBStringField
+      FieldName = 'LOCALIZACAO_3'
+      Origin = '"EST_PRODUTOS"."LOCALIZACAO_3"'
+      Size = 30
+    end
+    object QryProdutosItensNEG_QTDADE_2: TIBStringField
+      FieldName = 'NEG_QTDADE_2'
+      Origin = '"EST_PRODUTOS"."NEG_QTDADE_2"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensQTDADE_MIN: TIntegerField
+      FieldName = 'QTDADE_MIN'
+      Origin = '"EST_PRODUTOS"."QTDADE_MIN"'
+    end
+    object QryProdutosItensQTDADE_MAX: TIntegerField
+      FieldName = 'QTDADE_MAX'
+      Origin = '"EST_PRODUTOS"."QTDADE_MAX"'
+    end
+    object QryProdutosItensCOMPLEMENTO_NF: TIBStringField
+      FieldName = 'COMPLEMENTO_NF'
+      Origin = '"EST_PRODUTOS"."COMPLEMENTO_NF"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensDT_ULT_COMPRA: TDateTimeField
+      FieldName = 'DT_ULT_COMPRA'
+      Origin = '"EST_PRODUTOS"."DT_ULT_COMPRA"'
+    end
+    object QryProdutosItensQT_ULT_COMPRA: TIntegerField
+      FieldName = 'QT_ULT_COMPRA'
+      Origin = '"EST_PRODUTOS"."QT_ULT_COMPRA"'
+    end
+    object QryProdutosItensDT_ULT_VENDA: TDateTimeField
+      FieldName = 'DT_ULT_VENDA'
+      Origin = '"EST_PRODUTOS"."DT_ULT_VENDA"'
+    end
+    object QryProdutosItensMARGEM_BRUTA: TFloatField
+      FieldName = 'MARGEM_BRUTA'
+      Origin = '"EST_PRODUTOS"."MARGEM_BRUTA"'
+    end
+    object QryProdutosItensPRC_REPOS: TFloatField
+      FieldName = 'PRC_REPOS'
+      Origin = '"EST_PRODUTOS"."PRC_REPOS"'
+    end
+    object QryProdutosItensPRC_CUSTO_ANT: TFloatField
+      FieldName = 'PRC_CUSTO_ANT'
+      Origin = '"EST_PRODUTOS"."PRC_CUSTO_ANT"'
+    end
+    object QryProdutosItensPRC_CUSTO_MED: TFloatField
+      FieldName = 'PRC_CUSTO_MED'
+      Origin = '"EST_PRODUTOS"."PRC_CUSTO_MED"'
+    end
+    object QryProdutosItensPRC_VENDA: TFloatField
+      FieldName = 'PRC_VENDA'
+      Origin = '"EST_PRODUTOS"."PRC_VENDA"'
+    end
+    object QryProdutosItensPRC_VENDA_ANT: TFloatField
+      FieldName = 'PRC_VENDA_ANT'
+      Origin = '"EST_PRODUTOS"."PRC_VENDA_ANT"'
+    end
+    object QryProdutosItensPRC_VENDA_MED: TFloatField
+      FieldName = 'PRC_VENDA_MED'
+      Origin = '"EST_PRODUTOS"."PRC_VENDA_MED"'
+    end
+    object QryProdutosItensALIQUOTA_ECF: TIBStringField
+      FieldName = 'ALIQUOTA_ECF'
+      Origin = '"EST_PRODUTOS"."ALIQUOTA_ECF"'
+      FixedChar = True
+      Size = 5
+    end
+    object QryProdutosItensORIGEM: TSmallintField
+      FieldName = 'ORIGEM'
+      Origin = '"EST_PRODUTOS"."ORIGEM"'
+    end
+    object QryProdutosItensPESO_LIQ: TFloatField
+      FieldName = 'PESO_LIQ'
+      Origin = '"EST_PRODUTOS"."PESO_LIQ"'
+    end
+    object QryProdutosItensPERC_FRETE: TFloatField
+      FieldName = 'PERC_FRETE'
+      Origin = '"EST_PRODUTOS"."PERC_FRETE"'
+    end
+    object QryProdutosItensIPI: TFloatField
+      FieldName = 'IPI'
+      Origin = '"EST_PRODUTOS"."IPI"'
+    end
+    object QryProdutosItensVOLUME: TFloatField
+      FieldName = 'VOLUME'
+      Origin = '"EST_PRODUTOS"."VOLUME"'
+    end
+    object QryProdutosItensPROD_PESAVEL: TIBStringField
+      FieldName = 'PROD_PESAVEL'
+      Origin = '"EST_PRODUTOS"."PROD_PESAVEL"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensETIQUETA_ENT: TIBStringField
+      FieldName = 'ETIQUETA_ENT'
+      Origin = '"EST_PRODUTOS"."ETIQUETA_ENT"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"EST_PRODUTOS"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensULTIMO_FORNECEDOR: TIntegerField
+      FieldName = 'ULTIMO_FORNECEDOR'
+      Origin = '"EST_PRODUTOS"."ULTIMO_FORNECEDOR"'
+    end
+    object QryProdutosItensFORNECEDOR: TIntegerField
+      FieldName = 'FORNECEDOR'
+      Origin = '"EST_PRODUTOS"."FORNECEDOR"'
+    end
+    object QryProdutosItensSUBUNIDADE: TIntegerField
+      FieldName = 'SUBUNIDADE'
+      Origin = '"EST_PRODUTOS"."SUBUNIDADE"'
+    end
+    object QryProdutosItensPRC_CUSTO_CODIF: TIBStringField
+      FieldName = 'PRC_CUSTO_CODIF'
+      Origin = '"EST_PRODUTOS"."PRC_CUSTO_CODIF"'
+      Size = 15
+    end
+    object QryProdutosItensCODIGO_INTERNO: TIntegerField
+      FieldName = 'CODIGO_INTERNO'
+      Origin = '"EST_PRODUTOS"."CODIGO_INTERNO"'
+    end
+    object QryProdutosItensDT_ULT_ATU_PRECO: TDateTimeField
+      FieldName = 'DT_ULT_ATU_PRECO'
+      Origin = '"EST_PRODUTOS"."DT_ULT_ATU_PRECO"'
+    end
+    object QryProdutosItensCUSTO_AQUISICAO: TFloatField
+      FieldName = 'CUSTO_AQUISICAO'
+      Origin = '"EST_PRODUTOS"."CUSTO_AQUISICAO"'
+    end
+    object QryProdutosItensVENDE_FRACIONADO: TIBStringField
+      FieldName = 'VENDE_FRACIONADO'
+      Origin = '"EST_PRODUTOS"."VENDE_FRACIONADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensQNTDE_EXPOSTA: TFloatField
+      FieldName = 'QNTDE_EXPOSTA'
+      Origin = '"EST_PRODUTOS"."QNTDE_EXPOSTA"'
+    end
+    object QryProdutosItensPOSSUI_LOTE: TIBStringField
+      FieldName = 'POSSUI_LOTE'
+      Origin = '"EST_PRODUTOS"."POSSUI_LOTE"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensQNTDE_MAXIMA_VENDA: TFloatField
+      FieldName = 'QNTDE_MAXIMA_VENDA'
+      Origin = '"EST_PRODUTOS"."QNTDE_MAXIMA_VENDA"'
+    end
+    object QryProdutosItensPIS: TIBStringField
+      FieldName = 'PIS'
+      Origin = '"EST_PRODUTOS"."PIS"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensCOFINS: TIBStringField
+      FieldName = 'COFINS'
+      Origin = '"EST_PRODUTOS"."COFINS"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensCOM_VENDA_VLR: TFloatField
+      FieldName = 'COM_VENDA_VLR'
+      Origin = '"EST_PRODUTOS"."COM_VENDA_VLR"'
+    end
+    object QryProdutosItensCOM_VENDA_PCT: TFloatField
+      FieldName = 'COM_VENDA_PCT'
+      Origin = '"EST_PRODUTOS"."COM_VENDA_PCT"'
+    end
+    object QryProdutosItensPARTICIP_LUCRO: TFloatField
+      FieldName = 'PARTICIP_LUCRO'
+      Origin = '"EST_PRODUTOS"."PARTICIP_LUCRO"'
+    end
+    object QryProdutosItensNAO_COBR_JUR_ATE: TIntegerField
+      FieldName = 'NAO_COBR_JUR_ATE'
+      Origin = '"EST_PRODUTOS"."NAO_COBR_JUR_ATE"'
+    end
+    object QryProdutosItensPREVISAO_ENTREGA: TDateTimeField
+      FieldName = 'PREVISAO_ENTREGA'
+      Origin = '"EST_PRODUTOS"."PREVISAO_ENTREGA"'
+    end
+    object QryProdutosItensQNTDE_PEDIDA: TFloatField
+      FieldName = 'QNTDE_PEDIDA'
+      Origin = '"EST_PRODUTOS"."QNTDE_PEDIDA"'
+    end
+    object QryProdutosItensATUALIZA_ARQ_EXTERNO: TIBStringField
+      FieldName = 'ATUALIZA_ARQ_EXTERNO'
+      Origin = '"EST_PRODUTOS"."ATUALIZA_ARQ_EXTERNO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensSERVICO: TIBStringField
+      FieldName = 'SERVICO'
+      Origin = '"EST_PRODUTOS"."SERVICO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensVALIDADE: TIntegerField
+      FieldName = 'VALIDADE'
+      Origin = '"EST_PRODUTOS"."VALIDADE"'
+    end
+    object QryProdutosItensCUSTO_INDEXADO: TFloatField
+      FieldName = 'CUSTO_INDEXADO'
+      Origin = '"EST_PRODUTOS"."CUSTO_INDEXADO"'
+    end
+    object QryProdutosItensCOMPLEMENTO: TIBStringField
+      FieldName = 'COMPLEMENTO'
+      Origin = '"EST_PRODUTOS"."COMPLEMENTO"'
+      Size = 100
+    end
+    object QryProdutosItensATUALIZAR: TIBStringField
+      FieldName = 'ATUALIZAR'
+      Origin = '"EST_PRODUTOS"."ATUALIZAR"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensEST_MIN: TFloatField
+      FieldName = 'EST_MIN'
+      Origin = '"EST_PRODUTOS"."EST_MIN"'
+    end
+    object QryProdutosItensEST_MAX: TFloatField
+      FieldName = 'EST_MAX'
+      Origin = '"EST_PRODUTOS"."EST_MAX"'
+    end
+    object QryProdutosItensMODELO: TIntegerField
+      FieldName = 'MODELO'
+      Origin = '"EST_PRODUTOS"."MODELO"'
+    end
+    object QryProdutosItensNOME_MODELO: TIBStringField
+      FieldName = 'NOME_MODELO'
+      Origin = '"EST_PRODUTOS"."NOME_MODELO"'
+      Size = 80
+    end
+    object QryProdutosItensSERIE: TIBStringField
+      FieldName = 'SERIE'
+      Origin = '"EST_PRODUTOS"."SERIE"'
+      Size = 30
+    end
+    object QryProdutosItensDEBITA_ICMS: TIBStringField
+      FieldName = 'DEBITA_ICMS'
+      Origin = '"EST_PRODUTOS"."DEBITA_ICMS"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensSECAO: TIntegerField
+      FieldName = 'SECAO'
+      Origin = '"EST_PRODUTOS"."SECAO"'
+    end
+    object QryProdutosItensNFE_EXP: TIBStringField
+      FieldName = 'NFE_EXP'
+      Origin = '"EST_PRODUTOS"."NFE_EXP"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensSELECIONADO: TIBStringField
+      FieldName = 'SELECIONADO'
+      Origin = '"EST_PRODUTOS"."SELECIONADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensQNTDE_MINIMA_VENDA: TFloatField
+      FieldName = 'QNTDE_MINIMA_VENDA'
+      Origin = '"EST_PRODUTOS"."QNTDE_MINIMA_VENDA"'
+    end
+    object QryProdutosItensVALIDA_MULT_QTDE_MIN: TIBStringField
+      FieldName = 'VALIDA_MULT_QTDE_MIN'
+      Origin = '"EST_PRODUTOS"."VALIDA_MULT_QTDE_MIN"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensFATOR_CONVERSAO: TFloatField
+      FieldName = 'FATOR_CONVERSAO'
+      Origin = '"EST_PRODUTOS"."FATOR_CONVERSAO"'
+    end
+    object QryProdutosItensSINCRONIZA_FILIAIS: TIBStringField
+      FieldName = 'SINCRONIZA_FILIAIS'
+      Origin = '"EST_PRODUTOS"."SINCRONIZA_FILIAIS"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryProdutosItensQNTDE_PDR_CARGA: TFloatField
+      FieldName = 'QNTDE_PDR_CARGA'
+      Origin = '"EST_PRODUTOS"."QNTDE_PDR_CARGA"'
+    end
+    object QryProdutosItensUND_CARREGAMENTO: TIBStringField
+      FieldName = 'UND_CARREGAMENTO'
+      Origin = '"EST_PRODUTOS"."UND_CARREGAMENTO"'
+      FixedChar = True
+      Size = 4
+    end
+    object QryProdutosItensTRIB_ALIQ_EST: TFloatField
+      FieldName = 'TRIB_ALIQ_EST'
+      Origin = '"EST_PRODUTOS"."TRIB_ALIQ_EST"'
+    end
+    object QryProdutosItensTRIB_ALIQ_INT: TFloatField
+      FieldName = 'TRIB_ALIQ_INT'
+      Origin = '"EST_PRODUTOS"."TRIB_ALIQ_INT"'
+    end
+    object QryProdutosItensTRIB_MODALIDADE: TIBStringField
+      FieldName = 'TRIB_MODALIDADE'
+      Origin = '"EST_PRODUTOS"."TRIB_MODALIDADE"'
+      Size = 50
+    end
+    object QryProdutosItensBCH_CODIGO: TIntegerField
+      FieldName = 'BCH_CODIGO'
+      Origin = '"EST_PRODUTOS"."BCH_CODIGO"'
+    end
+    object QryProdutosItensCODIGO_NCM: TIBStringField
+      FieldName = 'CODIGO_NCM'
+      Origin = '"EST_PRODUTOS"."CODIGO_NCM"'
+      Size = 50
+    end
+    object QryProdutosItensAPLICACAO: TMemoField
+      FieldName = 'APLICACAO'
+      Origin = '"EST_PRODUTOS"."APLICACAO"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
+    object QryProdutosItensIMG_2: TBlobField
+      FieldName = 'IMG_2'
+      Origin = '"EST_PRODUTOS"."IMG_2"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object QryProdutosItensIMG_1: TBlobField
+      FieldName = 'IMG_1'
+      Origin = '"EST_PRODUTOS"."IMG_1"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object QryProdutosItensIMG_3: TBlobField
+      FieldName = 'IMG_3'
+      Origin = '"EST_PRODUTOS"."IMG_3"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object QryProdutosItensIMG_4: TBlobField
+      FieldName = 'IMG_4'
+      Origin = '"EST_PRODUTOS"."IMG_4"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object QryProdutosItensCODIGO_FABRICANTE: TIBStringField
+      FieldName = 'CODIGO_FABRICANTE'
+      Origin = '"EST_PRODUTOS"."CODIGO_FABRICANTE"'
+      Size = 50
+    end
+    object QryProdutosItensCOR: TIntegerField
+      FieldName = 'COR'
+      Origin = '"EST_PRODUTOS"."COR"'
+    end
+    object QryProdutosItensMATERIAL: TIntegerField
+      FieldName = 'MATERIAL'
+      Origin = '"EST_PRODUTOS"."MATERIAL"'
+    end
+    object QryProdutosItensTRIB_PIS: TIBStringField
+      FieldName = 'TRIB_PIS'
+      Origin = '"EST_PRODUTOS"."TRIB_PIS"'
+      FixedChar = True
+      Size = 2
+    end
+    object QryProdutosItensTRIB_COFINS: TIBStringField
+      FieldName = 'TRIB_COFINS'
+      Origin = '"EST_PRODUTOS"."TRIB_COFINS"'
+      FixedChar = True
+      Size = 2
+    end
+    object QryProdutosItensTRIB_IPI: TIBStringField
+      FieldName = 'TRIB_IPI'
+      Origin = '"EST_PRODUTOS"."TRIB_IPI"'
+      FixedChar = True
+      Size = 2
+    end
+    object QryProdutosItensVENCTO_PRC_VENDA: TDateField
+      FieldName = 'VENCTO_PRC_VENDA'
+      Origin = '"EST_PRODUTOS"."VENCTO_PRC_VENDA"'
+    end
+    object QryProdutosItensCSOSN: TIntegerField
+      FieldName = 'CSOSN'
+      Origin = '"EST_PRODUTOS"."CSOSN"'
+    end
+    object QryProdutosItensCOD_GETIN: TIBStringField
+      FieldName = 'COD_GETIN'
+      Origin = '"EST_PRODUTOS"."COD_GETIN"'
+      Size = 15
+    end
+    object QryProdutosItensCOD_LOCALIZACAO_1: TIntegerField
+      FieldName = 'COD_LOCALIZACAO_1'
+      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_1"'
+    end
+    object QryProdutosItensCOD_LOCALIZACAO_2: TIntegerField
+      FieldName = 'COD_LOCALIZACAO_2'
+      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_2"'
+    end
+    object QryProdutosItensCOD_LOCALIZACAO_3: TIntegerField
+      FieldName = 'COD_LOCALIZACAO_3'
+      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_3"'
+    end
+    object QryProdutosItensCOD_TECNICO: TIntegerField
+      FieldName = 'COD_TECNICO'
+      Origin = '"EST_PRODUTOS"."COD_TECNICO"'
+    end
+  end
+  object dsProdutosItens: TDataSource
+    DataSet = QryProdutosItens
+    Left = 928
+    Top = 4
+  end
+  object dsTecnico: TDataSource
+    DataSet = QryTecnico
+    Left = 631
+    Top = 2
+  end
+  object dsDefeitoReclamado: TDataSource
+    DataSet = QryDefeito
+    Left = 663
+    Top = 2
+  end
+  object dsServicoExecutado: TDataSource
+    DataSet = QryServicoExecutado
+    Left = 695
+    Top = 2
+  end
+  object dsMotivoChamado: TDataSource
+    DataSet = QryMotivoChamado
+    Left = 727
+    Top = 2
+  end
+  object QryServicoExecutado: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select * from ofc_tipo_atendimento ta'
+      'where ta.cnpj = :cnpj')
+    Left = 936
+    Top = 96
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+  end
+  object QryEquipCliente: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    DataSource = dsRegistro
+    SQL.Strings = (
+      
+        'select distinct cti.codigo cod_item, prd.codigo||'#39'-'#39'||prd.nome c' +
+        'odigo_nome, prd.codigo, substring(prd.nome from 1 for 25) nome, ' +
+        ' prd.serie, DT_FIM,'
+      'ct.codigo codigo_contrato,cti.ativo ativo2,'
+      'case coalesce(cti.ativo,'#39'N'#39')'
+      '     when '#39'S'#39' then '#39'Ativo'#39
+      '     when '#39'N'#39' then '#39'Inativo'#39
+      'end ativo,'
+      'cti.informacoes_itens,'
+      'mdl.nome modelo,'
+      'tp.nome tipo_contrato'
+      ''
+      'from ofc_contratos_itens cti'
+      
+        'inner join ofc_contratos ct on (ct.codigo = cti.contrato and ct.' +
+        'cnpj = cti.cnpj)'
+      
+        'inner join est_produtos prd on (prd.cnpj = cti.cnpj and prd.codi' +
+        'go = cti.cod_produto)'
+      
+        'left join glo_tipo_contrato tp on (tp.cnpj = ct.cnpj and tp.codi' +
+        'go = ct.COD_CONTRATO)'
+      
+        'left join glo_modelo_propriedade mdl on (prd.cnpj = mdl.cnpj and' +
+        ' prd.modelo = mdl.codigo)'
+      
+        'where ct.cnpj = :cnpj and ct.ativo = '#39'S'#39' and ct.cod_cliente = :p' +
+        'essoa_fj'
+      'and ((cti.ativo = :ativo) or (:ativo = '#39'T'#39'))'
+      
+        'order by  coalesce(cti.ativo,'#39'N'#39'), prd.codigo||'#39'-'#39'||prd.nome des' +
+        'c')
+    Left = 809
+    Top = 131
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'pessoa_fj'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ativo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ativo'
+        ParamType = ptUnknown
+      end>
+    object QryEquipClienteCODIGO_NOME: TIBStringField
+      FieldName = 'CODIGO_NOME'
+      Required = True
+      Size = 66
+    end
+    object QryEquipClienteCODIGO: TIBStringField
+      FieldName = 'CODIGO'
+      Origin = '"EST_PRODUTOS"."CODIGO"'
+      Required = True
+      Size = 15
+    end
+    object QryEquipClienteSERIE: TIBStringField
+      FieldName = 'SERIE'
+      Origin = '"EST_PRODUTOS"."SERIE"'
+      Size = 30
+    end
+    object QryEquipClienteDT_FIM: TDateTimeField
+      FieldName = 'DT_FIM'
+      Origin = '"OFC_CONTRATOS"."DT_FIM"'
+    end
+    object QryEquipClienteCODIGO_CONTRATO: TIntegerField
+      FieldName = 'CODIGO_CONTRATO'
+      Origin = '"OFC_CONTRATOS"."CODIGO"'
+      Required = True
+    end
+    object QryEquipClienteATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 7
+    end
+    object QryEquipClienteINFORMACOES_ITENS: TMemoField
+      FieldName = 'INFORMACOES_ITENS'
+      Origin = '"OFC_CONTRATOS_ITENS"."INFORMACOES_ITENS"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
+    object QryEquipClienteMODELO: TIBStringField
+      DisplayWidth = 25
+      FieldName = 'MODELO'
+      Origin = '"GLO_MODELO_PROPRIEDADE"."NOME"'
+      Size = 50
+    end
+    object QryEquipClienteNOME: TIBStringField
+      DisplayWidth = 25
+      FieldName = 'NOME'
+      ProviderFlags = []
+      Size = 50
+    end
+    object QryEquipClienteATIVO2: TIBStringField
+      FieldName = 'ATIVO2'
+      Origin = '"OFC_CONTRATOS_ITENS"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryEquipClienteCOD_ITEM: TIntegerField
+      FieldName = 'COD_ITEM'
+      Origin = '"OFC_CONTRATOS_ITENS"."CODIGO"'
+      Required = True
+    end
+    object QryEquipClienteTIPO_CONTRATO: TIBStringField
+      FieldName = 'TIPO_CONTRATO'
+      Origin = '"GLO_TIPO_CONTRATO"."NOME"'
+      Size = 50
+    end
+  end
+  object dsEquipamento: TDataSource
+    DataSet = QryEquipCliente
+    Left = 567
+    Top = 2
+  end
+  object dsStatus: TDataSource
+    DataSet = QryStatus
+    Left = 599
+    Top = 2
+  end
+  object QryStatus: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    DataSource = dsRegistro
+    SQL.Strings = (
+      'select * from ofc_status s'
+      'where s.cnpj = :cnpj')
+    Left = 808
+    Top = 96
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryStatusCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_STATUS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryStatusCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_STATUS"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryStatusNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"OFC_STATUS"."NOME"'
+      Size = 50
+    end
+    object QryStatusCOR: TIntegerField
+      FieldName = 'COR'
+      Origin = '"OFC_STATUS"."COR"'
+    end
+    object QryStatusFECHADO: TIBStringField
+      FieldName = 'FECHADO'
+      Origin = '"OFC_STATUS"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryStatusOS: TIBStringField
+      FieldName = 'OS'
+      Origin = '"OFC_STATUS"."OS"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryStatusMOVIMENTO: TIBStringField
+      FieldName = 'MOVIMENTO'
+      Origin = '"OFC_STATUS"."MOVIMENTO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryStatusPADRAO_ENVIO: TIBStringField
+      FieldName = 'PADRAO_ENVIO'
+      Origin = '"OFC_STATUS"."PADRAO_ENVIO"'
+      FixedChar = True
+      Size = 1
+    end
+    object QryStatusPADRAO_ABERTURA: TIBStringField
+      FieldName = 'PADRAO_ABERTURA'
+      Origin = '"OFC_STATUS"."PADRAO_ABERTURA"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object QryTecnico: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      
+        'select t.codigo, t.nome, t.email, t.assinatura from ofc_mecanico' +
+        's t'
+      
+        'inner join glo_pessoas_fj psa on (psa.cnpj = t.cnpj and t.pessoa' +
+        '_fj = psa.codigo)'
+      'where t.cnpj = :cnpj')
+    Left = 840
+    Top = 96
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryTecnicoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_MECANICOS"."CODIGO"'
+      Required = True
+    end
+    object QryTecnicoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"OFC_MECANICOS"."NOME"'
+      Size = 50
+    end
+    object QryTecnicoEMAIL: TIBStringField
+      FieldName = 'EMAIL'
+      Origin = '"OFC_MECANICOS"."EMAIL"'
+      Size = 80
+    end
+    object QryTecnicoASSINATURA: TMemoField
+      FieldName = 'ASSINATURA'
+      Origin = '"OFC_MECANICOS"."ASSINATURA"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
+  end
+  object QryMotivoChamado: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select * from ofc_motivo_chamado mc'
+      'where mc.cnpj = :cnpj'
+      'and coalesce(mc.ativo,'#39'N'#39') = '#39'S'#39
+      'order by mc.nome')
+    Left = 904
+    Top = 96
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryMotivoChamadoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_MOTIVO_CHAMADO"."CNPJ"'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryMotivoChamadoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_MOTIVO_CHAMADO"."CODIGO"'
+      Required = True
+    end
+    object QryMotivoChamadoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"OFC_MOTIVO_CHAMADO"."NOME"'
+      Size = 50
+    end
+    object QryMotivoChamadoATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"OFC_MOTIVO_CHAMADO"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object QryDefeito: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select CNPJ, CODIGO, NOME, ATIVO'
+      'from OFC_DEFEITO'
+      'Where CNPJ = :CNPJ '
+      'and coalesce(ATIVO,'#39'N'#39') = '#39'S'#39
+      'Order by NOME')
+    Left = 872
+    Top = 96
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryDefeitoCNPJ: TIBStringField
+      DisplayLabel = 'Cnpj'
+      FieldName = 'CNPJ'
+      Origin = '"OFC_DEFEITO"."CNPJ"'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryDefeitoCODIGO: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      Origin = '"OFC_DEFEITO"."CODIGO"'
+      Required = True
+    end
+    object QryDefeitoNOME: TIBStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = '"OFC_DEFEITO"."NOME"'
+      Required = True
+      Size = 50
+    end
+    object QryDefeitoATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"OFC_DEFEITO"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+  end
   object QryClientes: TIBQuery
     Tag = 4
     Database = DmApp.Database
@@ -8394,6 +8494,278 @@ inherited frmCadOS: TfrmCadOS
       FieldName = 'CIDADE'
       ProviderFlags = []
       Size = 55
+    end
+  end
+  object dsVeiculos: TDataSource
+    DataSet = QryVeiculos
+    Left = 896
+    Top = 4
+  end
+  object QryVeiculos: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT'
+      '               PLACA, '
+      '               DESCRICAO'
+      'FROM CRG_VEICULOS'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER by DESCRICAO, PLACA')
+    Left = 884
+    Top = 170
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryVeiculosPLACA: TIBStringField
+      FieldName = 'PLACA'
+      Origin = '"CRG_VEICULOS"."PLACA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 8
+    end
+    object QryVeiculosDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"CRG_VEICULOS"."DESCRICAO"'
+      Size = 50
+    end
+  end
+  object Timer: TTimer
+    Interval = 120000
+    OnTimer = TimerTimer
+    Left = 977
+    Top = 34
+  end
+  object TimerRetroceder: TTimer
+    Enabled = False
+    OnTimer = TimerRetrocederTimer
+    Left = 980
+    Top = 67
+  end
+  object QryMovimentoStatus: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    DataSource = dsRegistro
+    SQL.Strings = (
+      'select * from ofc_status s'
+      'where s.cnpj = :cnpj and s.MOVIMENTO = '#39'S'#39)
+    Left = 944
+    Top = 128
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object IBStringField4: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_STATUS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_STATUS"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object IBStringField5: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"OFC_STATUS"."NOME"'
+      Size = 50
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'COR'
+      Origin = '"OFC_STATUS"."COR"'
+    end
+    object IBStringField6: TIBStringField
+      FieldName = 'FECHADO'
+      Origin = '"OFC_STATUS"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object IBStringField7: TIBStringField
+      FieldName = 'OS'
+      Origin = '"OFC_STATUS"."OS"'
+      FixedChar = True
+      Size = 1
+    end
+    object IBStringField8: TIBStringField
+      FieldName = 'MOVIMENTO'
+      Origin = '"OFC_STATUS"."MOVIMENTO"'
+      FixedChar = True
+      Size = 1
+    end
+    object IBStringField9: TIBStringField
+      FieldName = 'PADRAO_ENVIO'
+      Origin = '"OFC_STATUS"."PADRAO_ENVIO"'
+      FixedChar = True
+      Size = 1
+    end
+    object IBStringField10: TIBStringField
+      FieldName = 'PADRAO_ABERTURA'
+      Origin = '"OFC_STATUS"."PADRAO_ABERTURA"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object DsMovimentoStatus: TDataSource
+    DataSet = QryMovimentoStatus
+    Left = 791
+    Top = 2
+  end
+  object DsTipoMovimento: TDataSource
+    DataSet = QryTipoMovimento
+    Left = 823
+    Top = 4
+  end
+  object QryTipoMovimento: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select * from ofc_tipo_movto'
+      'where cnpj = :cnpj')
+    Left = 809
+    Top = 164
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object IBStringField11: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_TIPO_MOVTO"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object dtListCODIGO: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'CODIGO'
+      Origin = '"OFC_TIPO_MOVTO"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object dtListNOME: TIBStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NOME'
+      Origin = '"OFC_TIPO_MOVTO"."NOME"'
+      Size = 50
+    end
+  end
+  object DsContato: TDataSource
+    DataSet = QryContato
+    Left = 863
+    Top = 4
+  end
+  object QryContato: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select  glo_pessoas_fj.nome_razao as contato_nome,'
+      '        glo_contatos.observacao,'
+      '        glo_contatos.idcliente_relacionado,'
+      '        glo_tipo_contato.nome as tipocontato,'
+      '        glo_contatos.CNPJ,'
+      '        glo_contatos.IDCLIENTE as ID_Cliente,'
+      '        glo_contatos.IDCLIENTE,'
+      '        glo_contatos.tipo_contato,'
+      '        glo_contatos.celular,'
+      '        glo_contatos.residencial,'
+      '        glo_contatos.Codigo'
+      'from    glo_contatos'
+      
+        'left join glo_pessoas_fj on (glo_contatos.idcliente_relacionado ' +
+        '= GLO_PESSOAS_FJ.codigo'
+      'AND glo_pessoas_fj.cnpj = glo_contatos.cnpj)'
+      
+        'left join glo_TIPO_contato on (glo_contatos.tipo_contato = glo_t' +
+        'ipo_contato.CODIGO'
+      'and glo_tipo_contato.cnpj = glo_contatos.cnpj)'
+      
+        'where(glo_contatos.idcliente = :ID_CLIENTE and glo_contatos.CNPJ' +
+        ' = :CNPJ)'
+      'order by contato_nome')
+    Left = 849
+    Top = 164
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID_CLIENTE'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object QryContatoCONTATO_NOME: TIBStringField
+      FieldName = 'CONTATO_NOME'
+      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
+      Size = 50
+    end
+    object QryContatoOBSERVACAO: TIBStringField
+      FieldName = 'OBSERVACAO'
+      Origin = '"GLO_CONTATOS"."OBSERVACAO"'
+      Size = 80
+    end
+    object QryContatoIDCLIENTE_RELACIONADO: TIntegerField
+      FieldName = 'IDCLIENTE_RELACIONADO'
+      Origin = '"GLO_CONTATOS"."IDCLIENTE_RELACIONADO"'
+    end
+    object QryContatoTIPOCONTATO: TIBStringField
+      FieldName = 'TIPOCONTATO'
+      Origin = '"GLO_TIPO_CONTATO"."NOME"'
+      Size = 50
+    end
+    object QryContatoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"GLO_CONTATOS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryContatoID_CLIENTE: TIntegerField
+      FieldName = 'ID_CLIENTE'
+      Origin = '"GLO_CONTATOS"."IDCLIENTE"'
+    end
+    object QryContatoIDCLIENTE: TIntegerField
+      FieldName = 'IDCLIENTE'
+      Origin = '"GLO_CONTATOS"."IDCLIENTE"'
+    end
+    object QryContatoTIPO_CONTATO: TIntegerField
+      FieldName = 'TIPO_CONTATO'
+      Origin = '"GLO_CONTATOS"."TIPO_CONTATO"'
+    end
+    object QryContatoCELULAR: TIBStringField
+      FieldName = 'CELULAR'
+      Origin = '"GLO_CONTATOS"."CELULAR"'
+    end
+    object QryContatoRESIDENCIAL: TIBStringField
+      FieldName = 'RESIDENCIAL'
+      Origin = '"GLO_CONTATOS"."RESIDENCIAL"'
+    end
+    object QryContatoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_CONTATOS"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
   end
 end
