@@ -702,6 +702,17 @@ type
     QryContatoCELULAR: TIBStringField;
     QryContatoRESIDENCIAL: TIBStringField;
     QryContatoCODIGO: TIntegerField;
+    bTfrmCadTecnicos: TcxDBLookupComboBox;
+    cxButton1: TcxButton;
+    QryMovimentoTecnico: TIBQuery;
+    IntegerField5: TIntegerField;
+    IBStringField12: TIBStringField;
+    IBStringField13: TIBStringField;
+    MemoField1: TMemoField;
+    DsMovimentoTecnico: TDataSource;
+    cxDBMemo3: TcxDBMemo;
+    cxLabel32: TcxLabel;
+    ActGeraVenda: TAction;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -744,7 +755,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure BtnMovimentoStatusClick(Sender: TObject);
     procedure BtnTipoMovimentoClick(Sender: TObject);
-    procedure dtEditDet2DT_LANCTOChange(Sender: TField);
+    procedure cxButton1Click(Sender: TObject);
+    procedure dtEditAfterPost(DataSet: TDataSet);
+    procedure ActGeraVendaExecute(Sender: TObject);
   private
     { Private declarations }
     Procedure Filtrar;
@@ -758,6 +771,7 @@ type
 
 var
   frmCadOS: TfrmCadOS;
+  Sair: Boolean ;
 
 implementation
 
@@ -765,7 +779,7 @@ uses UntCadStatusServico, UntCadTecnicos, UntCadDefeitos,
   UntCadServicoExecutado, UntCadMotivosDevolucao,
   UntCadProblemaIdentificado, Application_DM, 
   SerieCustomizaveis_DM, SeriesCustomizaveis, Funcoes, untCadClientes,
-  UntCadTipoMovimento;
+  UntCadTipoMovimento, Servicos_DM;
 
 {$R *.dfm}
 
@@ -1520,6 +1534,8 @@ begin
   dtEditDet2HR_FIM.Value := TimeOF(DMApp.DataServidor);
   dtEditDet2USUARIO.value := dmApp.USR_CONECTADO;
   dtEditDet2COD_TECNICO.value := dtEditMECANICO.value;
+
+  dtEditDet2DT_LANCTO.value := DateOF(DMApp.DataServidor);
 end;
 
 procedure TfrmCadOS.dtEditDet2HR_FIMChange(Sender: TField);
@@ -1667,10 +1683,114 @@ begin
   CadastroLookup(TfrmCadTipoMovimento,dtEditDet2,'COD_TIPO_MOVTO',QryTipoMovimento);
 end;
 
-procedure TfrmCadOS.dtEditDet2DT_LANCTOChange(Sender: TField);
+procedure TfrmCadOS.cxButton1Click(Sender: TObject);
 begin
   inherited;
-  dtEditDet2DT_LANCTO.value := dmApp.data_servidor
+  CadastroLookup(TfrmCadTecnicos,dtEditDet2,'COD_TECNICO',QryMovimentoTecnico);
+end;
+
+procedure TfrmCadOS.dtEditAfterPost(DataSet: TDataSet);
+var  
+  existe : variant;
+  sql : string;
+begin
+  inherited;
+  //Lançando a atividade de abertura dos trabalhos
+  dtEditDet2.FetchAll;
+  if (dtEditDet2.RecordCount = 0) then
+  begin
+    if application.messagebox('Deseja registrar a ativididade de criação da OS?','Aviso', mb_yesno + mb_iconquestion) = id_yes then
+    begin
+      dtEditDet2.open;
+      dtEditDet2.Append;
+      dtEditDet2CNPJ.value := dmApp.cnpj;
+      dtEditDet2TIPO.value := 'A';
+      dtEditDet2DT_INICIO.value := DateOF(dtEditDATA.value);
+      dtEditDet2HR_INICIO.value := Timeof(dtEditDATA.value);
+      dtEditDet2DT_FIM.value := DateOF(dtEditDATA.value);
+      dtEditDet2HR_FIM.value := TimeOf(dmApp.Data_Servidor);
+      dtEditDet2OBSERVACAO.Value :=  dtEditINFORMACOES.Value;
+      dtEditDet2.Post;
+    end;
+  end else
+  begin
+    if (dtEditDATA_FECHAMENTO.value > 0) then
+    begin
+      sql := 'select count(*) from ofc_ordem_servico_intervalo o where o.cnpj =  '+QuotedStr(dmApp.cnpj)+' and o.codigo = '+dtEditcodigo.asstring+' and o.tipo = ''F''';
+      existe := RetornaValor(sql,dmapp.Transaction);
+
+      if (existe <= 0) then
+      begin
+        if application.messagebox('Deseja registrar a ativididade de fechamento da OS?','Aviso', mb_yesno + mb_iconquestion) = id_yes then
+        begin   
+          dtEditDet2.open;
+          dtEditDet2.Append;
+          dtEditDet2CNPJ.value := dmApp.cnpj;
+          dtEditDet2TIPO.value := 'F';
+          dtEditDet2DT_INICIO.value := DateOF(dtEditDATA_FECHAMENTO.value);
+          dtEditDet2HR_INICIO.value := Timeof(dtEditHR_FECHAMENTO.Value)-0.003;
+          dtEditDet2DT_FIM.value := DateOF(dtEditDATA_FECHAMENTO.value);
+          dtEditDet2HR_FIM.value := Timeof(dtEditHR_FECHAMENTO.Value);
+          dtEditDet2OBSERVACAO.Value :=  dtEditOBS_FECHAMENTO.Value;
+          dtEditDet2.Post;
+        end;
+      end;
+
+      {if ((dmApp.OFC_GERA_FAT_AUTOMATICO = 'S') and (dtEditVENDA.asInteger <= 0)) then
+        ActGeraVenda.Execute;  }
+    end;
+  end;
+end;
+
+procedure TfrmCadOS.ActGeraVendaExecute(Sender: TObject);
+var
+   Prod, Codigo: String ;
+   Numero, Nf: Integer;
+begin
+  inherited;
+  //validando a geração de venda
+  if (dtEditVENDA.asInteger > 0) then
+  begin
+    Application.MessageBox(Pchar('Impossível gerar venda.'+#13+'OS já possui venda vinculada'),'Aviso',mb_iconerror + mb_ok);
+    exit;
+  end;
+
+  //-->> Caso esteja em modo de edição/inserção 'salva'
+  if dsRegistro.DataSet.State in [ dsedit, dsinsert ] then
+     dsRegistro.DataSet.Post;
+
+  //-->> Verifica quantidade de itens na Ordem de Serviço
+  if (( arredonda( dtEditTotal.Value,2 ) <= 0 ) AND ( DMAPP.PDV_VALOR_ZERADO <> 'S' )) then
+  begin
+   Application.MessageBox('Não existem produtos para faturamento','Aviso',mb_iconerror + mb_ok);
+   PgcMaster.ActivePageIndex := 0;
+   Exit;
+  end;
+
+{  //-->> Confere Parcelamento
+  With DmServicos do
+  begin
+      Valida_Forma.Close ;
+      Valida_Forma.ParamByName ('CNPJ'  ).AsString  := DmApp.Cnpj   ;
+      Valida_Forma.ParamByName ('CODIGO').AsInteger := dtEditFORMA_PAGTO.Value ;
+      Valida_Forma.Prepare ;
+      Valida_Forma.Open ;
+      if ( arredonda(dtEditDiferenca.Value,2) <> 0 ) and ( dtEditA_VISTA.Value <> 'S' )then
+      begin
+        MessageDlg('O Parcelamento Não Confere, Verifique!',MtError,[MbOk],0);
+        PgcMaster.ActivePageIndex := 1;
+        Exit;
+      end;
+      DmServicos.Valida_Forma.Close ;
+  end;      }
+
+
+  Numero := DmaPP.Gerar_Venda_OS( DmApp.Cnpj, dtEditCodigo.Value, dtEditPESSOA_FJ.Value );
+  Application.MessageBox(Pchar('Venda Nº ' + inttostr(Numero)),'Aviso',mb_iconinformation + mb_ok);
+
+
+  Sair := True ;
+  close ;
 end;
 
 end.

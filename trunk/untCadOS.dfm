@@ -1,6 +1,6 @@
 inherited frmCadOS: TfrmCadOS
-  Left = 100
-  Top = 46
+  Left = 12
+  Top = 4
   Width = 1270
   Height = 760
   Caption = 'Manuten'#231#227'o de Ordens de Servi'#231'o'
@@ -1002,6 +1002,7 @@ inherited frmCadOS: TfrmCadOS
               inherited PGCSub2: TcxPageControl
                 Width = 1236
                 Height = 265
+                ActivePage = tbsListaSub2
                 ClientRectBottom = 261
                 ClientRectRight = 1232
                 inherited tbsListaSub2: TcxTabSheet
@@ -1011,6 +1012,7 @@ inherited frmCadOS: TfrmCadOS
                     inherited TVDet2: TcxGridDBBandedTableView
                       object TVDet2CNPJ: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CNPJ'
+                        Visible = False
                         Position.BandIndex = 0
                         Position.ColIndex = 0
                         Position.RowIndex = 0
@@ -1180,7 +1182,7 @@ inherited frmCadOS: TfrmCadOS
                   end
                   object cxDBDateEdit4: TcxDBDateEdit
                     Left = 221
-                    Top = 24
+                    Top = 25
                     DataBinding.DataField = 'DT_LANCTO'
                     DataBinding.DataSource = dsRegistroDet2
                     Enabled = False
@@ -1217,14 +1219,14 @@ inherited frmCadOS: TfrmCadOS
                     Width = 145
                   end
                   object Label11: TcxLabel
-                    Left = 72
+                    Left = 75
                     Top = 8
                     Caption = 'Usu'#225'rio'
                     ParentFont = False
                     Transparent = True
                   end
                   object Label14: TcxLabel
-                    Left = 216
+                    Left = 220
                     Top = 8
                     Caption = 'Dt. Lan'#231'amento'
                     ParentFont = False
@@ -1235,9 +1237,9 @@ inherited frmCadOS: TfrmCadOS
                     Top = 48
                     TabStop = True
                     Caption = 'Horas Trabalhadas'
-                    TabOrder = 4
-                    Height = 122
-                    Width = 299
+                    TabOrder = 6
+                    Height = 110
+                    Width = 254
                     object dtInicial: TcxDBDateEdit
                       Left = 8
                       Top = 32
@@ -1255,7 +1257,7 @@ inherited frmCadOS: TfrmCadOS
                       Style.TransparentBorder = False
                       Style.IsFontAssigned = True
                       TabOrder = 0
-                      Width = 105
+                      Width = 87
                     end
                     object Label2: TcxLabel
                       Left = 8
@@ -1265,7 +1267,7 @@ inherited frmCadOS: TfrmCadOS
                       Transparent = True
                     end
                     object hrInicial: TcxDBTimeEdit
-                      Left = 120
+                      Left = 98
                       Top = 32
                       DataBinding.DataField = 'HR_INICIO'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1279,11 +1281,11 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Style = []
                       Style.ButtonStyle = btsSimple
                       Style.IsFontAssigned = True
-                      TabOrder = 2
-                      Width = 89
+                      TabOrder = 1
+                      Width = 74
                     end
                     object Label3: TcxLabel
-                      Left = 120
+                      Left = 98
                       Top = 16
                       Caption = 'Hr. Inicial'
                       ParentFont = False
@@ -1305,8 +1307,8 @@ inherited frmCadOS: TfrmCadOS
                       Style.HotTrack = False
                       Style.TransparentBorder = False
                       Style.IsFontAssigned = True
-                      TabOrder = 4
-                      Width = 105
+                      TabOrder = 2
+                      Width = 87
                     end
                     object Label6: TcxLabel
                       Left = 8
@@ -1316,7 +1318,7 @@ inherited frmCadOS: TfrmCadOS
                       Transparent = True
                     end
                     object hrFinal: TcxDBTimeEdit
-                      Left = 120
+                      Left = 98
                       Top = 72
                       DataBinding.DataField = 'HR_FIM'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1330,18 +1332,18 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Style = []
                       Style.ButtonStyle = btsSimple
                       Style.IsFontAssigned = True
-                      TabOrder = 6
-                      Width = 89
+                      TabOrder = 3
+                      Width = 74
                     end
                     object Label5: TcxLabel
-                      Left = 120
+                      Left = 98
                       Top = 56
                       Caption = 'Hr. Final'
                       ParentFont = False
                       Transparent = True
                     end
                     object hrTotal: TcxDBTextEdit
-                      Left = 208
+                      Left = 176
                       Top = 72
                       DataBinding.DataField = 'QTDE_HORA'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1355,11 +1357,11 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Name = 'Tahoma'
                       Style.Font.Style = []
                       Style.IsFontAssigned = True
-                      TabOrder = 8
-                      Width = 78
+                      TabOrder = 4
+                      Width = 70
                     end
                     object Label8: TcxLabel
-                      Left = 208
+                      Left = 176
                       Top = 56
                       Caption = 'Total'
                       ParentFont = False
@@ -1367,13 +1369,13 @@ inherited frmCadOS: TfrmCadOS
                     end
                   end
                   object cxGroupBox6: TcxGroupBox
-                    Left = 640
+                    Left = 536
                     Top = 48
                     TabStop = True
                     Caption = 'Tarefas'
-                    TabOrder = 6
-                    Height = 120
-                    Width = 449
+                    TabOrder = 8
+                    Height = 110
+                    Width = 377
                     object cxDBDateEdit2: TcxDBDateEdit
                       Left = 8
                       Top = 35
@@ -1391,10 +1393,10 @@ inherited frmCadOS: TfrmCadOS
                       Style.TransparentBorder = False
                       Style.IsFontAssigned = True
                       TabOrder = 0
-                      Width = 105
+                      Width = 81
                     end
                     object cxDBDateEdit5: TcxDBDateEdit
-                      Left = 119
+                      Left = 95
                       Top = 35
                       DataBinding.DataField = 'DT_CONCLUSAO'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1410,10 +1412,10 @@ inherited frmCadOS: TfrmCadOS
                       Style.TransparentBorder = False
                       Style.IsFontAssigned = True
                       TabOrder = 1
-                      Width = 105
+                      Width = 81
                     end
                     object Label16: TcxLabel
-                      Left = 119
+                      Left = 95
                       Top = 20
                       Caption = 'Dt. Conclus'#227'o'
                       ParentFont = False
@@ -1427,7 +1429,7 @@ inherited frmCadOS: TfrmCadOS
                       Transparent = True
                     end
                     object Label20: TcxLabel
-                      Left = 205
+                      Left = 181
                       Top = 61
                       Caption = 'Tipo Movimento'
                       ParentFont = False
@@ -1441,14 +1443,14 @@ inherited frmCadOS: TfrmCadOS
                       Transparent = True
                     end
                     object Label18: TcxLabel
-                      Left = 229
+                      Left = 181
                       Top = 20
                       Caption = 'Status'
                       ParentFont = False
                       Transparent = True
                     end
                     object bTfrmCadStatusServico: TcxDBLookupComboBox
-                      Left = 229
+                      Left = 181
                       Top = 34
                       DataBinding.DataField = 'COD_STATUS'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1466,15 +1468,15 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Style = []
                       Style.HotTrack = False
                       Style.IsFontAssigned = True
-                      TabOrder = 7
+                      TabOrder = 3
                       Width = 166
                     end
                     object BtnMovimentoStatus: TcxButton
-                      Left = 396
+                      Left = 348
                       Top = 33
                       Width = 23
                       Height = 22
-                      TabOrder = 8
+                      TabOrder = 4
                       TabStop = False
                       OnClick = BtnMovimentoStatusClick
                       Glyph.Data = {
@@ -1526,16 +1528,16 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Style = []
                       Style.HotTrack = False
                       Style.IsFontAssigned = True
-                      TabOrder = 9
-                      Width = 169
+                      TabOrder = 5
+                      Width = 145
                     end
                     object cxButton2: TcxButton
-                      Left = 177
+                      Left = 153
                       Top = 75
                       Width = 24
                       Height = 22
                       Enabled = False
-                      TabOrder = 10
+                      TabOrder = 7
                       TabStop = False
                       OnClick = btnStatusClick
                       Glyph.Data = {
@@ -1566,11 +1568,11 @@ inherited frmCadOS: TfrmCadOS
                         BFBFBFBFBFBFBFBFBFBF}
                     end
                     object BtnTipoMovimento: TcxButton
-                      Left = 397
+                      Left = 349
                       Top = 76
                       Width = 24
                       Height = 22
-                      TabOrder = 12
+                      TabOrder = 8
                       TabStop = False
                       OnClick = BtnTipoMovimentoClick
                       Glyph.Data = {
@@ -1601,7 +1603,7 @@ inherited frmCadOS: TfrmCadOS
                         BFBFBFBFBFBFBFBFBFBF}
                     end
                     object aTfrmCadTipoMovimento: TcxDBLookupComboBox
-                      Left = 205
+                      Left = 181
                       Top = 77
                       DataBinding.DataField = 'COD_TIPO_MOVTO'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1619,20 +1621,20 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Style = []
                       Style.HotTrack = False
                       Style.IsFontAssigned = True
-                      TabOrder = 11
-                      Width = 191
+                      TabOrder = 6
+                      Width = 166
                     end
                   end
                   object cxGroupBox7: TcxGroupBox
-                    Left = 310
+                    Left = 270
                     Top = 48
                     TabStop = True
                     Caption = 'Deslocamentos'
-                    TabOrder = 5
-                    Height = 122
-                    Width = 325
+                    TabOrder = 7
+                    Height = 110
+                    Width = 259
                     object cxDBTextEdit6: TcxDBTextEdit
-                      Left = 239
+                      Left = 147
                       Top = 35
                       DataBinding.DataField = 'KM_RODADO'
                       DataBinding.DataSource = dsRegistroDet2
@@ -1646,52 +1648,13 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Name = 'Tahoma'
                       Style.Font.Style = []
                       Style.IsFontAssigned = True
-                      TabOrder = 3
+                      TabOrder = 2
                       Width = 78
                     end
                     object cxDBSpinEdit2: TcxDBSpinEdit
-                      Left = 169
+                      Left = 77
                       Top = 35
                       DataBinding.DataField = 'KM_FINAL'
-                      DataBinding.DataSource = dsRegistroDet2
-                      ParentFont = False
-                      Properties.MaxValue = 10000000.000000000000000000
-                      Style.BorderColor = clBtnShadow
-                      Style.BorderStyle = ebsSingle
-                      Style.Font.Charset = DEFAULT_CHARSET
-                      Style.Font.Color = clBlack
-                      Style.Font.Height = -11
-                      Style.Font.Name = 'Tahoma'
-                      Style.Font.Style = []
-                      Style.LookAndFeel.Kind = lfUltraFlat
-                      Style.IsFontAssigned = True
-                      StyleDisabled.BorderColor = clBtnShadow
-                      StyleDisabled.BorderStyle = ebsSingle
-                      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
-                      StyleDisabled.ButtonStyle = btsSimple
-                      StyleFocused.LookAndFeel.Kind = lfUltraFlat
-                      StyleHot.LookAndFeel.Kind = lfUltraFlat
-                      TabOrder = 2
-                      Width = 67
-                    end
-                    object cxLabel38: TcxLabel
-                      Left = 169
-                      Top = 20
-                      Caption = 'Km. Final'
-                      ParentFont = False
-                      Transparent = True
-                    end
-                    object cxLabel39: TcxLabel
-                      Left = 237
-                      Top = 20
-                      Caption = 'Total'
-                      ParentFont = False
-                      Transparent = True
-                    end
-                    object cxDBSpinEdit4: TcxDBSpinEdit
-                      Left = 100
-                      Top = 35
-                      DataBinding.DataField = 'KM_INICIAL'
                       DataBinding.DataSource = dsRegistroDet2
                       ParentFont = False
                       Properties.MaxValue = 10000000.000000000000000000
@@ -1713,8 +1676,47 @@ inherited frmCadOS: TfrmCadOS
                       TabOrder = 1
                       Width = 67
                     end
+                    object cxLabel38: TcxLabel
+                      Left = 77
+                      Top = 20
+                      Caption = 'Km. Final'
+                      ParentFont = False
+                      Transparent = True
+                    end
+                    object cxLabel39: TcxLabel
+                      Left = 145
+                      Top = 20
+                      Caption = 'Total'
+                      ParentFont = False
+                      Transparent = True
+                    end
+                    object cxDBSpinEdit4: TcxDBSpinEdit
+                      Left = 8
+                      Top = 35
+                      DataBinding.DataField = 'KM_INICIAL'
+                      DataBinding.DataSource = dsRegistroDet2
+                      ParentFont = False
+                      Properties.MaxValue = 10000000.000000000000000000
+                      Style.BorderColor = clBtnShadow
+                      Style.BorderStyle = ebsSingle
+                      Style.Font.Charset = DEFAULT_CHARSET
+                      Style.Font.Color = clBlack
+                      Style.Font.Height = -11
+                      Style.Font.Name = 'Tahoma'
+                      Style.Font.Style = []
+                      Style.LookAndFeel.Kind = lfUltraFlat
+                      Style.IsFontAssigned = True
+                      StyleDisabled.BorderColor = clBtnShadow
+                      StyleDisabled.BorderStyle = ebsSingle
+                      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                      StyleDisabled.ButtonStyle = btsSimple
+                      StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                      StyleHot.LookAndFeel.Kind = lfUltraFlat
+                      TabOrder = 0
+                      Width = 67
+                    end
                     object cxLabel40: TcxLabel
-                      Left = 101
+                      Left = 9
                       Top = 20
                       Caption = 'Km. Inicial'
                       ParentFont = False
@@ -1722,14 +1724,14 @@ inherited frmCadOS: TfrmCadOS
                     end
                     object Label4: TcxLabel
                       Left = 8
-                      Top = 20
+                      Top = 60
                       Caption = 'Tmp. Viagem'
                       ParentFont = False
                       Transparent = True
                     end
                     object cxDBCalcEdit4: TcxDBCalcEdit
                       Left = 8
-                      Top = 35
+                      Top = 75
                       DataBinding.DataField = 'TEMPO_VIAJEM'
                       DataBinding.DataSource = dsRegistroDet2
                       ParentFont = False
@@ -1762,16 +1764,16 @@ inherited frmCadOS: TfrmCadOS
                       Style.Font.Name = 'Tahoma'
                       Style.Font.Style = []
                       Style.IsFontAssigned = True
-                      TabOrder = 0
-                      Width = 89
+                      TabOrder = 3
+                      Width = 65
                     end
                     object cxButton4: TcxButton
-                      Left = 177
-                      Top = 75
+                      Left = 226
+                      Top = 74
                       Width = 24
                       Height = 22
                       Enabled = False
-                      TabOrder = 5
+                      TabOrder = 6
                       TabStop = False
                       OnClick = btnStatusClick
                       Glyph.Data = {
@@ -1802,8 +1804,8 @@ inherited frmCadOS: TfrmCadOS
                         BFBFBFBFBFBFBFBFBFBF}
                     end
                     object cxDBLookupComboBox2: TcxDBLookupComboBox
-                      Left = 10
-                      Top = 76
+                      Left = 75
+                      Top = 75
                       DataBinding.DataField = 'COD_VEICULO'
                       DataBinding.DataSource = dsRegistroDet2
                       ParentFont = False
@@ -1821,15 +1823,88 @@ inherited frmCadOS: TfrmCadOS
                       Style.HotTrack = False
                       Style.IsFontAssigned = True
                       TabOrder = 4
-                      Width = 166
+                      Width = 150
                     end
                     object cxLabel41: TcxLabel
-                      Left = 8
-                      Top = 60
+                      Left = 73
+                      Top = 59
                       Caption = 'Veiculo'
                       ParentFont = False
                       Transparent = True
                     end
+                  end
+                  object bTfrmCadTecnicos: TcxDBLookupComboBox
+                    Left = 341
+                    Top = 24
+                    DataBinding.DataField = 'COD_TECNICO'
+                    DataBinding.DataSource = dsRegistroDet2
+                    ParentFont = False
+                    Properties.KeyFieldNames = 'CODIGO'
+                    Properties.ListColumns = <
+                      item
+                        FieldName = 'NOME'
+                      end>
+                    Properties.ListSource = DsMovimentoTecnico
+                    Style.Font.Charset = DEFAULT_CHARSET
+                    Style.Font.Color = clWindowText
+                    Style.Font.Height = -11
+                    Style.Font.Name = 'Tahoma'
+                    Style.Font.Style = []
+                    Style.HotTrack = False
+                    Style.IsFontAssigned = True
+                    TabOrder = 4
+                    Width = 235
+                  end
+                  object cxButton1: TcxButton
+                    Left = 577
+                    Top = 23
+                    Width = 23
+                    Height = 22
+                    TabOrder = 5
+                    TabStop = False
+                    OnClick = cxButton1Click
+                    Glyph.Data = {
+                      06030000424D06030000000000003600000028000000100000000F0000000100
+                      180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                      FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                      FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                      FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                      FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                      0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                      000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                      FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                      0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                      BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                      FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                      0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                      FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                      BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                      00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                      00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBF}
+                  end
+                  object cxDBMemo3: TcxDBMemo
+                    Left = 919
+                    Top = 66
+                    DataBinding.DataField = 'OBSERVACAO'
+                    DataBinding.DataSource = dsRegistroDet2
+                    Properties.CharCase = ecUpperCase
+                    TabOrder = 9
+                    Height = 93
+                    Width = 300
+                  end
+                  object cxLabel32: TcxLabel
+                    Left = 920
+                    Top = 49
+                    Caption = 'Observa'#231#227'o'
+                    Transparent = True
                   end
                 end
               end
@@ -2969,6 +3044,7 @@ inherited frmCadOS: TfrmCadOS
                   Top = 29
                   DataBinding.DataField = 'OBS_FECHAMENTO'
                   DataBinding.DataSource = dsRegistro
+                  Properties.CharCase = ecUpperCase
                   TabOrder = 3
                   Height = 84
                   Width = 206
@@ -3144,6 +3220,7 @@ inherited frmCadOS: TfrmCadOS
     end
   end
   inherited dtEdit: TIBDataSet
+    AfterPost = dtEditAfterPost
     OnNewRecord = dtEditNewRecord
     DeleteSQL.Strings = (
       'delete from OFC_ORDEM_SERVICO'
@@ -4485,6 +4562,10 @@ inherited frmCadOS: TfrmCadOS
     object ActImprimirOS: TAction
       Caption = 'Imprimir OS'
       OnExecute = ActImprimirOSExecute
+    end
+    object ActGeraVenda: TAction
+      Caption = 'ActGeraVenda'
+      OnExecute = ActGeraVendaExecute
     end
   end
   inherited cxImageList1: TcxImageList
@@ -6916,7 +6997,6 @@ inherited frmCadOS: TfrmCadOS
     object dtEditDet2DT_LANCTO: TDateField
       FieldName = 'DT_LANCTO'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."DT_LANCTO"'
-      OnChange = dtEditDet2DT_LANCTOChange
     end
     object dtEditDet2DT_VENCTO: TDateField
       FieldName = 'DT_VENCTO'
@@ -8767,5 +8847,54 @@ inherited frmCadOS: TfrmCadOS
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
+  end
+  object QryMovimentoTecnico: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      
+        'select t.codigo, t.nome, t.email, t.assinatura from ofc_mecanico' +
+        's t'
+      
+        'inner join glo_pessoas_fj psa on (psa.cnpj = t.cnpj and t.pessoa' +
+        '_fj = psa.codigo)'
+      'where t.cnpj = :cnpj')
+    Left = 920
+    Top = 168
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end>
+    object IntegerField5: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"OFC_MECANICOS"."CODIGO"'
+      Required = True
+    end
+    object IBStringField12: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"OFC_MECANICOS"."NOME"'
+      Size = 50
+    end
+    object IBStringField13: TIBStringField
+      FieldName = 'EMAIL'
+      Origin = '"OFC_MECANICOS"."EMAIL"'
+      Size = 80
+    end
+    object MemoField1: TMemoField
+      FieldName = 'ASSINATURA'
+      Origin = '"OFC_MECANICOS"."ASSINATURA"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
+  end
+  object DsMovimentoTecnico: TDataSource
+    DataSet = QryMovimentoTecnico
+    Left = 967
+    Top = 2
   end
 end
