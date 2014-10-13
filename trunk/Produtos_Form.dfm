@@ -1,10 +1,10 @@
 object FrmProdutos: TFrmProdutos
-  Left = 441
-  Top = 76
+  Left = 175
+  Top = 0
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Produtos '
-  ClientHeight = 524
+  ClientHeight = 492
   ClientWidth = 621
   Color = 15396334
   Font.Charset = DEFAULT_CHARSET
@@ -23,7 +23,7 @@ object FrmProdutos: TFrmProdutos
     Left = 0
     Top = 0
     Width = 621
-    Height = 524
+    Height = 492
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -38,7 +38,7 @@ object FrmProdutos: TFrmProdutos
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 490
+      Top = 458
       Width = 617
       Height = 2
       Align = alBottom
@@ -60,7 +60,7 @@ object FrmProdutos: TFrmProdutos
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 492
+      Top = 460
       Width = 617
       Height = 30
       Align = alBottom
@@ -90,7 +90,7 @@ object FrmProdutos: TFrmProdutos
       Width = 605
       Height = 446
       Cursor = crHandPoint
-      ActivePage = Pg1
+      ActivePage = Pg2
       HotTrack = True
       TabOrder = 1
       ClientRectBottom = 442
@@ -3956,7 +3956,7 @@ object FrmProdutos: TFrmProdutos
           Left = 0
           Top = 0
           Width = 597
-          Height = 403
+          Height = 415
           Align = alClient
           TabOrder = 0
           LookAndFeel.NativeStyle = True

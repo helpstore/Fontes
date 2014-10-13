@@ -1,6 +1,6 @@
 object FrmLocalizacao: TFrmLocalizacao
   Left = 220
-  Top = 183
+  Top = 209
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Localiza'#231#227'o de Estoque'

@@ -1,8 +1,10 @@
 object DMCadastros: TDMCadastros
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 729
-  Width = 1264
+  Left = 65532
+  Top = 65532
+  Height = 748
+  Width = 1374
   object Pessoas_FJ: TIBDataSet
     Database = DmApp.Database
     Transaction = DmApp.Transaction
