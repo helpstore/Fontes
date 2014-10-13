@@ -1,8 +1,9 @@
 object DmServicos: TDmServicos
   OldCreateOrder = False
-  Top = 2
-  Height = 758
-  Width = 1280
+  Left = 4
+  Top = 1
+  Height = 517
+  Width = 669
   object Servicos: TIBDataSet
     Database = DmApp.Database
     Transaction = DmApp.Transaction

@@ -1080,32 +1080,32 @@ begin
       Editar(dsRegistroDet2,tbsEditaSub2);
       edtCodDet2.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 3)  and (Foco = 'Sub3')) then
+    else if ((PgcDetalhe.ActivePageIndex = 2)  and (Foco = 'Sub3')) then
     begin
       Editar(dsRegistroDet3,tbsEditaSub3);
       edtCodDet3.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 4)  and (Foco = 'Sub4')) then
+    else if ((PgcDetalhe.ActivePageIndex = 3)  and (Foco = 'Sub4')) then
     begin
       Editar(dsRegistroDet4,tbsEditaSub4);
       edtCodDet4.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 5)  and (Foco = 'Sub5')) then
+    else if ((PgcDetalhe.ActivePageIndex = 4)  and (Foco = 'Sub5')) then
     begin
       Editar(dsRegistroDet5,tbsEditaSub5);
       edtCodDet5.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 6)  and (Foco = 'Sub6')) then
+    else if ((PgcDetalhe.ActivePageIndex = 5)  and (Foco = 'Sub6')) then
     begin
       Editar(dsRegistroDet6,tbsEditaSub6);
       edtCodDet6.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 7)  and (Foco = 'Sub7')) then
+    else if ((PgcDetalhe.ActivePageIndex = 6)  and (Foco = 'Sub7')) then
     begin
       Editar(dsRegistroDet7,tbsEditaSub7);
       edtCodDet7.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 8)  and (Foco = 'Sub8')) then
+    else if ((PgcDetalhe.ActivePageIndex = 7)  and (Foco = 'Sub8')) then
     begin
       Editar(dsRegistroDet8,tbsEditaSub8);
       edtCodDet8.SetFocus;
