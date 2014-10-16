@@ -646,7 +646,6 @@ type
     QryOSOS_DT_CILINDRO: TDateField;
     QryOSOS_CT_CILINDRO: TIntegerField;
     QryOSOS_CT_REVELADOR: TIntegerField;
-    QryOSOS_DT_REVELADOR: TDateField;
     QryOSPRD_QTDE: TFloatField;
     QryOSPRD_CODIGO: TIBStringField;
     QryOSPRD_NOME: TIBStringField;
@@ -681,6 +680,15 @@ type
     QryOSOS_TROCA_CILINDRO: TIBStringField;
     QryOSOS_TROCA_FUSAO: TIBStringField;
     QryOSOS_TROCA_BELT: TIBStringField;
+    QryOSOS_DT_FUSAO: TDateField;
+    QryOSOS_DT_BELT: TDateField;
+    QryOSOS_CT_FUSAO: TIntegerField;
+    QryOSOS_CT_BELT: TIntegerField;
+    ppLabel124: TppLabel;
+    ppDBText164: TppDBText;
+    ppLabel195: TppLabel;
+    ppDBText165: TppDBText;
+    ppLabel89: TppLabel;
     procedure Configurar_CartaSCPC;
     procedure Configurar_OS;
     procedure Configurar_Devolucao_Carga;    

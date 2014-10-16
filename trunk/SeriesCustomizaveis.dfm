@@ -5738,6 +5738,636 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
     UserName = 'ppOS'
     Left = 200
     Top = 163
+    object ppOSppField1: TppField
+      FieldAlias = 'PSA_NOME_RAZAO'
+      FieldName = 'PSA_NOME_RAZAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 0
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField2: TppField
+      FieldAlias = 'PSA_FANTASIA'
+      FieldName = 'PSA_FANTASIA'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 1
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField3: TppField
+      FieldAlias = 'PSA_ENDERECO'
+      FieldName = 'PSA_ENDERECO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 2
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField4: TppField
+      FieldAlias = 'PSA_BAIRRO'
+      FieldName = 'PSA_BAIRRO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 3
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField5: TppField
+      FieldAlias = 'PSA_CEP'
+      FieldName = 'PSA_CEP'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 4
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField6: TppField
+      FieldAlias = 'PSA_FONE'
+      FieldName = 'PSA_FONE'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 5
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField7: TppField
+      FieldAlias = 'PSA_CONTATO'
+      FieldName = 'PSA_CONTATO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 6
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField8: TppField
+      FieldAlias = 'PSA_CIDADE'
+      FieldName = 'PSA_CIDADE'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 7
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField9: TppField
+      FieldAlias = 'PSA_REGIAO'
+      FieldName = 'PSA_REGIAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 8
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField10: TppField
+      FieldAlias = 'OS_NOME_TECNICO'
+      FieldName = 'OS_NOME_TECNICO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 9
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField11: TppField
+      FieldAlias = 'OS_EQUIPAMENTO'
+      FieldName = 'OS_EQUIPAMENTO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 10
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField12: TppField
+      FieldAlias = 'OS_EQ_MODELO'
+      FieldName = 'OS_EQ_MODELO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 11
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField13: TppField
+      FieldAlias = 'OS_EQ_MARCA'
+      FieldName = 'OS_EQ_MARCA'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 12
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField14: TppField
+      FieldAlias = 'OS_EQ_SERIE'
+      FieldName = 'OS_EQ_SERIE'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 13
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField15: TppField
+      FieldAlias = 'OS_SOLICITANTE'
+      FieldName = 'OS_SOLICITANTE'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 14
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField16: TppField
+      FieldAlias = 'OS_DEFEITO_RECLAMADO'
+      FieldName = 'OS_DEFEITO_RECLAMADO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 15
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField17: TppField
+      FieldAlias = 'OS_OBS_FECHAMENTO'
+      FieldName = 'OS_OBS_FECHAMENTO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 16
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField18: TppField
+      FieldAlias = 'OS_INFORMACOES'
+      FieldName = 'OS_INFORMACOES'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 17
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField19: TppField
+      FieldAlias = 'OS_DT_PROGRAMACAO'
+      FieldName = 'OS_DT_PROGRAMACAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 18
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField20: TppField
+      FieldAlias = 'OS_HR_PROGRAMACAO'
+      FieldName = 'OS_HR_PROGRAMACAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 19
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField21: TppField
+      FieldAlias = 'OS_TECNICO'
+      FieldName = 'OS_TECNICO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 20
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField22: TppField
+      FieldAlias = 'OS_MOTIVO_CHAMADO'
+      FieldName = 'OS_MOTIVO_CHAMADO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 21
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField23: TppField
+      FieldAlias = 'OS_TIPO_ATENDIMENTO'
+      FieldName = 'OS_TIPO_ATENDIMENTO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 22
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField24: TppField
+      FieldAlias = 'OS_CT_TOTAL'
+      FieldName = 'OS_CT_TOTAL'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 23
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField25: TppField
+      FieldAlias = 'OS_CT_COR'
+      FieldName = 'OS_CT_COR'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 24
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField26: TppField
+      FieldAlias = 'OS_CT_PRETO'
+      FieldName = 'OS_CT_PRETO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 25
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField27: TppField
+      FieldAlias = 'OS_DT_CILINDRO'
+      FieldName = 'OS_DT_CILINDRO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 26
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField28: TppField
+      FieldAlias = 'OS_CT_CILINDRO'
+      FieldName = 'OS_CT_CILINDRO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 27
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField29: TppField
+      FieldAlias = 'OS_CT_REVELADOR'
+      FieldName = 'OS_CT_REVELADOR'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 28
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField30: TppField
+      FieldAlias = 'OS_DT_REVELADOR'
+      FieldName = 'OS_DT_REVELADOR'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 29
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField31: TppField
+      FieldAlias = 'PRD_QTDE'
+      FieldName = 'PRD_QTDE'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 30
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField32: TppField
+      FieldAlias = 'PRD_CODIGO'
+      FieldName = 'PRD_CODIGO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 31
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField33: TppField
+      FieldAlias = 'PRD_NOME'
+      FieldName = 'PRD_NOME'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 32
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField34: TppField
+      FieldAlias = 'OS_DT_INICIO'
+      FieldName = 'OS_DT_INICIO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 33
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField35: TppField
+      FieldAlias = 'OS_TIPO_CONTRATO'
+      FieldName = 'OS_TIPO_CONTRATO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 34
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField36: TppField
+      FieldAlias = 'OS_HR_INICIALIZACAO'
+      FieldName = 'OS_HR_INICIALIZACAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 35
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField37: TppField
+      FieldAlias = 'OS_DT_FINALIZACAO'
+      FieldName = 'OS_DT_FINALIZACAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 36
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField38: TppField
+      FieldAlias = 'OS_HR_FINALIZACAO'
+      FieldName = 'OS_HR_FINALIZACAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 37
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField39: TppField
+      FieldAlias = 'CAB_NOME_EMPRESA'
+      FieldName = 'CAB_NOME_EMPRESA'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 38
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField40: TppField
+      FieldAlias = 'CAB_END_EMPRESA'
+      FieldName = 'CAB_END_EMPRESA'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 39
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField41: TppField
+      FieldAlias = 'CAB_FONE_EMPRESA'
+      FieldName = 'CAB_FONE_EMPRESA'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 40
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField42: TppField
+      FieldAlias = 'OS_CODIGO'
+      FieldName = 'OS_CODIGO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 41
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField43: TppField
+      FieldAlias = 'OS_PESSOA_OBS'
+      FieldName = 'OS_PESSOA_OBS'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 42
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField44: TppField
+      FieldAlias = 'OS_EQUIPAMENTO_OBS'
+      FieldName = 'OS_EQUIPAMENTO_OBS'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 43
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField45: TppField
+      FieldAlias = 'PRD_UNITARIO'
+      FieldName = 'PRD_UNITARIO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 44
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField46: TppField
+      FieldAlias = 'PRD_TOTAL'
+      FieldName = 'PRD_TOTAL'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 45
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField47: TppField
+      FieldAlias = 'VEI_PLACA'
+      FieldName = 'VEI_PLACA'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 46
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField48: TppField
+      FieldAlias = 'VEI_COR'
+      FieldName = 'VEI_COR'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 47
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField49: TppField
+      FieldAlias = 'VEI_MODELO'
+      FieldName = 'VEI_MODELO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 48
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField50: TppField
+      FieldAlias = 'VEI_ANO'
+      FieldName = 'VEI_ANO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 49
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField51: TppField
+      FieldAlias = 'VEI_CHASSI'
+      FieldName = 'VEI_CHASSI'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 50
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField52: TppField
+      FieldAlias = 'VEI_MARCA'
+      FieldName = 'VEI_MARCA'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 51
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField53: TppField
+      FieldAlias = 'PSA_CPF'
+      FieldName = 'PSA_CPF'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 52
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField54: TppField
+      FieldAlias = 'PSA_RG_IE'
+      FieldName = 'PSA_RG_IE'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 53
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField55: TppField
+      FieldAlias = 'PSA_CODIGO'
+      FieldName = 'PSA_CODIGO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 54
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField56: TppField
+      FieldAlias = 'OS_KM'
+      FieldName = 'OS_KM'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 55
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField57: TppField
+      FieldAlias = 'OS_TROCA_CILINDRO'
+      FieldName = 'OS_TROCA_CILINDRO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 56
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField58: TppField
+      FieldAlias = 'OS_TROCA_FUSAO'
+      FieldName = 'OS_TROCA_FUSAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 57
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField59: TppField
+      FieldAlias = 'OS_TROCA_BELT'
+      FieldName = 'OS_TROCA_BELT'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 58
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField60: TppField
+      FieldAlias = 'OS_DT_FUSAO'
+      FieldName = 'OS_DT_FUSAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 59
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField61: TppField
+      FieldAlias = 'OS_DT_BELT'
+      FieldName = 'OS_DT_BELT'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 60
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField62: TppField
+      FieldAlias = 'OS_CT_FUSAO'
+      FieldName = 'OS_CT_FUSAO'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 61
+      Searchable = False
+      Sortable = False
+    end
+    object ppOSppField63: TppField
+      FieldAlias = 'OS_CT_BELT'
+      FieldName = 'OS_CT_BELT'
+      FieldLength = 0
+      DataType = dtNotKnown
+      DisplayWidth = 0
+      Position = 62
+      Searchable = False
+      Sortable = False
+    end
   end
   object rptOS: TppReport
     AutoStop = False
@@ -8184,7 +8814,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Border.Style = psSolid
         Border.Visible = False
         Border.Weight = 1.000000000000000000
-        Caption = 'Data........: '
+        Caption = 'Data: '
         Ellipsis = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -8192,10 +8822,10 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Font.Size = 9
         Font.Style = [fsBold]
         Transparent = True
-        mmHeight = 3810
+        mmHeight = 3704
         mmLeft = 5821
         mmTop = 47096
-        mmWidth = 15917
+        mmWidth = 8467
         BandType = 7
       end
       object ppDBText82: TppDBText
@@ -8218,9 +8848,9 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Transparent = True
         DataPipelineName = 'ppOS'
         mmHeight = 3704
-        mmLeft = 21960
+        mmLeft = 14552
         mmTop = 47096
-        mmWidth = 24342
+        mmWidth = 16669
         BandType = 7
       end
       object ppLabel106: TppLabel
@@ -8240,7 +8870,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Font.Style = [fsBold]
         Transparent = True
         mmHeight = 3704
-        mmLeft = 48419
+        mmLeft = 31750
         mmTop = 47096
         mmWidth = 16140
         BandType = 7
@@ -8264,7 +8894,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Transparent = True
         DataPipelineName = 'ppOS'
         mmHeight = 3704
-        mmLeft = 64558
+        mmLeft = 46567
         mmTop = 47096
         mmWidth = 17992
         BandType = 7
@@ -8431,7 +9061,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Border.Style = psSolid
         Border.Visible = False
         Border.Weight = 1.000000000000000000
-        DataField = 'OS_CT_REVELADOR'
+        DataField = 'OS_CT_FUSAO'
         DataPipeline = ppOS
         Ellipsis = False
         Font.Charset = DEFAULT_CHARSET
@@ -8442,7 +9072,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Transparent = True
         DataPipelineName = 'ppOS'
         mmHeight = 3704
-        mmLeft = 162454
+        mmLeft = 111654
         mmTop = 47096
         mmWidth = 17198
         BandType = 7
@@ -8455,7 +9085,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Border.Style = psSolid
         Border.Visible = False
         Border.Weight = 1.000000000000000000
-        DataField = 'OS_DT_REVELADOR'
+        DataField = 'OS_DT_FUSAO'
         DataPipeline = ppOS
         DisplayFormat = 'dd/mm/yyyy'
         Ellipsis = False
@@ -8467,9 +9097,9 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Transparent = True
         DataPipelineName = 'ppOS'
         mmHeight = 3704
-        mmLeft = 115623
+        mmLeft = 78052
         mmTop = 47096
-        mmWidth = 28310
+        mmWidth = 16933
         BandType = 7
       end
       object ppLabel114: TppLabel
@@ -8480,7 +9110,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Border.Style = psSolid
         Border.Visible = False
         Border.Weight = 1.000000000000000000
-        Caption = 'Data........: '
+        Caption = 'Data: '
         Ellipsis = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -8489,31 +9119,9 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Font.Style = [fsBold]
         Transparent = True
         mmHeight = 3704
-        mmLeft = 99484
+        mmLeft = 68527
         mmTop = 47096
-        mmWidth = 15875
-        BandType = 7
-      end
-      object ppLabel115: TppLabel
-        UserName = 'Label74'
-        HyperlinkColor = clBlue
-        Border.BorderPositions = []
-        Border.Color = clBlack
-        Border.Style = psSolid
-        Border.Visible = False
-        Border.Weight = 1.000000000000000000
-        Caption = 'Contador: '
-        Ellipsis = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 9
-        Font.Style = [fsBold]
-        Transparent = True
-        mmHeight = 3704
-        mmLeft = 146315
-        mmTop = 47096
-        mmWidth = 16140
+        mmWidth = 8731
         BandType = 7
       end
       object ppLabel116: TppLabel
@@ -8524,7 +9132,7 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Border.Style = psSolid
         Border.Visible = False
         Border.Weight = 1.000000000000000000
-        Caption = 'Revelador'
+        Caption = 'Fus'#227'o'
         Ellipsis = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -8532,10 +9140,10 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         Font.Size = 9
         Font.Style = [fsBold]
         Transparent = True
-        mmHeight = 3768
-        mmLeft = 96044
+        mmHeight = 3704
+        mmLeft = 65088
         mmTop = 42598
-        mmWidth = 15261
+        mmWidth = 9525
         BandType = 7
       end
       object ppLabel117: TppLabel
@@ -8795,6 +9403,143 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
         mmWidth = 11906
         BandType = 7
       end
+      object ppLabel115: TppLabel
+        UserName = 'Label74'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Contador: '
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 95515
+        mmTop = 47096
+        mmWidth = 16140
+        BandType = 7
+      end
+      object ppLabel124: TppLabel
+        UserName = 'Label124'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Data: '
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 132557
+        mmTop = 47096
+        mmWidth = 8731
+        BandType = 7
+      end
+      object ppDBText164: TppDBText
+        UserName = 'DBText164'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'OS_DT_BELT'
+        DataPipeline = ppOS
+        DisplayFormat = 'dd/mm/yyyy'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppOS'
+        mmHeight = 3704
+        mmLeft = 142082
+        mmTop = 47096
+        mmWidth = 15875
+        BandType = 7
+      end
+      object ppLabel195: TppLabel
+        UserName = 'Label195'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Contador: '
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 157692
+        mmTop = 47096
+        mmWidth = 16140
+        BandType = 7
+      end
+      object ppDBText165: TppDBText
+        UserName = 'DBText165'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'OS_CT_BELT'
+        DataPipeline = ppOS
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppOS'
+        mmHeight = 3704
+        mmLeft = 173832
+        mmTop = 47096
+        mmWidth = 17198
+        BandType = 7
+      end
+      object ppLabel89: TppLabel
+        UserName = 'Label89'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Belt'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 129646
+        mmTop = 42598
+        mmWidth = 6085
+        BandType = 7
+      end
     end
     object raCodeModule4: TraCodeModule
       ProgramStream = {00}
@@ -8829,6 +9574,23 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
     UserName = 'ppOS1'
     Left = 232
     Top = 163
+    object ppLayoutOSppField1: TppField
+      FieldAlias = 'CONFIG_OS'
+      FieldName = 'CONFIG_OS'
+      FieldLength = 8
+      DataType = dtMemo
+      DisplayWidth = 10
+      Position = 0
+      Searchable = False
+      Sortable = False
+    end
+    object ppLayoutOSppField2: TppField
+      FieldAlias = 'CNPJ'
+      FieldName = 'CNPJ'
+      FieldLength = 14
+      DisplayWidth = 14
+      Position = 1
+    end
   end
   object Designer_Receita: TppDesigner
     AllowDataSettingsChange = True
@@ -14433,10 +15195,6 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
       FieldName = 'OS_CT_REVELADOR'
       Origin = '"PCD_IMPRIME_OS"."OS_CT_REVELADOR"'
     end
-    object QryOSOS_DT_REVELADOR: TDateField
-      FieldName = 'OS_DT_REVELADOR'
-      Origin = '"PCD_IMPRIME_OS"."OS_DT_REVELADOR"'
-    end
     object QryOSPRD_QTDE: TFloatField
       FieldName = 'PRD_QTDE'
       Origin = '"PCD_IMPRIME_OS"."PRD_QTDE"'
@@ -14572,6 +15330,22 @@ object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
       Origin = '"PCD_IMPRIME_OS"."OS_TROCA_BELT"'
       FixedChar = True
       Size = 1
+    end
+    object QryOSOS_DT_FUSAO: TDateField
+      FieldName = 'OS_DT_FUSAO'
+      Origin = '"PCD_IMPRIME_OS"."OS_DT_FUSAO"'
+    end
+    object QryOSOS_DT_BELT: TDateField
+      FieldName = 'OS_DT_BELT'
+      Origin = '"PCD_IMPRIME_OS"."OS_DT_BELT"'
+    end
+    object QryOSOS_CT_FUSAO: TIntegerField
+      FieldName = 'OS_CT_FUSAO'
+      Origin = '"PCD_IMPRIME_OS"."OS_CT_FUSAO"'
+    end
+    object QryOSOS_CT_BELT: TIntegerField
+      FieldName = 'OS_CT_BELT'
+      Origin = '"PCD_IMPRIME_OS"."OS_CT_BELT"'
     end
   end
   object dsOS: TDataSource
