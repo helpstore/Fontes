@@ -24,7 +24,7 @@ uses
   cxGridDBBandedTableView, cxGrid, cxPC, cxMaskEdit, cxDropDownEdit,
   cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox, cxCalendar, Menus,
   cxMemo, cxCheckBox, cxGroupBox, StdCtrls, cxButtons, cxCalc, Buttons,
-  cxSpinEdit, DBCtrls;
+  cxSpinEdit, DBCtrls, cxGridExportLink;
 
 type
   TfrmCadContratoAtendimento = class(TfrmCadPadraoMaster)
@@ -243,6 +243,7 @@ type
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure dtEditDet1NewRecord(DataSet: TDataSet);
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -306,6 +307,19 @@ begin
   dtEditDet1DT_VIGENCIA_INICIAL.value := DataAtual;
 
   dtEditDet1CONTRATO.value := dtEditCODIGO.value;
+end;
+
+procedure TfrmCadContratoAtendimento.BitBtn1Click(Sender: TObject);
+begin
+  inherited;
+  with SaveDialog do
+  begin
+    DefaultExt := 'xls';
+    Filter := '*.xls';
+    FileName := 'Histórico VMC';
+    if Execute then
+      ExportGridToExcel(FileName,GridHistorico);
+  end;
 end;
 
 end.

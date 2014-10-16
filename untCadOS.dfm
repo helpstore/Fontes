@@ -11,7 +11,6 @@ inherited frmCadOS: TfrmCadOS
   inherited pgcCadastro: TcxPageControl
     Width = 1254
     Height = 696
-    ActivePage = tbsEdita
     ClientRectBottom = 692
     ClientRectRight = 1250
     inherited tbsLista: TcxTabSheet
@@ -3987,6 +3986,7 @@ inherited frmCadOS: TfrmCadOS
     object dtEditSERIE: TIBStringField
       FieldName = 'SERIE'
       Origin = '"OFC_ORDEM_SERVICO"."SERIE"'
+      OnChange = dtEditSERIEChange
       Size = 30
     end
     object dtEditULT_DT_CILINDRO: TDateField
@@ -7384,6 +7384,7 @@ inherited frmCadOS: TfrmCadOS
     Top = 60
   end
   object SelSeries: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     SQL.Strings = (
@@ -7433,6 +7434,7 @@ inherited frmCadOS: TfrmCadOS
     end
   end
   object SelEndereco: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     SQL.Strings = (

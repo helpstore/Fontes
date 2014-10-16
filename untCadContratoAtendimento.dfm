@@ -793,6 +793,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                       Caption = 'Exportar'
                       TabOrder = 0
                       TabStop = False
+                      OnClick = BitBtn1Click
                       Glyph.Data = {
                         36040000424D3604000000000000360000002800000010000000100000000100
                         2000000000000004000000000000000000000000000000000000000000000000

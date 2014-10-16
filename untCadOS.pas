@@ -823,6 +823,7 @@ begin
   begin
     SelSeries.Close;
     SelSeries.ParamByName('serie').value := dtEditSERIE.asString;
+    SelSeries.ParamByName('CNPJ').value := DMAPP.CNPJ;
     SelSeries.Open;
 
     if (SelSeriesCOD_CLIENTE.AsInteger > 0) then
