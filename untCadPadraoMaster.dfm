@@ -1,5 +1,5 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
-  Left = 8
+  Left = 16
   Top = 1
   Width = 669
   Height = 517

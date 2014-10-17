@@ -1,8 +1,8 @@
 object FrmMain: TFrmMain
-  Left = 98
-  Top = 44
+  Left = 101
+  Top = 0
   Width = 1067
-  Height = 682
+  Height = 644
   Caption = 'HelpStore - Help Inform'#225'tica Dourados'
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -22,8 +22,8 @@ object FrmMain: TFrmMain
   TextHeight = 13
   object pnlstatus: TdxStatusBar
     Left = 0
-    Top = 623
-    Width = 1051
+    Top = 596
+    Width = 1059
     Height = 21
     Panels = <>
     Font.Charset = DEFAULT_CHARSET
@@ -32,12 +32,12 @@ object FrmMain: TFrmMain
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     DesignSize = (
-      1051
+      1059
       21)
     object Shape167: TShape
       Left = 0
       Top = 0
-      Width = 1051
+      Width = 1059
       Height = 1
       Align = alTop
     end
@@ -117,18 +117,18 @@ object FrmMain: TFrmMain
   end
   object Panel3: TPanel
     Left = 0
-    Top = 621
-    Width = 1051
+    Top = 594
+    Width = 1059
     Height = 2
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
   end
   object Panel10: TPanel
-    Left = 1049
+    Left = 1057
     Top = 86
     Width = 2
-    Height = 535
+    Height = 508
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 2
@@ -137,7 +137,7 @@ object FrmMain: TFrmMain
     Left = 0
     Top = 86
     Width = 3
-    Height = 535
+    Height = 508
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 3
@@ -146,7 +146,7 @@ object FrmMain: TFrmMain
     Left = 3
     Top = 86
     Width = 198
-    Height = 535
+    Height = 508
     Align = alLeft
     BevelOuter = bvNone
     Caption = 'Panel1'
@@ -155,13 +155,13 @@ object FrmMain: TFrmMain
       Left = 0
       Top = 0
       Width = 198
-      Height = 535
+      Height = 508
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
       object Panel4: TPanel
         Left = 0
-        Top = 533
+        Top = 506
         Width = 198
         Height = 0
         Align = alBottom
@@ -170,7 +170,7 @@ object FrmMain: TFrmMain
       end
       object Panel12: TPanel
         Left = 0
-        Top = 533
+        Top = 506
         Width = 198
         Height = 2
         Align = alBottom
@@ -181,7 +181,7 @@ object FrmMain: TFrmMain
         Left = 0
         Top = 0
         Width = 198
-        Height = 533
+        Height = 506
         Align = alClient
         PopupMenu = Pop
         ActiveGroupIndex = 0
@@ -338,8 +338,8 @@ object FrmMain: TFrmMain
   object pnlClient: TPanel
     Left = 201
     Top = 86
-    Width = 848
-    Height = 535
+    Width = 856
+    Height = 508
     Align = alClient
     BevelOuter = bvNone
     Font.Charset = DEFAULT_CHARSET
@@ -353,8 +353,8 @@ object FrmMain: TFrmMain
     object pnlDesktop: TPanel
       Left = 0
       Top = 0
-      Width = 848
-      Height = 490
+      Width = 856
+      Height = 463
       Align = alClient
       BevelOuter = bvNone
       ParentColor = True
@@ -362,17 +362,17 @@ object FrmMain: TFrmMain
       object PgcMain: TcxPageControl
         Left = 0
         Top = 0
-        Width = 848
-        Height = 490
+        Width = 856
+        Height = 463
         ActivePage = cxTabSheet1
         Align = alClient
         TabOrder = 0
         OnMouseDown = PgcMainMouseDown
         OnMouseUp = PgcMainMouseUp
         OnPageChanging = PgcMainPageChanging
-        ClientRectBottom = 486
+        ClientRectBottom = 459
         ClientRectLeft = 4
-        ClientRectRight = 844
+        ClientRectRight = 852
         ClientRectTop = 27
         object cxTabSheet1: TcxTabSheet
           Caption = 'Agenda Pessoal'
@@ -380,7 +380,7 @@ object FrmMain: TFrmMain
           object ToolBar1: TToolBar
             Left = 0
             Top = 0
-            Width = 840
+            Width = 848
             Height = 29
             ButtonHeight = 24
             ButtonWidth = 34
@@ -470,8 +470,8 @@ object FrmMain: TFrmMain
           object Scheduler: TcxScheduler
             Left = 0
             Top = 29
-            Width = 840
-            Height = 430
+            Width = 848
+            Height = 403
             ViewDay.Active = True
             Align = alClient
             Font.Charset = DEFAULT_CHARSET
@@ -482,8 +482,8 @@ object FrmMain: TFrmMain
             Storage = AgendaStorage2
             TabOrder = 1
             Splitters = {
-              B80200007E0000004703000083000000B302000001000000B8020000AD010000}
-            StoredClientBounds = {010000000100000047030000AD010000}
+              C00200007E0000004F03000083000000BB02000001000000C002000092010000}
+            StoredClientBounds = {01000000010000004F03000092010000}
           end
         end
         object tbsMensagem: TcxTabSheet
@@ -627,15 +627,15 @@ object FrmMain: TFrmMain
           object pgcGraficos: TcxPageControl
             Left = 0
             Top = 70
-            Width = 840
-            Height = 389
+            Width = 848
+            Height = 362
             ActivePage = tbsFinanceiro
             Align = alClient
             TabOrder = 0
             OnChange = pgcGraficosChange
-            ClientRectBottom = 385
+            ClientRectBottom = 358
             ClientRectLeft = 4
-            ClientRectRight = 836
+            ClientRectRight = 844
             ClientRectTop = 27
             object tbsFinanceiro: TcxTabSheet
               Caption = 'Financeiro'
@@ -643,15 +643,15 @@ object FrmMain: TFrmMain
               object pcGraficoGrupoFinanceiro: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 832
-                Height = 358
+                Width = 840
+                Height = 331
                 ActivePage = tbsFluxoFinanceiro
                 Align = alClient
                 TabOrder = 0
                 OnChange = pgcGraficosChange
-                ClientRectBottom = 354
+                ClientRectBottom = 327
                 ClientRectLeft = 4
-                ClientRectRight = 828
+                ClientRectRight = 836
                 ClientRectTop = 27
                 object tbsFluxoFinanceiro: TcxTabSheet
                   Caption = 'Fluxo Financeiro'
@@ -660,8 +660,8 @@ object FrmMain: TFrmMain
                   object Panel13: TPanel
                     Left = 0
                     Top = 0
-                    Width = 824
-                    Height = 327
+                    Width = 832
+                    Height = 300
                     Align = alClient
                     BevelInner = bvRaised
                     BevelOuter = bvLowered
@@ -675,8 +675,8 @@ object FrmMain: TFrmMain
                     TabOrder = 0
                     object Bevel1: TBevel
                       Left = 2
-                      Top = 323
-                      Width = 820
+                      Top = 296
+                      Width = 828
                       Height = 2
                       Align = alBottom
                       Shape = bsTopLine
@@ -684,15 +684,15 @@ object FrmMain: TFrmMain
                     object Panel16: TPanel
                       Left = 2
                       Top = 2
-                      Width = 820
-                      Height = 321
+                      Width = 828
+                      Height = 294
                       Align = alClient
                       BevelOuter = bvNone
                       TabOrder = 0
                       object Panel18: TPanel
                         Left = 0
                         Top = 29
-                        Width = 820
+                        Width = 828
                         Height = 28
                         Align = alTop
                         BevelOuter = bvNone
@@ -756,16 +756,16 @@ object FrmMain: TFrmMain
                       object pcFluxoCaixa: TcxPageControl
                         Left = 0
                         Top = 57
-                        Width = 820
-                        Height = 264
+                        Width = 828
+                        Height = 237
                         ActivePage = dxTabSheet1
                         Align = alClient
                         HotTrack = True
                         TabOrder = 1
                         OnChange = pcFluxoCaixaChange
-                        ClientRectBottom = 260
+                        ClientRectBottom = 233
                         ClientRectLeft = 4
-                        ClientRectRight = 816
+                        ClientRectRight = 824
                         ClientRectTop = 27
                         object dxTabSheet1: TcxTabSheet
                           Caption = ' Barras'
@@ -1287,7 +1287,7 @@ object FrmMain: TFrmMain
                       object Panel17: TPanel
                         Left = 0
                         Top = 0
-                        Width = 820
+                        Width = 828
                         Height = 29
                         Align = alTop
                         BevelInner = bvRaised
@@ -1347,15 +1347,15 @@ object FrmMain: TFrmMain
                   object pgcContasPagar: TcxPageControl
                     Left = 0
                     Top = 0
-                    Width = 824
-                    Height = 327
+                    Width = 832
+                    Height = 300
                     ActivePage = cxTabSheet6
                     Align = alClient
                     TabOrder = 0
                     OnChange = pgcGraficosChange
-                    ClientRectBottom = 323
+                    ClientRectBottom = 296
                     ClientRectLeft = 4
-                    ClientRectRight = 820
+                    ClientRectRight = 828
                     ClientRectTop = 27
                     object tbsCentroCusto: TcxTabSheet
                       Caption = 'Centro de Custo'
@@ -1647,15 +1647,15 @@ object FrmMain: TFrmMain
                   object pgcContasReceber: TcxPageControl
                     Left = 0
                     Top = 0
-                    Width = 824
-                    Height = 327
+                    Width = 832
+                    Height = 300
                     ActivePage = cxTabSheet5
                     Align = alClient
                     TabOrder = 0
                     OnChange = pgcGraficosChange
-                    ClientRectBottom = 323
+                    ClientRectBottom = 296
                     ClientRectLeft = 4
-                    ClientRectRight = 820
+                    ClientRectRight = 828
                     ClientRectTop = 27
                     object cxTabSheet5: TcxTabSheet
                       Caption = 'Meses de Vencimento'
@@ -1944,14 +1944,14 @@ object FrmMain: TFrmMain
               object pgcFaturamentos: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 832
-                Height = 358
+                Width = 840
+                Height = 331
                 ActivePage = tbsMetasVenda
                 Align = alClient
                 TabOrder = 0
-                ClientRectBottom = 354
+                ClientRectBottom = 327
                 ClientRectLeft = 4
-                ClientRectRight = 828
+                ClientRectRight = 836
                 ClientRectTop = 27
                 object tbsMetasVenda: TcxTabSheet
                   Caption = 'Metas de Venda'
@@ -1959,16 +1959,16 @@ object FrmMain: TFrmMain
                   object pgcMetasVenda: TcxPageControl
                     Left = 0
                     Top = 0
-                    Width = 824
-                    Height = 327
+                    Width = 832
+                    Height = 300
                     ActivePage = tbsMetasGrafico
                     Align = alClient
                     HotTrack = True
                     TabOrder = 0
                     OnChange = pcFluxoCaixaChange
-                    ClientRectBottom = 323
+                    ClientRectBottom = 296
                     ClientRectLeft = 4
-                    ClientRectRight = 820
+                    ClientRectRight = 828
                     ClientRectTop = 27
                     object tbsMetasGrafico: TcxTabSheet
                       Caption = 'Gr'#225'fico'
@@ -1977,8 +1977,8 @@ object FrmMain: TFrmMain
                       object lcMetaVenda: TdxLayoutControl
                         Left = 0
                         Top = 0
-                        Width = 816
-                        Height = 296
+                        Width = 824
+                        Height = 269
                         Align = alClient
                         BevelInner = bvNone
                         BevelOuter = bvNone
@@ -2155,7 +2155,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 38.000000000000000000
+                            Value = 81.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2323,7 +2323,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 98.000000000000000000
+                            Value = 17.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2491,7 +2491,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 19.000000000000000000
+                            Value = 95.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2659,7 +2659,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 48.000000000000000000
+                            Value = 26.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -2827,7 +2827,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 96.000000000000000000
+                            Value = 10.000000000000000000
                           end
                         end
                         object lcMetaVendaGroup_Root: TdxLayoutGroup
@@ -3023,7 +3023,7 @@ object FrmMain: TFrmMain
           object Panel15: TPanel
             Left = 0
             Top = 0
-            Width = 840
+            Width = 848
             Height = 37
             Align = alTop
             BevelInner = bvRaised
@@ -3118,7 +3118,7 @@ object FrmMain: TFrmMain
           object TeeCommander: TTeeCommander
             Left = 0
             Top = 37
-            Width = 840
+            Width = 848
             Height = 33
             Panel = GraficoBarras
             Align = alTop
@@ -3133,8 +3133,8 @@ object FrmMain: TFrmMain
     end
     object Panel6: TPanel
       Left = 0
-      Top = 492
-      Width = 848
+      Top = 465
+      Width = 856
       Height = 43
       Align = alBottom
       BevelInner = bvRaised
@@ -3158,7 +3158,7 @@ object FrmMain: TFrmMain
         Visible = False
       end
       object Panel7: TPanel
-        Left = 395
+        Left = 403
         Top = 2
         Width = 451
         Height = 39
@@ -3303,8 +3303,8 @@ object FrmMain: TFrmMain
     end
     object Panel2: TPanel
       Left = 0
-      Top = 490
-      Width = 848
+      Top = 463
+      Width = 856
       Height = 2
       Align = alBottom
       BevelOuter = bvNone
@@ -3318,8 +3318,8 @@ object FrmMain: TFrmMain
     AutoDockColor = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

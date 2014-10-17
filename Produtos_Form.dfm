@@ -1,6 +1,6 @@
 object FrmProdutos: TFrmProdutos
-  Left = 175
-  Top = 0
+  Left = 354
+  Top = 100
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Produtos '
@@ -90,7 +90,7 @@ object FrmProdutos: TFrmProdutos
       Width = 605
       Height = 446
       Cursor = crHandPoint
-      ActivePage = Pg2
+      ActivePage = Pg1
       HotTrack = True
       TabOrder = 1
       ClientRectBottom = 442

@@ -1381,7 +1381,7 @@ uses
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
   untCadFornecedores, untCadOS, untCadContratoAtendimento,
-  UntCadClassificacao, untCadClientes;
+  UntCadClassificacao, untCadClientes, UntCadContratoCopias;
 
 {$R *.DFM}
 
@@ -8624,7 +8624,7 @@ end;
 
 procedure TFrmMain.btnGrupoEmpresarialClick(Sender: TObject);
 begin
-  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmContratosGrupos', True)) then
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadContratoCopias', True)) then
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
@@ -8633,12 +8633,12 @@ begin
   if FrmMain.MDIChildCount > 0 then
      opFechar.OnClick(opFechar);
 
-  if FrmContratosGrupos = nil  then
-    FrmContratosGrupos := TFrmContratosGrupos.Create(Self);
+  if frmCadContratoCopias = nil  then
+    frmCadContratoCopias := TfrmCadContratoCopias.Create(Self);
 
   Application.ProcessMessages;
   PnlClient.Visible:= False;
-  FrmContratosGrupos.ShowModal;
+  frmCadContratoCopias.ShowModal;
 end;
 
 procedure TFrmMain.GridMensagemEnter(Sender: TObject);

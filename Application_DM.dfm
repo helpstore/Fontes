@@ -2,7 +2,7 @@ object DmApp: TDmApp
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 8
+  Left = 16
   Top = 1
   Height = 517
   Width = 669
