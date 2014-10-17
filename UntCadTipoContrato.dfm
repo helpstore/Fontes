@@ -6,8 +6,10 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsLista
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
+        Height = 336
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -28,6 +30,16 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
+          object GridDBBandedTableView2UPD_LEITURA: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'UPD_LEITURA'
+            PropertiesClassName = 'TcxCheckBoxProperties'
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            Width = 89
+            Position.BandIndex = 0
+            Position.ColIndex = 3
+            Position.RowIndex = 0
+          end
         end
       end
     end
@@ -38,6 +50,19 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
         end
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
+        end
+        object cxDBCheckBox1: TcxDBCheckBox
+          Left = 575
+          Top = 36
+          Caption = 'Upd. VMC Leitura de C'#243'pias'
+          DataBinding.DataField = 'UPD_LEITURA'
+          DataBinding.DataSource = dsRegistro
+          Properties.ValueChecked = 'S'
+          Properties.ValueUnchecked = 'N'
+          Style.TransparentBorder = True
+          TabOrder = 4
+          Transparent = True
+          Width = 162
         end
       end
     end
@@ -50,22 +75,21 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
       'insert into GLO_TIPO_CONTRATO'
-      '  (CNPJ, CODIGO, NOME)'
+      '  (CNPJ, CODIGO, NOME, UPD_LEITURA)'
       'values'
-      '  (:CNPJ, :CODIGO, :NOME)')
+      '  (:CNPJ, :CODIGO, :NOME, :UPD_LEITURA)')
     RefreshSQL.Strings = (
       'Select '
       '  CNPJ,'
       '  CODIGO,'
-      '  NOME'
+      '  NOME,'
+      '  UPD_LEITURA'
       'from GLO_TIPO_CONTRATO '
       'where'
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'SELECT CNPJ,'
-      '               CODIGO, '
-      '               NOME '
+      'SELECT * '
       'FROM GLO_TIPO_CONTRATO'
       'WHERE codigo =:codigo')
     ModifySQL.Strings = (
@@ -73,7 +97,8 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       'set'
       '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
-      '  NOME = :NOME'
+      '  NOME = :NOME,'
+      '  UPD_LEITURA = :UPD_LEITURA'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
@@ -99,12 +124,16 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       Origin = '"GLO_TIPO_CONTRATO"."NOME"'
       Size = 50
     end
+    object dtEditUPD_LEITURA: TIBStringField
+      FieldName = 'UPD_LEITURA'
+      Origin = '"GLO_TIPO_CONTRATO"."UPD_LEITURA"'
+      FixedChar = True
+      Size = 1
+    end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'SELECT CNPJ,'
-      '               CODIGO, '
-      '               NOME '
+      'SELECT * '
       'FROM GLO_TIPO_CONTRATO'
       'WHERE CNPJ = :CNPJ'
       'ORDER BY NOME')
@@ -136,6 +165,13 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       FieldName = 'NOME'
       Origin = '"GLO_TIPO_CONTRATO"."NOME"'
       Size = 50
+    end
+    object dtListUPD_LEITURA: TIBStringField
+      DisplayLabel = 'Upd. VMC Leitura'
+      FieldName = 'UPD_LEITURA'
+      Origin = '"GLO_TIPO_CONTRATO"."UPD_LEITURA"'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -325,6 +361,41 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       end
       item
         Component = GridDBBandedTableView2NOME
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2UPD_LEITURA
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'

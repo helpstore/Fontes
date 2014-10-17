@@ -21,7 +21,7 @@ uses
   dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
-  cxPC;
+  cxPC, cxCheckBox;
 
 type
   TfrmCadTipoContrato = class(TfrmCadPadrao)
@@ -34,6 +34,10 @@ type
     dtEditCNPJ: TIBStringField;
     dtEditCODIGO: TIntegerField;
     dtEditNOME: TIBStringField;
+    dtListUPD_LEITURA: TIBStringField;
+    dtEditUPD_LEITURA: TIBStringField;
+    cxDBCheckBox1: TcxDBCheckBox;
+    GridDBBandedTableView2UPD_LEITURA: TcxGridDBBandedColumn;
   private
     { Private declarations }
   public

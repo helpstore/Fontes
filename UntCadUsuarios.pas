@@ -29,13 +29,9 @@ type
     dtListCODIGO: TIntegerField;
     dtListLOGIN: TIBStringField;
     dtListNOME: TIBStringField;
-    dtListPERFIL: TIntegerField;
-    dtListSENHA: TIBStringField;
     GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn;
     GridDBBandedTableView2LOGIN: TcxGridDBBandedColumn;
     GridDBBandedTableView2NOME: TcxGridDBBandedColumn;
-    GridDBBandedTableView2PERFIL: TcxGridDBBandedColumn;
-    GridDBBandedTableView2SENHA: TcxGridDBBandedColumn;
     dtEditCODIGO: TIntegerField;
     dtEditLOGIN: TIBStringField;
     dtEditNOME: TIBStringField;
@@ -43,34 +39,18 @@ type
     dtEditSENHA: TIBStringField;
     cxDBTextEdit1: TcxDBTextEdit;
     cxLabel3: TcxLabel;
-    cxDBLookupComboBox1: TcxDBLookupComboBox;
+    CmbPerfil: TcxDBLookupComboBox;
     cxLabel4: TcxLabel;
     dsPerfil: TDataSource;
     QryPerfil: TIBQuery;
-    dtVendedor: TIBDataSet;
-    dsCaixa: TDataSource;
-    dtVendedorCNPJ: TIBStringField;
-    dtVendedorCODIGO: TIntegerField;
-    dtVendedorCONTA_DESCONTOS: TIntegerField;
-    dtVendedorCONTA_DIFERENCA: TIntegerField;
-    dtVendedorVENDEDOR: TIntegerField;
-    QryVendedor: TIBQuery;
-    dsVendedor: TDataSource;
-    cxLabel5: TcxLabel;
-    cxDBLookupComboBox2: TcxDBLookupComboBox;
-    QryVendedorCNPJ: TIBStringField;
-    QryVendedorCODIGO: TIntegerField;
-    QryVendedorNOME: TIBStringField;
-    QryVendedorCOM_VISTA: TFloatField;
-    QryVendedorCOM_PRAZO: TFloatField;
-    QryVendedorPESSOA_FJ: TIntegerField;
-    QryVendedorSENHA: TIBStringField;
-    QryVendedorATIVO: TIBStringField;
-    QryVendedorCOD_PERFIL: TIntegerField;
-    QryVendedorCOD_PERFIL_PAGTO: TIntegerField;
     QryPerfilCODIGO: TIntegerField;
     QryPerfilDESCRICAO: TIBStringField;
+    dtEditEXIBIR: TIBStringField;
+    dtListDESCRICAO: TIBStringField;
+    GridDBBandedTableView2DESCRICAO: TcxGridDBBandedColumn;
     procedure FormShow(Sender: TObject);
+    procedure dtEditNewRecord(DataSet: TDataSet);
+    procedure dtEditBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -82,6 +62,8 @@ var
 
 implementation
 
+uses Funcoes;
+
 {$R *.dfm}
 
 procedure TfrmCadUsuarios.FormShow(Sender: TObject);
@@ -90,12 +72,23 @@ begin
   QryPerfil.Close;
   QryPerfil.Open;
 
-  dtVendedor.Close;
-  dtVendedor.Open;
-  dtVendedor.Edit;
+end;
 
-  QryVendedor.Close;
-  QryVendedor.Open;
+procedure TfrmCadUsuarios.dtEditNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditSENHA.Value  := Encrypt('1234');
+end;
+
+procedure TfrmCadUsuarios.dtEditBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if dtEditPERFIL.asinteger = 0 then
+  begin
+    Application.MessageBox('Impossível salvar. Campo Perfil não preenchido.','Aviso',mb_iconerror + mb_ok);
+    CmbPerfil.setfocus; 
+    abort;
+  end;
 end;
 
 end.
