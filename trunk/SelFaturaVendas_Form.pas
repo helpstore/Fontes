@@ -671,7 +671,7 @@ uses Vendas_DM,
      MensagemClassificacao_Form,
      Servicos_DM, CaixaSaidas_Form, Receber_Form, Pagar_Form,
   Localizar_Fornecedor, Vendas_DM2, OrdemCarga_DM, CarregarItens,
-  Cadastros_Dm2;
+  Cadastros_Dm2, dateutils;
 
   {$R *.DFM}
 
@@ -963,7 +963,7 @@ begin
          BtnGaveta.Enabled                := False ;
     END;
 
-    edDtInicial.date := DmApp.Data_Servidor ;
+    edDtInicial.date := dateof(DmApp.Data_Servidor) ;
 
   Except
     On E:EDataBaseError Do
