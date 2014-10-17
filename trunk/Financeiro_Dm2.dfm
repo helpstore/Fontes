@@ -1,6 +1,6 @@
 object dmFinanceiro2: TdmFinanceiro2
   OldCreateOrder = False
-  Left = 8
+  Left = 16
   Top = 1
   Height = 517
   Width = 669

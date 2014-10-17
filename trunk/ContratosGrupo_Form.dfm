@@ -1,6 +1,6 @@
 object FrmContratosGrupos: TFrmContratosGrupos
-  Left = 204
-  Top = 109
+  Left = 210
+  Top = 64
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Contrato de C'#243'pias'

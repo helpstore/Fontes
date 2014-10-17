@@ -1,25 +1,25 @@
 inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
-  Left = 164
-  Top = 56
-  Width = 1031
-  Height = 645
+  Left = -4
+  Top = -4
+  Width = 1374
+  Height = 748
   Caption = 'Contratos de Atendimento'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1015
-    Height = 581
+    Width = 1366
+    Height = 695
     ActivePage = tbsEdita
-    ClientRectBottom = 577
-    ClientRectRight = 1011
+    ClientRectBottom = 691
+    ClientRectRight = 1362
     ClientRectTop = 4
     inherited tbsLista: TcxTabSheet
       TabVisible = False
       inherited Grid: TcxGrid
         Top = 5
-        Width = 1007
-        Height = 568
+        Width = 1358
+        Height = 682
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -121,42 +121,43 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1007
+        Width = 1358
         Height = 5
       end
     end
     inherited tbsEdita: TcxTabSheet
       TabVisible = False
       inherited Panel2: TPanel
-        Width = 1007
-        Height = 573
+        Width = 1358
+        Height = 687
         inherited pnlSubCad: TPanel
-          Top = 151
-          Width = 1005
+          Top = 265
+          Width = 1356
           Height = 421
           inherited PgcDetalhe: TcxPageControl
-            Width = 1005
+            Width = 1356
             Height = 421
             ActivePage = tbsDetalhe1
             ClientRectBottom = 417
-            ClientRectRight = 1001
+            ClientRectRight = 1352
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Equipamentos '
               inherited PGCSub1: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
+                ActivePage = tbsListaSub1
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 989
+                    Width = 1340
                     Height = 359
                     inherited TVDet1: TcxGridDBBandedTableView
                       OptionsView.BandHeaders = True
                       Bands = <
                         item
                           Caption = 'Geral'
-                          Width = 651
+                          Width = 668
                         end
                         item
                           Caption = 'Par'#226'metros - Dias'
@@ -180,14 +181,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                       end
                       object TVDet1CODIGO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CODIGO'
-                        Width = 60
+                        Width = 66
                         Position.BandIndex = 0
                         Position.ColIndex = 1
                         Position.RowIndex = 0
                       end
                       object TVDet1COD_PRODUTO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'COD_PRODUTO'
-                        Width = 96
+                        Width = 105
                         Position.BandIndex = 0
                         Position.ColIndex = 2
                         Position.RowIndex = 0
@@ -223,7 +224,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                       end
                       object TVDet1ATIVO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'ATIVO'
-                        Width = 48
+                        Width = 37
                         Position.BandIndex = 0
                         Position.ColIndex = 10
                         Position.RowIndex = 0
@@ -309,14 +310,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                       end
                       object TVDet1PRODUTO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'PRODUTO'
-                        Width = 116
+                        Width = 128
                         Position.BandIndex = 0
                         Position.ColIndex = 4
                         Position.RowIndex = 0
                       end
                       object TVDet1MODELO_EQUIPAMENTO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'MODELO_EQUIPAMENTO'
-                        Width = 80
+                        Width = 87
                         Position.BandIndex = 0
                         Position.ColIndex = 8
                         Position.RowIndex = 0
@@ -331,9 +332,29 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                       end
                       object TVDet1SERIE: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'SERIE'
-                        Width = 151
+                        Width = 167
                         Position.BandIndex = 0
                         Position.ColIndex = 3
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1TIPO_COLORIDO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'TIPO_COLORIDO'
+                        PropertiesClassName = 'TcxCheckBoxProperties'
+                        Properties.ValueChecked = 'S'
+                        Properties.ValueUnchecked = 'N'
+                        Width = 35
+                        Position.BandIndex = 0
+                        Position.ColIndex = 11
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1TIPO_DIGITALIZACAO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'TIPO_DIGITALIZACAO'
+                        PropertiesClassName = 'TcxCheckBoxProperties'
+                        Properties.ValueChecked = 'S'
+                        Properties.ValueUnchecked = 'N'
+                        Width = 43
+                        Position.BandIndex = 0
+                        Position.ColIndex = 12
                         Position.RowIndex = 0
                       end
                     end
@@ -443,7 +464,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     Width = 125
                   end
                   object cxLabel16: TcxLabel
-                    Left = 499
+                    Left = 521
                     Top = -1
                     Caption = 'Valor'
                     Transparent = True
@@ -705,7 +726,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   object GridHistorico: TcxGrid
                     Left = 0
                     Top = 180
-                    Width = 989
+                    Width = 1340
                     Height = 154
                     Align = alBottom
                     TabOrder = 8
@@ -781,7 +802,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   object Panel4: TPanel
                     Left = 0
                     Top = 334
-                    Width = 989
+                    Width = 1340
                     Height = 25
                     Align = alBottom
                     TabOrder = 13
@@ -834,14 +855,14 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                   object Panel1: TPanel
                     Left = 0
                     Top = 159
-                    Width = 989
+                    Width = 1340
                     Height = 21
                     Align = alBottom
                     Caption = 'Hist'#243'rico VMC'
                     TabOrder = 14
                   end
                   object cxGroupBox4: TcxGroupBox
-                    Left = 401
+                    Left = 400
                     Top = 107
                     TabStop = True
                     Caption = 'VMC - Volume M'#233'dio de C'#243'pias (Mensal)'
@@ -930,7 +951,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     DataBinding.DataSource = dsRegistroDet1
                     TabOrder = 6
                     Height = 50
-                    Width = 390
+                    Width = 274
                   end
                   object cxLabel27: TcxLabel
                     Left = 8
@@ -938,16 +959,52 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                     Caption = 'Informa'#231#245'es'
                     Transparent = True
                   end
+                  object cxGroupBox5: TcxGroupBox
+                    Left = 283
+                    Top = 107
+                    TabStop = True
+                    Caption = 'Fun'#231#245'es'
+                    Enabled = False
+                    TabOrder = 16
+                    Height = 64
+                    Width = 112
+                    object cxDBCheckBox3: TcxDBCheckBox
+                      Left = 6
+                      Top = 39
+                      Caption = 'Colorido'
+                      DataBinding.DataField = 'TIPO_COLORIDO'
+                      DataBinding.DataSource = dsRegistroDet1
+                      Properties.ValueChecked = 'S'
+                      Properties.ValueUnchecked = 'N'
+                      Style.TransparentBorder = True
+                      TabOrder = 0
+                      Transparent = True
+                      Width = 66
+                    end
+                    object cxDBCheckBox4: TcxDBCheckBox
+                      Left = 6
+                      Top = 18
+                      Caption = 'Digitaliza'#231#227'o'
+                      DataBinding.DataField = 'TIPO_DIGITALIZACAO'
+                      DataBinding.DataSource = dsRegistroDet1
+                      Properties.ValueChecked = 'S'
+                      Properties.ValueUnchecked = 'N'
+                      Style.TransparentBorder = True
+                      TabOrder = 1
+                      Transparent = True
+                      Width = 90
+                    end
+                  end
                 end
               end
             end
             inherited tbsDetalhe2: TcxTabSheet
               TabVisible = False
               inherited PGCSub2: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
                     Width = 907
@@ -959,10 +1016,10 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
                     Width = 989
@@ -974,10 +1031,10 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Width = 907
@@ -989,10 +1046,10 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub5: TcxTabSheet
                   inherited GridDet5: TcxGrid
                     Width = 907
@@ -1004,10 +1061,10 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub6: TcxTabSheet
                   inherited GridDet6: TcxGrid
                     Width = 907
@@ -1019,10 +1076,10 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub7: TcxTabSheet
                   inherited GridDet7: TcxGrid
                     Width = 907
@@ -1034,10 +1091,10 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 997
+                Width = 1348
                 Height = 390
                 ClientRectBottom = 386
-                ClientRectRight = 993
+                ClientRectRight = 1344
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 907
@@ -1049,13 +1106,13 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1005
-          Height = 150
+          Width = 1356
+          Height = 264
           inherited PgcMaster: TcxPageControl
-            Width = 1005
-            Height = 150
-            ClientRectBottom = 146
-            ClientRectRight = 1001
+            Width = 1356
+            Height = 264
+            ClientRectBottom = 260
+            ClientRectRight = 1352
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               object DBText1: TDBText [0]
@@ -3398,6 +3455,20 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       FieldName = 'COD_CLIENTE'
       Origin = '"OFC_CONTRATOS"."COD_CLIENTE"'
     end
+    object dtListDet1TIPO_COLORIDO: TIBStringField
+      DisplayLabel = 'Colorido'
+      FieldName = 'TIPO_COLORIDO'
+      Origin = '"OFC_CONTRATOS_ITENS"."TIPO_COLORIDO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListDet1TIPO_DIGITALIZACAO: TIBStringField
+      DisplayLabel = 'Digitaliza'#231#227'o'
+      FieldName = 'TIPO_DIGITALIZACAO'
+      Origin = '"OFC_CONTRATOS_ITENS"."TIPO_DIGITALIZACAO"'
+      FixedChar = True
+      Size = 1
+    end
   end
   inherited dtEditDet1: TIBDataSet
     DeleteSQL.Strings = (
@@ -3417,8 +3488,9 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
         '   GERA_LEITURA, INFORMACOES_ITENS, MEDIA_COPIAS, QTDE_COPIAS_PR' +
         'EVENTIVA, '
       
-        '   TEMPO_RESPOSTA, VALOR, VMC_COD_UPD, VMC_DATA_UPD, VMC_TIPO_UP' +
-        'D)'
+        '   TEMPO_RESPOSTA, TIPO_COLORIDO, TIPO_DIGITALIZACAO, VALOR, VMC' +
+        '_COD_UPD, '
+      '   VMC_DATA_UPD, VMC_TIPO_UPD)'
       'values'
       
         '  (:ATIVO, :CNPJ, :COD_INDEXADOR, :COD_PRODUTO, :CODIGO, :CONTRA' +
@@ -3430,9 +3502,9 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
         '   :DT_VIGENCIA_INICIAL, :GERA_LEITURA, :INFORMACOES_ITENS, :MED' +
         'IA_COPIAS, '
       
-        '   :QTDE_COPIAS_PREVENTIVA, :TEMPO_RESPOSTA, :VALOR, :VMC_COD_UP' +
-        'D, :VMC_DATA_UPD, '
-      '   :VMC_TIPO_UPD)')
+        '   :QTDE_COPIAS_PREVENTIVA, :TEMPO_RESPOSTA, :TIPO_COLORIDO, :TI' +
+        'PO_DIGITALIZACAO, '
+      '   :VALOR, :VMC_COD_UPD, :VMC_DATA_UPD, :VMC_TIPO_UPD)')
     RefreshSQL.Strings = (
       'Select * '
       'from ofc_contratos_itens '
@@ -3463,6 +3535,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       '  MEDIA_COPIAS = :MEDIA_COPIAS,'
       '  QTDE_COPIAS_PREVENTIVA = :QTDE_COPIAS_PREVENTIVA,'
       '  TEMPO_RESPOSTA = :TEMPO_RESPOSTA,'
+      '  TIPO_COLORIDO = :TIPO_COLORIDO,'
+      '  TIPO_DIGITALIZACAO = :TIPO_DIGITALIZACAO,'
       '  VALOR = :VALOR,'
       '  VMC_COD_UPD = :VMC_COD_UPD,'
       '  VMC_DATA_UPD = :VMC_DATA_UPD,'
@@ -3576,6 +3650,18 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
     object dtEditDet1VMC_COD_UPD: TIntegerField
       FieldName = 'VMC_COD_UPD'
       Origin = '"OFC_CONTRATOS_ITENS"."VMC_COD_UPD"'
+    end
+    object dtEditDet1TIPO_COLORIDO: TIBStringField
+      FieldName = 'TIPO_COLORIDO'
+      Origin = '"OFC_CONTRATOS_ITENS"."TIPO_COLORIDO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditDet1TIPO_DIGITALIZACAO: TIBStringField
+      FieldName = 'TIPO_DIGITALIZACAO'
+      Origin = '"OFC_CONTRATOS_ITENS"."TIPO_DIGITALIZACAO"'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited mtbFiltro: TdxMemData

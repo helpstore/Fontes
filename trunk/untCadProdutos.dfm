@@ -1,21 +1,22 @@
 inherited frmCadProdutos: TfrmCadProdutos
-  Left = -4
-  Top = -4
-  Width = 1374
-  Height = 748
+  Left = 270
+  Top = 33
+  Width = 711
+  Height = 600
   Caption = 'Produtos'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1366
-    Height = 695
-    ClientRectBottom = 691
-    ClientRectRight = 1362
+    Width = 703
+    Height = 547
+    ActivePage = tbsEdita
+    ClientRectBottom = 543
+    ClientRectRight = 699
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 27
-        Width = 1358
-        Height = 637
+        Width = 695
+        Height = 489
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -596,81 +597,988 @@ inherited frmCadProdutos: TfrmCadProdutos
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1358
+        Width = 695
         Height = 27
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1358
-        Height = 664
+        Width = 695
+        Height = 516
         inherited pnlSubCad: TPanel
-          Top = 386
-          Width = 1356
+          Top = 238
+          Width = 693
           inherited PgcDetalhe: TcxPageControl
-            Width = 1356
-            ClientRectRight = 1352
+            Width = 693
+            ClientRectRight = 689
             inherited tbsDetalhe1: TcxTabSheet
               inherited PGCSub1: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ClientRectRight = 681
               end
             end
             inherited tbsDetalhe2: TcxTabSheet
               inherited PGCSub2: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ClientRectRight = 681
               end
             end
             inherited tbsDetalhe3: TcxTabSheet
               inherited PGCSub3: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ClientRectRight = 681
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
               inherited PGCSub4: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ClientRectRight = 681
               end
             end
             inherited tbsDetalhe5: TcxTabSheet
               inherited PGCSub5: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ClientRectRight = 681
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               inherited PGCSub6: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ClientRectRight = 681
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
               inherited PGCSub7: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ClientRectRight = 681
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               inherited PGCSub8: TcxPageControl
-                Width = 1348
-                ClientRectRight = 1344
+                Width = 685
+                ActivePage = tbsListaSub8
+                ClientRectRight = 681
+                inherited tbsListaSub8: TcxTabSheet
+                  inherited GridDet8: TcxGrid
+                    Width = 677
+                  end
+                end
               end
             end
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1356
-          Height = 385
+          Width = 693
+          Height = 237
           inherited PgcMaster: TcxPageControl
-            Width = 1356
-            Height = 385
-            ClientRectBottom = 381
-            ClientRectRight = 1352
+            Width = 693
+            Height = 237
+            ClientRectBottom = 233
+            ClientRectRight = 689
+            inherited tbsMaster1: TcxTabSheet
+              Caption = 'Cadastro'
+              inherited edtCodigo: TcxDBTextEdit
+                DataBinding.DataField = 'CODIGO'
+                Properties.ReadOnly = False
+                Style.Color = clWindow
+                Width = 121
+              end
+              object edtSerie: TcxDBTextEdit
+                Left = 131
+                Top = 16
+                DataBinding.DataField = 'CODIGO_2'
+                DataBinding.DataSource = dsRegistro
+                ParentFont = False
+                Style.Font.Charset = DEFAULT_CHARSET
+                Style.Font.Color = clWindowText
+                Style.Font.Height = -11
+                Style.Font.Name = 'Tahoma'
+                Style.Font.Style = []
+                Style.HotTrack = False
+                Style.IsFontAssigned = True
+                TabOrder = 2
+                Width = 137
+              end
+              object cxLabel10: TcxLabel
+                Left = 131
+                Top = 0
+                Caption = 'Secund'#225'rio'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+            end
+            object cxTabSheet1: TcxTabSheet
+              Caption = 'Estoque '
+              ImageIndex = 1
+            end
+            object cxTabSheet2: TcxTabSheet
+              Caption = 'Custos'
+              ImageIndex = 2
+            end
+            object cxTabSheet3: TcxTabSheet
+              Caption = 'Tributa'#231#245'es'
+              ImageIndex = 3
+            end
+            object cxTabSheet4: TcxTabSheet
+              Caption = 'Aplica'#231#227'o'
+              ImageIndex = 4
+            end
+            object cxTabSheet5: TcxTabSheet
+              Caption = 'Imagens'
+              ImageIndex = 5
+              object img1: TcxDBImage
+                Left = 9
+                Top = 2
+                DataBinding.DataField = 'IMG_1'
+                DataBinding.DataSource = dsRegistro
+                Properties.Caption = 'Imagem 1'
+                Properties.GraphicClassName = 'TJPEGImage'
+                Properties.ImmediatePost = True
+                Properties.Stretch = True
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                TabOrder = 0
+                Height = 119
+                Width = 136
+              end
+              object img2: TcxDBImage
+                Left = 151
+                Top = 2
+                DataBinding.DataField = 'IMG_2'
+                DataBinding.DataSource = dsRegistro
+                Properties.Caption = 'Imagem 2'
+                Properties.GraphicClassName = 'TJPEGImage'
+                Properties.ImmediatePost = True
+                Properties.Stretch = True
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                TabOrder = 1
+                Height = 119
+                Width = 136
+              end
+              object img4: TcxDBImage
+                Left = 429
+                Top = 3
+                DataBinding.DataField = 'IMG_4'
+                DataBinding.DataSource = dsRegistro
+                Properties.Caption = 'Imagem 4'
+                Properties.GraphicClassName = 'TJPEGImage'
+                Properties.ImmediatePost = True
+                Properties.Stretch = True
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                TabOrder = 2
+                Height = 118
+                Width = 136
+              end
+              object img3: TcxDBImage
+                Left = 290
+                Top = 3
+                DataBinding.DataField = 'IMG_3'
+                DataBinding.DataSource = dsRegistro
+                Properties.Caption = 'Imagem 3'
+                Properties.GraphicClassName = 'TJPEGImage'
+                Properties.ImmediatePost = True
+                Properties.Stretch = True
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                TabOrder = 3
+                Height = 118
+                Width = 136
+              end
+            end
           end
         end
       end
+    end
+  end
+  inherited dtEdit: TIBDataSet
+    DeleteSQL.Strings = (
+      'delete from est_produtos'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    InsertSQL.Strings = (
+      'insert into est_produtos'
+      
+        '  (ALIQUOTA_ECF, APLICACAO, ATIVO, ATUALIZA_ARQ_EXTERNO, ATUALIZ' +
+        'AR, BCH_CODIGO, '
+      
+        '   CNPJ, CNPJ_AGRUP, COD_AGRUP, COD_GETIN, COD_LOCALIZACAO_1, CO' +
+        'D_LOCALIZACAO_2, '
+      
+        '   COD_LOCALIZACAO_3, COD_TECNICO, CODIGO, CODIGO_2, CODIGO_FABR' +
+        'ICANTE, '
+      
+        '   CODIGO_INTERNO, CODIGO_NCM, COFINS, COM_VENDA_PCT, COM_VENDA_' +
+        'VLR, COMPLEMENTO, '
+      
+        '   COMPLEMENTO_NF, COR, CSOSN, CTE, CTIE, CUSTO_AQUISICAO, CUSTO' +
+        '_INDEXADO, '
+      
+        '   DEBITA_ICMS, DT_ULT_ATU_PRECO, DT_ULT_COMPRA, DT_ULT_VENDA, E' +
+        'ST_MAX, '
+      
+        '   EST_MIN, ETIQUETA_ENT, FATOR_CONVERSAO, FORNECEDOR, GRUPO, IM' +
+        'G_1, IMG_2, '
+      
+        '   IMG_3, IMG_4, IPI, LOCALIZACAO_1, LOCALIZACAO_2, LOCALIZACAO_' +
+        '3, MARCA, '
+      
+        '   MARGEM_BRUTA, MATERIAL, MODELO, NAO_COBR_JUR_ATE, NEG_QTDADE_' +
+        '2, NFE_EXP, '
+      
+        '   NOME, NOME_MARCA, NOME_MODELO, ORIGEM, PARTICIP_LUCRO, PERC_F' +
+        'RETE, PESO_LIQ, '
+      
+        '   PIS, POSSUI_LOTE, PRC_CUSTO_ANT, PRC_CUSTO_CODIF, PRC_CUSTO_M' +
+        'ED, PRC_REPOS, '
+      
+        '   PRC_VENDA, PRC_VENDA_ANT, PRC_VENDA_MED, PREVISAO_ENTREGA, PR' +
+        'OD_PESAVEL, '
+      
+        '   QNTDE_EXPOSTA, QNTDE_MAXIMA_VENDA, QNTDE_MINIMA_VENDA, QNTDE_' +
+        'PDR_CARGA, '
+      
+        '   QNTDE_PEDIDA, QT_ULT_COMPRA, QTDADE_1, QTDADE_2, QTDADE_MAX, ' +
+        'QTDADE_MIN, '
+      
+        '   REDUCAO, SECAO, SELECIONADO, SERIE, SERVICO, SINCRONIZA_FILIA' +
+        'IS, SUBGRUPO, '
+      
+        '   SUBUNIDADE, TRIB_ALIQ_EST, TRIB_ALIQ_INT, TRIB_COFINS, TRIB_I' +
+        'PI, TRIB_MODALIDADE, '
+      
+        '   TRIB_PIS, ULTIMO_FORNECEDOR, UND_CARREGAMENTO, UND_PRIMARIA, ' +
+        'UNIDADE, '
+      
+        '   VALIDA_MULT_QTDE_MIN, VALIDADE, VENCTO_PRC_VENDA, VENDE_FRACI' +
+        'ONADO, '
+      '   VOLUME)'
+      'values'
+      
+        '  (:ALIQUOTA_ECF, :APLICACAO, :ATIVO, :ATUALIZA_ARQ_EXTERNO, :AT' +
+        'UALIZAR, '
+      
+        '   :BCH_CODIGO, :CNPJ, :CNPJ_AGRUP, :COD_AGRUP, :COD_GETIN, :COD' +
+        '_LOCALIZACAO_1, '
+      
+        '   :COD_LOCALIZACAO_2, :COD_LOCALIZACAO_3, :COD_TECNICO, :CODIGO' +
+        ', :CODIGO_2, '
+      
+        '   :CODIGO_FABRICANTE, :CODIGO_INTERNO, :CODIGO_NCM, :COFINS, :C' +
+        'OM_VENDA_PCT, '
+      
+        '   :COM_VENDA_VLR, :COMPLEMENTO, :COMPLEMENTO_NF, :COR, :CSOSN, ' +
+        ':CTE, :CTIE, '
+      
+        '   :CUSTO_AQUISICAO, :CUSTO_INDEXADO, :DEBITA_ICMS, :DT_ULT_ATU_' +
+        'PRECO, '
+      
+        '   :DT_ULT_COMPRA, :DT_ULT_VENDA, :EST_MAX, :EST_MIN, :ETIQUETA_' +
+        'ENT, :FATOR_CONVERSAO, '
+      
+        '   :FORNECEDOR, :GRUPO, :IMG_1, :IMG_2, :IMG_3, :IMG_4, :IPI, :L' +
+        'OCALIZACAO_1, '
+      
+        '   :LOCALIZACAO_2, :LOCALIZACAO_3, :MARCA, :MARGEM_BRUTA, :MATER' +
+        'IAL, :MODELO, '
+      
+        '   :NAO_COBR_JUR_ATE, :NEG_QTDADE_2, :NFE_EXP, :NOME, :NOME_MARC' +
+        'A, :NOME_MODELO, '
+      
+        '   :ORIGEM, :PARTICIP_LUCRO, :PERC_FRETE, :PESO_LIQ, :PIS, :POSS' +
+        'UI_LOTE, '
+      
+        '   :PRC_CUSTO_ANT, :PRC_CUSTO_CODIF, :PRC_CUSTO_MED, :PRC_REPOS,' +
+        ' :PRC_VENDA, '
+      
+        '   :PRC_VENDA_ANT, :PRC_VENDA_MED, :PREVISAO_ENTREGA, :PROD_PESA' +
+        'VEL, :QNTDE_EXPOSTA, '
+      
+        '   :QNTDE_MAXIMA_VENDA, :QNTDE_MINIMA_VENDA, :QNTDE_PDR_CARGA, :' +
+        'QNTDE_PEDIDA, '
+      
+        '   :QT_ULT_COMPRA, :QTDADE_1, :QTDADE_2, :QTDADE_MAX, :QTDADE_MI' +
+        'N, :REDUCAO, '
+      
+        '   :SECAO, :SELECIONADO, :SERIE, :SERVICO, :SINCRONIZA_FILIAIS, ' +
+        ':SUBGRUPO, '
+      
+        '   :SUBUNIDADE, :TRIB_ALIQ_EST, :TRIB_ALIQ_INT, :TRIB_COFINS, :T' +
+        'RIB_IPI, '
+      
+        '   :TRIB_MODALIDADE, :TRIB_PIS, :ULTIMO_FORNECEDOR, :UND_CARREGA' +
+        'MENTO, '
+      
+        '   :UND_PRIMARIA, :UNIDADE, :VALIDA_MULT_QTDE_MIN, :VALIDADE, :V' +
+        'ENCTO_PRC_VENDA, '
+      '   :VENDE_FRACIONADO, :VOLUME)')
+    RefreshSQL.Strings = (
+      'Select * '
+      'from est_produtos '
+      'where'
+      '  CNPJ = :CNPJ and'
+      '  CODIGO = :CODIGO')
+    SelectSQL.Strings = (
+      'select * from est_produtos p'
+      'where p.cnpj = :cnpj and p.codigo = :codigo')
+    ModifySQL.Strings = (
+      'update est_produtos'
+      'set'
+      '  ALIQUOTA_ECF = :ALIQUOTA_ECF,'
+      '  APLICACAO = :APLICACAO,'
+      '  ATIVO = :ATIVO,'
+      '  ATUALIZA_ARQ_EXTERNO = :ATUALIZA_ARQ_EXTERNO,'
+      '  ATUALIZAR = :ATUALIZAR,'
+      '  BCH_CODIGO = :BCH_CODIGO,'
+      '  CNPJ = :CNPJ,'
+      '  CNPJ_AGRUP = :CNPJ_AGRUP,'
+      '  COD_AGRUP = :COD_AGRUP,'
+      '  COD_GETIN = :COD_GETIN,'
+      '  COD_LOCALIZACAO_1 = :COD_LOCALIZACAO_1,'
+      '  COD_LOCALIZACAO_2 = :COD_LOCALIZACAO_2,'
+      '  COD_LOCALIZACAO_3 = :COD_LOCALIZACAO_3,'
+      '  COD_TECNICO = :COD_TECNICO,'
+      '  CODIGO = :CODIGO,'
+      '  CODIGO_2 = :CODIGO_2,'
+      '  CODIGO_FABRICANTE = :CODIGO_FABRICANTE,'
+      '  CODIGO_INTERNO = :CODIGO_INTERNO,'
+      '  CODIGO_NCM = :CODIGO_NCM,'
+      '  COFINS = :COFINS,'
+      '  COM_VENDA_PCT = :COM_VENDA_PCT,'
+      '  COM_VENDA_VLR = :COM_VENDA_VLR,'
+      '  COMPLEMENTO = :COMPLEMENTO,'
+      '  COMPLEMENTO_NF = :COMPLEMENTO_NF,'
+      '  COR = :COR,'
+      '  CSOSN = :CSOSN,'
+      '  CTE = :CTE,'
+      '  CTIE = :CTIE,'
+      '  CUSTO_AQUISICAO = :CUSTO_AQUISICAO,'
+      '  CUSTO_INDEXADO = :CUSTO_INDEXADO,'
+      '  DEBITA_ICMS = :DEBITA_ICMS,'
+      '  DT_ULT_ATU_PRECO = :DT_ULT_ATU_PRECO,'
+      '  DT_ULT_COMPRA = :DT_ULT_COMPRA,'
+      '  DT_ULT_VENDA = :DT_ULT_VENDA,'
+      '  EST_MAX = :EST_MAX,'
+      '  EST_MIN = :EST_MIN,'
+      '  ETIQUETA_ENT = :ETIQUETA_ENT,'
+      '  FATOR_CONVERSAO = :FATOR_CONVERSAO,'
+      '  FORNECEDOR = :FORNECEDOR,'
+      '  GRUPO = :GRUPO,'
+      '  IMG_1 = :IMG_1,'
+      '  IMG_2 = :IMG_2,'
+      '  IMG_3 = :IMG_3,'
+      '  IMG_4 = :IMG_4,'
+      '  IPI = :IPI,'
+      '  LOCALIZACAO_1 = :LOCALIZACAO_1,'
+      '  LOCALIZACAO_2 = :LOCALIZACAO_2,'
+      '  LOCALIZACAO_3 = :LOCALIZACAO_3,'
+      '  MARCA = :MARCA,'
+      '  MARGEM_BRUTA = :MARGEM_BRUTA,'
+      '  MATERIAL = :MATERIAL,'
+      '  MODELO = :MODELO,'
+      '  NAO_COBR_JUR_ATE = :NAO_COBR_JUR_ATE,'
+      '  NEG_QTDADE_2 = :NEG_QTDADE_2,'
+      '  NFE_EXP = :NFE_EXP,'
+      '  NOME = :NOME,'
+      '  NOME_MARCA = :NOME_MARCA,'
+      '  NOME_MODELO = :NOME_MODELO,'
+      '  ORIGEM = :ORIGEM,'
+      '  PARTICIP_LUCRO = :PARTICIP_LUCRO,'
+      '  PERC_FRETE = :PERC_FRETE,'
+      '  PESO_LIQ = :PESO_LIQ,'
+      '  PIS = :PIS,'
+      '  POSSUI_LOTE = :POSSUI_LOTE,'
+      '  PRC_CUSTO_ANT = :PRC_CUSTO_ANT,'
+      '  PRC_CUSTO_CODIF = :PRC_CUSTO_CODIF,'
+      '  PRC_CUSTO_MED = :PRC_CUSTO_MED,'
+      '  PRC_REPOS = :PRC_REPOS,'
+      '  PRC_VENDA = :PRC_VENDA,'
+      '  PRC_VENDA_ANT = :PRC_VENDA_ANT,'
+      '  PRC_VENDA_MED = :PRC_VENDA_MED,'
+      '  PREVISAO_ENTREGA = :PREVISAO_ENTREGA,'
+      '  PROD_PESAVEL = :PROD_PESAVEL,'
+      '  QNTDE_EXPOSTA = :QNTDE_EXPOSTA,'
+      '  QNTDE_MAXIMA_VENDA = :QNTDE_MAXIMA_VENDA,'
+      '  QNTDE_MINIMA_VENDA = :QNTDE_MINIMA_VENDA,'
+      '  QNTDE_PDR_CARGA = :QNTDE_PDR_CARGA,'
+      '  QNTDE_PEDIDA = :QNTDE_PEDIDA,'
+      '  QT_ULT_COMPRA = :QT_ULT_COMPRA,'
+      '  QTDADE_1 = :QTDADE_1,'
+      '  QTDADE_2 = :QTDADE_2,'
+      '  QTDADE_MAX = :QTDADE_MAX,'
+      '  QTDADE_MIN = :QTDADE_MIN,'
+      '  REDUCAO = :REDUCAO,'
+      '  SECAO = :SECAO,'
+      '  SELECIONADO = :SELECIONADO,'
+      '  SERIE = :SERIE,'
+      '  SERVICO = :SERVICO,'
+      '  SINCRONIZA_FILIAIS = :SINCRONIZA_FILIAIS,'
+      '  SUBGRUPO = :SUBGRUPO,'
+      '  SUBUNIDADE = :SUBUNIDADE,'
+      '  TRIB_ALIQ_EST = :TRIB_ALIQ_EST,'
+      '  TRIB_ALIQ_INT = :TRIB_ALIQ_INT,'
+      '  TRIB_COFINS = :TRIB_COFINS,'
+      '  TRIB_IPI = :TRIB_IPI,'
+      '  TRIB_MODALIDADE = :TRIB_MODALIDADE,'
+      '  TRIB_PIS = :TRIB_PIS,'
+      '  ULTIMO_FORNECEDOR = :ULTIMO_FORNECEDOR,'
+      '  UND_CARREGAMENTO = :UND_CARREGAMENTO,'
+      '  UND_PRIMARIA = :UND_PRIMARIA,'
+      '  UNIDADE = :UNIDADE,'
+      '  VALIDA_MULT_QTDE_MIN = :VALIDA_MULT_QTDE_MIN,'
+      '  VALIDADE = :VALIDADE,'
+      '  VENCTO_PRC_VENDA = :VENCTO_PRC_VENDA,'
+      '  VENDE_FRACIONADO = :VENDE_FRACIONADO,'
+      '  VOLUME = :VOLUME'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    object dtEditCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_PRODUTOS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object dtEditCODIGO: TIBStringField
+      FieldName = 'CODIGO'
+      Origin = '"EST_PRODUTOS"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Size = 15
+    end
+    object dtEditCODIGO_2: TIBStringField
+      FieldName = 'CODIGO_2'
+      Origin = '"EST_PRODUTOS"."CODIGO_2"'
+      Size = 15
+    end
+    object dtEditCNPJ_AGRUP: TIBStringField
+      FieldName = 'CNPJ_AGRUP'
+      Origin = '"EST_PRODUTOS"."CNPJ_AGRUP"'
+      FixedChar = True
+      Size = 14
+    end
+    object dtEditCOD_AGRUP: TIBStringField
+      FieldName = 'COD_AGRUP'
+      Origin = '"EST_PRODUTOS"."COD_AGRUP"'
+      Size = 15
+    end
+    object dtEditNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_PRODUTOS"."NOME"'
+      Size = 50
+    end
+    object dtEditMARCA: TIntegerField
+      FieldName = 'MARCA'
+      Origin = '"EST_PRODUTOS"."MARCA"'
+    end
+    object dtEditNOME_MARCA: TIBStringField
+      FieldName = 'NOME_MARCA'
+      Origin = '"EST_PRODUTOS"."NOME_MARCA"'
+      Size = 50
+    end
+    object dtEditGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = '"EST_PRODUTOS"."GRUPO"'
+    end
+    object dtEditSUBGRUPO: TIntegerField
+      FieldName = 'SUBGRUPO'
+      Origin = '"EST_PRODUTOS"."SUBGRUPO"'
+    end
+    object dtEditREDUCAO: TIntegerField
+      FieldName = 'REDUCAO'
+      Origin = '"EST_PRODUTOS"."REDUCAO"'
+    end
+    object dtEditUNIDADE: TIBStringField
+      FieldName = 'UNIDADE'
+      Origin = '"EST_PRODUTOS"."UNIDADE"'
+      FixedChar = True
+      Size = 4
+    end
+    object dtEditUND_PRIMARIA: TIBStringField
+      FieldName = 'UND_PRIMARIA'
+      Origin = '"EST_PRODUTOS"."UND_PRIMARIA"'
+      FixedChar = True
+      Size = 4
+    end
+    object dtEditCTE: TSmallintField
+      FieldName = 'CTE'
+      Origin = '"EST_PRODUTOS"."CTE"'
+    end
+    object dtEditCTIE: TSmallintField
+      FieldName = 'CTIE'
+      Origin = '"EST_PRODUTOS"."CTIE"'
+    end
+    object dtEditQTDADE_1: TFloatField
+      FieldName = 'QTDADE_1'
+      Origin = '"EST_PRODUTOS"."QTDADE_1"'
+    end
+    object dtEditQTDADE_2: TFloatField
+      FieldName = 'QTDADE_2'
+      Origin = '"EST_PRODUTOS"."QTDADE_2"'
+    end
+    object dtEditLOCALIZACAO_1: TIBStringField
+      FieldName = 'LOCALIZACAO_1'
+      Origin = '"EST_PRODUTOS"."LOCALIZACAO_1"'
+      Size = 30
+    end
+    object dtEditLOCALIZACAO_2: TIBStringField
+      FieldName = 'LOCALIZACAO_2'
+      Origin = '"EST_PRODUTOS"."LOCALIZACAO_2"'
+      Size = 30
+    end
+    object dtEditLOCALIZACAO_3: TIBStringField
+      FieldName = 'LOCALIZACAO_3'
+      Origin = '"EST_PRODUTOS"."LOCALIZACAO_3"'
+      Size = 30
+    end
+    object dtEditNEG_QTDADE_2: TIBStringField
+      FieldName = 'NEG_QTDADE_2'
+      Origin = '"EST_PRODUTOS"."NEG_QTDADE_2"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditQTDADE_MIN: TIntegerField
+      FieldName = 'QTDADE_MIN'
+      Origin = '"EST_PRODUTOS"."QTDADE_MIN"'
+    end
+    object dtEditQTDADE_MAX: TIntegerField
+      FieldName = 'QTDADE_MAX'
+      Origin = '"EST_PRODUTOS"."QTDADE_MAX"'
+    end
+    object dtEditCOMPLEMENTO_NF: TIBStringField
+      FieldName = 'COMPLEMENTO_NF'
+      Origin = '"EST_PRODUTOS"."COMPLEMENTO_NF"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditDT_ULT_COMPRA: TDateTimeField
+      FieldName = 'DT_ULT_COMPRA'
+      Origin = '"EST_PRODUTOS"."DT_ULT_COMPRA"'
+    end
+    object dtEditQT_ULT_COMPRA: TIntegerField
+      FieldName = 'QT_ULT_COMPRA'
+      Origin = '"EST_PRODUTOS"."QT_ULT_COMPRA"'
+    end
+    object dtEditDT_ULT_VENDA: TDateTimeField
+      FieldName = 'DT_ULT_VENDA'
+      Origin = '"EST_PRODUTOS"."DT_ULT_VENDA"'
+    end
+    object dtEditMARGEM_BRUTA: TFloatField
+      FieldName = 'MARGEM_BRUTA'
+      Origin = '"EST_PRODUTOS"."MARGEM_BRUTA"'
+    end
+    object dtEditPRC_REPOS: TFloatField
+      FieldName = 'PRC_REPOS'
+      Origin = '"EST_PRODUTOS"."PRC_REPOS"'
+    end
+    object dtEditPRC_CUSTO_ANT: TFloatField
+      FieldName = 'PRC_CUSTO_ANT'
+      Origin = '"EST_PRODUTOS"."PRC_CUSTO_ANT"'
+    end
+    object dtEditPRC_CUSTO_MED: TFloatField
+      FieldName = 'PRC_CUSTO_MED'
+      Origin = '"EST_PRODUTOS"."PRC_CUSTO_MED"'
+    end
+    object dtEditPRC_VENDA: TFloatField
+      FieldName = 'PRC_VENDA'
+      Origin = '"EST_PRODUTOS"."PRC_VENDA"'
+    end
+    object dtEditPRC_VENDA_ANT: TFloatField
+      FieldName = 'PRC_VENDA_ANT'
+      Origin = '"EST_PRODUTOS"."PRC_VENDA_ANT"'
+    end
+    object dtEditPRC_VENDA_MED: TFloatField
+      FieldName = 'PRC_VENDA_MED'
+      Origin = '"EST_PRODUTOS"."PRC_VENDA_MED"'
+    end
+    object dtEditALIQUOTA_ECF: TIBStringField
+      FieldName = 'ALIQUOTA_ECF'
+      Origin = '"EST_PRODUTOS"."ALIQUOTA_ECF"'
+      FixedChar = True
+      Size = 5
+    end
+    object dtEditORIGEM: TSmallintField
+      FieldName = 'ORIGEM'
+      Origin = '"EST_PRODUTOS"."ORIGEM"'
+    end
+    object dtEditPESO_LIQ: TFloatField
+      FieldName = 'PESO_LIQ'
+      Origin = '"EST_PRODUTOS"."PESO_LIQ"'
+    end
+    object dtEditPERC_FRETE: TFloatField
+      FieldName = 'PERC_FRETE'
+      Origin = '"EST_PRODUTOS"."PERC_FRETE"'
+    end
+    object dtEditIPI: TFloatField
+      FieldName = 'IPI'
+      Origin = '"EST_PRODUTOS"."IPI"'
+    end
+    object dtEditVOLUME: TFloatField
+      FieldName = 'VOLUME'
+      Origin = '"EST_PRODUTOS"."VOLUME"'
+    end
+    object dtEditPROD_PESAVEL: TIBStringField
+      FieldName = 'PROD_PESAVEL'
+      Origin = '"EST_PRODUTOS"."PROD_PESAVEL"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditETIQUETA_ENT: TIBStringField
+      FieldName = 'ETIQUETA_ENT'
+      Origin = '"EST_PRODUTOS"."ETIQUETA_ENT"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"EST_PRODUTOS"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditULTIMO_FORNECEDOR: TIntegerField
+      FieldName = 'ULTIMO_FORNECEDOR'
+      Origin = '"EST_PRODUTOS"."ULTIMO_FORNECEDOR"'
+    end
+    object dtEditFORNECEDOR: TIntegerField
+      FieldName = 'FORNECEDOR'
+      Origin = '"EST_PRODUTOS"."FORNECEDOR"'
+    end
+    object dtEditSUBUNIDADE: TIntegerField
+      FieldName = 'SUBUNIDADE'
+      Origin = '"EST_PRODUTOS"."SUBUNIDADE"'
+    end
+    object dtEditPRC_CUSTO_CODIF: TIBStringField
+      FieldName = 'PRC_CUSTO_CODIF'
+      Origin = '"EST_PRODUTOS"."PRC_CUSTO_CODIF"'
+      Size = 15
+    end
+    object dtEditCODIGO_INTERNO: TIntegerField
+      FieldName = 'CODIGO_INTERNO'
+      Origin = '"EST_PRODUTOS"."CODIGO_INTERNO"'
+    end
+    object dtEditDT_ULT_ATU_PRECO: TDateTimeField
+      FieldName = 'DT_ULT_ATU_PRECO'
+      Origin = '"EST_PRODUTOS"."DT_ULT_ATU_PRECO"'
+    end
+    object dtEditCUSTO_AQUISICAO: TFloatField
+      FieldName = 'CUSTO_AQUISICAO'
+      Origin = '"EST_PRODUTOS"."CUSTO_AQUISICAO"'
+    end
+    object dtEditVENDE_FRACIONADO: TIBStringField
+      FieldName = 'VENDE_FRACIONADO'
+      Origin = '"EST_PRODUTOS"."VENDE_FRACIONADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditQNTDE_EXPOSTA: TFloatField
+      FieldName = 'QNTDE_EXPOSTA'
+      Origin = '"EST_PRODUTOS"."QNTDE_EXPOSTA"'
+    end
+    object dtEditPOSSUI_LOTE: TIBStringField
+      FieldName = 'POSSUI_LOTE'
+      Origin = '"EST_PRODUTOS"."POSSUI_LOTE"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditQNTDE_MAXIMA_VENDA: TFloatField
+      FieldName = 'QNTDE_MAXIMA_VENDA'
+      Origin = '"EST_PRODUTOS"."QNTDE_MAXIMA_VENDA"'
+    end
+    object dtEditPIS: TIBStringField
+      FieldName = 'PIS'
+      Origin = '"EST_PRODUTOS"."PIS"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditCOFINS: TIBStringField
+      FieldName = 'COFINS'
+      Origin = '"EST_PRODUTOS"."COFINS"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditCOM_VENDA_VLR: TFloatField
+      FieldName = 'COM_VENDA_VLR'
+      Origin = '"EST_PRODUTOS"."COM_VENDA_VLR"'
+    end
+    object dtEditCOM_VENDA_PCT: TFloatField
+      FieldName = 'COM_VENDA_PCT'
+      Origin = '"EST_PRODUTOS"."COM_VENDA_PCT"'
+    end
+    object dtEditPARTICIP_LUCRO: TFloatField
+      FieldName = 'PARTICIP_LUCRO'
+      Origin = '"EST_PRODUTOS"."PARTICIP_LUCRO"'
+    end
+    object dtEditNAO_COBR_JUR_ATE: TIntegerField
+      FieldName = 'NAO_COBR_JUR_ATE'
+      Origin = '"EST_PRODUTOS"."NAO_COBR_JUR_ATE"'
+    end
+    object dtEditPREVISAO_ENTREGA: TDateTimeField
+      FieldName = 'PREVISAO_ENTREGA'
+      Origin = '"EST_PRODUTOS"."PREVISAO_ENTREGA"'
+    end
+    object dtEditQNTDE_PEDIDA: TFloatField
+      FieldName = 'QNTDE_PEDIDA'
+      Origin = '"EST_PRODUTOS"."QNTDE_PEDIDA"'
+    end
+    object dtEditATUALIZA_ARQ_EXTERNO: TIBStringField
+      FieldName = 'ATUALIZA_ARQ_EXTERNO'
+      Origin = '"EST_PRODUTOS"."ATUALIZA_ARQ_EXTERNO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditSERVICO: TIBStringField
+      FieldName = 'SERVICO'
+      Origin = '"EST_PRODUTOS"."SERVICO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditVALIDADE: TIntegerField
+      FieldName = 'VALIDADE'
+      Origin = '"EST_PRODUTOS"."VALIDADE"'
+    end
+    object dtEditCUSTO_INDEXADO: TFloatField
+      FieldName = 'CUSTO_INDEXADO'
+      Origin = '"EST_PRODUTOS"."CUSTO_INDEXADO"'
+    end
+    object dtEditCOMPLEMENTO: TIBStringField
+      FieldName = 'COMPLEMENTO'
+      Origin = '"EST_PRODUTOS"."COMPLEMENTO"'
+      Size = 100
+    end
+    object dtEditATUALIZAR: TIBStringField
+      FieldName = 'ATUALIZAR'
+      Origin = '"EST_PRODUTOS"."ATUALIZAR"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditEST_MIN: TFloatField
+      FieldName = 'EST_MIN'
+      Origin = '"EST_PRODUTOS"."EST_MIN"'
+    end
+    object dtEditEST_MAX: TFloatField
+      FieldName = 'EST_MAX'
+      Origin = '"EST_PRODUTOS"."EST_MAX"'
+    end
+    object dtEditMODELO: TIntegerField
+      FieldName = 'MODELO'
+      Origin = '"EST_PRODUTOS"."MODELO"'
+    end
+    object dtEditNOME_MODELO: TIBStringField
+      FieldName = 'NOME_MODELO'
+      Origin = '"EST_PRODUTOS"."NOME_MODELO"'
+      Size = 80
+    end
+    object dtEditSERIE: TIBStringField
+      FieldName = 'SERIE'
+      Origin = '"EST_PRODUTOS"."SERIE"'
+      Size = 30
+    end
+    object dtEditDEBITA_ICMS: TIBStringField
+      FieldName = 'DEBITA_ICMS'
+      Origin = '"EST_PRODUTOS"."DEBITA_ICMS"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditSECAO: TIntegerField
+      FieldName = 'SECAO'
+      Origin = '"EST_PRODUTOS"."SECAO"'
+    end
+    object dtEditNFE_EXP: TIBStringField
+      FieldName = 'NFE_EXP'
+      Origin = '"EST_PRODUTOS"."NFE_EXP"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditSELECIONADO: TIBStringField
+      FieldName = 'SELECIONADO'
+      Origin = '"EST_PRODUTOS"."SELECIONADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditQNTDE_MINIMA_VENDA: TFloatField
+      FieldName = 'QNTDE_MINIMA_VENDA'
+      Origin = '"EST_PRODUTOS"."QNTDE_MINIMA_VENDA"'
+    end
+    object dtEditVALIDA_MULT_QTDE_MIN: TIBStringField
+      FieldName = 'VALIDA_MULT_QTDE_MIN'
+      Origin = '"EST_PRODUTOS"."VALIDA_MULT_QTDE_MIN"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditFATOR_CONVERSAO: TFloatField
+      FieldName = 'FATOR_CONVERSAO'
+      Origin = '"EST_PRODUTOS"."FATOR_CONVERSAO"'
+    end
+    object dtEditSINCRONIZA_FILIAIS: TIBStringField
+      FieldName = 'SINCRONIZA_FILIAIS'
+      Origin = '"EST_PRODUTOS"."SINCRONIZA_FILIAIS"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditQNTDE_PDR_CARGA: TFloatField
+      FieldName = 'QNTDE_PDR_CARGA'
+      Origin = '"EST_PRODUTOS"."QNTDE_PDR_CARGA"'
+    end
+    object dtEditUND_CARREGAMENTO: TIBStringField
+      FieldName = 'UND_CARREGAMENTO'
+      Origin = '"EST_PRODUTOS"."UND_CARREGAMENTO"'
+      FixedChar = True
+      Size = 4
+    end
+    object dtEditTRIB_ALIQ_EST: TFloatField
+      FieldName = 'TRIB_ALIQ_EST'
+      Origin = '"EST_PRODUTOS"."TRIB_ALIQ_EST"'
+    end
+    object dtEditTRIB_ALIQ_INT: TFloatField
+      FieldName = 'TRIB_ALIQ_INT'
+      Origin = '"EST_PRODUTOS"."TRIB_ALIQ_INT"'
+    end
+    object dtEditTRIB_MODALIDADE: TIBStringField
+      FieldName = 'TRIB_MODALIDADE'
+      Origin = '"EST_PRODUTOS"."TRIB_MODALIDADE"'
+      Size = 50
+    end
+    object dtEditBCH_CODIGO: TIntegerField
+      FieldName = 'BCH_CODIGO'
+      Origin = '"EST_PRODUTOS"."BCH_CODIGO"'
+    end
+    object dtEditCODIGO_NCM: TIBStringField
+      FieldName = 'CODIGO_NCM'
+      Origin = '"EST_PRODUTOS"."CODIGO_NCM"'
+      Size = 50
+    end
+    object dtEditAPLICACAO: TMemoField
+      FieldName = 'APLICACAO'
+      Origin = '"EST_PRODUTOS"."APLICACAO"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
+    object dtEditIMG_2: TBlobField
+      FieldName = 'IMG_2'
+      Origin = '"EST_PRODUTOS"."IMG_2"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtEditIMG_1: TBlobField
+      FieldName = 'IMG_1'
+      Origin = '"EST_PRODUTOS"."IMG_1"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtEditIMG_3: TBlobField
+      FieldName = 'IMG_3'
+      Origin = '"EST_PRODUTOS"."IMG_3"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtEditIMG_4: TBlobField
+      FieldName = 'IMG_4'
+      Origin = '"EST_PRODUTOS"."IMG_4"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtEditCODIGO_FABRICANTE: TIBStringField
+      FieldName = 'CODIGO_FABRICANTE'
+      Origin = '"EST_PRODUTOS"."CODIGO_FABRICANTE"'
+      Size = 50
+    end
+    object dtEditCOR: TIntegerField
+      FieldName = 'COR'
+      Origin = '"EST_PRODUTOS"."COR"'
+    end
+    object dtEditMATERIAL: TIntegerField
+      FieldName = 'MATERIAL'
+      Origin = '"EST_PRODUTOS"."MATERIAL"'
+    end
+    object dtEditTRIB_PIS: TIBStringField
+      FieldName = 'TRIB_PIS'
+      Origin = '"EST_PRODUTOS"."TRIB_PIS"'
+      FixedChar = True
+      Size = 2
+    end
+    object dtEditTRIB_COFINS: TIBStringField
+      FieldName = 'TRIB_COFINS'
+      Origin = '"EST_PRODUTOS"."TRIB_COFINS"'
+      FixedChar = True
+      Size = 2
+    end
+    object dtEditTRIB_IPI: TIBStringField
+      FieldName = 'TRIB_IPI'
+      Origin = '"EST_PRODUTOS"."TRIB_IPI"'
+      FixedChar = True
+      Size = 2
+    end
+    object dtEditVENCTO_PRC_VENDA: TDateField
+      FieldName = 'VENCTO_PRC_VENDA'
+      Origin = '"EST_PRODUTOS"."VENCTO_PRC_VENDA"'
+    end
+    object dtEditCSOSN: TIntegerField
+      FieldName = 'CSOSN'
+      Origin = '"EST_PRODUTOS"."CSOSN"'
+    end
+    object dtEditCOD_GETIN: TIBStringField
+      FieldName = 'COD_GETIN'
+      Origin = '"EST_PRODUTOS"."COD_GETIN"'
+      Size = 15
+    end
+    object dtEditCOD_LOCALIZACAO_1: TIntegerField
+      FieldName = 'COD_LOCALIZACAO_1'
+      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_1"'
+    end
+    object dtEditCOD_LOCALIZACAO_2: TIntegerField
+      FieldName = 'COD_LOCALIZACAO_2'
+      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_2"'
+    end
+    object dtEditCOD_LOCALIZACAO_3: TIntegerField
+      FieldName = 'COD_LOCALIZACAO_3'
+      Origin = '"EST_PRODUTOS"."COD_LOCALIZACAO_3"'
+    end
+    object dtEditCOD_TECNICO: TIntegerField
+      FieldName = 'COD_TECNICO'
+      Origin = '"EST_PRODUTOS"."COD_TECNICO"'
     end
   end
   inherited dtList: TIBQuery
@@ -3987,5 +4895,13 @@ inherited frmCadProdutos: TfrmCadProdutos
           'VisibleForCustomization'
           'Width')
       end>
+  end
+  inherited mtbFiltro: TdxMemData
+    Left = 533
+    Top = 4
+  end
+  inherited dsFiltro: TDataSource
+    Left = 567
+    Top = 4
   end
 end

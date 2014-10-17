@@ -239,6 +239,15 @@ type
     cxLabel26: TcxLabel;
     cxDBMemo1: TcxDBMemo;
     cxLabel27: TcxLabel;
+    cxGroupBox5: TcxGroupBox;
+    cxDBCheckBox3: TcxDBCheckBox;
+    cxDBCheckBox4: TcxDBCheckBox;
+    dtEditDet1TIPO_COLORIDO: TIBStringField;
+    dtEditDet1TIPO_DIGITALIZACAO: TIBStringField;
+    dtListDet1TIPO_COLORIDO: TIBStringField;
+    dtListDet1TIPO_DIGITALIZACAO: TIBStringField;
+    TVDet1TIPO_COLORIDO: TcxGridDBBandedColumn;
+    TVDet1TIPO_DIGITALIZACAO: TcxGridDBBandedColumn;
     procedure btnTipoContratoClick(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
