@@ -1,8 +1,8 @@
 object frmCadPadrao: TfrmCadPadrao
-  Left = 0
-  Top = 147
-  Width = 671
-  Height = 444
+  Left = 159
+  Top = 137
+  Width = 791
+  Height = 448
   Caption = 'frmCadPadrao'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,15 +22,15 @@ object frmCadPadrao: TfrmCadPadrao
   object pgcCadastro: TcxPageControl
     Left = 0
     Top = 0
-    Width = 663
-    Height = 391
+    Width = 775
+    Height = 384
     ActivePage = tbsEdita
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange
-    ClientRectBottom = 387
+    ClientRectBottom = 380
     ClientRectLeft = 4
-    ClientRectRight = 659
+    ClientRectRight = 771
     ClientRectTop = 27
     object tbsLista: TcxTabSheet
       Caption = 'Pesquisa'
@@ -92,8 +92,8 @@ object frmCadPadrao: TfrmCadPadrao
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 655
-        Height = 360
+        Width = 767
+        Height = 353
         Align = alClient
         TabOrder = 0
         object edtNome: TcxDBTextEdit
@@ -158,8 +158,8 @@ object frmCadPadrao: TfrmCadPadrao
   object dxBarManager: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     Categories.Strings = (
       'Defaut'
