@@ -3,7 +3,7 @@ inherited frmCadPessoas: TfrmCadPessoas
   Top = 108
   Width = 790
   Height = 515
-  Caption = 'Pessoas PF/PJ'
+  Caption = 'Pessoas PF-PJ'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
