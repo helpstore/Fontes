@@ -682,10 +682,10 @@ inherited frmCadProdutos: TfrmCadProdutos
                 DataBinding.DataField = 'CODIGO'
                 Properties.ReadOnly = False
                 Style.Color = clWindow
-                Width = 121
+                Width = 97
               end
               object edtSerie: TcxDBTextEdit
-                Left = 131
+                Left = 107
                 Top = 16
                 DataBinding.DataField = 'CODIGO_2'
                 DataBinding.DataSource = dsRegistro
@@ -698,10 +698,10 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Style.HotTrack = False
                 Style.IsFontAssigned = True
                 TabOrder = 2
-                Width = 137
+                Width = 102
               end
               object cxLabel10: TcxLabel
-                Left = 131
+                Left = 107
                 Top = 0
                 Caption = 'Secund'#225'rio'
                 Style.HotTrack = False
@@ -722,7 +722,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Transparent = True
               end
               object cxDBTextEdit1: TcxDBTextEdit
-                Left = 270
+                Left = 422
                 Top = 16
                 DataBinding.DataField = 'NOME'
                 DataBinding.DataSource = dsRegistro
@@ -736,10 +736,10 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Style.HotTrack = False
                 Style.IsFontAssigned = True
                 TabOrder = 4
-                Width = 407
+                Width = 255
               end
               object cxLabel11: TcxLabel
-                Left = 270
+                Left = 422
                 Top = 0
                 Caption = 'Nome'
                 Style.HotTrack = False
@@ -900,6 +900,494 @@ inherited frmCadProdutos: TfrmCadProdutos
                   BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
                   BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
                   BFBFBFBFBFBFBFBFBFBF}
+              end
+              object cxLabel15: TcxLabel
+                Left = 8
+                Top = 87
+                Caption = 'Se'#231#227'o'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBLookupComboBox1: TcxDBLookupComboBox
+                Left = 8
+                Top = 103
+                DataBinding.DataField = 'SECAO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'COD_SECAO'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsSecao
+                TabOrder = 14
+                Width = 121
+              end
+              object cxLabel16: TcxLabel
+                Left = 156
+                Top = 87
+                Caption = 'Modelo'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBLookupComboBox3: TcxDBLookupComboBox
+                Left = 155
+                Top = 103
+                DataBinding.DataField = 'MODELO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'CODIGO'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsModelo
+                TabOrder = 16
+                Width = 146
+              end
+              object cxLabel17: TcxLabel
+                Left = 329
+                Top = 87
+                Caption = 'Marca'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBLookupComboBox4: TcxDBLookupComboBox
+                Left = 328
+                Top = 103
+                DataBinding.DataField = 'MODELO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'CODIGO'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsMarca
+                TabOrder = 18
+                Width = 151
+              end
+              object cxButton1: TcxButton
+                Left = 129
+                Top = 102
+                Width = 23
+                Height = 22
+                TabOrder = 19
+                TabStop = False
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
+              end
+              object cxButton2: TcxButton
+                Left = 302
+                Top = 102
+                Width = 23
+                Height = 22
+                TabOrder = 20
+                TabStop = False
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
+              end
+              object cxButton3: TcxButton
+                Left = 479
+                Top = 102
+                Width = 23
+                Height = 22
+                TabOrder = 21
+                TabStop = False
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
+              end
+              object cxLabel18: TcxLabel
+                Left = 506
+                Top = 87
+                Caption = 'Material'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBLookupComboBox5: TcxDBLookupComboBox
+                Left = 505
+                Top = 103
+                DataBinding.DataField = 'MODELO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'CODIGO'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsMaterial
+                TabOrder = 23
+                Width = 151
+              end
+              object cxButton4: TcxButton
+                Left = 656
+                Top = 101
+                Width = 23
+                Height = 22
+                TabOrder = 24
+                TabStop = False
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
+              end
+              object cxLabel19: TcxLabel
+                Left = 211
+                Top = 0
+                Caption = 'C'#243'd. Fabricante'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBTextEdit3: TcxDBTextEdit
+                Left = 211
+                Top = 16
+                DataBinding.DataField = 'CODIGO_FABRICANTE'
+                DataBinding.DataSource = dsRegistro
+                ParentFont = False
+                Style.Font.Charset = DEFAULT_CHARSET
+                Style.Font.Color = clWindowText
+                Style.Font.Height = -11
+                Style.Font.Name = 'Tahoma'
+                Style.Font.Style = []
+                Style.HotTrack = False
+                Style.IsFontAssigned = True
+                TabOrder = 26
+                Width = 104
+              end
+              object cxLabel20: TcxLabel
+                Left = 8
+                Top = 133
+                Caption = 'Unidade'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBLookupComboBox6: TcxDBLookupComboBox
+                Left = 7
+                Top = 149
+                DataBinding.DataField = 'MODELO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'SIGLA'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsUnidade
+                TabOrder = 28
+                Width = 129
+              end
+              object cxButton5: TcxButton
+                Left = 137
+                Top = 148
+                Width = 23
+                Height = 22
+                TabOrder = 29
+                TabStop = False
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
+              end
+              object cxLabel21: TcxLabel
+                Left = 164
+                Top = 133
+                Caption = 'Cor'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBLookupComboBox7: TcxDBLookupComboBox
+                Left = 163
+                Top = 149
+                DataBinding.DataField = 'MODELO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'CODIGO'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsCor
+                TabOrder = 31
+                Width = 134
+              end
+              object cxButton6: TcxButton
+                Left = 297
+                Top = 148
+                Width = 23
+                Height = 22
+                TabOrder = 32
+                TabStop = False
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
+              end
+              object cxDBTextEdit4: TcxDBTextEdit
+                Left = 317
+                Top = 16
+                DataBinding.DataField = 'SERIE'
+                DataBinding.DataSource = dsRegistro
+                ParentFont = False
+                Style.Font.Charset = DEFAULT_CHARSET
+                Style.Font.Color = clWindowText
+                Style.Font.Height = -11
+                Style.Font.Name = 'Tahoma'
+                Style.Font.Style = []
+                Style.HotTrack = False
+                Style.IsFontAssigned = True
+                TabOrder = 33
+                Width = 103
+              end
+              object cxLabel22: TcxLabel
+                Left = 317
+                Top = 0
+                Caption = 'S'#233'rie'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
               end
             end
             object cxTabSheet1: TcxTabSheet
@@ -5100,7 +5588,7 @@ inherited frmCadProdutos: TfrmCadProdutos
       'FROM EST_GRUPOS'
       'WHERE CNPJ = :CNPJ'
       'ORDER BY NOME')
-    Left = 345
+    Left = 329
     Top = 36
     ParamData = <
       item
@@ -5142,12 +5630,12 @@ inherited frmCadProdutos: TfrmCadProdutos
   end
   object DsGrupo: TDataSource
     DataSet = QryGrupo
-    Left = 375
+    Left = 351
     Top = 36
   end
   object DsSubGrupo: TDataSource
     DataSet = QrySubGrupo
-    Left = 447
+    Left = 407
     Top = 36
   end
   object QrySubGrupo: TIBQuery
@@ -5179,7 +5667,7 @@ inherited frmCadProdutos: TfrmCadProdutos
         '      and ((subgrupo = :subgrupo) or (coalesce(:subgrupo,0) = 0)' +
         ')'
       'ORDER BY NOME')
-    Left = 417
+    Left = 385
     Top = 36
     ParamData = <
       item
@@ -5280,5 +5768,275 @@ inherited frmCadProdutos: TfrmCadProdutos
       BlobType = ftMemo
       Size = 8
     end
+  end
+  object QrySecao: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select * from est_secao s'
+      'where s.cnpj = :cnpj')
+    Left = 441
+    Top = 36
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QrySecaoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_SECAO"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QrySecaoCOD_SECAO: TIntegerField
+      FieldName = 'COD_SECAO'
+      Origin = '"EST_SECAO"."COD_SECAO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QrySecaoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_SECAO"."NOME"'
+      Size = 50
+    end
+  end
+  object DsSecao: TDataSource
+    DataSet = QrySecao
+    Left = 463
+    Top = 36
+  end
+  object QryModelo: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select * from glo_modelo_propriedade'
+      'where cnpj = :cnpj'
+      'order by nome')
+    Left = 497
+    Top = 36
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryModeloCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"GLO_MODELO_PROPRIEDADE"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryModeloCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"GLO_MODELO_PROPRIEDADE"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryModeloNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"GLO_MODELO_PROPRIEDADE"."NOME"'
+      Size = 50
+    end
+  end
+  object DsModelo: TDataSource
+    DataSet = QryModelo
+    Left = 519
+    Top = 36
+  end
+  object QryMarca: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               CODIGO, '
+      '               NOME '
+      'FROM EST_MARCAS'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
+    Left = 553
+    Top = 36
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryMarcaCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_MARCAS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryMarcaCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"EST_MARCAS"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryMarcaNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_MARCAS"."NOME"'
+      Size = 50
+    end
+  end
+  object DsMarca: TDataSource
+    DataSet = QryMarca
+    Left = 575
+    Top = 36
+  end
+  object DsMaterial: TDataSource
+    DataSet = QryMaterial
+    Left = 631
+    Top = 36
+  end
+  object QryMaterial: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select CNPJ, '
+      '          CODIGO, '
+      '          NOME '
+      'from EST_MATERIAL'
+      'Where CNPJ = :CNPJ'
+      'Order by NOME')
+    Left = 609
+    Top = 36
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryMaterialCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_MATERIAL"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryMaterialCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"EST_MATERIAL"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryMaterialNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_MATERIAL"."NOME"'
+      Size = 50
+    end
+  end
+  object QryUnidade: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               SIGLA, '
+      '               NOME,'
+      '               UNIDADES'
+      'FROM EST_UNIDADES'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
+    Left = 329
+    Top = 76
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryUnidadeCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_UNIDADES"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryUnidadeSIGLA: TIBStringField
+      FieldName = 'SIGLA'
+      Origin = '"EST_UNIDADES"."SIGLA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 4
+    end
+    object QryUnidadeNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_UNIDADES"."NOME"'
+      Size = 50
+    end
+    object QryUnidadeUNIDADES: TFloatField
+      FieldName = 'UNIDADES'
+      Origin = '"EST_UNIDADES"."UNIDADES"'
+    end
+  end
+  object DsUnidade: TDataSource
+    DataSet = QryUnidade
+    Left = 351
+    Top = 76
+  end
+  object QryCor: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'select CNPJ, '
+      '          CODIGO, '
+      '          NOME '
+      'from EST_COR'
+      'Where CNPJ = :CNPJ'
+      'Order by NOME')
+    Left = 385
+    Top = 76
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryCorCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_COR"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryCorCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"EST_COR"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryCorNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_COR"."NOME"'
+      Size = 50
+    end
+  end
+  object DsCor: TDataSource
+    DataSet = QryCor
+    Left = 407
+    Top = 76
   end
 end
