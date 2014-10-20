@@ -1,6 +1,6 @@
 object FrmProdutos: TFrmProdutos
-  Left = 354
-  Top = 100
+  Left = 692
+  Top = 81
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Produtos '

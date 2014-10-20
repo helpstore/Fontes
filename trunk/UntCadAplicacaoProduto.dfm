@@ -223,11 +223,6 @@ inherited frmCadAplicacaoProduto: TfrmCadAplicacaoProduto
       0
       26)
   end
-  inherited ActionList1: TActionList
-    inherited ActCadLookup: TAction
-      OnExecute = ActCadLookupExecute
-    end
-  end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
   end
