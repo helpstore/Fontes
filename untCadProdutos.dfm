@@ -1,6 +1,6 @@
 inherited frmCadProdutos: TfrmCadProdutos
-  Left = 270
-  Top = 33
+  Left = 268
+  Top = 5
   Width = 711
   Height = 600
   Caption = 'Produtos'
@@ -610,6 +610,7 @@ inherited frmCadProdutos: TfrmCadProdutos
           Width = 693
           inherited PgcDetalhe: TcxPageControl
             Width = 693
+            ActivePage = tbsDetalhe1
             ClientRectRight = 689
             inherited tbsDetalhe1: TcxTabSheet
               inherited PGCSub1: TcxPageControl
@@ -719,6 +720,186 @@ inherited frmCadProdutos: TfrmCadProdutos
                 StyleHot.LookAndFeel.NativeStyle = False
                 StyleHot.LookAndFeel.SkinName = 'GlassOceans'
                 Transparent = True
+              end
+              object cxDBTextEdit1: TcxDBTextEdit
+                Left = 270
+                Top = 16
+                DataBinding.DataField = 'NOME'
+                DataBinding.DataSource = dsRegistro
+                ParentFont = False
+                Properties.CharCase = ecUpperCase
+                Style.Font.Charset = DEFAULT_CHARSET
+                Style.Font.Color = clWindowText
+                Style.Font.Height = -11
+                Style.Font.Name = 'Tahoma'
+                Style.Font.Style = []
+                Style.HotTrack = False
+                Style.IsFontAssigned = True
+                TabOrder = 4
+                Width = 407
+              end
+              object cxLabel11: TcxLabel
+                Left = 270
+                Top = 0
+                Caption = 'Nome'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBTextEdit2: TcxDBTextEdit
+                Left = 8
+                Top = 59
+                DataBinding.DataField = 'COMPLEMENTO'
+                DataBinding.DataSource = dsRegistro
+                ParentFont = False
+                Properties.CharCase = ecUpperCase
+                Style.Font.Charset = DEFAULT_CHARSET
+                Style.Font.Color = clWindowText
+                Style.Font.Height = -11
+                Style.Font.Name = 'Tahoma'
+                Style.Font.Style = []
+                Style.HotTrack = False
+                Style.IsFontAssigned = True
+                TabOrder = 6
+                Width = 252
+              end
+              object cxLabel12: TcxLabel
+                Left = 8
+                Top = 43
+                Caption = 'Complemento'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object aTFrmCadGrupos: TcxDBLookupComboBox
+                Left = 263
+                Top = 59
+                DataBinding.DataField = 'GRUPO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'CODIGO'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsGrupo
+                TabOrder = 8
+                Width = 194
+              end
+              object cxLabel13: TcxLabel
+                Left = 264
+                Top = 43
+                Caption = 'Grupo'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxLabel14: TcxLabel
+                Left = 483
+                Top = 43
+                Caption = 'Sub-Grupo'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBLookupComboBox2: TcxDBLookupComboBox
+                Left = 483
+                Top = 59
+                DataBinding.DataField = 'SUBGRUPO'
+                DataBinding.DataSource = dsRegistro
+                Properties.KeyFieldNames = 'SUBGRUPO'
+                Properties.ListColumns = <
+                  item
+                    FieldName = 'NOME'
+                  end>
+                Properties.ListSource = DsSubGrupo
+                TabOrder = 11
+                Width = 195
+              end
+              object BtnGrupos: TcxButton
+                Left = 457
+                Top = 58
+                Width = 23
+                Height = 22
+                TabOrder = 12
+                TabStop = False
+                Glyph.Data = {
+                  06030000424D06030000000000003600000028000000100000000F0000000100
+                  180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                  0000000000000000000000000000000000000000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                  FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                  FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                  000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                  FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                  0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                  000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                  FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                  0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                  BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                  0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                  FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                  BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                  00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                  00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                  BFBFBFBFBFBFBFBFBFBF}
               end
             end
             object cxTabSheet1: TcxTabSheet
@@ -4903,5 +5084,201 @@ inherited frmCadProdutos: TfrmCadProdutos
   inherited dsFiltro: TDataSource
     Left = 567
     Top = 4
+  end
+  object QryGrupo: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               CODIGO, '
+      '               NOME, '
+      '               BASE, '
+      '               MINIMO, '
+      '               MAXIMO '
+      'FROM EST_GRUPOS'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
+    Left = 345
+    Top = 36
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryGrupoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_GRUPOS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryGrupoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"EST_GRUPOS"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryGrupoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_GRUPOS"."NOME"'
+      Size = 50
+    end
+    object QryGrupoBASE: TSmallintField
+      FieldName = 'BASE'
+      Origin = '"EST_GRUPOS"."BASE"'
+    end
+    object QryGrupoMINIMO: TSmallintField
+      FieldName = 'MINIMO'
+      Origin = '"EST_GRUPOS"."MINIMO"'
+    end
+    object QryGrupoMAXIMO: TSmallintField
+      FieldName = 'MAXIMO'
+      Origin = '"EST_GRUPOS"."MAXIMO"'
+    end
+  end
+  object DsGrupo: TDataSource
+    DataSet = QryGrupo
+    Left = 375
+    Top = 36
+  end
+  object DsSubGrupo: TDataSource
+    DataSet = QrySubGrupo
+    Left = 447
+    Top = 36
+  end
+  object QrySubGrupo: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               GRUPO, '
+      '               SUBGRUPO, '
+      '               NOME, '
+      '               DESCONTO_MAX, '
+      '               DIGITA_PRC ,'
+      '               COMPRAS_C,'
+      '               COMPRAS_D,'
+      '               TRANSFERENCIA_C,'
+      '               TRANSFERENCIA_D,'
+      '                VENDAS_C,'
+      '                VENDAS_D,'
+      '                ESTOQUE,'
+      '                ESTOQUE_INI,'
+      '                ESTOQUE_FIM,'
+      '                OBS'
+      'FROM EST_SUBGRUPOS'
+      'WHERE CNPJ = :CNPJ AND'
+      '      GRUPO = :GRUPO'
+      
+        '      and ((subgrupo = :subgrupo) or (coalesce(:subgrupo,0) = 0)' +
+        ')'
+      'ORDER BY NOME')
+    Left = 417
+    Top = 36
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'GRUPO'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'subgrupo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'subgrupo'
+        ParamType = ptUnknown
+      end>
+    object QrySubGrupoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_SUBGRUPOS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QrySubGrupoGRUPO: TIntegerField
+      FieldName = 'GRUPO'
+      Origin = '"EST_SUBGRUPOS"."GRUPO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QrySubGrupoSUBGRUPO: TIntegerField
+      FieldName = 'SUBGRUPO'
+      Origin = '"EST_SUBGRUPOS"."SUBGRUPO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QrySubGrupoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_SUBGRUPOS"."NOME"'
+      Size = 50
+    end
+    object QrySubGrupoDESCONTO_MAX: TFloatField
+      FieldName = 'DESCONTO_MAX'
+      Origin = '"EST_SUBGRUPOS"."DESCONTO_MAX"'
+    end
+    object QrySubGrupoDIGITA_PRC: TIBStringField
+      FieldName = 'DIGITA_PRC'
+      Origin = '"EST_SUBGRUPOS"."DIGITA_PRC"'
+      FixedChar = True
+      Size = 1
+    end
+    object QrySubGrupoCOMPRAS_C: TIntegerField
+      FieldName = 'COMPRAS_C'
+      Origin = '"EST_SUBGRUPOS"."COMPRAS_C"'
+    end
+    object QrySubGrupoCOMPRAS_D: TIntegerField
+      FieldName = 'COMPRAS_D'
+      Origin = '"EST_SUBGRUPOS"."COMPRAS_D"'
+    end
+    object QrySubGrupoTRANSFERENCIA_C: TIntegerField
+      FieldName = 'TRANSFERENCIA_C'
+      Origin = '"EST_SUBGRUPOS"."TRANSFERENCIA_C"'
+    end
+    object QrySubGrupoTRANSFERENCIA_D: TIntegerField
+      FieldName = 'TRANSFERENCIA_D'
+      Origin = '"EST_SUBGRUPOS"."TRANSFERENCIA_D"'
+    end
+    object QrySubGrupoVENDAS_C: TIntegerField
+      FieldName = 'VENDAS_C'
+      Origin = '"EST_SUBGRUPOS"."VENDAS_C"'
+    end
+    object QrySubGrupoVENDAS_D: TIntegerField
+      FieldName = 'VENDAS_D'
+      Origin = '"EST_SUBGRUPOS"."VENDAS_D"'
+    end
+    object QrySubGrupoESTOQUE: TIntegerField
+      FieldName = 'ESTOQUE'
+      Origin = '"EST_SUBGRUPOS"."ESTOQUE"'
+    end
+    object QrySubGrupoESTOQUE_INI: TIntegerField
+      FieldName = 'ESTOQUE_INI'
+      Origin = '"EST_SUBGRUPOS"."ESTOQUE_INI"'
+    end
+    object QrySubGrupoESTOQUE_FIM: TIntegerField
+      FieldName = 'ESTOQUE_FIM'
+      Origin = '"EST_SUBGRUPOS"."ESTOQUE_FIM"'
+    end
+    object QrySubGrupoOBS: TMemoField
+      FieldName = 'OBS'
+      Origin = '"EST_SUBGRUPOS"."OBS"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
   end
 end

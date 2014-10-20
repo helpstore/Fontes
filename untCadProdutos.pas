@@ -21,7 +21,8 @@ uses
   dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
-  cxPC, cxCheckBox, cxImage;
+  cxPC, cxCheckBox, cxImage, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
+  cxDBLookupEdit, cxDBLookupComboBox, Menus, StdCtrls, cxButtons;
 
 type
   TfrmCadProdutos = class(TfrmCadPadraoMaster)
@@ -300,6 +301,42 @@ type
     img2: TcxDBImage;
     img4: TcxDBImage;
     img3: TcxDBImage;
+    cxDBTextEdit1: TcxDBTextEdit;
+    cxLabel11: TcxLabel;
+    cxDBTextEdit2: TcxDBTextEdit;
+    cxLabel12: TcxLabel;
+    aTFrmCadGrupos: TcxDBLookupComboBox;
+    cxLabel13: TcxLabel;
+    cxLabel14: TcxLabel;
+    cxDBLookupComboBox2: TcxDBLookupComboBox;
+    QryGrupo: TIBQuery;
+    DsGrupo: TDataSource;
+    DsSubGrupo: TDataSource;
+    QrySubGrupo: TIBQuery;
+    QryGrupoCNPJ: TIBStringField;
+    QryGrupoCODIGO: TIntegerField;
+    QryGrupoNOME: TIBStringField;
+    QryGrupoBASE: TSmallintField;
+    QryGrupoMINIMO: TSmallintField;
+    QryGrupoMAXIMO: TSmallintField;
+    QrySubGrupoCNPJ: TIBStringField;
+    QrySubGrupoGRUPO: TIntegerField;
+    QrySubGrupoSUBGRUPO: TIntegerField;
+    QrySubGrupoNOME: TIBStringField;
+    QrySubGrupoDESCONTO_MAX: TFloatField;
+    QrySubGrupoDIGITA_PRC: TIBStringField;
+    QrySubGrupoCOMPRAS_C: TIntegerField;
+    QrySubGrupoCOMPRAS_D: TIntegerField;
+    QrySubGrupoTRANSFERENCIA_C: TIntegerField;
+    QrySubGrupoTRANSFERENCIA_D: TIntegerField;
+    QrySubGrupoVENDAS_C: TIntegerField;
+    QrySubGrupoVENDAS_D: TIntegerField;
+    QrySubGrupoESTOQUE: TIntegerField;
+    QrySubGrupoESTOQUE_INI: TIntegerField;
+    QrySubGrupoESTOQUE_FIM: TIntegerField;
+    QrySubGrupoOBS: TMemoField;
+    BtnGrupos: TcxButton;
+    procedure ActCadLookupExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -312,5 +349,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadProdutos.ActCadLookupExecute(Sender: TObject);
+begin
+  inherited;
+  if aTFrmCadGrupos.Focused then
+    BtnGrupos.OnClick(self);
+end;
 
 end.

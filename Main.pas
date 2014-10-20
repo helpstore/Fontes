@@ -1707,28 +1707,19 @@ end;
 
 procedure TFrmMain.opGruposClick(Sender: TObject);
 begin
-  { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmGrupos', True)) Then
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCadGrupos', True)) Then
      Exit;
-  { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+
+  if DMApp.SelecionarEmpresa = 'N' Then
      Exit;
-  { * * * * * }
-  If FrmGrupos = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-       //
-//       DMCadastros := TDMCadastros.Create(Self);
-       FrmGrupos   := TFrmGrupos.Create(Self);
-       //
-       FrmGrupos.Showmodal ;
-       FrmGrupos.Free      ;
-       FrmGrupos := Nil    ;
-     End;
+
+  if FrmCadGrupos = Nil Then
+  begin
+     FrmCadGrupos := TFrmCadGrupos.Create(Self);
+     FrmCadGrupos.ShowMODAL ;
+     FrmCadGrupos.Free      ;
+     FrmCadGrupos := Nil    ;
+  end;
 end;
 
 procedure TFrmMain.opUnidadesMedClick(Sender: TObject);
