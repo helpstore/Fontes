@@ -3,9 +3,10 @@ inherited frmCadSecoesProdutos: TfrmCadSecoesProdutos
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
+        Width = 775
+        Height = 347
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -27,6 +28,9 @@ inherited frmCadSecoesProdutos: TfrmCadSecoesProdutos
             Position.RowIndex = 0
           end
         end
+      end
+      inherited Panel1: TPanel
+        Width = 775
       end
     end
     inherited tbsEdita: TcxTabSheet

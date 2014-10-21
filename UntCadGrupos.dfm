@@ -94,6 +94,10 @@ inherited FrmCadGrupos: TFrmCadGrupos
                       end
                       object TVDet1DIGITA_PRC: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'DIGITA_PRC'
+                        PropertiesClassName = 'TcxCheckBoxProperties'
+                        Properties.ValueChecked = 'S'
+                        Properties.ValueUnchecked = 'N'
+                        Width = 57
                         Position.BandIndex = 0
                         Position.ColIndex = 5
                         Position.RowIndex = 0
@@ -204,14 +208,14 @@ inherited FrmCadGrupos: TFrmCadGrupos
                     Width = 302
                   end
                   object cxLabel15: TcxLabel
-                    Left = 380
-                    Top = 8
+                    Left = 8
+                    Top = 53
                     Caption = 'Desc. M'#225'ximo'
                     Transparent = True
                   end
                   object cxDBCalcEdit4: TcxDBCalcEdit
-                    Left = 380
-                    Top = 24
+                    Left = 8
+                    Top = 69
                     DataBinding.DataField = 'DESCONTO_MAX'
                     DataBinding.DataSource = dsRegistroDet1
                     TabOrder = 5
@@ -219,18 +223,31 @@ inherited FrmCadGrupos: TFrmCadGrupos
                   end
                   object cxDBMemo1: TcxDBMemo
                     Left = 9
-                    Top = 72
+                    Top = 114
                     DataBinding.DataField = 'OBS'
                     DataBinding.DataSource = dsRegistroDet1
+                    Properties.CharCase = ecUpperCase
                     TabOrder = 6
                     Height = 60
-                    Width = 491
+                    Width = 368
                   end
                   object cxLabel16: TcxLabel
                     Left = 8
-                    Top = 56
+                    Top = 98
                     Caption = 'Observa'#231#227'o'
                     Transparent = True
+                  end
+                  object cxDBCheckBox1: TcxDBCheckBox
+                    Left = 129
+                    Top = 74
+                    Caption = 'Digita Pre'#231'o ?'
+                    DataBinding.DataField = 'DIGITA_PRC'
+                    DataBinding.DataSource = dsRegistroDet1
+                    Properties.ValueChecked = 'S'
+                    Properties.ValueUnchecked = 'N'
+                    TabOrder = 8
+                    Transparent = True
+                    Width = 96
                   end
                 end
               end
@@ -1469,7 +1486,8 @@ inherited FrmCadGrupos: TFrmCadGrupos
       '                OBS'
       'FROM EST_SUBGRUPOS'
       'WHERE CNPJ = :CNPJ AND'
-      '               GRUPO = :CODIGO')
+      '               GRUPO = :CODIGO AND'
+      '               SUBGRUPO = :SUBGRUPO')
     ModifySQL.Strings = (
       'update EST_SUBGRUPOS'
       'set'

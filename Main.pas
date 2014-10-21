@@ -1381,7 +1381,7 @@ uses
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
   untCadFornecedores, untCadOS, untCadContratoAtendimento,
-  UntCadClassificacao, untCadClientes, UntCadContratoCopias;
+  UntCadClassificacao, untCadClientes, UntCadContratoCopias, UntCadGrupos;
 
 {$R *.DFM}
 
@@ -5419,52 +5419,38 @@ end;
 
 procedure TFrmMain.OpCorClick(Sender: TObject);
 begin
-  { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCor', True)) Then
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCor', True)) Then
      Exit;
-  { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+
+  if DMApp.SelecionarEmpresa = 'N' Then
      Exit;
-  { * * * * * }
-  If frmCadCor = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-       //
-//       DMCadastros := TDMCadastros.Create(Self);
-       frmCadCor    := TfrmCadCor.Create(Self);
-       //
-       frmCadCor.Showmodal ;
-       frmCadCor.Free      ;
-       frmCadCor := Nil    ;
-     End;
+
+  if frmCadCor = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadCor := TfrmCadCor.Create(Self);
+     frmCadCor.ShowMODAL ;
+     frmCadCor.Free      ;
+     frmCadCor := Nil    ;
+  end;
 end;
 
 procedure TFrmMain.OpMaterialClick(Sender: TObject);
 begin
-  { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMaterial', True)) Then
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMaterial', True)) Then
      Exit;
-  { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
-     Exit;
-  { * * * * * }
-  If frmCadMaterial = Nil Then
-     Begin
-       //
-       If FrmMain.MDIChildCount > 0 Then
-          opFechar.OnClick(opFechar);
-       //
-       Application.ProcessMessages;
-       frmCadMaterial    := TfrmCadMaterial.Create(Self);
 
-       frmCadMaterial.Showmodal ;
-       frmCadMaterial.Free      ;
-       frmCadMaterial := Nil ;
-     End;
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadMaterial = Nil Then
+  begin
+     frmCadMaterial := TfrmCadMaterial.Create(Self);
+     frmCadMaterial.ShowMODAL ;
+     frmCadMaterial.Free      ;
+     frmCadMaterial := Nil    ;
+  end;
 end;
 
 procedure TFrmMain.RelogioTimer(Sender: TObject);
