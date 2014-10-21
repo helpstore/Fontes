@@ -21,7 +21,7 @@ uses
   dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
-  cxPC, cxMaskEdit, cxDropDownEdit, cxCalc, cxMemo;
+  cxPC, cxMaskEdit, cxDropDownEdit, cxCalc, cxMemo, cxCheckBox;
 
 type
   TFrmCadGrupos = class(TfrmCadPadraoMaster)
@@ -105,6 +105,7 @@ type
     dtEditDet1ESTOQUE_INI: TIntegerField;
     dtEditDet1ESTOQUE_FIM: TIntegerField;
     dtEditDet1OBS: TMemoField;
+    cxDBCheckBox1: TcxDBCheckBox;
     procedure dtEditDet1AfterInsert(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure dtEditDet1NewRecord(DataSet: TDataSet);
@@ -118,6 +119,8 @@ var
   FrmCadGrupos: TFrmCadGrupos;
 
 implementation
+
+uses Application_DM;
 
 {$R *.dfm}
 

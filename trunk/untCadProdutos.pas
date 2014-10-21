@@ -337,42 +337,42 @@ type
     QrySubGrupoOBS: TMemoField;
     BtnGrupos: TcxButton;
     cxLabel15: TcxLabel;
-    cxDBLookupComboBox1: TcxDBLookupComboBox;
+    aTfrmCadSecoesProdutos: TcxDBLookupComboBox;
     QrySecao: TIBQuery;
     DsSecao: TDataSource;
     QrySecaoCNPJ: TIBStringField;
     QrySecaoCOD_SECAO: TIntegerField;
     QrySecaoNOME: TIBStringField;
     cxLabel16: TcxLabel;
-    cxDBLookupComboBox3: TcxDBLookupComboBox;
+    aTfrmCadModelo: TcxDBLookupComboBox;
     QryModelo: TIBQuery;
     DsModelo: TDataSource;
     QryModeloCNPJ: TIBStringField;
     QryModeloCODIGO: TIntegerField;
     QryModeloNOME: TIBStringField;
     cxLabel17: TcxLabel;
-    cxDBLookupComboBox4: TcxDBLookupComboBox;
-    cxButton1: TcxButton;
-    cxButton2: TcxButton;
-    cxButton3: TcxButton;
+    aTfrmCadMarcas: TcxDBLookupComboBox;
+    BtnSecao: TcxButton;
+    BtnModelo: TcxButton;
+    BtnMarcas: TcxButton;
     QryMarca: TIBQuery;
     DsMarca: TDataSource;
     QryMarcaCNPJ: TIBStringField;
     QryMarcaCODIGO: TIntegerField;
     QryMarcaNOME: TIBStringField;
     cxLabel18: TcxLabel;
-    cxDBLookupComboBox5: TcxDBLookupComboBox;
+    aTfrmCadMaterial: TcxDBLookupComboBox;
     DsMaterial: TDataSource;
     QryMaterial: TIBQuery;
     QryMaterialCNPJ: TIBStringField;
     QryMaterialCODIGO: TIntegerField;
     QryMaterialNOME: TIBStringField;
-    cxButton4: TcxButton;
+    BtnMaterial: TcxButton;
     cxLabel19: TcxLabel;
     cxDBTextEdit3: TcxDBTextEdit;
     cxLabel20: TcxLabel;
-    cxDBLookupComboBox6: TcxDBLookupComboBox;
-    cxButton5: TcxButton;
+    aTfrmCadUnidadesMedidas: TcxDBLookupComboBox;
+    BtnUnidade: TcxButton;
     QryUnidade: TIBQuery;
     DsUnidade: TDataSource;
     QryUnidadeCNPJ: TIBStringField;
@@ -380,8 +380,8 @@ type
     QryUnidadeNOME: TIBStringField;
     QryUnidadeUNIDADES: TFloatField;
     cxLabel21: TcxLabel;
-    cxDBLookupComboBox7: TcxDBLookupComboBox;
-    cxButton6: TcxButton;
+    aTfrmCadCor: TcxDBLookupComboBox;
+    BtnCor: TcxButton;
     QryCor: TIBQuery;
     DsCor: TDataSource;
     QryCorCNPJ: TIBStringField;
@@ -389,7 +389,60 @@ type
     QryCorNOME: TIBStringField;
     cxDBTextEdit4: TcxDBTextEdit;
     cxLabel22: TcxLabel;
+    cxDBCheckBox1: TcxDBCheckBox;
+    cxDBCheckBox2: TcxDBCheckBox;
+    cxDBCheckBox3: TcxDBCheckBox;
+    cxDBCheckBox4: TcxDBCheckBox;
+    cxDBCheckBox5: TcxDBCheckBox;
+    cxDBCheckBox6: TcxDBCheckBox;
+    cxDBLookupComboBox1: TcxDBLookupComboBox;
+    cxButton1: TcxButton;
+    cxLabel23: TcxLabel;
+    cxLabel24: TcxLabel;
+    cxDBLookupComboBox3: TcxDBLookupComboBox;
+    cxButton2: TcxButton;
+    cxLabel25: TcxLabel;
+    cxDBLookupComboBox4: TcxDBLookupComboBox;
+    cxButton3: TcxButton;
+    QryLocalizacao1: TIBQuery;
+    DsLocalizacao1: TDataSource;
+    QryLocalizacao1CODIGO: TIntegerField;
+    QryLocalizacao1CNPJ: TIBStringField;
+    QryLocalizacao1DESCRICAO: TIBStringField;
+    QryLocalizacao2: TIBQuery;
+    IntegerField1: TIntegerField;
+    IBStringField1: TIBStringField;
+    IBStringField2: TIBStringField;
+    DsLocalizacao2: TDataSource;
+    QryLocalizacao3: TIBQuery;
+    IntegerField2: TIntegerField;
+    IBStringField3: TIBStringField;
+    IBStringField4: TIBStringField;
+    DsLocalizacao3: TDataSource;
+    cxDBTextEdit5: TcxDBTextEdit;
+    cxLabel26: TcxLabel;
+    cxDBTextEdit6: TcxDBTextEdit;
+    cxLabel27: TcxLabel;
+    cxLabel28: TcxLabel;
+    cxDBTextEdit7: TcxDBTextEdit;
+    cxLabel29: TcxLabel;
+    cxDBTextEdit8: TcxDBTextEdit;
+    cxLabel30: TcxLabel;
+    cxDBTextEdit9: TcxDBTextEdit;
+    cxLabel31: TcxLabel;
+    cxDBTextEdit10: TcxDBTextEdit;
+    cxLabel32: TcxLabel;
+    cxDBTextEdit11: TcxDBTextEdit;
+    cxDBTextEdit12: TcxDBTextEdit;
+    cxLabel33: TcxLabel;
+    cxLabel34: TcxLabel;
+    cxDBTextEdit13: TcxDBTextEdit;
+    cxLabel35: TcxLabel;
+    cxDBTextEdit14: TcxDBTextEdit;
+    cxLabel36: TcxLabel;
+    cxDBTextEdit15: TcxDBTextEdit;
     procedure ActCadLookupExecute(Sender: TObject);
+    procedure dtEditNewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -401,6 +454,9 @@ var
 
 implementation
 
+uses UntCadSecoesProdutos, UntCadModelo, UntCadMarcas, UntCadMaterial,
+  untCadUnidadesMedidas, UntCadCor;
+
 {$R *.dfm}
 
 procedure TfrmCadProdutos.ActCadLookupExecute(Sender: TObject);
@@ -408,6 +464,30 @@ begin
   inherited;
   if aTFrmCadGrupos.Focused then
     BtnGrupos.OnClick(self);
+
+  if aTfrmCadSecoesProdutos.Focused then
+    BtnSecao.OnClick(self);
+
+  if aTfrmCadModelo.Focused then
+    BtnModelo.OnClick(self);
+
+  if aTfrmCadMarcas.Focused then
+    BtnMarcas.OnClick(self);
+
+  if aTfrmCadMaterial.Focused then
+    BtnMaterial.OnClick(self);
+
+  if aTfrmCadUnidadesMedidas.Focused then
+    BtnUnidade.OnClick(self);
+
+  if aTfrmCadCor.Focused then
+    BtnCor.OnClick(self);
+end;
+
+procedure TfrmCadProdutos.dtEditNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditATIVO.value := 'S';
 end;
 
 end.
