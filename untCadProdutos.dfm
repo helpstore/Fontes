@@ -674,7 +674,7 @@ inherited frmCadProdutos: TfrmCadProdutos
           inherited PgcMaster: TcxPageControl
             Width = 689
             Height = 252
-            ActivePage = cxTabSheet3
+            ActivePage = cxTabSheet5
             ClientRectBottom = 248
             ClientRectRight = 685
             inherited tbsMaster1: TcxTabSheet
@@ -2083,7 +2083,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                   item
                     FieldName = 'NOME'
                   end>
-                Properties.ListSource = DsTecnico
+                Properties.ListSource = CSON
                 TabOrder = 25
                 Width = 198
               end
@@ -2803,21 +2803,21 @@ inherited frmCadProdutos: TfrmCadProdutos
               object cxDBLookupComboBox1: TcxDBLookupComboBox
                 Left = 8
                 Top = 56
-                DataBinding.DataField = 'COD_LOCALIZACAO_1'
+                DataBinding.DataField = 'REDUCAO'
                 DataBinding.DataSource = dsRegistro
                 Properties.KeyFieldNames = 'CODIGO'
                 Properties.ListColumns = <
                   item
-                    FieldName = 'DESCRICAO'
+                    FieldName = 'MENSAGEM_NF'
                   end>
-                Properties.ListSource = DsLocalizacao1
+                Properties.ListSource = DsReducao
                 TabOrder = 8
-                Width = 310
+                Width = 321
               end
               object cxLabel66: TcxLabel
                 Left = 8
                 Top = 40
-                Caption = 'Localiza'#231#227'o 1'
+                Caption = 'Redu'#231#227'o'
                 Style.HotTrack = False
                 Style.LookAndFeel.Kind = lfUltraFlat
                 Style.LookAndFeel.NativeStyle = False
@@ -2836,7 +2836,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Transparent = True
               end
               object cxButton1: TcxButton
-                Left = 318
+                Left = 329
                 Top = 55
                 Width = 23
                 Height = 22
@@ -2869,10 +2869,308 @@ inherited frmCadProdutos: TfrmCadProdutos
                   BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
                   BFBFBFBFBFBFBFBFBFBF}
               end
+              object cxDBComboBox3: TcxDBComboBox
+                Left = 354
+                Top = 56
+                DataBinding.DataField = 'TRIB_MODALIDADE'
+                DataBinding.DataSource = dsRegistro
+                Properties.Items.Strings = (
+                  'Margem Valor Agregado (%).'
+                  'Pauta (Valor).'
+                  'Pre'#231'o Tabelado M'#225'x. (Valor). '
+                  'Valor da opera'#231#227'o.')
+                TabOrder = 11
+                Width = 324
+              end
+              object cxLabel67: TcxLabel
+                Left = 355
+                Top = 40
+                Caption = 'Modalidade'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxLabel68: TcxLabel
+                Left = 8
+                Top = 80
+                Caption = 'PIS'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBComboBox4: TcxDBComboBox
+                Left = 8
+                Top = 96
+                DataBinding.DataField = 'TRIB_PIS'
+                DataBinding.DataSource = dsRegistro
+                Properties.Items.Strings = (
+                  '01 - Op. Tributavel '
+                  '02 - Op. Tributavel - Aliq. Diferenciada'
+                  '03 - Op. Tributavel - Aliq. por Unidade de Produto'
+                  '04 - Op. Tributavel - Monofasica'
+                  '06 - Op. Tributavel - Aliq. Zero'
+                  '07 - Op. Isenta'
+                  '08 - Op. Sem Incidencia'
+                  '09 - Op. Suspensao '
+                  '99 - Outras Operacoes')
+                TabOrder = 14
+                Width = 329
+              end
+              object cxLabel69: TcxLabel
+                Left = 342
+                Top = 80
+                Caption = 'COFINS'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBComboBox5: TcxDBComboBox
+                Left = 339
+                Top = 96
+                DataBinding.DataField = 'TRIB_COFINS'
+                DataBinding.DataSource = dsRegistro
+                Properties.Items.Strings = (
+                  '01 - Op. Tributavel '
+                  '02 - Op. Tributavel - Aliq. Diferenciada'
+                  '03 - Op. Tributavel - Aliq. por Unidade de Produto'
+                  '04 - Op. Tributavel - Monofasica'
+                  '06 - Op. Tributavel - Aliq. Zero'
+                  '07 - Op. Isenta'
+                  '08 - Op. Sem Incidencia'
+                  '09 - Op. Suspensao '
+                  '99 - Outras Operacoes')
+                TabOrder = 16
+                Width = 339
+              end
+              object cxLabel70: TcxLabel
+                Left = 8
+                Top = 120
+                Caption = 'IPI'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBComboBox6: TcxDBComboBox
+                Left = 8
+                Top = 136
+                DataBinding.DataField = 'TRIB_IPI'
+                DataBinding.DataSource = dsRegistro
+                Properties.Items.Strings = (
+                  '00 - Entrada com recuperacao de credito'
+                  '01 - Entrada tributada com aliquota zero'
+                  '02 - Entrada isenta'
+                  '03 - Entrada nao-tributada'
+                  '04 - Entrada imune'
+                  '05 - Entrada com suspensao'
+                  '49 - Outras entradas'
+                  '50 - Saida tributada'
+                  '51 - Saida tributada com aliquota zero'
+                  '52 - Saida isenta'
+                  '53 - Saida nao-tributada'
+                  '54 - Saida imune'
+                  '55 - Saida com suspensao'
+                  '99 - Outras Saidas')
+                TabOrder = 18
+                Width = 382
+              end
+              object cxLabel71: TcxLabel
+                Left = 393
+                Top = 120
+                Caption = 'CSOSN'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBComboBox7: TcxDBComboBox
+                Left = 391
+                Top = 136
+                DataBinding.DataField = 'CSOSN'
+                DataBinding.DataSource = dsRegistro
+                Properties.Items.Strings = (
+                  '101 - Tributado com permiss'#227'o de cr'#233'dito'
+                  '102 - Tributado sem permiss'#227'o de cr'#233'dito'
+                  '103 - Isen'#231#227'o de icms por faixa de receita bruta'
+                  
+                    '201 - Tributado com permiss'#227'o de cr'#233'dito e com cobran'#231'a do ICMS ' +
+                    'por ST'
+                  
+                    '202 - Tributado sem permiss'#227'o de cr'#233'dito e com cobran'#231'a do ICMS ' +
+                    'por ST'
+                  
+                    '203 - Isen'#231#227'o do ICMS para faixa de receita bruta e com combran'#231 +
+                    'a de ICMS por ST'
+                  '300 - Imune'
+                  '400 - N'#227'o tributado')
+                TabOrder = 20
+                Width = 287
+              end
+              object cxLabel72: TcxLabel
+                Left = 8
+                Top = 160
+                Caption = 'C'#243'd. GETIN'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object cxDBTextEdit24: TcxDBTextEdit
+                Left = 8
+                Top = 176
+                DataBinding.DataField = 'COD_GETIN'
+                DataBinding.DataSource = dsRegistro
+                ParentFont = False
+                Properties.CharCase = ecUpperCase
+                Style.Font.Charset = DEFAULT_CHARSET
+                Style.Font.Color = clWindowText
+                Style.Font.Height = -11
+                Style.Font.Name = 'Tahoma'
+                Style.Font.Style = []
+                Style.HotTrack = False
+                Style.IsFontAssigned = True
+                TabOrder = 22
+                Width = 121
+              end
+              object cxDBCheckBox10: TcxDBCheckBox
+                Left = 130
+                Top = 180
+                Caption = 'Debita ICMS'
+                DataBinding.DataField = 'DEBITA_ICMS'
+                DataBinding.DataSource = dsRegistro
+                Properties.ValueChecked = 'S'
+                Properties.ValueUnchecked = 'N'
+                TabOrder = 23
+                Transparent = True
+                Width = 87
+              end
+              object cxDBComboBox8: TcxDBComboBox
+                Left = 209
+                Top = 176
+                DataBinding.DataField = 'ALIQUOTA_ECF'
+                DataBinding.DataSource = dsRegistro
+                Properties.Items.Strings = (
+                  'T1'
+                  'T2'
+                  'T3'
+                  'T4'
+                  'T5'
+                  'T6'
+                  'II'
+                  'FF')
+                TabOrder = 24
+                Width = 72
+              end
+              object cxLabel73: TcxLabel
+                Left = 209
+                Top = 160
+                Caption = 'Trib. ECF'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
             end
             object cxTabSheet4: TcxTabSheet
               Caption = 'Aplica'#231#227'o'
               ImageIndex = 4
+              object cxDBMemo1: TcxDBMemo
+                Left = 0
+                Top = 0
+                Align = alClient
+                DataBinding.DataField = 'APLICACAO'
+                DataBinding.DataSource = dsRegistro
+                TabOrder = 0
+                Height = 221
+                Width = 681
+              end
             end
             object cxTabSheet5: TcxTabSheet
               Caption = 'Imagens'
@@ -7716,7 +8014,7 @@ inherited frmCadProdutos: TfrmCadProdutos
       'FROM VER_FORNECEDOR (:CNPJ)'
       'ORDER BY NOME_RAZAO')
     Left = 329
-    Top = 140
+    Top = 116
     ParamData = <
       item
         DataType = ftUnknown
@@ -7766,7 +8064,7 @@ inherited frmCadProdutos: TfrmCadProdutos
   object DsUltimoFornecedor: TDataSource
     DataSet = QryUltimoFornecedor
     Left = 351
-    Top = 140
+    Top = 116
   end
   object QryTecnico: TIBQuery
     Tag = 4
@@ -7784,7 +8082,7 @@ inherited frmCadProdutos: TfrmCadProdutos
         '_fj = psa.codigo)'
       'where t.cnpj = :cnpj')
     Left = 385
-    Top = 140
+    Top = 116
     ParamData = <
       item
         DataType = ftUnknown
@@ -7815,9 +8113,75 @@ inherited frmCadProdutos: TfrmCadProdutos
       Size = 8
     end
   end
-  object DsTecnico: TDataSource
+  object CSON: TDataSource
     DataSet = QryTecnico
     Left = 407
-    Top = 140
+    Top = 116
+  end
+  object QryReducao: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               CODIGO, '
+      '               PERC_ESTADUAL, '
+      '               PERC_INTERESTADUAL, '
+      '               MENSAGEM_NF,'
+      '               MENSAGEM_NF_IE,'
+      '               PERC_CONTRIBUINTE'
+      'FROM EST_REDUCOES'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY CODIGO')
+    Left = 441
+    Top = 116
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryReducaoCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_REDUCOES"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryReducaoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"EST_REDUCOES"."CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryReducaoPERC_ESTADUAL: TFloatField
+      FieldName = 'PERC_ESTADUAL'
+      Origin = '"EST_REDUCOES"."PERC_ESTADUAL"'
+    end
+    object QryReducaoPERC_INTERESTADUAL: TFloatField
+      FieldName = 'PERC_INTERESTADUAL'
+      Origin = '"EST_REDUCOES"."PERC_INTERESTADUAL"'
+    end
+    object QryReducaoMENSAGEM_NF: TIBStringField
+      FieldName = 'MENSAGEM_NF'
+      Origin = '"EST_REDUCOES"."MENSAGEM_NF"'
+      Size = 80
+    end
+    object QryReducaoMENSAGEM_NF_IE: TIBStringField
+      FieldName = 'MENSAGEM_NF_IE'
+      Origin = '"EST_REDUCOES"."MENSAGEM_NF_IE"'
+      Size = 80
+    end
+    object QryReducaoPERC_CONTRIBUINTE: TFloatField
+      FieldName = 'PERC_CONTRIBUINTE'
+      Origin = '"EST_REDUCOES"."PERC_CONTRIBUINTE"'
+    end
+  end
+  object DsReducao: TDataSource
+    DataSet = QryReducao
+    Left = 463
+    Top = 116
   end
 end

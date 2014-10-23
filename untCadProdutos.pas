@@ -23,7 +23,7 @@ uses
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
   cxPC, cxCheckBox, cxImage, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
   cxDBLookupEdit, cxDBLookupComboBox, Menus, StdCtrls, cxButtons, cxCalc,
-  cxCalendar;
+  cxCalendar, cxMemo;
 
 type
   TfrmCadProdutos = class(TfrmCadPadraoMaster)
@@ -477,7 +477,6 @@ type
     aTfrmCadTecnicos: TcxDBLookupComboBox;
     BtnTecnico: TcxButton;
     QryTecnico: TIBQuery;
-    DsTecnico: TDataSource;
     QryTecnicoCODIGO: TIntegerField;
     QryTecnicoNOME: TIBStringField;
     QryTecnicoEMAIL: TIBStringField;
@@ -534,6 +533,32 @@ type
     cxDBLookupComboBox1: TcxDBLookupComboBox;
     cxLabel66: TcxLabel;
     cxButton1: TcxButton;
+    QryReducao: TIBQuery;
+    DsReducao: TDataSource;
+    QryReducaoCNPJ: TIBStringField;
+    QryReducaoCODIGO: TIntegerField;
+    QryReducaoPERC_ESTADUAL: TFloatField;
+    QryReducaoPERC_INTERESTADUAL: TFloatField;
+    QryReducaoMENSAGEM_NF: TIBStringField;
+    QryReducaoMENSAGEM_NF_IE: TIBStringField;
+    QryReducaoPERC_CONTRIBUINTE: TFloatField;
+    cxDBComboBox3: TcxDBComboBox;
+    cxLabel67: TcxLabel;
+    cxLabel68: TcxLabel;
+    cxDBComboBox4: TcxDBComboBox;
+    cxLabel69: TcxLabel;
+    cxDBComboBox5: TcxDBComboBox;
+    cxLabel70: TcxLabel;
+    cxDBComboBox6: TcxDBComboBox;
+    cxLabel71: TcxLabel;
+    cxDBComboBox7: TcxDBComboBox;
+    CSON: TDataSource;
+    cxLabel72: TcxLabel;
+    cxDBTextEdit24: TcxDBTextEdit;
+    cxDBCheckBox10: TcxDBCheckBox;
+    cxDBComboBox8: TcxDBComboBox;
+    cxLabel73: TcxLabel;
+    cxDBMemo1: TcxDBMemo;
     procedure ActCadLookupExecute(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
   private
