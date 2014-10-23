@@ -1,5 +1,5 @@
 object FrmMain: TFrmMain
-  Left = 101
+  Left = 104
   Top = 0
   Width = 1067
   Height = 605
@@ -481,6 +481,7 @@ object FrmMain: TFrmMain
             Font.Style = []
             Storage = AgendaStorage2
             TabOrder = 1
+            Selection = 1
             Splitters = {
               C00200007E0000004F03000083000000BB02000001000000C00200006B010000}
             StoredClientBounds = {01000000010000004F0300006B010000}

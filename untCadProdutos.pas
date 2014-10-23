@@ -22,7 +22,8 @@ uses
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
   cxPC, cxCheckBox, cxImage, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
-  cxDBLookupEdit, cxDBLookupComboBox, Menus, StdCtrls, cxButtons;
+  cxDBLookupEdit, cxDBLookupComboBox, Menus, StdCtrls, cxButtons, cxCalc,
+  cxCalendar;
 
 type
   TfrmCadProdutos = class(TfrmCadPadraoMaster)
@@ -395,15 +396,15 @@ type
     cxDBCheckBox4: TcxDBCheckBox;
     cxDBCheckBox5: TcxDBCheckBox;
     cxDBCheckBox6: TcxDBCheckBox;
-    cxDBLookupComboBox1: TcxDBLookupComboBox;
-    cxButton1: TcxButton;
+    aTfrmCadLocalizacaoEstoque: TcxDBLookupComboBox;
+    BtnLocalizacao1: TcxButton;
     cxLabel23: TcxLabel;
     cxLabel24: TcxLabel;
-    cxDBLookupComboBox3: TcxDBLookupComboBox;
-    cxButton2: TcxButton;
+    bTfrmCadLocalizacaoEstoque: TcxDBLookupComboBox;
+    BtnLocalizacao2: TcxButton;
     cxLabel25: TcxLabel;
-    cxDBLookupComboBox4: TcxDBLookupComboBox;
-    cxButton3: TcxButton;
+    cTfrmCadLocalizacaoEstoque: TcxDBLookupComboBox;
+    BtnLocalizacao3: TcxButton;
     QryLocalizacao1: TIBQuery;
     DsLocalizacao1: TDataSource;
     QryLocalizacao1CODIGO: TIntegerField;
@@ -441,6 +442,98 @@ type
     cxDBTextEdit14: TcxDBTextEdit;
     cxLabel36: TcxLabel;
     cxDBTextEdit15: TcxDBTextEdit;
+    cxLabel37: TcxLabel;
+    cxDBTextEdit16: TcxDBTextEdit;
+    cxLabel38: TcxLabel;
+    cxDBTextEdit17: TcxDBTextEdit;
+    cxLabel39: TcxLabel;
+    cxDBTextEdit18: TcxDBTextEdit;
+    aTfrmCadFornecedores: TcxDBLookupComboBox;
+    cxLabel40: TcxLabel;
+    BtnFornecedor: TcxButton;
+    QryFornecedor: TIBQuery;
+    DsFornecedor: TDataSource;
+    QryFornecedorEMPRESA: TIBStringField;
+    QryFornecedorCODIGO: TIntegerField;
+    QryFornecedorPESSOA_FJ: TIntegerField;
+    QryFornecedorNOME_RAZAO: TIBStringField;
+    QryFornecedorFONE: TIBStringField;
+    QryFornecedorFANTASIA: TIBStringField;
+    QryFornecedorCPF_CGC: TIBStringField;
+    QryFornecedorUF: TIBStringField;
+    cxLabel41: TcxLabel;
+    cxDBLookupComboBox6: TcxDBLookupComboBox;
+    QryUltimoFornecedor: TIBQuery;
+    DsUltimoFornecedor: TDataSource;
+    QryUltimoFornecedorEMPRESA: TIBStringField;
+    QryUltimoFornecedorCODIGO: TIntegerField;
+    QryUltimoFornecedorPESSOA_FJ: TIntegerField;
+    QryUltimoFornecedorNOME_RAZAO: TIBStringField;
+    QryUltimoFornecedorFONE: TIBStringField;
+    QryUltimoFornecedorFANTASIA: TIBStringField;
+    QryUltimoFornecedorCPF_CGC: TIBStringField;
+    QryUltimoFornecedorUF: TIBStringField;
+    cxLabel42: TcxLabel;
+    aTfrmCadTecnicos: TcxDBLookupComboBox;
+    BtnTecnico: TcxButton;
+    QryTecnico: TIBQuery;
+    DsTecnico: TDataSource;
+    QryTecnicoCODIGO: TIntegerField;
+    QryTecnicoNOME: TIBStringField;
+    QryTecnicoEMAIL: TIBStringField;
+    QryTecnicoASSINATURA: TMemoField;
+    cxLabel43: TcxLabel;
+    cxDBTextEdit19: TcxDBTextEdit;
+    cxDBTextEdit20: TcxDBTextEdit;
+    cxLabel44: TcxLabel;
+    cxLabel45: TcxLabel;
+    cxDBTextEdit21: TcxDBTextEdit;
+    cxLabel46: TcxLabel;
+    cxDBTextEdit22: TcxDBTextEdit;
+    cxLabel47: TcxLabel;
+    cxDBTextEdit23: TcxDBTextEdit;
+    cxDBCheckBox7: TcxDBCheckBox;
+    cxDBCheckBox8: TcxDBCheckBox;
+    cxDBCheckBox9: TcxDBCheckBox;
+    cxDBCalcEdit1: TcxDBCalcEdit;
+    cxLabel48: TcxLabel;
+    cxLabel49: TcxLabel;
+    cxDBCalcEdit2: TcxDBCalcEdit;
+    cxLabel50: TcxLabel;
+    cxDBCalcEdit3: TcxDBCalcEdit;
+    cxDBCalcEdit4: TcxDBCalcEdit;
+    cxLabel51: TcxLabel;
+    cxLabel52: TcxLabel;
+    cxDBCalcEdit5: TcxDBCalcEdit;
+    cxLabel53: TcxLabel;
+    cxDBCalcEdit6: TcxDBCalcEdit;
+    cxDBCalcEdit7: TcxDBCalcEdit;
+    cxLabel54: TcxLabel;
+    cxLabel55: TcxLabel;
+    cxDBCalcEdit8: TcxDBCalcEdit;
+    cxLabel56: TcxLabel;
+    cxDBCalcEdit9: TcxDBCalcEdit;
+    cxDBCalcEdit10: TcxDBCalcEdit;
+    cxLabel57: TcxLabel;
+    cxLabel58: TcxLabel;
+    cxDBCalcEdit11: TcxDBCalcEdit;
+    cxDBDateEdit1: TcxDBDateEdit;
+    cxLabel59: TcxLabel;
+    cxLabel60: TcxLabel;
+    cxDBCalcEdit12: TcxDBCalcEdit;
+    cxLabel61: TcxLabel;
+    cxDBCalcEdit13: TcxDBCalcEdit;
+    cxDBComboBox1: TcxDBComboBox;
+    cxLabel62: TcxLabel;
+    cxDBCalcEdit14: TcxDBCalcEdit;
+    cxLabel63: TcxLabel;
+    cxDBComboBox2: TcxDBComboBox;
+    cxLabel64: TcxLabel;
+    cxDBCalcEdit15: TcxDBCalcEdit;
+    cxLabel65: TcxLabel;
+    cxDBLookupComboBox1: TcxDBLookupComboBox;
+    cxLabel66: TcxLabel;
+    cxButton1: TcxButton;
     procedure ActCadLookupExecute(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
   private
@@ -482,6 +575,21 @@ begin
 
   if aTfrmCadCor.Focused then
     BtnCor.OnClick(self);
+
+  if aTfrmCadLocalizacaoEstoque.Focused then
+    BtnLocalizacao1.OnClick(self);
+
+  if bTfrmCadLocalizacaoEstoque.Focused then
+    BtnLocalizacao2.OnClick(self);
+
+  if cTfrmCadLocalizacaoEstoque.Focused then
+    BtnLocalizacao3.OnClick(self);
+
+  if aTfrmCadFornecedores.Focused then
+    BtnFornecedor.OnClick(self);
+
+  if aTfrmCadTecnicos.Focused then        
+    BtnTecnico.OnClick(self);
 end;
 
 procedure TfrmCadProdutos.dtEditNewRecord(DataSet: TDataSet);
