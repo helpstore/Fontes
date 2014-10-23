@@ -1949,7 +1949,7 @@ end;
 
 procedure TFrmMain.opFornecedoresClick(Sender: TObject);
 begin
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmFornecedores', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadFornecedores', True)) Then
      Exit;
 
   If DMApp.SelecionarEmpresa = 'N' Then
