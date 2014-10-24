@@ -1,6 +1,6 @@
 object FrmProdutos_Tribut_Revenda: TFrmProdutos_Tribut_Revenda
-  Left = 186
-  Top = 129
+  Left = 839
+  Top = 582
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Tributa'#231#245'es para Revenda'

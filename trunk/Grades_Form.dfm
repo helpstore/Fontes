@@ -1,6 +1,6 @@
 object FrmGrades: TFrmGrades
-  Left = 269
-  Top = 133
+  Left = 620
+  Top = 195
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Grades'
