@@ -615,6 +615,132 @@ type
     cxDBDateEdit3: TcxDBDateEdit;
     cxDBDateEdit4: TcxDBDateEdit;
     cxLabel81: TcxLabel;
+    dtListDet2CNPJ: TIBStringField;
+    dtListDet2PRODUTO: TIBStringField;
+    dtListDet2GRADE: TIBStringField;
+    dtListDet2MATERIAL: TIntegerField;
+    dtListDet2COR: TIntegerField;
+    dtListDet2ULTIMA_COMPRA: TDateTimeField;
+    dtListDet2QTDADE_COMPRA: TFloatField;
+    dtListDet2ULTIMA_VENDA: TDateTimeField;
+    dtListDet2QTDADE_VENDA: TFloatField;
+    dtListDet2ESTOQUE: TFloatField;
+    dtListDet2NOME_MATERIAL: TIBStringField;
+    dtListDet2NOME_COR: TIBStringField;
+    dtListDet2PERFIL: TIntegerField;
+    dtListDet2NOME_PERFIL: TIBStringField;
+    TVDet2PRODUTO: TcxGridDBBandedColumn;
+    TVDet2GRADE: TcxGridDBBandedColumn;
+    TVDet2MATERIAL: TcxGridDBBandedColumn;
+    TVDet2COR: TcxGridDBBandedColumn;
+    TVDet2ULTIMA_COMPRA: TcxGridDBBandedColumn;
+    TVDet2QTDADE_COMPRA: TcxGridDBBandedColumn;
+    TVDet2ULTIMA_VENDA: TcxGridDBBandedColumn;
+    TVDet2QTDADE_VENDA: TcxGridDBBandedColumn;
+    TVDet2ESTOQUE: TcxGridDBBandedColumn;
+    TVDet2NOME_MATERIAL: TcxGridDBBandedColumn;
+    TVDet2NOME_COR: TcxGridDBBandedColumn;
+    TVDet2PERFIL: TcxGridDBBandedColumn;
+    TVDet2NOME_PERFIL: TcxGridDBBandedColumn;
+    dtEditDet2CNPJ: TIBStringField;
+    dtEditDet2PRODUTO: TIBStringField;
+    dtEditDet2GRADE: TIBStringField;
+    dtEditDet2MATERIAL: TIntegerField;
+    dtEditDet2COR: TIntegerField;
+    dtEditDet2ULTIMA_COMPRA: TDateTimeField;
+    dtEditDet2QTDADE_COMPRA: TFloatField;
+    dtEditDet2ULTIMA_VENDA: TDateTimeField;
+    dtEditDet2QTDADE_VENDA: TFloatField;
+    dtEditDet2ESTOQUE: TFloatField;
+    dtEditDet2NOME_MATERIAL: TIBStringField;
+    dtEditDet2NOME_COR: TIBStringField;
+    dtEditDet2PERFIL: TIntegerField;
+    dtEditDet2NOME_PERFIL: TIBStringField;
+    cxLabel82: TcxLabel;
+    cxDBTextEdit30: TcxDBTextEdit;
+    cxLabel83: TcxLabel;
+    bTfrmCadMaterial: TcxDBLookupComboBox;
+    BtnGradesMaterial: TcxButton;
+    QryGradesMaterial: TIBQuery;
+    DsGradesMaterial: TDataSource;
+    QryGradesMaterialCNPJ: TIBStringField;
+    QryGradesMaterialCODIGO: TIntegerField;
+    QryGradesMaterialNOME: TIBStringField;
+    cxDBLookupComboBox3: TcxDBLookupComboBox;
+    cxLabel84: TcxLabel;
+    cxButton3: TcxButton;
+    QryPerfil: TIBQuery;
+    DsPerfil: TDataSource;
+    QryPerfilCNPJ: TIBStringField;
+    QryPerfilCODIGO: TIntegerField;
+    QryPerfilNOME: TIBStringField;
+    QryPerfilINICIAL: TIntegerField;
+    QryPerfilFINAL: TIntegerField;
+    QryPerfilINTERVALO: TIntegerField;
+    cxLabel85: TcxLabel;
+    cxDBTextEdit31: TcxDBTextEdit;
+    cxLabel86: TcxLabel;
+    cxDBTextEdit32: TcxDBTextEdit;
+    cxLabel87: TcxLabel;
+    cxDBTextEdit33: TcxDBTextEdit;
+    cxLabel88: TcxLabel;
+    cxDBTextEdit34: TcxDBTextEdit;
+    dtListDet3CNPJ: TIBStringField;
+    dtListDet3CTE: TIntegerField;
+    dtListDet3CTIE: TIntegerField;
+    dtListDet3PRODUTO: TIBStringField;
+    TVDet3CTE: TcxGridDBBandedColumn;
+    TVDet3CTIE: TcxGridDBBandedColumn;
+    TVDet3PRODUTO: TcxGridDBBandedColumn;
+    dtEditDet3CNPJ: TIBStringField;
+    dtEditDet3CTE: TIntegerField;
+    dtEditDet3CTIE: TIntegerField;
+    dtEditDet3PRODUTO: TIBStringField;
+    cxDBComboBox9: TcxDBComboBox;
+    cxLabel89: TcxLabel;
+    cxLabel90: TcxLabel;
+    cxDBComboBox10: TcxDBComboBox;
+    dtListDet6CNPJ: TIBStringField;
+    dtListDet6CODIGO: TIntegerField;
+    dtListDet6PRODUTO: TIBStringField;
+    dtListDet6COD_FORNECEDOR: TIntegerField;
+    dtListDet6FATOR: TFloatField;
+    dtListDet6UNIDADE: TIBStringField;
+    dtListDet6FORNECEDOR: TIBStringField;
+    dtListDet6COD_PRD_FORNECEDOR: TIBStringField;
+    TVDet6CODIGO: TcxGridDBBandedColumn;
+    TVDet6PRODUTO: TcxGridDBBandedColumn;
+    TVDet6COD_FORNECEDOR: TcxGridDBBandedColumn;
+    TVDet6FATOR: TcxGridDBBandedColumn;
+    TVDet6UNIDADE: TcxGridDBBandedColumn;
+    TVDet6FORNECEDOR: TcxGridDBBandedColumn;
+    TVDet6COD_PRD_FORNECEDOR: TcxGridDBBandedColumn;
+    dtEditDet6CNPJ: TIBStringField;
+    dtEditDet6CODIGO: TIntegerField;
+    dtEditDet6PRODUTO: TIBStringField;
+    dtEditDet6FORNECEDOR: TIntegerField;
+    dtEditDet6FATOR: TFloatField;
+    dtEditDet6UNIDADE: TIBStringField;
+    dtEditDet6COD_PRD_FORNECEDOR: TIBStringField;
+    bTfrmCadFornecedores: TcxDBLookupComboBox;
+    cxLabel91: TcxLabel;
+    BtnFornecedores: TcxButton;
+    QryProdForn: TIBQuery;
+    IBStringField5: TIBStringField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    IBStringField6: TIBStringField;
+    IBStringField7: TIBStringField;
+    IBStringField8: TIBStringField;
+    IBStringField9: TIBStringField;
+    IBStringField10: TIBStringField;
+    DsProdForn: TDataSource;
+    cxDBTextEdit35: TcxDBTextEdit;
+    cxLabel92: TcxLabel;
+    cxLabel93: TcxLabel;
+    cxDBTextEdit36: TcxDBTextEdit;
+    cxLabel94: TcxLabel;
+    cxDBTextEdit37: TcxDBTextEdit;
     procedure ActCadLookupExecute(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
   private
@@ -636,6 +762,12 @@ uses UntCadSecoesProdutos, UntCadModelo, UntCadMarcas, UntCadMaterial,
 procedure TfrmCadProdutos.ActCadLookupExecute(Sender: TObject);
 begin
   inherited;
+  if bTfrmCadFornecedores.Focused then
+    BtnFornecedores.OnClick(self);
+
+  if bTfrmCadMaterial.Focused then
+    BtnGradesMaterial.OnClick(self);
+
   if aTFrmCadGrupos.Focused then
     BtnGrupos.OnClick(self);
 
@@ -676,7 +808,29 @@ end;
 procedure TfrmCadProdutos.dtEditNewRecord(DataSet: TDataSet);
 begin
   inherited;
-  dtEditATIVO.value := 'S';
-end;
+  
+  dtEditDEBITA_ICMS.Value      := 'N' ;
+  dtEditATIVO.Value            := 'S' ;
+  dtEditCOMPLEMENTO_NF.Value   := 'N' ;
+  dtEditVENDE_FRACIONADO.Value := 'N' ;
+  dtEditPOSSUI_LOTE.Value      := 'N' ;
+  dtEditCTE.Value              := 1   ;
+  dtEditCTIe.Value             := 1   ;
+  dtEditNEG_QTDADE_2.Value     := 'N' ;
+  dtEditEtiqueta_ent.Value     := 'N' ;
+  dtEditComplemento_NF.Value   := 'N' ;
+  dtEditPROD_PESAVEL.Value     := 'N' ;
+  dtEditSERVICO.Value          := 'N' ;
+  dtEditCUSTO_INDEXADO.Value   := 0   ;
+  dtEditSINCRONIZA_FILIAIS.Value          := 'S' ;
+  For I := 0 to dtEdit.FieldCount - 1 do
+  begin
+      if dtEdit.Fields.FIELDS[i].DataType = FtFloat
+      then Begin
+           dtEdit.Fields[i].Value := 0;
+      end;
+  end;
+  dtEditMARGEM_BRUTA.value := DmApp.MARGEM_BRUTA;
+  end;
 
 end.
