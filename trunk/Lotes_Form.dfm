@@ -1,6 +1,6 @@
 object FrmLotes: TFrmLotes
-  Left = 371
-  Top = 134
+  Left = 829
+  Top = 29
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Lotes '
