@@ -1,4 +1,4 @@
-unit untCadUnidadesMedidas;
+unit UntCadReducoes;
 
 interface
 
@@ -24,20 +24,21 @@ uses
   cxPC;
 
 type
-  TfrmCadUnidadesMedidas = class(TfrmCadPadrao)
+  TfrmCadReducoes = class(TfrmCadPadrao)
     dtListCNPJ: TIBStringField;
-    dtListSIGLA: TIBStringField;
-    dtListNOME: TIBStringField;
-    dtListUNIDADES: TFloatField;
+    dtListCODIGO: TIntegerField;
+    dtListPERC_ESTADUAL: TFloatField;
+    dtListPERC_INTERESTADUAL: TFloatField;
+    dtListMENSAGEM_NF: TIBStringField;
+    dtListMENSAGEM_NF_IE: TIBStringField;
+    dtListPERC_CONTRIBUINTE: TFloatField;
     GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn;
-    GridDBBandedTableView2SIGLA: TcxGridDBBandedColumn;
-    GridDBBandedTableView2NOME: TcxGridDBBandedColumn;
-    GridDBBandedTableView2UNIDADES: TcxGridDBBandedColumn;
-    dtEditCNPJ: TIBStringField;
-    dtEditSIGLA: TIBStringField;
-    dtEditNOME: TIBStringField;
-    dtEditUNIDADES: TFloatField;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn;
+    GridDBBandedTableView2PERC_ESTADUAL: TcxGridDBBandedColumn;
+    GridDBBandedTableView2PERC_INTERESTADUAL: TcxGridDBBandedColumn;
+    GridDBBandedTableView2MENSAGEM_NF: TcxGridDBBandedColumn;
+    GridDBBandedTableView2MENSAGEM_NF_IE: TcxGridDBBandedColumn;
+    GridDBBandedTableView2PERC_CONTRIBUINTE: TcxGridDBBandedColumn;
   private
     { Private declarations }
   public
@@ -45,18 +46,10 @@ type
   end;
 
 var
-  frmCadUnidadesMedidas: TfrmCadUnidadesMedidas;
+  frmCadReducoes: TfrmCadReducoes;
 
 implementation
 
 {$R *.dfm}
-
-procedure TfrmCadUnidadesMedidas.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  campochave := 'SIGLA'; //Solução temporária para erro field 'codigo' not found. 
-  inherited;
-
-end;
 
 end.

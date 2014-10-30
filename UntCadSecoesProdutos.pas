@@ -34,6 +34,7 @@ type
     dtEditCNPJ: TIBStringField;
     dtEditCOD_SECAO: TIntegerField;
     dtEditNOME: TIBStringField;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -46,5 +47,13 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCadSecoesProdutos.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  campochave := 'COD_SECAO'; //Solução temporária para erro field 'codigo' not found. 
+  inherited;
+
+end;
 
 end.

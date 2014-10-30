@@ -1066,7 +1066,7 @@ begin
   if (pgcCadastro.ActivePageIndex = 0) then
   begin
     Editar(dsRegistro,tbsEdita);
-    edtCodigo.SetFocus;
+    //edtCodigo.SetFocus;  // Tive que comentar pois dava um erro no editar da cadprodutos
   end
   else
   begin

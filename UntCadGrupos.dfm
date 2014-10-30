@@ -5,7 +5,6 @@ inherited FrmCadGrupos: TFrmCadGrupos
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         inherited TVRegistro: TcxGridDBBandedTableView
@@ -47,6 +46,9 @@ inherited FrmCadGrupos: TFrmCadGrupos
             Position.RowIndex = 0
           end
         end
+      end
+      inherited pnlFiltro: TPanel
+        Visible = False
       end
     end
     inherited tbsEdita: TcxTabSheet

@@ -1,4 +1,4 @@
-unit untCadUnidadesMedidas;
+unit UntCadPerfilGrade;
 
 interface
 
@@ -24,20 +24,30 @@ uses
   cxPC;
 
 type
-  TfrmCadUnidadesMedidas = class(TfrmCadPadrao)
+  TFrmCadPerfilGrade = class(TfrmCadPadrao)
     dtListCNPJ: TIBStringField;
-    dtListSIGLA: TIBStringField;
+    dtListCODIGO: TIntegerField;
     dtListNOME: TIBStringField;
-    dtListUNIDADES: TFloatField;
-    GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn;
-    GridDBBandedTableView2SIGLA: TcxGridDBBandedColumn;
+    dtListINICIAL: TIntegerField;
+    dtListFINAL: TIntegerField;
+    dtListINTERVALO: TIntegerField;
+    GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn;
     GridDBBandedTableView2NOME: TcxGridDBBandedColumn;
-    GridDBBandedTableView2UNIDADES: TcxGridDBBandedColumn;
+    GridDBBandedTableView2INICIAL: TcxGridDBBandedColumn;
+    GridDBBandedTableView2FINAL: TcxGridDBBandedColumn;
+    GridDBBandedTableView2INTERVALO: TcxGridDBBandedColumn;
     dtEditCNPJ: TIBStringField;
-    dtEditSIGLA: TIBStringField;
+    dtEditCODIGO: TIntegerField;
     dtEditNOME: TIBStringField;
-    dtEditUNIDADES: TFloatField;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    dtEditINICIAL: TIntegerField;
+    dtEditFINAL: TIntegerField;
+    dtEditINTERVALO: TIntegerField;
+    cxLabel3: TcxLabel;
+    cxDBTextEdit1: TcxDBTextEdit;
+    cxLabel4: TcxLabel;
+    cxDBTextEdit2: TcxDBTextEdit;
+    cxLabel5: TcxLabel;
+    cxDBTextEdit3: TcxDBTextEdit;
   private
     { Private declarations }
   public
@@ -45,18 +55,10 @@ type
   end;
 
 var
-  frmCadUnidadesMedidas: TfrmCadUnidadesMedidas;
+  FrmCadPerfilGrade: TFrmCadPerfilGrade;
 
 implementation
 
 {$R *.dfm}
-
-procedure TfrmCadUnidadesMedidas.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  campochave := 'SIGLA'; //Solução temporária para erro field 'codigo' not found. 
-  inherited;
-
-end;
 
 end.

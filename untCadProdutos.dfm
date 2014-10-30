@@ -1,22 +1,22 @@
 inherited frmCadProdutos: TfrmCadProdutos
-  Left = 224
-  Top = 153
+  Left = 60
+  Top = 14
   Width = 707
-  Height = 574
+  Height = 619
   Caption = 'Produtos'
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
     Width = 699
-    Height = 521
+    Height = 566
     ActivePage = tbsEdita
-    ClientRectBottom = 517
+    ClientRectBottom = 562
     ClientRectRight = 695
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 27
         Width = 691
-        Height = 463
+        Height = 508
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -604,9 +604,9 @@ inherited frmCadProdutos: TfrmCadProdutos
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
         Width = 691
-        Height = 490
+        Height = 535
         inherited pnlSubCad: TPanel
-          Top = 212
+          Top = 257
           Width = 689
           inherited PgcDetalhe: TcxPageControl
             Width = 689
@@ -1506,6 +1506,7 @@ inherited frmCadProdutos: TfrmCadProdutos
             end
             inherited tbsDetalhe4: TcxTabSheet
               Caption = 'Similares'
+              TabVisible = False
               inherited PGCSub4: TcxPageControl
                 Width = 681
                 ClientRectRight = 677
@@ -1513,6 +1514,7 @@ inherited frmCadProdutos: TfrmCadProdutos
             end
             inherited tbsDetalhe5: TcxTabSheet
               Caption = 'Agregados'
+              TabVisible = False
               inherited PGCSub5: TcxPageControl
                 Width = 681
                 ClientRectRight = 677
@@ -1706,12 +1708,14 @@ inherited frmCadProdutos: TfrmCadProdutos
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
+              TabVisible = False
               inherited PGCSub7: TcxPageControl
                 Width = 681
                 ClientRectRight = 677
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
+              TabVisible = False
               inherited PGCSub8: TcxPageControl
                 Width = 681
                 ActivePage = tbsListaSub8
@@ -1727,12 +1731,12 @@ inherited frmCadProdutos: TfrmCadProdutos
         end
         inherited pnlMaster: TPanel
           Width = 689
-          Height = 211
+          Height = 256
           inherited PgcMaster: TcxPageControl
             Width = 689
-            Height = 211
-            ActivePage = cxTabSheet1
-            ClientRectBottom = 207
+            Height = 256
+            ActivePage = cxTabSheet3
+            ClientRectBottom = 252
             ClientRectRight = 685
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Cadastro'
@@ -1933,6 +1937,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 7
                 TabStop = False
+                OnClick = BtnGruposClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2054,7 +2059,7 @@ inherited frmCadProdutos: TfrmCadProdutos
               object aTfrmCadMarcas: TcxDBLookupComboBox
                 Left = 326
                 Top = 96
-                DataBinding.DataField = 'MODELO'
+                DataBinding.DataField = 'MARCA'
                 DataBinding.DataSource = dsRegistro
                 Properties.KeyFieldNames = 'CODIGO'
                 Properties.ListColumns = <
@@ -2072,6 +2077,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 10
                 TabStop = False
+                OnClick = BtnSecaoClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2106,6 +2112,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 12
                 TabStop = False
+                OnClick = BtnModeloClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2140,6 +2147,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 14
                 TabStop = False
+                OnClick = BtnMarcasClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2191,7 +2199,7 @@ inherited frmCadProdutos: TfrmCadProdutos
               object aTfrmCadMaterial: TcxDBLookupComboBox
                 Left = 503
                 Top = 96
-                DataBinding.DataField = 'MODELO'
+                DataBinding.DataField = 'MATERIAL'
                 DataBinding.DataSource = dsRegistro
                 Properties.KeyFieldNames = 'CODIGO'
                 Properties.ListColumns = <
@@ -2209,6 +2217,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 16
                 TabStop = False
+                OnClick = BtnMaterialClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2297,7 +2306,7 @@ inherited frmCadProdutos: TfrmCadProdutos
               object aTfrmCadUnidadesMedidas: TcxDBLookupComboBox
                 Left = 8
                 Top = 136
-                DataBinding.DataField = 'MODELO'
+                DataBinding.DataField = 'UNIDADE'
                 DataBinding.DataSource = dsRegistro
                 Properties.KeyFieldNames = 'SIGLA'
                 Properties.ListColumns = <
@@ -2315,6 +2324,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 18
                 TabStop = False
+                OnClick = BtnUnidadeClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2366,7 +2376,7 @@ inherited frmCadProdutos: TfrmCadProdutos
               object aTfrmCadCor: TcxDBLookupComboBox
                 Left = 184
                 Top = 136
-                DataBinding.DataField = 'MODELO'
+                DataBinding.DataField = 'COR'
                 DataBinding.DataSource = dsRegistro
                 Properties.KeyFieldNames = 'CODIGO'
                 Properties.ListColumns = <
@@ -2384,6 +2394,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 20
                 TabStop = False
+                OnClick = BtnCorClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2545,6 +2556,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 1
                 TabStop = False
+                OnClick = BtnLocalizacao1Click
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2635,6 +2647,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 3
                 TabStop = False
+                OnClick = BtnLocalizacao2Click
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -2704,6 +2717,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 5
                 TabStop = False
+                OnClick = BtnLocalizacao3Click
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -3007,6 +3021,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 21
                 TabStop = False
+                OnClick = BtnFornecedorClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -3111,6 +3126,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Height = 22
                 TabOrder = 24
                 TabStop = False
+                OnClick = BtnTecnicoClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -4197,7 +4213,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 DataBinding.DataField = 'APLICACAO'
                 DataBinding.DataSource = dsRegistro
                 TabOrder = 0
-                Height = 180
+                Height = 225
                 Width = 681
               end
             end
@@ -4424,7 +4440,8 @@ inherited frmCadProdutos: TfrmCadProdutos
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'select * from est_produtos p'
+      'select * '
+      'from est_produtos p'
       'where p.cnpj = :cnpj and p.codigo = :codigo')
     ModifySQL.Strings = (
       'update est_produtos'
@@ -4538,6 +4555,7 @@ inherited frmCadProdutos: TfrmCadProdutos
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
+    DataSource = dsPesquisa
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"EST_PRODUTOS"."CNPJ"'
@@ -4610,10 +4628,14 @@ inherited frmCadProdutos: TfrmCadProdutos
     object dtEditCTE: TSmallintField
       FieldName = 'CTE'
       Origin = '"EST_PRODUTOS"."CTE"'
+      OnGetText = dtEditCTEGetText
+      OnSetText = dtEditCTESetText
     end
     object dtEditCTIE: TSmallintField
       FieldName = 'CTIE'
       Origin = '"EST_PRODUTOS"."CTIE"'
+      OnGetText = dtEditCTEGetText
+      OnSetText = dtEditCTESetText
     end
     object dtEditQTDADE_1: TFloatField
       FieldName = 'QTDADE_1'
@@ -5001,18 +5023,24 @@ inherited frmCadProdutos: TfrmCadProdutos
     object dtEditTRIB_PIS: TIBStringField
       FieldName = 'TRIB_PIS'
       Origin = '"EST_PRODUTOS"."TRIB_PIS"'
+      OnGetText = dtEditTRIB_PISGetText
+      OnSetText = dtEditTRIB_PISSetText
       FixedChar = True
       Size = 2
     end
     object dtEditTRIB_COFINS: TIBStringField
       FieldName = 'TRIB_COFINS'
       Origin = '"EST_PRODUTOS"."TRIB_COFINS"'
+      OnGetText = dtEditTRIB_COFINSGetText
+      OnSetText = dtEditTRIB_COFINSSetText
       FixedChar = True
       Size = 2
     end
     object dtEditTRIB_IPI: TIBStringField
       FieldName = 'TRIB_IPI'
       Origin = '"EST_PRODUTOS"."TRIB_IPI"'
+      OnGetText = dtEditTRIB_IPIGetText
+      OnSetText = dtEditTRIB_IPISetText
       FixedChar = True
       Size = 2
     end
@@ -5023,6 +5051,8 @@ inherited frmCadProdutos: TfrmCadProdutos
     object dtEditCSOSN: TIntegerField
       FieldName = 'CSOSN'
       Origin = '"EST_PRODUTOS"."CSOSN"'
+      OnGetText = dtEditCSOSNGetText
+      OnSetText = dtEditCSOSNSetText
     end
     object dtEditCOD_GETIN: TIBStringField
       FieldName = 'COD_GETIN'
@@ -11110,8 +11140,8 @@ inherited frmCadProdutos: TfrmCadProdutos
       'select * from est_localizacao l'
       'where l.cnpj = :cnpj'
       'order by l.descricao')
-    Left = 433
-    Top = 68
+    Left = 441
+    Top = 84
     ParamData = <
       item
         DataType = ftUnknown
@@ -11138,8 +11168,8 @@ inherited frmCadProdutos: TfrmCadProdutos
   end
   object DsLocalizacao1: TDataSource
     DataSet = QryLocalizacao1
-    Left = 455
-    Top = 68
+    Left = 463
+    Top = 84
   end
   object QryLocalizacao2: TIBQuery
     Tag = 4

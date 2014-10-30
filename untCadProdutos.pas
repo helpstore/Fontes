@@ -743,6 +743,33 @@ type
     cxDBTextEdit37: TcxDBTextEdit;
     procedure ActCadLookupExecute(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
+    procedure BtnGruposClick(Sender: TObject);
+    procedure BtnSecaoClick(Sender: TObject);
+    procedure BtnModeloClick(Sender: TObject);
+    procedure BtnMarcasClick(Sender: TObject);
+    procedure BtnMaterialClick(Sender: TObject);
+    procedure BtnUnidadeClick(Sender: TObject);
+    procedure BtnCorClick(Sender: TObject);
+    procedure BtnLocalizacao1Click(Sender: TObject);
+    procedure BtnLocalizacao2Click(Sender: TObject);
+    procedure BtnLocalizacao3Click(Sender: TObject);
+    procedure BtnFornecedorClick(Sender: TObject);
+    procedure BtnTecnicoClick(Sender: TObject);
+    procedure dtEditCTEGetText(Sender: TField; var Text: String;
+      DisplayText: Boolean);
+    procedure dtEditCTESetText(Sender: TField; const Text: String);
+    procedure dtEditTRIB_PISGetText(Sender: TField; var Text: String;
+      DisplayText: Boolean);
+    procedure dtEditTRIB_PISSetText(Sender: TField; const Text: String);
+    procedure dtEditTRIB_COFINSGetText(Sender: TField; var Text: String;
+      DisplayText: Boolean);
+    procedure dtEditTRIB_COFINSSetText(Sender: TField; const Text: String);
+    procedure dtEditTRIB_IPISetText(Sender: TField; const Text: String);
+    procedure dtEditTRIB_IPIGetText(Sender: TField; var Text: String;
+      DisplayText: Boolean);
+    procedure dtEditCSOSNGetText(Sender: TField; var Text: String;
+      DisplayText: Boolean);
+    procedure dtEditCSOSNSetText(Sender: TField; const Text: String);
   private
     { Private declarations }
   public
@@ -755,7 +782,8 @@ var
 implementation
 
 uses UntCadSecoesProdutos, UntCadModelo, UntCadMarcas, UntCadMaterial,
-  untCadUnidadesMedidas, UntCadCor;
+  untCadUnidadesMedidas, UntCadCor, Application_DM, UntCadGrupos,
+  UntCadLocalizacaoEstoque, UntCadTecnicos, untCadFornecedores;
 
 {$R *.dfm}
 
@@ -806,9 +834,13 @@ begin
 end;
 
 procedure TfrmCadProdutos.dtEditNewRecord(DataSet: TDataSet);
+var
+  I: Integer;
 begin
   inherited;
-  
+
+  dtEditATUALIZA_ARQ_EXTERNO.Value := 'N' ;
+  dtEditVALIDA_MULT_QTDE_MIN.Value := 'N' ;
   dtEditDEBITA_ICMS.Value      := 'N' ;
   dtEditATIVO.Value            := 'S' ;
   dtEditCOMPLEMENTO_NF.Value   := 'N' ;
@@ -832,5 +864,339 @@ begin
   end;
   dtEditMARGEM_BRUTA.value := DmApp.MARGEM_BRUTA;
   end;
+
+procedure TfrmCadProdutos.BtnGruposClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadGrupos,dtEdit,'GRUPO',QryGrupo);
+end;
+
+procedure TfrmCadProdutos.BtnSecaoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadSecoesProdutos,dtEdit,'SECAO',QrySecao);
+end;
+
+procedure TfrmCadProdutos.BtnModeloClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadModelo,dtEdit,'MODELO',QryModelo);
+end;
+
+procedure TfrmCadProdutos.BtnMarcasClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadMarcas,dtEdit,'MARCA',QryMarca);
+end;
+
+procedure TfrmCadProdutos.BtnMaterialClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadMaterial,dtEdit,'MATERIAL',QryMaterial);
+end;
+
+procedure TfrmCadProdutos.BtnUnidadeClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadUnidadesMedidas,dtEdit,'UNIDADE',QryUnidade);
+end;
+
+procedure TfrmCadProdutos.BtnCorClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadCor,dtEdit,'COR',QryCor);
+end;
+
+procedure TfrmCadProdutos.BtnLocalizacao1Click(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadLocalizacaoEstoque,dtEdit,'COD_LOCALIZACAO_1',QryLocalizacao1);
+end;
+
+procedure TfrmCadProdutos.BtnLocalizacao2Click(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadLocalizacaoEstoque,dtEdit,'COD_LOCALIZACAO_2',QryLocalizacao2);
+end;
+
+procedure TfrmCadProdutos.BtnLocalizacao3Click(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadLocalizacaoEstoque,dtEdit,'COD_LOCALIZACAO_3',QryLocalizacao3);
+end;
+
+procedure TfrmCadProdutos.BtnFornecedorClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadFornecedores,dtEdit,'FORNECEDOR',QryFornecedor);
+end;
+
+procedure TfrmCadProdutos.BtnTecnicoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadTecnicos,dtEdit,'COD_TECNICO',QryTecnico);
+end;
+
+procedure TfrmCadProdutos.dtEditCTEGetText(Sender: TField;
+  var Text: String; DisplayText: Boolean);
+begin
+  inherited;            
+  If Sender.Value = 1 Then
+     Text := '1 - Tributada Integralmente';
+
+  If Sender.Value = 2 Then
+     Text := '2 - Tributada com Reduçao na Base de Cálculo';
+
+  If Sender.Value = 3 Then
+     Text := '3 - Isento de ICMS';
+
+  If Sender.Value = 4 Then
+     Text := '4 - ICMS nao incidência';
+
+  If Sender.Value = 5 Then
+     Text := '5 - Diferido';
+
+  If Sender.Value = 6 Then
+     Text := '6 - Substituiçao Tributária';
+
+  If Sender.Value = 7 Then
+     Text := '7 - ISS';       
+end;
+
+procedure TfrmCadProdutos.dtEditCTESetText(Sender: TField;
+  const Text: String);
+begin
+  inherited;
+  If Text = '1 - Tributada Integralmente' Then
+     Sender.Value := 1;
+
+  If Text = '2 - Tributada com Redução na Base de Cálculo' Then
+     Sender.Value := 2;
+
+  If Text = '3 - Isento de ICMS' Then
+     Sender.Value := 3;
+
+  If Text = '4 - ICMS não incidência' Then
+     Sender.Value := 4;
+     
+  If Text = '5 - Diferido' Then
+     Sender.Value := 5;
+
+  If Text = '6 - Substituição Tributária' Then
+     Sender.Value := 6;
+
+  If Text = '7 - ISS' Then
+     Sender.Value := 7;
+end;
+
+procedure TfrmCadProdutos.dtEditTRIB_PISGetText(Sender: TField;
+  var Text: String; DisplayText: Boolean);
+begin
+  inherited;
+   If Sender.Value = '01' Then
+     Text := '01 - Op. Tributavel';
+   If Sender.Value = '02' Then
+     Text := '02 - Op. Tributavel - Aliq. Diferenciada';
+   If Sender.Value = '03' Then
+     Text := '03 - Op. Tributavel - Aliq. por Unidade de Produto';
+   If Sender.Value = '04' Then
+     Text := '04 - Op. Tributavel - Monofasica';
+   If Sender.Value = '06' Then
+     Text := '06 - Op. Tributavel - Aliq. Zero';
+   If Sender.Value = '07' Then
+     Text := '07 - Op. Isenta';
+   If Sender.Value = '08' Then
+     Text := '08 - Op. Sem Incidencia';
+   If Sender.Value = '09' Then
+     Text := '09 - Op. Suspensao';
+   If Sender.Value = '99' Then
+     Text := '99 - Outras Operacoes';
+end;
+
+procedure TfrmCadProdutos.dtEditTRIB_PISSetText(Sender: TField;
+  const Text: String);
+begin
+  inherited;
+
+  If trim(Text) = '01 - Op. Tributavel' Then
+     Sender.Value := '01';
+   If trim(Text) = '02 - Op. Tributavel - Aliq. Diferenciada' Then
+     Sender.Value := '02' ;
+   If trim(Text) = '03 - Op. Tributavel - Aliq. por Unidade de Produto' Then
+     Sender.Value := '03';
+   If trim(Text) = '04 - Op. Tributavel - Monofasica'  Then
+     Sender.Value := '04';
+   If trim(Text) = '06 - Op. Tributavel - Aliq. Zero' Then
+     Sender.Value := '06';
+   If trim(Text) = '07 - Op. Isenta' Then
+     Sender.Value := '07';
+   If trim(Text) = '08 - Op. Sem Incidencia' Then
+     Sender.Value := '08' ;
+   If trim(Text) = '09 - Op. Suspensao'  Then
+     Sender.Value := '09';
+   If trim(Text) = '99 - Outras Operacoes' Then
+     Sender.Value := '99';
+
+end;
+
+procedure TfrmCadProdutos.dtEditTRIB_COFINSGetText(Sender: TField;
+  var Text: String; DisplayText: Boolean);
+begin
+  inherited;
+  If Sender.Value = '01' Then
+   Text := '01 - Op. Tributavel';
+  If Sender.Value = '02' Then
+   Text := '02 - Op. Tributavel - Aliq. Diferenciada';
+  If Sender.Value = '03' Then
+   Text := '03 - Op. Tributavel - Aliq. por Unidade de Produto';
+  If Sender.Value = '04' Then
+   Text := '04 - Op. Tributavel - Monofasica';
+  If Sender.Value = '06' Then
+   Text := '06 - Op. Tributavel - Alq. Zero';
+  If Sender.Value = '07' Then
+   Text := '07 - Op. Isenta';
+  If Sender.Value = '08' Then
+   Text := '08 - Op. Sem Incidencia';
+  If Sender.Value = '09' Then
+   Text := '09 - Op. Suspensao';
+  If Sender.Value = '99' Then
+   Text := '99 - Outras Operacoes';
+end;
+
+procedure TfrmCadProdutos.dtEditTRIB_COFINSSetText(Sender: TField;
+  const Text: String);
+begin
+  inherited;
+  If trim(Text) = '01 - Op. Tributavel' Then
+   Sender.Value := '01';
+  If trim(Text) = '02 - Op. Tributavel - Aliq. Diferenciada' Then
+   Sender.Value := '02' ;
+  If trim(Text) = '03 - Op. Tributavel - Aliq. por Unidade de Produto' Then
+   Sender.Value := '03';
+  If trim(Text) = '04 - Op. Tributavel - Monofasica'  Then
+   Sender.Value := '04';
+  If trim(Text) = '06 - Op. Tributavel - Aliq. Zero' Then
+   Sender.Value := '06';
+  If trim(Text) = '07 - Op. Isenta' Then
+   Sender.Value := '07';
+  If trim(Text) = '08 - Op. Sem Incidencia' Then
+   Sender.Value := '08' ;
+  If trim(Text) = '09 - Op. Suspensao'  Then
+   Sender.Value := '09';
+  If trim(Text) = '99 - Outras Operacoes' Then
+   Sender.Value := '99';
+end;
+
+procedure TfrmCadProdutos.dtEditTRIB_IPISetText(Sender: TField;
+  const Text: String);
+begin
+  inherited;
+   If trim(Text) = '00 - Entrada com recuperacao de credito' Then
+     Sender.Value := '00';
+   If trim(Text) = '01 - Entrada tributada com aliquota zero' Then
+     Sender.Value := '01';
+   If trim(Text) = '02 - Entrada isenta' Then
+     Sender.Value := '02';
+   If trim(Text) = '03 - Entrada nao-tributada' Then
+     Sender.Value := '03';
+   If trim(Text) = '04 - Entrada imune' Then
+     Sender.Value := '04';
+   If trim(Text) = '05 - Entrada com suspensao' Then
+     Sender.Value := '05';
+   If trim(Text) = '49 - Outras entradas' Then
+     Sender.Value := '49';
+   If trim(Text) = '50 - Saida tributada' Then
+     Sender.Value := '50';
+   If trim(Text) = '51 - Saida tributada com aliquota zero' Then
+     Sender.Value := '51';
+   If trim(Text) = '52 - Saida isenta' Then
+     Sender.Value := '52';
+   If trim(Text) = '53 - Saida nao-tributada' Then
+     Sender.Value := '53';
+   If trim(Text) = '54 - Saida imune' Then
+     Sender.Value := '54';
+   If trim(Text) = '55 - Saida com suspensao' Then
+     Sender.Value := '55';
+   If trim(Text) = '99 - Outras Saidas'Then
+     Sender.Value := '99' ;
+end;
+
+procedure TfrmCadProdutos.dtEditTRIB_IPIGetText(Sender: TField;
+  var Text: String; DisplayText: Boolean);
+begin
+  inherited;
+   If Sender.Value = '00' Then
+     Text := '00 - Entrada com recuperacao de credito';
+   If Sender.Value = '01' Then
+     Text := '01 - Entrada tributada com aliquota zero';
+   If Sender.Value = '02' Then
+     Text := '02 - Entrada isenta';
+   If Sender.Value = '03' Then
+     Text := '03 - Entrada nao-tributada';
+   If Sender.Value = '04' Then
+     Text := '04 - Entrada imune';
+   If Sender.Value = '05' Then
+     Text := '05 - Entrada com suspensao';
+   If Sender.Value = '49' Then
+     Text := '49 - Outras entradas';
+   If Sender.Value = '50' Then
+     Text := '50 - Saida tributada';
+   If Sender.Value = '51' Then
+     Text := '51 - Saida tributada com aliquota zero';
+   If Sender.Value = '52' Then
+     Text := '52 - Saida isenta';
+   If Sender.Value = '53' Then
+     Text := '53 - Saida nao-tributada';
+   If Sender.Value = '54' Then
+     Text := '54 - Saida imune';
+   If Sender.Value = '55' Then
+     Text := '55 - Saida com suspensao';
+   If Sender.Value = '99' Then
+     Text := '99 - Outras Saidas';
+end;
+
+procedure TfrmCadProdutos.dtEditCSOSNGetText(Sender: TField;
+  var Text: String; DisplayText: Boolean);
+begin
+  inherited;
+  if (Sender.Value = 101) then
+    Text:= '101 - Tributado com permissão de crédito'
+  else if (Sender.Value = 102) then
+    Text:= '102 - Tributado sem permissão de crédito'
+  else if (Sender.Value = 103) then
+    Text:= '103 - Isenção de icms por faixa de receita bruta'
+  else if (Sender.Value = 201) then
+    Text:= '201 - Tributado com permissão de crédito e com cobrança do ICMS por ST'
+  else if (Sender.Value = 202) then
+    Text:= '202 - Tributado sem permissão de crédito e com cobrança do ICMS por ST'
+  else if (Sender.Value = 203) then
+    Text:= '203 - Isenção do ICMS para faixa de receita bruta e com combrança de ICMS por ST'
+  else if (Sender.Value = 300) then
+    Text:= '300 - Imune'
+  else if (Sender.Value = 400) then
+    Text:= '400 - Não tributado';
+end;
+
+procedure TfrmCadProdutos.dtEditCSOSNSetText(Sender: TField;
+  const Text: String);
+begin
+  inherited;
+  if (Text= '101 - Tributado com permissão de crédito') then
+    Sender.Value := 101
+  else if (Text ='102 - Tributado sem permissão de crédito' ) then
+     Sender.Value := 102
+  else if (Text= '103 - Isenção de icms por faixa de receita bruta' ) then
+    Sender.Value := 103
+  else if (Text = '201 - Tributado com permissão de crédito e com cobrança do ICMS por ST' ) then
+    Sender.Value := 201
+  else if (Text = '202 - Tributado sem permissão de crédito e com cobrança do ICMS por ST') then
+    Sender.Value := 202
+  else if (Text = '203 - Isenção do ICMS para faixa de receita bruta e com combrança de ICMS por ST') then
+    Sender.Value := 203
+  else if (Text = '300 - Imune' ) then
+    Sender.Value := 300
+  else if (Text = '400 - Não tributado') then
+    Sender.Value := 400;
+end;
 
 end.
