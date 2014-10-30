@@ -1381,7 +1381,8 @@ uses
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
   untCadFornecedores, untCadOS, untCadContratoAtendimento,
-  UntCadClassificacao, untCadClientes, UntCadContratoCopias, UntCadGrupos;
+  UntCadClassificacao, untCadClientes, UntCadContratoCopias, UntCadGrupos,
+  untCadProdutos;
 
 {$R *.DFM}
 
@@ -1819,6 +1820,21 @@ end;
 
 procedure TFrmMain.opProdutoClick(Sender: TObject);
 begin
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmcadprodutos', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmcadprodutos = Nil Then
+  begin
+     frmcadprodutos := Tfrmcadprodutos.Create(Self);
+     frmcadprodutos.ShowMODAL ;
+     frmcadprodutos.Free      ;
+     frmcadprodutos := Nil    ;
+  end;
+  ////
+
   if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmProdutos', True)) then
      Exit;
      

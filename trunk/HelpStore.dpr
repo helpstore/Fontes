@@ -588,7 +588,8 @@ uses
   untCadProdutos in 'untCadProdutos.pas' {frmCadProdutos},
   UntCadContratoCopias in 'UntCadContratoCopias.pas' {frmCadContratoCopias},
   UntCadGrupos in 'UntCadGrupos.pas' {FrmCadGrupos},
-  UntCadPerfilGrade in 'UntCadPerfilGrade.pas' {FrmCadPerfilGrade};
+  UntCadPerfilGrade in 'UntCadPerfilGrade.pas' {FrmCadPerfilGrade},
+  UntCadReducoes in 'UntCadReducoes.pas' {frmCadReducoes};
 
 {$R *.RES}
 

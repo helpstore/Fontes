@@ -1,5 +1,5 @@
 object FrmMain: TFrmMain
-  Left = 104
+  Left = 105
   Top = 0
   Width = 1067
   Height = 605
@@ -552,8 +552,8 @@ object FrmMain: TFrmMain
           object GridMsgReservadas: TcxGrid
             Left = 0
             Top = 0
-            Width = 1051
-            Height = 535
+            Width = 848
+            Height = 393
             Align = alClient
             TabOrder = 0
             OnMouseEnter = GridMensagemEnter
@@ -2156,7 +2156,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 5.000000000000000000
+                            Value = 14.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2324,7 +2324,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 50.000000000000000000
+                            Value = 71.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2492,7 +2492,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 45.000000000000000000
+                            Value = 95.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2660,7 +2660,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 70.000000000000000000
+                            Value = 6.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -2828,7 +2828,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 51.000000000000000000
+                            Value = 96.000000000000000000
                           end
                         end
                         object lcMetaVendaGroup_Root: TdxLayoutGroup
