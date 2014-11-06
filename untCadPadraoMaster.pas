@@ -1274,7 +1274,7 @@ begin
   begin
     Cancelar(dsRegistro,dsPesquisa,tbsLista);
     VerificaStatus(dsRegistro,true);
-    Grid.SetFocus;
+//    Grid.SetFocus;
   end
   else
   begin

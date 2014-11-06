@@ -587,9 +587,8 @@ uses
   UntCadTipoMovimento in 'UntCadTipoMovimento.pas' {frmCadTipoMovimento},
   untCadProdutos in 'untCadProdutos.pas' {frmCadProdutos},
   UntCadContratoCopias in 'UntCadContratoCopias.pas' {frmCadContratoCopias},
-  UntCadGrupos in 'UntCadGrupos.pas' {FrmCadGrupos},
-  UntCadPerfilGrade in 'UntCadPerfilGrade.pas' {FrmCadPerfilGrade},
-  UntCadReducoes in 'UntCadReducoes.pas' {frmCadReducoes};
+  untCadLeitura in 'untCadLeitura.pas' {frmCadLeituras},
+  VendasPorProduto_FRel in 'VendasPorProduto_FRel.pas' {FRelVendasPorProduto};
 
 {$R *.RES}
 

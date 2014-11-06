@@ -721,7 +721,7 @@ object FrmContratos: TFrmContratos
           Top = 1
           Width = 749
           Height = 260
-          ActivePage = cxTabSheet2
+          ActivePage = cxTabSheet1
           Align = alClient
           TabOrder = 0
           ClientRectBottom = 256

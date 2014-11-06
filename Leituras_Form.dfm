@@ -723,17 +723,17 @@ object FrmLeituras: TFrmLeituras
         RowIndex = 0
         FieldName = 'CNPJ'
       end
-      object GRIDNOME_PRODUTO: TdxDBGridMaskColumn
-        Width = 234
-        BandIndex = 0
-        RowIndex = 0
-        FieldName = 'NOME_PRODUTO'
-      end
       object GRIDCODIGO: TdxDBGridMaskColumn
         BandIndex = 0
         RowIndex = 0
         FieldName = 'CODIGO'
         SummaryFooterType = cstCount
+      end
+      object GRIDNOME_PRODUTO: TdxDBGridMaskColumn
+        Width = 234
+        BandIndex = 0
+        RowIndex = 0
+        FieldName = 'NOME_PRODUTO'
       end
       object GRIDCOD_PRODUTO: TdxDBGridMaskColumn
         Width = 94

@@ -11,6 +11,7 @@ inherited frmCadOS: TfrmCadOS
   inherited pgcCadastro: TcxPageControl
     Width = 1254
     Height = 696
+    ActivePage = tbsEdita
     ClientRectBottom = 692
     ClientRectRight = 1250
     inherited tbsLista: TcxTabSheet
@@ -766,7 +767,7 @@ inherited frmCadOS: TfrmCadOS
           inherited PgcDetalhe: TcxPageControl
             Width = 1244
             Height = 296
-            ActivePage = tbsDetalhe2
+            ActivePage = tbsDetalhe1
             ClientRectBottom = 292
             ClientRectRight = 1240
             inherited tbsDetalhe1: TcxTabSheet
@@ -774,7 +775,6 @@ inherited frmCadOS: TfrmCadOS
               inherited PGCSub1: TcxPageControl
                 Width = 1236
                 Height = 265
-                ActivePage = tbsListaSub1
                 ClientRectBottom = 261
                 ClientRectRight = 1232
                 inherited tbsListaSub1: TcxTabSheet
@@ -1001,7 +1001,6 @@ inherited frmCadOS: TfrmCadOS
               inherited PGCSub2: TcxPageControl
                 Width = 1236
                 Height = 265
-                ActivePage = tbsListaSub2
                 ClientRectBottom = 261
                 ClientRectRight = 1232
                 inherited tbsListaSub2: TcxTabSheet
@@ -2022,7 +2021,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 15
                 Width = 23
                 Height = 22
-                TabOrder = 14
+                TabOrder = 15
                 TabStop = False
                 OnClick = btnClienteClick
                 Glyph.Data = {
@@ -2080,7 +2079,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 15
                 Width = 23
                 Height = 22
-                TabOrder = 15
+                TabOrder = 16
                 TabStop = False
                 OnClick = btnStatusClick
                 Glyph.Data = {
@@ -2115,7 +2114,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 55
                 Width = 23
                 Height = 22
-                TabOrder = 16
+                TabOrder = 17
                 TabStop = False
                 OnClick = btnTecnicoClick
                 Glyph.Data = {
@@ -2150,7 +2149,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 95
                 Width = 23
                 Height = 21
-                TabOrder = 17
+                TabOrder = 18
                 TabStop = False
                 OnClick = btnServicoExecutadoClick
                 Glyph.Data = {
@@ -2230,7 +2229,7 @@ inherited frmCadOS: TfrmCadOS
                 Width = 23
                 Height = 22
                 Enabled = False
-                TabOrder = 18
+                TabOrder = 19
                 TabStop = False
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
@@ -2264,7 +2263,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 95
                 Width = 23
                 Height = 22
-                TabOrder = 19
+                TabOrder = 20
                 TabStop = False
                 OnClick = btnDefeitoReclamadoClick
                 Glyph.Data = {
@@ -2299,7 +2298,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 95
                 Width = 23
                 Height = 22
-                TabOrder = 20
+                TabOrder = 21
                 TabStop = False
                 OnClick = btnMotivoClick
                 Glyph.Data = {
@@ -2810,7 +2809,7 @@ inherited frmCadOS: TfrmCadOS
                 DataBinding.DataSource = dsEquipamento
                 Properties.ReadOnly = True
                 Style.HotTrack = False
-                TabOrder = 30
+                TabOrder = 31
                 Height = 312
                 Width = 216
               end
@@ -2840,7 +2839,7 @@ inherited frmCadOS: TfrmCadOS
                 Top = 120
                 TabStop = True
                 Caption = 'Dados de Fechamento'
-                TabOrder = 12
+                TabOrder = 13
                 Height = 207
                 Width = 391
                 object edtDataFechamento: TcxDBDateEdit
@@ -3188,13 +3187,51 @@ inherited frmCadOS: TfrmCadOS
                 Style.Font.Style = []
                 Style.HotTrack = False
                 Style.IsFontAssigned = True
-                TabOrder = 32
+                TabOrder = 33
                 Width = 83
               end
               object cxLabel37: TcxLabel
                 Left = 291
                 Top = 119
                 Caption = 'Data Lancto'
+                Style.HotTrack = False
+                Style.LookAndFeel.Kind = lfUltraFlat
+                Style.LookAndFeel.NativeStyle = False
+                Style.LookAndFeel.SkinName = 'GlassOceans'
+                Style.Shadow = False
+                Style.TransparentBorder = True
+                StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                StyleDisabled.LookAndFeel.NativeStyle = False
+                StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                StyleFocused.LookAndFeel.NativeStyle = False
+                StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                StyleHot.LookAndFeel.Kind = lfUltraFlat
+                StyleHot.LookAndFeel.NativeStyle = False
+                StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                Transparent = True
+              end
+              object edDescricao: TcxDBMemo
+                Left = 7
+                Top = 261
+                DataBinding.DataField = 'INFORMACOES'
+                DataBinding.DataSource = dsRegistro
+                ParentFont = False
+                Style.Font.Charset = DEFAULT_CHARSET
+                Style.Font.Color = clWindowText
+                Style.Font.Height = -13
+                Style.Font.Name = 'Tahoma'
+                Style.Font.Style = []
+                Style.HotTrack = False
+                Style.IsFontAssigned = True
+                TabOrder = 12
+                Height = 66
+                Width = 369
+              end
+              object cxLabel42: TcxLabel
+                Left = 8
+                Top = 243
+                Caption = 'Observa'#231#245'es'
                 Style.HotTrack = False
                 Style.LookAndFeel.Kind = lfUltraFlat
                 Style.LookAndFeel.NativeStyle = False
@@ -4549,23 +4586,40 @@ inherited frmCadOS: TfrmCadOS
         item
           Visible = True
           ItemName = 'BtnImprimirOS'
+        end
+        item
+          Visible = True
+          ItemName = 'btnImprimirHistorico'
         end>
     end
     object BtnImprimirOS: TdxBarButton [11]
       Action = ActImprimirOS
+      Caption = 'Imprimir OS (F7)'
       Category = 0
       ImageIndex = 34
+      PaintStyle = psCaptionGlyph
+    end
+    object btnImprimirHistorico: TdxBarButton [12]
+      Action = ActImprimeHistorico
+      Category = 0
       PaintStyle = psCaptionGlyph
     end
   end
   inherited ActionList1: TActionList
     object ActImprimirOS: TAction
       Caption = 'Imprimir OS'
+      ShortCut = 118
       OnExecute = ActImprimirOSExecute
     end
     object ActGeraVenda: TAction
       Caption = 'ActGeraVenda'
       OnExecute = ActGeraVendaExecute
+    end
+    object ActImprimeHistorico: TAction
+      Caption = 'Hist'#243'rico Equipamento (F8)'
+      ImageIndex = 34
+      ShortCut = 119
+      OnExecute = ActImprimeHistoricoExecute
     end
   end
   inherited cxImageList1: TcxImageList
@@ -8898,5 +8952,1719 @@ inherited frmCadOS: TfrmCadOS
     DataSet = QryMovimentoTecnico
     Left = 967
     Top = 2
+  end
+  object qryRelHistoricoEquip: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    Active = True
+    SQL.Strings = (
+      'select'
+      'os.CONTADOR_TOTAL,'
+      'os.cnpj,'
+      'os.informacoes os_informacoes,'
+      'ta.nome os_tipo_atendimento,'
+      'mc.nome os_causa_chamado,'
+      'os.obs_fechamento obs_fechamento,'
+      'os.pessoa_fj os_pessoa_fj,'
+      'os.nome os_nome,'
+      'os.codigo os_codigo,'
+      'os.data os_data,'
+      'def.nome def_nome,'
+      'pro.serie pro_serie,'
+      'pro.codigo pro_propriedade,'
+      'pro.nome pro_nome,'
+      'mdl.nome mdl_nome,'
+      'st.nome st_nome,'
+      'os.data_fechamento os_dt_fechamento,'
+      'os.dt_cilindro,'
+      'os.dt_revelador,'
+      'v.modelo veiculo,'
+      'v.placa,'
+      'os.assunto,'
+      'psa.nome_razao'
+      'from OFC_ORDEM_SERVICO os'
+      
+        'left join glo_pessoas_fj psa on (psa.cnpj = os.cnpj and psa.codi' +
+        'go = os.pessoa_fj)'
+      ''
+      
+        'left join glo_veiculos v on (v.cnpj = os.cnpj and v.pessoa_fj = ' +
+        'os.pessoa_fj and v.codigo = os.veiculo)'
+      
+        'left join ofc_defeito def on (def.codigo = os.defeito_reclamado ' +
+        'and os.cnpj = def.cnpj)'
+      
+        'left join ofc_tipo_atendimento ta on (ta.codigo = os.id_tipo_ate' +
+        'ndimento and ta.cnpj = os.cnpj)'
+      
+        'left join ofc_status st on (st.codigo = os.cod_status and st.cnp' +
+        'j = os.cnpj)'
+      
+        'left join ofc_motivo_chamado mc on (mc.codigo = os.id_motivo_cha' +
+        'mado and mc.cnpj = os.cnpj)'
+      
+        'left join est_produtos pro on (pro.codigo = os.produto and os.cn' +
+        'pj = pro.cnpj)'
+      
+        'left join glo_modelo_propriedade mdl on (mdl.codigo = pro.modelo' +
+        '  and mdl.cnpj = pro.cnpj)'
+      'where (os.cnpj = :cnpj) and (os.pessoa_fj = :pessoa_fj)')
+    Left = 919
+    Top = 217
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'pessoa_fj'
+        ParamType = ptUnknown
+      end>
+    object qryRelHistoricoEquipOS_INFORMACOES: TBlobField
+      FieldName = 'OS_INFORMACOES'
+      Origin = '"OFC_ORDEM_SERVICO"."INFORMACOES"'
+      Size = 8
+    end
+    object qryRelHistoricoEquipOS_TIPO_ATENDIMENTO: TIBStringField
+      FieldName = 'OS_TIPO_ATENDIMENTO'
+      Origin = '"OFC_TIPO_ATENDIMENTO"."NOME"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipOS_CAUSA_CHAMADO: TIBStringField
+      FieldName = 'OS_CAUSA_CHAMADO'
+      Origin = '"OFC_MOTIVO_CHAMADO"."NOME"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipOBS_FECHAMENTO: TBlobField
+      FieldName = 'OBS_FECHAMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."OBS_FECHAMENTO"'
+      Size = 8
+    end
+    object qryRelHistoricoEquipOS_PESSOA_FJ: TIntegerField
+      FieldName = 'OS_PESSOA_FJ'
+      Origin = '"OFC_ORDEM_SERVICO"."PESSOA_FJ"'
+      Required = True
+    end
+    object qryRelHistoricoEquipOS_NOME: TIBStringField
+      FieldName = 'OS_NOME'
+      Origin = '"OFC_ORDEM_SERVICO"."NOME"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipOS_CODIGO: TIntegerField
+      FieldName = 'OS_CODIGO'
+      Origin = '"OFC_ORDEM_SERVICO"."CODIGO"'
+      Required = True
+    end
+    object qryRelHistoricoEquipOS_DATA: TDateTimeField
+      FieldName = 'OS_DATA'
+      Origin = '"OFC_ORDEM_SERVICO"."DATA"'
+      Required = True
+    end
+    object qryRelHistoricoEquipDEF_NOME: TIBStringField
+      FieldName = 'DEF_NOME'
+      Origin = '"OFC_DEFEITO"."NOME"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipPRO_PROPRIEDADE: TIBStringField
+      FieldName = 'PRO_PROPRIEDADE'
+      Origin = '"EST_PRODUTOS"."CODIGO"'
+      Size = 15
+    end
+    object qryRelHistoricoEquipPRO_NOME: TIBStringField
+      FieldName = 'PRO_NOME'
+      Origin = '"EST_PRODUTOS"."NOME"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipPRO_SERIE: TIBStringField
+      FieldName = 'PRO_SERIE'
+      Origin = '"EST_PRODUTOS"."SERIE"'
+      Size = 30
+    end
+    object qryRelHistoricoEquipST_NOME: TIBStringField
+      FieldName = 'ST_NOME'
+      Origin = '"OFC_STATUS"."NOME"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipOS_DT_FECHAMENTO: TDateTimeField
+      FieldName = 'OS_DT_FECHAMENTO'
+      Origin = '"OFC_ORDEM_SERVICO"."DATA_FECHAMENTO"'
+    end
+    object qryRelHistoricoEquipDT_CILINDRO: TDateTimeField
+      FieldName = 'DT_CILINDRO'
+      Origin = '"OFC_ORDEM_SERVICO"."DT_CILINDRO"'
+    end
+    object qryRelHistoricoEquipDT_REVELADOR: TDateTimeField
+      FieldName = 'DT_REVELADOR'
+      Origin = '"OFC_ORDEM_SERVICO"."DT_REVELADOR"'
+    end
+    object qryRelHistoricoEquipCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_ORDEM_SERVICO"."CNPJ"'
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object qryRelHistoricoEquipCONTADOR_TOTAL: TFloatField
+      FieldName = 'CONTADOR_TOTAL'
+      Origin = '"OFC_ORDEM_SERVICO"."CONTADOR_TOTAL"'
+    end
+    object qryRelHistoricoEquipMDL_NOME: TIBStringField
+      FieldName = 'MDL_NOME'
+      Origin = '"GLO_MODELO_PROPRIEDADE"."NOME"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipVEICULO: TIBStringField
+      FieldName = 'VEICULO'
+      Origin = '"GLO_VEICULOS"."MODELO"'
+      Size = 50
+    end
+    object qryRelHistoricoEquipPLACA: TIBStringField
+      FieldName = 'PLACA'
+      Origin = '"GLO_VEICULOS"."PLACA"'
+      FixedChar = True
+      Size = 8
+    end
+    object qryRelHistoricoEquipASSUNTO: TIBStringField
+      FieldName = 'ASSUNTO'
+      Origin = '"OFC_ORDEM_SERVICO"."ASSUNTO"'
+      Size = 200
+    end
+    object qryRelHistoricoEquipNOME_RAZAO: TIBStringField
+      FieldName = 'NOME_RAZAO'
+      Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
+      Size = 50
+    end
+  end
+  object qryRelHistEquipItens: TIBQuery
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    Active = True
+    DataSource = DsHistEquip
+    SQL.Strings = (
+      
+        'select prd.codigo cod_produto,  prd.nome nome_produto, osi.quant' +
+        'idade, mrc.nome marca'
+      'from ofc_ordem_servico_servico osi'
+      
+        'left join est_produtos prd on (prd.cnpj = osi.cnpj and osi.produ' +
+        'to = prd.codigo)'
+      
+        'left join est_marcas mrc on (prd.cnpj = mrc.cnpj and mrc.codigo ' +
+        '= prd.marca)'
+      'where osi.cnpj = :cnpj and osi.codigo = :os_codigo')
+    Left = 952
+    Top = 216
+    ParamData = <
+      item
+        DataType = ftFixedChar
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+        Size = 15
+      end
+      item
+        DataType = ftInteger
+        Name = 'OS_CODIGO'
+        ParamType = ptUnknown
+        Size = 4
+      end>
+    object qryRelHistEquipItensCOD_PRODUTO: TIBStringField
+      FieldName = 'COD_PRODUTO'
+      Origin = '"EST_PRODUTOS"."CODIGO"'
+      Size = 15
+    end
+    object qryRelHistEquipItensNOME_PRODUTO: TIBStringField
+      FieldName = 'NOME_PRODUTO'
+      Origin = '"EST_PRODUTOS"."NOME"'
+      Size = 50
+    end
+    object qryRelHistEquipItensQUANTIDADE: TFloatField
+      FieldName = 'QUANTIDADE'
+      Origin = '"OFC_ORDEM_SERVICO_SERVICO"."QUANTIDADE"'
+    end
+    object qryRelHistEquipItensMARCA: TIBStringField
+      FieldName = 'MARCA'
+      Origin = '"EST_MARCAS"."NOME"'
+      Size = 50
+    end
+  end
+  object dsHistItens: TDataSource
+    DataSet = qryRelHistEquipItens
+    Left = 942
+    Top = 264
+  end
+  object ppHistEquipItens: TppDBPipeline
+    DataSource = dsHistItens
+    UserName = 'HistEquip1'
+    Left = 912
+    Top = 264
+    object ppHistEquipItensppField1: TppField
+      FieldAlias = 'COD_PRODUTO'
+      FieldName = 'COD_PRODUTO'
+      FieldLength = 0
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppHistEquipItensppField2: TppField
+      FieldAlias = 'NOME_PRODUTO'
+      FieldName = 'NOME_PRODUTO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 1
+    end
+    object ppHistEquipItensppField3: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'QUANTIDADE'
+      FieldName = 'QUANTIDADE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 2
+    end
+    object ppHistEquipItensppField4: TppField
+      FieldAlias = 'MARCA'
+      FieldName = 'MARCA'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 3
+    end
+  end
+  object DsHistEquip: TDataSource
+    DataSet = qryRelHistoricoEquip
+    Left = 872
+    Top = 264
+  end
+  object ppHistEquip: TppDBPipeline
+    DataSource = DsHistEquip
+    UserName = 'HistEquip'
+    Left = 840
+    Top = 264
+    object ppHistEquipppField1: TppField
+      FieldAlias = 'OS_INFORMACOES'
+      FieldName = 'OS_INFORMACOES'
+      FieldLength = 8
+      DataType = dtBLOB
+      DisplayWidth = 10
+      Position = 0
+      Searchable = False
+      Sortable = False
+    end
+    object ppHistEquipppField2: TppField
+      FieldAlias = 'OS_TIPO_ATENDIMENTO'
+      FieldName = 'OS_TIPO_ATENDIMENTO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 1
+    end
+    object ppHistEquipppField3: TppField
+      FieldAlias = 'OS_CAUSA_CHAMADO'
+      FieldName = 'OS_CAUSA_CHAMADO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 2
+    end
+    object ppHistEquipppField4: TppField
+      FieldAlias = 'OBS_FECHAMENTO'
+      FieldName = 'OBS_FECHAMENTO'
+      FieldLength = 8
+      DataType = dtBLOB
+      DisplayWidth = 10
+      Position = 3
+      Searchable = False
+      Sortable = False
+    end
+    object ppHistEquipppField5: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OS_PESSOA_FJ'
+      FieldName = 'OS_PESSOA_FJ'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 4
+    end
+    object ppHistEquipppField6: TppField
+      FieldAlias = 'OS_NOME'
+      FieldName = 'OS_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 5
+    end
+    object ppHistEquipppField7: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OS_CODIGO'
+      FieldName = 'OS_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 6
+    end
+    object ppHistEquipppField8: TppField
+      FieldAlias = 'OS_DATA'
+      FieldName = 'OS_DATA'
+      FieldLength = 0
+      DataType = dtDateTime
+      DisplayWidth = 18
+      Position = 7
+    end
+    object ppHistEquipppField9: TppField
+      FieldAlias = 'DEF_NOME'
+      FieldName = 'DEF_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 8
+    end
+    object ppHistEquipppField10: TppField
+      FieldAlias = 'PRO_PROPRIEDADE'
+      FieldName = 'PRO_PROPRIEDADE'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 9
+    end
+    object ppHistEquipppField11: TppField
+      FieldAlias = 'PRO_NOME'
+      FieldName = 'PRO_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 10
+    end
+    object ppHistEquipppField12: TppField
+      FieldAlias = 'PRO_SERIE'
+      FieldName = 'PRO_SERIE'
+      FieldLength = 30
+      DisplayWidth = 30
+      Position = 11
+    end
+    object ppHistEquipppField13: TppField
+      FieldAlias = 'ST_NOME'
+      FieldName = 'ST_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 12
+    end
+    object ppHistEquipppField14: TppField
+      FieldAlias = 'OS_DT_FECHAMENTO'
+      FieldName = 'OS_DT_FECHAMENTO'
+      FieldLength = 0
+      DataType = dtDateTime
+      DisplayWidth = 18
+      Position = 13
+    end
+    object ppHistEquipppField15: TppField
+      FieldAlias = 'DT_CILINDRO'
+      FieldName = 'DT_CILINDRO'
+      FieldLength = 0
+      DataType = dtDateTime
+      DisplayWidth = 18
+      Position = 14
+    end
+    object ppHistEquipppField16: TppField
+      FieldAlias = 'DT_REVELADOR'
+      FieldName = 'DT_REVELADOR'
+      FieldLength = 0
+      DataType = dtDateTime
+      DisplayWidth = 18
+      Position = 15
+    end
+    object ppHistEquipppField17: TppField
+      FieldAlias = 'CNPJ'
+      FieldName = 'CNPJ'
+      FieldLength = 14
+      DisplayWidth = 14
+      Position = 16
+    end
+    object ppHistEquipppField18: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CONTADOR_TOTAL'
+      FieldName = 'CONTADOR_TOTAL'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 17
+    end
+    object ppHistEquipppField19: TppField
+      FieldAlias = 'MDL_NOME'
+      FieldName = 'MDL_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 18
+    end
+    object ppHistEquipppField20: TppField
+      FieldAlias = 'VEICULO'
+      FieldName = 'VEICULO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 19
+    end
+    object ppHistEquipppField21: TppField
+      FieldAlias = 'PLACA'
+      FieldName = 'PLACA'
+      FieldLength = 8
+      DisplayWidth = 8
+      Position = 20
+    end
+    object ppHistEquipppField22: TppField
+      FieldAlias = 'ASSUNTO'
+      FieldName = 'ASSUNTO'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 21
+    end
+    object ppHistEquipppField23: TppField
+      FieldAlias = 'NOME_RAZAO'
+      FieldName = 'NOME_RAZAO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 22
+    end
+  end
+  object rptHistEquip: TppReport
+    AutoStop = False
+    DataPipeline = ppHistEquip
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    Template.SaveTo = stDatabase
+    Template.Format = ftASCII
+    AllowPrintToArchive = True
+    AllowPrintToFile = True
+    DeviceType = 'Screen'
+    EmailSettings.ReportFormat = 'PDF'
+    LanguageID = 'Default'
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.FontEncoding = feAnsi
+    PreviewFormSettings.WindowState = wsMaximized
+    PreviewFormSettings.ZoomSetting = zsPercentage
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.Enabled = True
+    Left = 808
+    Top = 264
+    Version = '12.03'
+    mmColumnWidth = 0
+    DataPipelineName = 'ppHistEquip'
+    object ppTitleBand1: TppTitleBand
+      mmBottomOffset = 0
+      mmHeight = 12171
+      mmPrintPosition = 0
+      object ppLine1: TppLine
+        UserName = 'Line1'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Pen.Width = 2
+        Weight = 1.500000000000000000
+        mmHeight = 3969
+        mmLeft = 1323
+        mmTop = 1323
+        mmWidth = 194734
+        BandType = 1
+      end
+      object ppLabel1: TppLabel
+        UserName = 'Label1'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Hist'#243'rico do Equipamento'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 24
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 9790
+        mmLeft = 1323
+        mmTop = 2117
+        mmWidth = 95250
+        BandType = 1
+      end
+    end
+    object ppHeaderBand1: TppHeaderBand
+      mmBottomOffset = 0
+      mmHeight = 20373
+      mmPrintPosition = 0
+      object ppLine3: TppLine
+        UserName = 'Line3'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Pen.Width = 2
+        Weight = 1.500000000000000000
+        mmHeight = 1588
+        mmLeft = 1588
+        mmTop = 18785
+        mmWidth = 194734
+        BandType = 0
+      end
+      object ppLine2: TppLine
+        UserName = 'Line2'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Pen.Width = 2
+        Weight = 1.500000000000000000
+        mmHeight = 1852
+        mmLeft = 1323
+        mmTop = 0
+        mmWidth = 194734
+        BandType = 0
+      end
+      object ppLabel14: TppLabel
+        UserName = 'Label14'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'CLIENTE'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 1588
+        mmTop = 1588
+        mmWidth = 15610
+        BandType = 0
+      end
+      object ppDBText3: TppDBText
+        UserName = 'DBText3'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'NOME_RAZAO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 11
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 4572
+        mmLeft = 19050
+        mmTop = 1588
+        mmWidth = 1101
+        BandType = 0
+      end
+      object ppLabel13: TppLabel
+        UserName = 'Label13'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'EQUIPAMENTO'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 1588
+        mmTop = 7408
+        mmWidth = 26882
+        BandType = 0
+      end
+      object ppDBText13: TppDBText
+        UserName = 'DBText13'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'PRO_NOME'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 4233
+        mmLeft = 42598
+        mmTop = 7408
+        mmWidth = 149490
+        BandType = 0
+      end
+      object ppDBText12: TppDBText
+        UserName = 'DBText12'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'PRO_PROPRIEDADE'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 4233
+        mmLeft = 31750
+        mmTop = 7408
+        mmWidth = 9525
+        BandType = 0
+      end
+      object ppDBText4: TppDBText
+        UserName = 'DBText4'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'PRO_SERIE'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 4233
+        mmLeft = 150548
+        mmTop = 1588
+        mmWidth = 41275
+        BandType = 0
+      end
+      object ppLabel4: TppLabel
+        UserName = 'Label4'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'SERIE'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 4106
+        mmLeft = 139436
+        mmTop = 2381
+        mmWidth = 10499
+        BandType = 0
+      end
+      object ppLabel22: TppLabel
+        UserName = 'Label22'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'VEICULO'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 4106
+        mmLeft = 1852
+        mmTop = 12700
+        mmWidth = 16383
+        BandType = 0
+      end
+      object ppDBText21: TppDBText
+        UserName = 'DBText21'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'VEICULO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 4233
+        mmLeft = 19579
+        mmTop = 12700
+        mmWidth = 61648
+        BandType = 0
+      end
+      object ppDBText22: TppDBText
+        UserName = 'DBText22'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'PLACA'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 11
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 4572
+        mmLeft = 83344
+        mmTop = 12700
+        mmWidth = 1101
+        BandType = 0
+      end
+    end
+    object ppDetailBand1: TppDetailBand
+      Background1.Brush.Style = bsClear
+      Background1.Gradient.EndColor = clWhite
+      Background1.Gradient.StartColor = clWhite
+      Background1.Gradient.Style = gsNone
+      Background2.Brush.Style = bsClear
+      Background2.Gradient.EndColor = clWhite
+      Background2.Gradient.StartColor = clWhite
+      Background2.Gradient.Style = gsNone
+      PrintHeight = phDynamic
+      mmBottomOffset = 0
+      mmHeight = 55033
+      mmPrintPosition = 0
+      object ppShape1: TppShape
+        UserName = 'Shape1'
+        Gradient.EndColor = clWhite
+        Gradient.StartColor = clWhite
+        Gradient.Style = gsNone
+        mmHeight = 53181
+        mmLeft = 6615
+        mmTop = 0
+        mmWidth = 189971
+        BandType = 4
+      end
+      object ppDBText1: TppDBText
+        UserName = 'DBText1'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'OS_CODIGO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 50536
+        mmTop = 5292
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppDBText2: TppDBText
+        UserName = 'DBText2'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'OS_DATA'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 118004
+        mmTop = 10319
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppDBText5: TppDBText
+        UserName = 'DBText5'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'OS_TIPO_ATENDIMENTO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 50536
+        mmTop = 14552
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppDBText6: TppDBText
+        UserName = 'DBText6'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'OS_CAUSA_CHAMADO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 50536
+        mmTop = 10319
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppDBText9: TppDBText
+        UserName = 'DBText9'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'DEF_NOME'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 50271
+        mmTop = 23548
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppDBText11: TppDBText
+        UserName = 'DBText11'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'MDL_NOME'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 176742
+        mmTop = 19315
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppLabel2: TppLabel
+        UserName = 'Label2'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'O.S.'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 41804
+        mmTop = 5027
+        mmWidth = 6350
+        BandType = 4
+      end
+      object ppLabel3: TppLabel
+        UserName = 'Label3'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Data'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 109273
+        mmTop = 10054
+        mmWidth = 7144
+        BandType = 4
+      end
+      object ppLabel5: TppLabel
+        UserName = 'Label5'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Defeito Reclamado'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 19844
+        mmTop = 23548
+        mmWidth = 28046
+        BandType = 4
+      end
+      object ppLabel6: TppLabel
+        UserName = 'Label6'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Servi'#231'o Executado'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 20373
+        mmTop = 13758
+        mmWidth = 27781
+        BandType = 4
+      end
+      object ppLabel7: TppLabel
+        UserName = 'Label7'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Problema Identificado'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 14552
+        mmTop = 9525
+        mmWidth = 33602
+        BandType = 4
+      end
+      object ppLabel8: TppLabel
+        UserName = 'Label8'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Obs Fechamento:'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4106
+        mmLeft = 21961
+        mmTop = 42333
+        mmWidth = 26458
+        BandType = 4
+      end
+      object ppLabel11: TppLabel
+        UserName = 'Label11'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Modelo'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 163777
+        mmTop = 19050
+        mmWidth = 11113
+        BandType = 4
+      end
+      object ppLabel9: TppLabel
+        UserName = 'Label9'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Status do Atendimento'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 13758
+        mmTop = 18521
+        mmWidth = 34396
+        BandType = 4
+      end
+      object ppDBText10: TppDBText
+        UserName = 'DBText10'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'ST_NOME'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 50536
+        mmTop = 19315
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppLabel10: TppLabel
+        UserName = 'Label10'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'O. S Informa'#231#245'es'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4106
+        mmLeft = 22342
+        mmTop = 35454
+        mmWidth = 26077
+        BandType = 4
+      end
+      object ppDBMemo1: TppDBMemo
+        UserName = 'DBMemo1'
+        SaveOrder = 0
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        CharWrap = False
+        DataField = 'OS_INFORMACOES'
+        DataPipeline = ppHistEquip
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 6615
+        mmLeft = 50536
+        mmTop = 35190
+        mmWidth = 144463
+        BandType = 4
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        mmLeading = 0
+      end
+      object ppDBMemo2: TppDBMemo
+        UserName = 'DBMemo2'
+        SaveOrder = 1
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        CharWrap = False
+        DataField = 'OBS_FECHAMENTO'
+        DataPipeline = ppHistEquip
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 6615
+        mmLeft = 50536
+        mmTop = 42333
+        mmWidth = 144198
+        BandType = 4
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        mmLeading = 0
+      end
+      object ppLabel12: TppLabel
+        UserName = 'Label12'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Dt. Troca Cilindro'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 146844
+        mmTop = 13758
+        mmWidth = 28046
+        BandType = 4
+      end
+      object ppDBText7: TppDBText
+        UserName = 'DBText7'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'DT_CILINDRO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 176742
+        mmTop = 14552
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppDBText47: TppDBText
+        UserName = 'DBText47'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'DT_REVELADOR'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 176742
+        mmTop = 10054
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppLabel80: TppLabel
+        UserName = 'Label80'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Dt. Troca Revelador'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 143934
+        mmTop = 9525
+        mmWidth = 30956
+        BandType = 4
+      end
+      object ppDBText48: TppDBText
+        UserName = 'DBText48'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'OS_DT_FECHAMENTO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 118004
+        mmTop = 5292
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppLabel81: TppLabel
+        UserName = 'Label801'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Dt. Fechamento'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 92604
+        mmTop = 4498
+        mmWidth = 23813
+        BandType = 4
+      end
+      object ppLabel18: TppLabel
+        UserName = 'Label18'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Ct. Total'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 161396
+        mmTop = 4498
+        mmWidth = 13494
+        BandType = 4
+      end
+      object ppDBText17: TppDBText
+        UserName = 'DBText17'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'CONTADOR_TOTAL'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 176742
+        mmTop = 4763
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppLabel19: TppLabel
+        UserName = 'Label19'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Solicita'#231#227'o'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4106
+        mmLeft = 31856
+        mmTop = 28575
+        mmWidth = 16298
+        BandType = 4
+      end
+      object ppDBText18: TppDBText
+        UserName = 'DBText18'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'ASSUNTO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 50536
+        mmTop = 28575
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppDBText19: TppDBText
+        UserName = 'DBText19'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'PLACA'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 118004
+        mmTop = 14552
+        mmWidth = 762
+        BandType = 4
+      end
+      object ppLabel20: TppLabel
+        UserName = 'Label20'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Placa'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4106
+        mmLeft = 108162
+        mmTop = 14552
+        mmWidth = 8255
+        BandType = 4
+      end
+      object ppLabel21: TppLabel
+        UserName = 'Label201'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Caption = 'Veiculo'
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Times New Roman'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4106
+        mmLeft = 105072
+        mmTop = 19315
+        mmWidth = 11345
+        BandType = 4
+      end
+      object ppDBText20: TppDBText
+        UserName = 'DBText20'
+        HyperlinkColor = clBlue
+        AutoSize = True
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        DataField = 'VEICULO'
+        DataPipeline = ppHistEquip
+        Ellipsis = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppHistEquip'
+        mmHeight = 3344
+        mmLeft = 118004
+        mmTop = 19315
+        mmWidth = 762
+        BandType = 4
+      end
+    end
+    object ppFooterBand1: TppFooterBand
+      mmBottomOffset = 0
+      mmHeight = 7144
+      mmPrintPosition = 0
+      object ppLine4: TppLine
+        UserName = 'Line4'
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        Pen.Color = clGray
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 1323
+        mmTop = 5821
+        mmWidth = 194734
+        BandType = 8
+      end
+      object ppSystemVariable1: TppSystemVariable
+        UserName = 'SystemVariable1'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        VarType = vtPrintDateTime
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4586
+        mmLeft = 1323
+        mmTop = 1323
+        mmWidth = 17145
+        BandType = 8
+      end
+      object ppSystemVariable2: TppSystemVariable
+        UserName = 'SystemVariable2'
+        HyperlinkColor = clBlue
+        Border.BorderPositions = []
+        Border.Color = clBlack
+        Border.Style = psSolid
+        Border.Visible = False
+        Border.Weight = 1.000000000000000000
+        VarType = vtPageNoDesc
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4586
+        mmLeft = 178859
+        mmTop = 1323
+        mmWidth = 17145
+        BandType = 8
+      end
+    end
+    object ppGroup1: TppGroup
+      BreakName = 'OS_PESSOA_FJ'
+      DataPipeline = ppHistEquip
+      GroupFileSettings.NewFile = False
+      GroupFileSettings.EmailFile = False
+      OutlineSettings.CreateNode = True
+      StartOnOddPage = False
+      UserName = 'Group1'
+      mmNewColumnThreshold = 0
+      mmNewPageThreshold = 0
+      DataPipelineName = 'ppHistEquip'
+      NewFile = False
+      object ppGroupHeaderBand1: TppGroupHeaderBand
+        mmBottomOffset = 0
+        mmHeight = 3175
+        mmPrintPosition = 0
+      end
+      object ppGroupFooterBand1: TppGroupFooterBand
+        HideWhenOneDetail = False
+        mmBottomOffset = 0
+        mmHeight = 0
+        mmPrintPosition = 0
+      end
+    end
+    object ppParameterList1: TppParameterList
+    end
   end
 end

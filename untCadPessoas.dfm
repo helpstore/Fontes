@@ -10,7 +10,6 @@ inherited frmCadPessoas: TfrmCadPessoas
   inherited pgcCadastro: TcxPageControl
     Width = 774
     Height = 451
-    ActivePage = tbsLista
     ClientRectBottom = 447
     ClientRectRight = 770
     inherited tbsLista: TcxTabSheet
@@ -409,7 +408,7 @@ inherited frmCadPessoas: TfrmCadPessoas
           Top = 112
           DataBinding.DataField = 'CEP'
           DataBinding.DataSource = dsRegistro
-          Properties.EditMask = '00000\-999;1;_'
+          Properties.EditMask = '00000\-000;0;_'
           Properties.MaxLength = 0
           TabOrder = 10
           Width = 73

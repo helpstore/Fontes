@@ -248,6 +248,12 @@ type
     dtListDet1TIPO_DIGITALIZACAO: TIBStringField;
     TVDet1TIPO_COLORIDO: TcxGridDBBandedColumn;
     TVDet1TIPO_DIGITALIZACAO: TcxGridDBBandedColumn;
+    dtListCIDADE: TIBStringField;
+    dtListREGIAO: TIBStringField;
+    dtListTECNICO: TIBStringField;
+    TVRegistroCIDADE: TcxGridDBBandedColumn;
+    TVRegistroREGIAO: TcxGridDBBandedColumn;
+    TVRegistroTECNICO: TcxGridDBBandedColumn;
     procedure btnTipoContratoClick(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
@@ -314,7 +320,6 @@ begin
   dtEditDet1ATIVO.value := 'S';
   dtEditDet1DT_ADICAO.value := DataAtual;
   dtEditDet1DT_VIGENCIA_INICIAL.value := DataAtual;
-
   dtEditDet1CONTRATO.value := dtEditCODIGO.value;
 end;
 
