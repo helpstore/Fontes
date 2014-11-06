@@ -73,7 +73,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       Top = 2
       Width = 991
       Height = 554
-      ActivePage = TAB2
+      ActivePage = Tab1
       Align = alClient
       TabOrder = 1
       TabStop = False
@@ -3321,10 +3321,10 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         Font.Style = []
         Transparent = True
         DataPipelineName = 'ppHistEquip'
-        mmHeight = 4498
+        mmHeight = 4572
         mmLeft = 19050
         mmTop = 1588
-        mmWidth = 94456
+        mmWidth = 1101
         BandType = 0
       end
       object ppLabel13: TppLabel
@@ -3518,7 +3518,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 4572
         mmLeft = 83344
         mmTop = 12700
-        mmWidth = 12700
+        mmWidth = 1101
         BandType = 0
       end
     end
@@ -3568,7 +3568,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 50536
         mmTop = 5292
-        mmWidth = 15875
+        mmWidth = 762
         BandType = 4
       end
       object ppDBText2: TppDBText
@@ -3593,7 +3593,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 118004
         mmTop = 10319
-        mmWidth = 12742
+        mmWidth = 762
         BandType = 4
       end
       object ppDBText5: TppDBText
@@ -3618,7 +3618,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 50536
         mmTop = 14552
-        mmWidth = 32978
+        mmWidth = 762
         BandType = 4
       end
       object ppDBText6: TppDBText
@@ -3643,7 +3643,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 50536
         mmTop = 10319
-        mmWidth = 30480
+        mmWidth = 762
         BandType = 4
       end
       object ppDBText9: TppDBText
@@ -3668,7 +3668,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 50271
         mmTop = 23548
-        mmWidth = 15071
+        mmWidth = 762
         BandType = 4
       end
       object ppDBText11: TppDBText
@@ -3694,7 +3694,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 176742
         mmTop = 19315
-        mmWidth = 16002
+        mmWidth = 762
         BandType = 4
       end
       object ppLabel2: TppLabel
@@ -3903,7 +3903,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 50536
         mmTop = 19315
-        mmWidth = 13039
+        mmWidth = 762
         BandType = 4
       end
       object ppLabel10: TppLabel
@@ -4034,7 +4034,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 176742
         mmTop = 14552
-        mmWidth = 18415
+        mmWidth = 762
         BandType = 4
       end
       object ppDBText47: TppDBText
@@ -4060,7 +4060,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 176742
         mmTop = 10054
-        mmWidth = 22183
+        mmWidth = 762
         BandType = 4
       end
       object ppLabel80: TppLabel
@@ -4109,7 +4109,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 118004
         mmTop = 5292
-        mmWidth = 29422
+        mmWidth = 762
         BandType = 4
       end
       object ppLabel81: TppLabel
@@ -4443,9 +4443,9 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         Transparent = True
         DataPipelineName = 'ppHistEquip'
         mmHeight = 3344
-        mmLeft = 176816
+        mmLeft = 197300
         mmTop = 4763
-        mmWidth = 26120
+        mmWidth = 762
         BandType = 4
       end
       object ppLabel19: TppLabel
@@ -4493,7 +4493,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 50536
         mmTop = 28575
-        mmWidth = 12912
+        mmWidth = 762
         BandType = 4
       end
       object ppDBText19: TppDBText
@@ -4519,7 +4519,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 118004
         mmTop = 14552
-        mmWidth = 9102
+        mmWidth = 762
         BandType = 4
       end
       object ppLabel20: TppLabel
@@ -4593,7 +4593,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
         mmHeight = 3344
         mmLeft = 118004
         mmTop = 19315
-        mmWidth = 12234
+        mmWidth = 762
         BandType = 4
       end
     end
@@ -4695,9 +4695,9 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     object ppHistEquipppField1: TppField
       FieldAlias = 'OS_INFORMACOES'
       FieldName = 'OS_INFORMACOES'
-      FieldLength = 8
+      FieldLength = 0
       DataType = dtBLOB
-      DisplayWidth = 10
+      DisplayWidth = 0
       Position = 0
       Searchable = False
       Sortable = False
@@ -4872,8 +4872,8 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
   end
   object DsHistEquip: TDataSource
     DataSet = dmRelatorios2.qryRelHistoricoEquip2
-    Left = 368
-    Top = 288
+    Left = 376
+    Top = 264
   end
   object DsIntervalos: TDataSource
     DataSet = DmServicos.OS_INTERVALO
@@ -4882,7 +4882,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
   end
   object dsHistItens: TDataSource
     DataSet = dmRelatorios2.qryRelHistEquipItens
-    Left = 454
+    Left = 446
     Top = 264
   end
   object ppHistEquipItens: TppDBPipeline
@@ -4890,6 +4890,36 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     UserName = 'HistEquip1'
     Left = 416
     Top = 264
+    object ppHistEquipItensppField1: TppField
+      FieldAlias = 'COD_PRODUTO'
+      FieldName = 'COD_PRODUTO'
+      FieldLength = 0
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppHistEquipItensppField2: TppField
+      FieldAlias = 'NOME_PRODUTO'
+      FieldName = 'NOME_PRODUTO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 1
+    end
+    object ppHistEquipItensppField3: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'QUANTIDADE'
+      FieldName = 'QUANTIDADE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 2
+    end
+    object ppHistEquipItensppField4: TppField
+      FieldAlias = 'MARCA'
+      FieldName = 'MARCA'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 3
+    end
   end
   object imgImportance: TImageList
     Height = 12

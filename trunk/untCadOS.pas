@@ -25,7 +25,9 @@ uses
   cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
   cxDBLookupComboBox, cxCalendar, cxSpinEdit, cxTimeEdit,
    cxGroupBox, cxMemo, cxCheckBox, cxCalc, dxmdaset, cxRadioGroup,DateUtils,
-  Grids, DBGrids, cxProgressBar;
+  Grids, DBGrids, cxProgressBar, ppParameter, ppBands, ppClass, ppVar,
+  ppCtrls, ppReport, ppSubRpt, ppStrtch, ppMemo, ppPrnabl, ppCache, ppProd,
+  ppComm, ppRelatv, ppDB, ppDBPipe;
 
 type
   TfrmCadOS = class(TfrmCadPadraoMaster)
@@ -713,6 +715,102 @@ type
     cxDBMemo3: TcxDBMemo;
     cxLabel32: TcxLabel;
     ActGeraVenda: TAction;
+    qryRelHistoricoEquip: TIBQuery;
+    qryRelHistoricoEquipOS_INFORMACOES: TBlobField;
+    qryRelHistoricoEquipOS_TIPO_ATENDIMENTO: TIBStringField;
+    qryRelHistoricoEquipOS_CAUSA_CHAMADO: TIBStringField;
+    qryRelHistoricoEquipOBS_FECHAMENTO: TBlobField;
+    qryRelHistoricoEquipOS_PESSOA_FJ: TIntegerField;
+    qryRelHistoricoEquipOS_NOME: TIBStringField;
+    qryRelHistoricoEquipOS_CODIGO: TIntegerField;
+    qryRelHistoricoEquipOS_DATA: TDateTimeField;
+    qryRelHistoricoEquipDEF_NOME: TIBStringField;
+    qryRelHistoricoEquipPRO_PROPRIEDADE: TIBStringField;
+    qryRelHistoricoEquipPRO_NOME: TIBStringField;
+    qryRelHistoricoEquipPRO_SERIE: TIBStringField;
+    qryRelHistoricoEquipST_NOME: TIBStringField;
+    qryRelHistoricoEquipOS_DT_FECHAMENTO: TDateTimeField;
+    qryRelHistoricoEquipDT_CILINDRO: TDateTimeField;
+    qryRelHistoricoEquipDT_REVELADOR: TDateTimeField;
+    qryRelHistoricoEquipCNPJ: TIBStringField;
+    qryRelHistoricoEquipCONTADOR_TOTAL: TFloatField;
+    qryRelHistoricoEquipMDL_NOME: TIBStringField;
+    qryRelHistoricoEquipVEICULO: TIBStringField;
+    qryRelHistoricoEquipPLACA: TIBStringField;
+    qryRelHistoricoEquipASSUNTO: TIBStringField;
+    qryRelHistoricoEquipNOME_RAZAO: TIBStringField;
+    qryRelHistEquipItens: TIBQuery;
+    qryRelHistEquipItensCOD_PRODUTO: TIBStringField;
+    qryRelHistEquipItensNOME_PRODUTO: TIBStringField;
+    qryRelHistEquipItensQUANTIDADE: TFloatField;
+    qryRelHistEquipItensMARCA: TIBStringField;
+    dsHistItens: TDataSource;
+    ppHistEquipItens: TppDBPipeline;
+    DsHistEquip: TDataSource;
+    ppHistEquip: TppDBPipeline;
+    rptHistEquip: TppReport;
+    ppTitleBand1: TppTitleBand;
+    ppLine1: TppLine;
+    ppLabel1: TppLabel;
+    ppHeaderBand1: TppHeaderBand;
+    ppLine3: TppLine;
+    ppLine2: TppLine;
+    ppLabel14: TppLabel;
+    ppDBText3: TppDBText;
+    ppLabel13: TppLabel;
+    ppDBText13: TppDBText;
+    ppDBText12: TppDBText;
+    ppDBText4: TppDBText;
+    ppLabel4: TppLabel;
+    ppLabel22: TppLabel;
+    ppDBText21: TppDBText;
+    ppDBText22: TppDBText;
+    ppDetailBand1: TppDetailBand;
+    ppShape1: TppShape;
+    ppDBText1: TppDBText;
+    ppDBText2: TppDBText;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppDBText9: TppDBText;
+    ppDBText11: TppDBText;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppLabel8: TppLabel;
+    ppLabel11: TppLabel;
+    ppLabel9: TppLabel;
+    ppDBText10: TppDBText;
+    ppLabel10: TppLabel;
+    ppDBMemo1: TppDBMemo;
+    ppDBMemo2: TppDBMemo;
+    ppLabel12: TppLabel;
+    ppDBText7: TppDBText;
+    ppDBText47: TppDBText;
+    ppLabel80: TppLabel;
+    ppDBText48: TppDBText;
+    ppLabel81: TppLabel;
+    ppLabel18: TppLabel;
+    ppDBText17: TppDBText;
+    ppLabel19: TppLabel;
+    ppDBText18: TppDBText;
+    ppDBText19: TppDBText;
+    ppLabel20: TppLabel;
+    ppLabel21: TppLabel;
+    ppDBText20: TppDBText;
+    ppFooterBand1: TppFooterBand;
+    ppLine4: TppLine;
+    ppSystemVariable1: TppSystemVariable;
+    ppSystemVariable2: TppSystemVariable;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    ppParameterList1: TppParameterList;
+    ActImprimeHistorico: TAction;
+    btnImprimirHistorico: TdxBarButton;
+    edDescricao: TcxDBMemo;
+    cxLabel42: TcxLabel;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -758,8 +856,10 @@ type
     procedure cxButton1Click(Sender: TObject);
     procedure dtEditAfterPost(DataSet: TDataSet);
     procedure ActGeraVendaExecute(Sender: TObject);
+    procedure ActImprimeHistoricoExecute(Sender: TObject);
   private
     { Private declarations }
+    SqlOriginalHist : string;
     Procedure Filtrar;
     procedure EnviaEmailTecnico(Origem,NOrigem,Destino,NDestino,Assunto,Mensagem : string);
     procedure EnviaEmailAb_Fec(cliente,NCliente,Contato,NContato,Assunto,Mensagem,TIPO : string);
@@ -852,6 +952,10 @@ begin
    dtEditENTRADA.value := DateOf(DataHora);
    dtEditDATA.value := DateOf(DataHora);
    dtEditHR_ENTRADA.value := TimeOf(DataHora);
+
+   dtEditTROCA_CILINDRO.value := 'N';
+   dtEditTROCA_FUSAO.value := 'N';
+   dtEditTROCA_BELT.value := 'N';
 
 
 end;
@@ -1107,6 +1211,7 @@ end;
 procedure TfrmCadOS.FormCreate(Sender: TObject);
 begin
   inherited;
+   SqlOriginalHist  := qryRelHistoricoEquip.sql.text;  
   mtbFiltroTIPO_STATUS.value := 0;
   //se houver uma data padrao minima de listagem de OS, então sera atribuida inicialmente ao filtro
   if dmApp.OFC_DATA_BASE_MAN_OS > 0 then
@@ -1116,7 +1221,7 @@ end;
 procedure TfrmCadOS.dtEditBeforePost(DataSet: TDataSet);
 var
   sql: string;
-  ultimocodigo, cttotal: integer;
+  ultimocodigo, cttotal: variant;
   DATA_INI  , DATA_FIM,
   HORA_INI  , HORA_FIM,
   INTER_INI , INTER_FIM,
@@ -1700,7 +1805,7 @@ begin
   dtEditDet2.FetchAll;
   if (dtEditDet2.RecordCount = 0) then
   begin
-    if application.messagebox('Deseja registrar a ativididade de criação da OS?','Aviso', mb_yesno + mb_iconquestion) = id_yes then
+    if application.messagebox('Deseja registrar a atividade de criação da OS?','Aviso', mb_yesno + mb_iconquestion) = id_yes then
     begin
       dtEditDet2.open;
       dtEditDet2.Append;
@@ -1722,7 +1827,7 @@ begin
 
       if (existe <= 0) then
       begin
-        if application.messagebox('Deseja registrar a ativididade de fechamento da OS?','Aviso', mb_yesno + mb_iconquestion) = id_yes then
+        if application.messagebox('Deseja registrar a atividade de fechamento da OS?','Aviso', mb_yesno + mb_iconquestion) = id_yes then
         begin   
           dtEditDet2.open;
           dtEditDet2.Append;
@@ -1792,6 +1897,33 @@ begin
 
   Sair := True ;
   close ;
+end;
+
+procedure TfrmCadOS.ActImprimeHistoricoExecute(Sender: TObject);
+var
+  swhere : string;
+  sorder : string;
+begin
+  inherited;
+
+   sorder := ' order by (os.data) descending ';
+
+   if (dmapp.EXIBE_OFC_VISUALIZACAO = '0') then
+     swhere := ' and (os.produto = '+QuotedStr(dtEditPRODUTO.AsString)+') and os.codigo <> :codigo '  ;
+   {else
+     swhere := ' and (os.veiculo = '+(DmServicos.OrdemVEICULO.AsString)+') and os.codigo <> :codigo ';}
+
+
+    qryRelHistoricoEquip.Close;
+    qryRelHistoricoEquip.sql.text := SqlOriginalHist + swhere + sorder;
+    qryRelHistoricoEquip.parambyname('cnpj').Value := DMApp.Cnpj;
+    qryRelHistoricoEquip.parambyname('PESSOA_FJ').Value   := dtEditPESSOA_FJ.AsInteger;
+    qryRelHistoricoEquip.parambyname('codigo').Value := dtEditCODIGO.AsInteger;
+    qryRelHistoricoEquip.Open;
+
+ //   showmessage(inttostr(qryRelHistoricoEquip.RecordCount));
+
+    rptHistEquip.Print;
 end;
 
 end.

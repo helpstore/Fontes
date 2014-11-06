@@ -1,81 +1,84 @@
 inherited frmCadClientes: TfrmCadClientes
-  Left = 142
-  Top = 83
+  Left = -93
+  Top = 4
+  Width = 1296
+  Height = 776
   Caption = 'Clientes'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    ActivePage = tbsEdita
+    Width = 1280
+    Height = 712
     HideTabs = True
-    ClientRectBottom = 463
+    ClientRectBottom = 711
     ClientRectLeft = 1
-    ClientRectRight = 660
+    ClientRectRight = 1279
     ClientRectTop = 1
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 13
-        Width = 659
-        Height = 449
+        Width = 1278
+        Height = 697
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
             Position.BandIndex = 0
-            Position.ColIndex = 0
+            Position.ColIndex = 8
             Position.RowIndex = 0
           end
           object TVRegistroPESSOA_FJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PESSOA_FJ'
             Position.BandIndex = 0
-            Position.ColIndex = 1
+            Position.ColIndex = 0
             Position.RowIndex = 0
           end
           object TVRegistroNOME_RAZAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NOME_RAZAO'
             Position.BandIndex = 0
-            Position.ColIndex = 68
+            Position.ColIndex = 1
             Position.RowIndex = 0
           end
           object TVRegistroCPF_CGC: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CPF_CGC'
             Position.BandIndex = 0
-            Position.ColIndex = 69
+            Position.ColIndex = 7
             Position.RowIndex = 0
           end
           object TVRegistroCOD_FPAGTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COD_FPAGTO'
             Position.BandIndex = 0
-            Position.ColIndex = 7
+            Position.ColIndex = 14
             Position.RowIndex = 0
           end
           object TVRegistroCOMPRADOR: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COMPRADOR'
             Position.BandIndex = 0
-            Position.ColIndex = 2
+            Position.ColIndex = 9
             Position.RowIndex = 0
           end
           object TVRegistroFONE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'FONE'
             Position.BandIndex = 0
-            Position.ColIndex = 3
+            Position.ColIndex = 10
             Position.RowIndex = 0
           end
           object TVRegistroCNPJ_VEND: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ_VEND'
             Position.BandIndex = 0
-            Position.ColIndex = 4
+            Position.ColIndex = 11
             Position.RowIndex = 0
           end
           object TVRegistroCOD_VEND: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COD_VEND'
             Position.BandIndex = 0
-            Position.ColIndex = 5
+            Position.ColIndex = 12
             Position.RowIndex = 0
           end
           object TVRegistroCNPJ_FPAGTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ_FPAGTO'
             Position.BandIndex = 0
-            Position.ColIndex = 6
+            Position.ColIndex = 13
             Position.RowIndex = 0
           end
           object TVRegistroREQUISICAO: TcxGridDBBandedColumn
@@ -84,43 +87,43 @@ inherited frmCadClientes: TfrmCadClientes
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 8
+            Position.ColIndex = 15
             Position.RowIndex = 0
           end
           object TVRegistroDIA_PREF_FAT: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DIA_PREF_FAT'
             Position.BandIndex = 0
-            Position.ColIndex = 9
+            Position.ColIndex = 16
             Position.RowIndex = 0
           end
           object TVRegistroCLASSIF: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CLASSIF'
             Position.BandIndex = 0
-            Position.ColIndex = 10
+            Position.ColIndex = 17
             Position.RowIndex = 0
           end
           object TVRegistroLIMITE_TEMPO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'LIMITE_TEMPO'
             Position.BandIndex = 0
-            Position.ColIndex = 11
+            Position.ColIndex = 18
             Position.RowIndex = 0
           end
           object TVRegistroLIMITE_CREDITO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'LIMITE_CREDITO'
             Position.BandIndex = 0
-            Position.ColIndex = 12
+            Position.ColIndex = 19
             Position.RowIndex = 0
           end
           object TVRegistroREFERENCIAS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'REFERENCIAS'
             Position.BandIndex = 0
-            Position.ColIndex = 13
+            Position.ColIndex = 20
             Position.RowIndex = 0
           end
           object TVRegistroOBS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OBS'
             Position.BandIndex = 0
-            Position.ColIndex = 14
+            Position.ColIndex = 21
             Position.RowIndex = 0
           end
           object TVRegistroBLOQUEADO: TcxGridDBBandedColumn
@@ -129,265 +132,265 @@ inherited frmCadClientes: TfrmCadClientes
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 15
+            Position.ColIndex = 22
             Position.RowIndex = 0
           end
           object TVRegistroULT_VENDEDOR: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ULT_VENDEDOR'
             Position.BandIndex = 0
-            Position.ColIndex = 16
+            Position.ColIndex = 23
             Position.RowIndex = 0
           end
           object TVRegistroFREQUENCIA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'FREQUENCIA'
             Position.BandIndex = 0
-            Position.ColIndex = 17
+            Position.ColIndex = 24
             Position.RowIndex = 0
           end
           object TVRegistroATIVIDADE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ATIVIDADE'
             Position.BandIndex = 0
-            Position.ColIndex = 18
+            Position.ColIndex = 25
             Position.RowIndex = 0
           end
           object TVRegistroCEP_TRABALHO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CEP_TRABALHO'
             Position.BandIndex = 0
-            Position.ColIndex = 19
+            Position.ColIndex = 26
             Position.RowIndex = 0
           end
           object TVRegistroCIDADE_PAIS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CIDADE_PAIS'
             Position.BandIndex = 0
-            Position.ColIndex = 20
+            Position.ColIndex = 27
             Position.RowIndex = 0
           end
           object TVRegistroCONJUGE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CONJUGE'
             Position.BandIndex = 0
-            Position.ColIndex = 21
+            Position.ColIndex = 28
             Position.RowIndex = 0
           end
           object TVRegistroDT_NASC_CONJUGE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DT_NASC_CONJUGE'
             Position.BandIndex = 0
-            Position.ColIndex = 22
+            Position.ColIndex = 29
             Position.RowIndex = 0
           end
           object TVRegistroENDERECO_PAIS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ENDERECO_PAIS'
             Position.BandIndex = 0
-            Position.ColIndex = 23
+            Position.ColIndex = 30
             Position.RowIndex = 0
           end
           object TVRegistroENDERECO_TRABALHO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ENDERECO_TRABALHO'
             Position.BandIndex = 0
-            Position.ColIndex = 24
+            Position.ColIndex = 31
             Position.RowIndex = 0
           end
           object TVRegistroFONE_LOCAL_CONJUGE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'FONE_LOCAL_CONJUGE'
             Position.BandIndex = 0
-            Position.ColIndex = 25
+            Position.ColIndex = 32
             Position.RowIndex = 0
           end
           object TVRegistroFONE_TRABALHO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'FONE_TRABALHO'
             Position.BandIndex = 0
-            Position.ColIndex = 26
+            Position.ColIndex = 33
             Position.RowIndex = 0
           end
           object TVRegistroLOCAL_TRAB_CONJUGE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'LOCAL_TRAB_CONJUGE'
             Position.BandIndex = 0
-            Position.ColIndex = 27
+            Position.ColIndex = 34
             Position.RowIndex = 0
           end
           object TVRegistroLOCAL_TRABALHO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'LOCAL_TRABALHO'
             Position.BandIndex = 0
-            Position.ColIndex = 28
+            Position.ColIndex = 35
             Position.RowIndex = 0
           end
           object TVRegistroMAE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MAE'
             Position.BandIndex = 0
-            Position.ColIndex = 29
+            Position.ColIndex = 36
             Position.RowIndex = 0
           end
           object TVRegistroPAI: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PAI'
             Position.BandIndex = 0
-            Position.ColIndex = 30
+            Position.ColIndex = 37
             Position.RowIndex = 0
           end
           object TVRegistroRAMAL_FONE_TRAB: TcxGridDBBandedColumn
             DataBinding.FieldName = 'RAMAL_FONE_TRAB'
             Position.BandIndex = 0
-            Position.ColIndex = 31
+            Position.ColIndex = 38
             Position.RowIndex = 0
           end
           object TVRegistroRAMAL_LOCAL_CONJUGE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'RAMAL_LOCAL_CONJUGE'
             Position.BandIndex = 0
-            Position.ColIndex = 32
+            Position.ColIndex = 39
             Position.RowIndex = 0
           end
           object TVRegistroRENDA_MENSAL: TcxGridDBBandedColumn
             DataBinding.FieldName = 'RENDA_MENSAL'
             Position.BandIndex = 0
-            Position.ColIndex = 33
+            Position.ColIndex = 40
             Position.RowIndex = 0
           end
           object TVRegistroTEMPO_SERV_CONJUGE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TEMPO_SERV_CONJUGE'
             Position.BandIndex = 0
-            Position.ColIndex = 34
+            Position.ColIndex = 41
             Position.RowIndex = 0
           end
           object TVRegistroTEMPO_SERVICO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TEMPO_SERVICO'
             Position.BandIndex = 0
-            Position.ColIndex = 35
+            Position.ColIndex = 42
             Position.RowIndex = 0
           end
           object TVRegistroCNPJ_CLASSIF: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ_CLASSIF'
             Position.BandIndex = 0
-            Position.ColIndex = 36
+            Position.ColIndex = 43
             Position.RowIndex = 0
           end
           object TVRegistroCOD_CLASSIF: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COD_CLASSIF'
             Position.BandIndex = 0
-            Position.ColIndex = 37
+            Position.ColIndex = 44
             Position.RowIndex = 0
           end
           object TVRegistroPRAZO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PRAZO'
             Position.BandIndex = 0
-            Position.ColIndex = 38
+            Position.ColIndex = 45
             Position.RowIndex = 0
           end
           object TVRegistroPERIODO_FATURAMENTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PERIODO_FATURAMENTO'
             Position.BandIndex = 0
-            Position.ColIndex = 39
+            Position.ColIndex = 46
             Position.RowIndex = 0
           end
           object TVRegistroTOLERANCIA_FATURAMENTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TOLERANCIA_FATURAMENTO'
             Position.BandIndex = 0
-            Position.ColIndex = 40
+            Position.ColIndex = 47
             Position.RowIndex = 0
           end
           object TVRegistroAJUSTE_AUT_FATURAS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'AJUSTE_AUT_FATURAS'
             Position.BandIndex = 0
-            Position.ColIndex = 41
+            Position.ColIndex = 48
             Position.RowIndex = 0
           end
           object TVRegistroTAXA_JUROS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TAXA_JUROS'
             Position.BandIndex = 0
-            Position.ColIndex = 42
+            Position.ColIndex = 49
             Position.RowIndex = 0
           end
           object TVRegistroMEDIA_COMPRAS_MES: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MEDIA_COMPRAS_MES'
             Position.BandIndex = 0
-            Position.ColIndex = 43
+            Position.ColIndex = 50
             Position.RowIndex = 0
           end
           object TVRegistroNAO_COBR_JUR_ATE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NAO_COBR_JUR_ATE'
             Position.BandIndex = 0
-            Position.ColIndex = 44
+            Position.ColIndex = 51
             Position.RowIndex = 0
           end
           object TVRegistroASSINA_NOTA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ASSINA_NOTA'
             Position.BandIndex = 0
-            Position.ColIndex = 45
+            Position.ColIndex = 52
             Position.RowIndex = 0
           end
           object TVRegistroCONTROLA_PLACA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CONTROLA_PLACA'
             Position.BandIndex = 0
-            Position.ColIndex = 46
+            Position.ColIndex = 53
             Position.RowIndex = 0
           end
           object TVRegistroCONTROLA_KM: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CONTROLA_KM'
             Position.BandIndex = 0
-            Position.ColIndex = 47
+            Position.ColIndex = 54
             Position.RowIndex = 0
           end
           object TVRegistroADMISSAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ADMISSAO'
             Position.BandIndex = 0
-            Position.ColIndex = 48
+            Position.ColIndex = 55
             Position.RowIndex = 0
           end
           object TVRegistroADMISSAO_CONJUGE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ADMISSAO_CONJUGE'
             Position.BandIndex = 0
-            Position.ColIndex = 49
+            Position.ColIndex = 56
             Position.RowIndex = 0
           end
           object TVRegistroNUMERO_TRABALHO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NUMERO_TRABALHO'
             Position.BandIndex = 0
-            Position.ColIndex = 50
+            Position.ColIndex = 57
             Position.RowIndex = 0
           end
           object TVRegistroLIMITE_RETIRADAS_DIARIA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'LIMITE_RETIRADAS_DIARIA'
             Position.BandIndex = 0
-            Position.ColIndex = 51
+            Position.ColIndex = 58
             Position.RowIndex = 0
           end
           object TVRegistroVALOR_MAXIMO_RETIRADA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'VALOR_MAXIMO_RETIRADA'
             Position.BandIndex = 0
-            Position.ColIndex = 52
+            Position.ColIndex = 59
             Position.RowIndex = 0
           end
           object TVRegistroNUMERO_PAIS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NUMERO_PAIS'
             Position.BandIndex = 0
-            Position.ColIndex = 53
+            Position.ColIndex = 60
             Position.RowIndex = 0
           end
           object TVRegistroCHEQUE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CHEQUE'
             Position.BandIndex = 0
-            Position.ColIndex = 54
+            Position.ColIndex = 61
             Position.RowIndex = 0
           end
           object TVRegistroALIQUOTA_DESCONTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ALIQUOTA_DESCONTO'
             Position.BandIndex = 0
-            Position.ColIndex = 55
+            Position.ColIndex = 62
             Position.RowIndex = 0
           end
           object TVRegistroOPTANTE_SIMPLES: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OPTANTE_SIMPLES'
             Position.BandIndex = 0
-            Position.ColIndex = 56
+            Position.ColIndex = 63
             Position.RowIndex = 0
           end
           object TVRegistroCONS_REV: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CONS_REV'
             Position.BandIndex = 0
-            Position.ColIndex = 57
+            Position.ColIndex = 64
             Position.RowIndex = 0
           end
           object TVRegistroSENHA_PDV: TcxGridDBBandedColumn
             DataBinding.FieldName = 'SENHA_PDV'
             Position.BandIndex = 0
-            Position.ColIndex = 58
+            Position.ColIndex = 65
             Position.RowIndex = 0
           end
           object TVRegistroSUB_TRIBUTARIO: TcxGridDBBandedColumn
@@ -396,7 +399,7 @@ inherited frmCadClientes: TfrmCadClientes
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 59
+            Position.ColIndex = 66
             Position.RowIndex = 0
           end
           object TVRegistroRET_PIS: TcxGridDBBandedColumn
@@ -405,7 +408,7 @@ inherited frmCadClientes: TfrmCadClientes
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 60
+            Position.ColIndex = 67
             Position.RowIndex = 0
           end
           object TVRegistroRET_INSS: TcxGridDBBandedColumn
@@ -414,7 +417,7 @@ inherited frmCadClientes: TfrmCadClientes
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 61
+            Position.ColIndex = 68
             Position.RowIndex = 0
           end
           object TVRegistroRET_IRRF: TcxGridDBBandedColumn
@@ -423,70 +426,101 @@ inherited frmCadClientes: TfrmCadClientes
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 62
+            Position.ColIndex = 69
             Position.RowIndex = 0
           end
           object TVRegistroBAIRRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'BAIRRO'
             Position.BandIndex = 0
-            Position.ColIndex = 63
+            Position.ColIndex = 70
             Position.RowIndex = 0
           end
           object TVRegistroNEG_N_VEZES: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NEG_N_VEZES'
             Position.BandIndex = 0
-            Position.ColIndex = 64
+            Position.ColIndex = 71
             Position.RowIndex = 0
           end
           object TVRegistroCOMPLEMENTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COMPLEMENTO'
             Position.BandIndex = 0
-            Position.ColIndex = 65
+            Position.ColIndex = 72
             Position.RowIndex = 0
           end
           object TVRegistroCATEGORIA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CATEGORIA'
             Position.BandIndex = 0
-            Position.ColIndex = 66
+            Position.ColIndex = 73
             Position.RowIndex = 0
           end
           object TVRegistroSINCRONIZA_FILIAIS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'SINCRONIZA_FILIAIS'
             Position.BandIndex = 0
-            Position.ColIndex = 67
+            Position.ColIndex = 74
+            Position.RowIndex = 0
+          end
+          object TVRegistroFANTASIA: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'FANTASIA'
+            Position.BandIndex = 0
+            Position.ColIndex = 2
+            Position.RowIndex = 0
+          end
+          object TVRegistroPSA_FONE: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'PSA_FONE'
+            Position.BandIndex = 0
+            Position.ColIndex = 4
+            Position.RowIndex = 0
+          end
+          object TVRegistroFAX: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'FAX'
+            Position.BandIndex = 0
+            Position.ColIndex = 5
+            Position.RowIndex = 0
+          end
+          object TVRegistroCELULAR: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'CELULAR'
+            Position.BandIndex = 0
+            Position.ColIndex = 6
+            Position.RowIndex = 0
+          end
+          object TVRegistroCIDADE: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'CIDADE'
+            Width = 280
+            Position.BandIndex = 0
+            Position.ColIndex = 3
             Position.RowIndex = 0
           end
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 659
+        Width = 1278
         Height = 13
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 659
-        Height = 462
+        Width = 1278
+        Height = 710
         inherited pnlSubCad: TPanel
-          Top = 203
-          Width = 657
+          Top = 451
+          Width = 1276
           Height = 258
           inherited PgcDetalhe: TcxPageControl
-            Width = 657
+            Width = 1276
             Height = 258
             ActivePage = tbsDetalhe3
             Images = cxImageList1
             ClientRectBottom = 254
-            ClientRectRight = 653
+            ClientRectRight = 1272
             ClientRectTop = 28
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Pre'#231'os Especiais'
               ImageIndex = 45
               inherited PGCSub1: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
                     Width = 641
@@ -660,10 +694,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Ve'#237'culos'
               ImageIndex = 42
               inherited PGCSub2: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
                     Width = 843
@@ -1064,10 +1098,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Propriedades'
               ImageIndex = 43
               inherited PGCSub3: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
                     Width = 641
@@ -1775,10 +1809,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Contas Correntes'
               ImageIndex = 44
               inherited PGCSub4: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Width = 837
@@ -1959,10 +1993,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub5: TcxTabSheet
                   inherited GridDet5: TcxGrid
                     Width = 845
@@ -1974,10 +2008,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub6: TcxTabSheet
                   inherited GridDet6: TcxGrid
                     Width = 845
@@ -1989,10 +2023,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub7: TcxTabSheet
                   inherited GridDet7: TcxGrid
                     Width = 845
@@ -2004,10 +2038,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 649
+                Width = 1268
                 Height = 226
                 ClientRectBottom = 222
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 845
@@ -2019,13 +2053,13 @@ inherited frmCadClientes: TfrmCadClientes
           end
         end
         inherited pnlMaster: TPanel
-          Width = 657
-          Height = 202
+          Width = 1276
+          Height = 450
           inherited PgcMaster: TcxPageControl
-            Width = 657
-            Height = 202
-            ClientRectBottom = 198
-            ClientRectRight = 653
+            Width = 1276
+            Height = 450
+            ClientRectBottom = 446
+            ClientRectRight = 1272
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit
@@ -2056,16 +2090,16 @@ inherited frmCadClientes: TfrmCadClientes
               end
               object PCCLIENTE: TcxPageControl
                 Left = 0
-                Top = -91
-                Width = 649
+                Top = 157
+                Width = 1268
                 Height = 262
-                ActivePage = dxTabSheet10
+                ActivePage = dxTabSheet1
                 Align = alBottom
                 HotTrack = True
                 TabOrder = 4
                 ClientRectBottom = 258
                 ClientRectLeft = 4
-                ClientRectRight = 645
+                ClientRectRight = 1264
                 ClientRectTop = 27
                 object dxTabSheet1: TcxTabSheet
                   Caption = 'Dados Cliente'
@@ -3927,6 +3961,22 @@ inherited frmCadClientes: TfrmCadClientes
                   BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
                   BFBFBFBFBFBFBFBFBFBF}
               end
+              object cxDBTextEdit12: TcxDBTextEdit
+                Left = 8
+                Top = 56
+                DataBinding.DataField = 'FANTASIA'
+                DataBinding.DataSource = dsRegistro
+                Enabled = False
+                Properties.CharCase = ecUpperCase
+                TabOrder = 6
+                Width = 591
+              end
+              object cxLabel49: TcxLabel
+                Left = 8
+                Top = 40
+                Caption = 'Fantasia'
+                Transparent = True
+              end
             end
           end
         end
@@ -4018,13 +4068,18 @@ inherited frmCadClientes: TfrmCadClientes
         '   :TEMPO_SERVICO, :TOLERANCIA_FATURAMENTO, :ULT_VENDEDOR, :VALO' +
         'R_MAXIMO_RETIRADA)')
     RefreshSQL.Strings = (
-      'Select * '
-      'from glo_clientes '
+      'select c.*, psa.fantasia from glo_clientes c'
+      
+        'inner join glo_pessoas_fj psa on (psa.cnpj = c.cnpj and psa.codi' +
+        'go = c.pessoa_fj)'
       'where'
-      '  CNPJ = :CNPJ and'
-      '  PESSOA_FJ = :PESSOA_FJ')
+      '  c.CNPJ = :CNPJ and'
+      '  c.PESSOA_FJ = :PESSOA_FJ')
     SelectSQL.Strings = (
-      'select * from glo_clientes c'
+      'select c.*, psa.fantasia from glo_clientes c'
+      
+        'inner join glo_pessoas_fj psa on (psa.cnpj = c.cnpj and psa.codi' +
+        'go = c.pessoa_fj)'
       'where c.cnpj = :cnpj and c.pessoa_fj = :pessoa_fj')
     ModifySQL.Strings = (
       'update glo_clientes'
@@ -4445,10 +4500,17 @@ inherited frmCadClientes: TfrmCadClientes
       FixedChar = True
       Size = 1
     end
+    object dtEditFANTASIA: TIBStringField
+      FieldName = 'FANTASIA'
+      Origin = '"GLO_PESSOAS_FJ"."FANTASIA"'
+      Size = 50
+    end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'select cli.*, psa.nome_razao, '
+      
+        'select cli.*, psa.nome_razao, psa.fantasia, psa.fone psa_fone, p' +
+        'sa.fax, psa.celular, cdd.nome cidade ,'
       'case                /* '#39'00.000.000/0000-00'#39'*/'
       '                                    /*'#39'000\.000\.000\-00*/'
       
@@ -4474,12 +4536,15 @@ inherited frmCadClientes: TfrmCadClientes
       
         'inner join glo_pessoas_fj psa on (psa.cnpj = cli.cnpj and psa.co' +
         'digo = cli.pessoa_fj)'
+      
+        'left join glo_cidades cdd on (cdd.cnpj = psa.cnpj and psa.cidade' +
+        ' = cdd.codigo)'
       'where cli.cnpj = :cnpj')
     ParamData = <
       item
-        DataType = ftUnknown
+        DataType = ftString
         Name = 'CNPJ'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     object dtListCNPJ: TIBStringField
       FieldName = 'CNPJ'
@@ -4905,6 +4970,33 @@ inherited frmCadClientes: TfrmCadClientes
       FieldName = 'CPF_CGC'
       ProviderFlags = []
       Size = 79
+    end
+    object dtListFANTASIA: TIBStringField
+      DisplayLabel = 'Fantasia'
+      FieldName = 'FANTASIA'
+      Origin = '"GLO_PESSOAS_FJ"."FANTASIA"'
+      Size = 50
+    end
+    object dtListPSA_FONE: TIBStringField
+      DisplayLabel = 'Fone (Pessoa)'
+      FieldName = 'PSA_FONE'
+      Origin = '"GLO_PESSOAS_FJ"."FONE"'
+    end
+    object dtListFAX: TIBStringField
+      DisplayLabel = 'Fax'
+      FieldName = 'FAX'
+      Origin = '"GLO_PESSOAS_FJ"."FAX"'
+    end
+    object dtListCELULAR: TIBStringField
+      DisplayLabel = 'Celular'
+      FieldName = 'CELULAR'
+      Origin = '"GLO_PESSOAS_FJ"."CELULAR"'
+    end
+    object dtListCIDADE: TIBStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'CIDADE'
+      Origin = '"GLO_CIDADES"."NOME"'
+      Size = 50
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -10805,6 +10897,41 @@ inherited frmCadClientes: TfrmCadClientes
           'Width')
       end
       item
+        Component = TVRegistroCELULAR
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
         Component = TVRegistroCEP_TRABALHO
         Properties.Strings = (
           'AlternateCaption'
@@ -10841,6 +10968,41 @@ inherited frmCadClientes: TfrmCadClientes
       end
       item
         Component = TVRegistroCHEQUE
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroCIDADE
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -11541,6 +11703,76 @@ inherited frmCadClientes: TfrmCadClientes
       end
       item
         Component = TVRegistroENDERECO_TRABALHO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroFANTASIA
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroFAX
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -12345,6 +12577,41 @@ inherited frmCadClientes: TfrmCadClientes
           'Width')
       end
       item
+        Component = TVRegistroPSA_FONE
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
         Component = TVRegistroRAMAL_FONE_TRAB
         Properties.Strings = (
           'AlternateCaption'
@@ -12976,7 +13243,7 @@ inherited frmCadClientes: TfrmCadClientes
         'inner join est_produtos p on (p.cnpj = prc.cnpj and prc.produto ' +
         '= p.codigo)'
       'Where prc.CNPJ = :CNPJ AND PESSOA_FJ = :pessoa_fj')
-    Left = 232
+    Left = 240
     Top = 86
     ParamData = <
       item
@@ -14137,12 +14404,12 @@ inherited frmCadClientes: TfrmCadClientes
     Top = 118
   end
   inherited dtEditDet6: TIBDataSet
-    Left = 592
-    Top = 86
+    Left = 616
+    Top = 70
   end
   inherited dsLinkDet6: TDataSource
-    Left = 576
-    Top = 50
+    Left = 632
+    Top = 10
   end
   inherited dtListDet6: TIBQuery
     Left = 560

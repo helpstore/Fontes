@@ -638,7 +638,7 @@ object FrmClientes: TFrmClientes
             Top = 267
             Width = 796
             Height = 251
-            ActivePage = dxTabSheet8
+            ActivePage = dxTabSheet1
             Align = alBottom
             HotTrack = True
             TabOrder = 21

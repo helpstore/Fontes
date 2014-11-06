@@ -1,6 +1,6 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
   Left = 16
-  Top = 1
+  Top = 40
   Width = 669
   Height = 517
   Caption = 'frmCadPadraoMaster'
@@ -22,15 +22,15 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
   object pgcCadastro: TcxPageControl
     Left = 0
     Top = 0
-    Width = 661
-    Height = 464
+    Width = 653
+    Height = 453
     ActivePage = tbsLista
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange
-    ClientRectBottom = 460
+    ClientRectBottom = 449
     ClientRectLeft = 4
-    ClientRectRight = 657
+    ClientRectRight = 649
     ClientRectTop = 27
     object tbsLista: TcxTabSheet
       Caption = 'Pesquisa'
@@ -38,8 +38,8 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
       object Grid: TcxGrid
         Left = 0
         Top = 65
-        Width = 653
-        Height = 368
+        Width = 645
+        Height = 357
         Align = alClient
         TabOrder = 0
         OnEnter = GridEnter
@@ -71,7 +71,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
       object pnlFiltro: TPanel
         Left = 0
         Top = 0
-        Width = 653
+        Width = 645
         Height = 65
         Align = alTop
         BevelOuter = bvNone
@@ -87,14 +87,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 653
-        Height = 433
+        Width = 645
+        Height = 422
         Align = alClient
         TabOrder = 0
         object pnlSubCad: TPanel
           Left = 1
-          Top = 155
-          Width = 651
+          Top = 144
+          Width = 643
           Height = 277
           Align = alBottom
           BevelOuter = bvNone
@@ -102,7 +102,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
           object PgcDetalhe: TcxPageControl
             Left = 0
             Top = 0
-            Width = 651
+            Width = 643
             Height = 277
             ActivePage = tbsDetalhe8
             Align = alClient
@@ -113,7 +113,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
             TabStop = False
             ClientRectBottom = 273
             ClientRectLeft = 4
-            ClientRectRight = 647
+            ClientRectRight = 639
             ClientRectTop = 27
             object tbsDetalhe1: TcxTabSheet
               Caption = 'tbsDetalhe1'
@@ -122,7 +122,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub1: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub1
                 Align = alClient
@@ -130,7 +130,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 OnChange = PGCSub1Change
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub1: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -199,14 +199,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub2: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub2
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub2: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -275,14 +275,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub3: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub3
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub3: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -351,14 +351,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub4: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub4
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub4: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -427,7 +427,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub5: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub5
                 Align = alClient
@@ -435,7 +435,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub5: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -504,14 +504,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub6: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub6
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub6: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -580,14 +580,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub7: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub7
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub7: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -656,14 +656,14 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
               object PGCSub8: TcxPageControl
                 Left = 0
                 Top = 0
-                Width = 643
+                Width = 635
                 Height = 246
                 ActivePage = tbsEditaSub8
                 Align = alClient
                 TabOrder = 0
                 ClientRectBottom = 242
                 ClientRectLeft = 4
-                ClientRectRight = 639
+                ClientRectRight = 631
                 ClientRectTop = 27
                 object tbsListaSub8: TcxTabSheet
                   Caption = 'Pesquisa'
@@ -730,8 +730,8 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
         object pnlMaster: TPanel
           Left = 1
           Top = 1
-          Width = 651
-          Height = 154
+          Width = 643
+          Height = 143
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
@@ -739,16 +739,16 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
           object PgcMaster: TcxPageControl
             Left = 0
             Top = 0
-            Width = 651
-            Height = 154
+            Width = 643
+            Height = 143
             ActivePage = tbsMaster1
             Align = alClient
             Focusable = False
             HotTrack = True
             TabOrder = 0
-            ClientRectBottom = 150
+            ClientRectBottom = 139
             ClientRectLeft = 4
-            ClientRectRight = 647
+            ClientRectRight = 639
             ClientRectTop = 27
             object tbsMaster1: TcxTabSheet
               Caption = 'tbsMaster1'
@@ -806,8 +806,8 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
   object dxBarManager: TdxBarManager
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     Categories.Strings = (
       'Defaut'

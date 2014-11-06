@@ -147,13 +147,14 @@ type
     cxButton2: TcxButton;
     cxDBCheckBox5: TcxDBCheckBox;
     QryDet1Cliente: TIBQuery;
-    IntegerField1: TIntegerField;
-    IBStringField1: TIBStringField;
-    IntegerField2: TIntegerField;
-    IBStringField2: TIBStringField;
-    IBStringField3: TIBStringField;
     dsDet1Cliente: TDataSource;
     dtListDet1CNPJ: TIBStringField;
+    dtListCNPJ: TIBStringField;
+    QryDet1ClienteCODIGO: TIntegerField;
+    QryDet1ClienteNOME_RAZAO: TIBStringField;
+    QryDet1ClienteTECNICO: TIntegerField;
+    QryDet1ClienteEMAIL: TIBStringField;
+    QryDet1ClienteCIDADE: TIBStringField;
     procedure dtEditBeforePost(DataSet: TDataSet);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1NewRecord(DataSet: TDataSet);
@@ -194,12 +195,15 @@ begin
   DataHora := dmApp.DataServidor;
   dtEditDATA.Value := DataHora;
   dtEditDT_INICIO.Value := DataHora;
+  dtEditATIVO.value := 'S';
 end;
 
 procedure TfrmCadContratoCopias.dtEditDet1NewRecord(DataSet: TDataSet);
 begin
   inherited;
   dtEditDet1DATA.Value := dmApp.DataServidor;
+  dtEditDet1COD_GRUPO.value := dtEditCODIGO.value;
+  dtEditDet1ATIVO.value := 'S';
 end;
 
 end.

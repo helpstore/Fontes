@@ -4,17 +4,19 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
   Width = 903
   Height = 586
   Caption = 'Contrato de C'#243'pias'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 895
-    Height = 533
-    ClientRectBottom = 529
-    ClientRectRight = 891
+    Width = 887
+    Height = 522
+    ActivePage = tbsEdita
+    ClientRectBottom = 518
+    ClientRectRight = 883
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 887
-        Height = 437
+        Width = 879
+        Height = 426
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CODIGO'
@@ -128,27 +130,30 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 887
+        Width = 879
+        Visible = False
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 887
-        Height = 502
+        Width = 879
+        Height = 491
         inherited pnlSubCad: TPanel
-          Top = 224
-          Width = 885
+          Top = 213
+          Width = 877
           inherited PgcDetalhe: TcxPageControl
-            Width = 885
+            Width = 877
             ActivePage = tbsDetalhe1
-            ClientRectRight = 881
+            ClientRectRight = 873
             inherited tbsDetalhe1: TcxTabSheet
+              Caption = 'Dependentes'
               inherited PGCSub1: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ActivePage = tbsListaSub1
+                ClientRectRight = 865
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 869
+                    Width = 861
                     inherited TVDet1: TcxGridDBBandedTableView
                       object TVDet1CODIGO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CODIGO'
@@ -170,6 +175,9 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
                       end
                       object TVDet1ATIVO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'ATIVO'
+                        PropertiesClassName = 'TcxCheckBoxProperties'
+                        Properties.ValueChecked = 'S'
+                        Properties.ValueUnchecked = 'N'
                         Position.BandIndex = 0
                         Position.ColIndex = 3
                         Position.RowIndex = 0
@@ -303,58 +311,66 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
               end
             end
             inherited tbsDetalhe2: TcxTabSheet
+              TabVisible = False
               inherited PGCSub2: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ClientRectRight = 865
               end
             end
             inherited tbsDetalhe3: TcxTabSheet
+              TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ClientRectRight = 865
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
+              TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ClientRectRight = 865
               end
             end
             inherited tbsDetalhe5: TcxTabSheet
+              TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ClientRectRight = 865
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
+              TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ClientRectRight = 865
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
+              TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ClientRectRight = 865
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
+              TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 877
-                ClientRectRight = 873
+                Width = 869
+                ClientRectRight = 865
               end
             end
           end
         end
         inherited pnlMaster: TPanel
-          Width = 885
-          Height = 223
+          Width = 877
+          Height = 212
           inherited PgcMaster: TcxPageControl
-            Width = 885
-            Height = 223
-            ClientRectBottom = 219
-            ClientRectRight = 881
+            Width = 877
+            Height = 212
+            ClientRectBottom = 208
+            ClientRectRight = 873
             inherited tbsMaster1: TcxTabSheet
+              Caption = 'Titular'
               inherited edtCodigo: TcxDBTextEdit
                 DataBinding.DataField = 'CODIGO'
                 TabOrder = 0
@@ -666,10 +682,65 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
   end
   inherited dtEdit: TIBDataSet
     OnNewRecord = dtEditNewRecord
+    DeleteSQL.Strings = (
+      'delete from ofc_grp_contratos'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    InsertSQL.Strings = (
+      'insert into ofc_grp_contratos'
+      
+        '  (ATIVO, CNPJ, COD_CLIENTE, COD_CONTRATO, CODIGO, DATA, DIA_BAS' +
+        'E, DT_FIM, '
+      
+        '   DT_INICIO, FRANQUIA_COPIAS, GERA_FATURAMENTO, GERA_LEITURA, G' +
+        'ERA_MENSALIDADE, '
+      
+        '   INFORMACOES, NUM_CONTRATO, VALOR_CONTRATO, VALOR_COPIA_EXCEDE' +
+        'NTE)'
+      'values'
+      
+        '  (:ATIVO, :CNPJ, :COD_CLIENTE, :COD_CONTRATO, :CODIGO, :DATA, :' +
+        'DIA_BASE, '
+      
+        '   :DT_FIM, :DT_INICIO, :FRANQUIA_COPIAS, :GERA_FATURAMENTO, :GE' +
+        'RA_LEITURA, '
+      
+        '   :GERA_MENSALIDADE, :INFORMACOES, :NUM_CONTRATO, :VALOR_CONTRA' +
+        'TO, :VALOR_COPIA_EXCEDENTE)')
+    RefreshSQL.Strings = (
+      'Select *'
+      'from ofc_grp_contratos '
+      'where'
+      '  CNPJ = :CNPJ and'
+      '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
       'select *'
       'from ofc_grp_contratos grp'
       'where grp.cnpj = :cnpj and grp.codigo = :codigo')
+    ModifySQL.Strings = (
+      'update ofc_grp_contratos'
+      'set'
+      '  ATIVO = :ATIVO,'
+      '  CNPJ = :CNPJ,'
+      '  COD_CLIENTE = :COD_CLIENTE,'
+      '  COD_CONTRATO = :COD_CONTRATO,'
+      '  CODIGO = :CODIGO,'
+      '  DATA = :DATA,'
+      '  DIA_BASE = :DIA_BASE,'
+      '  DT_FIM = :DT_FIM,'
+      '  DT_INICIO = :DT_INICIO,'
+      '  FRANQUIA_COPIAS = :FRANQUIA_COPIAS,'
+      '  GERA_FATURAMENTO = :GERA_FATURAMENTO,'
+      '  GERA_LEITURA = :GERA_LEITURA,'
+      '  GERA_MENSALIDADE = :GERA_MENSALIDADE,'
+      '  INFORMACOES = :INFORMACOES,'
+      '  NUM_CONTRATO = :NUM_CONTRATO,'
+      '  VALOR_CONTRATO = :VALOR_CONTRATO,'
+      '  VALOR_COPIA_EXCEDENTE = :VALOR_COPIA_EXCEDENTE'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
     GeneratorField.Field = 'CODIGO'
     GeneratorField.Generator = 'GEN_OFC_CONTRATOS_ID'
     GeneratorField.ApplyEvent = gamOnPost
@@ -884,6 +955,14 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
       Origin = '"OFC_GRP_CONTRATOS"."GERA_MENSALIDADE"'
       FixedChar = True
       Size = 1
+    end
+    object dtListCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"OFC_GRP_CONTRATOS"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -1466,10 +1545,13 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
       end>
   end
   inherited dtListDet1: TIBQuery
+    Active = True
     SQL.Strings = (
-      
-        'select gpi.*, psa.nome_razao, psa.cpf_cgc, cdd.nome cidade, cdd.' +
-        'uf cdd_uf'
+      'select gpi.*, '
+      '             psa.nome_razao, '
+      '             psa.cpf_cgc, '
+      '             cdd.nome cidade, '
+      '             cdd.uf cdd_uf'
       'from ofc_grp_contratos_itens gpi'
       
         'inner join glo_pessoas_fj psa on (psa.cnpj = gpi.cnpj and psa.co' +
@@ -1480,14 +1562,16 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
       'where gpi.cnpj = :cnpj and gpi.cod_grupo = :codigo')
     ParamData = <
       item
-        DataType = ftUnknown
-        Name = 'cnpj'
+        DataType = ftFixedChar
+        Name = 'CNPJ'
         ParamType = ptUnknown
+        Size = 15
       end
       item
-        DataType = ftUnknown
-        Name = 'codigo'
+        DataType = ftInteger
+        Name = 'CODIGO'
         ParamType = ptUnknown
+        Size = 4
       end>
     object dtListDet1CODIGO: TIntegerField
       DisplayLabel = 'C'#243'digo'
@@ -1551,10 +1635,40 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
     end
   end
   inherited dtEditDet1: TIBDataSet
+    DeleteSQL.Strings = (
+      'delete from ofc_grp_contratos_itens'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    InsertSQL.Strings = (
+      'insert into ofc_grp_contratos_itens'
+      '  (ATIVO, CNPJ, COD_GRUPO, CODIGO, DATA, PESSOA_FJ)'
+      'values'
+      '  (:ATIVO, :CNPJ, :COD_GRUPO, :CODIGO, :DATA, :PESSOA_FJ)')
+    RefreshSQL.Strings = (
+      'Select *'
+      'from ofc_grp_contratos_itens '
+      'where'
+      '  CNPJ = :CNPJ and'
+      '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
       'select gpi.*'
       'from ofc_grp_contratos_itens gpi'
       'where gpi.codigo = :codigo')
+    ModifySQL.Strings = (
+      'update ofc_grp_contratos_itens'
+      'set'
+      '  ATIVO = :ATIVO,'
+      '  CNPJ = :CNPJ,'
+      '  COD_GRUPO = :COD_GRUPO,'
+      '  CODIGO = :CODIGO,'
+      '  DATA = :DATA,'
+      '  PESSOA_FJ = :PESSOA_FJ'
+      'where'
+      '  CNPJ = :OLD_CNPJ and'
+      '  CODIGO = :OLD_CODIGO')
+    GeneratorField.Field = 'CODIGO'
+    GeneratorField.Generator = 'GEN_OFC_GRP_CONTRATOS_ITENS_ID'
     object dtEditDet1CNPJ: TIBStringField
       FieldName = 'CNPJ'
       Origin = '"OFC_GRP_CONTRATOS_ITENS"."CNPJ"'
@@ -1701,6 +1815,7 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
     Top = 4
   end
   object QryDet1Cliente: TIBQuery
+    Tag = 4
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeOpen = dtListBeforeOpen
@@ -1730,27 +1845,27 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
         Name = 'cnpj'
         ParamType = ptUnknown
       end>
-    object IntegerField1: TIntegerField
+    object QryDet1ClienteCODIGO: TIntegerField
       FieldName = 'CODIGO'
       Origin = '"GLO_PESSOAS_FJ"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object IBStringField1: TIBStringField
+    object QryDet1ClienteNOME_RAZAO: TIBStringField
       FieldName = 'NOME_RAZAO'
       Origin = '"GLO_PESSOAS_FJ"."NOME_RAZAO"'
       Size = 50
     end
-    object IntegerField2: TIntegerField
+    object QryDet1ClienteTECNICO: TIntegerField
       FieldName = 'TECNICO'
       Origin = '"GLO_REGIOES"."TECNICO"'
     end
-    object IBStringField2: TIBStringField
+    object QryDet1ClienteEMAIL: TIBStringField
       FieldName = 'EMAIL'
       Origin = '"GLO_PESSOAS_FJ"."EMAIL"'
       Size = 80
     end
-    object IBStringField3: TIBStringField
+    object QryDet1ClienteCIDADE: TIBStringField
       FieldName = 'CIDADE'
       ProviderFlags = []
       Size = 55

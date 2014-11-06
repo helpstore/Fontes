@@ -1,7 +1,7 @@
 object dmFinanceiro2: TdmFinanceiro2
   OldCreateOrder = False
   Left = 16
-  Top = 1
+  Top = 40
   Height = 517
   Width = 669
   object qryManBoletos: TIBQuery

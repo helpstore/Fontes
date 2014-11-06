@@ -771,6 +771,7 @@ type
     nvCalculadora: TdxNavBarItem;
     nvPagar: TdxNavBarItem;
     nvReceber: TdxNavBarItem;
+    btnRelSaidaProdutoCliente: TdxBarButton;
     procedure opFecharClick(Sender: TObject);
     procedure PessoasFJClick(Sender: TObject);
     procedure LblUsuarioMouseEnter(Sender: TObject);
@@ -1088,6 +1089,7 @@ type
     procedure btnContratoCadClick(Sender: TObject);
     procedure btnRelResumoContratoClick(Sender: TObject);
     procedure beSkinComboPropertiesChange(Sender: TObject);
+    procedure btnRelSaidaProdutoClienteClick(Sender: TObject);
   private
     { Private declarations }
     //Agente: IAgentCtlCharacter;
@@ -1381,8 +1383,7 @@ uses
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
   untCadFornecedores, untCadOS, untCadContratoAtendimento,
-  UntCadClassificacao, untCadClientes, UntCadContratoCopias, UntCadGrupos,
-  untCadProdutos;
+  UntCadClassificacao, untCadClientes, UntCadContratoCopias, untCadLeitura;
 
 {$R *.DFM}
 
@@ -1708,19 +1709,28 @@ end;
 
 procedure TFrmMain.opGruposClick(Sender: TObject);
 begin
-  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCadGrupos', True)) Then
+  { * * * * * }
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmGrupos', True)) Then
      Exit;
-
-  if DMApp.SelecionarEmpresa = 'N' Then
+  { * * * * * }
+  If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
-
-  if FrmCadGrupos = Nil Then
-  begin
-     FrmCadGrupos := TFrmCadGrupos.Create(Self);
-     FrmCadGrupos.ShowMODAL ;
-     FrmCadGrupos.Free      ;
-     FrmCadGrupos := Nil    ;
-  end;
+  { * * * * * }
+  If FrmGrupos = Nil Then
+     Begin
+       //
+       If FrmMain.MDIChildCount > 0 Then
+          opFechar.OnClick(opFechar);
+       //
+       Application.ProcessMessages;
+       //
+//       DMCadastros := TDMCadastros.Create(Self);
+       FrmGrupos   := TFrmGrupos.Create(Self);
+       //
+       FrmGrupos.Showmodal ;
+       FrmGrupos.Free      ;
+       FrmGrupos := Nil    ;
+     End;
 end;
 
 procedure TFrmMain.opUnidadesMedClick(Sender: TObject);
@@ -1820,21 +1830,6 @@ end;
 
 procedure TFrmMain.opProdutoClick(Sender: TObject);
 begin
-  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmcadprodutos', True)) Then
-     Exit;
-
-  if DMApp.SelecionarEmpresa = 'N' Then
-     Exit;
-
-  if frmcadprodutos = Nil Then
-  begin
-     frmcadprodutos := Tfrmcadprodutos.Create(Self);
-     frmcadprodutos.ShowMODAL ;
-     frmcadprodutos.Free      ;
-     frmcadprodutos := Nil    ;
-  end;
-  ////
-
   if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmProdutos', True)) then
      Exit;
      
@@ -1965,7 +1960,7 @@ end;
 
 procedure TFrmMain.opFornecedoresClick(Sender: TObject);
 begin
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadFornecedores', True)) Then
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmFornecedores', True)) Then
      Exit;
 
   If DMApp.SelecionarEmpresa = 'N' Then
@@ -5435,38 +5430,52 @@ end;
 
 procedure TFrmMain.OpCorClick(Sender: TObject);
 begin
-  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCor', True)) Then
+  { * * * * * }
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCor', True)) Then
      Exit;
-
-  if DMApp.SelecionarEmpresa = 'N' Then
+  { * * * * * }
+  If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
-
-  if frmCadCor = Nil Then
-  begin
-     Application.ProcessMessages;
-     frmCadCor := TfrmCadCor.Create(Self);
-     frmCadCor.ShowMODAL ;
-     frmCadCor.Free      ;
-     frmCadCor := Nil    ;
-  end;
+  { * * * * * }
+  If frmCadCor = Nil Then
+     Begin
+       //
+       If FrmMain.MDIChildCount > 0 Then
+          opFechar.OnClick(opFechar);
+       //
+       Application.ProcessMessages;
+       //
+//       DMCadastros := TDMCadastros.Create(Self);
+       frmCadCor    := TfrmCadCor.Create(Self);
+       //
+       frmCadCor.Showmodal ;
+       frmCadCor.Free      ;
+       frmCadCor := Nil    ;
+     End;
 end;
 
 procedure TFrmMain.OpMaterialClick(Sender: TObject);
 begin
-///
-  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMaterial', True)) Then
+  { * * * * * }
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadMaterial', True)) Then
      Exit;
-
-  if DMApp.SelecionarEmpresa = 'N' Then
+  { * * * * * }
+  If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
+  { * * * * * }
+  If frmCadMaterial = Nil Then
+     Begin
+       //
+       If FrmMain.MDIChildCount > 0 Then
+          opFechar.OnClick(opFechar);
+       //
+       Application.ProcessMessages;
+       frmCadMaterial    := TfrmCadMaterial.Create(Self);
 
-  if frmCadMaterial = Nil Then
-  begin
-     frmCadMaterial := TfrmCadMaterial.Create(Self);
-     frmCadMaterial.ShowMODAL ;
-     frmCadMaterial.Free      ;
-     frmCadMaterial := Nil    ;
-  end;
+       frmCadMaterial.Showmodal ;
+       frmCadMaterial.Free      ;
+       frmCadMaterial := Nil ;
+     End;
 end;
 
 procedure TFrmMain.RelogioTimer(Sender: TObject);
@@ -7812,6 +7821,23 @@ begin
   Application.ProcessMessages;
   PnlClient.Visible:= False;
   FrmSelLeituras.ShowModal;
+
+
+
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadLeituras', True)) Then Exit;
+
+  If DMApp.SelecionarEmpresa = 'N' Then
+    Exit;
+
+  try
+    frmCadLeituras   := TfrmCadLeituras.Create(Self);
+    frmCadLeituras.Showmodal ;
+  finally
+    frmCadLeituras.Destroy   ;
+  end;
+
+
+
 end;
 
 procedure TFrmMain.btnCategoriasClick(Sender: TObject);
@@ -8617,21 +8643,23 @@ end;
 
 procedure TFrmMain.btnGrupoEmpresarialClick(Sender: TObject);
 begin
-  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadContratoCopias', True)) then
-    Exit;
-
-  if DMApp.SelecionarEmpresa = 'N' then
+  { * * * * * }
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadContratoCopias', True)) Then
      Exit;
+  { * * * * * }
+  If DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+  { * * * * * }
 
-  if FrmMain.MDIChildCount > 0 then
-     opFechar.OnClick(opFechar);
+  if frmCadContratoCopias = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadContratoCopias := TfrmCadContratoCopias.Create(Self);
+     frmCadContratoCopias.ShowMODAL ;
+     frmCadContratoCopias.Free      ;
+     frmCadContratoCopias := Nil    ;
+  end;
 
-  if frmCadContratoCopias = nil  then
-    frmCadContratoCopias := TfrmCadContratoCopias.Create(Self);
-
-  Application.ProcessMessages;
-  PnlClient.Visible:= False;
-  frmCadContratoCopias.ShowModal;
 end;
 
 procedure TFrmMain.GridMensagemEnter(Sender: TObject);
@@ -9298,6 +9326,29 @@ procedure TFrmMain.beSkinComboPropertiesChange(Sender: TObject);
 begin
     if (Sender is TcxComboBox) and (TcxComboBox(Sender).ItemIndex >= 0) then
     PostMessage(Handle, WM_SETUPLOOKANDFEEL, TcxComboBox(Sender).ItemIndex, 0);
+end;
+
+procedure TFrmMain.btnRelSaidaProdutoClienteClick(Sender: TObject);
+begin
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FRelVendasPorProduto', True)) Then
+     Exit;
+
+  { * * * * * }
+  If DMApp.SelecionarEmpresa = 'N' Then Exit;
+
+  { * * * * * }
+  If FRelVendasPorProduto = Nil Then
+     Begin
+       //
+       If FrmMain.MDIChildCount > 0 Then
+          opFechar.OnClick(opFechar);
+       //
+       Application.ProcessMessages;
+       //
+       FRelVendasPorProduto := TFRelVendasPorProduto.Create(Self);
+       FRelVendasPorProduto.ShowModal;
+     End;
+
 end;
 
 end.
