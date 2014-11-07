@@ -171,8 +171,6 @@ type
     QryPessoa: TIBQuery;
     QryPessoaCODIGO: TIntegerField;
     QryPessoaNOME_RAZAO: TIBStringField;
-    aTfrmCadPessoas: TcxDBLookupComboBox;
-    cxLabel12: TcxLabel;
     dtEditCNPJ: TIBStringField;
     dtEditPESSOA_FJ: TIntegerField;
     dtEditCOMPRADOR: TIBStringField;
@@ -355,7 +353,6 @@ type
     cxLabel124: TcxLabel;
     cxLabel125: TcxLabel;
     cxDBTextEdit22: TcxDBTextEdit;
-    btnCadPessoa: TcxButton;
     cxTabSheet1: TcxTabSheet;
     cxTabSheet2: TcxTabSheet;
     dsCategoria: TDataSource;
@@ -821,10 +818,25 @@ type
     TVRegistroFAX: TcxGridDBBandedColumn;
     TVRegistroCELULAR: TcxGridDBBandedColumn;
     dtEditFANTASIA: TIBStringField;
-    cxDBTextEdit12: TcxDBTextEdit;
-    cxLabel49: TcxLabel;
     dtListCIDADE: TIBStringField;
     TVRegistroCIDADE: TcxGridDBBandedColumn;
+    dtListBAIRRO_PESSOA: TIBStringField;
+    dtListLOGRADOURO: TIBStringField;
+    dtListNUMERO: TIBStringField;
+    dtListCEP: TIBStringField;
+    TVRegistroBAIRRO_PESSOA: TcxGridDBBandedColumn;
+    TVRegistroLOGRADOURO: TcxGridDBBandedColumn;
+    TVRegistroNUMERO: TcxGridDBBandedColumn;
+    TVRegistroCEP: TcxGridDBBandedColumn;
+    dtEditOBS_PESSOA: TBlobField;
+    cxGroupBox1: TcxGroupBox;
+    aTfrmCadPessoas: TcxDBLookupComboBox;
+    cxLabel12: TcxLabel;
+    btnCadPessoa: TcxButton;
+    cxDBTextEdit12: TcxDBTextEdit;
+    cxLabel49: TcxLabel;
+    cxDBMemo4: TcxDBMemo;
+    cxLabel50: TcxLabel;
     procedure btnCadPessoaClick(Sender: TObject);
     procedure btnCategoriaClick(Sender: TObject);
     procedure BtnclassificacaoClick(Sender: TObject);
@@ -851,6 +863,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure edtPorcentagemExit(Sender: TObject);
     procedure edtResultadoExit(Sender: TObject);
+    procedure dtEditNewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -1053,6 +1066,13 @@ begin
     else
       dtEditDet1PORCENTAGEM.value := 0;
   end;
+end;
+
+procedure TfrmCadClientes.dtEditNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditDIA_PREF_FAT.value := 15;
+  dtEditCLASSIF.value := 'B';
 end;
 
 initialization
