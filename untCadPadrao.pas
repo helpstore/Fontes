@@ -184,6 +184,10 @@ begin
   LiberaActList;
   Grid.SetFocus;
   pgcCadastro.HideTabs := true;
+
+  //posicinando o item da listagem caso ele tenha sido chamado através de um 'f4'
+  if Not VarIsNull(CodigoImput) then
+    dsPesquisa.DataSet.Locate(campochave,CodigoImput,[loCaseInsensitive]);
 end;
 
 

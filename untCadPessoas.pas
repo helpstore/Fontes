@@ -205,6 +205,12 @@ type
     dtEditFJ: TIBStringField;
     QryConvenioCODIGO: TIntegerField;
     dtListCPF_CGC: TIBStringField;
+    cxLabel15: TcxLabel;
+    cxDBMaskEdit1: TcxDBMaskEdit;
+    cxLabel16: TcxLabel;
+    cxDBMaskEdit3: TcxDBMaskEdit;
+    cxLabel17: TcxLabel;
+    cxDBMaskEdit4: TcxDBMaskEdit;
     procedure btnLogradouroClick(Sender: TObject);
     procedure btnBairroClick(Sender: TObject);
     procedure btnCidadeClick(Sender: TObject);

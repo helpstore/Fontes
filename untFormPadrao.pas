@@ -29,6 +29,7 @@ type
     procedure AbreDataSet(DataSet : TDataSet);
   public
     { Public declarations }
+    CodigoImput : Variant;
     Codigo : Variant;  //campo que retornará o valor da chave, normalmente pra ações de cadastro do dblookup dos form
   end;
 
@@ -105,6 +106,10 @@ var
 begin
   //f := fc.Create(Application);
   Formulario := ClasseForm.Create(Application);
+
+  if not VarIsNull(eDataSet.FieldByName(Campo).value) then
+    TFormPadrao(Formulario).CodigoImput := eDataSet.FieldByName(Campo).value;
+
   Formulario.ShowMODAL ;
 
   AbreDataSet(eDataSetList);

@@ -404,7 +404,7 @@ inherited frmCadPessoas: TfrmCadPessoas
           Transparent = True
         end
         object cxDBMaskEdit2: TcxDBMaskEdit
-          Left = 680
+          Left = 681
           Top = 112
           DataBinding.DataField = 'CEP'
           DataBinding.DataSource = dsRegistro
@@ -414,7 +414,7 @@ inherited frmCadPessoas: TfrmCadPessoas
           Width = 73
         end
         object cxLabel13: TcxLabel
-          Left = 680
+          Left = 681
           Top = 96
           Caption = 'CEP'
           Transparent = True
@@ -456,7 +456,7 @@ inherited frmCadPessoas: TfrmCadPessoas
           Transparent = True
         end
         object btnCidade: TcxButtonEdit
-          Left = 479
+          Left = 503
           Top = 152
           Properties.Buttons = <
             item
@@ -486,7 +486,7 @@ inherited frmCadPessoas: TfrmCadPessoas
             end>
           Properties.ListSource = dsCidades
           TabOrder = 12
-          Width = 229
+          Width = 253
         end
         object cxLabel14: TcxLabel
           Left = 251
@@ -510,8 +510,8 @@ inherited frmCadPessoas: TfrmCadPessoas
           Transparent = True
         end
         object btnRegiao: TcxButtonEdit
-          Left = 729
-          Top = 152
+          Left = 230
+          Top = 192
           Properties.Buttons = <
             item
               Caption = 'F4'
@@ -525,8 +525,8 @@ inherited frmCadPessoas: TfrmCadPessoas
           Width = 25
         end
         object cbRegiao: TcxDBLookupComboBox
-          Left = 507
-          Top = 152
+          Left = 8
+          Top = 192
           DataBinding.DataField = 'REGIAO'
           DataBinding.DataSource = dsRegistro
           Properties.CharCase = ecUpperCase
@@ -540,13 +540,13 @@ inherited frmCadPessoas: TfrmCadPessoas
           Width = 223
         end
         object cxLabel4: TcxLabel
-          Left = 507
-          Top = 136
+          Left = 8
+          Top = 176
           Caption = 'Regi'#227'o'
           Transparent = True
         end
         object cbAtividade: TcxDBLookupComboBox
-          Left = 8
+          Left = 259
           Top = 192
           DataBinding.DataField = 'ATIVIDADE'
           DataBinding.DataSource = dsRegistro
@@ -561,13 +561,13 @@ inherited frmCadPessoas: TfrmCadPessoas
           Width = 217
         end
         object cxLabel6: TcxLabel
-          Left = 8
+          Left = 259
           Top = 176
           Caption = 'Atvidade'
           Transparent = True
         end
         object btnAtividade: TcxButtonEdit
-          Left = 223
+          Left = 475
           Top = 192
           Properties.Buttons = <
             item
@@ -582,7 +582,7 @@ inherited frmCadPessoas: TfrmCadPessoas
           Width = 25
         end
         object cbConvenio: TcxDBLookupComboBox
-          Left = 251
+          Left = 503
           Top = 192
           DataBinding.DataField = 'CONVENIO'
           DataBinding.DataSource = dsRegistro
@@ -594,13 +594,61 @@ inherited frmCadPessoas: TfrmCadPessoas
             end>
           Properties.ListSource = dsConvenio
           TabOrder = 15
-          Width = 253
+          Width = 251
         end
         object cxLabel8: TcxLabel
-          Left = 251
+          Left = 503
           Top = 176
           Caption = 'Conv'#234'nio'
           Transparent = True
+        end
+        object cxLabel15: TcxLabel
+          Left = 531
+          Top = 136
+          Caption = 'Fone'
+          Transparent = True
+        end
+        object cxDBMaskEdit1: TcxDBMaskEdit
+          Left = 531
+          Top = 152
+          DataBinding.DataField = 'FONE'
+          DataBinding.DataSource = dsRegistro
+          Properties.EditMask = '!\(99\)0000-0000;1;_'
+          Properties.MaxLength = 0
+          TabOrder = 39
+          Width = 73
+        end
+        object cxLabel16: TcxLabel
+          Left = 606
+          Top = 136
+          Caption = 'Fax'
+          Transparent = True
+        end
+        object cxDBMaskEdit3: TcxDBMaskEdit
+          Left = 606
+          Top = 152
+          DataBinding.DataField = 'FAX'
+          DataBinding.DataSource = dsRegistro
+          Properties.EditMask = '!\(99\)0000-0000;1;_'
+          Properties.MaxLength = 0
+          TabOrder = 41
+          Width = 73
+        end
+        object cxLabel17: TcxLabel
+          Left = 681
+          Top = 136
+          Caption = 'Celular'
+          Transparent = True
+        end
+        object cxDBMaskEdit4: TcxDBMaskEdit
+          Left = 681
+          Top = 152
+          DataBinding.DataField = 'CELULAR'
+          DataBinding.DataSource = dsRegistro
+          Properties.EditMask = '!\(99\)0000-0000;1;_'
+          Properties.MaxLength = 0
+          TabOrder = 43
+          Width = 73
         end
       end
     end
@@ -2690,7 +2738,7 @@ inherited frmCadPessoas: TfrmCadPessoas
         'select psa.cnpj, psa.codigo, psa.nome_razao from glo_pessoas_fj ' +
         'psa'
       'where psa.cnpj = :cnpj and psa.codigo <> :codigo')
-    Left = 464
+    Left = 440
     Top = 216
     ParamData = <
       item
@@ -2726,7 +2774,7 @@ inherited frmCadPessoas: TfrmCadPessoas
   object dsConvenio: TDataSource
     AutoEdit = False
     DataSet = QryConvenio
-    Left = 432
+    Left = 416
     Top = 216
   end
   object qryLogradouro: TIBQuery
