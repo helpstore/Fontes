@@ -1,6 +1,6 @@
 inherited frmCadContratoCopias: TfrmCadContratoCopias
-  Left = 233
-  Top = 133
+  Left = 234
+  Top = 4
   Width = 903
   Height = 586
   Caption = 'Contrato de C'#243'pias'
@@ -8,50 +8,50 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 887
-    Height = 522
-    ActivePage = tbsEdita
-    ClientRectBottom = 518
-    ClientRectRight = 883
+    Width = 895
+    Height = 533
+    ActivePage = tbsLista
+    ClientRectBottom = 529
+    ClientRectRight = 891
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
-        Width = 879
-        Height = 426
+        Width = 887
+        Height = 437
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CODIGO'
             Position.BandIndex = 0
-            Position.ColIndex = 0
+            Position.ColIndex = 1
             Position.RowIndex = 0
           end
           object TVRegistroCLIENTE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CLIENTE'
             Position.BandIndex = 0
-            Position.ColIndex = 1
+            Position.ColIndex = 2
             Position.RowIndex = 0
           end
           object TVRegistroTIPO_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TIPO_CONTRATO'
             Position.BandIndex = 0
-            Position.ColIndex = 2
+            Position.ColIndex = 4
             Position.RowIndex = 0
           end
           object TVRegistroNUM_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NUM_CONTRATO'
             Position.BandIndex = 0
-            Position.ColIndex = 3
+            Position.ColIndex = 5
             Position.RowIndex = 0
           end
           object TVRegistroDT_INICIO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DT_INICIO'
             Position.BandIndex = 0
-            Position.ColIndex = 4
+            Position.ColIndex = 6
             Position.RowIndex = 0
           end
           object TVRegistroDT_FIM: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DT_FIM'
             Position.BandIndex = 0
-            Position.ColIndex = 5
+            Position.ColIndex = 7
             Position.RowIndex = 0
           end
           object TVRegistroATIVO: TcxGridDBBandedColumn
@@ -61,37 +61,37 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
             Properties.ValueUnchecked = 'N'
             Width = 29
             Position.BandIndex = 0
-            Position.ColIndex = 6
+            Position.ColIndex = 8
             Position.RowIndex = 0
           end
           object TVRegistroINFORMACOES: TcxGridDBBandedColumn
             DataBinding.FieldName = 'INFORMACOES'
             Position.BandIndex = 0
-            Position.ColIndex = 7
+            Position.ColIndex = 9
             Position.RowIndex = 0
           end
           object TVRegistroVALOR_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'VALOR_CONTRATO'
             Position.BandIndex = 0
-            Position.ColIndex = 8
+            Position.ColIndex = 10
             Position.RowIndex = 0
           end
           object TVRegistroFRANQUIA_COPIAS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'FRANQUIA_COPIAS'
             Position.BandIndex = 0
-            Position.ColIndex = 9
+            Position.ColIndex = 11
             Position.RowIndex = 0
           end
           object TVRegistroVALOR_COPIA_EXCEDENTE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'VALOR_COPIA_EXCEDENTE'
             Position.BandIndex = 0
-            Position.ColIndex = 10
+            Position.ColIndex = 12
             Position.RowIndex = 0
           end
           object TVRegistroDATA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DATA'
             Position.BandIndex = 0
-            Position.ColIndex = 11
+            Position.ColIndex = 13
             Position.RowIndex = 0
           end
           object TVRegistroGERA_FATURAMENTO: TcxGridDBBandedColumn
@@ -100,7 +100,7 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 12
+            Position.ColIndex = 14
             Position.RowIndex = 0
           end
           object TVRegistroGERA_LEITURA: TcxGridDBBandedColumn
@@ -109,13 +109,13 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 13
+            Position.ColIndex = 15
             Position.RowIndex = 0
           end
           object TVRegistroDIA_BASE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DIA_BASE'
             Position.BandIndex = 0
-            Position.ColIndex = 14
+            Position.ColIndex = 16
             Position.RowIndex = 0
           end
           object TVRegistroGERA_MENSALIDADE: TcxGridDBBandedColumn
@@ -124,36 +124,47 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
             Properties.ValueChecked = 'S'
             Properties.ValueUnchecked = 'N'
             Position.BandIndex = 0
-            Position.ColIndex = 15
+            Position.ColIndex = 17
+            Position.RowIndex = 0
+          end
+          object TVRegistroCOD_CLIENTE: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'COD_CLIENTE'
+            Position.BandIndex = 0
+            Position.ColIndex = 0
+            Position.RowIndex = 0
+          end
+          object TVRegistroFANTASIA: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'FANTASIA'
+            Position.BandIndex = 0
+            Position.ColIndex = 3
             Position.RowIndex = 0
           end
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 879
+        Width = 887
         Visible = False
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 879
-        Height = 491
+        Width = 887
+        Height = 502
         inherited pnlSubCad: TPanel
-          Top = 213
-          Width = 877
+          Top = 224
+          Width = 885
           inherited PgcDetalhe: TcxPageControl
-            Width = 877
+            Width = 885
             ActivePage = tbsDetalhe1
-            ClientRectRight = 873
+            ClientRectRight = 881
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Dependentes'
               inherited PGCSub1: TcxPageControl
-                Width = 869
-                ActivePage = tbsListaSub1
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 861
+                    Width = 869
                     inherited TVDet1: TcxGridDBBandedTableView
                       object TVDet1CODIGO: TcxGridDBBandedColumn
                         DataBinding.FieldName = 'CODIGO'
@@ -260,14 +271,14 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
                     Caption = 'Cliente'
                     Transparent = True
                   end
-                  object cxButton2: TcxButton
+                  object BtnDet1CadClientes: TcxButton
                     Left = 626
                     Top = 23
                     Width = 23
                     Height = 22
-                    Enabled = False
                     TabOrder = 6
                     TabStop = False
+                    OnClick = BtnDet1CadClientesClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -313,62 +324,62 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
             inherited tbsDetalhe2: TcxTabSheet
               TabVisible = False
               inherited PGCSub2: TcxPageControl
-                Width = 869
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
               end
             end
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 869
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 869
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
               end
             end
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 869
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 869
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 869
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 869
-                ClientRectRight = 865
+                Width = 877
+                ClientRectRight = 873
               end
             end
           end
         end
         inherited pnlMaster: TPanel
-          Width = 877
-          Height = 212
+          Width = 885
+          Height = 223
           inherited PgcMaster: TcxPageControl
-            Width = 877
-            Height = 212
-            ClientRectBottom = 208
-            ClientRectRight = 873
+            Width = 885
+            Height = 223
+            ClientRectBottom = 219
+            ClientRectRight = 881
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Titular'
               inherited edtCodigo: TcxDBTextEdit
@@ -406,14 +417,14 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
                 TabOrder = 3
                 Width = 121
               end
-              object btnDefeitoReclamado: TcxButton
+              object BtnCadClientes: TcxButton
                 Left = 626
                 Top = 15
                 Width = 23
                 Height = 22
-                Enabled = False
                 TabOrder = 2
                 TabStop = False
+                OnClick = BtnCadClientesClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -447,14 +458,14 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
                 Caption = 'Dt. Cadastro'
                 Transparent = True
               end
-              object cxButton1: TcxButton
+              object BtnModeloContrato: TcxButton
                 Left = 395
                 Top = 55
                 Width = 23
                 Height = 22
-                Enabled = False
                 TabOrder = 5
                 TabStop = False
+                OnClick = BtnModeloContratoClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -835,7 +846,9 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
     SQL.Strings = (
       'select grp.CNPJ,'
       '    grp.CODIGO,'
+      '    grp.cod_cliente,'
       '    psa.nome_razao CLIENTE,'
+      '    psa.fantasia,'
       '    ctr.nome TIPO_CONTRATO,'
       '    grp.NUM_CONTRATO,'
       '    grp.DT_INICIO,'
@@ -861,7 +874,7 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
         ParamType = ptUnknown
       end>
     object dtListCODIGO: TIntegerField
-      DisplayLabel = 'C'#243'digo'
+      DisplayLabel = 'C'#243'd. Contr. C'#243'pias'
       FieldName = 'CODIGO'
       Origin = '"OFC_GRP_CONTRATOS"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -964,6 +977,17 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
       FixedChar = True
       Size = 14
     end
+    object dtListCOD_CLIENTE: TIntegerField
+      DisplayLabel = 'C'#243'd. Cliente'
+      FieldName = 'COD_CLIENTE'
+      Origin = '"OFC_GRP_CONTRATOS"."COD_CLIENTE"'
+    end
+    object dtListFANTASIA: TIBStringField
+      DisplayLabel = 'Nome Fantasia / Apelido'
+      FieldName = 'FANTASIA'
+      Origin = '"GLO_PESSOAS_FJ"."FANTASIA"'
+      Size = 50
+    end
   end
   inherited dxBarManager: TdxBarManager
     Categories.ItemsVisibles = (
@@ -983,6 +1007,34 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
   end
   inherited cxPropertiesStore: TcxPropertiesStore
     Components = <
+      item
+        Component = TVRegistro
+        Properties.Strings = (
+          'BackgroundBitmaps'
+          'Bands'
+          'DataController'
+          'DateTimeHandling'
+          'DragMode'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FilterBox'
+          'Filtering'
+          'FilterRow'
+          'Name'
+          'NavigatorButtons'
+          'NewItemRow'
+          'OptionsBehavior'
+          'OptionsCustomize'
+          'OptionsData'
+          'OptionsSelection'
+          'OptionsView'
+          'PopupMenu'
+          'Preview'
+          'Styles'
+          'Synchronization'
+          'Tag')
+      end
       item
         Component = TVRegistroATIVO
         Properties.Strings = (
@@ -1020,6 +1072,41 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
       end
       item
         Component = TVRegistroCLIENTE
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroCOD_CLIENTE
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -1195,6 +1282,41 @@ inherited frmCadContratoCopias: TfrmCadContratoCopias
       end
       item
         Component = TVRegistroDT_INICIO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroFANTASIA
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
