@@ -87,9 +87,9 @@ type
     QryClienteEMAIL: TIBStringField;
     QryClienteCIDADE: TIBStringField;
     cxDBDateEdit1: TcxDBDateEdit;
-    btnDefeitoReclamado: TcxButton;
+    BtnCadClientes: TcxButton;
     cxLabel12: TcxLabel;
-    cxButton1: TcxButton;
+    BtnModeloContrato: TcxButton;
     cxLabel13: TcxLabel;
     QryTipoContrato: TIBQuery;
     dsTipoContrato: TDataSource;
@@ -144,7 +144,7 @@ type
     cxDBDateEdit4: TcxDBDateEdit;
     cxDBLookupComboBox1: TcxDBLookupComboBox;
     cxLabel23: TcxLabel;
-    cxButton2: TcxButton;
+    BtnDet1CadClientes: TcxButton;
     cxDBCheckBox5: TcxDBCheckBox;
     QryDet1Cliente: TIBQuery;
     dsDet1Cliente: TDataSource;
@@ -155,9 +155,17 @@ type
     QryDet1ClienteTECNICO: TIntegerField;
     QryDet1ClienteEMAIL: TIBStringField;
     QryDet1ClienteCIDADE: TIBStringField;
+    dtListCOD_CLIENTE: TIntegerField;
+    dtListFANTASIA: TIBStringField;
+    TVRegistroCOD_CLIENTE: TcxGridDBBandedColumn;
+    TVRegistroFANTASIA: TcxGridDBBandedColumn;
     procedure dtEditBeforePost(DataSet: TDataSet);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1NewRecord(DataSet: TDataSet);
+    procedure BtnCadClientesClick(Sender: TObject);
+    procedure ActCadLookupExecute(Sender: TObject);
+    procedure BtnModeloContratoClick(Sender: TObject);
+    procedure BtnDet1CadClientesClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -169,7 +177,7 @@ var
 
 implementation
 
-uses Application_DM;
+uses Application_DM, untCadClientes, UntCadTipoContrato;
 
 {$R *.dfm}
 
@@ -204,6 +212,37 @@ begin
   dtEditDet1DATA.Value := dmApp.DataServidor;
   dtEditDet1COD_GRUPO.value := dtEditCODIGO.value;
   dtEditDet1ATIVO.value := 'S';
+end;
+
+procedure TfrmCadContratoCopias.BtnCadClientesClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadClientes,dtEdit,'COD_CLIENTE',QryCliente);
+end;
+
+procedure TfrmCadContratoCopias.ActCadLookupExecute(Sender: TObject);
+begin
+  inherited;
+  if BtnDet1CadClientes.Focused then
+    BtnDet1CadClientes.OnClick(self);
+
+  if BtnModeloContrato.Focused then
+    BtnModeloContrato.OnClick(self);
+
+  if BtnCadClientes.Focused then
+    BtnCadClientes.OnClick(self);
+end;
+
+procedure TfrmCadContratoCopias.BtnModeloContratoClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadTipoContrato,dtEdit,'COD_CONTRATO',QryTipoContrato);
+end;
+
+procedure TfrmCadContratoCopias.BtnDet1CadClientesClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadClientes,dtEditDet1,'PESSOA_FJ',QryDet1Cliente);
 end;
 
 end.
