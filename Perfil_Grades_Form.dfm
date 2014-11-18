@@ -1,6 +1,6 @@
 object FrmPerfil_Grades: TFrmPerfil_Grades
-  Left = 294
-  Top = 105
+  Left = 699
+  Top = 93
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Perfil de Grades'

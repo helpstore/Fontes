@@ -1,10 +1,10 @@
-unit UntCadReducoes;
+unit UntCadPerfilGrades;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, untCadPadrao, cxGraphics, cxControls, cxLookAndFeels,
+  Dialogs, untCadPadraoMaster, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, dxSkinsCore, dxSkinBlack, dxSkinBlue,
   dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinFoggy,
   dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky,
@@ -16,7 +16,7 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinscxPCPainter, cxStyles, cxCustomData, cxFilter,
   cxData, cxDataStorage, cxEdit, DB, cxDBData, cxContainer,
-  dxSkinsdxBarPainter, cxIntlBase, cxintl, cxPropertiesStore,
+  dxSkinsdxBarPainter, dxmdaset, cxIntlBase, cxintl, cxPropertiesStore,
   cxGridCustomPopupMenu, cxGridPopupMenu, dxBarDBNav, ImgList, ActnList,
   dxBar, cxClasses, IBQuery, IBCustomDataSet, cxLabel, cxTextEdit,
   cxDBEdit, ExtCtrls, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
@@ -24,35 +24,44 @@ uses
   cxPC;
 
 type
-  TfrmCadReducoes = class(TfrmCadPadrao)
+  TFrmCadPerfilGrades = class(TfrmCadPadraoMaster)
     dtListCNPJ: TIBStringField;
     dtListCODIGO: TIntegerField;
-    dtListPERC_ESTADUAL: TFloatField;
-    dtListPERC_INTERESTADUAL: TFloatField;
-    dtListMENSAGEM_NF: TIBStringField;
-    dtListMENSAGEM_NF_IE: TIBStringField;
-    dtListPERC_CONTRIBUINTE: TFloatField;
-    GridDBBandedTableView2CODIGO: TcxGridDBBandedColumn;
-    GridDBBandedTableView2PERC_ESTADUAL: TcxGridDBBandedColumn;
-    GridDBBandedTableView2PERC_INTERESTADUAL: TcxGridDBBandedColumn;
-    GridDBBandedTableView2MENSAGEM_NF: TcxGridDBBandedColumn;
-    GridDBBandedTableView2MENSAGEM_NF_IE: TcxGridDBBandedColumn;
-    GridDBBandedTableView2PERC_CONTRIBUINTE: TcxGridDBBandedColumn;
+    dtListNOME: TIBStringField;
+    dtListINICIAL: TIntegerField;
+    dtListFINAL: TIntegerField;
+    dtListINTERVALO: TIntegerField;
+    TVRegistroCODIGO: TcxGridDBBandedColumn;
+    TVRegistroNOME: TcxGridDBBandedColumn;
+    TVRegistroINICIAL: TcxGridDBBandedColumn;
+    TVRegistroFINAL: TcxGridDBBandedColumn;
+    TVRegistroINTERVALO: TcxGridDBBandedColumn;
     dtEditCNPJ: TIBStringField;
     dtEditCODIGO: TIntegerField;
-    dtEditPERC_ESTADUAL: TFloatField;
-    dtEditPERC_INTERESTADUAL: TFloatField;
-    dtEditMENSAGEM_NF: TIBStringField;
-    dtEditMENSAGEM_NF_IE: TIBStringField;
-    dtEditPERC_CONTRIBUINTE: TFloatField;
-    cxLabel3: TcxLabel;
+    dtEditNOME: TIBStringField;
+    dtEditINICIAL: TIntegerField;
+    dtEditFINAL: TIntegerField;
+    dtEditINTERVALO: TIntegerField;
+    cxLabel11: TcxLabel;
     cxDBTextEdit1: TcxDBTextEdit;
-    cxLabel4: TcxLabel;
+    cxLabel10: TcxLabel;
     cxDBTextEdit2: TcxDBTextEdit;
-    cxLabel5: TcxLabel;
     cxDBTextEdit3: TcxDBTextEdit;
-    cxLabel6: TcxLabel;
+    cxLabel12: TcxLabel;
+    cxLabel13: TcxLabel;
     cxDBTextEdit4: TcxDBTextEdit;
+    dtListDet1CNPJ: TIBStringField;
+    dtListDet1CODIGO: TIBStringField;
+    dtListDet1GRADE: TIntegerField;
+    dtListDet1ORDEM: TIntegerField;
+    TVDet1CODIGO: TcxGridDBBandedColumn;
+    TVDet1ORDEM: TcxGridDBBandedColumn;
+    dtEditDet1CNPJ: TIBStringField;
+    dtEditDet1CODIGO: TIBStringField;
+    dtEditDet1GRADE: TIntegerField;
+    dtEditDet1ORDEM: TIntegerField;
+    cxLabel14: TcxLabel;
+    cxDBTextEdit5: TcxDBTextEdit;
   private
     { Private declarations }
   public
@@ -60,7 +69,7 @@ type
   end;
 
 var
-  frmCadReducoes: TfrmCadReducoes;
+  FrmCadPerfilGrades: TFrmCadPerfilGrades;
 
 implementation
 

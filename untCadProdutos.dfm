@@ -1,6 +1,6 @@
 inherited frmCadProdutos: TfrmCadProdutos
-  Left = 60
-  Top = 14
+  Left = 49
+  Top = 16
   Width = 707
   Height = 619
   Caption = 'Produtos'
@@ -9,7 +9,6 @@ inherited frmCadProdutos: TfrmCadProdutos
   inherited pgcCadastro: TcxPageControl
     Width = 699
     Height = 566
-    ActivePage = tbsEdita
     ClientRectBottom = 562
     ClientRectRight = 695
     inherited tbsLista: TcxTabSheet
@@ -610,13 +609,12 @@ inherited frmCadProdutos: TfrmCadProdutos
           Width = 689
           inherited PgcDetalhe: TcxPageControl
             Width = 689
-            ActivePage = tbsDetalhe6
+            ActivePage = tbsDetalhe1
             ClientRectRight = 685
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Lotes'
               inherited PGCSub1: TcxPageControl
                 Width = 681
-                ActivePage = tbsListaSub1
                 ClientRectRight = 677
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
@@ -951,7 +949,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.Font.Style = []
                     Style.HotTrack = False
                     Style.IsFontAssigned = True
-                    TabOrder = 10
+                    TabOrder = 7
                     Width = 135
                   end
                   object cxDBDateEdit2: TcxDBDateEdit
@@ -959,7 +957,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Top = 64
                     DataBinding.DataField = 'VALIDADE'
                     DataBinding.DataSource = dsRegistroDet1
-                    TabOrder = 7
+                    TabOrder = 8
                     Width = 110
                   end
                   object cxLabel79: TcxLabel
@@ -1011,7 +1009,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     DataBinding.DataSource = dsRegistroDet1
                     Enabled = False
                     Properties.ReadOnly = True
-                    TabOrder = 8
+                    TabOrder = 9
                     Width = 110
                   end
                   object cxDBDateEdit4: TcxDBDateEdit
@@ -1021,7 +1019,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     DataBinding.DataSource = dsRegistroDet1
                     Enabled = False
                     Properties.ReadOnly = True
-                    TabOrder = 9
+                    TabOrder = 10
                     Width = 110
                   end
                   object cxLabel81: TcxLabel
@@ -1162,7 +1160,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Properties.CharCase = ecUpperCase
                     Properties.ReadOnly = True
                     Style.Color = clInactiveBorder
-                    TabOrder = 3
+                    TabOrder = 1
                     Width = 94
                   end
                   object cxLabel83: TcxLabel
@@ -1197,7 +1195,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                         FieldName = 'NOME'
                       end>
                     Properties.ListSource = DsGradesMaterial
-                    TabOrder = 5
+                    TabOrder = 2
                     Width = 321
                   end
                   object BtnGradesMaterial: TcxButton
@@ -1205,8 +1203,9 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Top = 15
                     Width = 23
                     Height = 22
-                    TabOrder = 6
+                    TabOrder = 3
                     TabStop = False
+                    OnClick = BtnGradesMaterialClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1234,7 +1233,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                       BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
                       BFBFBFBFBFBFBFBFBFBF}
                   end
-                  object cxDBLookupComboBox3: TcxDBLookupComboBox
+                  object aTFrmCadPerfilGrades: TcxDBLookupComboBox
                     Left = 7
                     Top = 56
                     DataBinding.DataField = 'PERFIL'
@@ -1245,7 +1244,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                         FieldName = 'NOME'
                       end>
                     Properties.ListSource = DsPerfil
-                    TabOrder = 7
+                    TabOrder = 4
                     Width = 321
                   end
                   object cxLabel84: TcxLabel
@@ -1269,13 +1268,14 @@ inherited frmCadProdutos: TfrmCadProdutos
                     StyleHot.LookAndFeel.SkinName = 'GlassOceans'
                     Transparent = True
                   end
-                  object cxButton3: TcxButton
+                  object BtnPerfilGrade: TcxButton
                     Left = 329
                     Top = 55
                     Width = 23
                     Height = 22
-                    TabOrder = 9
+                    TabOrder = 5
                     TabStop = False
+                    OnClick = BtnPerfilGradeClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1320,7 +1320,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.BorderStyle = ebs3D
                     Style.Color = clWindow
                     Style.HotTrack = False
-                    TabOrder = 11
+                    TabOrder = 6
                     Width = 81
                   end
                   object cxLabel86: TcxLabel
@@ -1340,7 +1340,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.BorderStyle = ebs3D
                     Style.Color = clWindow
                     Style.HotTrack = False
-                    TabOrder = 13
+                    TabOrder = 7
                     Width = 81
                   end
                   object cxLabel87: TcxLabel
@@ -1360,7 +1360,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.BorderStyle = ebs3D
                     Style.Color = clWindow
                     Style.HotTrack = False
-                    TabOrder = 15
+                    TabOrder = 8
                     Width = 81
                   end
                   object cxLabel88: TcxLabel
@@ -1380,7 +1380,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.BorderStyle = ebs3D
                     Style.Color = clWindow
                     Style.HotTrack = False
-                    TabOrder = 17
+                    TabOrder = 9
                     Width = 89
                   end
                 end
@@ -1390,7 +1390,6 @@ inherited frmCadProdutos: TfrmCadProdutos
               Caption = 'Tributa'#231#245'es para Revenda'
               inherited PGCSub3: TcxPageControl
                 Width = 681
-                ActivePage = tbsListaSub3
                 ClientRectRight = 677
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
@@ -1426,6 +1425,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                   end
                   inherited edtCodDet3: TcxDBTextEdit
                     DataBinding.DataField = 'PRODUTO'
+                    TabOrder = 0
                   end
                   object cxDBComboBox9: TcxDBComboBox
                     Left = 74
@@ -1440,7 +1440,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                       '5 - Diferido'
                       '6 - Substitui'#231#227'o Tribut'#225'ria'
                       '7 - ISS')
-                    TabOrder = 2
+                    TabOrder = 1
                     Width = 286
                   end
                   object cxLabel89: TcxLabel
@@ -1498,7 +1498,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                       '5 - Diferido'
                       '6 - Substitui'#231#227'o Tribut'#225'ria'
                       '7 - ISS')
-                    TabOrder = 5
+                    TabOrder = 2
                     Width = 286
                   end
                 end
@@ -1589,7 +1589,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                         FieldName = 'NOME_RAZAO'
                       end>
                     Properties.ListSource = DsProdForn
-                    TabOrder = 2
+                    TabOrder = 1
                     Width = 253
                   end
                   object cxLabel91: TcxLabel
@@ -1618,8 +1618,9 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Top = 23
                     Width = 23
                     Height = 22
-                    TabOrder = 4
+                    TabOrder = 2
                     TabStop = False
+                    OnClick = BtnFornecedoresClick
                     Glyph.Data = {
                       06030000424D06030000000000003600000028000000100000000F0000000100
                       180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -1657,7 +1658,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.BorderStyle = ebs3D
                     Style.Color = clWindow
                     Style.HotTrack = False
-                    TabOrder = 5
+                    TabOrder = 3
                     Width = 169
                   end
                   object cxLabel92: TcxLabel
@@ -1682,7 +1683,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.BorderStyle = ebs3D
                     Style.Color = clWindow
                     Style.HotTrack = False
-                    TabOrder = 8
+                    TabOrder = 4
                     Width = 169
                   end
                   object cxLabel94: TcxLabel
@@ -1701,7 +1702,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     Style.BorderStyle = ebs3D
                     Style.Color = clWindow
                     Style.HotTrack = False
-                    TabOrder = 10
+                    TabOrder = 5
                     Width = 169
                   end
                 end
@@ -1735,7 +1736,7 @@ inherited frmCadProdutos: TfrmCadProdutos
           inherited PgcMaster: TcxPageControl
             Width = 689
             Height = 256
-            ActivePage = cxTabSheet3
+            ActivePage = cxTabSheet5
             ClientRectBottom = 252
             ClientRectRight = 685
             inherited tbsMaster1: TcxTabSheet
@@ -1798,7 +1799,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Style.Font.Style = []
                 Style.HotTrack = False
                 Style.IsFontAssigned = True
-                TabOrder = 4
+                TabOrder = 2
                 Width = 487
               end
               object cxLabel11: TcxLabel
@@ -1836,7 +1837,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Style.Font.Style = []
                 Style.HotTrack = False
                 Style.IsFontAssigned = True
-                TabOrder = 5
+                TabOrder = 3
                 Width = 252
               end
               object cxLabel12: TcxLabel
@@ -1871,7 +1872,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsGrupo
-                TabOrder = 6
+                TabOrder = 4
                 Width = 194
               end
               object cxLabel13: TcxLabel
@@ -1927,7 +1928,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsSubGrupo
-                TabOrder = 8
+                TabOrder = 6
                 Width = 197
               end
               object BtnGrupos: TcxButton
@@ -1935,7 +1936,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Top = 55
                 Width = 23
                 Height = 22
-                TabOrder = 7
+                TabOrder = 5
                 TabStop = False
                 OnClick = BtnGruposClick
                 Glyph.Data = {
@@ -1997,7 +1998,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsSecao
-                TabOrder = 9
+                TabOrder = 7
                 Width = 121
               end
               object cxLabel16: TcxLabel
@@ -2032,7 +2033,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsModelo
-                TabOrder = 11
+                TabOrder = 9
                 Width = 146
               end
               object cxLabel17: TcxLabel
@@ -2067,7 +2068,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsMarca
-                TabOrder = 13
+                TabOrder = 11
                 Width = 151
               end
               object BtnSecao: TcxButton
@@ -2075,7 +2076,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Top = 95
                 Width = 23
                 Height = 22
-                TabOrder = 10
+                TabOrder = 8
                 TabStop = False
                 OnClick = BtnSecaoClick
                 Glyph.Data = {
@@ -2110,7 +2111,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Top = 95
                 Width = 23
                 Height = 22
-                TabOrder = 12
+                TabOrder = 10
                 TabStop = False
                 OnClick = BtnModeloClick
                 Glyph.Data = {
@@ -2145,7 +2146,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Top = 95
                 Width = 23
                 Height = 22
-                TabOrder = 14
+                TabOrder = 12
                 TabStop = False
                 OnClick = BtnMarcasClick
                 Glyph.Data = {
@@ -2207,7 +2208,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsMaterial
-                TabOrder = 15
+                TabOrder = 13
                 Width = 151
               end
               object BtnMaterial: TcxButton
@@ -2215,7 +2216,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Top = 95
                 Width = 23
                 Height = 22
-                TabOrder = 16
+                TabOrder = 14
                 TabStop = False
                 OnClick = BtnMaterialClick
                 Glyph.Data = {
@@ -2279,7 +2280,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Style.Font.Style = []
                 Style.HotTrack = False
                 Style.IsFontAssigned = True
-                TabOrder = 2
+                TabOrder = 19
                 Width = 104
               end
               object cxLabel20: TcxLabel
@@ -2314,7 +2315,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsUnidade
-                TabOrder = 17
+                TabOrder = 15
                 Width = 150
               end
               object BtnUnidade: TcxButton
@@ -2322,7 +2323,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Top = 135
                 Width = 23
                 Height = 22
-                TabOrder = 18
+                TabOrder = 16
                 TabStop = False
                 OnClick = BtnUnidadeClick
                 Glyph.Data = {
@@ -2384,7 +2385,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                     FieldName = 'NOME'
                   end>
                 Properties.ListSource = DsCor
-                TabOrder = 19
+                TabOrder = 17
                 Width = 158
               end
               object BtnCor: TcxButton
@@ -2392,7 +2393,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Top = 135
                 Width = 23
                 Height = 22
-                TabOrder = 20
+                TabOrder = 18
                 TabStop = False
                 OnClick = BtnCorClick
                 Glyph.Data = {
@@ -2435,7 +2436,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 Style.Font.Style = []
                 Style.HotTrack = False
                 Style.IsFontAssigned = True
-                TabOrder = 3
+                TabOrder = 20
                 Width = 103
               end
               object cxLabel22: TcxLabel
@@ -2642,9 +2643,9 @@ inherited frmCadProdutos: TfrmCadProdutos
               end
               object BtnLocalizacao2: TcxButton
                 Left = 431
-                Top = 15
+                Top = 16
                 Width = 23
-                Height = 22
+                Height = 21
                 TabOrder = 3
                 TabStop = False
                 OnClick = BtnLocalizacao2Click
@@ -3845,7 +3846,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 StyleHot.LookAndFeel.SkinName = 'GlassOceans'
                 Transparent = True
               end
-              object cxDBLookupComboBox1: TcxDBLookupComboBox
+              object aTfrmCadReducoes: TcxDBLookupComboBox
                 Left = 8
                 Top = 56
                 DataBinding.DataField = 'REDUCAO'
@@ -3880,13 +3881,14 @@ inherited frmCadProdutos: TfrmCadProdutos
                 StyleHot.LookAndFeel.SkinName = 'GlassOceans'
                 Transparent = True
               end
-              object cxButton1: TcxButton
+              object BtnReducoes: TcxButton
                 Left = 329
                 Top = 55
                 Width = 23
                 Height = 22
                 TabOrder = 4
                 TabStop = False
+                OnClick = BtnReducoesClick
                 Glyph.Data = {
                   06030000424D06030000000000003600000028000000100000000F0000000100
                   180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
@@ -4279,7 +4281,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 StyleFocused.LookAndFeel.NativeStyle = False
                 StyleHot.LookAndFeel.Kind = lfUltraFlat
                 StyleHot.LookAndFeel.NativeStyle = False
-                TabOrder = 2
+                TabOrder = 3
                 Height = 118
                 Width = 136
               end
@@ -4300,7 +4302,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 StyleFocused.LookAndFeel.NativeStyle = False
                 StyleHot.LookAndFeel.Kind = lfUltraFlat
                 StyleHot.LookAndFeel.NativeStyle = False
-                TabOrder = 3
+                TabOrder = 2
                 Height = 118
                 Width = 136
               end
@@ -4311,6 +4313,7 @@ inherited frmCadProdutos: TfrmCadProdutos
     end
   end
   inherited dtEdit: TIBDataSet
+    AfterPost = dtEditAfterPost
     OnNewRecord = dtEditNewRecord
     DeleteSQL.Strings = (
       'delete from est_produtos'
@@ -10137,6 +10140,7 @@ inherited frmCadProdutos: TfrmCadProdutos
       Size = 15
     end
     object dtEditDet2GRADE: TIBStringField
+      Tag = 1
       FieldName = 'GRADE'
       Origin = '"EST_PRODUTOS_GRADES"."GRADE"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -10365,6 +10369,7 @@ inherited frmCadProdutos: TfrmCadProdutos
       Origin = '"EST_PRODUTOS_TRIBUT_REVENDA"."CTIE"'
     end
     object dtEditDet3PRODUTO: TIBStringField
+      Tag = 1
       FieldName = 'PRODUTO'
       Origin = '"EST_PRODUTOS_TRIBUT_REVENDA"."PRODUTO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -10448,6 +10453,7 @@ inherited frmCadProdutos: TfrmCadProdutos
     Top = 348
   end
   inherited dtListDet5: TIBQuery
+    Left = 312
     Top = 384
   end
   inherited dsPesquisaDet5: TDataSource

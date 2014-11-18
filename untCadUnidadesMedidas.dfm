@@ -3,8 +3,11 @@ inherited frmCadUnidadesMedidas: TfrmCadUnidadesMedidas
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsLista
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
+        Width = 775
+        Height = 347
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -34,6 +37,9 @@ inherited frmCadUnidadesMedidas: TfrmCadUnidadesMedidas
             Position.RowIndex = 0
           end
         end
+      end
+      inherited Panel1: TPanel
+        Width = 775
       end
     end
     inherited tbsEdita: TcxTabSheet
@@ -139,6 +145,7 @@ inherited frmCadUnidadesMedidas: TfrmCadUnidadesMedidas
       Size = 14
     end
     object dtListSIGLA: TIBStringField
+      Tag = 1
       DisplayLabel = 'Sigla'
       FieldName = 'SIGLA'
       Origin = '"EST_UNIDADES"."SIGLA"'
