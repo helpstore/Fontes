@@ -115,6 +115,7 @@ inherited frmCadSecoesProdutos: TfrmCadSecoesProdutos
       Size = 14
     end
     object dtListCOD_SECAO: TIntegerField
+      Tag = 1
       DisplayLabel = 'C'#243'digo'
       FieldName = 'COD_SECAO'
       Origin = '"EST_SECAO"."COD_SECAO"'

@@ -526,9 +526,9 @@ type
     cxLabel64: TcxLabel;
     cxDBCalcEdit15: TcxDBCalcEdit;
     cxLabel65: TcxLabel;
-    cxDBLookupComboBox1: TcxDBLookupComboBox;
+    aTfrmCadReducoes: TcxDBLookupComboBox;
     cxLabel66: TcxLabel;
-    cxButton1: TcxButton;
+    BtnReducoes: TcxButton;
     QryReducao: TIBQuery;
     DsReducao: TDataSource;
     QryReducaoCNPJ: TIBStringField;
@@ -666,9 +666,9 @@ type
     QryGradesMaterialCNPJ: TIBStringField;
     QryGradesMaterialCODIGO: TIntegerField;
     QryGradesMaterialNOME: TIBStringField;
-    cxDBLookupComboBox3: TcxDBLookupComboBox;
+    aTFrmCadPerfilGrades: TcxDBLookupComboBox;
     cxLabel84: TcxLabel;
-    cxButton3: TcxButton;
+    BtnPerfilGrade: TcxButton;
     QryPerfil: TIBQuery;
     DsPerfil: TDataSource;
     QryPerfilCNPJ: TIBStringField;
@@ -770,6 +770,11 @@ type
     procedure dtEditCSOSNGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);
     procedure dtEditCSOSNSetText(Sender: TField; const Text: String);
+    procedure BtnReducoesClick(Sender: TObject);
+    procedure dtEditAfterPost(DataSet: TDataSet);
+    procedure BtnGradesMaterialClick(Sender: TObject);
+    procedure BtnPerfilGradeClick(Sender: TObject);
+    procedure BtnFornecedoresClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -783,13 +788,21 @@ implementation
 
 uses UntCadSecoesProdutos, UntCadModelo, UntCadMarcas, UntCadMaterial,
   untCadUnidadesMedidas, UntCadCor, Application_DM, UntCadGrupos,
-  UntCadLocalizacaoEstoque, UntCadTecnicos, untCadFornecedores;
+  UntCadLocalizacaoEstoque, UntCadTecnicos, untCadFornecedores,
+  UntCadReducoes, UntCadPerfilGrades;
 
 {$R *.dfm}
 
 procedure TfrmCadProdutos.ActCadLookupExecute(Sender: TObject);
 begin
   inherited;
+
+  if aTFrmCadPerfilGrades.Focused then
+    BtnPerfilGrade.OnClick(self);
+
+  if aTfrmCadReducoes.Focused then
+    BtnReducoes.OnClick(self);
+
   if bTfrmCadFornecedores.Focused then
     BtnFornecedores.OnClick(self);
 
@@ -839,6 +852,7 @@ var
 begin
   inherited;
 
+  dtEditCODIGO_INTERNO.Value := DMApp.GerarCodigo(UpperCase(Dataset.Name), 0) + 1;
   dtEditATUALIZA_ARQ_EXTERNO.Value := 'N' ;
   dtEditVALIDA_MULT_QTDE_MIN.Value := 'N' ;
   dtEditDEBITA_ICMS.Value      := 'N' ;
@@ -1197,6 +1211,37 @@ begin
     Sender.Value := 300
   else if (Text = '400 - Não tributado') then
     Sender.Value := 400;
+end;
+
+procedure TfrmCadProdutos.BtnReducoesClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadReducoes,dtEdit,'REDUCAO',QryReducao);
+end;
+
+procedure TfrmCadProdutos.dtEditAfterPost(DataSet: TDataSet);
+begin
+  inherited;
+  if (DmApp.BCH_HABILITA_SINC_AUT = 'S') then
+    dmApp.BCH_SYNC_PRODUTO(dtEditCODIGO.AsString);
+end;
+
+procedure TfrmCadProdutos.BtnGradesMaterialClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadMaterial,dtEditDet2,'MATERIAL',QryGradesMaterial);
+end;
+
+procedure TfrmCadProdutos.BtnPerfilGradeClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TFrmCadPerfilGrades,dtEditDet2,'PERFIL',QryPerfil); 
+end;
+
+procedure TfrmCadProdutos.BtnFornecedoresClick(Sender: TObject);
+begin
+  inherited;
+  CadastroLookup(TfrmCadFornecedores,dtEditDet6,'FORNECEDOR',QryProdForn);
 end;
 
 end.

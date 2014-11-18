@@ -1067,8 +1067,9 @@ procedure TfrmCadPadraoMaster.ActEditExecute(Sender: TObject);
 begin
   if (pgcCadastro.ActivePageIndex = 0) then
   begin
+    PgcMaster.activepageindex := 0;
     Editar(dsRegistro,tbsEdita);
-    //edtCodigo.SetFocus;  // Tive que comentar pois dava um erro no editar da cadprodutos
+    edtCodigo.SetFocus;
   end
   else
   begin

@@ -37,7 +37,6 @@ type
     dtEditSIGLA: TIBStringField;
     dtEditNOME: TIBStringField;
     dtEditUNIDADES: TFloatField;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -50,13 +49,5 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TfrmCadUnidadesMedidas.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  campochave := 'SIGLA'; //Solução temporária para erro field 'codigo' not found. 
-  inherited;
-
-end;
 
 end.
