@@ -1,8 +1,8 @@
 inherited frmCadOS: TfrmCadOS
-  Left = 12
-  Top = 4
+  Left = 10
+  Top = 0
   Width = 1270
-  Height = 760
+  Height = 728
   Caption = 'Manuten'#231#227'o de Ordens de Servi'#231'o'
   OldCreateOrder = True
   WindowState = wsMaximized
@@ -10,15 +10,14 @@ inherited frmCadOS: TfrmCadOS
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
     Width = 1254
-    Height = 696
-    ActivePage = tbsEdita
-    ClientRectBottom = 692
+    Height = 664
+    ClientRectBottom = 660
     ClientRectRight = 1250
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 124
         Width = 1246
-        Height = 541
+        Height = 509
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroST_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_CODIGO'
@@ -759,15 +758,15 @@ inherited frmCadOS: TfrmCadOS
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
         Width = 1246
-        Height = 665
+        Height = 633
         inherited pnlSubCad: TPanel
-          Top = 368
+          Top = 336
           Width = 1244
           Height = 296
           inherited PgcDetalhe: TcxPageControl
             Width = 1244
             Height = 296
-            ActivePage = tbsDetalhe1
+            ActivePage = tbsDetalhe2
             ClientRectBottom = 292
             ClientRectRight = 1240
             inherited tbsDetalhe1: TcxTabSheet
@@ -1176,7 +1175,10 @@ inherited frmCadOS: TfrmCadOS
                 end
                 inherited tbsEditaSub2: TcxTabSheet
                   inherited edtCodDet2: TcxDBTextEdit
-                    DataBinding.DataField = 'CODIGO'
+                    DataBinding.DataField = 'SEQUENCIA'
+                  end
+                  inherited cxLabel2: TcxLabel
+                    Caption = 'Sequ'#234'ncia'
                   end
                   object cxDBDateEdit4: TcxDBDateEdit
                     Left = 221
@@ -1976,11 +1978,11 @@ inherited frmCadOS: TfrmCadOS
         end
         inherited pnlMaster: TPanel
           Width = 1244
-          Height = 367
+          Height = 335
           inherited PgcMaster: TcxPageControl
             Width = 1244
-            Height = 367
-            ClientRectBottom = 363
+            Height = 335
+            ClientRectBottom = 331
             ClientRectRight = 1240
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
@@ -7103,7 +7105,7 @@ inherited frmCadOS: TfrmCadOS
       '   s.KM_FINAL,'
       '   s.TEMPO_VIAJEM,'
       '   s.usuario,'
-      ' S.cod_tipo_movto,'
+      '   m.nome TIPO_MOVIMENTO,'
       '   case s.usuario'
       '    when (null) then 0'
       '    else s.usuario||'#39'-'#39'||coalesce(u.nome,'#39#39')'
@@ -7118,14 +7120,15 @@ inherited frmCadOS: TfrmCadOS
       '   s.dt_lancto,'
       '   s.dt_vencto,'
       '   s.dt_conclusao,'
-      's.cod_contato,'
+      '   s.cod_contato,'
       '   s.cod_status,'
       '   s.cod_veiculo'
       'from OFC_ORDEM_SERVICO_INTERVALO s'
       'left join sis_usuarios u on (u.codigo = s.usuario)'
       
         'left join ofc_mecanicos t on (t.cnpj = s.cnpj and t.codigo = s.c' +
-        'od_tecnico)'
+        'od_tecnico) '
+      'left join ofc_tipo_movto m on (m.codigo = s.cod_tipo_movto)'
       'WHERE s.CNPJ = :CNPJ AND s.CODIGO = :CODIGO '
       'ORDER BY  DT_INICIO, HR_INICIO ')
     Left = 712
@@ -7221,11 +7224,6 @@ inherited frmCadOS: TfrmCadOS
       FieldName = 'USUARIO'
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."USUARIO"'
     end
-    object dtListDet2COD_TIPO_MOVTO: TIntegerField
-      DisplayLabel = 'C'#243'd. Tipo Movto'
-      FieldName = 'COD_TIPO_MOVTO'
-      Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."COD_TIPO_MOVTO"'
-    end
     object dtListDet2NOME_USUARIO: TIBStringField
       DisplayLabel = 'Usu'#225'rio'
       FieldName = 'NOME_USUARIO'
@@ -7291,6 +7289,12 @@ inherited frmCadOS: TfrmCadOS
       Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."COD_VEICULO"'
       FixedChar = True
       Size = 8
+    end
+    object dtListDet2TIPO_MOVIMENTO: TIBStringField
+      DisplayLabel = 'Tipo Movimento'
+      FieldName = 'TIPO_MOVIMENTO'
+      Origin = '"OFC_TIPO_MOVTO"."NOME"'
+      Size = 50
     end
   end
   inherited dsRegistroDet3: TDataSource

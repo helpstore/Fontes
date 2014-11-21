@@ -541,7 +541,6 @@ type
     dtListDet2KM_FINAL: TFloatField;
     dtListDet2TEMPO_VIAJEM: TFloatField;
     dtListDet2USUARIO: TIntegerField;
-    dtListDet2COD_TIPO_MOVTO: TIntegerField;
     dtListDet2NOME_USUARIO: TIBStringField;
     dtListDet2NOME_TECNICO: TIBStringField;
     dtListDet2COD_TECNICO: TIntegerField;
@@ -811,6 +810,7 @@ type
     btnImprimirHistorico: TdxBarButton;
     edDescricao: TcxDBMemo;
     cxLabel42: TcxLabel;
+    dtListDet2TIPO_MOVIMENTO: TIBStringField;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -1812,7 +1812,7 @@ begin
       dtEditDet2CNPJ.value := dmApp.cnpj;
       dtEditDet2TIPO.value := 'A';
       dtEditDet2DT_INICIO.value := DateOF(dtEditDATA.value);
-      dtEditDet2HR_INICIO.value := Timeof(dtEditDATA.value);
+      dtEditDet2HR_INICIO.value := Timeof(dmApp.Data_Servidor)-0.003;
       dtEditDet2DT_FIM.value := DateOF(dtEditDATA.value);
       dtEditDet2HR_FIM.value := TimeOf(dmApp.Data_Servidor);
       dtEditDet2OBSERVACAO.Value :=  dtEditINFORMACOES.Value;

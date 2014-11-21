@@ -741,6 +741,42 @@ type
     cxDBTextEdit36: TcxDBTextEdit;
     cxLabel94: TcxLabel;
     cxDBTextEdit37: TcxDBTextEdit;
+    dtListVENCTO_PRC_VENDA: TDateField;
+    dtListVALIDA_MULT_QTDE_MIN: TIBStringField;
+    dtListCODIGO_INTERNO: TIntegerField;
+    dtListCNPJ_AGRUP: TIBStringField;
+    dtListCOD_AGRUP: TIBStringField;
+    dtListMARGEM_BRUTA: TFloatField;
+    dtListPRC_REPOS: TFloatField;
+    dtListPRC_CUSTO_ANT: TFloatField;
+    dtListPRC_CUSTO_MED: TFloatField;
+    dtListPRC_VENDA_ANT: TFloatField;
+    dtListPRC_VENDA_MED: TFloatField;
+    dtListORIGEM: TSmallintField;
+    dtListULTIMO_FORNECEDOR: TIntegerField;
+    dtListFORNECEDOR: TIntegerField;
+    dtListPRC_CUSTO_CODIF: TIBStringField;
+    dtListDT_ULT_ATU_PRECO: TDateField;
+    dtListQNTDE_EXPOSTA: TFloatField;
+    dtListCUSTO_AQUISICAO: TFloatField;
+    dtListCOM_VENDA_VLR: TFloatField;
+    dtListCOM_VENDA_PCT: TFloatField;
+    dtListPARTICIP_LUCRO: TFloatField;
+    dtListNAO_COBR_JUR_ATE: TIntegerField;
+    dtListATUALIZA_ARQ_EXTERNO: TIBStringField;
+    dtListCUSTO_INDEXADO: TIBBCDField;
+    dtListUND_PRIMARIA: TIBStringField;
+    dtListFATOR_CONVERSAO: TIBBCDField;
+    dtListQNTDE_PDR_CARGA: TIBBCDField;
+    dtListSINCRONIZA_FILIAIS: TIBStringField;
+    dtListUND_CARREGAMENTO: TIBStringField;
+    dtListAPLICACAO: TMemoField;
+    dtListIMG_2: TBlobField;
+    dtListIMG_1: TBlobField;
+    dtListIMG_3: TBlobField;
+    dtListIMG_4: TBlobField;
+    dtListCODIGO_FABRICANTE: TIBStringField;
+    dtListBCH_CODIGO: TIntegerField;
     procedure ActCadLookupExecute(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure BtnGruposClick(Sender: TObject);
@@ -775,6 +811,7 @@ type
     procedure BtnGradesMaterialClick(Sender: TObject);
     procedure BtnPerfilGradeClick(Sender: TObject);
     procedure BtnFornecedoresClick(Sender: TObject);
+    procedure dtEditDet1NewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -1242,6 +1279,15 @@ procedure TfrmCadProdutos.BtnFornecedoresClick(Sender: TObject);
 begin
   inherited;
   CadastroLookup(TfrmCadFornecedores,dtEditDet6,'FORNECEDOR',QryProdForn);
+end;
+
+procedure TfrmCadProdutos.dtEditDet1NewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  dtEditDet1PRODUTO.value := dtEditCODIGO.value;
+  dtEditDet2PRODUTO.value := dtEditCODIGO.value;
+  dtEditDet3PRODUTO.value := dtEditCODIGO.value;
+  dtEditDet6PRODUTO.value := dtEditCODIGO.value;
 end;
 
 end.

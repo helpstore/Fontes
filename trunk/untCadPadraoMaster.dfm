@@ -1,6 +1,6 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
-  Left = 16
-  Top = 40
+  Left = 18
+  Top = 53
   Width = 669
   Height = 517
   Caption = 'frmCadPadraoMaster'
