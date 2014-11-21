@@ -1,6 +1,6 @@
 object DmVendas: TDmVendas
   OldCreateOrder = False
-  Height = 760
+  Height = 728
   Width = 1280
   object SelPessoasFJ: TIBQuery
     Database = DmApp.Database

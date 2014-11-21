@@ -1,21 +1,22 @@
 inherited frmCadProdutos: TfrmCadProdutos
-  Left = 49
-  Top = 16
-  Width = 707
-  Height = 619
+  Left = 213
+  Top = 47
+  Width = 717
+  Height = 628
   Caption = 'Produtos'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 699
-    Height = 566
-    ClientRectBottom = 562
-    ClientRectRight = 695
+    Width = 701
+    Height = 564
+    ClientRectBottom = 560
+    ClientRectRight = 697
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 27
-        Width = 691
-        Height = 508
+        Width = 693
+        Height = 506
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -596,26 +597,26 @@ inherited frmCadProdutos: TfrmCadProdutos
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 691
+        Width = 693
         Height = 27
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 691
-        Height = 535
+        Width = 693
+        Height = 533
         inherited pnlSubCad: TPanel
-          Top = 257
-          Width = 689
+          Top = 255
+          Width = 691
           inherited PgcDetalhe: TcxPageControl
-            Width = 689
-            ActivePage = tbsDetalhe1
-            ClientRectRight = 685
+            Width = 691
+            ActivePage = tbsDetalhe6
+            ClientRectRight = 687
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Lotes'
               inherited PGCSub1: TcxPageControl
-                Width = 681
-                ClientRectRight = 677
+                Width = 683
+                ClientRectRight = 679
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
                     Width = 673
@@ -1049,8 +1050,8 @@ inherited frmCadProdutos: TfrmCadProdutos
             inherited tbsDetalhe2: TcxTabSheet
               Caption = 'Grades'
               inherited PGCSub2: TcxPageControl
-                Width = 681
-                ClientRectRight = 677
+                Width = 683
+                ClientRectRight = 679
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
                     Width = 635
@@ -1389,8 +1390,8 @@ inherited frmCadProdutos: TfrmCadProdutos
             inherited tbsDetalhe3: TcxTabSheet
               Caption = 'Tributa'#231#245'es para Revenda'
               inherited PGCSub3: TcxPageControl
-                Width = 681
-                ClientRectRight = 677
+                Width = 683
+                ClientRectRight = 679
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
                     Width = 673
@@ -1508,23 +1509,23 @@ inherited frmCadProdutos: TfrmCadProdutos
               Caption = 'Similares'
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 681
-                ClientRectRight = 677
+                Width = 683
+                ClientRectRight = 679
               end
             end
             inherited tbsDetalhe5: TcxTabSheet
               Caption = 'Agregados'
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 681
-                ClientRectRight = 677
+                Width = 683
+                ClientRectRight = 679
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               Caption = 'Produtos/Fornecedores'
               inherited PGCSub6: TcxPageControl
-                Width = 681
-                ClientRectRight = 677
+                Width = 683
+                ClientRectRight = 679
                 inherited tbsListaSub6: TcxTabSheet
                   inherited GridDet6: TcxGrid
                     Width = 673
@@ -1711,16 +1712,16 @@ inherited frmCadProdutos: TfrmCadProdutos
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 681
-                ClientRectRight = 677
+                Width = 683
+                ClientRectRight = 679
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 681
+                Width = 683
                 ActivePage = tbsListaSub8
-                ClientRectRight = 677
+                ClientRectRight = 679
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 673
@@ -1731,14 +1732,13 @@ inherited frmCadProdutos: TfrmCadProdutos
           end
         end
         inherited pnlMaster: TPanel
-          Width = 689
-          Height = 256
+          Width = 691
+          Height = 254
           inherited PgcMaster: TcxPageControl
-            Width = 689
-            Height = 256
-            ActivePage = cxTabSheet5
-            ClientRectBottom = 252
-            ClientRectRight = 685
+            Width = 691
+            Height = 254
+            ClientRectBottom = 250
+            ClientRectRight = 687
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Cadastro'
               inherited edtCodigo: TcxDBTextEdit
@@ -4215,8 +4215,8 @@ inherited frmCadProdutos: TfrmCadProdutos
                 DataBinding.DataField = 'APLICACAO'
                 DataBinding.DataSource = dsRegistro
                 TabOrder = 0
-                Height = 225
-                Width = 681
+                Height = 223
+                Width = 683
               end
             end
             object cxTabSheet5: TcxTabSheet
@@ -5580,6 +5580,181 @@ inherited frmCadProdutos: TfrmCadProdutos
       FieldName = 'NOME_MARCA'
       Origin = '"EST_MARCAS"."NOME"'
       Size = 50
+    end
+    object dtListVENCTO_PRC_VENDA: TDateField
+      FieldName = 'VENCTO_PRC_VENDA'
+      Origin = '"PCD_LISTA_PRODUTO"."VENCTO_PRC_VENDA"'
+    end
+    object dtListVALIDA_MULT_QTDE_MIN: TIBStringField
+      FieldName = 'VALIDA_MULT_QTDE_MIN'
+      Origin = '"PCD_LISTA_PRODUTO"."VALIDA_MULT_QTDE_MIN"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListCODIGO_INTERNO: TIntegerField
+      FieldName = 'CODIGO_INTERNO'
+      Origin = '"PCD_LISTA_PRODUTO"."CODIGO_INTERNO"'
+    end
+    object dtListCNPJ_AGRUP: TIBStringField
+      FieldName = 'CNPJ_AGRUP'
+      Origin = '"PCD_LISTA_PRODUTO"."CNPJ_AGRUP"'
+      Size = 14
+    end
+    object dtListCOD_AGRUP: TIBStringField
+      FieldName = 'COD_AGRUP'
+      Origin = '"PCD_LISTA_PRODUTO"."COD_AGRUP"'
+      Size = 15
+    end
+    object dtListMARGEM_BRUTA: TFloatField
+      FieldName = 'MARGEM_BRUTA'
+      Origin = '"PCD_LISTA_PRODUTO"."MARGEM_BRUTA"'
+    end
+    object dtListPRC_REPOS: TFloatField
+      FieldName = 'PRC_REPOS'
+      Origin = '"PCD_LISTA_PRODUTO"."PRC_REPOS"'
+    end
+    object dtListPRC_CUSTO_ANT: TFloatField
+      FieldName = 'PRC_CUSTO_ANT'
+      Origin = '"PCD_LISTA_PRODUTO"."PRC_CUSTO_ANT"'
+    end
+    object dtListPRC_CUSTO_MED: TFloatField
+      FieldName = 'PRC_CUSTO_MED'
+      Origin = '"PCD_LISTA_PRODUTO"."PRC_CUSTO_MED"'
+    end
+    object dtListPRC_VENDA_ANT: TFloatField
+      FieldName = 'PRC_VENDA_ANT'
+      Origin = '"PCD_LISTA_PRODUTO"."PRC_VENDA_ANT"'
+    end
+    object dtListPRC_VENDA_MED: TFloatField
+      FieldName = 'PRC_VENDA_MED'
+      Origin = '"PCD_LISTA_PRODUTO"."PRC_VENDA_MED"'
+    end
+    object dtListORIGEM: TSmallintField
+      FieldName = 'ORIGEM'
+      Origin = '"PCD_LISTA_PRODUTO"."ORIGEM"'
+    end
+    object dtListULTIMO_FORNECEDOR: TIntegerField
+      FieldName = 'ULTIMO_FORNECEDOR'
+      Origin = '"PCD_LISTA_PRODUTO"."ULTIMO_FORNECEDOR"'
+    end
+    object dtListFORNECEDOR: TIntegerField
+      FieldName = 'FORNECEDOR'
+      Origin = '"PCD_LISTA_PRODUTO"."FORNECEDOR"'
+    end
+    object dtListPRC_CUSTO_CODIF: TIBStringField
+      FieldName = 'PRC_CUSTO_CODIF'
+      Origin = '"PCD_LISTA_PRODUTO"."PRC_CUSTO_CODIF"'
+      Size = 15
+    end
+    object dtListDT_ULT_ATU_PRECO: TDateField
+      FieldName = 'DT_ULT_ATU_PRECO'
+      Origin = '"PCD_LISTA_PRODUTO"."DT_ULT_ATU_PRECO"'
+    end
+    object dtListQNTDE_EXPOSTA: TFloatField
+      FieldName = 'QNTDE_EXPOSTA'
+      Origin = '"PCD_LISTA_PRODUTO"."QNTDE_EXPOSTA"'
+    end
+    object dtListCUSTO_AQUISICAO: TFloatField
+      FieldName = 'CUSTO_AQUISICAO'
+      Origin = '"PCD_LISTA_PRODUTO"."CUSTO_AQUISICAO"'
+    end
+    object dtListCOM_VENDA_VLR: TFloatField
+      FieldName = 'COM_VENDA_VLR'
+      Origin = '"PCD_LISTA_PRODUTO"."COM_VENDA_VLR"'
+    end
+    object dtListCOM_VENDA_PCT: TFloatField
+      FieldName = 'COM_VENDA_PCT'
+      Origin = '"PCD_LISTA_PRODUTO"."COM_VENDA_PCT"'
+    end
+    object dtListPARTICIP_LUCRO: TFloatField
+      FieldName = 'PARTICIP_LUCRO'
+      Origin = '"PCD_LISTA_PRODUTO"."PARTICIP_LUCRO"'
+    end
+    object dtListNAO_COBR_JUR_ATE: TIntegerField
+      FieldName = 'NAO_COBR_JUR_ATE'
+      Origin = '"PCD_LISTA_PRODUTO"."NAO_COBR_JUR_ATE"'
+    end
+    object dtListATUALIZA_ARQ_EXTERNO: TIBStringField
+      FieldName = 'ATUALIZA_ARQ_EXTERNO'
+      Origin = '"PCD_LISTA_PRODUTO"."ATUALIZA_ARQ_EXTERNO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListCUSTO_INDEXADO: TIBBCDField
+      FieldName = 'CUSTO_INDEXADO'
+      Origin = '"PCD_LISTA_PRODUTO"."CUSTO_INDEXADO"'
+      Precision = 18
+      Size = 4
+    end
+    object dtListUND_PRIMARIA: TIBStringField
+      FieldName = 'UND_PRIMARIA'
+      Origin = '"PCD_LISTA_PRODUTO"."UND_PRIMARIA"'
+      FixedChar = True
+      Size = 4
+    end
+    object dtListFATOR_CONVERSAO: TIBBCDField
+      FieldName = 'FATOR_CONVERSAO'
+      Origin = '"PCD_LISTA_PRODUTO"."FATOR_CONVERSAO"'
+      Precision = 18
+      Size = 4
+    end
+    object dtListQNTDE_PDR_CARGA: TIBBCDField
+      FieldName = 'QNTDE_PDR_CARGA'
+      Origin = '"PCD_LISTA_PRODUTO"."QNTDE_PDR_CARGA"'
+      Precision = 18
+      Size = 4
+    end
+    object dtListSINCRONIZA_FILIAIS: TIBStringField
+      FieldName = 'SINCRONIZA_FILIAIS'
+      Origin = '"PCD_LISTA_PRODUTO"."SINCRONIZA_FILIAIS"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListUND_CARREGAMENTO: TIBStringField
+      FieldName = 'UND_CARREGAMENTO'
+      Origin = '"PCD_LISTA_PRODUTO"."UND_CARREGAMENTO"'
+      FixedChar = True
+      Size = 4
+    end
+    object dtListAPLICACAO: TMemoField
+      FieldName = 'APLICACAO'
+      Origin = '"PCD_LISTA_PRODUTO"."APLICACAO"'
+      ProviderFlags = [pfInUpdate]
+      BlobType = ftMemo
+      Size = 8
+    end
+    object dtListIMG_2: TBlobField
+      FieldName = 'IMG_2'
+      Origin = '"PCD_LISTA_PRODUTO"."IMG_2"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtListIMG_1: TBlobField
+      FieldName = 'IMG_1'
+      Origin = '"PCD_LISTA_PRODUTO"."IMG_1"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtListIMG_3: TBlobField
+      FieldName = 'IMG_3'
+      Origin = '"PCD_LISTA_PRODUTO"."IMG_3"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtListIMG_4: TBlobField
+      FieldName = 'IMG_4'
+      Origin = '"PCD_LISTA_PRODUTO"."IMG_4"'
+      ProviderFlags = [pfInUpdate]
+      Size = 8
+    end
+    object dtListCODIGO_FABRICANTE: TIBStringField
+      FieldName = 'CODIGO_FABRICANTE'
+      Origin = '"PCD_LISTA_PRODUTO"."CODIGO_FABRICANTE"'
+      Size = 50
+    end
+    object dtListBCH_CODIGO: TIntegerField
+      FieldName = 'BCH_CODIGO'
+      Origin = '"PCD_LISTA_PRODUTO"."BCH_CODIGO"'
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -10140,7 +10315,6 @@ inherited frmCadProdutos: TfrmCadProdutos
       Size = 15
     end
     object dtEditDet2GRADE: TIBStringField
-      Tag = 1
       FieldName = 'GRADE'
       Origin = '"EST_PRODUTOS_GRADES"."GRADE"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -10340,7 +10514,7 @@ inherited frmCadProdutos: TfrmCadProdutos
       '          CTIE, '
       '          PRODUTO '
       'from EST_PRODUTOS_TRIBUT_REVENDA'
-      'where CNPJ = :CNPJ  and produto = :produto')
+      'where CNPJ = :CNPJ  and produto = :codigo')
     ModifySQL.Strings = (
       'update EST_PRODUTOS_TRIBUT_REVENDA'
       'set'
@@ -10369,7 +10543,6 @@ inherited frmCadProdutos: TfrmCadProdutos
       Origin = '"EST_PRODUTOS_TRIBUT_REVENDA"."CTIE"'
     end
     object dtEditDet3PRODUTO: TIBStringField
-      Tag = 1
       FieldName = 'PRODUTO'
       Origin = '"EST_PRODUTOS_TRIBUT_REVENDA"."PRODUTO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]

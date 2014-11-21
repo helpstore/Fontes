@@ -1,6 +1,6 @@
 object FrmOrdens_Servicos: TFrmOrdens_Servicos
-  Left = 212
-  Top = 95
+  Left = 227
+  Top = 81
   Width = 1011
   Height = 665
   Caption = ' Ordens Servi'#231'os '
@@ -73,7 +73,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       Top = 2
       Width = 991
       Height = 554
-      ActivePage = Tab1
+      ActivePage = TabMov
       Align = alClient
       TabOrder = 1
       TabStop = False

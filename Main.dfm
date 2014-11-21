@@ -1,6 +1,6 @@
 object FrmMain: TFrmMain
-  Left = 193
-  Top = 124
+  Left = 211
+  Top = 109
   Width = 1067
   Height = 644
   Caption = 'Help Store'
@@ -481,6 +481,7 @@ object FrmMain: TFrmMain
             Font.Style = []
             Storage = AgendaStorage2
             TabOrder = 1
+            Selection = 1
             Splitters = {
               B80200007E0000004703000083000000B302000001000000B802000087010000}
             StoredClientBounds = {01000000010000004703000087010000}
@@ -2155,7 +2156,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 75.000000000000000000
+                            Value = 89.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2323,7 +2324,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 21.000000000000000000
+                            Value = 67.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2491,7 +2492,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 83.000000000000000000
+                            Value = 61.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2659,7 +2660,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 18.000000000000000000
+                            Value = 98.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -4366,6 +4367,7 @@ object FrmMain: TFrmMain
       Category = 0
       Hint = 'Redu'#231#245'es Z'
       Visible = ivAlways
+      OnClick = btnCadastroReducaoClick
     end
     object dxBarSubItem19: TdxBarSubItem
       Caption = 'Prosoft'

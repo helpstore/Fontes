@@ -1090,6 +1090,7 @@ type
     procedure btnRelResumoContratoClick(Sender: TObject);
     procedure beSkinComboPropertiesChange(Sender: TObject);
     procedure btnRelSaidaProdutoClienteClick(Sender: TObject);
+    procedure btnCadastroReducaoClick(Sender: TObject);
   private
     { Private declarations }
     //Agente: IAgentCtlCharacter;
@@ -1383,7 +1384,8 @@ uses
   UntCadServicoExecutado, UntCadDefeitos, UntCadStatusServico,
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
   untCadFornecedores, untCadOS, untCadContratoAtendimento,
-  UntCadClassificacao, untCadClientes, UntCadContratoCopias, untCadLeitura;
+  UntCadClassificacao, untCadClientes, UntCadContratoCopias, untCadLeitura,
+  untCadProdutos, UntCadGrupos, UntCadPerfilGrades, UntCadReducoes;
 
 {$R *.DFM}
 
@@ -1709,6 +1711,22 @@ end;
 
 procedure TFrmMain.opGruposClick(Sender: TObject);
 begin
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadGrupos', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadGrupos = Nil Then
+  begin
+     frmCadGrupos := TfrmCadGrupos.Create(Self);
+     frmCadGrupos.ShowMODAL ;
+     frmCadGrupos.Free      ;
+     frmCadGrupos := Nil    ;
+  end;
+  Exit;
+///
   { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmGrupos', True)) Then
      Exit;
@@ -1830,6 +1848,22 @@ end;
 
 procedure TFrmMain.opProdutoClick(Sender: TObject);
 begin
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProdutos', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadProdutos = Nil Then
+  begin
+     frmCadProdutos := TfrmCadProdutos.Create(Self);
+     frmCadProdutos.ShowMODAL ;
+     frmCadProdutos.Free      ;
+     frmCadProdutos := Nil    ;
+  end;
+  Exit;
+///
   if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmProdutos', True)) then
      Exit;
      
@@ -1960,6 +1994,22 @@ end;
 
 procedure TFrmMain.opFornecedoresClick(Sender: TObject);
 begin
+///
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadFornecedores', True)) Then
+     Exit;
+
+  If DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  If frmCadFornecedores = Nil Then
+     Begin
+       frmCadFornecedores  := TfrmCadFornecedores.Create(Self);
+       frmCadFornecedores.Showmodal ;
+       frmCadFornecedores.Free      ;
+       frmCadFornecedores := Nil    ;
+     End;
+  exit;
+///
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmFornecedores', True)) Then
      Exit;
 
@@ -3527,6 +3577,22 @@ end;
 
 procedure TFrmMain.ActConsultaProdutoExecute(Sender: TObject);
 begin
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProdutos', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadProdutos = Nil Then
+  begin
+     frmCadProdutos := TfrmCadProdutos.Create(Self);
+     frmCadProdutos.ShowMODAL ;
+     frmCadProdutos.Free      ;
+     frmCadProdutos := Nil    ;
+  end;
+  Exit;
+///
      If ( FrmMain.MDIChildCount <= 0 ) or ( FrmSelVendas <> Nil ) or ( FrmSelVendasPdv <> Nil )
      then begin
         If DMApp.SelecionarEmpresa = 'N' Then
@@ -5430,6 +5496,22 @@ end;
 
 procedure TFrmMain.OpCorClick(Sender: TObject);
 begin
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCor', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadCor = Nil Then
+  begin
+     frmCadCor := TfrmCadCor.Create(Self);
+     frmCadCor.ShowMODAL ;
+     frmCadCor.Free      ;
+     frmCadCor := Nil    ;
+  end;
+  Exit;
+///
   { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCor', True)) Then
      Exit;
@@ -5602,6 +5684,22 @@ end;
 
 procedure TFrmMain.OpPerfilGradeClick(Sender: TObject);
 begin
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmCadPerfilGrades', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if FrmCadPerfilGrades = Nil Then
+  begin
+     FrmCadPerfilGrades := TFrmCadPerfilGrades.Create(Self);
+     FrmCadPerfilGrades.ShowMODAL ;
+     FrmCadPerfilGrades.Free      ;
+     FrmCadPerfilGrades := Nil    ;
+  end;
+  Exit;
+///
   { * * * * * }
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmPerfil_Grades', True)) Then
      Exit;
@@ -9349,6 +9447,26 @@ begin
        FRelVendasPorProduto.ShowModal;
      End;
 
+end;
+
+procedure TFrmMain.btnCadastroReducaoClick(Sender: TObject);
+begin
+///
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadReducoes', True)) Then
+     Exit;
+
+  If DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  If frmCadReducoes = Nil Then
+     Begin
+       frmCadReducoes  := TfrmCadReducoes.Create(Self);
+       frmCadReducoes.Showmodal ;
+       frmCadReducoes.Free      ;
+       frmCadReducoes := Nil    ;
+     End;
+  exit;
+///
 end;
 
 end.

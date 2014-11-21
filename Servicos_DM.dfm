@@ -1,8 +1,9 @@
 object DmServicos: TDmServicos
   OldCreateOrder = False
-  Left = 8
+  Left = 10
   Top = 1
   Height = 517
+  HorizontalOffset = 617
   Width = 669
   object Servicos: TIBDataSet
     Database = DmApp.Database
