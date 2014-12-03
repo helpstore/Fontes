@@ -62,10 +62,7 @@ type
     qAtendimento_SintOFC_CODIGO: TIntegerField;
     qAtendimento_SintOFC_DATA: TDateField;
     qAtendimento_SintOFC_DT_ENTRADA: TDateField;
-    qAtendimento_SintOFC_HR_ENTRADA: TDateTimeField;
     qAtendimento_SintOFC_DT_ATRIBUICAO: TDateField;
-    qAtendimento_SintOFC_HR_ATRIBUICAO: TDateTimeField;
-    qAtendimento_SintOFC_DATA_FECHAMENTO: TDateField;
     qAtendimento_SintOFC_TOTAL: TIBBCDField;
     qAtendimento_SintOFC_SOLICITANTE: TIBStringField;
     qAtendimento_SintOFC_VENDA: TIntegerField;
@@ -157,9 +154,7 @@ type
     qAtendimento_SintCIDADE: TIBStringField;
     qAtendimento_SintTECNICO_ATDD: TIBStringField;
     stgFRel_Rechamados: TcxPropertiesStore;
-    qAtendimento_SintOFC_DT_FECHAMENTO: TDateField;
     qAtendimento_SintOFC_DT_SOLICITACAO: TDateField;
-    qAtendimento_SintREG_NOME: TIBStringField;
     qAtendimento_SintBAIRRO: TIBStringField;
     qAtendimento_SintENDERECO: TIBStringField;
     qAtendimento_SintFONE: TIBStringField;
@@ -181,6 +176,18 @@ type
     qAtendimento_SintTECNICO_ESPECIFICO: TIntegerField;
     qAtendimento_SintCONTADOR_TOTAL: TIBBCDField;
     rdMotivoChamado: TRadioButton;
+    qAtendimento_SintKM_INICIAL: TIBBCDField;
+    qAtendimento_SintKM_FINAL: TIBBCDField;
+    qAtendimento_SintOFC_HR_ENTRADA: TTimeField;
+    qAtendimento_SintOFC_HR_ATRIBUICAO: TTimeField;
+    qAtendimento_SintDT_INICIAL: TDateField;
+    qAtendimento_SintHR_INICIAL: TTimeField;
+    qAtendimento_SintDT_FINAL: TDateField;
+    qAtendimento_SintHR_FINAL: TTimeField;
+    qAtendimento_SintTEMPO_DECORRIDO_RESP: TFloatField;
+    qAtendimento_SintKM_NAO_UTILIZADO: TIBBCDField;
+    qAtendimento_SintOFC_DATA_FECHAMENTO: TDateField;
+    qAtendimento_SintHR_TRABALHADAS_TMP_VIAJEM: TFloatField;
     ppTitleBand12: TppTitleBand;
     SubRegiao: TppSubReport;
     ppChildReport1: TppChildReport;
@@ -255,12 +262,14 @@ type
     ppLabel187: TppLabel;
     ppLabel188: TppLabel;
     ppLabel189: TppLabel;
-    ppLabel17: TppLabel;
     ppLabel19: TppLabel;
     ppLabel33: TppLabel;
     ppLabel68: TppLabel;
     ppLabel82: TppLabel;
     ppLabel83: TppLabel;
+    ppLabel17: TppLabel;
+    ppLabel101: TppLabel;
+    ppLabel102: TppLabel;
     ppDetailBand27: TppDetailBand;
     ppDBText252: TppDBText;
     ppDBText253: TppDBText;
@@ -273,6 +282,8 @@ type
     ppDBText60: TppDBText;
     ppDBText78: TppDBText;
     ppDBText29: TppDBText;
+    ppDBText93: TppDBText;
+    ppDBText94: TppDBText;
     ppSummaryBand28: TppSummaryBand;
     ppLine73: TppLine;
     ppLabel266: TppLabel;
@@ -285,8 +296,8 @@ type
     ppGroup10: TppGroup;
     ppGroupHeaderBand10: TppGroupHeaderBand;
     ppLabel267: TppLabel;
-    ppLine74: TppLine;
     ppDBText255: TppDBText;
+    ppLine27: TppLine;
     ppGroupFooterBand10: TppGroupFooterBand;
     ppLine75: TppLine;
     ppLabel268: TppLabel;
@@ -296,6 +307,20 @@ type
     ppDBCalc13: TppDBCalc;
     ppDBCalc14: TppDBCalc;
     ppDBCalc69: TppDBCalc;
+    ppGroup7: TppGroup;
+    ppGroupHeaderBand7: TppGroupHeaderBand;
+    ppLine74: TppLine;
+    ppLabel99: TppLabel;
+    ppDBText92: TppDBText;
+    ppGroupFooterBand7: TppGroupFooterBand;
+    ppDBCalc85: TppDBCalc;
+    ppLabel100: TppLabel;
+    ppVariable1: TppVariable;
+    ppDBCalc86: TppDBCalc;
+    ppLabel103: TppLabel;
+    ppLabel104: TppLabel;
+    ppDBCalc87: TppDBCalc;
+    ppDBCalc88: TppDBCalc;
     raCodeModule8: TraCodeModule;
     ppShape6: TppShape;
     ppTituloRel: TppLabel;
@@ -521,12 +546,6 @@ type
     raCodeModule5: TraCodeModule;
     lblFiltro: TppLabel;
     ppSystemVariable1: TppSystemVariable;
-    ppDetailBand18: TppDetailBand;
-    ppFooterBand7: TppFooterBand;
-    ppShape80: TppShape;
-    ppLabel211: TppLabel;
-    ppSystemVariable13: TppSystemVariable;
-    raCodeModule6: TraCodeModule;
     SubMotivoChamado: TppSubReport;
     ppChildReport7: TppChildReport;
     ppHeaderBand8: TppHeaderBand;
@@ -580,6 +599,12 @@ type
     ppDBCalc83: TppDBCalc;
     ppDBCalc84: TppDBCalc;
     raCodeModule7: TraCodeModule;
+    ppDetailBand18: TppDetailBand;
+    ppFooterBand7: TppFooterBand;
+    ppShape80: TppShape;
+    ppLabel211: TppLabel;
+    ppSystemVariable13: TppSystemVariable;
+    raCodeModule6: TraCodeModule;
     procedure BtnOkClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn2Click(Sender: TObject);
@@ -591,6 +616,7 @@ type
     function CompletaWhere(sFiltro, texto:string):string;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ppHeaderBand6BeforePrint(Sender: TObject);
+    procedure qAtendimento_SintCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
     sqlOriginal : string;
@@ -816,37 +842,37 @@ begin
 
   if (rdTecnico.checked) then
   begin
-    sOrder := ' order by mec_nome, ofc_codigo ';
+    sOrder := ' order by mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubTecnico.Visible := true;
   end
   else if (rdRegiao.checked) then
   begin
-    sOrder := ' order by reg_descricao, ofc_codigo ';
+    sOrder := ' order by reg_descricao, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubRegiao.Visible := true;
   end
   else if (rdMarca.checked) then
   begin
-    sOrder := ' order by mrc_nome, ofc_codigo ';
+    sOrder := ' order by mrc_nome, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubMarca.Visible := true;
   end
   else if (rdModelo.checked) then
   begin
-    sOrder := ' order by mdl_nome, ofc_codigo ';
+    sOrder := ' order by mdl_nome, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubModelo.Visible := true;
   end
   else if (rdEquipamento.checked) then
   begin
-    sOrder := ' order by   PRD_NOME, ofc_codigo ';
+    sOrder := ' order by   PRD_NOME, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubEquipamento.Visible := true;
   end
   else if (rdCliente.checked) then
   begin
-    sOrder := ' order by  CLI_NOME_RAZAO, ofc_codigo ';
+    sOrder := ' order by  CLI_NOME_RAZAO, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubCliente.Visible := true;
   end
   else if (rdMotivoChamado.checked) then
   begin
-    sOrder := ' order by  MTC_NOME, ofc_codigo ';
+    sOrder := ' order by  MTC_NOME, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubMotivoChamado.Visible := true;
   end;
 
@@ -1041,5 +1067,38 @@ begin
 end;
 
 
+
+procedure TFRel_Rechamados.qAtendimento_SintCalcFields(DataSet: TDataSet);
+var
+  DATA_INI  , DATA_FIM,
+  HORA_INI  , HORA_FIM,
+  INTER_INI , INTER_FIM,
+  TRAB_INI  , TRAB_FIM : STRING;
+begin
+  //-->> Pega o tempo de resposta para cada contrato com seu respectivo produto
+
+
+    DATA_INI := DateToStr(qAtendimento_SintOFC_DT_ENTRADA.asDateTime); //
+    DATA_FIM := DateToStr(qAtendimento_SintDT_INICIAL.asDateTime);
+
+    if StrtoDate(DATA_INI) > StrtoDate(DATA_FIM) then //
+    begin
+      qAtendimento_SintTEMPO_DECORRIDO_RESP.Value := 0;
+      //dtListCP_TEMPO_RESPOSTA.value := 10;
+      exit;
+    end;
+
+
+    HORA_INI := TimeToStr(qAtendimento_SintOFC_HR_ENTRADA.value);
+    HORA_FIM := TimeToStr(qAtendimento_SintHR_INICIAL.value);
+    INTER_INI:= '11:00:00';
+    INTER_FIM:= '13:00:00';
+    TRAB_INI := '08:00:00';
+    TRAB_FIM := '18:00:00';
+    qAtendimento_SintTEMPO_DECORRIDO_RESP.Value    := HORAS_CORRIDA(DATA_INI  , DATA_FIM,
+                                                            HORA_INI  , HORA_FIM,
+                                                            INTER_INI , INTER_FIM,
+                                                            TRAB_INI  , TRAB_FIM);
+end;
 
 end.

@@ -439,7 +439,9 @@ begin
       h1 := h1 + h2 + strtofloat(aux2)+ strtofloat(aux1);
       //-->> horas uteis
       h4 := (DifDateUtil(DATA_INI,DATA_FIM) - 1) * 8;
-    end;
+    end
+    else
+      h1 := h1 + strtofloat(aux1);
 
     RESULT := (h1 + h4 - h3);
 end;

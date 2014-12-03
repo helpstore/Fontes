@@ -1,6 +1,6 @@
 object frmCadPadraoMaster: TfrmCadPadraoMaster
-  Left = 18
-  Top = 53
+  Left = 19
+  Top = 58
   Width = 669
   Height = 517
   Caption = 'frmCadPadraoMaster'
@@ -24,7 +24,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
     Top = 0
     Width = 653
     Height = 453
-    ActivePage = tbsEdita
+    ActivePage = tbsLista
     Align = alClient
     TabOrder = 0
     OnChange = pgcCadastroChange

@@ -73,259 +73,259 @@ inherited frmCadOS: TfrmCadOS
             DataBinding.FieldName = 'OFC_HR_FECHAMENTO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 7
+            Position.ColIndex = 10
             Position.RowIndex = 0
           end
           object TVRegistroOFC_DATA_FECHAMENTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OFC_DATA_FECHAMENTO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 8
+            Position.ColIndex = 11
             Position.RowIndex = 0
           end
           object TVRegistroOFC_TOTAL: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OFC_TOTAL'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 9
+            Position.ColIndex = 12
             Position.RowIndex = 0
           end
           object TVRegistroOFC_SOLICITANTE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OFC_SOLICITANTE'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 10
+            Position.ColIndex = 13
             Position.RowIndex = 0
           end
           object TVRegistroOFC_VENDA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OFC_VENDA'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 11
+            Position.ColIndex = 14
             Position.RowIndex = 0
           end
           object TVRegistroOFC_KM_RODADO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OFC_KM_RODADO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 12
+            Position.ColIndex = 9
             Position.RowIndex = 0
           end
           object TVRegistroOFC_HORAS_TRABALHADAS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OFC_HORAS_TRABALHADAS'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 13
+            Position.ColIndex = 15
             Position.RowIndex = 0
           end
           object TVRegistroMEC_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MEC_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 14
+            Position.ColIndex = 16
             Position.RowIndex = 0
           end
           object TVRegistroMEC_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MEC_NOME'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 15
+            Position.ColIndex = 17
             Position.RowIndex = 0
           end
           object TVRegistroDEF_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DEF_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 16
+            Position.ColIndex = 18
             Position.RowIndex = 0
           end
           object TVRegistroDEF_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DEF_NOME'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 17
+            Position.ColIndex = 19
             Position.RowIndex = 0
           end
           object TVRegistroMTC_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MTC_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 18
+            Position.ColIndex = 20
             Position.RowIndex = 0
           end
           object TVRegistroMTC_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MTC_NOME'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 19
+            Position.ColIndex = 21
             Position.RowIndex = 0
           end
           object TVRegistroTPA_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TPA_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 20
+            Position.ColIndex = 22
             Position.RowIndex = 0
           end
           object TVRegistroTPA_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TPA_NOME'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 21
+            Position.ColIndex = 23
             Position.RowIndex = 0
           end
           object TVRegistroST_COR: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_COR'
             OnCustomDrawCell = TVRegistroST_CORCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 22
+            Position.ColIndex = 24
             Position.RowIndex = 0
           end
           object TVRegistroST_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_NOME'
             OnCustomDrawCell = TVRegistroST_CORCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 23
+            Position.ColIndex = 25
             Position.RowIndex = 0
           end
           object TVRegistroCLI_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CLI_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 24
+            Position.ColIndex = 26
             Position.RowIndex = 0
           end
           object TVRegistroCLI_NOME_RAZAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CLI_NOME_RAZAO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 25
+            Position.ColIndex = 27
             Position.RowIndex = 0
           end
           object TVRegistroREG_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'REG_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 26
+            Position.ColIndex = 28
             Position.RowIndex = 0
           end
           object TVRegistroREG_DESCRICAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'REG_DESCRICAO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 27
+            Position.ColIndex = 29
             Position.RowIndex = 0
           end
           object TVRegistroPRD_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PRD_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 28
+            Position.ColIndex = 30
             Position.RowIndex = 0
           end
           object TVRegistroPRD_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PRD_NOME'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 29
+            Position.ColIndex = 31
             Position.RowIndex = 0
           end
           object TVRegistroPRD_SERIE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PRD_SERIE'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 30
+            Position.ColIndex = 32
             Position.RowIndex = 0
           end
           object TVRegistroMDL_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MDL_CODIGO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 31
+            Position.ColIndex = 33
             Position.RowIndex = 0
           end
           object TVRegistroMDL_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MDL_NOME'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 32
+            Position.ColIndex = 34
             Position.RowIndex = 0
           end
           object TVRegistroCP_COD_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CP_COD_CONTRATO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 33
+            Position.ColIndex = 35
             Position.RowIndex = 0
           end
           object TVRegistroTPC_NOME: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TPC_NOME'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 34
+            Position.ColIndex = 36
             Position.RowIndex = 0
           end
           object TVRegistroCIDADE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CIDADE'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 35
+            Position.ColIndex = 37
             Position.RowIndex = 0
           end
           object TVRegistroID_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ID_CONTRATO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 36
+            Position.ColIndex = 38
             Position.RowIndex = 0
           end
           object TVRegistroCP_TEMPO_RESPOSTA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CP_TEMPO_RESPOSTA'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 37
+            Position.ColIndex = 39
             Position.RowIndex = 0
           end
           object TVRegistroCUSTO_OS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CUSTO_OS'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 38
+            Position.ColIndex = 40
             Position.RowIndex = 0
           end
           object TVRegistroINFORMACOES: TcxGridDBBandedColumn
             DataBinding.FieldName = 'INFORMACOES'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 39
+            Position.ColIndex = 41
             Position.RowIndex = 0
           end
           object TVRegistroOBS_FECHAMENTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'OBS_FECHAMENTO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 40
+            Position.ColIndex = 42
             Position.RowIndex = 0
           end
           object TVRegistroVEICULO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'VEICULO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 41
+            Position.ColIndex = 43
             Position.RowIndex = 0
           end
           object TVRegistroPLACA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'PLACA'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 42
+            Position.ColIndex = 44
             Position.RowIndex = 0
           end
           object TVRegistroMAP_LAT: TcxGridDBBandedColumn
             DataBinding.FieldName = 'MAP_LAT'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 43
+            Position.ColIndex = 45
             Position.RowIndex = 0
           end
           object TVRegistroMAP_LONG: TcxGridDBBandedColumn
@@ -333,84 +333,96 @@ inherited frmCadOS: TfrmCadOS
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Width = 942
             Position.BandIndex = 0
-            Position.ColIndex = 44
+            Position.ColIndex = 46
             Position.RowIndex = 0
           end
           object TVRegistroDT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DT_CILINDRO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 45
+            Position.ColIndex = 47
             Position.RowIndex = 0
           end
           object TVRegistroCT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CT_CILINDRO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 46
+            Position.ColIndex = 48
             Position.RowIndex = 0
           end
           object TVRegistroULT_DT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ULT_DT_CILINDRO'
             OnCustomDrawCell = TVRegistroDT_CILINDROCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 47
+            Position.ColIndex = 49
             Position.RowIndex = 0
           end
           object TVRegistroULT_CT_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ULT_CT_CILINDRO'
             OnCustomDrawCell = TVRegistroDT_CILINDROCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 48
+            Position.ColIndex = 50
             Position.RowIndex = 0
           end
           object TVRegistroCONTADOR_TOTAL: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CONTADOR_TOTAL'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 49
+            Position.ColIndex = 51
             Position.RowIndex = 0
           end
           object TVRegistroCT_CILINDRO_SALDO_DIAS: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CT_CILINDRO_SALDO_DIAS'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 50
+            Position.ColIndex = 52
             Position.RowIndex = 0
           end
           object TVRegistroCT_CILINDRO_SALDO_CONTADOR: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CT_CILINDRO_SALDO_CONTADOR'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 51
+            Position.ColIndex = 53
             Position.RowIndex = 0
           end
           object TVRegistroTEMPO_GASTO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TEMPO_GASTO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 52
+            Position.ColIndex = 54
             Position.RowIndex = 0
           end
           object TVRegistroTROCA_CILINDRO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TROCA_CILINDRO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 53
+            Position.ColIndex = 55
             Position.RowIndex = 0
           end
           object TVRegistroTROCA_BELT: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TROCA_BELT'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 54
+            Position.ColIndex = 56
             Position.RowIndex = 0
           end
           object TVRegistroTROCA_FUSAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TROCA_FUSAO'
             OnCustomDrawCell = TVRegistroOFC_CODIGOCustomDrawCell
             Position.BandIndex = 0
-            Position.ColIndex = 55
+            Position.ColIndex = 57
+            Position.RowIndex = 0
+          end
+          object TVRegistroKM_INICIAL: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'KM_INICIAL'
+            Position.BandIndex = 0
+            Position.ColIndex = 7
+            Position.RowIndex = 0
+          end
+          object TVRegistroKM_FINAL: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'KM_FINAL'
+            Position.BandIndex = 0
+            Position.ColIndex = 8
             Position.RowIndex = 0
           end
         end
@@ -4127,6 +4139,8 @@ inherited frmCadOS: TfrmCadOS
       'ofc.ult_dt_cilindro,'
       'ofc.ult_ct_cilindro,'
       'ofc.contador_total,'
+      'ofc.km_inicial,'
+      'ofc.km_final,'
       ''
       'case '
       
@@ -4513,6 +4527,16 @@ inherited frmCadOS: TfrmCadOS
       Required = True
       FixedChar = True
       Size = 14
+    end
+    object dtListKM_INICIAL: TFloatField
+      DisplayLabel = 'KM Inicial'
+      FieldName = 'KM_INICIAL'
+      Origin = '"OFC_ORDEM_SERVICO"."KM_INICIAL"'
+    end
+    object dtListKM_FINAL: TFloatField
+      DisplayLabel = 'KM Final'
+      FieldName = 'KM_FINAL'
+      Origin = '"OFC_ORDEM_SERVICO"."KM_FINAL"'
     end
   end
   inherited dxBarManager: TdxBarManager
@@ -5149,6 +5173,76 @@ inherited frmCadOS: TfrmCadOS
       end
       item
         Component = TVRegistroINFORMACOES
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroKM_FINAL
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroKM_INICIAL
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'
@@ -8676,6 +8770,7 @@ inherited frmCadOS: TfrmCadOS
     end
   end
   object Timer: TTimer
+    Enabled = False
     Interval = 120000
     OnTimer = TimerTimer
     Left = 977
@@ -9428,7 +9523,7 @@ inherited frmCadOS: TfrmCadOS
     DataPipeline = ppHistEquip
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PaperName = 'A4 210x297 mm'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350

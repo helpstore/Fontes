@@ -2,8 +2,7 @@ object DMRelatorios: TDMRelatorios
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Left = 1
-  Top = 2
-  Height = 758
+  Height = 728
   Width = 1278
   object SelProdutos: TIBQuery
     Database = DmApp.Database

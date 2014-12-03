@@ -23,7 +23,7 @@ uses
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView, cxGrid,
   cxPC, cxCheckBox, cxImage, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
   cxDBLookupEdit, cxDBLookupComboBox, Menus, StdCtrls, cxButtons, cxCalc,
-  cxCalendar, cxMemo;
+  cxCalendar, cxMemo, cxDBLabel, cxGroupBox;
 
 type
   TfrmCadProdutos = class(TfrmCadPadraoMaster)
@@ -777,6 +777,25 @@ type
     dtListIMG_4: TBlobField;
     dtListCODIGO_FABRICANTE: TIBStringField;
     dtListBCH_CODIGO: TIntegerField;
+    cxGroupBox1: TcxGroupBox;
+    cxDBLabel1: TcxDBLabel;
+    dtEditQTD_UM: TFloatField;
+    cxDBLabel2: TcxDBLabel;
+    cxDBLabel3: TcxDBLabel;
+    cxDBLabel4: TcxDBLabel;
+    cxDBLabel5: TcxDBLabel;
+    cxLabel95: TcxLabel;
+    cxLabel96: TcxLabel;
+    cxLabel97: TcxLabel;
+    dtEditEstoque_Fisico: TFloatField;
+    QryUnidades: TIBQuery;
+    DsUnidades: TDataSource;
+    QryUnidadesCNPJ: TIBStringField;
+    QryUnidadesSIGLA: TIBStringField;
+    QryUnidadesNOME: TIBStringField;
+    QryUnidadesUNIDADES: TFloatField;
+    dtEditQTD_UNIT: TFloatField;
+    ActIncluirModelo: TAction;
     procedure ActCadLookupExecute(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure BtnGruposClick(Sender: TObject);
@@ -812,6 +831,8 @@ type
     procedure BtnPerfilGradeClick(Sender: TObject);
     procedure BtnFornecedoresClick(Sender: TObject);
     procedure dtEditDet1NewRecord(DataSet: TDataSet);
+    procedure dtEditCalcFields(DataSet: TDataSet);
+    procedure ActIncluirModeloExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -826,7 +847,7 @@ implementation
 uses UntCadSecoesProdutos, UntCadModelo, UntCadMarcas, UntCadMaterial,
   untCadUnidadesMedidas, UntCadCor, Application_DM, UntCadGrupos,
   UntCadLocalizacaoEstoque, UntCadTecnicos, untCadFornecedores,
-  UntCadReducoes, UntCadPerfilGrades;
+  UntCadReducoes, UntCadPerfilGrades, Funcoes;
 
 {$R *.dfm}
 
@@ -1288,6 +1309,69 @@ begin
   dtEditDet2PRODUTO.value := dtEditCODIGO.value;
   dtEditDet3PRODUTO.value := dtEditCODIGO.value;
   dtEditDet6PRODUTO.value := dtEditCODIGO.value;
+end;
+
+procedure TfrmCadProdutos.dtEditCalcFields(DataSet: TDataSet);
+begin
+  inherited;
+  If (dtEditUNIDADE.Value <> dtEditUNIDADE.OldValue) Or (dtEditQTD_UM.IsNull) Or (dtEditQTD_UNIT.IsNull)  Then
+  begin
+    if QryUnidades.Active then
+    begin
+      If QryUnidadesSIGLA.Value <> dtEditUNIDADE.Value Then
+        QryUnidades.Locate('SIGLA', dtEditUNIDADE.Value, []);
+    end;
+
+    If dtEditSUBUNIDADE.Value > 0  then
+       dtEditQTD_UM.Value   := arredonda((dtEditQTDADE_2.Value / dtEditSUBUNIDADE.Value),2)
+    else
+       dtEditQTD_UM.Value   := arredonda(dtEditQTDADE_2.Value,2);
+
+    dtEditQTD_UNIT.Value := dtEditQTDADE_2.Value - (dtEditQTD_UM.Value * dtEditSUBUNIDADE.VALUE);
+  end;
+end;
+
+procedure TfrmCadProdutos.ActIncluirModeloExecute(Sender: TObject);
+var
+   Complemento,Possui_Lote, Debita_ICMS, Complemento_NF, Pesavel, Servico,
+   Vende_Fracionado, Nome,codigo, Unidade, ECF, ETIQUETA, ESTNEG: String;
+   Marca, Modelo, Reducao, secao, xcor, xmaterial, SubUnidade, GRUPO, SUBGRUPO,CTE, CTIE, ORIGEM: Integer;
+   Est_Minimo, Est_Maximo: real;
+begin
+  inherited;
+    
+  ActInsert.execute;
+
+  dtListNOME.value              := dtListNOME.value ;
+  dtListUNIDADE.value           := dtListUNIDADE.value;
+  dtListCTE.value               := dtListCTE.value;
+  dtListCTIE.value              := dtListCTIE.value;
+  dtListORIGEM.value            := dtListORIGEM.value;
+  dtListALIQUOTA_ECF.value      := dtListALIQUOTA_ECF.value;
+  dtListETIQUETA_ENT.value      := dtListETIQUETA_ENT.value;
+  dtListNEG_QTDADE_2.value      := dtListNEG_QTDADE_2.value;
+  dtListMARCA.value             := dtListMARCA.value;
+  dtListSECAO.value             := dtListSECAO.value;
+
+  if dtListModelo.value > 0 then
+    dtListModelo.value          := dtListModelo.value;
+    
+  dtListREDUCAO.value           := dtListREDUCAO.value;
+  dtListSUBUNIDADE.value        := dtListSUBUNIDADE.value;
+  dtListGRUPO.value             := dtListGRUPO.value;
+  dtListSUBGRUPO.value          := dtListSUBGRUPO.value;
+  dtListCOMPLEMENTO.value       := dtListCOMPLEMENTO.value;
+  dtListPOSSUI_LOTE.value       := dtListPOSSUI_LOTE.value;
+  dtListDEBITA_ICMS.value       := dtListDEBITA_ICMS.value;
+  dtListCOMPLEMENTO_NF.value    := dtListCOMPLEMENTO_NF.value;
+  dtListPROD_PESAVEL.value      := dtListPROD_PESAVEL.value;
+  dtListSERVICO.value           := dtListSERVICO.value;
+  dtListCOR.value               := dtListCOR.value;
+  dtListMATERIAL.value          := dtListMATERIAL.value;
+  dtListVENDE_FRACIONADO.value  := dtListVENDE_FRACIONADO.value;
+  dtListEST_MIN.value           := dtListEST_MIN.value;
+  dtListEST_MAX.value           := dtListEST_MAX.value;
+
 end;
 
 end.

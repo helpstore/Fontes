@@ -1,6 +1,6 @@
 object FRel_Rechamados: TFRel_Rechamados
-  Left = 287
-  Top = 133
+  Left = 306
+  Top = 136
   BorderStyle = bsDialog
   Caption = 'Relat'#243'rio de Atendimentos'
   ClientHeight = 515
@@ -1026,9 +1026,10 @@ object FRel_Rechamados: TFRel_Rechamados
   object qAtendimento_Sint: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    OnCalcFields = qAtendimento_SintCalcFields
     Active = True
     SQL.Strings = (
-      'select * '
+      'select *'
       
         'from PCD_LST_ATENDIMENTO_OS_SINT(:cnpj,:DATA_Ini, :DATA_Fim,  :T' +
         'P_DATA, '
@@ -1045,7 +1046,7 @@ object FRel_Rechamados: TFRel_Rechamados
       ':PR_STATUS ,'
       ':PR_TECNICO)'
       'pcd ')
-    Left = 356
+    Left = 360
     Top = 3
     ParamData = <
       item
@@ -1140,23 +1141,9 @@ object FRel_Rechamados: TFRel_Rechamados
       FieldName = 'OFC_DT_ENTRADA'
       Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_DT_ENTRADA"'
     end
-    object qAtendimento_SintOFC_HR_ENTRADA: TDateTimeField
-      FieldName = 'OFC_HR_ENTRADA'
-      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_HR_ENTRADA"'
-      EditMask = '!90:00;1;_'
-    end
     object qAtendimento_SintOFC_DT_ATRIBUICAO: TDateField
       FieldName = 'OFC_DT_ATRIBUICAO'
       Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_DT_ATRIBUICAO"'
-    end
-    object qAtendimento_SintOFC_HR_ATRIBUICAO: TDateTimeField
-      FieldName = 'OFC_HR_ATRIBUICAO'
-      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_HR_ATRIBUICAO"'
-      EditMask = '!90:00;1;_'
-    end
-    object qAtendimento_SintOFC_DATA_FECHAMENTO: TDateField
-      FieldName = 'OFC_DATA_FECHAMENTO'
-      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_DATA_FECHAMENTO"'
     end
     object qAtendimento_SintOFC_TOTAL: TIBBCDField
       FieldName = 'OFC_TOTAL'
@@ -1318,18 +1305,9 @@ object FRel_Rechamados: TFRel_Rechamados
       FixedChar = True
       Size = 1
     end
-    object qAtendimento_SintOFC_DT_FECHAMENTO: TDateField
-      FieldName = 'OFC_DT_FECHAMENTO'
-      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_DT_FECHAMENTO"'
-    end
     object qAtendimento_SintOFC_DT_SOLICITACAO: TDateField
       FieldName = 'OFC_DT_SOLICITACAO'
       Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_DT_SOLICITACAO"'
-    end
-    object qAtendimento_SintREG_NOME: TIBStringField
-      FieldName = 'REG_NOME'
-      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."REG_NOME"'
-      Size = 50
     end
     object qAtendimento_SintBAIRRO: TIBStringField
       FieldName = 'BAIRRO'
@@ -1363,12 +1341,67 @@ object FRel_Rechamados: TFRel_Rechamados
       Precision = 18
       Size = 4
     end
+    object qAtendimento_SintKM_INICIAL: TIBBCDField
+      FieldName = 'KM_INICIAL'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."KM_INICIAL"'
+      Precision = 18
+      Size = 4
+    end
+    object qAtendimento_SintKM_FINAL: TIBBCDField
+      FieldName = 'KM_FINAL'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."KM_FINAL"'
+      Precision = 18
+      Size = 4
+    end
+    object qAtendimento_SintOFC_HR_ENTRADA: TTimeField
+      FieldName = 'OFC_HR_ENTRADA'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_HR_ENTRADA"'
+    end
+    object qAtendimento_SintOFC_HR_ATRIBUICAO: TTimeField
+      FieldName = 'OFC_HR_ATRIBUICAO'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_HR_ATRIBUICAO"'
+    end
+    object qAtendimento_SintDT_INICIAL: TDateField
+      FieldName = 'DT_INICIAL'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."DT_INICIAL"'
+    end
+    object qAtendimento_SintHR_INICIAL: TTimeField
+      FieldName = 'HR_INICIAL'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."HR_INICIAL"'
+    end
+    object qAtendimento_SintDT_FINAL: TDateField
+      FieldName = 'DT_FINAL'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."DT_FINAL"'
+    end
+    object qAtendimento_SintHR_FINAL: TTimeField
+      FieldName = 'HR_FINAL'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."HR_FINAL"'
+    end
+    object qAtendimento_SintTEMPO_DECORRIDO_RESP: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'TEMPO_DECORRIDO_RESP'
+      Calculated = True
+    end
+    object qAtendimento_SintKM_NAO_UTILIZADO: TIBBCDField
+      FieldName = 'KM_NAO_UTILIZADO'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."KM_NAO_UTILIZADO"'
+      Precision = 18
+      Size = 4
+    end
+    object qAtendimento_SintOFC_DATA_FECHAMENTO: TDateField
+      FieldName = 'OFC_DATA_FECHAMENTO'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."OFC_DATA_FECHAMENTO"'
+    end
+    object qAtendimento_SintHR_TRABALHADAS_TMP_VIAJEM: TFloatField
+      FieldName = 'HR_TRABALHADAS_TMP_VIAJEM'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."HR_TRABALHADAS_TMP_VIAJEM"'
+    end
   end
   object rptAtendimento: TppReport
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
     PrinterSetup.Orientation = poLandscape
-    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PaperName = 'A4 210x297 mm'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
@@ -1379,11 +1412,10 @@ object FRel_Rechamados: TFRel_Rechamados
     PrinterSetup.mmPaperWidth = 297000
     PrinterSetup.PaperSize = 9
     Template.DatabaseSettings.DataPipeline = ppLayout
+    Template.DatabaseSettings.Name = 'tmp_ocioso'
     Template.DatabaseSettings.NameField = 'RELATORIO'
     Template.DatabaseSettings.TemplateField = 'CONFIG'
-    Template.FileName = 
-      'C:\Users\Fabiano\Desktop\Update Sistemaq\Relat'#243'rio de Atendiment' +
-      'os.rtm'
+    Template.FileName = 'C:\Users\Fabiano\Desktop\Relat'#243'rio de Atendimentos.rtm'
     Template.SaveTo = stDatabase
     Template.Format = ftASCII
     AllowPrintToArchive = True
@@ -1444,7 +1476,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -1640,7 +1672,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 PrinterSetup.BinName = 'Default'
                 PrinterSetup.DocumentName = 'Report'
                 PrinterSetup.Orientation = poLandscape
-                PrinterSetup.PaperName = 'A4'
+                PrinterSetup.PaperName = 'A4 210x297 mm'
                 PrinterSetup.PrinterName = 'Default'
                 PrinterSetup.SaveDeviceSettings = False
                 PrinterSetup.mmMarginBottom = 6350
@@ -2773,7 +2805,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -2910,7 +2942,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Border.Style = psSolid
               Border.Visible = False
               Border.Weight = 1.000000000000000000
-              Caption = 'Mtv. Chamado'
+              Caption = 'KM Inicial'
               Ellipsis = False
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
@@ -2918,32 +2950,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Size = 8
               Font.Style = [fsBold]
               Transparent = True
-              mmHeight = 3440
+              mmHeight = 3387
               mmLeft = 42598
               mmTop = 1323
-              mmWidth = 20638
-              BandType = 0
-            end
-            object ppLabel17: TppLabel
-              UserName = 'Label17'
-              HyperlinkColor = clBlue
-              AutoSize = False
-              Border.BorderPositions = []
-              Border.Color = clBlack
-              Border.Style = psSolid
-              Border.Visible = False
-              Caption = 'Executado'
-              Ellipsis = False
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Name = 'Arial'
-              Font.Size = 8
-              Font.Style = [fsBold]
-              Transparent = True
-              mmHeight = 3440
-              mmLeft = 85196
-              mmTop = 1058
-              mmWidth = 24077
+              mmWidth = 13335
               BandType = 0
             end
             object ppLabel19: TppLabel
@@ -3055,6 +3065,72 @@ object FRel_Rechamados: TFRel_Rechamados
               mmWidth = 21167
               BandType = 0
             end
+            object ppLabel17: TppLabel
+              UserName = 'Label17'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'KM Final'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 56621
+              mmTop = 1323
+              mmWidth = 12700
+              BandType = 0
+            end
+            object ppLabel101: TppLabel
+              UserName = 'Label101'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'hr trabalhadas'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 70379
+              mmTop = 1058
+              mmWidth = 12700
+              BandType = 0
+            end
+            object ppLabel102: TppLabel
+              UserName = 'Label2'
+              HyperlinkColor = clBlue
+              AutoSize = False
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              Caption = 'tmp viajem'
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = [fsBold]
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 83608
+              mmTop = 1058
+              mmWidth = 12700
+              BandType = 0
+            end
           end
           object ppDetailBand27: TppDetailBand
             Background1.Brush.Style = bsClear
@@ -3091,7 +3167,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 8996
               mmTop = 0
-              mmWidth = 12023
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText253: TppDBText
@@ -3114,9 +3190,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 24342
+              mmLeft = 26194
               mmTop = 0
-              mmWidth = 11134
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText254: TppDBText
@@ -3141,7 +3217,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 1058
               mmTop = 0
-              mmWidth = 6773
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText256: TppDBText
@@ -3166,7 +3242,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 263790
               mmTop = 0
-              mmWidth = 24680
+              mmWidth = 550
               BandType = 4
             end
             object ppDBText257: TppDBText
@@ -3177,7 +3253,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Border.Style = psSolid
               Border.Visible = False
               Border.Weight = 1.000000000000000000
-              DataField = 'MTC_NOME'
+              DataField = 'KM_INICIAL'
               DataPipeline = ppAtendimento
               Ellipsis = False
               Font.Charset = DEFAULT_CHARSET
@@ -3190,7 +3266,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2910
               mmLeft = 42598
               mmTop = 0
-              mmWidth = 36777
+              mmWidth = 13229
               BandType = 4
             end
             object ppDBText245: TppDBText
@@ -3316,7 +3392,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Border.Color = clBlack
               Border.Style = psSolid
               Border.Visible = False
-              DataField = 'TPA_NOME'
+              DataField = 'KM_FINAL'
               DataPipeline = ppAtendimento
               Ellipsis = False
               Font.Charset = DEFAULT_CHARSET
@@ -3326,10 +3402,56 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 3175
-              mmLeft = 84138
+              mmHeight = 2910
+              mmLeft = 56621
               mmTop = 0
-              mmWidth = 28840
+              mmWidth = 12700
+              BandType = 4
+            end
+            object ppDBText93: TppDBText
+              UserName = 'DBText93'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'OFC_HORAS_TRABALHADAS'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 70379
+              mmTop = 0
+              mmWidth = 12700
+              BandType = 4
+            end
+            object ppDBText94: TppDBText
+              UserName = 'DBText94'
+              HyperlinkColor = clBlue
+              Border.BorderPositions = []
+              Border.Color = clBlack
+              Border.Style = psSolid
+              Border.Visible = False
+              DataField = 'OFC_TEMPO_VIAJEM'
+              DataPipeline = ppAtendimento
+              Ellipsis = False
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'ppAtendimento'
+              mmHeight = 2910
+              mmLeft = 83608
+              mmTop = 0
+              mmWidth = 12700
               BandType = 4
             end
           end
@@ -3567,22 +3689,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 4233
                 mmLeft = 2117
                 mmTop = 0
-                mmWidth = 42333
-                BandType = 3
-                GroupNo = 0
-              end
-              object ppLine74: TppLine
-                UserName = 'Line2'
-                Border.BorderPositions = []
-                Border.Color = clBlack
-                Border.Style = psSolid
-                Border.Visible = False
-                Border.Weight = 1.000000000000000000
-                Weight = 0.750000000000000000
-                mmHeight = 794
-                mmLeft = 6879
-                mmTop = 7938
-                mmWidth = 277548
+                mmWidth = 15610
                 BandType = 3
                 GroupNo = 0
               end
@@ -3606,9 +3713,24 @@ object FRel_Rechamados: TFRel_Rechamados
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
                 mmHeight = 3683
-                mmLeft = 2117
-                mmTop = 3969
-                mmWidth = 15663
+                mmLeft = 19050
+                mmTop = 0
+                mmWidth = 889
+                BandType = 3
+                GroupNo = 0
+              end
+              object ppLine27: TppLine
+                UserName = 'Line27'
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Weight = 0.750000000000000000
+                mmHeight = 794
+                mmLeft = 7144
+                mmTop = 6615
+                mmWidth = 277548
                 BandType = 3
                 GroupNo = 0
               end
@@ -3827,8 +3949,300 @@ object FRel_Rechamados: TFRel_Rechamados
               end
             end
           end
+          object ppGroup7: TppGroup
+            BreakName = 'OFC_DATA_FECHAMENTO'
+            DataPipeline = ppAtendimento
+            GroupFileSettings.NewFile = False
+            GroupFileSettings.EmailFile = False
+            KeepTogether = True
+            OutlineSettings.CreateNode = True
+            StartOnOddPage = False
+            UserName = 'Group7'
+            mmNewColumnThreshold = 0
+            mmNewPageThreshold = 0
+            DataPipelineName = 'ppAtendimento'
+            NewFile = False
+            object ppGroupHeaderBand7: TppGroupHeaderBand
+              mmBottomOffset = 0
+              mmHeight = 5556
+              mmPrintPosition = 0
+              object ppLine74: TppLine
+                UserName = 'Line2'
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Weight = 0.750000000000000000
+                mmHeight = 794
+                mmLeft = 6615
+                mmTop = 4498
+                mmWidth = 277548
+                BandType = 3
+                GroupNo = 1
+              end
+              object ppLabel99: TppLabel
+                UserName = 'Label99'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Caption = 'Dt de Fechamento:'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 10
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                mmHeight = 4106
+                mmLeft = 10054
+                mmTop = 0
+                mmWidth = 31708
+                BandType = 3
+                GroupNo = 1
+              end
+              object ppDBText92: TppDBText
+                UserName = 'DBText92'
+                HyperlinkColor = clBlue
+                AutoSize = True
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'OFC_DATA_FECHAMENTO'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 9
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3683
+                mmLeft = 42598
+                mmTop = 0
+                mmWidth = 889
+                BandType = 3
+                GroupNo = 1
+              end
+            end
+            object ppGroupFooterBand7: TppGroupFooterBand
+              HideWhenOneDetail = False
+              mmBottomOffset = 0
+              mmHeight = 4498
+              mmPrintPosition = 0
+              object ppDBCalc85: TppDBCalc
+                UserName = 'DBCalc2'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                DataField = 'PRD_CODIGO'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup7
+                Transparent = True
+                DBCalcType = dcCount
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3440
+                mmLeft = 33073
+                mmTop = 265
+                mmWidth = 17198
+                BandType = 5
+                GroupNo = 1
+              end
+              object ppLabel100: TppLabel
+                UserName = 'Label100'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Caption = 'Total DATA: '
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 9
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                mmHeight = 3683
+                mmLeft = 10054
+                mmTop = 0
+                mmWidth = 18627
+                BandType = 5
+                GroupNo = 1
+              end
+              object ppVariable1: TppVariable
+                UserName = 'Variable1'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                BlankWhenZero = False
+                CalcOrder = 0
+                DataType = dtExtended
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = []
+                Transparent = True
+                mmHeight = 3175
+                mmLeft = 135732
+                mmTop = 265
+                mmWidth = 11642
+                BandType = 5
+                GroupNo = 1
+              end
+              object ppDBCalc86: TppDBCalc
+                UserName = 'DBCalc3'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                DataField = 'HR_TRABALHADAS_TMP_VIAJEM'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = []
+                ResetGroup = ppGroup7
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3175
+                mmLeft = 211138
+                mmTop = 265
+                mmWidth = 17198
+                BandType = 5
+                GroupNo = 1
+              end
+              object ppLabel103: TppLabel
+                UserName = 'Label3'
+                HyperlinkColor = clBlue
+                AutoSize = False
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Caption = 'hr trabalhadas + tmp viajem:'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = [fsBold]
+                Transparent = True
+                mmHeight = 3440
+                mmLeft = 162719
+                mmTop = 265
+                mmWidth = 47625
+                BandType = 5
+                GroupNo = 1
+              end
+              object ppLabel104: TppLabel
+                UserName = 'Label104'
+                HyperlinkColor = clBlue
+                AutoSize = False
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Caption = 'Tempo Ocioso:'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = [fsBold]
+                Transparent = True
+                mmHeight = 3440
+                mmLeft = 111919
+                mmTop = 265
+                mmWidth = 22754
+                BandType = 5
+                GroupNo = 1
+              end
+              object ppDBCalc87: TppDBCalc
+                UserName = 'DBCalc4'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                DataField = 'OFC_HORAS_TRABALHADAS'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup7
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3440
+                mmLeft = 70379
+                mmTop = 794
+                mmWidth = 12700
+                BandType = 5
+                GroupNo = 1
+              end
+              object ppDBCalc88: TppDBCalc
+                UserName = 'DBCalc88'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                DataField = 'OFC_TEMPO_VIAJEM'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 8
+                Font.Style = [fsBold]
+                ResetGroup = ppGroup7
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3440
+                mmLeft = 83608
+                mmTop = 529
+                mmWidth = 12700
+                BandType = 5
+                GroupNo = 1
+              end
+            end
+          end
           object raCodeModule8: TraCodeModule
-            ProgramStream = {00}
+            ProgramStream = {
+              01060F5472614576656E7448616E646C65720B50726F6772616D4E616D65060F
+              5661726961626C65314F6E43616C630B50726F6772616D54797065070B747450
+              726F63656475726506536F75726365067B70726F636564757265205661726961
+              626C65314F6E43616C63287661722056616C75653A2056617269616E74293B0D
+              0A626567696E0D0A0D0A202056616C7565203A3D20204174656E64696D656E74
+              6F5B2748525F54524142414C48414441535F544D505F5649414A454D275D202D
+              20380D0A0D0A656E643B0D0A0D436F6D706F6E656E744E616D65060956617269
+              61626C6531094576656E744E616D6506064F6E43616C63074576656E74494402
+              210000}
           end
         end
       end
@@ -3912,7 +4326,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -5047,7 +5461,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -5393,7 +5807,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 171715
               mmTop = 265
-              mmWidth = 550
+              mmWidth = 18754
               BandType = 4
             end
             object ppDBText31: TppDBText
@@ -5493,9 +5907,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 208471
+              mmLeft = 204280
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText35: TppDBText
@@ -5547,9 +5961,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 253186
+              mmLeft = 248995
               mmTop = 265
-              mmWidth = 550
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText37: TppDBText
@@ -5573,9 +5987,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 262324
+              mmLeft = 258641
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 7916
               BandType = 4
             end
             object ppDBText38: TppDBText
@@ -5600,7 +6014,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 0
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 6773
               BandType = 4
             end
             object ppDBText39: TppDBText
@@ -5625,7 +6039,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 181769
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 24215
               BandType = 4
             end
             object ppDBText40: TppDBText
@@ -5674,9 +6088,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 235998
+              mmLeft = 231807
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 4741
               BandType = 4
             end
           end
@@ -5955,7 +6369,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmHeight = 3683
                 mmLeft = 21431
                 mmTop = 3969
-                mmWidth = 889
+                mmWidth = 19431
                 BandType = 3
                 GroupNo = 0
               end
@@ -6203,7 +6617,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -7405,7 +7819,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -8759,7 +9173,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -8816,7 +9230,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3440
-              mmLeft = 167217
+              mmLeft = 159544
               mmTop = 1323
               mmWidth = 10054
               BandType = 0
@@ -8860,7 +9274,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = [fsBold]
               Transparent = True
               mmHeight = 3439
-              mmLeft = 101336
+              mmLeft = 94721
               mmTop = 1323
               mmWidth = 12435
               BandType = 0
@@ -9103,9 +9517,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 171715
-              mmTop = 265
-              mmWidth = 550
+              mmLeft = 159544
+              mmTop = 0
+              mmWidth = 18754
               BandType = 4
             end
             object ppDBText80: TppDBText
@@ -9151,7 +9565,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2910
-              mmLeft = 101336
+              mmLeft = 94721
               mmTop = 0
               mmWidth = 61648
               BandType = 4
@@ -9205,9 +9619,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 208471
+              mmLeft = 204280
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText84: TppDBText
@@ -9259,9 +9673,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 253186
+              mmLeft = 248995
               mmTop = 265
-              mmWidth = 550
+              mmWidth = 4741
               BandType = 4
             end
             object ppDBText86: TppDBText
@@ -9285,9 +9699,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 262324
+              mmLeft = 258641
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 7916
               BandType = 4
             end
             object ppDBText87: TppDBText
@@ -9312,7 +9726,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 0
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 6773
               BandType = 4
             end
             object ppDBText88: TppDBText
@@ -9337,7 +9751,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2879
               mmLeft = 181769
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 24215
               BandType = 4
             end
             object ppDBText89: TppDBText
@@ -9386,9 +9800,9 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DataPipelineName = 'ppAtendimento'
               mmHeight = 2879
-              mmLeft = 235998
+              mmLeft = 231807
               mmTop = 0
-              mmWidth = 550
+              mmWidth = 4741
               BandType = 4
             end
           end
@@ -9592,7 +10006,7 @@ object FRel_Rechamados: TFRel_Rechamados
             end
           end
           object ppGroup6: TppGroup
-            BreakName = 'MDL_NOME'
+            BreakName = 'MTC_NOME'
             DataPipeline = ppAtendimento
             GroupFileSettings.NewFile = False
             GroupFileSettings.EmailFile = False
@@ -9658,16 +10072,15 @@ object FRel_Rechamados: TFRel_Rechamados
                 DataPipeline = ppAtendimento
                 Ellipsis = False
                 Font.Charset = DEFAULT_CHARSET
-                Font.Color = clBlack
+                Font.Color = clWindowText
                 Font.Name = 'Arial'
                 Font.Size = 9
                 Font.Style = [fsBold, fsItalic]
-                Transparent = True
                 DataPipelineName = 'ppAtendimento'
-                mmHeight = 3704
+                mmHeight = 3683
                 mmLeft = 41804
                 mmTop = 3175
-                mmWidth = 7673
+                mmWidth = 51604
                 BandType = 3
                 GroupNo = 0
               end
@@ -9700,7 +10113,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 Border.Style = psSolid
                 Border.Visible = False
                 Border.Weight = 1.000000000000000000
-                Caption = 'Total Modelo: '
+                Caption = 'Total Motivo: '
                 Ellipsis = False
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
@@ -9708,10 +10121,10 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 9
                 Font.Style = [fsBold, fsItalic]
                 Transparent = True
-                mmHeight = 3747
+                mmHeight = 3683
                 mmLeft = 794
                 mmTop = 1058
-                mmWidth = 21569
+                mmWidth = 20532
                 BandType = 5
                 GroupNo = 0
               end
@@ -9978,6 +10391,486 @@ object FRel_Rechamados: TFRel_Rechamados
     UserName = 'Atendimento'
     Left = 294
     Top = 3
+    object ppAtendimentoppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_CODIGO'
+      FieldName = 'OFC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppAtendimentoppField2: TppField
+      FieldAlias = 'OFC_DATA'
+      FieldName = 'OFC_DATA'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 1
+    end
+    object ppAtendimentoppField3: TppField
+      FieldAlias = 'OFC_DT_ENTRADA'
+      FieldName = 'OFC_DT_ENTRADA'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 2
+    end
+    object ppAtendimentoppField4: TppField
+      FieldAlias = 'OFC_DT_ATRIBUICAO'
+      FieldName = 'OFC_DT_ATRIBUICAO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 3
+    end
+    object ppAtendimentoppField5: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_TOTAL'
+      FieldName = 'OFC_TOTAL'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 4
+    end
+    object ppAtendimentoppField6: TppField
+      FieldAlias = 'OFC_SOLICITANTE'
+      FieldName = 'OFC_SOLICITANTE'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 5
+    end
+    object ppAtendimentoppField7: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_VENDA'
+      FieldName = 'OFC_VENDA'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 6
+    end
+    object ppAtendimentoppField8: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_KM_RODADO'
+      FieldName = 'OFC_KM_RODADO'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 7
+    end
+    object ppAtendimentoppField9: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_HORAS_TRABALHADAS'
+      FieldName = 'OFC_HORAS_TRABALHADAS'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 8
+    end
+    object ppAtendimentoppField10: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ST_CODIGO'
+      FieldName = 'ST_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 9
+    end
+    object ppAtendimentoppField11: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ST_COR'
+      FieldName = 'ST_COR'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 10
+    end
+    object ppAtendimentoppField12: TppField
+      FieldAlias = 'ST_NOME'
+      FieldName = 'ST_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 11
+    end
+    object ppAtendimentoppField13: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MEC_CODIGO'
+      FieldName = 'MEC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 12
+    end
+    object ppAtendimentoppField14: TppField
+      FieldAlias = 'MEC_NOME'
+      FieldName = 'MEC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 13
+    end
+    object ppAtendimentoppField15: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DEF_CODIGO'
+      FieldName = 'DEF_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 14
+    end
+    object ppAtendimentoppField16: TppField
+      FieldAlias = 'DEF_NOME'
+      FieldName = 'DEF_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 15
+    end
+    object ppAtendimentoppField17: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MTC_CODIGO'
+      FieldName = 'MTC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 16
+    end
+    object ppAtendimentoppField18: TppField
+      FieldAlias = 'MTC_NOME'
+      FieldName = 'MTC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 17
+    end
+    object ppAtendimentoppField19: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TPA_CODIGO'
+      FieldName = 'TPA_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 18
+    end
+    object ppAtendimentoppField20: TppField
+      FieldAlias = 'TPA_NOME'
+      FieldName = 'TPA_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 19
+    end
+    object ppAtendimentoppField21: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CODIGO'
+      FieldName = 'CLI_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 20
+    end
+    object ppAtendimentoppField22: TppField
+      FieldAlias = 'CLI_NOME_RAZAO'
+      FieldName = 'CLI_NOME_RAZAO'
+      FieldLength = 90
+      DisplayWidth = 90
+      Position = 21
+    end
+    object ppAtendimentoppField23: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'REG_CODIGO'
+      FieldName = 'REG_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 22
+    end
+    object ppAtendimentoppField24: TppField
+      FieldAlias = 'REG_DESCRICAO'
+      FieldName = 'REG_DESCRICAO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 23
+    end
+    object ppAtendimentoppField25: TppField
+      FieldAlias = 'PRD_CODIGO'
+      FieldName = 'PRD_CODIGO'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 24
+    end
+    object ppAtendimentoppField26: TppField
+      FieldAlias = 'PRD_NOME'
+      FieldName = 'PRD_NOME'
+      FieldLength = 90
+      DisplayWidth = 90
+      Position = 25
+    end
+    object ppAtendimentoppField27: TppField
+      FieldAlias = 'PRD_SERIE'
+      FieldName = 'PRD_SERIE'
+      FieldLength = 30
+      DisplayWidth = 30
+      Position = 26
+    end
+    object ppAtendimentoppField28: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MDL_CODIGO'
+      FieldName = 'MDL_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 27
+    end
+    object ppAtendimentoppField29: TppField
+      FieldAlias = 'MDL_NOME'
+      FieldName = 'MDL_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 28
+    end
+    object ppAtendimentoppField30: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MRC_CODIGO'
+      FieldName = 'MRC_CODIGO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 29
+    end
+    object ppAtendimentoppField31: TppField
+      FieldAlias = 'MRC_NOME'
+      FieldName = 'MRC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 30
+    end
+    object ppAtendimentoppField32: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CP_COD_CONTRATO'
+      FieldName = 'CP_COD_CONTRATO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 31
+    end
+    object ppAtendimentoppField33: TppField
+      FieldAlias = 'TPC_NOME'
+      FieldName = 'TPC_NOME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 32
+    end
+    object ppAtendimentoppField34: TppField
+      FieldAlias = 'TP_ATENDIMENTO'
+      FieldName = 'TP_ATENDIMENTO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 33
+    end
+    object ppAtendimentoppField35: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ID_CONTRATO'
+      FieldName = 'ID_CONTRATO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 34
+    end
+    object ppAtendimentoppField36: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'COD_CIDADE'
+      FieldName = 'COD_CIDADE'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 35
+    end
+    object ppAtendimentoppField37: TppField
+      FieldAlias = 'CIDADE'
+      FieldName = 'CIDADE'
+      FieldLength = 70
+      DisplayWidth = 70
+      Position = 36
+    end
+    object ppAtendimentoppField38: TppField
+      FieldAlias = 'TECNICO_ATDD'
+      FieldName = 'TECNICO_ATDD'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 37
+    end
+    object ppAtendimentoppField39: TppField
+      FieldAlias = 'OFC_DT_SOLICITACAO'
+      FieldName = 'OFC_DT_SOLICITACAO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 38
+    end
+    object ppAtendimentoppField40: TppField
+      FieldAlias = 'BAIRRO'
+      FieldName = 'BAIRRO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 39
+    end
+    object ppAtendimentoppField41: TppField
+      FieldAlias = 'ENDERECO'
+      FieldName = 'ENDERECO'
+      FieldLength = 100
+      DisplayWidth = 100
+      Position = 40
+    end
+    object ppAtendimentoppField42: TppField
+      FieldAlias = 'FONE'
+      FieldName = 'FONE'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 41
+    end
+    object ppAtendimentoppField43: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CP_TEMPO_RESPOSTA'
+      FieldName = 'CP_TEMPO_RESPOSTA'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 42
+    end
+    object ppAtendimentoppField44: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OFC_TEMPO_VIAJEM'
+      FieldName = 'OFC_TEMPO_VIAJEM'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 43
+    end
+    object ppAtendimentoppField45: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TECNICO_ESPECIFICO'
+      FieldName = 'TECNICO_ESPECIFICO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 44
+    end
+    object ppAtendimentoppField46: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CONTADOR_TOTAL'
+      FieldName = 'CONTADOR_TOTAL'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 45
+    end
+    object ppAtendimentoppField47: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'KM_INICIAL'
+      FieldName = 'KM_INICIAL'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 46
+    end
+    object ppAtendimentoppField48: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'KM_FINAL'
+      FieldName = 'KM_FINAL'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 47
+    end
+    object ppAtendimentoppField49: TppField
+      FieldAlias = 'OFC_HR_ENTRADA'
+      FieldName = 'OFC_HR_ENTRADA'
+      FieldLength = 0
+      DataType = dtTime
+      DisplayWidth = 10
+      Position = 48
+    end
+    object ppAtendimentoppField50: TppField
+      FieldAlias = 'OFC_HR_ATRIBUICAO'
+      FieldName = 'OFC_HR_ATRIBUICAO'
+      FieldLength = 0
+      DataType = dtTime
+      DisplayWidth = 10
+      Position = 49
+    end
+    object ppAtendimentoppField51: TppField
+      FieldAlias = 'DT_INICIAL'
+      FieldName = 'DT_INICIAL'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 50
+    end
+    object ppAtendimentoppField52: TppField
+      FieldAlias = 'HR_INICIAL'
+      FieldName = 'HR_INICIAL'
+      FieldLength = 0
+      DataType = dtTime
+      DisplayWidth = 10
+      Position = 51
+    end
+    object ppAtendimentoppField53: TppField
+      FieldAlias = 'DT_FINAL'
+      FieldName = 'DT_FINAL'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 52
+    end
+    object ppAtendimentoppField54: TppField
+      FieldAlias = 'HR_FINAL'
+      FieldName = 'HR_FINAL'
+      FieldLength = 0
+      DataType = dtTime
+      DisplayWidth = 10
+      Position = 53
+    end
+    object ppAtendimentoppField55: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TEMPO_DECORRIDO_RESP'
+      FieldName = 'TEMPO_DECORRIDO_RESP'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 54
+    end
+    object ppAtendimentoppField56: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'KM_ANTERIOR'
+      FieldName = 'KM_ANTERIOR'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 55
+    end
+    object ppAtendimentoppField57: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'KM_NAO_UTILIZADO'
+      FieldName = 'KM_NAO_UTILIZADO'
+      FieldLength = 4
+      DataType = dtDouble
+      DisplayWidth = 19
+      Position = 56
+    end
+    object ppAtendimentoppField58: TppField
+      FieldAlias = 'OFC_DATA_FECHAMENTO'
+      FieldName = 'OFC_DATA_FECHAMENTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 57
+    end
+    object ppAtendimentoppField59: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'HR_TRABALHADAS_TMP_VIAJEM'
+      FieldName = 'HR_TRABALHADAS_TMP_VIAJEM'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 58
+    end
   end
   object dsMotivo: TDataSource
     AutoEdit = False

@@ -1,7 +1,7 @@
 object DmCaixa: TDmCaixa
   OldCreateOrder = False
-  Left = 374
-  Top = 109
+  Left = 333
+  Top = 115
   Height = 612
   Width = 947
   object Caixas_Usuario: TIBDataSet
@@ -6422,6 +6422,7 @@ object DmCaixa: TDmCaixa
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeOpen = Caixas_UsuarioBeforeOpen
+    Active = True
     SQL.Strings = (
       'select'
       '* '
@@ -6566,6 +6567,7 @@ object DmCaixa: TDmCaixa
     Transaction = DmApp.Transaction
     AfterClose = Caixas_UsuarioAfterClose
     BeforeOpen = Caixas_UsuarioBeforeOpen
+    Active = True
     SQL.Strings = (
       'select '
       ' * '
@@ -6662,6 +6664,7 @@ object DmCaixa: TDmCaixa
     Transaction = DmApp.Transaction
     AfterClose = Caixas_UsuarioAfterClose
     BeforeOpen = Caixas_UsuarioBeforeOpen
+    Active = True
     SQL.Strings = (
       'select DOCUMENTO, HISTORICO, TIPO, PESSOA_FJ,'
       '         NOME,         case TIPO'
@@ -6746,6 +6749,7 @@ object DmCaixa: TDmCaixa
     Transaction = DmApp.Transaction
     AfterClose = Caixas_UsuarioAfterClose
     BeforeOpen = Caixas_UsuarioBeforeOpen
+    Active = True
     SQL.Strings = (
       'SELECT'
       '    DOCUMENTO ,'
@@ -6786,6 +6790,7 @@ object DmCaixa: TDmCaixa
     Transaction = DmApp.Transaction
     AfterClose = Caixas_UsuarioAfterClose
     BeforeOpen = Caixas_UsuarioBeforeOpen
+    Active = True
     SQL.Strings = (
       
         'select bx.codigo, bx.dt_vencto, bx.nome, bx.docto, bx.valor, bx.' +
@@ -6879,6 +6884,7 @@ object DmCaixa: TDmCaixa
   object qryVndCancADMCx: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    Active = True
     SQL.Strings = (
       
         'select vd.codigo, historico, pessoa_fj, psa.nome_razao,  vendedo' +
@@ -6954,6 +6960,7 @@ object DmCaixa: TDmCaixa
   object qryResumoCaixa: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    Active = True
     SQL.Strings = (
       
         'select * from PCD_RESUMO_CAIXA(:CNPJ , :DATA, :USUARIO, :TURNO,:' +
@@ -7260,6 +7267,7 @@ object DmCaixa: TDmCaixa
   object qryVendasADMCxAG: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    Active = True
     SQL.Strings = (
       'select sum(p.cartao) cartao, sum(p.cheque) cheque,'
       '       sum(p.dinheiro) dinheiro, sum(p.ticket) ticket,'
