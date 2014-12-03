@@ -811,6 +811,10 @@ type
     edDescricao: TcxDBMemo;
     cxLabel42: TcxLabel;
     dtListDet2TIPO_MOVIMENTO: TIBStringField;
+    dtListKM_INICIAL: TFloatField;
+    dtListKM_FINAL: TFloatField;
+    TVRegistroKM_INICIAL: TcxGridDBBandedColumn;
+    TVRegistroKM_FINAL: TcxGridDBBandedColumn;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);

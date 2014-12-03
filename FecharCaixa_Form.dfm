@@ -325,7 +325,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
       Top = 44
       Width = 605
       Height = 309
-      ActivePage = TabVendas
+      ActivePage = tbsImpressoes
       TabOrder = 6
       OnChange = pcChange
       ClientRectBottom = 305
@@ -420,34 +420,40 @@ object FrmFecharCaixas: TFrmFecharCaixas
             item
               Expanded = False
               FieldName = 'TIPO_VENDA'
+              Width = 64
               Visible = True
             end
             item
               Color = clMenu
               Expanded = False
               FieldName = 'DINHEIRO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CHEQUE'
+              Width = 64
               Visible = True
             end
             item
               Color = clMenu
               Expanded = False
               FieldName = 'CARTAO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'TICKET'
+              Width = 64
               Visible = True
             end
             item
               Color = clMenu
               Expanded = False
               FieldName = 'TROCO'
+              Width = 64
               Visible = True
             end
             item
@@ -522,22 +528,26 @@ object FrmFecharCaixas: TFrmFecharCaixas
               Color = clMenu
               Expanded = False
               FieldName = 'DT_LANCTO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DOCTO'
+              Width = 64
               Visible = True
             end
             item
               Color = clMenu
               Expanded = False
               FieldName = 'PARCELA'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'HISTORICO_BX'
+              Width = 64
               Visible = True
             end
             item
@@ -570,6 +580,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
               Color = clMenu
               Expanded = False
               FieldName = 'CPF_CGC'
+              Width = 64
               Visible = True
             end
             item
@@ -647,22 +658,26 @@ object FrmFecharCaixas: TFrmFecharCaixas
               Color = clMenu
               Expanded = False
               FieldName = 'DT_LANCTO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DOCTO'
+              Width = 64
               Visible = True
             end
             item
               Color = clMenu
               Expanded = False
               FieldName = 'PARCELA'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'HISTORICO_BX'
+              Width = 64
               Visible = True
             end
             item
@@ -695,6 +710,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
               Color = clMenu
               Expanded = False
               FieldName = 'CPF_CGC'
+              Width = 64
               Visible = True
             end>
         end
@@ -872,41 +888,49 @@ object FrmFecharCaixas: TFrmFecharCaixas
             item
               Expanded = False
               FieldName = 'TOTAL'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'TOTAL_2'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'NOME_RAZAO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'NOME_VENDEDOR'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'VLR_TOTAL'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'VLR_TOTAL_2'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DESC_ACRESC'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DESC_ACRESC_2'
+              Width = 64
               Visible = True
             end
             item
@@ -917,26 +941,31 @@ object FrmFecharCaixas: TFrmFecharCaixas
             item
               Expanded = False
               FieldName = 'ENTRADA'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DINHEIRO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CHEQUE'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CARTAO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'TICKET'
+              Width = 64
               Visible = True
             end
             item
@@ -2060,16 +2089,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
     PassSetting = psTwoPass
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'Carta'
+    PrinterSetup.PaperName = 'A4 210x297 mm'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
     PrinterSetup.mmMarginLeft = 6350
     PrinterSetup.mmMarginRight = 6350
     PrinterSetup.mmMarginTop = 6350
-    PrinterSetup.mmPaperHeight = 279401
-    PrinterSetup.mmPaperWidth = 215900
-    PrinterSetup.PaperSize = 1
+    PrinterSetup.mmPaperHeight = 296900
+    PrinterSetup.mmPaperWidth = 210100
+    PrinterSetup.PaperSize = 9
     AllowPrintToArchive = True
     AllowPrintToFile = True
     DeviceType = 'Screen'
@@ -2213,7 +2242,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 29898
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -2224,16 +2253,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = Ent_EstAdm
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -2520,7 +2549,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 35983
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -2531,16 +2560,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = ppVendasADM
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -3748,7 +3777,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 54769
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -3759,16 +3788,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = TrocasAdm
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -4608,7 +4637,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 60590
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -4619,16 +4648,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = PagasAdm
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -5240,7 +5269,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 67469
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -5251,16 +5280,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = RecebidasADM
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -6259,7 +6288,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 24077
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -6270,16 +6299,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = Ent_SaidAdm
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -6439,6 +6468,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
             end
           end
           object ppHeaderBand2: TppHeaderBand
+            Visible = False
             mmBottomOffset = 0
             mmHeight = 0
             mmPrintPosition = 0
@@ -6581,6 +6611,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
             end
           end
           object ppFooterBand2: TppFooterBand
+            Visible = False
             mmBottomOffset = 0
             mmHeight = 0
             mmPrintPosition = 0
@@ -6670,7 +6701,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 73819
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -6681,16 +6712,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = RecebidasADM
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -7304,7 +7335,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 48154
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -7315,16 +7346,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = CanceladasADM
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -7704,7 +7735,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
         mmHeight = 5027
         mmLeft = 0
         mmTop = 41804
-        mmWidth = 203200
+        mmWidth = 197400
         BandType = 4
         mmBottomOffset = 0
         mmOverFlowOffset = 0
@@ -7715,16 +7746,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
           DataPipeline = ppVendasADMAG
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Carta'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
           PrinterSetup.mmMarginLeft = 6350
           PrinterSetup.mmMarginRight = 6350
           PrinterSetup.mmMarginTop = 6350
-          PrinterSetup.mmPaperHeight = 279401
-          PrinterSetup.mmPaperWidth = 215900
-          PrinterSetup.PaperSize = 1
+          PrinterSetup.mmPaperHeight = 296900
+          PrinterSetup.mmPaperWidth = 210100
+          PrinterSetup.PaperSize = 9
           Left = 480
           Top = 356
           Version = '12.03'
@@ -9733,7 +9764,7 @@ object FrmFecharCaixas: TFrmFecharCaixas
       FieldName = 'CODIGO'
       FieldLength = 0
       DataType = dtInteger
-      DisplayWidth = 0
+      DisplayWidth = 10
       Position = 0
     end
     object RecebidasADMppField2: TppField
@@ -9840,9 +9871,9 @@ object FrmFecharCaixas: TFrmFecharCaixas
       Alignment = taRightJustify
       FieldAlias = 'DIN_VDVISTA'
       FieldName = 'DIN_VDVISTA'
-      FieldLength = 0
+      FieldLength = 4
       DataType = dtDouble
-      DisplayWidth = 0
+      DisplayWidth = 19
       Position = 0
     end
     object dbF11ppField2: TppField
@@ -10245,16 +10276,16 @@ object FrmFecharCaixas: TFrmFecharCaixas
     DataPipeline = dbF11
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'Carta'
+    PrinterSetup.PaperName = 'A4 210x297 mm'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
     PrinterSetup.mmMarginLeft = 6350
     PrinterSetup.mmMarginRight = 6350
     PrinterSetup.mmMarginTop = 6350
-    PrinterSetup.mmPaperHeight = 279401
-    PrinterSetup.mmPaperWidth = 215900
-    PrinterSetup.PaperSize = 1
+    PrinterSetup.mmPaperHeight = 296900
+    PrinterSetup.mmPaperWidth = 210100
+    PrinterSetup.PaperSize = 9
     AllowPrintToArchive = True
     AllowPrintToFile = True
     DeviceType = 'Screen'
@@ -13497,9 +13528,9 @@ object FrmFecharCaixas: TFrmFecharCaixas
       Alignment = taRightJustify
       FieldAlias = 'CARTAO'
       FieldName = 'CARTAO'
-      FieldLength = 0
+      FieldLength = 4
       DataType = dtDouble
-      DisplayWidth = 0
+      DisplayWidth = 19
       Position = 0
     end
     object ppVendasADMAGppField2: TppField
@@ -13708,6 +13739,13 @@ object FrmFecharCaixas: TFrmFecharCaixas
       FieldLength = 200
       DisplayWidth = 200
       Position = 11
+    end
+    object ppAppRepresentanteppField13: TppField
+      FieldAlias = 'PARC_PATH_ICONE'
+      FieldName = 'PARC_PATH_ICONE'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 12
     end
   end
 end

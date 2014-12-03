@@ -1,22 +1,22 @@
 inherited frmCadProdutos: TfrmCadProdutos
-  Left = 213
-  Top = 47
+  Left = 227
+  Top = 49
   Width = 717
-  Height = 628
+  Height = 646
   Caption = 'Produtos'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
     Width = 701
-    Height = 564
-    ClientRectBottom = 560
+    Height = 582
+    ClientRectBottom = 578
     ClientRectRight = 697
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 27
         Width = 693
-        Height = 506
+        Height = 524
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
@@ -604,18 +604,23 @@ inherited frmCadProdutos: TfrmCadProdutos
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
         Width = 693
-        Height = 533
+        Height = 551
         inherited pnlSubCad: TPanel
-          Top = 255
+          Top = 312
           Width = 691
+          Height = 238
           inherited PgcDetalhe: TcxPageControl
             Width = 691
-            ActivePage = tbsDetalhe6
+            Height = 238
+            ActivePage = tbsDetalhe1
+            ClientRectBottom = 234
             ClientRectRight = 687
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Lotes'
               inherited PGCSub1: TcxPageControl
                 Width = 683
+                Height = 207
+                ClientRectBottom = 203
                 ClientRectRight = 679
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
@@ -1051,6 +1056,8 @@ inherited frmCadProdutos: TfrmCadProdutos
               Caption = 'Grades'
               inherited PGCSub2: TcxPageControl
                 Width = 683
+                Height = 207
+                ClientRectBottom = 203
                 ClientRectRight = 679
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
@@ -1391,6 +1398,8 @@ inherited frmCadProdutos: TfrmCadProdutos
               Caption = 'Tributa'#231#245'es para Revenda'
               inherited PGCSub3: TcxPageControl
                 Width = 683
+                Height = 207
+                ClientRectBottom = 203
                 ClientRectRight = 679
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
@@ -1510,6 +1519,8 @@ inherited frmCadProdutos: TfrmCadProdutos
               TabVisible = False
               inherited PGCSub4: TcxPageControl
                 Width = 683
+                Height = 207
+                ClientRectBottom = 203
                 ClientRectRight = 679
               end
             end
@@ -1518,6 +1529,8 @@ inherited frmCadProdutos: TfrmCadProdutos
               TabVisible = False
               inherited PGCSub5: TcxPageControl
                 Width = 683
+                Height = 207
+                ClientRectBottom = 203
                 ClientRectRight = 679
               end
             end
@@ -1525,6 +1538,8 @@ inherited frmCadProdutos: TfrmCadProdutos
               Caption = 'Produtos/Fornecedores'
               inherited PGCSub6: TcxPageControl
                 Width = 683
+                Height = 207
+                ClientRectBottom = 203
                 ClientRectRight = 679
                 inherited tbsListaSub6: TcxTabSheet
                   inherited GridDet6: TcxGrid
@@ -1713,6 +1728,8 @@ inherited frmCadProdutos: TfrmCadProdutos
               TabVisible = False
               inherited PGCSub7: TcxPageControl
                 Width = 683
+                Height = 207
+                ClientRectBottom = 203
                 ClientRectRight = 679
               end
             end
@@ -1720,7 +1737,9 @@ inherited frmCadProdutos: TfrmCadProdutos
               TabVisible = False
               inherited PGCSub8: TcxPageControl
                 Width = 683
+                Height = 207
                 ActivePage = tbsListaSub8
+                ClientRectBottom = 203
                 ClientRectRight = 679
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
@@ -1733,11 +1752,11 @@ inherited frmCadProdutos: TfrmCadProdutos
         end
         inherited pnlMaster: TPanel
           Width = 691
-          Height = 254
+          Height = 311
           inherited PgcMaster: TcxPageControl
             Width = 691
-            Height = 254
-            ClientRectBottom = 250
+            Height = 311
+            ClientRectBottom = 307
             ClientRectRight = 687
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Cadastro'
@@ -2531,6 +2550,123 @@ inherited frmCadProdutos: TfrmCadProdutos
                 TabOrder = 26
                 Transparent = True
                 Width = 53
+              end
+              object cxGroupBox1: TcxGroupBox
+                Left = 8
+                Top = 190
+                Caption = 'Estoque Atual'
+                TabOrder = 41
+                Height = 81
+                Width = 673
+                object cxDBLabel1: TcxDBLabel
+                  Left = 16
+                  Top = 16
+                  DataBinding.DataField = 'QTD_UM'
+                  DataBinding.DataSource = dsRegistro
+                  ParentColor = False
+                  ParentFont = False
+                  Properties.Alignment.Horz = taRightJustify
+                  Properties.LabelEffect = cxleCool
+                  Style.Font.Charset = DEFAULT_CHARSET
+                  Style.Font.Color = clNavy
+                  Style.Font.Height = -13
+                  Style.Font.Name = 'MS Sans Serif'
+                  Style.Font.Style = [fsBold]
+                  Style.IsFontAssigned = True
+                  Transparent = True
+                  Height = 21
+                  Width = 121
+                  AnchorX = 137
+                end
+                object cxDBLabel2: TcxDBLabel
+                  Left = 16
+                  Top = 40
+                  DataBinding.DataField = 'QTD_UM'
+                  DataBinding.DataSource = dsRegistro
+                  ParentColor = False
+                  ParentFont = False
+                  Properties.Alignment.Horz = taRightJustify
+                  Properties.LabelEffect = cxleCool
+                  Style.Font.Charset = DEFAULT_CHARSET
+                  Style.Font.Color = clRed
+                  Style.Font.Height = -13
+                  Style.Font.Name = 'MS Sans Serif'
+                  Style.Font.Style = [fsBold]
+                  Style.IsFontAssigned = True
+                  Transparent = True
+                  Height = 21
+                  Width = 121
+                  AnchorX = 137
+                end
+                object cxDBLabel3: TcxDBLabel
+                  Left = 272
+                  Top = 40
+                  DataBinding.DataField = 'QTD_UM'
+                  DataBinding.DataSource = dsRegistro
+                  ParentFont = False
+                  Properties.Alignment.Horz = taRightJustify
+                  Properties.LabelEffect = cxleCool
+                  Style.Font.Charset = DEFAULT_CHARSET
+                  Style.Font.Color = clNavy
+                  Style.Font.Height = -13
+                  Style.Font.Name = 'MS Sans Serif'
+                  Style.Font.Style = [fsBold]
+                  Style.IsFontAssigned = True
+                  Transparent = True
+                  Height = 21
+                  Width = 121
+                  AnchorX = 393
+                end
+                object cxDBLabel4: TcxDBLabel
+                  Left = 272
+                  Top = 16
+                  DataBinding.DataField = 'Estoque_Fisico'
+                  DataBinding.DataSource = dsRegistro
+                  ParentFont = False
+                  Properties.Alignment.Horz = taRightJustify
+                  Properties.LabelEffect = cxleCool
+                  Style.Font.Charset = DEFAULT_CHARSET
+                  Style.Font.Color = clNavy
+                  Style.Font.Height = -13
+                  Style.Font.Name = 'MS Sans Serif'
+                  Style.Font.Style = [fsBold]
+                  Style.IsFontAssigned = True
+                  Transparent = True
+                  Height = 21
+                  Width = 121
+                  AnchorX = 393
+                end
+                object cxDBLabel5: TcxDBLabel
+                  Left = 136
+                  Top = 19
+                  DataBinding.DataField = 'NOME'
+                  DataBinding.DataSource = DsUnidade
+                  ParentFont = False
+                  Style.Font.Charset = DEFAULT_CHARSET
+                  Style.Font.Color = clWindowText
+                  Style.Font.Height = -11
+                  Style.Font.Name = 'MS Sans Serif'
+                  Style.Font.Style = [fsBold]
+                  Style.IsFontAssigned = True
+                  Transparent = True
+                  Height = 21
+                  Width = 105
+                end
+                object cxLabel95: TcxLabel
+                  Left = 137
+                  Top = 41
+                  Caption = 'Comprometido'
+                end
+                object cxLabel96: TcxLabel
+                  Left = 393
+                  Top = 17
+                  Caption = 'F'#237'sico'
+                end
+                object cxLabel97: TcxLabel
+                  Left = 393
+                  Top = 41
+                  Caption = 'Unidades'
+                end
               end
             end
             object cxTabSheet1: TcxTabSheet
@@ -4215,7 +4351,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                 DataBinding.DataField = 'APLICACAO'
                 DataBinding.DataSource = dsRegistro
                 TabOrder = 0
-                Height = 223
+                Height = 280
                 Width = 683
               end
             end
@@ -4314,6 +4450,7 @@ inherited frmCadProdutos: TfrmCadProdutos
   end
   inherited dtEdit: TIBDataSet
     AfterPost = dtEditAfterPost
+    OnCalcFields = dtEditCalcFields
     OnNewRecord = dtEditNewRecord
     DeleteSQL.Strings = (
       'delete from est_produtos'
@@ -5078,6 +5215,24 @@ inherited frmCadProdutos: TfrmCadProdutos
       FieldName = 'COD_TECNICO'
       Origin = '"EST_PRODUTOS"."COD_TECNICO"'
     end
+    object dtEditQTD_UM: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'QTD_UM'
+      DisplayFormat = '###,##0.000'
+      Calculated = True
+    end
+    object dtEditEstoque_Fisico: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'Estoque_Fisico'
+      DisplayFormat = '###,##0.000'
+      Calculated = True
+    end
+    object dtEditQTD_UNIT: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'QTD_UNIT'
+      DisplayFormat = '###,##0.000'
+      Calculated = True
+    end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
@@ -5769,6 +5924,13 @@ inherited frmCadProdutos: TfrmCadProdutos
       0
       0
       26)
+  end
+  inherited ActionList1: TActionList
+    object ActIncluirModelo: TAction
+      Caption = 'ActIncluirModelo'
+      ShortCut = 16461
+      OnExecute = ActIncluirModeloExecute
+    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
@@ -11700,8 +11862,8 @@ inherited frmCadProdutos: TfrmCadProdutos
       'from EST_MATERIAL'
       'Where CNPJ = :CNPJ'
       'Order by NOME')
-    Left = 369
-    Top = 268
+    Left = 417
+    Top = 228
     ParamData = <
       item
         DataType = ftUnknown
@@ -11730,8 +11892,8 @@ inherited frmCadProdutos: TfrmCadProdutos
   end
   object DsGradesMaterial: TDataSource
     DataSet = QryGradesMaterial
-    Left = 391
-    Top = 268
+    Left = 439
+    Top = 228
   end
   object QryPerfil: TIBQuery
     Tag = 4
@@ -11748,8 +11910,8 @@ inherited frmCadProdutos: TfrmCadProdutos
       'from EST_GRADES'
       'Where CNPJ = :CNPJ'
       'Order by NOME')
-    Left = 425
-    Top = 268
+    Left = 473
+    Top = 228
     ParamData = <
       item
         DataType = ftUnknown
@@ -11790,8 +11952,8 @@ inherited frmCadProdutos: TfrmCadProdutos
   end
   object DsPerfil: TDataSource
     DataSet = QryPerfil
-    Left = 447
-    Top = 268
+    Left = 495
+    Top = 228
   end
   object QryProdForn: TIBQuery
     Tag = 4
@@ -11810,8 +11972,8 @@ inherited frmCadProdutos: TfrmCadProdutos
       '    UF'
       'FROM VER_FORNECEDOR (:CNPJ)'
       'ORDER BY NOME_RAZAO')
-    Left = 481
-    Top = 268
+    Left = 529
+    Top = 228
     ParamData = <
       item
         DataType = ftUnknown
@@ -11860,7 +12022,59 @@ inherited frmCadProdutos: TfrmCadProdutos
   end
   object DsProdForn: TDataSource
     DataSet = QryProdForn
-    Left = 503
-    Top = 268
+    Left = 551
+    Top = 228
+  end
+  object QryUnidades: TIBQuery
+    Tag = 4
+    Database = DmApp.Database
+    Transaction = DmApp.Transaction
+    BeforeOpen = dtListBeforeOpen
+    SQL.Strings = (
+      'SELECT CNPJ,'
+      '               SIGLA, '
+      '               NOME,'
+      '               UNIDADES'
+      'FROM EST_UNIDADES'
+      'WHERE CNPJ = :CNPJ'
+      'ORDER BY NOME')
+    Left = 601
+    Top = 228
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end>
+    object QryUnidadesCNPJ: TIBStringField
+      FieldName = 'CNPJ'
+      Origin = '"EST_UNIDADES"."CNPJ"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 14
+    end
+    object QryUnidadesSIGLA: TIBStringField
+      FieldName = 'SIGLA'
+      Origin = '"EST_UNIDADES"."SIGLA"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      FixedChar = True
+      Size = 4
+    end
+    object QryUnidadesNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"EST_UNIDADES"."NOME"'
+      Size = 50
+    end
+    object QryUnidadesUNIDADES: TFloatField
+      FieldName = 'UNIDADES'
+      Origin = '"EST_UNIDADES"."UNIDADES"'
+    end
+  end
+  object DsUnidades: TDataSource
+    DataSet = QryUnidades
+    Left = 623
+    Top = 228
   end
 end

@@ -1848,25 +1848,9 @@ end;
 
 procedure TFrmMain.opProdutoClick(Sender: TObject);
 begin
-///
-  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProdutos', True)) Then
-     Exit;
-
-  if DMApp.SelecionarEmpresa = 'N' Then
-     Exit;
-
-  if frmCadProdutos = Nil Then
-  begin
-     frmCadProdutos := TfrmCadProdutos.Create(Self);
-     frmCadProdutos.ShowMODAL ;
-     frmCadProdutos.Free      ;
-     frmCadProdutos := Nil    ;
-  end;
-  Exit;
-///
   if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmProdutos', True)) then
      Exit;
-     
+
   if DMApp.SelecionarEmpresa = 'N' then
     Exit;
 
@@ -1881,6 +1865,23 @@ begin
     FrmProdutos.Free;
     FrmProdutos := Nil;
   end;
+  //Exit;
+///
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProdutos', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadProdutos = Nil Then
+  begin
+     frmCadProdutos := TfrmCadProdutos.Create(Self);
+     frmCadProdutos.ShowMODAL ;
+     frmCadProdutos.Free      ;
+     frmCadProdutos := Nil    ;
+  end;
+///
+
 end;
 
 procedure TFrmMain.opAplicacoesClick(Sender: TObject);
@@ -3577,6 +3578,17 @@ end;
 
 procedure TFrmMain.ActConsultaProdutoExecute(Sender: TObject);
 begin
+     If ( FrmMain.MDIChildCount <= 0 ) or ( FrmSelVendas <> Nil ) or ( FrmSelVendasPdv <> Nil )
+     then begin
+        If DMApp.SelecionarEmpresa = 'N' Then
+            Exit;
+
+        If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmLocProdutoCadastro_Auto', True)) Then
+             Exit;
+
+        ConsultaProdAuto ;
+     end;
+  Exit;
 ///
   if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProdutos', True)) Then
      Exit;
@@ -3591,18 +3603,8 @@ begin
      frmCadProdutos.Free      ;
      frmCadProdutos := Nil    ;
   end;
-  Exit;
 ///
-     If ( FrmMain.MDIChildCount <= 0 ) or ( FrmSelVendas <> Nil ) or ( FrmSelVendasPdv <> Nil )
-     then begin
-        If DMApp.SelecionarEmpresa = 'N' Then
-            Exit;
 
-        If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmLocProdutoCadastro_Auto', True)) Then
-             Exit;
-
-        ConsultaProdAuto ;
-     end;
 end;
 
 procedure TFrmMain.OpConfEtiquetasClick(Sender: TObject);

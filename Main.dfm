@@ -1,6 +1,6 @@
 object FrmMain: TFrmMain
-  Left = 211
-  Top = 109
+  Left = 213
+  Top = 86
   Width = 1067
   Height = 644
   Caption = 'Help Store'
@@ -2156,7 +2156,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 89.000000000000000000
+                            Value = 38.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2324,7 +2324,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 67.000000000000000000
+                            Value = 15.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2492,7 +2492,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 61.000000000000000000
+                            Value = 41.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2660,7 +2660,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 98.000000000000000000
+                            Value = 71.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -2828,7 +2828,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 17.000000000000000000
+                            Value = 98.000000000000000000
                           end
                         end
                         object lcMetaVendaGroup_Root: TdxLayoutGroup
@@ -10229,6 +10229,51 @@ object FrmMain: TFrmMain
   end
   object stgMain: TcxPropertiesStore
     Components = <
+      item
+        Component = BarManagerBar8
+        Properties.Strings = (
+          'AllowClose'
+          'AllowCustomizing'
+          'AllowQuickCustomizing'
+          'AllowReset'
+          'AlphaBlendValue'
+          'BackgroundBitmap'
+          'BorderStyle'
+          'Caption'
+          'CaptionButtons'
+          'Color'
+          'DockControl'
+          'DockedDockControl'
+          'DockedDockingStyle'
+          'DockedLeft'
+          'DockedTop'
+          'DockingStyle'
+          'FloatClientHeight'
+          'FloatClientWidth'
+          'FloatLeft'
+          'FloatTop'
+          'Font'
+          'Glyph'
+          'Hidden'
+          'IsMainMenu'
+          'ItemLinks'
+          'KeyTip'
+          'MultiLine'
+          'Name'
+          'NotDocking'
+          'OldName'
+          'OneOnRow'
+          'RotateWhenVertical'
+          'Row'
+          'ShowMark'
+          'SizeGrip'
+          'Tag'
+          'UseOwnFont'
+          'UseRecentItems'
+          'UseRestSpace'
+          'Visible'
+          'WholeRow')
+      end
       item
         Component = GridLV
         Properties.Strings = (
