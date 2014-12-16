@@ -1865,7 +1865,7 @@ begin
     FrmProdutos.Free;
     FrmProdutos := Nil;
   end;
-  //Exit;
+  Exit;
 ///
   if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadProdutos', True)) Then
      Exit;
@@ -7910,7 +7910,7 @@ begin
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
-    Exit;
+   // Exit;
 
   if FrmMain.MDIChildCount > 0 then
      opFechar.OnClick(opFechar);

@@ -1,6 +1,6 @@
 object FormPadrao: TFormPadrao
   Left = 0
-  Top = 95
+  Top = 83
   Width = 671
   Height = 500
   Caption = 'FormPadrao'
