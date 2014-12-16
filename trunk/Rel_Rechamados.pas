@@ -21,7 +21,7 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, cxLabel, cxButtons,       
   cxTextEdit, cxMaskEdit, cxDropDownEdit, cxCalendar, cxCurrencyEdit,
-  cxCheckBox;
+  cxCheckBox, cxStorage;
 
 type
   TFRel_Rechamados = class(TForm)
@@ -139,9 +139,9 @@ type
     rdRegiao: TRadioButton;
     rdMarca: TRadioButton;
     rdModelo: TRadioButton;
-    rdCliente: TRadioButton;
-    rdTecnico: TRadioButton;
-    rdEquipamento: TRadioButton;
+    rdClientes: TRadioButton;
+    rdTecnicoDtFechamento: TRadioButton;
+    rdTecnicoDtInicial: TRadioButton;
     rdTodos: TRadioButton;
     cmbCidade: TdxLookupEdit;
     Label20: TcxLabel;
@@ -605,6 +605,12 @@ type
     ppLabel211: TppLabel;
     ppSystemVariable13: TppSystemVariable;
     raCodeModule6: TraCodeModule;
+    ppGroup8: TppGroup;
+    ppGroupHeaderBand8: TppGroupHeaderBand;
+    ppGroupFooterBand8: TppGroupFooterBand;
+    ppLabel105: TppLabel;
+    ppLine28: TppLine;
+    ppDBText95: TppDBText;
     procedure BtnOkClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn2Click(Sender: TObject);
@@ -840,7 +846,7 @@ begin
   if rdFechamento.checked then
     tpdata := 'F';
 
-  if (rdTecnico.checked) then
+  if (rdTecnicoDtFechamento.checked) then
   begin
     sOrder := ' order by mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubTecnico.Visible := true;
@@ -860,12 +866,12 @@ begin
     sOrder := ' order by mdl_nome, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubModelo.Visible := true;
   end
-  else if (rdEquipamento.checked) then
+  else if (rdTecnicoDtInicial.checked) then
   begin
-    sOrder := ' order by   PRD_NOME, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
+    sOrder := ' order by mec_nome, dt_inicial, km_inicial, ofc_codigo ';;
     SubEquipamento.Visible := true;
   end
-  else if (rdCliente.checked) then
+  else if (rdClientes.checked) then
   begin
     sOrder := ' order by  CLI_NOME_RAZAO, mec_nome, ofc_data_fechamento, km_inicial, ofc_codigo ';
     SubCliente.Visible := true;
@@ -945,7 +951,21 @@ begin
 end;
 
 procedure TFRel_Rechamados.FormCreate(Sender: TObject);
+var
+  FMyStream: TMemoryStream;
 begin
+  stgFRel_Rechamados.StorageName := TFRel_Rechamados(Sender).Name;
+  stgFRel_Rechamados.StorageType := stStream;
+  FmyStream := TMemoryStream.Create;
+  stgFRel_Rechamados.StorageStream := FMyStream;
+
+  if FileExists('C:\Sistemas\HelpStore\filtros\'+stgFRel_Rechamados.StorageName) then
+  begin
+    FMyStream.LoadFromFile('C:\Sistemas\HelpStore\filtros\'+stgFRel_Rechamados.StorageName);
+    FMyStream.Position := 0;
+    stgFRel_Rechamados.RestoreFrom;
+  end;
+
 //  IniciaComponentes ( Self as TForm );
 
   with DmServicos do
@@ -1057,6 +1077,10 @@ end;
 procedure TFRel_Rechamados.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
+  (stgFRel_Rechamados.StorageStream as TMemoryStream).Position := 0;
+  stgFRel_Rechamados.StoreTo(true);
+  (stgFRel_Rechamados.StorageStream as TMemoryStream).SaveToFile(('C:\Sistemas\HelpStore\filtros\'+stgFRel_Rechamados.StorageName));
+
   Action := caFree;
   FRel_Rechamados := Nil;
 end;

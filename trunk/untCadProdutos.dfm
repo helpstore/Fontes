@@ -1,5 +1,5 @@
 inherited frmCadProdutos: TfrmCadProdutos
-  Left = 227
+  Left = 244
   Top = 49
   Width = 717
   Height = 646
@@ -2650,7 +2650,7 @@ inherited frmCadProdutos: TfrmCadProdutos
                   Style.IsFontAssigned = True
                   Transparent = True
                   Height = 21
-                  Width = 105
+                  Width = 169
                 end
                 object cxLabel95: TcxLabel
                   Left = 137

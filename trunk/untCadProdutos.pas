@@ -1339,38 +1339,48 @@ var
    Est_Minimo, Est_Maximo: real;
 begin
   inherited;
+  if not (TVRegistro.focused) then
+    exit;
     
   ActInsert.execute;
 
-  dtListNOME.value              := dtListNOME.value ;
-  dtListUNIDADE.value           := dtListUNIDADE.value;
-  dtListCTE.value               := dtListCTE.value;
-  dtListCTIE.value              := dtListCTIE.value;
-  dtListORIGEM.value            := dtListORIGEM.value;
-  dtListALIQUOTA_ECF.value      := dtListALIQUOTA_ECF.value;
-  dtListETIQUETA_ENT.value      := dtListETIQUETA_ENT.value;
-  dtListNEG_QTDADE_2.value      := dtListNEG_QTDADE_2.value;
-  dtListMARCA.value             := dtListMARCA.value;
-  dtListSECAO.value             := dtListSECAO.value;
+  dtEditCNPJ.value           := dtListCNPJ.value;
+  dtEditNOME.value              := dtListNOME.value ;
+  dtEditUNIDADE.value           := dtListUNIDADE.value;
+  dtEditCTE.value               := dtListCTE.value;
+  dtEditCTIE.value              := dtListCTIE.value;
+  dtEditORIGEM.value            := dtListORIGEM.value;
+  dtEditALIQUOTA_ECF.value      := dtListALIQUOTA_ECF.value;
+  dtEditETIQUETA_ENT.value      := dtListETIQUETA_ENT.value;
+  dtEditNEG_QTDADE_2.value      := dtListNEG_QTDADE_2.value;
+  dtEditMARCA.value             := dtListMARCA.value;
+
+  if dtEditSECAO.value > 0 then
+    dtEditSECAO.value             := dtListSECAO.value;
 
   if dtListModelo.value > 0 then
-    dtListModelo.value          := dtListModelo.value;
-    
-  dtListREDUCAO.value           := dtListREDUCAO.value;
-  dtListSUBUNIDADE.value        := dtListSUBUNIDADE.value;
-  dtListGRUPO.value             := dtListGRUPO.value;
-  dtListSUBGRUPO.value          := dtListSUBGRUPO.value;
-  dtListCOMPLEMENTO.value       := dtListCOMPLEMENTO.value;
-  dtListPOSSUI_LOTE.value       := dtListPOSSUI_LOTE.value;
-  dtListDEBITA_ICMS.value       := dtListDEBITA_ICMS.value;
-  dtListCOMPLEMENTO_NF.value    := dtListCOMPLEMENTO_NF.value;
-  dtListPROD_PESAVEL.value      := dtListPROD_PESAVEL.value;
-  dtListSERVICO.value           := dtListSERVICO.value;
-  dtListCOR.value               := dtListCOR.value;
-  dtListMATERIAL.value          := dtListMATERIAL.value;
-  dtListVENDE_FRACIONADO.value  := dtListVENDE_FRACIONADO.value;
-  dtListEST_MIN.value           := dtListEST_MIN.value;
-  dtListEST_MAX.value           := dtListEST_MAX.value;
+    dtEditModelo.value          := dtListModelo.value;
+     
+  dtEditREDUCAO.value           := dtListREDUCAO.value;
+  dtEditSUBUNIDADE.value        := dtListSUBUNIDADE.value;
+  dtEditGRUPO.value             := dtListGRUPO.value;
+  dtEditSUBGRUPO.value          := dtListSUBGRUPO.value;
+  dtEditCOMPLEMENTO.value       := dtListCOMPLEMENTO.value;
+  dtEditPOSSUI_LOTE.value       := dtListPOSSUI_LOTE.value;
+  dtEditDEBITA_ICMS.value       := dtListDEBITA_ICMS.value;
+  dtEditCOMPLEMENTO_NF.value    := dtListCOMPLEMENTO_NF.value;
+  dtEditPROD_PESAVEL.value      := dtListPROD_PESAVEL.value;
+  dtEditSERVICO.value           := dtListSERVICO.value;
+
+  if dtEditCOR.value > 0 then
+    dtEditCOR.value               := dtListCOR.value;
+
+  if dtEditMATERIAL.value > 0 then
+    dtEditMATERIAL.value          := dtListMATERIAL.value;
+
+  dtEditVENDE_FRACIONADO.value  := dtListVENDE_FRACIONADO.value;
+  dtEditEST_MIN.value           := dtListEST_MIN.value;
+  dtEditEST_MAX.value           := dtListEST_MAX.value;
 
 end;
 

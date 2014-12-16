@@ -1,9 +1,9 @@
 object FRel_Rechamados: TFRel_Rechamados
-  Left = 306
-  Top = 136
+  Left = 309
+  Top = 150
   BorderStyle = bsDialog
   Caption = 'Relat'#243'rio de Atendimentos'
-  ClientHeight = 515
+  ClientHeight = 526
   ClientWidth = 750
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object FRel_Rechamados: TFRel_Rechamados
   TextHeight = 13
   object Panel2: TPanel
     Left = 0
-    Top = 483
+    Top = 494
     Width = 750
     Height = 32
     Align = alBottom
@@ -96,7 +96,7 @@ object FRel_Rechamados: TFRel_Rechamados
     Left = 0
     Top = 0
     Width = 750
-    Height = 483
+    Height = 494
     Align = alClient
     BevelOuter = bvNone
     Color = clWhite
@@ -906,7 +906,7 @@ object FRel_Rechamados: TFRel_Rechamados
       Left = 10
       Top = 397
       Width = 319
-      Height = 85
+      Height = 92
       Caption = 'Op'#231#245'es de Quebra'
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
@@ -918,12 +918,12 @@ object FRel_Rechamados: TFRel_Rechamados
       ParentFont = False
       TabOrder = 2
       object rdRegiao: TRadioButton
-        Left = 123
-        Top = 39
+        Left = 116
+        Top = 40
         Width = 57
         Height = 22
         Caption = 'Regi'#227'o'
-        TabOrder = 0
+        TabOrder = 6
       end
       object rdMarca: TRadioButton
         Left = 10
@@ -932,48 +932,48 @@ object FRel_Rechamados: TFRel_Rechamados
         Height = 22
         Caption = 'Marca'
         Checked = True
-        TabOrder = 1
+        TabOrder = 0
         TabStop = True
       end
       object rdModelo: TRadioButton
-        Left = 123
+        Left = 116
         Top = 18
         Width = 58
         Height = 22
         Caption = 'Modelo'
-        TabOrder = 2
+        TabOrder = 1
       end
-      object rdCliente: TRadioButton
-        Left = 216
-        Top = 18
+      object rdClientes: TRadioButton
+        Left = 10
+        Top = 40
         Width = 54
         Height = 22
         Caption = 'Cliente'
-        TabOrder = 3
-      end
-      object rdTecnico: TRadioButton
-        Left = 10
-        Top = 39
-        Width = 58
-        Height = 22
-        Caption = 'T'#233'cnico'
-        TabOrder = 4
-      end
-      object rdEquipamento: TRadioButton
-        Left = 217
-        Top = 39
-        Width = 83
-        Height = 22
-        Caption = 'Equipamento'
         TabOrder = 5
       end
+      object rdTecnicoDtFechamento: TRadioButton
+        Left = 10
+        Top = 63
+        Width = 175
+        Height = 22
+        Caption = 'T'#233'cnico por Dt Fechamento'
+        TabOrder = 3
+      end
+      object rdTecnicoDtInicial: TRadioButton
+        Left = 188
+        Top = 40
+        Width = 123
+        Height = 22
+        Caption = 'T'#233'cnico por Dt Inicial'
+        TabOrder = 4
+      end
       object rdMotivoChamado: TRadioButton
-        Left = 9
-        Top = 61
+        Left = 188
+        Top = 20
         Width = 128
         Height = 19
         Caption = 'Motivo do chamado'
-        TabOrder = 6
+        TabOrder = 2
       end
     end
   end
@@ -3143,7 +3143,7 @@ object FRel_Rechamados: TFRel_Rechamados
             Background2.Gradient.Style = gsNone
             PrintHeight = phDynamic
             mmBottomOffset = 0
-            mmHeight = 2910
+            mmHeight = 11113
             mmPrintPosition = 0
             object ppDBText252: TppDBText
               UserName = 'DBText3'
@@ -6961,7 +6961,7 @@ object FRel_Rechamados: TFRel_Rechamados
             Background2.Gradient.Style = gsNone
             PrintHeight = phDynamic
             mmBottomOffset = 0
-            mmHeight = 2910
+            mmHeight = 3704
             mmPrintPosition = 0
             object ppDBText43: TppDBText
               UserName = 'DBText97'
@@ -7009,7 +7009,7 @@ object FRel_Rechamados: TFRel_Rechamados
               mmHeight = 2910
               mmLeft = 160867
               mmTop = 0
-              mmWidth = 4233
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText45: TppDBText
@@ -7031,10 +7031,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
+              mmHeight = 2910
               mmLeft = 8996
               mmTop = 0
-              mmWidth = 10499
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText46: TppDBText
@@ -7055,7 +7055,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2900
+              mmHeight = 2910
               mmLeft = 101336
               mmTop = 0
               mmWidth = 56356
@@ -7109,10 +7109,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 204280
+              mmHeight = 2910
+              mmLeft = 208492
               mmTop = 0
-              mmWidth = 4741
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText49: TppDBText
@@ -7136,10 +7136,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 218578
+              mmHeight = 2910
+              mmLeft = 222780
               mmTop = 0
-              mmWidth = 4741
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText50: TppDBText
@@ -7163,10 +7163,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 247937
+              mmHeight = 2910
+              mmLeft = 252148
               mmTop = 0
-              mmWidth = 4741
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText51: TppDBText
@@ -7189,10 +7189,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taCentered
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 258642
+              mmHeight = 2910
+              mmLeft = 262203
               mmTop = 0
-              mmWidth = 7916
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText52: TppDBText
@@ -7214,10 +7214,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
+              mmHeight = 2910
               mmLeft = 0
               mmTop = 0
-              mmWidth = 6773
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText53: TppDBText
@@ -7239,10 +7239,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
+              mmHeight = 2910
               mmLeft = 181769
               mmTop = 0
-              mmWidth = 7324
+              mmWidth = 529
               BandType = 4
             end
             object ppDBText54: TppDBText
@@ -7290,10 +7290,10 @@ object FRel_Rechamados: TFRel_Rechamados
               TextAlignment = taRightJustified
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2879
-              mmLeft = 231617
+              mmHeight = 2910
+              mmLeft = 235744
               mmTop = 0
-              mmWidth = 4741
+              mmWidth = 529
               BandType = 4
             end
           end
@@ -7497,7 +7497,7 @@ object FRel_Rechamados: TFRel_Rechamados
             end
           end
           object ppGroup4: TppGroup
-            BreakName = 'PRD_NOME'
+            BreakName = 'MEC_NOME'
             DataPipeline = ppAtendimento
             GroupFileSettings.NewFile = False
             GroupFileSettings.EmailFile = False
@@ -7509,8 +7509,9 @@ object FRel_Rechamados: TFRel_Rechamados
             DataPipelineName = 'ppAtendimento'
             NewFile = False
             object ppGroupHeaderBand4: TppGroupHeaderBand
+              PrintHeight = phDynamic
               mmBottomOffset = 0
-              mmHeight = 8731
+              mmHeight = 9790
               mmPrintPosition = 0
               object ppLabel63: TppLabel
                 UserName = 'Label1'
@@ -7520,7 +7521,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 Border.Style = psSolid
                 Border.Visible = False
                 Border.Weight = 1.000000000000000000
-                Caption = 'Equipamento: '
+                Caption = 'T'#233'cnico:'
                 Ellipsis = False
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clBlack
@@ -7528,25 +7529,10 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Size = 10
                 Font.Style = [fsBold, fsItalic]
                 Transparent = True
-                mmHeight = 4106
-                mmLeft = 6879
-                mmTop = 3440
-                mmWidth = 24532
-                BandType = 3
-                GroupNo = 0
-              end
-              object ppLine15: TppLine
-                UserName = 'Line2'
-                Border.BorderPositions = []
-                Border.Color = clBlack
-                Border.Style = psSolid
-                Border.Visible = False
-                Border.Weight = 1.000000000000000000
-                Weight = 0.750000000000000000
-                mmHeight = 794
-                mmLeft = 7408
-                mmTop = 8202
-                mmWidth = 277548
+                mmHeight = 4233
+                mmLeft = 2381
+                mmTop = 2381
+                mmWidth = 14552
                 BandType = 3
                 GroupNo = 0
               end
@@ -7559,7 +7545,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 Border.Style = psSolid
                 Border.Visible = False
                 Border.Weight = 1.000000000000000000
-                DataField = 'PRD_NOME'
+                DataField = 'MEC_NOME'
                 DataPipeline = ppAtendimento
                 Ellipsis = False
                 Font.Charset = DEFAULT_CHARSET
@@ -7569,10 +7555,25 @@ object FRel_Rechamados: TFRel_Rechamados
                 Font.Style = [fsBold, fsItalic]
                 Transparent = True
                 DataPipelineName = 'ppAtendimento'
-                mmHeight = 3683
-                mmLeft = 30692
-                mmTop = 3969
-                mmWidth = 55626
+                mmHeight = 3704
+                mmLeft = 19050
+                mmTop = 2381
+                mmWidth = 794
+                BandType = 3
+                GroupNo = 0
+              end
+              object ppLine15: TppLine
+                UserName = 'Line2'
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Weight = 0.750000000000000000
+                mmHeight = 794
+                mmLeft = 3175
+                mmTop = 6879
+                mmWidth = 277548
                 BandType = 3
                 GroupNo = 0
               end
@@ -7789,6 +7790,95 @@ object FRel_Rechamados: TFRel_Rechamados
                 BandType = 5
                 GroupNo = 0
               end
+            end
+          end
+          object ppGroup8: TppGroup
+            BreakName = 'DT_INICIAL'
+            DataPipeline = ppAtendimento
+            GroupFileSettings.NewFile = False
+            GroupFileSettings.EmailFile = False
+            KeepTogether = True
+            OutlineSettings.CreateNode = True
+            StartOnOddPage = False
+            UserName = 'Group8'
+            mmNewColumnThreshold = 0
+            mmNewPageThreshold = 0
+            DataPipelineName = 'ppAtendimento'
+            NewFile = False
+            object ppGroupHeaderBand8: TppGroupHeaderBand
+              mmBottomOffset = 0
+              mmHeight = 6879
+              mmPrintPosition = 0
+              object ppLabel105: TppLabel
+                UserName = 'Label105'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Caption = 'Data Inicial'
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 10
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                mmHeight = 4106
+                mmLeft = 8996
+                mmTop = 529
+                mmWidth = 18542
+                BandType = 3
+                GroupNo = 1
+              end
+              object ppLine28: TppLine
+                UserName = 'Line28'
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                Weight = 0.750000000000000000
+                mmHeight = 794
+                mmLeft = 8996
+                mmTop = 5556
+                mmWidth = 277548
+                BandType = 3
+                GroupNo = 1
+              end
+              object ppDBText95: TppDBText
+                UserName = 'DBText95'
+                HyperlinkColor = clBlue
+                AutoSize = True
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                Border.Weight = 1.000000000000000000
+                DataField = 'DT_INICIAL'
+                DataPipeline = ppAtendimento
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 9
+                Font.Style = [fsBold, fsItalic]
+                Transparent = True
+                DataPipelineName = 'ppAtendimento'
+                mmHeight = 3704
+                mmLeft = 29104
+                mmTop = 1058
+                mmWidth = 794
+                BandType = 3
+                GroupNo = 1
+              end
+            end
+            object ppGroupFooterBand8: TppGroupFooterBand
+              HideWhenOneDetail = False
+              mmBottomOffset = 0
+              mmHeight = 5556
+              mmPrintPosition = 0
             end
           end
           object raCodeModule4: TraCodeModule
@@ -10397,7 +10487,7 @@ object FRel_Rechamados: TFRel_Rechamados
       FieldName = 'OFC_CODIGO'
       FieldLength = 0
       DataType = dtInteger
-      DisplayWidth = 0
+      DisplayWidth = 10
       Position = 0
     end
     object ppAtendimentoppField2: TppField
@@ -10838,38 +10928,29 @@ object FRel_Rechamados: TFRel_Rechamados
     end
     object ppAtendimentoppField56: TppField
       Alignment = taRightJustify
-      FieldAlias = 'KM_ANTERIOR'
-      FieldName = 'KM_ANTERIOR'
+      FieldAlias = 'KM_NAO_UTILIZADO'
+      FieldName = 'KM_NAO_UTILIZADO'
       FieldLength = 4
       DataType = dtDouble
       DisplayWidth = 19
       Position = 55
     end
     object ppAtendimentoppField57: TppField
-      Alignment = taRightJustify
-      FieldAlias = 'KM_NAO_UTILIZADO'
-      FieldName = 'KM_NAO_UTILIZADO'
-      FieldLength = 4
-      DataType = dtDouble
-      DisplayWidth = 19
-      Position = 56
-    end
-    object ppAtendimentoppField58: TppField
       FieldAlias = 'OFC_DATA_FECHAMENTO'
       FieldName = 'OFC_DATA_FECHAMENTO'
       FieldLength = 0
       DataType = dtDate
       DisplayWidth = 10
-      Position = 57
+      Position = 56
     end
-    object ppAtendimentoppField59: TppField
+    object ppAtendimentoppField58: TppField
       Alignment = taRightJustify
       FieldAlias = 'HR_TRABALHADAS_TMP_VIAJEM'
       FieldName = 'HR_TRABALHADAS_TMP_VIAJEM'
       FieldLength = 0
       DataType = dtDouble
       DisplayWidth = 10
-      Position = 58
+      Position = 57
     end
   end
   object dsMotivo: TDataSource
@@ -10901,126 +10982,64 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = DataFinal
         Properties.Strings = (
-          'About'
           'Anchors'
           'BiDiMode'
-          'CalAlignment'
-          'CalColors'
-          'Checked'
-          'Color'
           'Constraints'
           'Cursor'
           'Date'
-          'DateFormat'
-          'DateMode'
           'DragCursor'
           'DragKind'
           'DragMode'
-          'DropColumns'
-          'DropRows'
           'Enabled'
-          'FirstDayOfWeek'
-          'FlatButtons'
-          'Font'
-          'Format'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
           'Hint'
           'ImeMode'
           'ImeName'
-          'Kind'
           'Left'
-          'MaxDate'
-          'MinDate'
           'Name'
           'ParentBiDiMode'
           'ParentColor'
           'ParentFont'
           'ParentShowHint'
-          'ParseInput'
           'PopupMenu'
-          'ShowCheckbox'
           'ShowHint'
-          'ShowToday'
-          'ShowTodayCircle'
-          'ShowWeekNumbers'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Time'
           'Top'
-          'UseFrameController'
           'Visible'
           'Width')
       end
       item
         Component = DataInicial
         Properties.Strings = (
-          'About'
           'Anchors'
           'BiDiMode'
-          'CalAlignment'
-          'CalColors'
-          'Checked'
-          'Color'
           'Constraints'
           'Cursor'
           'Date'
-          'DateFormat'
-          'DateMode'
           'DragCursor'
           'DragKind'
           'DragMode'
-          'DropColumns'
-          'DropRows'
           'Enabled'
-          'FirstDayOfWeek'
-          'FlatButtons'
-          'Font'
-          'Format'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
           'Hint'
           'ImeMode'
           'ImeName'
-          'Kind'
           'Left'
-          'MaxDate'
-          'MinDate'
           'Name'
           'ParentBiDiMode'
           'ParentColor'
           'ParentFont'
           'ParentShowHint'
-          'ParseInput'
           'PopupMenu'
-          'ShowCheckbox'
           'ShowHint'
-          'ShowToday'
-          'ShowTodayCircle'
-          'ShowWeekNumbers'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Time'
           'Top'
-          'UseFrameController'
           'Visible'
           'Width')
       end
@@ -11028,12 +11047,9 @@ object FRel_Rechamados: TFRel_Rechamados
         Component = edAs1
         Properties.Strings = (
           'Align'
-          'Alignment'
           'Anchors'
           'AutoSize'
-          'BiDiMode'
           'Caption'
-          'Color'
           'Constraints'
           'Cursor'
           'DragCursor'
@@ -11041,36 +11057,28 @@ object FRel_Rechamados: TFRel_Rechamados
           'DragMode'
           'Enabled'
           'FocusControl'
-          'Font'
           'Height'
           'Hint'
-          'Layout'
           'Left'
           'Name'
-          'ParentBiDiMode'
           'ParentColor'
           'ParentFont'
           'ParentShowHint'
           'PopupMenu'
-          'ShowAccelChar'
           'ShowHint'
           'Tag'
           'Top'
           'Transparent'
           'Visible'
-          'Width'
-          'WordWrap')
+          'Width')
       end
       item
         Component = edAs3
         Properties.Strings = (
           'Align'
-          'Alignment'
           'Anchors'
           'AutoSize'
-          'BiDiMode'
           'Caption'
-          'Color'
           'Constraints'
           'Cursor'
           'DragCursor'
@@ -11078,85 +11086,50 @@ object FRel_Rechamados: TFRel_Rechamados
           'DragMode'
           'Enabled'
           'FocusControl'
-          'Font'
           'Height'
           'Hint'
-          'Layout'
           'Left'
           'Name'
-          'ParentBiDiMode'
           'ParentColor'
           'ParentFont'
           'ParentShowHint'
           'PopupMenu'
-          'ShowAccelChar'
           'ShowHint'
           'Tag'
           'Top'
           'Transparent'
           'Visible'
-          'Width'
-          'WordWrap')
+          'Width')
       end
       item
         Component = edtKmFim
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
@@ -11164,62 +11137,32 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = edtKmIni
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
@@ -11227,62 +11170,32 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = edtTpAtdFin
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
@@ -11290,62 +11203,32 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = edtTpAtdIni
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
@@ -11353,62 +11236,32 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = edtTpRspFin
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
@@ -11416,62 +11269,32 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = edtTpRspIni
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
@@ -11479,62 +11302,32 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = edtVlrFinal
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
@@ -11542,79 +11335,48 @@ object FRel_Rechamados: TFRel_Rechamados
       item
         Component = edtVlrInicial
         Properties.Strings = (
-          'About'
-          'Align'
-          'Alignment'
           'Anchors'
-          'AutoSelect'
           'AutoSize'
           'BiDiMode'
-          'CharCase'
-          'CheckRange'
-          'Color'
           'Constraints'
-          'Ctl3D'
           'Cursor'
-          'DisplayFormat'
           'DragCursor'
           'DragKind'
           'DragMode'
           'Enabled'
-          'Font'
-          'FrameColor'
-          'FrameController'
-          'FrameFlat'
-          'FrameFlatStyle'
-          'FrameFocusStyle'
-          'FrameSides'
-          'FrameStyle'
-          'FrameVisible'
           'Height'
           'HelpContext'
-          'HideSelection'
           'Hint'
           'ImeMode'
           'ImeName'
-          'IntegersOnly'
           'Left'
-          'Max'
-          'MaxLength'
-          'Min'
           'Name'
-          'OEMConvert'
           'ParentBiDiMode'
           'ParentColor'
-          'ParentCtl3D'
           'ParentFont'
           'ParentShowHint'
-          'PasswordChar'
           'PopupMenu'
-          'ReadOnly'
           'ShowHint'
-          'TabOnEnter'
           'TabOrder'
           'TabStop'
           'Tag'
-          'Text'
           'Top'
-          'UseFrameController'
           'Value'
           'Visible'
           'Width')
       end
       item
-        Component = rdCliente
+        Component = gbData
         Properties.Strings = (
-          'Action'
-          'Alignment'
+          'Align'
           'Anchors'
           'BiDiMode'
           'Caption'
-          'Checked'
           'Color'
           'Constraints'
           'Ctl3D'
           'Cursor'
+          'DockSite'
           'DragCursor'
           'DragKind'
           'DragMode'
@@ -11622,9 +11384,12 @@ object FRel_Rechamados: TFRel_Rechamados
           'Font'
           'Height'
           'HelpContext'
+          'HelpKeyword'
+          'HelpType'
           'Hint'
           'Left'
           'Name'
+          'ParentBackground'
           'ParentBiDiMode'
           'ParentColor'
           'ParentCtl3D'
@@ -11640,7 +11405,7 @@ object FRel_Rechamados: TFRel_Rechamados
           'Width')
       end
       item
-        Component = rdEquipamento
+        Component = rdClientes
         Properties.Strings = (
           'Action'
           'Alignment'
@@ -11659,6 +11424,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Font'
           'Height'
           'HelpContext'
+          'HelpKeyword'
+          'HelpType'
           'Hint'
           'Left'
           'Name'
@@ -11674,7 +11441,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Tag'
           'Top'
           'Visible'
-          'Width')
+          'Width'
+          'WordWrap')
       end
       item
         Component = rdFechamento
@@ -11733,6 +11501,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Font'
           'Height'
           'HelpContext'
+          'HelpKeyword'
+          'HelpType'
           'Hint'
           'Left'
           'Name'
@@ -11748,7 +11518,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Tag'
           'Top'
           'Visible'
-          'Width')
+          'Width'
+          'WordWrap')
       end
       item
         Component = rdModelo
@@ -11770,6 +11541,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Font'
           'Height'
           'HelpContext'
+          'HelpKeyword'
+          'HelpType'
           'Hint'
           'Left'
           'Name'
@@ -11785,7 +11558,48 @@ object FRel_Rechamados: TFRel_Rechamados
           'Tag'
           'Top'
           'Visible'
-          'Width')
+          'Width'
+          'WordWrap')
+      end
+      item
+        Component = rdMotivoChamado
+        Properties.Strings = (
+          'Action'
+          'Alignment'
+          'Anchors'
+          'BiDiMode'
+          'Caption'
+          'Checked'
+          'Color'
+          'Constraints'
+          'Ctl3D'
+          'Cursor'
+          'DragCursor'
+          'DragKind'
+          'DragMode'
+          'Enabled'
+          'Font'
+          'Height'
+          'HelpContext'
+          'HelpKeyword'
+          'HelpType'
+          'Hint'
+          'Left'
+          'Name'
+          'ParentBiDiMode'
+          'ParentColor'
+          'ParentCtl3D'
+          'ParentFont'
+          'ParentShowHint'
+          'PopupMenu'
+          'ShowHint'
+          'TabOrder'
+          'TabStop'
+          'Tag'
+          'Top'
+          'Visible'
+          'Width'
+          'WordWrap')
       end
       item
         Component = rdNormal
@@ -11955,6 +11769,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Font'
           'Height'
           'HelpContext'
+          'HelpKeyword'
+          'HelpType'
           'Hint'
           'Left'
           'Name'
@@ -11970,7 +11786,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Tag'
           'Top'
           'Visible'
-          'Width')
+          'Width'
+          'WordWrap')
       end
       item
         Component = rdSolicitacao
@@ -12047,7 +11864,7 @@ object FRel_Rechamados: TFRel_Rechamados
           'Width')
       end
       item
-        Component = rdTecnico
+        Component = rdTecnicoDtFechamento
         Properties.Strings = (
           'Action'
           'Alignment'
@@ -12066,6 +11883,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Font'
           'Height'
           'HelpContext'
+          'HelpKeyword'
+          'HelpType'
           'Hint'
           'Left'
           'Name'
@@ -12081,7 +11900,48 @@ object FRel_Rechamados: TFRel_Rechamados
           'Tag'
           'Top'
           'Visible'
-          'Width')
+          'Width'
+          'WordWrap')
+      end
+      item
+        Component = rdTecnicoDtInicial
+        Properties.Strings = (
+          'Action'
+          'Alignment'
+          'Anchors'
+          'BiDiMode'
+          'Caption'
+          'Checked'
+          'Color'
+          'Constraints'
+          'Ctl3D'
+          'Cursor'
+          'DragCursor'
+          'DragKind'
+          'DragMode'
+          'Enabled'
+          'Font'
+          'Height'
+          'HelpContext'
+          'HelpKeyword'
+          'HelpType'
+          'Hint'
+          'Left'
+          'Name'
+          'ParentBiDiMode'
+          'ParentColor'
+          'ParentCtl3D'
+          'ParentFont'
+          'ParentShowHint'
+          'PopupMenu'
+          'ShowHint'
+          'TabOrder'
+          'TabStop'
+          'Tag'
+          'Top'
+          'Visible'
+          'Width'
+          'WordWrap')
       end
       item
         Component = rdTecSub
@@ -12194,7 +12054,8 @@ object FRel_Rechamados: TFRel_Rechamados
           'Visible'
           'Width')
       end>
-    StorageName = 'stgFRel_Rechamados'
+    StorageName = 'stgFRel_Rechamado'
+    StorageType = stStream
     Left = 144
     Top = 215
   end
@@ -12214,7 +12075,7 @@ object FRel_Rechamados: TFRel_Rechamados
       FieldName = 'ID'
       FieldLength = 0
       DataType = dtInteger
-      DisplayWidth = 10
+      DisplayWidth = 0
       Position = 0
     end
     object ppLayoutppField2: TppField
