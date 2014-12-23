@@ -1,6 +1,6 @@
 object FrmLocContratosCopias: TFrmLocContratosCopias
-  Left = 148
-  Top = 120
+  Left = 168
+  Top = 122
   BorderIcons = [biMinimize, biMaximize]
   BorderStyle = bsSingle
   Caption = 'Localizar Contratos - C'#243'pias'

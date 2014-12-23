@@ -591,7 +591,8 @@ uses
   VendasPorProduto_FRel in 'VendasPorProduto_FRel.pas' {FRelVendasPorProduto},
   UntCadGrupos in 'UntCadGrupos.pas' {FrmCadGrupos},
   UntCadReducoes in 'UntCadReducoes.pas' {frmCadReducoes},
-  UntCadPerfilGrades in 'UntCadPerfilGrades.pas' {FrmCadPerfilGrades};
+  UntCadPerfilGrades in 'UntCadPerfilGrades.pas' {FrmCadPerfilGrades},
+  UntCadLocalizarContratoCopias in 'UntCadLocalizarContratoCopias.pas' {FrmCadLocalizarContratoCopias};
 
 {$R *.RES}
 
