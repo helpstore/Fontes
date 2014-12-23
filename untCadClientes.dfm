@@ -1,25 +1,25 @@
 inherited frmCadClientes: TfrmCadClientes
-  Left = 72
-  Top = 36
-  Width = 1296
+  Left = 0
+  Top = 28
+  Width = 1280
   Height = 700
   Caption = 'Clientes'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1280
+    Width = 1264
     Height = 636
     ActivePage = tbsEdita
     HideTabs = True
     ClientRectBottom = 635
     ClientRectLeft = 1
-    ClientRectRight = 1279
+    ClientRectRight = 1263
     ClientRectTop = 1
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 13
-        Width = 1278
+        Width = 1262
         Height = 621
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroCNPJ: TcxGridDBBandedColumn
@@ -521,35 +521,35 @@ inherited frmCadClientes: TfrmCadClientes
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1278
+        Width = 1262
         Height = 13
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1278
+        Width = 1262
         Height = 634
         inherited pnlSubCad: TPanel
           Top = 388
-          Width = 1276
+          Width = 1260
           Height = 245
           Align = alClient
           inherited PgcDetalhe: TcxPageControl
-            Width = 1276
+            Width = 1260
             Height = 245
             ActivePage = tbsDetalhe1
             Images = cxImageList1
             ClientRectBottom = 241
-            ClientRectRight = 1272
+            ClientRectRight = 1256
             ClientRectTop = 28
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Pre'#231'os Especiais'
               ImageIndex = 45
               inherited PGCSub1: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
                     Width = 641
@@ -723,10 +723,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Ve'#237'culos'
               ImageIndex = 42
               inherited PGCSub2: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
                     Width = 843
@@ -1127,10 +1127,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Propriedades'
               ImageIndex = 43
               inherited PGCSub3: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
                     Width = 641
@@ -1838,10 +1838,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Contas Correntes'
               ImageIndex = 44
               inherited PGCSub4: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Width = 837
@@ -2022,10 +2022,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub5: TcxTabSheet
                   inherited GridDet5: TcxGrid
                     Width = 845
@@ -2037,10 +2037,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub6: TcxTabSheet
                   inherited GridDet6: TcxGrid
                     Width = 845
@@ -2052,10 +2052,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub7: TcxTabSheet
                   inherited GridDet7: TcxGrid
                     Width = 845
@@ -2067,10 +2067,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 1268
+                Width = 1252
                 Height = 213
                 ClientRectBottom = 209
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 845
@@ -2082,14 +2082,14 @@ inherited frmCadClientes: TfrmCadClientes
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1276
+          Width = 1260
           Height = 387
           Align = alTop
           inherited PgcMaster: TcxPageControl
-            Width = 1276
+            Width = 1260
             Height = 387
             ClientRectBottom = 383
-            ClientRectRight = 1272
+            ClientRectRight = 1256
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               object cxGroupBox1: TcxGroupBox [0]
@@ -2100,7 +2100,7 @@ inherited frmCadClientes: TfrmCadClientes
                 PanelStyle.Active = True
                 TabOrder = 1
                 Height = 89
-                Width = 1268
+                Width = 1252
                 object aTfrmCadPessoas: TcxDBLookupComboBox
                   Tag = 1
                   Left = 75
@@ -2183,7 +2183,7 @@ inherited frmCadClientes: TfrmCadClientes
               object PCCLIENTE: TcxPageControl
                 Left = 0
                 Top = 89
-                Width = 1268
+                Width = 1252
                 Height = 267
                 ActivePage = dxTabSheet1
                 Align = alClient
@@ -2191,7 +2191,7 @@ inherited frmCadClientes: TfrmCadClientes
                 TabOrder = 3
                 ClientRectBottom = 263
                 ClientRectLeft = 4
-                ClientRectRight = 1264
+                ClientRectRight = 1248
                 ClientRectTop = 27
                 object dxTabSheet1: TcxTabSheet
                   Caption = 'Dados Cliente'
