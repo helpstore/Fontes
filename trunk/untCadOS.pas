@@ -842,7 +842,6 @@ type
     procedure dtEditBeforePost(DataSet: TDataSet);
     procedure dtEditDet2NewRecord(DataSet: TDataSet);
     procedure dtEditDet2AfterPost(DataSet: TDataSet);
-    procedure dtEditDet1BeforePost(DataSet: TDataSet);
     procedure dtEditKM_FINALChange(Sender: TField);
     procedure btnClienteClick(Sender: TObject);
     procedure btnFiltroClienteClick(Sender: TObject);
@@ -861,6 +860,7 @@ type
     procedure dtEditAfterPost(DataSet: TDataSet);
     procedure ActGeraVendaExecute(Sender: TObject);
     procedure ActImprimeHistoricoExecute(Sender: TObject);
+    procedure dtEditDet2BeforePost(DataSet: TDataSet);
   private
     { Private declarations }
     SqlOriginalHist : string;
@@ -1516,99 +1516,6 @@ begin
 
 end;
 
-procedure TfrmCadOS.dtEditDet1BeforePost(DataSet: TDataSet);
-var
-  DATA_INI  , DATA_FIM,
-  HORA_INI  , HORA_FIM,
-  INTER_INI , INTER_FIM,
-  TRAB_INI  , TRAB_FIM : String;
-  DtFim : TDate;
-  HrFim : TTime;
-  MsgData, MsgHora : string;
-begin
-  inherited;
-
-  if ((dtEditDet2DT_INICIO.IsNull)  OR (dtEditDet2HR_INICIO.IsNull) OR (dtEditDet2DT_FIM.IsNull) OR (dtEditDet2HR_FIM.IsNull))   then
-  begin
-    Application.MessageBox('Defina uma data de inicio','Aviso',mb_iconerror+mb_ok);
-    Abort;
-  end;
-
-  //-->> Validando Hora/Data [PROGRAMAÇÃO e INICIO ATIVIDADE]
- { MsgData := 'Dt. de Programação não pode ser superior a Dt. de Inicialização do serviço';
-  MsgHora := 'Hr. de Programação não pode ser superior a Hr. de Inicialização do serviço';
-  if ValidaDataHora(DateToStr(OrdemDT_ATRIBUICAO.value),DateToStr(OS_INTERVALODT_INICIO.value),OrdemHR_ATRIBUICAO.value, OS_INTERVALOHR_INICIO.value, MsgData, MsgHora) then
-  begin
-    abort;
-    exit;
-  end;}
-
-  //-->> Validando Hora/Data [INICIO ATIVIDADE e FIM ATIVIDADE]
-  {MsgData := 'Dt. de Inicialização não pode ser superior a Dt. de Finalização do serviço';
-  MsgHora := 'Hr. de Inicialização não pode ser superior a Hr. de Finalização do serviço';
-
-  if ValidaDataHora(DateToStr(OS_INTERVALODT_INICIO.value),DateToStr(OS_INTERVALODT_FIM.value),OS_INTERVALOHR_INICIO.value,OS_INTERVALOHR_FIM.value, MsgData, MsgHora) then
-  begin
-    abort;
-    exit;
-  end;}
-
-  //-->> Validando Hora/Data [FIM ATIVIDADE e FECHAMENTO]
-  if (dtEditDATA_FECHAMENTO.isNull) then
-    DtFim := Date
-  else
-    DtFim := dtEditDATA_FECHAMENTO.value;
-
-  if (dtEditHR_FECHAMENTO.isNull) then
-    HrFim := Time
-  else
-    HrFim := dtEditHR_FECHAMENTO.value;
-
-
-  {MsgData := 'Dt. de Finalização não pode ser superior a Dt. de Fechamento da OS';
-  MsgHora := 'Hr. de Finalização não pode ser superior a Hr. de Fechamento da OS';
-  if ValidaDataHora(DateToStr(dtEditDet2DT_FIM.value),DateToStr(DtFim), dtEditDet2HR_FIM.value, HrFim, MsgData, MsgHora) then
-  begin
-    abort;
-    exit;
-  end;}
-
-
-  DATA_INI := DateToStr(dtEditDet2DT_INICIO.Value);
-  HORA_INI := TimeToStr(dtEditDet2HR_INICIO.Value);
-
-  //** Data_Fim se não estiver preenchido pegara data_atual
-  if dtEditDet2DT_FIM.Text='' then
-    DATA_FIM := DateToStr(dmapp.DataServidor)
-  else
-    DATA_FIM := DateToStr(dtEditDet2DT_FIM.Value   );
-
-  //** Hora_Fim se não estiver preenchido pegara hora_atual
-  if dtEditDet2HR_FIM.Text='00:00:00' then
-    HORA_FIM := TimeToStr(dmapp.DataServidor)
-  else
-    HORA_FIM := TimeToStr(dtEditDet2HR_FIM.Value   );
-
-  INTER_INI:= '11:00:00';
-  INTER_FIM:= '13:00:00';
-  TRAB_INI := '08:00:00';
-  TRAB_FIM := '18:00:00';
-
-  dtEditDet2QTDE_HORA.Value  := HORAS_TRABALHADAS(DATA_INI  , DATA_FIM,
-                                                  HORA_INI  , HORA_FIM,
-                                                  INTER_INI , INTER_FIM,
-                                                  TRAB_INI  , TRAB_FIM);
-
-
-
-  if dtEditDet2KM_FINAL.value < dtEditDet2KM_INICIAL.value then
-  begin
-    application.messagebox('Km. Final não poderá ser inferior a km. Inicial','Aviso',mb_iconerror + mb_ok);
-    abort;//aqui boy
-    exit;
-  end;
-end;
-
 procedure TfrmCadOS.dtEditKM_FINALChange(Sender: TField);
 begin
   inherited;
@@ -1928,6 +1835,99 @@ begin
  //   showmessage(inttostr(qryRelHistoricoEquip.RecordCount));
 
     rptHistEquip.Print;
+end;
+
+procedure TfrmCadOS.dtEditDet2BeforePost(DataSet: TDataSet);
+var
+  DATA_INI  , DATA_FIM,
+  HORA_INI  , HORA_FIM,
+  INTER_INI , INTER_FIM,
+  TRAB_INI  , TRAB_FIM : String;
+  DtFim : TDate;
+  HrFim : TTime;
+  MsgData, MsgHora : string;
+begin
+  inherited;
+
+  if ((dtEditDet2DT_INICIO.IsNull)  OR (dtEditDet2HR_INICIO.IsNull) OR (dtEditDet2DT_FIM.IsNull) OR (dtEditDet2HR_FIM.IsNull))   then
+  begin
+    Application.MessageBox('Defina uma data de inicio','Aviso',mb_iconerror+mb_ok);
+    Abort;
+  end;
+
+  //-->> Validando Hora/Data [PROGRAMAÇÃO e INICIO ATIVIDADE]
+ { MsgData := 'Dt. de Programação não pode ser superior a Dt. de Inicialização do serviço';
+  MsgHora := 'Hr. de Programação não pode ser superior a Hr. de Inicialização do serviço';
+  if ValidaDataHora(DateToStr(OrdemDT_ATRIBUICAO.value),DateToStr(OS_INTERVALODT_INICIO.value),OrdemHR_ATRIBUICAO.value, OS_INTERVALOHR_INICIO.value, MsgData, MsgHora) then
+  begin
+    abort;
+    exit;
+  end;}
+
+  //-->> Validando Hora/Data [INICIO ATIVIDADE e FIM ATIVIDADE]
+  {MsgData := 'Dt. de Inicialização não pode ser superior a Dt. de Finalização do serviço';
+  MsgHora := 'Hr. de Inicialização não pode ser superior a Hr. de Finalização do serviço';
+
+  if ValidaDataHora(DateToStr(OS_INTERVALODT_INICIO.value),DateToStr(OS_INTERVALODT_FIM.value),OS_INTERVALOHR_INICIO.value,OS_INTERVALOHR_FIM.value, MsgData, MsgHora) then
+  begin
+    abort;
+    exit;
+  end;}
+
+  //-->> Validando Hora/Data [FIM ATIVIDADE e FECHAMENTO]
+  if (dtEditDATA_FECHAMENTO.isNull) then
+    DtFim := Date
+  else
+    DtFim := dtEditDATA_FECHAMENTO.value;
+
+  if (dtEditHR_FECHAMENTO.isNull) then
+    HrFim := Time
+  else
+    HrFim := dtEditHR_FECHAMENTO.value;
+
+
+  {MsgData := 'Dt. de Finalização não pode ser superior a Dt. de Fechamento da OS';
+  MsgHora := 'Hr. de Finalização não pode ser superior a Hr. de Fechamento da OS';
+  if ValidaDataHora(DateToStr(dtEditDet2DT_FIM.value),DateToStr(DtFim), dtEditDet2HR_FIM.value, HrFim, MsgData, MsgHora) then
+  begin
+    abort;
+    exit;
+  end;}
+
+
+  DATA_INI := DateToStr(dtEditDet2DT_INICIO.Value);
+  HORA_INI := TimeToStr(dtEditDet2HR_INICIO.Value);
+
+  //** Data_Fim se não estiver preenchido pegara data_atual
+  if dtEditDet2DT_FIM.Text='' then
+    DATA_FIM := DateToStr(dmapp.DataServidor)
+  else
+    DATA_FIM := DateToStr(dtEditDet2DT_FIM.Value   );
+
+  //** Hora_Fim se não estiver preenchido pegara hora_atual
+  if dtEditDet2HR_FIM.Text='00:00:00' then
+    HORA_FIM := TimeToStr(dmapp.DataServidor)
+  else
+    HORA_FIM := TimeToStr(dtEditDet2HR_FIM.Value   );
+
+  INTER_INI:= '11:00:00';
+  INTER_FIM:= '13:00:00';
+  TRAB_INI := '08:00:00';
+  TRAB_FIM := '18:00:00';
+
+  dtEditDet2QTDE_HORA.Value  := HORAS_TRABALHADAS(DATA_INI  , DATA_FIM,
+                                                  HORA_INI  , HORA_FIM,
+                                                  INTER_INI , INTER_FIM,
+                                                  TRAB_INI  , TRAB_FIM);
+
+
+
+  if dtEditDet2KM_FINAL.value < dtEditDet2KM_INICIAL.value then
+  begin
+    application.messagebox('Km. Final não poderá ser inferior a km. Inicial','Aviso',mb_iconerror + mb_ok);
+    abort;//aqui boy
+    exit;
+  end;
 end;
 
 end.

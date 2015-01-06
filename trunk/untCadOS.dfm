@@ -6938,6 +6938,7 @@ inherited frmCadOS: TfrmCadOS
   inherited dtEditDet2: TIBDataSet
     AfterInsert = dtEditDet2AfterInsert
     AfterPost = dtEditDet2AfterPost
+    BeforePost = dtEditDet2BeforePost
     DeleteSQL.Strings = (
       'delete from OFC_ORDEM_SERVICO_INTERVALO'
       'where'

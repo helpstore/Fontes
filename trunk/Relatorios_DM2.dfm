@@ -1,7 +1,7 @@
 object dmRelatorios2: TdmRelatorios2
   OldCreateOrder = False
   Left = 302
-  Top = 145
+  Top = 151
   Height = 564
   Width = 741
   object qryRelComVendas: TIBQuery
