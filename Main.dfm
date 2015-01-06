@@ -481,7 +481,6 @@ object FrmMain: TFrmMain
             Font.Style = []
             Storage = AgendaStorage2
             TabOrder = 1
-            Selection = 1
             Splitters = {
               8D0300007E0000001C0400008300000088030000010000008D030000DB010000}
             StoredClientBounds = {01000000010000001C040000DB010000}
@@ -2156,7 +2155,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 87.000000000000000000
+                            Value = 22.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2324,7 +2323,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 37.000000000000000000
+                            Value = 36.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2492,7 +2491,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 89.000000000000000000
+                            Value = 66.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2660,7 +2659,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 10.000000000000000000
+                            Value = 87.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -2828,7 +2827,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 44.000000000000000000
+                            Value = 23.000000000000000000
                           end
                         end
                         object lcMetaVendaGroup_Root: TdxLayoutGroup

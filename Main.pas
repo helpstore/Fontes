@@ -7910,7 +7910,7 @@ begin
     Exit;
 
   if DMApp.SelecionarEmpresa = 'N' then
-   // Exit;
+
 
   if FrmMain.MDIChildCount > 0 then
      opFechar.OnClick(opFechar);
@@ -7922,7 +7922,7 @@ begin
   PnlClient.Visible:= False;
   FrmSelLeituras.ShowModal;
 
-
+   //Exit;
 
   If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadLeituras', True)) Then Exit;
 

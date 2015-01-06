@@ -395,8 +395,9 @@ begin
     end
   end
   else
+  begin
     ConfiguraSubTabs;
-
+  end;
 end;
 
 procedure TfrmCadPadraoMaster.ActFirstExecute(Sender: TObject);

@@ -1,9 +1,9 @@
 object FrmOrdens_Servicos: TFrmOrdens_Servicos
   Left = 227
-  Top = 81
+  Top = 84
   Width = 1011
   Height = 665
-  Caption = ' Ordens Servi'#231'os '
+  Caption = ']'
   Color = 15396334
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -73,7 +73,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
       Top = 2
       Width = 991
       Height = 554
-      ActivePage = TabMov
+      ActivePage = Tab1
       Align = alClient
       TabOrder = 1
       TabStop = False
@@ -3161,7 +3161,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
     DataPipeline = ppHistEquip
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PaperName = 'A4 210x297 mm'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
@@ -4156,7 +4156,7 @@ object FrmOrdens_Servicos: TFrmOrdens_Servicos
           DataPipeline = ppHistEquipItens
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PaperName = 'A4 210x297 mm'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
