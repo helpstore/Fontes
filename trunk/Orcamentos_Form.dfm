@@ -1,6 +1,6 @@
 object FrmOrcamentos: TFrmOrcamentos
-  Left = 189
-  Top = 104
+  Left = 276
+  Top = 102
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Or'#231'amento '
@@ -65,7 +65,7 @@ object FrmOrcamentos: TFrmOrcamentos
       Width = 23
       Height = 22
       Cursor = crHandPoint
-      TabOrder = 16
+      TabOrder = 15
       OnClick = BtnPessoaClick
       Glyph.Data = {
         06030000424D06030000000000003600000028000000100000000F0000000100
@@ -100,7 +100,7 @@ object FrmOrcamentos: TFrmOrcamentos
       Width = 23
       Height = 22
       Cursor = crHandPoint
-      TabOrder = 17
+      TabOrder = 16
       OnClick = BtnVendedorClick
       Glyph.Data = {
         06030000424D06030000000000003600000028000000100000000F0000000100
@@ -135,7 +135,7 @@ object FrmOrcamentos: TFrmOrcamentos
       Width = 22
       Height = 22
       Cursor = crHandPoint
-      TabOrder = 18
+      TabOrder = 17
       OnClick = BtnFormaClick
       Glyph.Data = {
         06030000424D06030000000000003600000028000000100000000F0000000100
@@ -672,23 +672,17 @@ object FrmOrcamentos: TFrmOrcamentos
       UseEditMask = True
       StoredValues = 4
     end
-    object DBCheckBox1: TDBCheckBox
-      Left = 473
-      Top = 126
-      Width = 132
-      Height = 17
+    object cxDBCheckBox2: TcxDBCheckBox
+      Left = 472
+      Top = 128
       Caption = 'Compromete estoque'
-      DataField = 'COMPROMETER_ESTOQUE'
-      DataSource = DataSource
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 8404992
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 13
-      ValueChecked = 'S'
-      ValueUnchecked = 'N'
+      DataBinding.DataField = 'COMPROMETER_ESTOQUE'
+      DataBinding.DataSource = DataSource
+      Properties.NullStyle = nssUnchecked
+      Properties.ValueChecked = 'S'
+      Properties.ValueUnchecked = 'N'
+      TabOrder = 25
+      Width = 145
     end
   end
   object Navigator: TdxBarDBNavigator
@@ -2254,22 +2248,23 @@ object FrmOrcamentos: TFrmOrcamentos
     InsertSQL.Strings = (
       'insert into FAT_ORCAMENTOS'
       
-        '  (STATUS, COMPROMETER_ESTOQUE, CNPJ, CODIGO, DATA, DESC_ACRESC,' +
-        ' '
-      'DESC_ACRESC_2, '
-      '   FORMA_PGTO, NOME_CONSUMIDOR, OBSERVACAO, PESSOA_FJ, TOTAL, '
-      'USUARIO, '
-      '   VENDEDOR, NOME, VALIDADE, TOTAL_2, CLIENTE, EXTERNO, MASCARA)'
-      'values'
-      '  (:STATUS, :COMPROMETER_ESTOQUE, :CNPJ, :CODIGO, :DATA, '
-      ':DESC_ACRESC, '
-      '   :DESC_ACRESC_2, :FORMA_PGTO, :NOME_CONSUMIDOR, :OBSERVACAO, '
-      ':PESSOA_FJ, '
+        '  (CLIENTE, CNPJ, CODIGO, COMPROMETER_ESTOQUE, DATA, DESC_ACRESC' +
+        ', DESC_ACRESC_2, '
       
-        '   :TOTAL, :USUARIO, :VENDEDOR, :NOME, :VALIDADE, :TOTAL_2, :CLI' +
-        'ENTE, '
-      ':EXTERNO, '
-      '   :MASCARA)')
+        '   EXTERNO, FORMA_PGTO, MASCARA, NOME, NOME_CONSUMIDOR, OBSERVAC' +
+        'AO, PESSOA_FJ, '
+      '   STATUS, TOTAL, TOTAL_2, USUARIO, VALIDADE, VENDEDOR)'
+      'values'
+      
+        '  (:CLIENTE, :CNPJ, :CODIGO, :COMPROMETER_ESTOQUE, :DATA, :DESC_' +
+        'ACRESC, '
+      
+        '   :DESC_ACRESC_2, :EXTERNO, :FORMA_PGTO, :MASCARA, :NOME, :NOME' +
+        '_CONSUMIDOR, '
+      
+        '   :OBSERVACAO, :PESSOA_FJ, :STATUS, :TOTAL, :TOTAL_2, :USUARIO,' +
+        ' :VALIDADE, '
+      '   :VENDEDOR)')
     RefreshSQL.Strings = (
       'Select '
       '  CNPJ,'
@@ -2299,7 +2294,8 @@ object FrmOrcamentos: TFrmOrcamentos
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'select STATUS, '
+      'select '
+      '      STATUS, '
       '      COMPROMETER_ESTOQUE,'
       '      CNPJ, '
       '      CODIGO, '
@@ -2335,26 +2331,26 @@ object FrmOrcamentos: TFrmOrcamentos
     ModifySQL.Strings = (
       'update FAT_ORCAMENTOS'
       'set'
-      '  STATUS = :STATUS,'
-      '  COMPROMETER_ESTOQUE = :COMPROMETER_ESTOQUE,'
+      '  CLIENTE = :CLIENTE,'
       '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
+      '  COMPROMETER_ESTOQUE = :COMPROMETER_ESTOQUE,'
       '  DATA = :DATA,'
       '  DESC_ACRESC = :DESC_ACRESC,'
       '  DESC_ACRESC_2 = :DESC_ACRESC_2,'
+      '  EXTERNO = :EXTERNO,'
       '  FORMA_PGTO = :FORMA_PGTO,'
+      '  MASCARA = :MASCARA,'
+      '  NOME = :NOME,'
       '  NOME_CONSUMIDOR = :NOME_CONSUMIDOR,'
       '  OBSERVACAO = :OBSERVACAO,'
       '  PESSOA_FJ = :PESSOA_FJ,'
+      '  STATUS = :STATUS,'
       '  TOTAL = :TOTAL,'
-      '  USUARIO = :USUARIO,'
-      '  VENDEDOR = :VENDEDOR,'
-      '  NOME = :NOME,'
-      '  VALIDADE = :VALIDADE,'
       '  TOTAL_2 = :TOTAL_2,'
-      '  CLIENTE = :CLIENTE,'
-      '  EXTERNO = :EXTERNO,'
-      '  MASCARA = :MASCARA'
+      '  USUARIO = :USUARIO,'
+      '  VALIDADE = :VALIDADE,'
+      '  VENDEDOR = :VENDEDOR'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')

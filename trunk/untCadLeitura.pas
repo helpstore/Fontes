@@ -293,9 +293,10 @@ type
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure ActFecharLeiturasExecute(Sender: TObject);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);
-    procedure dtEditDet1AfterPost(DataSet: TDataSet);
     procedure dtEditDESC_ACRESC_CPValidate(Sender: TField);
     procedure ActEstornarLeituraExecute(Sender: TObject);
+    procedure ActSaveExecute(Sender: TObject);
+    procedure ActEditExecute(Sender: TObject);
   private
     { Private declarations }
     procedure filtrar;
@@ -330,7 +331,7 @@ begin
 
     case mtbFiltroSTATUS.Value of
       0: sFiltro := sFiltro + ' and lt.fechada = ''N''';
-      1: sFiltro := sFiltro + ' and lt.fechada = ''S''';
+      1: sFiltro := sFiltro + ' and lt.fechada = ''S''' + ' and lt.gera_faturamento = ''N''';
       2: sFiltro := sFiltro + ' and lt.gera_faturamento = ''S''';
     end;
 
@@ -547,11 +548,15 @@ begin
 
       {Realizando fechamento}
       if (dtEdit.state <> dsEdit) then
-         dtEdit.Edit;
+      begin
+        dtEdit.Close;
+        dtEdit.Open;
+        dtEdit.Edit;
+      end;
 
       dtEditFECHADA.value := 'S';
-      //dtEdit.Post;
 
+      tbsMaster1.SetFocus;
       ActSave.Execute;
       Application.MessageBox('Fechamento realizado com sucesso','Aviso',MB_OK+MB_ICONINFORMATION);
 
@@ -585,13 +590,6 @@ begin
       EdtLeituraAtual.setfocus;
     end;
   end;
-end;
-
-procedure TfrmCadLeituras.dtEditDet1AfterPost(DataSet: TDataSet);
-begin
-  inherited;
-  dtEdit.Close;
-  dtEdit.Open;
 end;
 
 procedure TfrmCadLeituras.dtEditDESC_ACRESC_CPValidate(Sender: TField);
@@ -652,6 +650,21 @@ begin
       end;
     end
   end;
+end;
+
+procedure TfrmCadLeituras.ActSaveExecute(Sender: TObject);
+begin
+  inherited;
+  dtListDet1.Next;
+  if (dtListDet1.eof) then
+    ActFecharLeituras.Execute;
+end;
+
+procedure TfrmCadLeituras.ActEditExecute(Sender: TObject);
+begin
+  inherited;
+  if PGCSub1.ActivePage = tbsEditaSub1 then
+    EdtLeituraAtual.SetFocus;
 end;
 
 end.

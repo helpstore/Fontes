@@ -10,6 +10,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
   inherited pgcCadastro: TcxPageControl
     Width = 1264
     Height = 684
+    ActivePage = tbsLista
     ClientRectBottom = 680
     ClientRectRight = 1260
     ClientRectTop = 4
@@ -36,106 +37,112 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
           object TVRegistroCOD_CLIENTE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COD_CLIENTE'
             Position.BandIndex = 0
-            Position.ColIndex = 2
+            Position.ColIndex = 3
             Position.RowIndex = 0
           end
           object TVRegistroCOD_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COD_CONTRATO'
             Visible = False
             Position.BandIndex = 0
-            Position.ColIndex = 4
+            Position.ColIndex = 5
             Position.RowIndex = 0
           end
           object TVRegistroNUM_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NUM_CONTRATO'
             Position.BandIndex = 0
-            Position.ColIndex = 6
+            Position.ColIndex = 7
             Position.RowIndex = 0
           end
           object TVRegistroDT_INICIO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DT_INICIO'
             Position.BandIndex = 0
-            Position.ColIndex = 11
+            Position.ColIndex = 12
             Position.RowIndex = 0
           end
           object TVRegistroDT_FIM: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DT_FIM'
             Position.BandIndex = 0
-            Position.ColIndex = 12
+            Position.ColIndex = 13
             Position.RowIndex = 0
           end
           object TVRegistroATIVO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ATIVO'
             Width = 36
             Position.BandIndex = 0
-            Position.ColIndex = 13
+            Position.ColIndex = 14
             Position.RowIndex = 0
           end
           object TVRegistroINFORMACOES: TcxGridDBBandedColumn
             DataBinding.FieldName = 'INFORMACOES'
             Visible = False
             Position.BandIndex = 0
-            Position.ColIndex = 14
+            Position.ColIndex = 15
             Position.RowIndex = 0
           end
           object TVRegistroVALOR_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'VALOR_CONTRATO'
             Visible = False
             Position.BandIndex = 0
-            Position.ColIndex = 15
+            Position.ColIndex = 16
             Position.RowIndex = 0
           end
           object TVRegistroDATA: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DATA'
             Position.BandIndex = 0
-            Position.ColIndex = 16
+            Position.ColIndex = 17
             Position.RowIndex = 0
           end
           object TVRegistroDIA_BASE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'DIA_BASE'
             Visible = False
             Position.BandIndex = 0
-            Position.ColIndex = 17
+            Position.ColIndex = 18
             Position.RowIndex = 0
           end
           object TVRegistroNOME_RAZAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NOME_RAZAO'
             Position.BandIndex = 0
-            Position.ColIndex = 3
+            Position.ColIndex = 4
             Position.RowIndex = 0
           end
           object TVRegistroCPF_CGC: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CPF_CGC'
             Position.BandIndex = 0
-            Position.ColIndex = 10
+            Position.ColIndex = 11
             Position.RowIndex = 0
           end
           object TVRegistroNOME_CONTRATO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'NOME_CONTRATO'
             Width = 233
             Position.BandIndex = 0
-            Position.ColIndex = 5
+            Position.ColIndex = 6
             Position.RowIndex = 0
           end
           object TVRegistroCIDADE: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CIDADE'
             Width = 189
             Position.BandIndex = 0
-            Position.ColIndex = 7
+            Position.ColIndex = 8
             Position.RowIndex = 0
           end
           object TVRegistroREGIAO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'REGIAO'
             Width = 39
             Position.BandIndex = 0
-            Position.ColIndex = 8
+            Position.ColIndex = 9
             Position.RowIndex = 0
           end
           object TVRegistroTECNICO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'TECNICO'
             Width = 82
             Position.BandIndex = 0
-            Position.ColIndex = 9
+            Position.ColIndex = 10
+            Position.RowIndex = 0
+          end
+          object TVRegistroFANTASIA: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'FANTASIA'
+            Position.BandIndex = 0
+            Position.ColIndex = 2
             Position.RowIndex = 0
           end
         end
@@ -1577,7 +1584,8 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       '    psa.cpf_cgc,'
       '    tp.nome nome_contrato,'
       '    reg.nome REGIAO,'
-      '    tec.nome TECNICO'
+      '    tec.nome TECNICO,'
+      '    psa.fantasia'
       'from ofc_contratos cp'
       
         'inner join glo_pessoas_fj psa on (psa.cnpj = cp.cnpj and psa.cod' +
@@ -1594,8 +1602,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       
         'left join GLO_TIPO_CONTRATO tp on (tp.cnpj = cp.cnpj and tp.codi' +
         'go = cp.cod_contrato)'
-      'where cp.cnpj = :cnpj'
-      '')
+      'where cp.cnpj = :cnpj')
     Top = 12
     ParamData = <
       item
@@ -1708,6 +1715,11 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       DisplayLabel = 'T'#233'cnico'
       FieldName = 'TECNICO'
       Origin = '"OFC_MECANICOS"."NOME"'
+      Size = 50
+    end
+    object dtListFANTASIA: TIBStringField
+      FieldName = 'FANTASIA'
+      Origin = '"GLO_PESSOAS_FJ"."FANTASIA"'
       Size = 50
     end
   end
@@ -3145,6 +3157,41 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
       end
       item
         Component = TVRegistroDT_INICIO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = TVRegistroFANTASIA
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'

@@ -1,7 +1,7 @@
 object DmVendas2: TDmVendas2
   OldCreateOrder = False
-  Left = 284
-  Top = 69
+  Left = 322
+  Top = 42
   Height = 686
   Width = 978
   object qryGrafNF: TIBQuery

@@ -2,7 +2,7 @@ object FrmPagar: TFrmPagar
   Left = 0
   Top = 0
   Width = 1280
-  Height = 760
+  Height = 728
   Caption = 'Contas '#224' Pagar'
   Color = 15396334
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object FrmPagar: TFrmPagar
     Left = 0
     Top = 0
     Width = 1264
-    Height = 722
+    Height = 690
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -37,7 +37,7 @@ object FrmPagar: TFrmPagar
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 688
+      Top = 656
       Width = 1260
       Height = 2
       Align = alBottom
@@ -45,7 +45,7 @@ object FrmPagar: TFrmPagar
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 690
+      Top = 658
       Width = 1260
       Height = 30
       Align = alBottom
@@ -73,7 +73,7 @@ object FrmPagar: TFrmPagar
       Left = 2
       Top = 2
       Width = 1039
-      Height = 686
+      Height = 654
       Align = alClient
       BevelOuter = bvNone
       Caption = 'Panel5'
@@ -734,7 +734,7 @@ object FrmPagar: TFrmPagar
         Left = 0
         Top = 232
         Width = 1039
-        Height = 454
+        Height = 422
         Align = alClient
         TabOrder = 2
         object GridTV: TcxGridDBBandedTableView
@@ -1074,7 +1074,7 @@ object FrmPagar: TFrmPagar
       Left = 1041
       Top = 2
       Width = 221
-      Height = 686
+      Height = 654
       Align = alRight
       BevelInner = bvRaised
       BevelOuter = bvLowered
@@ -1410,8 +1410,8 @@ object FrmPagar: TFrmPagar
       object cxSplitter1: TcxSplitter
         Left = 2
         Top = 2
-        Width = 6
-        Height = 682
+        Width = 7
+        Height = 650
         Control = Panel4
       end
     end
