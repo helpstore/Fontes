@@ -14,7 +14,8 @@ uses
   dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
   dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
-  dxSkinXmas2008Blue, cxGroupBox, Menus, StdCtrls, cxButtons;
+  dxSkinXmas2008Blue, cxGroupBox, Menus, StdCtrls, cxButtons, cxRadioGroup,
+  cxLabel, cxTextEdit, cxMaskEdit, cxDropDownEdit;
 
 type
   TFrmRelOrcamento = class(TForm)
@@ -22,6 +23,8 @@ type
     cxGroupBox2: TcxGroupBox;
     BtnOk: TcxButton;
     RzBitBtn2: TcxButton;
+    CmbStatus: TcxComboBox;
+    cxLabel1: TcxLabel;
     procedure RzBitBtn2Click(Sender: TObject);
   private
     { Private declarations }

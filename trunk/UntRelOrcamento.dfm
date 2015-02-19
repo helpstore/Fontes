@@ -18,9 +18,36 @@ object FrmRelOrcamento: TFrmRelOrcamento
     Top = 0
     Align = alClient
     PanelStyle.Active = True
+    Style.LookAndFeel.NativeStyle = False
+    Style.LookAndFeel.SkinName = 'Black'
+    StyleDisabled.LookAndFeel.NativeStyle = False
+    StyleDisabled.LookAndFeel.SkinName = 'Black'
+    StyleFocused.LookAndFeel.NativeStyle = False
+    StyleFocused.LookAndFeel.SkinName = 'Black'
+    StyleHot.LookAndFeel.NativeStyle = False
+    StyleHot.LookAndFeel.SkinName = 'Black'
     TabOrder = 0
     Height = 408
     Width = 714
+    object CmbStatus: TcxComboBox
+      Left = 53
+      Top = 23
+      Properties.Items.Strings = (
+        'Todos'
+        'Aberto'
+        'Parc. Faturado'
+        'Faturado'
+        'Cancelado')
+      TabOrder = 0
+      Text = 'CmbStatus'
+      Width = 129
+    end
+    object cxLabel1: TcxLabel
+      Left = 16
+      Top = 24
+      Caption = 'Status'
+      Transparent = True
+    end
   end
   object cxGroupBox2: TcxGroupBox
     Left = 0
