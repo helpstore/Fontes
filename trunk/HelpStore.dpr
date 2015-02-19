@@ -592,7 +592,8 @@ uses
   UntCadGrupos in 'UntCadGrupos.pas' {FrmCadGrupos},
   UntCadReducoes in 'UntCadReducoes.pas' {frmCadReducoes},
   UntCadPerfilGrades in 'UntCadPerfilGrades.pas' {FrmCadPerfilGrades},
-  UntCadLocalizarContratoCopias in 'UntCadLocalizarContratoCopias.pas' {FrmCadLocalizarContratoCopias};
+  UntCadLocalizarContratoCopias in 'UntCadLocalizarContratoCopias.pas' {FrmCadLocalizarContratoCopias},
+  UntRelOrcamento in 'UntRelOrcamento.pas' {FrmRelOrcamento};
 
 {$R *.RES}
 
