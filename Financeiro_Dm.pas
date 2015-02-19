@@ -8744,7 +8744,8 @@ Var
    Favorecido, Cpf_Cnpj: String;
    Codigo : Integer;
 begin
-  if Application.MessageBox('Gerar Recibo para o Pagamento?','Opção',MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = mryes then
+showmessage('aqui');
+  if Application.MessageBox('Gerar Recibo para o Pagamento?###############','Opção',MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = mryes then
     with spCriaReciboPagas do
     begin
       ParamByName('cnpj').Value := DMApp.Cnpj;

@@ -19,7 +19,7 @@ uses
   dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, Menus, dxSkinsdxBarPainter, cxClasses, cxButtons, DateUtils,
-  cxLabel;
+  cxLabel, cxCheckBox, cxDBEdit;
 
 type
   TFrmOrcamentos = class(TForm)
@@ -103,7 +103,6 @@ type
     DsAgrupador: TDataSource;
     GridItensQTDE_FATURADA: TdxDBGridMaskColumn;
     GridItensSaldo: TdxDBGridColumn;
-    DBCheckBox1: TDBCheckBox;
     GridItensGRADE: TdxDBGridMaskColumn;
     GridItensNUMERO: TdxDBGridMaskColumn;
     GridItensCOMPLEMENTO: TdxDBGridMaskColumn;
@@ -167,6 +166,7 @@ type
     OrcamentosMASCARA: TIntegerField;
     OrcamentosCOMPROMETER_ESTOQUE: TIBStringField;
     OrcamentosSTATUS: TIntegerField;
+    cxDBCheckBox2: TcxDBCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);

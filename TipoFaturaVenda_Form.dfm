@@ -1,6 +1,6 @@
 object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
-  Left = 295
-  Top = 184
+  Left = 357
+  Top = 180
   BorderStyle = bsDialog
   Caption = '  Imprime Nota / Cupom Fiscal'
   ClientHeight = 160

@@ -254,6 +254,8 @@ type
     TVRegistroCIDADE: TcxGridDBBandedColumn;
     TVRegistroREGIAO: TcxGridDBBandedColumn;
     TVRegistroTECNICO: TcxGridDBBandedColumn;
+    dtListFANTASIA: TIBStringField;
+    TVRegistroFANTASIA: TcxGridDBBandedColumn;
     procedure btnTipoContratoClick(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
     procedure dtEditDet1BeforePost(DataSet: TDataSet);

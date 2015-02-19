@@ -1065,19 +1065,25 @@ begin
 end;
 
 procedure TfrmCadPadraoMaster.ActEditExecute(Sender: TObject);
+var f : integer;
 begin
   if (pgcCadastro.ActivePageIndex = 0) then
   begin
     PgcMaster.activepageindex := 0;
     Editar(dsRegistro,tbsEdita);
-    edtCodigo.SetFocus;
+    //edtCodigo.SetFocus;
   end
   else
   begin
     if ((PgcDetalhe.ActivePageIndex = 0)  and (Foco = 'Sub1')) then
     begin
       Editar(dsRegistroDet1,tbsEditaSub1);
-      edtCodDet1.SetFocus;
+      for f := 0 to (TFormPadrao(Sender).ComponentCount -1) do
+      begin
+        if (TFormPadrao(Sender).Components[f] is TcxCustomTextEdit) and (TFormPadrao(Sender).Components[f].Tag = 1) then
+          (TFormPadrao(Sender).Components[f]as TcxCustomTextEdit).SetFocus;
+      end;
+      //edtCodDet1.SetFocus;
     end
     else if ((PgcDetalhe.ActivePageIndex = 1)  and (Foco = 'Sub2')) then
     begin

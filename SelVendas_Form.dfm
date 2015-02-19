@@ -1,6 +1,6 @@
 object FrmSelVendas: TFrmSelVendas
-  Left = 28
-  Top = 28
+  Left = 40
+  Top = 32
   Width = 1233
   Height = 654
   Caption = ' Faturamento de Produtos '
@@ -979,7 +979,7 @@ object FrmSelVendas: TFrmSelVendas
           Top = 0
           Width = 1029
           Height = 531
-          ActivePage = tbsClientes
+          ActivePage = tbsOrcamento
           Align = alClient
           HotTrack = True
           TabOrder = 0
