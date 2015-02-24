@@ -90,7 +90,7 @@ object FrmProdutos: TFrmProdutos
       Width = 605
       Height = 446
       Cursor = crHandPoint
-      ActivePage = Pg1
+      ActivePage = dxTabSheet2
       HotTrack = True
       TabOrder = 1
       ClientRectBottom = 442
@@ -3540,6 +3540,7 @@ object FrmProdutos: TFrmProdutos
             DataSource = DataSource
             PopupBorder = pbFlat
             Items.Strings = (
+              '020 - Com redu'#231#227'o da base de c'#225'lculo'
               '101 - Tributado com permiss'#227'o de cr'#233'dito'
               '102 - Tributado sem permiss'#227'o de cr'#233'dito'
               '103 - Isen'#231#227'o de icms por faixa de receita bruta'
@@ -4025,8 +4026,8 @@ object FrmProdutos: TFrmProdutos
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (
