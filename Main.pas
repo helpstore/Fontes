@@ -772,6 +772,8 @@ type
     nvPagar: TdxNavBarItem;
     nvReceber: TdxNavBarItem;
     btnRelSaidaProdutoCliente: TdxBarButton;
+    dxBarButton3: TdxBarButton;
+    ActRelOrcamento: TAction;
     procedure opFecharClick(Sender: TObject);
     procedure PessoasFJClick(Sender: TObject);
     procedure LblUsuarioMouseEnter(Sender: TObject);
@@ -1091,6 +1093,7 @@ type
     procedure beSkinComboPropertiesChange(Sender: TObject);
     procedure btnRelSaidaProdutoClienteClick(Sender: TObject);
     procedure btnCadastroReducaoClick(Sender: TObject);
+    procedure ActRelOrcamentoExecute(Sender: TObject);
   private
     { Private declarations }
     //Agente: IAgentCtlCharacter;
@@ -1385,7 +1388,8 @@ uses
   UntCadProblemaIdentificado, UntCadLocalCobranca, UntCadTipoContrato,
   untCadFornecedores, untCadOS, untCadContratoAtendimento,
   UntCadClassificacao, untCadClientes, UntCadContratoCopias, untCadLeitura,
-  untCadProdutos, UntCadGrupos, UntCadPerfilGrades, UntCadReducoes;
+  untCadProdutos, UntCadGrupos, UntCadPerfilGrades, UntCadReducoes,
+  UntRelOrcamento;
 
 {$R *.DFM}
 
@@ -9469,6 +9473,14 @@ begin
      End;
   exit;
 ///
+end;
+
+procedure TFrmMain.ActRelOrcamentoExecute(Sender: TObject);
+begin
+  FrmRelOrcamento  := TFrmRelOrcamento.Create(Self);
+  FrmRelOrcamento.Showmodal ;
+  FrmRelOrcamento.Free      ;
+  FrmRelOrcamento := Nil    ;
 end;
 
 end.

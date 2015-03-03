@@ -1,6 +1,6 @@
 object FRel_Rechamados: TFRel_Rechamados
-  Left = 309
-  Top = 156
+  Left = 332
+  Top = 80
   BorderStyle = bsDialog
   Caption = 'Relat'#243'rio de Atendimentos'
   ClientHeight = 526
@@ -1406,7 +1406,7 @@ object FRel_Rechamados: TFRel_Rechamados
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
     PrinterSetup.Orientation = poLandscape
-    PrinterSetup.PaperName = 'A4 210x297 mm'
+    PrinterSetup.PaperName = 'A4'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
@@ -1446,7 +1446,7 @@ object FRel_Rechamados: TFRel_Rechamados
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 263
     Top = 3
@@ -1481,7 +1481,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4 210x297 mm'
+          PrinterSetup.PaperName = 'A4'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -1677,7 +1677,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 PrinterSetup.BinName = 'Default'
                 PrinterSetup.DocumentName = 'Report'
                 PrinterSetup.Orientation = poLandscape
-                PrinterSetup.PaperName = 'A4 210x297 mm'
+                PrinterSetup.PaperName = 'A4'
                 PrinterSetup.PrinterName = 'Default'
                 PrinterSetup.SaveDeviceSettings = False
                 PrinterSetup.mmMarginBottom = 6350
@@ -2810,7 +2810,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4 210x297 mm'
+          PrinterSetup.PaperName = 'A4'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -4331,7 +4331,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4 210x297 mm'
+          PrinterSetup.PaperName = 'A4'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -5466,7 +5466,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4 210x297 mm'
+          PrinterSetup.PaperName = 'A4'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -6622,7 +6622,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4 210x297 mm'
+          PrinterSetup.PaperName = 'A4'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -7914,7 +7914,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4 210x297 mm'
+          PrinterSetup.PaperName = 'A4'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350
@@ -9268,7 +9268,7 @@ object FRel_Rechamados: TFRel_Rechamados
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
           PrinterSetup.Orientation = poLandscape
-          PrinterSetup.PaperName = 'A4 210x297 mm'
+          PrinterSetup.PaperName = 'A4'
           PrinterSetup.PrinterName = 'Default'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 6350

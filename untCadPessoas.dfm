@@ -8,10 +8,10 @@ inherited frmCadPessoas: TfrmCadPessoas
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 774
-    Height = 451
-    ClientRectBottom = 447
-    ClientRectRight = 770
+    Width = 782
+    Height = 462
+    ClientRectBottom = 458
+    ClientRectRight = 778
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Width = 766
@@ -245,8 +245,8 @@ inherited frmCadPessoas: TfrmCadPessoas
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 766
-        Height = 420
+        Width = 774
+        Height = 431
         inherited edtNome: TcxDBTextEdit
           DataBinding.DataField = 'NOME_RAZAO'
           Width = 528
@@ -456,7 +456,7 @@ inherited frmCadPessoas: TfrmCadPessoas
           Transparent = True
         end
         object btnCidade: TcxButtonEdit
-          Left = 503
+          Left = 457
           Top = 152
           Properties.Buttons = <
             item
@@ -486,7 +486,7 @@ inherited frmCadPessoas: TfrmCadPessoas
             end>
           Properties.ListSource = dsCidades
           TabOrder = 12
-          Width = 253
+          Width = 208
         end
         object cxLabel14: TcxLabel
           Left = 251
@@ -649,6 +649,48 @@ inherited frmCadPessoas: TfrmCadPessoas
           Properties.MaxLength = 0
           TabOrder = 43
           Width = 73
+        end
+        object cxLabel51: TcxLabel
+          Left = 484
+          Top = 135
+          Caption = 'UF'
+          Transparent = True
+        end
+        object cxDBComboBox2: TcxDBComboBox
+          Left = 483
+          Top = 152
+          DataBinding.DataField = 'UF'
+          DataBinding.DataSource = dsRegistro
+          Properties.Items.Strings = (
+            'AC'
+            'AL'
+            'AP'
+            'AM'
+            'BA'
+            'CE'
+            'DF'
+            'ES'
+            'GO'
+            'MA'
+            'MT'
+            'MS'
+            'MG'
+            'PA'
+            'PB'
+            'PR'
+            'PE'
+            'PI'
+            'RJ'
+            'RN'
+            'RS'
+            'RO'
+            'RR'
+            'SC'
+            'SP'
+            'SE'
+            'TO')
+          TabOrder = 45
+          Width = 47
         end
       end
     end

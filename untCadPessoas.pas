@@ -211,6 +211,8 @@ type
     cxDBMaskEdit3: TcxDBMaskEdit;
     cxLabel17: TcxLabel;
     cxDBMaskEdit4: TcxDBMaskEdit;
+    cxLabel51: TcxLabel;
+    cxDBComboBox2: TcxDBComboBox;
     procedure btnLogradouroClick(Sender: TObject);
     procedure btnBairroClick(Sender: TObject);
     procedure btnCidadeClick(Sender: TObject);
