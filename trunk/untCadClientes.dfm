@@ -2,19 +2,18 @@ inherited frmCadClientes: TfrmCadClientes
   Left = 0
   Top = 28
   Width = 1280
-  Height = 700
+  Height = 684
   Caption = 'Clientes'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1264
-    Height = 636
-    ActivePage = tbsEdita
+    Width = 1272
+    Height = 631
     HideTabs = True
-    ClientRectBottom = 635
+    ClientRectBottom = 630
     ClientRectLeft = 1
-    ClientRectRight = 1263
+    ClientRectRight = 1271
     ClientRectTop = 1
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
@@ -527,29 +526,29 @@ inherited frmCadClientes: TfrmCadClientes
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1262
-        Height = 634
+        Width = 1270
+        Height = 629
         inherited pnlSubCad: TPanel
           Top = 388
-          Width = 1260
-          Height = 245
+          Width = 1268
+          Height = 240
           Align = alClient
           inherited PgcDetalhe: TcxPageControl
-            Width = 1260
-            Height = 245
+            Width = 1268
+            Height = 240
             ActivePage = tbsDetalhe1
             Images = cxImageList1
-            ClientRectBottom = 241
-            ClientRectRight = 1256
+            ClientRectBottom = 236
+            ClientRectRight = 1264
             ClientRectTop = 28
             inherited tbsDetalhe1: TcxTabSheet
               Caption = 'Pre'#231'os Especiais'
               ImageIndex = 45
               inherited PGCSub1: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
                     Width = 641
@@ -723,10 +722,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Ve'#237'culos'
               ImageIndex = 42
               inherited PGCSub2: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
                     Width = 843
@@ -1127,10 +1126,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Propriedades'
               ImageIndex = 43
               inherited PGCSub3: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub3: TcxTabSheet
                   inherited GridDet3: TcxGrid
                     Width = 641
@@ -1838,10 +1837,10 @@ inherited frmCadClientes: TfrmCadClientes
               Caption = 'Contas Correntes'
               ImageIndex = 44
               inherited PGCSub4: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Width = 837
@@ -2022,10 +2021,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub5: TcxTabSheet
                   inherited GridDet5: TcxGrid
                     Width = 845
@@ -2037,10 +2036,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub6: TcxTabSheet
                   inherited GridDet6: TcxGrid
                     Width = 845
@@ -2052,10 +2051,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub7: TcxTabSheet
                   inherited GridDet7: TcxGrid
                     Width = 845
@@ -2067,10 +2066,10 @@ inherited frmCadClientes: TfrmCadClientes
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 1252
-                Height = 213
-                ClientRectBottom = 209
-                ClientRectRight = 1248
+                Width = 1260
+                Height = 208
+                ClientRectBottom = 204
+                ClientRectRight = 1256
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 845
@@ -2082,14 +2081,14 @@ inherited frmCadClientes: TfrmCadClientes
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1260
+          Width = 1268
           Height = 387
           Align = alTop
           inherited PgcMaster: TcxPageControl
-            Width = 1260
+            Width = 1268
             Height = 387
             ClientRectBottom = 383
-            ClientRectRight = 1256
+            ClientRectRight = 1264
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               object cxGroupBox1: TcxGroupBox [0]
@@ -2100,7 +2099,7 @@ inherited frmCadClientes: TfrmCadClientes
                 PanelStyle.Active = True
                 TabOrder = 1
                 Height = 89
-                Width = 1252
+                Width = 1260
                 object aTfrmCadPessoas: TcxDBLookupComboBox
                   Tag = 1
                   Left = 75
@@ -2183,15 +2182,15 @@ inherited frmCadClientes: TfrmCadClientes
               object PCCLIENTE: TcxPageControl
                 Left = 0
                 Top = 89
-                Width = 1252
+                Width = 1260
                 Height = 267
-                ActivePage = dxTabSheet1
+                ActivePage = dxTabSheet10
                 Align = alClient
                 HotTrack = True
                 TabOrder = 3
                 ClientRectBottom = 263
                 ClientRectLeft = 4
-                ClientRectRight = 1248
+                ClientRectRight = 1256
                 ClientRectTop = 27
                 object dxTabSheet1: TcxTabSheet
                   Caption = 'Dados Cliente'
@@ -2419,14 +2418,14 @@ inherited frmCadClientes: TfrmCadClientes
                     Width = 81
                   end
                   object cxLabel86: TcxLabel
-                    Left = 505
-                    Top = 138
+                    Left = 521
+                    Top = 194
                     Caption = 'Desativa (Ctrl+ T)'
                     Transparent = True
                   end
                   object cxLabel87: TcxLabel
-                    Left = 505
-                    Top = 121
+                    Left = 521
+                    Top = 177
                     Caption = 'Ativa       (Ctrl+ A)'
                     Transparent = True
                   end
@@ -2933,339 +2932,20 @@ inherited frmCadClientes: TfrmCadClientes
                 end
                 object dxTabSheet10: TcxTabSheet
                   Caption = 'Dados Cadastrais'
-                  object BtnAtividade: TcxButton
-                    Left = 243
-                    Top = 60
-                    Width = 23
-                    Height = 22
-                    Cursor = crHandPoint
-                    TabOrder = 14
-                    TabStop = False
-                    OnClick = BtnAtividadeClick
-                    Glyph.Data = {
-                      06030000424D06030000000000003600000028000000100000000F0000000100
-                      180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
-                      0000000000000000000000000000000000000000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
-                      FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
-                      FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
-                      FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
-                      000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
-                      FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
-                      0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
-                      BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
-                      0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
-                      BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
-                      00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBF}
-                  end
-                  object BtnEnderecoPai: TcxButton
-                    Left = 243
-                    Top = 98
-                    Width = 23
-                    Height = 22
-                    Cursor = crHandPoint
-                    TabOrder = 15
-                    TabStop = False
-                    OnClick = BtnEnderecoPaiClick
-                    Glyph.Data = {
-                      06030000424D06030000000000003600000028000000100000000F0000000100
-                      180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
-                      0000000000000000000000000000000000000000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
-                      FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
-                      FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
-                      FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
-                      000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
-                      FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
-                      0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
-                      BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
-                      0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
-                      BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
-                      00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBF}
-                  end
-                  object BtnCidadePai: TcxButton
-                    Left = 631
-                    Top = 97
-                    Width = 23
-                    Height = 22
-                    Cursor = crHandPoint
-                    TabOrder = 16
-                    TabStop = False
-                    OnClick = BtnCidadePaiClick
-                    Glyph.Data = {
-                      06030000424D06030000000000003600000028000000100000000F0000000100
-                      180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
-                      0000000000000000000000000000000000000000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
-                      FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
-                      FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
-                      FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
-                      000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
-                      FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
-                      0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
-                      BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
-                      0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
-                      BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
-                      00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBF}
-                  end
-                  object cmbLogradouroTrabalho1: TcxDBTextEdit
-                    Left = 4
-                    Top = 26
-                    DataBinding.DataField = 'LOCAL_TRABALHO'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.CharCase = ecUpperCase
-                    TabOrder = 0
-                    Width = 255
-                  end
-                  object cxLabel104: TcxLabel
-                    Left = 4
-                    Top = 9
-                    Caption = 'Local de Trabalho'
-                    Transparent = True
-                  end
-                  object cxDBTextEdit17: TcxDBTextEdit
-                    Left = 497
-                    Top = 25
-                    DataBinding.DataField = 'TEMPO_SERVICO'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.CharCase = ecUpperCase
-                    TabOrder = 4
-                    Width = 90
-                  end
-                  object cxLabel105: TcxLabel
-                    Left = 495
-                    Top = 9
-                    Caption = 'Tempo Servi'#231'o'
-                    Transparent = True
-                  end
-                  object cxDBMaskEdit12: TcxDBMaskEdit
-                    Left = 267
-                    Top = 25
-                    DataBinding.DataField = 'NUMERO_TRABALHO'
-                    DataBinding.DataSource = dsRegistro
-                    TabOrder = 1
-                    Width = 59
-                  end
-                  object cxLabel107: TcxLabel
-                    Left = 267
-                    Top = 8
-                    Caption = 'N'#250'mero'
-                    Transparent = True
-                  end
-                  object cxLabel108: TcxLabel
-                    Left = 588
-                    Top = 8
-                    Caption = 'Dt. Adminiss'#227'o'
-                    Transparent = True
-                  end
-                  object cxDBDateEdit11: TcxDBDateEdit
-                    Left = 588
-                    Top = 25
-                    DataBinding.DataField = 'ADMISSAO'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.DateOnError = deToday
-                    TabOrder = 5
-                    Width = 90
-                  end
-                  object cxLabel109: TcxLabel
-                    Left = 4
-                    Top = 45
-                    Caption = 'Atividade'
-                    Transparent = True
-                  end
-                  object aTfrmCadAtividades: TcxDBLookupComboBox
-                    Left = 4
-                    Top = 62
-                    DataBinding.DataField = 'ATIVIDADE'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.KeyFieldNames = 'CODIGO'
-                    Properties.ListColumns = <
-                      item
-                        FieldName = 'NOME'
-                      end>
-                    Properties.ListSource = dsAtividade
-                    Style.BorderStyle = ebsUltraFlat
-                    TabOrder = 6
-                    Width = 239
-                  end
-                  object cxLabel110: TcxLabel
-                    Left = 268
-                    Top = 44
-                    Caption = 'Pai'
-                    Transparent = True
-                  end
-                  object cxDBTextEdit18: TcxDBTextEdit
-                    Left = 268
-                    Top = 61
-                    DataBinding.DataField = 'PAI'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.CharCase = ecUpperCase
-                    TabOrder = 7
-                    Width = 252
-                  end
-                  object cxLabel111: TcxLabel
-                    Left = 521
-                    Top = 44
-                    Caption = 'M'#227'e'
-                    Transparent = True
-                  end
-                  object cxDBTextEdit19: TcxDBTextEdit
-                    Left = 522
-                    Top = 61
-                    DataBinding.DataField = 'MAE'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.CharCase = ecUpperCase
-                    TabOrder = 8
-                    Width = 253
-                  end
-                  object cxLabel112: TcxLabel
-                    Left = 4
-                    Top = 83
-                    Caption = 'Endere'#231'o'
-                    Transparent = True
-                  end
-                  object aTfrmCadLogradouro: TcxDBLookupComboBox
-                    Left = 4
-                    Top = 100
-                    DataBinding.DataField = 'ENDERECO_PAIS'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.KeyFieldNames = 'CODIGO'
-                    Properties.ListColumns = <
-                      item
-                        FieldName = 'NOME'
-                      end>
-                    Properties.ListSource = dsLogradouroPai
-                    Style.BorderStyle = ebsUltraFlat
-                    TabOrder = 9
-                    Width = 239
-                  end
-                  object cxLabel113: TcxLabel
-                    Left = 269
-                    Top = 82
-                    Caption = 'N'#250'mero'
-                    Transparent = True
-                  end
-                  object cxLabel114: TcxLabel
-                    Left = 344
-                    Top = 84
-                    Caption = 'Cidade'
-                    Transparent = True
-                  end
-                  object aTfrmCadCidades: TcxDBLookupComboBox
-                    Left = 344
-                    Top = 99
-                    DataBinding.DataField = 'CIDADE_PAIS'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.KeyFieldNames = 'CODIGO'
-                    Properties.ListColumns = <
-                      item
-                        FieldName = 'NOME'
-                      end>
-                    Properties.ListSource = dsCidades
-                    Style.BorderStyle = ebsUltraFlat
-                    TabOrder = 11
-                    Width = 285
-                  end
-                  object cxLabel115: TcxLabel
-                    Left = 327
-                    Top = 8
-                    Caption = 'Fone'
-                    Transparent = True
-                  end
-                  object cxDBMaskEdit13: TcxDBMaskEdit
-                    Left = 327
-                    Top = 25
-                    DataBinding.DataField = 'FONE_TRABALHO'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.EditMask = '!\(99\)0000-0000;1;_'
-                    Properties.MaxLength = 0
-                    TabOrder = 2
-                    Width = 119
-                  end
-                  object cxLabel116: TcxLabel
-                    Left = 447
-                    Top = 8
-                    Caption = 'Ramal'
-                    Transparent = True
-                  end
-                  object cxDBMaskEdit14: TcxDBMaskEdit
-                    Left = 447
-                    Top = 25
-                    DataBinding.DataField = 'RAMAL_FONE_TRAB'
-                    DataBinding.DataSource = dsRegistro
-                    Properties.MaxLength = 0
-                    TabOrder = 3
-                    Width = 47
-                  end
-                  object cxLabel117: TcxLabel
-                    Left = 656
-                    Top = 82
-                    Caption = 'Renda Cliente'
-                    Transparent = True
-                  end
-                  object cxDBCalcEdit11: TcxDBCalcEdit
-                    Left = 656
-                    Top = 99
-                    DataBinding.DataField = 'RENDA_MENSAL'
-                    DataBinding.DataSource = dsRegistro
-                    TabOrder = 12
-                    Width = 121
-                  end
-                  object cxDBMaskEdit15: TcxDBMaskEdit
-                    Left = 269
-                    Top = 99
-                    DataBinding.DataField = 'NUMERO_PAIS'
-                    DataBinding.DataSource = dsRegistro
-                    TabOrder = 10
-                    Width = 73
-                  end
                   object cxGroupBox7: TcxGroupBox
                     Left = 4
-                    Top = 127
+                    Top = 123
                     Caption = 'Dados do Conjuge'
-                    TabOrder = 13
+                    TabOrder = 0
                     Height = 102
-                    Width = 780
+                    Width = 469
                     object BtnEnderecoTrab: TcxButton
-                      Left = 752
-                      Top = 27
+                      Left = 443
+                      Top = 28
                       Width = 23
                       Height = 22
                       Cursor = crHandPoint
-                      TabOrder = 8
+                      TabOrder = 7
                       TabStop = False
                       OnClick = BtnEnderecoTrabClick
                       Glyph.Data = {
@@ -3305,17 +2985,17 @@ inherited frmCadClientes: TfrmCadClientes
                       Width = 255
                     end
                     object cxDBDateEdit12: TcxDBDateEdit
-                      Left = 388
-                      Top = 68
+                      Left = 356
+                      Top = 73
                       DataBinding.DataField = 'ADMISSAO_CONJUGE'
                       DataBinding.DataSource = dsRegistro
                       Properties.DateOnError = deToday
-                      TabOrder = 7
+                      TabOrder = 6
                       Width = 111
                     end
                     object cxLabel118: TcxLabel
-                      Left = 386
-                      Top = 52
+                      Left = 354
+                      Top = 57
                       Caption = 'Dt. Admiss'#227'o'
                       Transparent = True
                     end
@@ -3325,25 +3005,10 @@ inherited frmCadClientes: TfrmCadClientes
                       Caption = 'Nome'
                       Transparent = True
                     end
-                    object cxLabel120: TcxLabel
-                      Left = 261
-                      Top = 13
-                      Caption = 'Local Trabalho Conjugue'
-                      Transparent = True
-                    end
-                    object cxDBTextEdit21: TcxDBTextEdit
-                      Left = 261
+                    object cTfrmCadLogradouro: TcxDBLookupComboBox
+                      Left = 262
                       Top = 30
                       DataBinding.DataField = 'LOCAL_TRAB_CONJUGE'
-                      DataBinding.DataSource = dsRegistro
-                      Properties.CharCase = ecUpperCase
-                      TabOrder = 1
-                      Width = 255
-                    end
-                    object cTfrmCadLogradouro: TcxDBLookupComboBox
-                      Left = 518
-                      Top = 29
-                      DataBinding.DataField = 'ENDERECO_TRABALHO'
                       DataBinding.DataSource = dsRegistro
                       Properties.KeyFieldNames = 'CODIGO'
                       Properties.ListColumns = <
@@ -3352,75 +3017,446 @@ inherited frmCadClientes: TfrmCadClientes
                         end>
                       Properties.ListSource = dsLogradouroConj
                       Style.BorderStyle = ebsUltraFlat
-                      TabOrder = 2
-                      Width = 235
+                      TabOrder = 1
+                      Width = 181
                     end
                     object cxLabel121: TcxLabel
-                      Left = 518
-                      Top = 13
+                      Left = 262
+                      Top = 14
                       Caption = 'End. do Trabalho'
                       Transparent = True
                     end
                     object cxDBDateEdit13: TcxDBDateEdit
-                      Left = 267
-                      Top = 68
+                      Left = 235
+                      Top = 73
                       DataBinding.DataField = 'DT_NASC_CONJUGE'
                       DataBinding.DataSource = dsRegistro
                       Properties.DateOnError = deToday
-                      TabOrder = 6
+                      TabOrder = 5
                       Width = 121
                     end
                     object cxLabel122: TcxLabel
-                      Left = 267
-                      Top = 51
+                      Left = 235
+                      Top = 56
                       Caption = 'Data de Nascimento'
                       Transparent = True
                     end
                     object cxDBMaskEdit16: TcxDBMaskEdit
-                      Left = 218
-                      Top = 68
+                      Left = 186
+                      Top = 73
                       DataBinding.DataField = 'RAMAL_LOCAL_CONJUGE'
                       DataBinding.DataSource = dsRegistro
                       Properties.MaxLength = 0
-                      TabOrder = 5
+                      TabOrder = 4
                       Width = 47
                     end
                     object cxLabel123: TcxLabel
-                      Left = 218
-                      Top = 51
+                      Left = 186
+                      Top = 56
                       Caption = 'Ramal'
                       Transparent = True
                     end
                     object cxDBMaskEdit17: TcxDBMaskEdit
                       Left = 97
-                      Top = 68
+                      Top = 73
                       DataBinding.DataField = 'FONE_LOCAL_CONJUGE'
                       DataBinding.DataSource = dsRegistro
                       Properties.EditMask = '!\(99\)0000-0000;1;_'
                       Properties.MaxLength = 0
-                      TabOrder = 4
-                      Width = 119
+                      TabOrder = 3
+                      Width = 88
                     end
                     object cxLabel124: TcxLabel
                       Left = 97
-                      Top = 51
+                      Top = 56
                       Caption = 'Fone'
                       Transparent = True
                     end
                     object cxLabel125: TcxLabel
                       Left = 4
-                      Top = 51
+                      Top = 56
                       Caption = 'Tmp. Serv. Conj.'
                       Transparent = True
                     end
                     object cxDBTextEdit22: TcxDBTextEdit
                       Left = 5
-                      Top = 68
+                      Top = 73
                       DataBinding.DataField = 'TEMPO_SERV_CONJUGE'
                       DataBinding.DataSource = dsRegistro
                       Properties.CharCase = ecUpperCase
-                      TabOrder = 3
+                      TabOrder = 2
                       Width = 90
+                    end
+                  end
+                  object cxGroupBox2: TcxGroupBox
+                    Left = 4
+                    Top = 6
+                    Caption = 'Dados do Trabalho'
+                    TabOrder = 1
+                    Height = 107
+                    Width = 565
+                    object cxButton4: TcxButton
+                      Left = 192
+                      Top = 33
+                      Width = 23
+                      Height = 22
+                      Cursor = crHandPoint
+                      TabOrder = 0
+                      TabStop = False
+                      OnClick = BtnEnderecoTrabClick
+                      Glyph.Data = {
+                        06030000424D06030000000000003600000028000000100000000F0000000100
+                        180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                        0000000000000000000000000000000000000000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                        FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                        FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                        FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                        000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                        FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                        0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                        BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                        0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                        BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                        00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBF}
+                    end
+                    object cxLabel104: TcxLabel
+                      Left = 4
+                      Top = 17
+                      Caption = 'Rua'
+                      Transparent = True
+                    end
+                    object cmbLogradouroTrabalho1: TcxDBTextEdit
+                      Left = 4
+                      Top = 34
+                      DataBinding.DataField = 'LOCAL_TRABALHO'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.CharCase = ecUpperCase
+                      TabOrder = 2
+                      Width = 189
+                    end
+                    object cxLabel107: TcxLabel
+                      Left = 219
+                      Top = 17
+                      Caption = 'N'#250'mero'
+                      Transparent = True
+                    end
+                    object cxDBMaskEdit12: TcxDBMaskEdit
+                      Left = 219
+                      Top = 34
+                      DataBinding.DataField = 'NUMERO_TRABALHO'
+                      DataBinding.DataSource = dsRegistro
+                      TabOrder = 4
+                      Width = 45
+                    end
+                    object cxLabel115: TcxLabel
+                      Left = 266
+                      Top = 17
+                      Caption = 'Fone'
+                      Transparent = True
+                    end
+                    object cxDBMaskEdit13: TcxDBMaskEdit
+                      Left = 266
+                      Top = 34
+                      DataBinding.DataField = 'FONE_TRABALHO'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.EditMask = '!\(99\)0000-0000;1;_'
+                      Properties.MaxLength = 0
+                      TabOrder = 6
+                      Width = 119
+                    end
+                    object cxLabel116: TcxLabel
+                      Left = 387
+                      Top = 17
+                      Caption = 'Ramal'
+                      Transparent = True
+                    end
+                    object cxDBMaskEdit14: TcxDBMaskEdit
+                      Left = 387
+                      Top = 34
+                      DataBinding.DataField = 'RAMAL_FONE_TRAB'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.MaxLength = 0
+                      TabOrder = 8
+                      Width = 47
+                    end
+                    object cxDBTextEdit17: TcxDBTextEdit
+                      Left = 252
+                      Top = 77
+                      DataBinding.DataField = 'TEMPO_SERVICO'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.CharCase = ecUpperCase
+                      TabOrder = 9
+                      Width = 90
+                    end
+                    object cxLabel105: TcxLabel
+                      Left = 250
+                      Top = 61
+                      Caption = 'Tempo Servi'#231'o'
+                      Transparent = True
+                    end
+                    object cxLabel108: TcxLabel
+                      Left = 344
+                      Top = 60
+                      Caption = 'Dt. Adminiss'#227'o'
+                      Transparent = True
+                    end
+                    object cxDBDateEdit11: TcxDBDateEdit
+                      Left = 344
+                      Top = 77
+                      DataBinding.DataField = 'ADMISSAO'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.DateOnError = deToday
+                      TabOrder = 12
+                      Width = 90
+                    end
+                    object cxLabel109: TcxLabel
+                      Left = 4
+                      Top = 61
+                      Caption = 'Atividade'
+                      Transparent = True
+                    end
+                    object aTfrmCadAtividades: TcxDBLookupComboBox
+                      Left = 4
+                      Top = 78
+                      DataBinding.DataField = 'ATIVIDADE'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.KeyFieldNames = 'CODIGO'
+                      Properties.ListColumns = <
+                        item
+                          FieldName = 'NOME'
+                        end>
+                      Properties.ListSource = dsAtividade
+                      Style.BorderStyle = ebsUltraFlat
+                      TabOrder = 14
+                      Width = 222
+                    end
+                    object BtnAtividade: TcxButton
+                      Left = 227
+                      Top = 76
+                      Width = 23
+                      Height = 22
+                      Cursor = crHandPoint
+                      TabOrder = 15
+                      TabStop = False
+                      OnClick = BtnAtividadeClick
+                      Glyph.Data = {
+                        06030000424D06030000000000003600000028000000100000000F0000000100
+                        180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                        0000000000000000000000000000000000000000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                        FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                        FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                        FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                        000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                        FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                        0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                        BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                        0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                        BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                        00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBF}
+                    end
+                    object cxLabel117: TcxLabel
+                      Left = 438
+                      Top = 60
+                      Caption = 'Renda Cliente'
+                      Transparent = True
+                    end
+                    object cxDBCalcEdit11: TcxDBCalcEdit
+                      Left = 436
+                      Top = 77
+                      DataBinding.DataField = 'RENDA_MENSAL'
+                      DataBinding.DataSource = dsRegistro
+                      TabOrder = 17
+                      Width = 121
+                    end
+                  end
+                  object cxGroupBox3: TcxGroupBox
+                    Left = 478
+                    Top = 122
+                    Caption = 'Dados dos Pais'
+                    TabOrder = 2
+                    Height = 103
+                    Width = 517
+                    object cxLabel110: TcxLabel
+                      Left = 4
+                      Top = 15
+                      Caption = 'Pai'
+                      Transparent = True
+                    end
+                    object cxDBTextEdit18: TcxDBTextEdit
+                      Left = 4
+                      Top = 32
+                      DataBinding.DataField = 'PAI'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.CharCase = ecUpperCase
+                      TabOrder = 1
+                      Width = 252
+                    end
+                    object cxLabel111: TcxLabel
+                      Left = 257
+                      Top = 15
+                      Caption = 'M'#227'e'
+                      Transparent = True
+                    end
+                    object cxDBTextEdit19: TcxDBTextEdit
+                      Left = 258
+                      Top = 32
+                      DataBinding.DataField = 'MAE'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.CharCase = ecUpperCase
+                      TabOrder = 3
+                      Width = 253
+                    end
+                    object BtnEnderecoPai: TcxButton
+                      Left = 193
+                      Top = 73
+                      Width = 23
+                      Height = 22
+                      Cursor = crHandPoint
+                      TabOrder = 4
+                      TabStop = False
+                      OnClick = BtnEnderecoPaiClick
+                      Glyph.Data = {
+                        06030000424D06030000000000003600000028000000100000000F0000000100
+                        180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                        0000000000000000000000000000000000000000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                        FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                        FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                        FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                        000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                        FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                        0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                        BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                        0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                        BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                        00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBF}
+                    end
+                    object BtnCidadePai: TcxButton
+                      Left = 487
+                      Top = 72
+                      Width = 23
+                      Height = 22
+                      Cursor = crHandPoint
+                      TabOrder = 5
+                      TabStop = False
+                      OnClick = BtnCidadePaiClick
+                      Glyph.Data = {
+                        06030000424D06030000000000003600000028000000100000000F0000000100
+                        180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                        0000000000000000000000000000000000000000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                        FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                        FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                        000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                        FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                        0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                        000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                        FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                        0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                        BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                        0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                        FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                        BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                        00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                        00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                        BFBFBFBFBFBFBFBFBFBF}
+                    end
+                    object cxLabel112: TcxLabel
+                      Left = 4
+                      Top = 56
+                      Caption = 'Endere'#231'o'
+                      Transparent = True
+                    end
+                    object aTfrmCadLogradouro: TcxDBLookupComboBox
+                      Left = 4
+                      Top = 74
+                      DataBinding.DataField = 'ENDERECO_PAIS'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.KeyFieldNames = 'CODIGO'
+                      Properties.ListColumns = <
+                        item
+                          FieldName = 'NOME'
+                        end>
+                      Properties.ListSource = dsLogradouroPai
+                      Style.BorderStyle = ebsUltraFlat
+                      TabOrder = 7
+                      Width = 189
+                    end
+                    object cxLabel113: TcxLabel
+                      Left = 218
+                      Top = 56
+                      Caption = 'N'#250'mero'
+                      Transparent = True
+                    end
+                    object cxLabel114: TcxLabel
+                      Left = 264
+                      Top = 56
+                      Caption = 'Cidade'
+                      Transparent = True
+                    end
+                    object aTfrmCadCidades: TcxDBLookupComboBox
+                      Left = 264
+                      Top = 74
+                      DataBinding.DataField = 'CIDADE_PAIS'
+                      DataBinding.DataSource = dsRegistro
+                      Properties.KeyFieldNames = 'CODIGO'
+                      Properties.ListColumns = <
+                        item
+                          FieldName = 'NOME'
+                        end>
+                      Properties.ListSource = dsCidades
+                      Style.BorderStyle = ebsUltraFlat
+                      TabOrder = 10
+                      Width = 225
+                    end
+                    object cxDBMaskEdit15: TcxDBMaskEdit
+                      Left = 218
+                      Top = 74
+                      DataBinding.DataField = 'NUMERO_PAIS'
+                      DataBinding.DataSource = dsRegistro
+                      TabOrder = 11
+                      Width = 44
                     end
                   end
                 end
@@ -3430,7 +3466,7 @@ inherited frmCadClientes: TfrmCadClientes
                   object Panel6: TPanel
                     Left = 0
                     Top = 0
-                    Width = 843
+                    Width = 1252
                     Height = 18
                     Align = alTop
                     Caption = 'Contratos'
@@ -3445,7 +3481,7 @@ inherited frmCadClientes: TfrmCadClientes
                   object GridContratos: TcxGrid
                     Left = 0
                     Top = 18
-                    Width = 843
+                    Width = 1252
                     Height = 83
                     Align = alTop
                     TabOrder = 1
@@ -3620,8 +3656,8 @@ inherited frmCadClientes: TfrmCadClientes
                   object GridEquipamento: TcxGrid
                     Left = 0
                     Top = 120
-                    Width = 843
-                    Height = 111
+                    Width = 1252
+                    Height = 116
                     Align = alClient
                     TabOrder = 2
                     object TVEquipamentos: TcxGridDBBandedTableView
@@ -4016,7 +4052,7 @@ inherited frmCadClientes: TfrmCadClientes
                   object Panel5: TPanel
                     Left = 0
                     Top = 101
-                    Width = 843
+                    Width = 1252
                     Height = 19
                     Align = alTop
                     Caption = 'Equipamentos do Contrato'
@@ -5105,6 +5141,18 @@ inherited frmCadClientes: TfrmCadClientes
       0
       0
       26)
+  end
+  inherited ActionList1: TActionList
+    object ActAtivaCliente: TAction
+      Caption = 'ActAtivaCliente'
+      ShortCut = 16449
+      OnExecute = ActAtivaClienteExecute
+    end
+    object ActDesativaCliente: TAction
+      Caption = 'ActDesativaCliente'
+      ShortCut = 16468
+      OnExecute = ActDesativaClienteExecute
+    end
   end
   inherited cxImageList1: TcxImageList
     FormatVersion = 1
@@ -13456,12 +13504,12 @@ inherited frmCadClientes: TfrmCadClientes
     Top = 118
   end
   inherited dsRegistroDet1: TDataSource
-    Left = 264
-    Top = 118
+    Left = 184
+    Top = 102
   end
   inherited dsPesquisaDet1: TDataSource
-    Left = 216
-    Top = 118
+    Left = 152
+    Top = 102
   end
   inherited dtListDet1: TIBQuery
     SQL.Strings = (
@@ -14410,7 +14458,7 @@ inherited frmCadClientes: TfrmCadClientes
   end
   inherited dsRegistroDet4: TDataSource
     Left = 464
-    Top = 118
+    Top = 134
   end
   inherited dtEditDet4: TIBDataSet
     DeleteSQL.Strings = (
@@ -14611,7 +14659,7 @@ inherited frmCadClientes: TfrmCadClientes
   end
   inherited dsPesquisaDet4: TDataSource
     Left = 432
-    Top = 118
+    Top = 134
   end
   inherited dsRegistroDet5: TDataSource
     Left = 528
@@ -14917,7 +14965,7 @@ inherited frmCadClientes: TfrmCadClientes
     AutoEdit = False
     DataSet = QryVendedor
     Left = 729
-    Top = 304
+    Top = 312
   end
   object QryFormaPagto: TIBQuery
     Tag = 4
@@ -15033,7 +15081,7 @@ inherited frmCadClientes: TfrmCadClientes
     AutoEdit = False
     DataSet = QryFormaPagto
     Left = 760
-    Top = 304
+    Top = 312
   end
   object QryAtividades: TIBQuery
     Tag = 4
@@ -15628,7 +15676,7 @@ inherited frmCadClientes: TfrmCadClientes
     AutoEdit = False
     DataSet = qryLogradouroConj
     Left = 632
-    Top = 240
+    Top = 264
   end
   object QryBairro: TIBQuery
     Tag = 4
@@ -15672,7 +15720,7 @@ inherited frmCadClientes: TfrmCadClientes
     AutoEdit = False
     DataSet = QryBairro
     Left = 696
-    Top = 240
+    Top = 264
   end
   object QryCidadeProp: TIBQuery
     Tag = 4
@@ -15731,7 +15779,7 @@ inherited frmCadClientes: TfrmCadClientes
     AutoEdit = False
     DataSet = QryCidadeProp
     Left = 664
-    Top = 240
+    Top = 264
   end
   object qryRegiao: TIBQuery
     Tag = 4
@@ -15792,7 +15840,7 @@ inherited frmCadClientes: TfrmCadClientes
     AutoEdit = False
     DataSet = qryRegiao
     Left = 728
-    Top = 240
+    Top = 264
   end
   object QryVendedorProp: TIBQuery
     Tag = 4
@@ -15829,7 +15877,7 @@ inherited frmCadClientes: TfrmCadClientes
     AutoEdit = False
     DataSet = QryVendedorProp
     Left = 760
-    Top = 240
+    Top = 264
   end
   object QryTecnicoProp: TIBQuery
     Tag = 4

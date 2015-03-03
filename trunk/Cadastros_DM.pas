@@ -3796,9 +3796,7 @@ end;
 procedure TDMCadastros.ProdutosCSOSNGetText(Sender: TField;
   var Text: String; DisplayText: Boolean);
 begin
-  if (Sender.Value = 020) then
-    Text:= '020 - Com redução da base de cálculo'
-  else if (Sender.Value = 101) then
+  if (Sender.Value = 101) then
     Text:= '101 - Tributado com permissão de crédito'
   else if (Sender.Value = 102) then
     Text:= '102 - Tributado sem permissão de crédito'
@@ -3813,15 +3811,15 @@ begin
   else if (Sender.Value = 300) then
     Text:= '300 - Imune'
   else if (Sender.Value = 400) then
-    Text:= '400 - Não tributado';
+    Text:= '400 - Não tributado'
+  else if (Sender.Value = 900) then
+    Text:= '900 - Outros';
 end;
 
 procedure TDMCadastros.ProdutosCSOSNSetText(Sender: TField;
   const Text: String);
 begin
-  if (Text= '020 - Com redução da base de cálculo') then
-    Sender.Value := 020
-  else if (Text= '101 - Tributado com permissão de crédito') then
+  if (Text= '101 - Tributado com permissão de crédito') then
     Sender.Value := 101
   else if (Text ='102 - Tributado sem permissão de crédito' ) then
      Sender.Value := 102
@@ -3836,7 +3834,9 @@ begin
   else if (Text = '300 - Imune' ) then
     Sender.Value := 300
   else if (Text = '400 - Não tributado') then
-    Sender.Value := 400;
+    Sender.Value := 400
+  else if (Text= '900 - Outros') then
+    Sender.Value := 900;
 end;
 
 procedure TDMCadastros.LocalizacaoBeforePost(DataSet: TDataSet);

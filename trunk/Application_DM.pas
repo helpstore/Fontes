@@ -1562,7 +1562,8 @@ uses
     Ctb_Altera_Movimentos_Form,
     Procedures4_DM, Pdv_Frm, ListagemMod_Form, Empresas_Form,
   NFeStatus_Form, Cadastros_Dm2, ACBrNFeWebServices, pcnNFe, Vendas_DM2,
-  Financeiro_Dm2, EstoqueMaxMin_FRel2, ACBrNFeNotasFiscais;
+  Financeiro_Dm2, EstoqueMaxMin_FRel2, ACBrNFeNotasFiscais,
+  TipoFaturaVenda_Form;
 
 {$R *.DFM}
 
@@ -11466,7 +11467,7 @@ begin
             Prod.xProd    := dmCadastros2.NFe_Faturamentos_ItensCXPRODUTO.value;
             Prod.qCom     := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQCOM.value,2);
             Prod.uCom     := dmCadastros2.NFe_Faturamentos_ItensUCOM.value;
-            Prod.vProd    := dmCadastros2.NFe_Faturamentos_ItensVPROD.value;
+            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value,2);
             Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value,2);
             Prod.qTrib    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
             Prod.uTrib    := dmCadastros2.NFe_Faturamentos_ItensUTRIB.value;
@@ -11516,7 +11517,9 @@ begin
                   else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 300) then
                     CSOSN := csosn300
                   else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 400) then
-                    CSOSN := csosn400;
+                    CSOSN := csosn400
+                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 900) then
+                    CSOSN := csosn900;
                 end;
 
 

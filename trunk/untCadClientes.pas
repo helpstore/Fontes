@@ -306,43 +306,12 @@ type
     cxDBTextEdit14: TcxDBTextEdit;
     cxDBTextEdit15: TcxDBTextEdit;
     dxTabSheet10: TcxTabSheet;
-    BtnAtividade: TcxButton;
-    BtnEnderecoPai: TcxButton;
-    BtnCidadePai: TcxButton;
-    cmbLogradouroTrabalho1: TcxDBTextEdit;
-    cxLabel104: TcxLabel;
-    cxDBTextEdit17: TcxDBTextEdit;
-    cxLabel105: TcxLabel;
-    cxDBMaskEdit12: TcxDBMaskEdit;
-    cxLabel107: TcxLabel;
-    cxLabel108: TcxLabel;
-    cxDBDateEdit11: TcxDBDateEdit;
-    cxLabel109: TcxLabel;
-    aTfrmCadAtividades: TcxDBLookupComboBox;
-    cxLabel110: TcxLabel;
-    cxDBTextEdit18: TcxDBTextEdit;
-    cxLabel111: TcxLabel;
-    cxDBTextEdit19: TcxDBTextEdit;
-    cxLabel112: TcxLabel;
-    aTfrmCadLogradouro: TcxDBLookupComboBox;
-    cxLabel113: TcxLabel;
-    cxLabel114: TcxLabel;
-    aTfrmCadCidades: TcxDBLookupComboBox;
-    cxLabel115: TcxLabel;
-    cxDBMaskEdit13: TcxDBMaskEdit;
-    cxLabel116: TcxLabel;
-    cxDBMaskEdit14: TcxDBMaskEdit;
-    cxLabel117: TcxLabel;
-    cxDBCalcEdit11: TcxDBCalcEdit;
-    cxDBMaskEdit15: TcxDBMaskEdit;
     cxGroupBox7: TcxGroupBox;
     BtnEnderecoTrab: TcxButton;
     cxDBTextEdit20: TcxDBTextEdit;
     cxDBDateEdit12: TcxDBDateEdit;
     cxLabel118: TcxLabel;
     cxLabel119: TcxLabel;
-    cxLabel120: TcxLabel;
-    cxDBTextEdit21: TcxDBTextEdit;
     cTfrmCadLogradouro: TcxDBLookupComboBox;
     cxLabel121: TcxLabel;
     cxDBDateEdit13: TcxDBDateEdit;
@@ -837,6 +806,40 @@ type
     cxLabel49: TcxLabel;
     cxDBMemo4: TcxDBMemo;
     cxLabel50: TcxLabel;
+    cxGroupBox2: TcxGroupBox;
+    cxButton4: TcxButton;
+    cxLabel104: TcxLabel;
+    cmbLogradouroTrabalho1: TcxDBTextEdit;
+    cxLabel107: TcxLabel;
+    cxDBMaskEdit12: TcxDBMaskEdit;
+    cxLabel115: TcxLabel;
+    cxDBMaskEdit13: TcxDBMaskEdit;
+    cxLabel116: TcxLabel;
+    cxDBMaskEdit14: TcxDBMaskEdit;
+    cxDBTextEdit17: TcxDBTextEdit;
+    cxLabel105: TcxLabel;
+    cxLabel108: TcxLabel;
+    cxDBDateEdit11: TcxDBDateEdit;
+    cxLabel109: TcxLabel;
+    aTfrmCadAtividades: TcxDBLookupComboBox;
+    BtnAtividade: TcxButton;
+    cxGroupBox3: TcxGroupBox;
+    cxLabel110: TcxLabel;
+    cxDBTextEdit18: TcxDBTextEdit;
+    cxLabel111: TcxLabel;
+    cxDBTextEdit19: TcxDBTextEdit;
+    BtnEnderecoPai: TcxButton;
+    BtnCidadePai: TcxButton;
+    cxLabel112: TcxLabel;
+    aTfrmCadLogradouro: TcxDBLookupComboBox;
+    cxLabel113: TcxLabel;
+    cxLabel114: TcxLabel;
+    aTfrmCadCidades: TcxDBLookupComboBox;
+    cxDBMaskEdit15: TcxDBMaskEdit;
+    cxLabel117: TcxLabel;
+    cxDBCalcEdit11: TcxDBCalcEdit;
+    ActAtivaCliente: TAction;
+    ActDesativaCliente: TAction;
     procedure btnCadPessoaClick(Sender: TObject);
     procedure btnCategoriaClick(Sender: TObject);
     procedure BtnclassificacaoClick(Sender: TObject);
@@ -864,6 +867,8 @@ type
     procedure edtPorcentagemExit(Sender: TObject);
     procedure edtResultadoExit(Sender: TObject);
     procedure dtEditNewRecord(DataSet: TDataSet);
+    procedure ActAtivaClienteExecute(Sender: TObject);
+    procedure ActDesativaClienteExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1073,6 +1078,38 @@ begin
   inherited;
   dtEditDIA_PREF_FAT.value := 15;
   dtEditCLASSIF.value := 'B';
+end;
+
+procedure TfrmCadClientes.ActAtivaClienteExecute(Sender: TObject);
+begin
+  inherited;
+  Try
+    dtEdit.FieldByName ('BLOQUEADO').AsString := 'N' ;
+    dtEdit.Post;
+    Application.MessageBox('Cliente ativado com sucesso.','Aviso',mb_ok + mb_iconinformation);
+    dtEdit.Edit;
+  Except
+  On E:Exception Do
+  Begin
+    ShowMessage('Ocorreu o seguinte erro :' + #13 + #13 + '    ' + E.Message + '...   ');
+  End
+  End;
+end;
+
+procedure TfrmCadClientes.ActDesativaClienteExecute(Sender: TObject);
+begin
+  inherited;
+  Try
+    dtEdit.FieldByName ('BLOQUEADO').AsString := 'S' ;
+    dtEdit.Post ;
+    Application.MessageBox('Cliente foi desativado.','Aviso',mb_ok + mb_iconinformation);
+    dtEdit.Edit;
+  Except
+    On E:Exception Do
+    Begin
+      ShowMessage('Ocorreu o seguinte erro :' + #13 + #13 + '    ' + E.Message + '...   ');
+    End
+  End;
 end;
 
 initialization

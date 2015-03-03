@@ -2,8 +2,8 @@ object DmApp: TDmApp
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 48
-  Top = 66
+  Left = 49
+  Top = 74
   Height = 517
   Width = 669
   object Database: TIBDatabase

@@ -3540,7 +3540,6 @@ object FrmProdutos: TFrmProdutos
             DataSource = DataSource
             PopupBorder = pbFlat
             Items.Strings = (
-              '020 - Com redu'#231#227'o da base de c'#225'lculo'
               '101 - Tributado com permiss'#227'o de cr'#233'dito'
               '102 - Tributado sem permiss'#227'o de cr'#233'dito'
               '103 - Isen'#231#227'o de icms por faixa de receita bruta'
@@ -3554,7 +3553,8 @@ object FrmProdutos: TFrmProdutos
                 '203 - Isen'#231#227'o do ICMS para faixa de receita bruta e com combran'#231 +
                 'a de ICMS por ST'
               '300 - Imune'
-              '400 - N'#227'o tributado')
+              '400 - N'#227'o tributado'
+              '900 - Outros')
             StoredValues = 1
           end
           object dxDBEdit14: TdxDBEdit

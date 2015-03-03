@@ -4161,13 +4161,13 @@ begin
      begin
        If (dmVendas2.Geral.FieldByName('InterEstadual').Value = 'I') and (VendasUF.Value = DmApp.Uf) then
        begin
-         application.messagebox('O CFOP de Operação deve deve estadual','Aviso',mb_iconinformation + mb_ok);
+         application.messagebox('O CFOP de Operação deve ser estadual.','Aviso',mb_iconinformation + mb_ok);
          Abort;
        end;
 
        If (dmVendas2.Geral.FieldByName('InterEstadual').Value = 'E') and (VendasUF.Value <> DmApp.Uf) then
        begin
-         application.messagebox('O CFOP de Operação deve deve interestadual','Aviso',mb_iconinformation + mb_ok);
+         application.messagebox('O CFOP de Operação deve ser interestadual.','Aviso',mb_iconinformation + mb_ok);
          Abort;
        end;
      end;
