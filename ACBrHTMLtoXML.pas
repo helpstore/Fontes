@@ -531,7 +531,7 @@ begin
 
  GeradorXML := TNFeW.Create(NFe);
  try
-    GeradorXML.schema := TsPL005c;
+//    GeradorXML.schema := TsPL005c;
     GeradorXML.GerarXml;
     CaminhoXML := PathWithDelim(ExtractFilePath(Application.ExeName))+copy(NFe.infNFe.ID, (length(NFe.infNFe.ID)-44)+1, 44)+'-nfe.xml';
     GeradorXML.Gerador.SalvarArquivo(CaminhoXML);

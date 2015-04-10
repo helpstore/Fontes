@@ -1,6 +1,6 @@
 object FrmSelFaturaVendas: TFrmSelFaturaVendas
-  Left = 235
-  Top = 99
+  Left = 238
+  Top = 10
   Width = 895
   Height = 634
   Caption = ' Faturamento de Produtos no Caixa '
@@ -20,8 +20,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
   object pnlClient: TPanel
     Left = 0
     Top = 0
-    Width = 879
-    Height = 596
+    Width = 887
+    Height = 607
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -36,16 +36,16 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 562
-      Width = 875
+      Top = 573
+      Width = 883
       Height = 2
       Align = alBottom
       Shape = bsTopLine
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 564
-      Width = 875
+      Top = 575
+      Width = 883
       Height = 30
       Align = alBottom
       BevelOuter = bvNone
@@ -53,7 +53,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
       object dxBarDockControl1: TdxBarDockControl
         Left = 0
         Top = 2
-        Width = 875
+        Width = 883
         Height = 26
         Align = dalTop
         BarManager = BarMgr
@@ -61,7 +61,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 875
+        Width = 883
         Height = 2
         Align = alTop
         BevelOuter = bvNone
@@ -71,32 +71,32 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
     object pc: TcxPageControl
       Left = 2
       Top = 46
-      Width = 875
-      Height = 516
+      Width = 883
+      Height = 527
       ActivePage = TAB1
       Align = alClient
       HotTrack = True
       TabOrder = 1
       OnChange = pcChange
-      ClientRectBottom = 512
+      ClientRectBottom = 523
       ClientRectLeft = 4
-      ClientRectRight = 871
+      ClientRectRight = 879
       ClientRectTop = 27
       object TAB1: TcxTabSheet
         Caption = ' Faturamento '
         object Shape1: TShape
           Left = 0
           Top = 0
-          Width = 867
+          Width = 875
           Height = 1
           Align = alTop
           Pen.Color = clBtnShadow
         end
         object Panel3: TPanel
-          Left = 632
+          Left = 640
           Top = 1
           Width = 235
-          Height = 484
+          Height = 495
           Align = alRight
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1333,8 +1333,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
         object Panel7: TPanel
           Left = 0
           Top = 1
-          Width = 632
-          Height = 484
+          Width = 640
+          Height = 495
           Align = alClient
           BevelOuter = bvNone
           Caption = 'Panel7'
@@ -1343,7 +1343,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
           object Panel2: TPanel
             Left = 0
             Top = 0
-            Width = 632
+            Width = 640
             Height = 98
             Align = alTop
             BevelInner = bvRaised
@@ -1528,8 +1528,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
           object Grid: TcxGrid
             Left = 0
             Top = 98
-            Width = 632
-            Height = 386
+            Width = 640
+            Height = 397
             Align = alClient
             TabOrder = 1
             OnMouseEnter = gridOCMouseEnter
@@ -2320,17 +2320,17 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
       object Trocas: TcxTabSheet
         Caption = 'Trocas'
         object Panel5: TPanel
-          Left = 632
+          Left = 640
           Top = 0
           Width = 235
-          Height = 485
+          Height = 496
           Align = alRight
           BevelInner = bvRaised
           BevelOuter = bvLowered
           TabOrder = 0
           DesignSize = (
             235
-            485)
+            496)
           object RzBitBtn6: TcxButton
             Left = 5
             Top = 224
@@ -3385,8 +3385,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
         object Panel9: TPanel
           Left = 0
           Top = 0
-          Width = 632
-          Height = 485
+          Width = 640
+          Height = 496
           Align = alClient
           BevelOuter = bvNone
           Caption = 'Panel9'
@@ -3395,7 +3395,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
           object Panel4: TPanel
             Left = 0
             Top = 0
-            Width = 632
+            Width = 640
             Height = 62
             Align = alTop
             BevelInner = bvRaised
@@ -3519,8 +3519,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
           object GridTroca: TcxGrid
             Left = 0
             Top = 62
-            Width = 632
-            Height = 423
+            Width = 640
+            Height = 434
             Align = alClient
             TabOrder = 1
             OnMouseEnter = gridOCMouseEnter
@@ -3688,8 +3688,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
       object TAB2: TcxTabSheet
         Caption = 'Fun'#231#245'es do Caixa'
         DesignSize = (
-          867
-          485)
+          875
+          496)
         object Bevel2: TBevel
           Left = 2
           Top = 29
@@ -3719,7 +3719,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
           Transparent = True
         end
         object btnCancelaCupom: TcxButton
-          Left = -395
+          Left = -387
           Top = 32
           Width = 180
           Height = 25
@@ -3745,7 +3745,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
             DD00DDDDDDDDDDDDDD00}
         end
         object BtnLeituraX: TcxButton
-          Left = -395
+          Left = -387
           Top = 241
           Width = 180
           Height = 25
@@ -3795,7 +3795,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000}
         end
         object BtnLeituraZ: TcxButton
-          Left = -395
+          Left = -387
           Top = 276
           Width = 180
           Height = 25
@@ -3845,7 +3845,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000}
         end
         object BtnGaveta: TcxButton
-          Left = -395
+          Left = -387
           Top = 171
           Width = 180
           Height = 25
@@ -3874,7 +3874,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
             DDDDDD000000DDDDDDDDDDDDDDDDDD000000}
         end
         object btnCancelaCupomItem: TcxButton
-          Left = -395
+          Left = -387
           Top = 67
           Width = 180
           Height = 25
@@ -3900,7 +3900,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
             DD00DDDDDDDDDDDDDD00}
         end
         object BtnLeituraMemoriaFiscal: TcxButton
-          Left = -395
+          Left = -387
           Top = 206
           Width = 180
           Height = 25
@@ -3950,7 +3950,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
             BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0000}
         end
         object BtnAliquota: TcxButton
-          Left = -395
+          Left = -387
           Top = 137
           Width = 180
           Height = 25
@@ -3979,7 +3979,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
             DDDDDD000000DDDDDDDDDDDDDDDDDD000000}
         end
         object RzBitBtn8: TcxButton
-          Left = -395
+          Left = -387
           Top = 102
           Width = 180
           Height = 25
@@ -4041,17 +4041,17 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
         Caption = 'Entrega Futura'
         OnEnter = tabEntFuturaEnter
         object Panel10: TPanel
-          Left = 632
+          Left = 640
           Top = 0
           Width = 235
-          Height = 485
+          Height = 496
           Align = alRight
           BevelInner = bvRaised
           BevelOuter = bvLowered
           TabOrder = 0
           DesignSize = (
             235
-            485)
+            496)
           object RzBitBtn22: TcxButton
             Left = 4
             Top = 421
@@ -5297,8 +5297,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
         object Panel11: TPanel
           Left = 0
           Top = 0
-          Width = 632
-          Height = 485
+          Width = 640
+          Height = 496
           Align = alClient
           BevelOuter = bvNone
           Caption = 'Panel7'
@@ -5307,7 +5307,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
           object Panel12: TPanel
             Left = 0
             Top = 0
-            Width = 632
+            Width = 640
             Height = 62
             Align = alTop
             BevelInner = bvRaised
@@ -5404,15 +5404,15 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
           object pcFatura: TcxPageControl
             Left = 0
             Top = 62
-            Width = 632
-            Height = 423
+            Width = 640
+            Height = 434
             ActivePage = tabVenda
             Align = alClient
             TabOrder = 1
             OnChange = pcFaturaChange
-            ClientRectBottom = 419
+            ClientRectBottom = 430
             ClientRectLeft = 4
-            ClientRectRight = 628
+            ClientRectRight = 636
             ClientRectTop = 27
             object tabVenda: TcxTabSheet
               Caption = 'Venda'
@@ -5435,7 +5435,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
                   ParentFont = False
                   TabOrder = 0
                   Height = 55
-                  Width = 624
+                  Width = 632
                   object RzPanel1: TPanel
                     Left = 150
                     Top = 19
@@ -5488,8 +5488,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
                 object GridEntregaFutura: TcxGrid
                   Left = 0
                   Top = 55
-                  Width = 624
-                  Height = 337
+                  Width = 632
+                  Height = 348
                   Align = alClient
                   TabOrder = 1
                   object TVEntregaFutura: TcxGridDBBandedTableView
@@ -5732,7 +5732,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
                 ParentFont = False
                 TabOrder = 1
                 Height = 75
-                Width = 624
+                Width = 632
                 object RzPanel7: TPanel
                   Left = 3
                   Top = 43
@@ -5817,7 +5817,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
               object gridOC: TcxGrid
                 Left = 0
                 Top = 75
-                Width = 624
+                Width = 632
                 Height = 148
                 Align = alTop
                 TabOrder = 2
@@ -6055,8 +6055,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
               object gridOCItens: TcxGrid
                 Left = 0
                 Top = 243
-                Width = 624
-                Height = 149
+                Width = 632
+                Height = 160
                 Align = alClient
                 TabOrder = 3
                 OnMouseEnter = gridOCMouseEnter
@@ -6196,7 +6196,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
     object Panel6: TPanel
       Left = 2
       Top = 2
-      Width = 875
+      Width = 883
       Height = 44
       Align = alTop
       BevelOuter = bvNone
@@ -6308,8 +6308,8 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (
@@ -12048,7 +12048,7 @@ object FrmSelFaturaVendas: TFrmSelFaturaVendas
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 622
     Top = 1

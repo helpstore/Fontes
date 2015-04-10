@@ -1,12 +1,12 @@
 object DmVendas2: TDmVendas2
   OldCreateOrder = False
-  Left = 322
-  Top = 42
-  Height = 686
+  Left = 326
+  Height = 644
   Width = 978
   object qryGrafNF: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    Active = True
     SQL.Strings = (
       
         'select * from pcd_imprime_nf_grafica(:cnpj,:venda,:pessoa,:dt_nf' +
@@ -979,7 +979,6 @@ object DmVendas2: TDmVendas2
   object qryServico: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
-    Active = True
     SQL.Strings = (
       'select * from pcd_impreme_nf_serv(:cnpj,:venda,:pessoa)'
       '')

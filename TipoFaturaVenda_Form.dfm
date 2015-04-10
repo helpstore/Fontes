@@ -1,6 +1,6 @@
 object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
-  Left = 357
-  Top = 180
+  Left = 361
+  Top = 184
   BorderStyle = bsDialog
   Caption = '  Imprime Nota / Cupom Fiscal'
   ClientHeight = 160
@@ -272,8 +272,8 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
     object ppSerieNFppField1: TppField
       FieldAlias = 'CLIENTE'
       FieldName = 'CLIENTE'
-      FieldLength = 0
-      DisplayWidth = 0
+      FieldLength = 50
+      DisplayWidth = 50
       Position = 0
     end
     object ppSerieNFppField2: TppField
@@ -1315,13 +1315,29 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
       DisplayWidth = 10
       Position = 134
     end
+    object ppSerieNFppField136: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CTR_COD_CONTRATO'
+      FieldName = 'CTR_COD_CONTRATO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 135
+    end
+    object ppSerieNFppField137: TppField
+      FieldAlias = 'CTR_NOME_CONTRATO'
+      FieldName = 'CTR_NOME_CONTRATO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 136
+    end
   end
   object rptSerieNF: TppReport
     AutoStop = False
     DataPipeline = ppSerieNF
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'Custom'
+    PrinterSetup.PaperName = 'TV HDTV 1920x1080'
     PrinterSetup.PrinterName = 'PDFCreator'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 0
@@ -1359,7 +1375,7 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 160
     Version = '12.03'
@@ -1955,7 +1971,7 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
           DataPipeline = ppSubIndice
           PrinterSetup.BinName = 'Default'
           PrinterSetup.DocumentName = 'Report'
-          PrinterSetup.PaperName = 'Custom'
+          PrinterSetup.PaperName = 'TV HDTV 1920x1080'
           PrinterSetup.PrinterName = 'PDFCreator'
           PrinterSetup.SaveDeviceSettings = False
           PrinterSetup.mmMarginBottom = 0
@@ -2665,7 +2681,7 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 6
     Top = 4
@@ -3169,6 +3185,1837 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
     DataSource = DataSource
     UserName = 'LayoutCT1'
     Left = 280
+    object ppLayoutGrafNFppField1: TppField
+      FieldAlias = 'CNPJ'
+      FieldName = 'CNPJ'
+      FieldLength = 0
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppLayoutGrafNFppField2: TppField
+      FieldAlias = 'SERIE'
+      FieldName = 'SERIE'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 1
+    end
+    object ppLayoutGrafNFppField3: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'ULTIMO_NUMERO'
+      FieldName = 'ULTIMO_NUMERO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 2
+    end
+    object ppLayoutGrafNFppField4: TppField
+      FieldAlias = 'TIPO'
+      FieldName = 'TIPO'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 3
+    end
+    object ppLayoutGrafNFppField5: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NUM_DST'
+      FieldName = 'NOTA_NUM_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 4
+    end
+    object ppLayoutGrafNFppField6: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NUM_ALT'
+      FieldName = 'NOTA_NUM_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 5
+    end
+    object ppLayoutGrafNFppField7: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NUMRECIBO_DST'
+      FieldName = 'NOTA_NUMRECIBO_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 6
+    end
+    object ppLayoutGrafNFppField8: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NUMRECIBO_ALT'
+      FieldName = 'NOTA_NUMRECIBO_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 7
+    end
+    object ppLayoutGrafNFppField9: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_ENT_SAI_DST'
+      FieldName = 'NOTA_ENT_SAI_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 8
+    end
+    object ppLayoutGrafNFppField10: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_ENT_SAI_ALT'
+      FieldName = 'NOTA_ENT_SAI_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 9
+    end
+    object ppLayoutGrafNFppField11: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NATUREZA_DST'
+      FieldName = 'NOTA_NATUREZA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 10
+    end
+    object ppLayoutGrafNFppField12: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NATUREZA_ALT'
+      FieldName = 'NOTA_NATUREZA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 11
+    end
+    object ppLayoutGrafNFppField13: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_CFOP_DST'
+      FieldName = 'NOTA_CFOP_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 12
+    end
+    object ppLayoutGrafNFppField14: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_CFOP_ALT'
+      FieldName = 'NOTA_CFOP_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 13
+    end
+    object ppLayoutGrafNFppField15: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_SUBS_TRIB_DST'
+      FieldName = 'NOTA_SUBS_TRIB_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 14
+    end
+    object ppLayoutGrafNFppField16: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_SUBS_TRIB_ALT'
+      FieldName = 'NOTA_SUBS_TRIB_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 15
+    end
+    object ppLayoutGrafNFppField17: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_CNDPG_DST'
+      FieldName = 'NOTA_CNDPG_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 16
+    end
+    object ppLayoutGrafNFppField18: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_CNDPG_ALT'
+      FieldName = 'NOTA_CNDPG_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 17
+    end
+    object ppLayoutGrafNFppField19: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_NOME_DST'
+      FieldName = 'CLI_NOME_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 18
+    end
+    object ppLayoutGrafNFppField20: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_NOME_ALT'
+      FieldName = 'CLI_NOME_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 19
+    end
+    object ppLayoutGrafNFppField21: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CGCCPF_DST'
+      FieldName = 'CLI_CGCCPF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 20
+    end
+    object ppLayoutGrafNFppField22: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CGCCPF_ALT'
+      FieldName = 'CLI_CGCCPF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 21
+    end
+    object ppLayoutGrafNFppField23: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_END_DST'
+      FieldName = 'CLI_END_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 22
+    end
+    object ppLayoutGrafNFppField24: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_END_ALT'
+      FieldName = 'CLI_END_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 23
+    end
+    object ppLayoutGrafNFppField25: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_BAIRRO_DST'
+      FieldName = 'CLI_BAIRRO_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 24
+    end
+    object ppLayoutGrafNFppField26: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_BAIRRO_ALT'
+      FieldName = 'CLI_BAIRRO_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 25
+    end
+    object ppLayoutGrafNFppField27: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CEP_DST'
+      FieldName = 'CLI_CEP_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 26
+    end
+    object ppLayoutGrafNFppField28: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CEP_ALT'
+      FieldName = 'CLI_CEP_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 27
+    end
+    object ppLayoutGrafNFppField29: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CID_DST'
+      FieldName = 'CLI_CID_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 28
+    end
+    object ppLayoutGrafNFppField30: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CID_ALT'
+      FieldName = 'CLI_CID_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 29
+    end
+    object ppLayoutGrafNFppField31: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_FONE_DST'
+      FieldName = 'CLI_FONE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 30
+    end
+    object ppLayoutGrafNFppField32: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_FONE_ALT'
+      FieldName = 'CLI_FONE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 31
+    end
+    object ppLayoutGrafNFppField33: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_FAX_DST'
+      FieldName = 'CLI_FAX_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 32
+    end
+    object ppLayoutGrafNFppField34: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_FAX_ALT'
+      FieldName = 'CLI_FAX_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 33
+    end
+    object ppLayoutGrafNFppField35: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_UF_DST'
+      FieldName = 'CLI_UF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 34
+    end
+    object ppLayoutGrafNFppField36: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_UF_ALT'
+      FieldName = 'CLI_UF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 35
+    end
+    object ppLayoutGrafNFppField37: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_INSCEST_DST'
+      FieldName = 'CLI_INSCEST_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 36
+    end
+    object ppLayoutGrafNFppField38: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_INSCEST_ALT'
+      FieldName = 'CLI_INSCEST_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 37
+    end
+    object ppLayoutGrafNFppField39: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DATEMIS_DST'
+      FieldName = 'CLI_DATEMIS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 38
+    end
+    object ppLayoutGrafNFppField40: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DATEMIS_ALT'
+      FieldName = 'CLI_DATEMIS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 39
+    end
+    object ppLayoutGrafNFppField41: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DATENTSAI_DST'
+      FieldName = 'CLI_DATENTSAI_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 40
+    end
+    object ppLayoutGrafNFppField42: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DATENTSAI_ALT'
+      FieldName = 'CLI_DATENTSAI_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 41
+    end
+    object ppLayoutGrafNFppField43: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_HORASAI_DST'
+      FieldName = 'CLI_HORASAI_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 42
+    end
+    object ppLayoutGrafNFppField44: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_HORASAI_ALT'
+      FieldName = 'CLI_HORASAI_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 43
+    end
+    object ppLayoutGrafNFppField45: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_PEDNUM_DST'
+      FieldName = 'CLI_PEDNUM_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 44
+    end
+    object ppLayoutGrafNFppField46: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_PEDNUM_ALT'
+      FieldName = 'CLI_PEDNUM_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 45
+    end
+    object ppLayoutGrafNFppField47: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_INSCMUN_DST'
+      FieldName = 'CLI_INSCMUN_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 46
+    end
+    object ppLayoutGrafNFppField48: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_INSCMUN_ALT'
+      FieldName = 'CLI_INSCMUN_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 47
+    end
+    object ppLayoutGrafNFppField49: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLNUM_DST'
+      FieldName = 'CLI_DUPLNUM_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 48
+    end
+    object ppLayoutGrafNFppField50: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLNUM_ALT'
+      FieldName = 'CLI_DUPLNUM_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 49
+    end
+    object ppLayoutGrafNFppField51: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLVENC_DST'
+      FieldName = 'CLI_DUPLVENC_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 50
+    end
+    object ppLayoutGrafNFppField52: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLVENC_ALT'
+      FieldName = 'CLI_DUPLVENC_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 51
+    end
+    object ppLayoutGrafNFppField53: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLVALOR_DST'
+      FieldName = 'CLI_DUPLVALOR_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 52
+    end
+    object ppLayoutGrafNFppField54: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLVALOR_ALT'
+      FieldName = 'CLI_DUPLVALOR_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 53
+    end
+    object ppLayoutGrafNFppField55: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_COD_DST'
+      FieldName = 'PROD_COD_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 54
+    end
+    object ppLayoutGrafNFppField56: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_COD_ALT'
+      FieldName = 'PROD_COD_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 55
+    end
+    object ppLayoutGrafNFppField57: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_PROD_DST'
+      FieldName = 'PROD_PROD_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 56
+    end
+    object ppLayoutGrafNFppField58: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_PROD_ALT'
+      FieldName = 'PROD_PROD_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 57
+    end
+    object ppLayoutGrafNFppField59: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_CF_DST'
+      FieldName = 'PROD_CF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 58
+    end
+    object ppLayoutGrafNFppField60: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_CF_ALT'
+      FieldName = 'PROD_CF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 59
+    end
+    object ppLayoutGrafNFppField61: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_SITTRIB_DST'
+      FieldName = 'PROD_SITTRIB_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 60
+    end
+    object ppLayoutGrafNFppField62: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_SITTRIB_ALT'
+      FieldName = 'PROD_SITTRIB_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 61
+    end
+    object ppLayoutGrafNFppField63: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_UNIDADE_DST'
+      FieldName = 'PROD_UNIDADE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 62
+    end
+    object ppLayoutGrafNFppField64: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_UNIDADE_ALT'
+      FieldName = 'PROD_UNIDADE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 63
+    end
+    object ppLayoutGrafNFppField65: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_QUANT_DST'
+      FieldName = 'PROD_QUANT_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 64
+    end
+    object ppLayoutGrafNFppField66: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_QUANT_ALT'
+      FieldName = 'PROD_QUANT_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 65
+    end
+    object ppLayoutGrafNFppField67: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_VALORUNIT_DST'
+      FieldName = 'PROD_VALORUNIT_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 66
+    end
+    object ppLayoutGrafNFppField68: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_VALORUNIT_ALT'
+      FieldName = 'PROD_VALORUNIT_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 67
+    end
+    object ppLayoutGrafNFppField69: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_VALORTOT_DST'
+      FieldName = 'PROD_VALORTOT_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 68
+    end
+    object ppLayoutGrafNFppField70: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_VALORTOT_ALT'
+      FieldName = 'PROD_VALORTOT_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 69
+    end
+    object ppLayoutGrafNFppField71: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_ICMS_DST'
+      FieldName = 'PROD_ICMS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 70
+    end
+    object ppLayoutGrafNFppField72: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_ICMS_ALT'
+      FieldName = 'PROD_ICMS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 71
+    end
+    object ppLayoutGrafNFppField73: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_IPI_DST'
+      FieldName = 'PROD_IPI_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 72
+    end
+    object ppLayoutGrafNFppField74: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_IPI_ALT'
+      FieldName = 'PROD_IPI_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 73
+    end
+    object ppLayoutGrafNFppField75: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_VALORIPI_DST'
+      FieldName = 'PROD_VALORIPI_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 74
+    end
+    object ppLayoutGrafNFppField76: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_VALORIPI_ALT'
+      FieldName = 'PROD_VALORIPI_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 75
+    end
+    object ppLayoutGrafNFppField77: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_BASEICMS_DST'
+      FieldName = 'FEC_BASEICMS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 76
+    end
+    object ppLayoutGrafNFppField78: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_BASEICMS_ALT'
+      FieldName = 'FEC_BASEICMS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 77
+    end
+    object ppLayoutGrafNFppField79: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORFRETE_DST'
+      FieldName = 'FEC_VALORFRETE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 78
+    end
+    object ppLayoutGrafNFppField80: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORFRETE_ALT'
+      FieldName = 'FEC_VALORFRETE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 79
+    end
+    object ppLayoutGrafNFppField81: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORICMS_DST'
+      FieldName = 'FEC_VALORICMS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 80
+    end
+    object ppLayoutGrafNFppField82: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORICMS_ALT'
+      FieldName = 'FEC_VALORICMS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 81
+    end
+    object ppLayoutGrafNFppField83: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORSEGURO_DST'
+      FieldName = 'FEC_VALORSEGURO_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 82
+    end
+    object ppLayoutGrafNFppField84: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORSEGURO_ALT'
+      FieldName = 'FEC_VALORSEGURO_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 83
+    end
+    object ppLayoutGrafNFppField85: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_BASECALCICMS_DST'
+      FieldName = 'FEC_BASECALCICMS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 84
+    end
+    object ppLayoutGrafNFppField86: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_BASECALCICMS_ALT'
+      FieldName = 'FEC_BASECALCICMS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 85
+    end
+    object ppLayoutGrafNFppField87: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_DESPESAS_DST'
+      FieldName = 'FEC_DESPESAS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 86
+    end
+    object ppLayoutGrafNFppField88: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_DESPESAS_ALT'
+      FieldName = 'FEC_DESPESAS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 87
+    end
+    object ppLayoutGrafNFppField89: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORICMSSUB_DST'
+      FieldName = 'FEC_VALORICMSSUB_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 88
+    end
+    object ppLayoutGrafNFppField90: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORICMSSUB_ALT'
+      FieldName = 'FEC_VALORICMSSUB_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 89
+    end
+    object ppLayoutGrafNFppField91: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_IPI_DST'
+      FieldName = 'FEC_IPI_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 90
+    end
+    object ppLayoutGrafNFppField92: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_IPI_ALT'
+      FieldName = 'FEC_IPI_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 91
+    end
+    object ppLayoutGrafNFppField93: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORTOTAL_DST'
+      FieldName = 'FEC_VALORTOTAL_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 92
+    end
+    object ppLayoutGrafNFppField94: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_ISS_DST'
+      FieldName = 'FEC_ISS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 93
+    end
+    object ppLayoutGrafNFppField95: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORTOTAL_ALT'
+      FieldName = 'FEC_VALORTOTAL_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 94
+    end
+    object ppLayoutGrafNFppField96: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_ISS_ALT'
+      FieldName = 'FEC_ISS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 95
+    end
+    object ppLayoutGrafNFppField97: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORNOTA_DST'
+      FieldName = 'FEC_VALORNOTA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 96
+    end
+    object ppLayoutGrafNFppField98: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORNOTA_ALT'
+      FieldName = 'FEC_VALORNOTA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 97
+    end
+    object ppLayoutGrafNFppField99: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_NOME_DST'
+      FieldName = 'TRANS_NOME_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 98
+    end
+    object ppLayoutGrafNFppField100: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_NOME_ALT'
+      FieldName = 'TRANS_NOME_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 99
+    end
+    object ppLayoutGrafNFppField101: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_END_DST'
+      FieldName = 'TRANS_END_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 100
+    end
+    object ppLayoutGrafNFppField102: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_END_ALT'
+      FieldName = 'TRANS_END_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 101
+    end
+    object ppLayoutGrafNFppField103: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_QUANTIDADE_DST'
+      FieldName = 'TRANS_QUANTIDADE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 102
+    end
+    object ppLayoutGrafNFppField104: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_QUANTIDADE_ALT'
+      FieldName = 'TRANS_QUANTIDADE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 103
+    end
+    object ppLayoutGrafNFppField105: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_ESPECIE_DST'
+      FieldName = 'TRANS_ESPECIE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 104
+    end
+    object ppLayoutGrafNFppField106: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_ESPECIE_ALT'
+      FieldName = 'TRANS_ESPECIE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 105
+    end
+    object ppLayoutGrafNFppField107: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_MARCA_DST'
+      FieldName = 'TRANS_MARCA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 106
+    end
+    object ppLayoutGrafNFppField108: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_MARCA_ALT'
+      FieldName = 'TRANS_MARCA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 107
+    end
+    object ppLayoutGrafNFppField109: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_FRETECONTA_DST'
+      FieldName = 'TRANS_FRETECONTA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 108
+    end
+    object ppLayoutGrafNFppField110: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_FRETECONTA_ALT'
+      FieldName = 'TRANS_FRETECONTA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 109
+    end
+    object ppLayoutGrafNFppField111: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_CID_DST'
+      FieldName = 'TRANS_CID_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 110
+    end
+    object ppLayoutGrafNFppField112: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_CID_ALT'
+      FieldName = 'TRANS_CID_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 111
+    end
+    object ppLayoutGrafNFppField113: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_NUMERO_DST'
+      FieldName = 'TRANS_NUMERO_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 112
+    end
+    object ppLayoutGrafNFppField114: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_NUMERO_ALT'
+      FieldName = 'TRANS_NUMERO_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 113
+    end
+    object ppLayoutGrafNFppField115: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_PLACA_DST'
+      FieldName = 'TRANS_PLACA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 114
+    end
+    object ppLayoutGrafNFppField116: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_PLACA_ALT'
+      FieldName = 'TRANS_PLACA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 115
+    end
+    object ppLayoutGrafNFppField117: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_UFVEI_DST'
+      FieldName = 'TRANS_UFVEI_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 116
+    end
+    object ppLayoutGrafNFppField118: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_UFVEIALT'
+      FieldName = 'TRANS_UFVEIALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 117
+    end
+    object ppLayoutGrafNFppField119: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_UF_DST'
+      FieldName = 'TRANS_UF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 118
+    end
+    object ppLayoutGrafNFppField120: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_UF_ALT'
+      FieldName = 'TRANS_UF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 119
+    end
+    object ppLayoutGrafNFppField121: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_CGCCPF_DST'
+      FieldName = 'TRANS_CGCCPF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 120
+    end
+    object ppLayoutGrafNFppField122: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_CGCCPF_ALT'
+      FieldName = 'TRANS_CGCCPF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 121
+    end
+    object ppLayoutGrafNFppField123: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_INSCEST_DST'
+      FieldName = 'TRANS_INSCEST_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 122
+    end
+    object ppLayoutGrafNFppField124: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_INSCEST_ALT'
+      FieldName = 'TRANS_INSCEST_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 123
+    end
+    object ppLayoutGrafNFppField125: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_PESBRT_DST'
+      FieldName = 'TRANS_PESBRT_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 124
+    end
+    object ppLayoutGrafNFppField126: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_PESOBRT_ALT'
+      FieldName = 'TRANS_PESOBRT_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 125
+    end
+    object ppLayoutGrafNFppField127: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_PESOLIQ_DST'
+      FieldName = 'TRANS_PESOLIQ_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 126
+    end
+    object ppLayoutGrafNFppField128: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_PESOLIQ_ALT'
+      FieldName = 'TRANS_PESOLIQ_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 127
+    end
+    object ppLayoutGrafNFppField129: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_OBS_DST'
+      FieldName = 'TRANS_OBS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 128
+    end
+    object ppLayoutGrafNFppField130: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TRANS_OBS_ALT'
+      FieldName = 'TRANS_OBS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 129
+    end
+    object ppLayoutGrafNFppField131: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'IMPRESSORA_PULO'
+      FieldName = 'IMPRESSORA_PULO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 130
+    end
+    object ppLayoutGrafNFppField132: TppField
+      FieldAlias = 'IMPRESSORA_LPP'
+      FieldName = 'IMPRESSORA_LPP'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 131
+    end
+    object ppLayoutGrafNFppField133: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PRODUTOSNOTA'
+      FieldName = 'PRODUTOSNOTA'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 132
+    end
+    object ppLayoutGrafNFppField134: TppField
+      FieldAlias = 'LOCALDUPLICATAS'
+      FieldName = 'LOCALDUPLICATAS'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 133
+    end
+    object ppLayoutGrafNFppField135: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NUMERODELINHASDANOTA'
+      FieldName = 'NUMERODELINHASDANOTA'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 134
+    end
+    object ppLayoutGrafNFppField136: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_DESC_DST'
+      FieldName = 'PROD_DESC_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 135
+    end
+    object ppLayoutGrafNFppField137: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_DESC_ALT'
+      FieldName = 'PROD_DESC_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 136
+    end
+    object ppLayoutGrafNFppField138: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DATA_ANO_ALT'
+      FieldName = 'DATA_ANO_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 137
+    end
+    object ppLayoutGrafNFppField139: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DATA_ANO_DST'
+      FieldName = 'DATA_ANO_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 138
+    end
+    object ppLayoutGrafNFppField140: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DATA_DIA_ALT'
+      FieldName = 'DATA_DIA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 139
+    end
+    object ppLayoutGrafNFppField141: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DATA_DIA_DST'
+      FieldName = 'DATA_DIA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 140
+    end
+    object ppLayoutGrafNFppField142: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DATA_MES_ALT'
+      FieldName = 'DATA_MES_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 141
+    end
+    object ppLayoutGrafNFppField143: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DATA_MES_DST'
+      FieldName = 'DATA_MES_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 142
+    end
+    object ppLayoutGrafNFppField144: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OBS_ALT'
+      FieldName = 'OBS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 143
+    end
+    object ppLayoutGrafNFppField145: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OBS_DST'
+      FieldName = 'OBS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 144
+    end
+    object ppLayoutGrafNFppField146: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_VENDEDOR_DST'
+      FieldName = 'NOTA_VENDEDOR_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 145
+    end
+    object ppLayoutGrafNFppField147: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_VENDEDOR_ALT'
+      FieldName = 'NOTA_VENDEDOR_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 146
+    end
+    object ppLayoutGrafNFppField148: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_ECF_DST'
+      FieldName = 'NOTA_ECF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 147
+    end
+    object ppLayoutGrafNFppField149: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_ECF_ALT'
+      FieldName = 'NOTA_ECF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 148
+    end
+    object ppLayoutGrafNFppField150: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_DESCONTO_DST'
+      FieldName = 'NOTA_DESCONTO_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 149
+    end
+    object ppLayoutGrafNFppField151: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_DESCONTO_ALT'
+      FieldName = 'NOTA_DESCONTO_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 150
+    end
+    object ppLayoutGrafNFppField152: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_INDCOMPL_DST'
+      FieldName = 'NOTA_INDCOMPL_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 151
+    end
+    object ppLayoutGrafNFppField153: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_INFCOMPL_ALT'
+      FieldName = 'NOTA_INFCOMPL_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 152
+    end
+    object ppLayoutGrafNFppField154: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLLARGURA_COLUNA'
+      FieldName = 'CLI_DUPLLARGURA_COLUNA'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 153
+    end
+    object ppLayoutGrafNFppField155: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DUPLNUM_COLUNA'
+      FieldName = 'CLI_DUPLNUM_COLUNA'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 154
+    end
+    object ppLayoutGrafNFppField156: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_MSGNAT_DST'
+      FieldName = 'NOTA_MSGNAT_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 155
+    end
+    object ppLayoutGrafNFppField157: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_MSGNAT_ALT'
+      FieldName = 'NOTA_MSGNAT_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 156
+    end
+    object ppLayoutGrafNFppField158: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NUMRDP_DST'
+      FieldName = 'NOTA_NUMRDP_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 157
+    end
+    object ppLayoutGrafNFppField159: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_NUMRDP_ALT'
+      FieldName = 'NOTA_NUMRDP_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 158
+    end
+    object ppLayoutGrafNFppField160: TppField
+      FieldAlias = 'PORTA_IMPRESSAO'
+      FieldName = 'PORTA_IMPRESSAO'
+      FieldLength = 30
+      DisplayWidth = 30
+      Position = 159
+    end
+    object ppLayoutGrafNFppField161: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_DESCONTO_ALT2'
+      FieldName = 'NOTA_DESCONTO_ALT2'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 160
+    end
+    object ppLayoutGrafNFppField162: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_DESCONTO_DST2'
+      FieldName = 'NOTA_DESCONTO_DST2'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 161
+    end
+    object ppLayoutGrafNFppField163: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_QNTD_UNID_ALT'
+      FieldName = 'PROD_QNTD_UNID_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 162
+    end
+    object ppLayoutGrafNFppField164: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_QNTD_UNID_DST'
+      FieldName = 'PROD_QNTD_UNID_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 163
+    end
+    object ppLayoutGrafNFppField165: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_TIPO_UNID_ALT'
+      FieldName = 'PROD_TIPO_UNID_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 164
+    end
+    object ppLayoutGrafNFppField166: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_TIPO_UNID_DST'
+      FieldName = 'PROD_TIPO_UNID_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 165
+    end
+    object ppLayoutGrafNFppField167: TppField
+      FieldAlias = 'MODELO'
+      FieldName = 'MODELO'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 166
+    end
+    object ppLayoutGrafNFppField168: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_IRRF_DST'
+      FieldName = 'NOTA_IRRF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 167
+    end
+    object ppLayoutGrafNFppField169: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_IRRF_ALT'
+      FieldName = 'NOTA_IRRF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 168
+    end
+    object ppLayoutGrafNFppField170: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_INSS_DST'
+      FieldName = 'NOTA_INSS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 169
+    end
+    object ppLayoutGrafNFppField171: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_INSS_ALT'
+      FieldName = 'NOTA_INSS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 170
+    end
+    object ppLayoutGrafNFppField172: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_PIS_DST'
+      FieldName = 'NOTA_PIS_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 171
+    end
+    object ppLayoutGrafNFppField173: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_PIS_ALT'
+      FieldName = 'NOTA_PIS_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 172
+    end
+    object ppLayoutGrafNFppField174: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_ISS_SUBST_DST'
+      FieldName = 'NOTA_ISS_SUBST_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 173
+    end
+    object ppLayoutGrafNFppField175: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_ISS_SUBST_ALT'
+      FieldName = 'NOTA_ISS_SUBST_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 174
+    end
+    object ppLayoutGrafNFppField176: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_TAM_NOME'
+      FieldName = 'PROD_TAM_NOME'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 175
+    end
+    object ppLayoutGrafNFppField177: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_NOME_RODAPE_DST'
+      FieldName = 'CLI_NOME_RODAPE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 176
+    end
+    object ppLayoutGrafNFppField178: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_NOME_RODAPE_ALT'
+      FieldName = 'CLI_NOME_RODAPE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 177
+    end
+    object ppLayoutGrafNFppField179: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DATENTSAI_RODAPE_DST'
+      FieldName = 'CLI_DATENTSAI_RODAPE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 178
+    end
+    object ppLayoutGrafNFppField180: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_DATENTSAI_RODAPE_ALT'
+      FieldName = 'CLI_DATENTSAI_RODAPE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 179
+    end
+    object ppLayoutGrafNFppField181: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORNOTA_RODAPE_ALT'
+      FieldName = 'FEC_VALORNOTA_RODAPE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 180
+    end
+    object ppLayoutGrafNFppField182: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FEC_VALORNOTA_RODAPE_DST'
+      FieldName = 'FEC_VALORNOTA_RODAPE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 181
+    end
+    object ppLayoutGrafNFppField183: TppField
+      FieldAlias = 'NOTA_DUPLICA_NUMERO'
+      FieldName = 'NOTA_DUPLICA_NUMERO'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 182
+    end
+    object ppLayoutGrafNFppField184: TppField
+      FieldAlias = 'NF_GRAFICA'
+      FieldName = 'NF_GRAFICA'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 183
+    end
+    object ppLayoutGrafNFppField185: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_EMPRESA_ALT'
+      FieldName = 'NOTA_EMPRESA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 184
+    end
+    object ppLayoutGrafNFppField186: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_EMPRESA_DST'
+      FieldName = 'NOTA_EMPRESA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 185
+    end
+    object ppLayoutGrafNFppField187: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_MARCA_ALT'
+      FieldName = 'PROD_MARCA_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 186
+    end
+    object ppLayoutGrafNFppField188: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_MARCA_DST'
+      FieldName = 'PROD_MARCA_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 187
+    end
+    object ppLayoutGrafNFppField189: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_LOTE_ALT'
+      FieldName = 'PROD_LOTE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 188
+    end
+    object ppLayoutGrafNFppField190: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_LOTE_DST'
+      FieldName = 'PROD_LOTE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 189
+    end
+    object ppLayoutGrafNFppField191: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_EMPRESA_UF_ALT'
+      FieldName = 'NOTA_EMPRESA_UF_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 190
+    end
+    object ppLayoutGrafNFppField192: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NOTA_EMPRESA_UF_DST'
+      FieldName = 'NOTA_EMPRESA_UF_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 191
+    end
+    object ppLayoutGrafNFppField193: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CID_PROP_DST'
+      FieldName = 'CLI_CID_PROP_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 192
+    end
+    object ppLayoutGrafNFppField194: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_CID_PROP_ALT'
+      FieldName = 'CLI_CID_PROP_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 193
+    end
+    object ppLayoutGrafNFppField195: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_UF_PROP_DST'
+      FieldName = 'CLI_UF_PROP_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 194
+    end
+    object ppLayoutGrafNFppField196: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_UF_PROP_ALT'
+      FieldName = 'CLI_UF_PROP_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 195
+    end
+    object ppLayoutGrafNFppField197: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_LOTE_VALIDADE_ALT'
+      FieldName = 'PROD_LOTE_VALIDADE_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 196
+    end
+    object ppLayoutGrafNFppField198: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PROD_LOTE_VALIDADE_DST'
+      FieldName = 'PROD_LOTE_VALIDADE_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 197
+    end
+    object ppLayoutGrafNFppField199: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_END_PROP_ALT'
+      FieldName = 'CLI_END_PROP_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 198
+    end
+    object ppLayoutGrafNFppField200: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_END_PROP_DST'
+      FieldName = 'CLI_END_PROP_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 199
+    end
+    object ppLayoutGrafNFppField201: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_NOME_PROP_ALT'
+      FieldName = 'CLI_NOME_PROP_ALT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 200
+    end
+    object ppLayoutGrafNFppField202: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CLI_NOME_PROP_DST'
+      FieldName = 'CLI_NOME_PROP_DST'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 201
+    end
+    object ppLayoutGrafNFppField203: TppField
+      FieldAlias = 'NFSERV_GRAFICA'
+      FieldName = 'NFSERV_GRAFICA'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 202
+    end
+    object ppLayoutGrafNFppField204: TppField
+      FieldAlias = 'NF_GRAFICA2'
+      FieldName = 'NF_GRAFICA2'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 203
+    end
+    object ppLayoutGrafNFppField205: TppField
+      FieldAlias = 'CONFIG_NF_GRAF'
+      FieldName = 'CONFIG_NF_GRAF'
+      FieldLength = 8
+      DataType = dtMemo
+      DisplayWidth = 10
+      Position = 204
+      Searchable = False
+      Sortable = False
+    end
+    object ppLayoutGrafNFppField206: TppField
+      FieldAlias = 'INDICE'
+      FieldName = 'INDICE'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 205
+    end
   end
   object rptGrafNF: TppReport
     AutoStop = False
@@ -3216,7 +5063,7 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 120
     Top = 32
@@ -3646,9 +5493,9 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
         TextAlignment = taCentered
         Transparent = True
         DataPipelineName = 'ppGrafNF'
-        mmHeight = 4995
-        mmLeft = 134673
-        mmTop = 7144
+        mmHeight = 5027
+        mmLeft = 39688
+        mmTop = 0
         mmWidth = 4233
         BandType = 0
       end
@@ -5676,6 +7523,258 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
       DisplayWidth = 130
       Position = 95
     end
+    object ppGrafNFppField97: TppField
+      FieldAlias = 'PRD_DEFENSIVO'
+      FieldName = 'PRD_DEFENSIVO'
+      FieldLength = 300
+      DisplayWidth = 300
+      Position = 96
+    end
+    object ppGrafNFppField98: TppField
+      FieldAlias = 'PRD_CONCAT'
+      FieldName = 'PRD_CONCAT'
+      FieldLength = 800
+      DisplayWidth = 800
+      Position = 97
+    end
+    object ppGrafNFppField99: TppField
+      FieldAlias = 'PARCELA_1_NUMERO'
+      FieldName = 'PARCELA_1_NUMERO'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 98
+    end
+    object ppGrafNFppField100: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARCELA_1_VALOR'
+      FieldName = 'PARCELA_1_VALOR'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 99
+    end
+    object ppGrafNFppField101: TppField
+      FieldAlias = 'PARCELA_1_VENCTO'
+      FieldName = 'PARCELA_1_VENCTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 100
+    end
+    object ppGrafNFppField102: TppField
+      FieldAlias = 'PARCELA_1_EXTENSO'
+      FieldName = 'PARCELA_1_EXTENSO'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 101
+    end
+    object ppGrafNFppField103: TppField
+      FieldAlias = 'PARCELA_2_NUMERO'
+      FieldName = 'PARCELA_2_NUMERO'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 102
+    end
+    object ppGrafNFppField104: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARCELA_2_VALOR'
+      FieldName = 'PARCELA_2_VALOR'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 103
+    end
+    object ppGrafNFppField105: TppField
+      FieldAlias = 'PARCELA_2_VENCTO'
+      FieldName = 'PARCELA_2_VENCTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 104
+    end
+    object ppGrafNFppField106: TppField
+      FieldAlias = 'PARCELA_2_EXTENSO'
+      FieldName = 'PARCELA_2_EXTENSO'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 105
+    end
+    object ppGrafNFppField107: TppField
+      FieldAlias = 'PARCELA_3_NUMERO'
+      FieldName = 'PARCELA_3_NUMERO'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 106
+    end
+    object ppGrafNFppField108: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARCELA_3_VALOR'
+      FieldName = 'PARCELA_3_VALOR'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 107
+    end
+    object ppGrafNFppField109: TppField
+      FieldAlias = 'PARCELA_3_VENCTO'
+      FieldName = 'PARCELA_3_VENCTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 108
+    end
+    object ppGrafNFppField110: TppField
+      FieldAlias = 'PARCELA_3_EXTENSO'
+      FieldName = 'PARCELA_3_EXTENSO'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 109
+    end
+    object ppGrafNFppField111: TppField
+      FieldAlias = 'PARCELA_4_NUMERO'
+      FieldName = 'PARCELA_4_NUMERO'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 110
+    end
+    object ppGrafNFppField112: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARCELA_4_VALOR'
+      FieldName = 'PARCELA_4_VALOR'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 111
+    end
+    object ppGrafNFppField113: TppField
+      FieldAlias = 'PARCELA_4_VENCTO'
+      FieldName = 'PARCELA_4_VENCTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 112
+    end
+    object ppGrafNFppField114: TppField
+      FieldAlias = 'PARCELA_4_EXTENSO'
+      FieldName = 'PARCELA_4_EXTENSO'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 113
+    end
+    object ppGrafNFppField115: TppField
+      FieldAlias = 'PARCELA_5_NUMERO'
+      FieldName = 'PARCELA_5_NUMERO'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 114
+    end
+    object ppGrafNFppField116: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARCELA_5_VALOR'
+      FieldName = 'PARCELA_5_VALOR'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 115
+    end
+    object ppGrafNFppField117: TppField
+      FieldAlias = 'PARCELA_5_VENCTO'
+      FieldName = 'PARCELA_5_VENCTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 116
+    end
+    object ppGrafNFppField118: TppField
+      FieldAlias = 'PARCELA_5_EXTENSO'
+      FieldName = 'PARCELA_5_EXTENSO'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 117
+    end
+    object ppGrafNFppField119: TppField
+      FieldAlias = 'PARCELA_6_NUMERO'
+      FieldName = 'PARCELA_6_NUMERO'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 118
+    end
+    object ppGrafNFppField120: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARCELA_6_VALOR'
+      FieldName = 'PARCELA_6_VALOR'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 119
+    end
+    object ppGrafNFppField121: TppField
+      FieldAlias = 'PARCELA_6_VENCTO'
+      FieldName = 'PARCELA_6_VENCTO'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 120
+    end
+    object ppGrafNFppField122: TppField
+      FieldAlias = 'PARCELA_6_EXTENSO'
+      FieldName = 'PARCELA_6_EXTENSO'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 121
+    end
+    object ppGrafNFppField123: TppField
+      FieldAlias = 'VD_MSG_FISCAL'
+      FieldName = 'VD_MSG_FISCAL'
+      FieldLength = 8
+      DataType = dtMemo
+      DisplayWidth = 10
+      Position = 122
+      Searchable = False
+      Sortable = False
+    end
+    object ppGrafNFppField124: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'VD_VOLUME'
+      FieldName = 'VD_VOLUME'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 123
+    end
+    object ppGrafNFppField125: TppField
+      FieldAlias = 'S_VD_VOLUME'
+      FieldName = 'S_VD_VOLUME'
+      FieldLength = 30
+      DisplayWidth = 30
+      Position = 124
+    end
+    object ppGrafNFppField126: TppField
+      FieldAlias = 'VD_MSG_COMPLEMENTAR'
+      FieldName = 'VD_MSG_COMPLEMENTAR'
+      FieldLength = 8
+      DataType = dtMemo
+      DisplayWidth = 10
+      Position = 125
+      Searchable = False
+      Sortable = False
+    end
+    object ppGrafNFppField127: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'LINHA'
+      FieldName = 'LINHA'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 126
+    end
+    object ppGrafNFppField128: TppField
+      FieldAlias = 'VND_CODIGOS'
+      FieldName = 'VND_CODIGOS'
+      FieldLength = 180
+      DisplayWidth = 180
+      Position = 127
+    end
   end
   object rptDuplicata: TppReport
     AutoStop = False
@@ -5720,7 +7819,7 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 16
     Top = 40
@@ -6473,7 +8572,7 @@ object FrmTipoFaturaVenda: TFrmTipoFaturaVenda
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 216
     Top = 104

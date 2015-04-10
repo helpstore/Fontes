@@ -590,7 +590,7 @@ begin
       PCD_REUTILIZAR_N_NF.ParamByName('codigo').value := Consulta_VendaCODIGO.value;
       PCD_REUTILIZAR_N_NF.ExecProc;
       PCD_REUTILIZAR_N_NF.Transaction.CommitRetaining;
-      Application.MessageBox('Numeração corrigida com sucesso','Aviso', mb_yesno + mb_iconquestion)
+      Application.MessageBox('Numeração corrigida com sucesso','Aviso', MB_OK + MB_ICONINFORMATION)
     except
       On E:EDataBaseError Do
         begin

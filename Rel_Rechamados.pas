@@ -611,7 +611,6 @@ type
     ppLabel105: TppLabel;
     ppLine28: TppLine;
     ppDBText95: TppDBText;
-    qAtendimento_SintMAIOR_QTDE_HR_TRABALHADA: TIBBCDField;
     procedure BtnOkClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn2Click(Sender: TObject);

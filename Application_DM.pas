@@ -11301,6 +11301,18 @@ begin
     ACBrNFe.NotasFiscais.Clear;
     ACBrNFe.NotasFiscais.LoadFromFile(FileXML);
 
+    // Pegando Versão da NFE  --- Sanniel
+    if (ACBrNFe.NotasFiscais.Items[0].NFe.infNFe.Versao = 2) then
+    begin
+      ACBrNFe.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
+      ACBrNFe.Configuracoes.Geral.VersaoDF := ve200   // Versão 3.10
+    end else
+    if (ACBrNFe.NotasFiscais.Items[0].NFe.infNFe.Versao = 3.1) then
+    begin
+      ACBrNFe.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
+      ACBrNFe.Configuracoes.Geral.VersaoDF := ve310;   // Versão 3.10
+    end;
+
     if (ACBrNFe.Consultar) then
     begin
       DeleteFile(FileXML);
@@ -11315,6 +11327,10 @@ begin
     exit;
   end;
 
+  // NF-e 3.10
+  ACBRNFE.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
+  ACBRNFE.Configuracoes.Geral.VersaoDF := ve310;   // Versão 3.10
+  ACBRNFE.Configuracoes.Geral.PathSchemas := ExtractFilePath(Application.ExeName) + 'Schemas\ve310\';
   with dmApp do
   begin
     if copy(DmApp.NFE_REGIME,1,1) = '1' then
@@ -11357,7 +11373,11 @@ begin
       Ide.verProc   := '1.0.0.0';
       Ide.cUF       := 50; //mato grosso do sul
       Ide.cMunFG    := StrToInt(DMApp.NFE_EMIT_COD_CIDADE);
-      Ide.finNFe    := fnNormal;
+
+      if (dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 1202) or (dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5202) then
+        Ide.finNFe    := fnDevolucao
+      else
+        Ide.finNFe    := fnNormal;
 
 
       Emit.CNPJCPF           := DMApp.NFE_EMIT_CNPJ;
@@ -11417,10 +11437,13 @@ begin
 
       //A partir de 01.11.2011 se o ambiente for de homologação não sera mais passado
       //os valores reais do destinatario
-      if (DMApp.NFE_WS_AMBIENTE = '0') then
-        Dest.IE                := StringReplace(StringReplace(dmCadastros2.NFe_Faturamentos2DEST_IE.value,'.','',[rfReplaceAll]),'-','',[rfReplaceAll])
-      else
-        Dest.IE := '';
+     // if (DMApp.NFE_WS_AMBIENTE = '0') then
+     if (dmCadastros2.NFe_Faturamentos2DEST_IE.value) = 'ISENTO' then
+      Dest.indIEDest := inNaoContribuinte
+     else
+      Dest.IE                := StringReplace(StringReplace(dmCadastros2.NFe_Faturamentos2DEST_IE.value,'.','',[rfReplaceAll]),'-','',[rfReplaceAll]);
+     // else
+     //   Dest.IE := '';
 
       Dest.xNome             := dmCadastros2.NFe_Faturamentos2DEST_RAZAO_SOCIAL.value;
       Dest.EnderDest.cPais   := 1058;
@@ -11458,108 +11481,108 @@ begin
       NITEM := 1;
       while not dmCadastros2.NFe_Faturamentos_Itens.Eof do
       begin
-          with Det.Add do
+        with Det.Add do
+        begin
+          infAdProd     := '';
+          Prod.nItem    := NITEM;//dmCadastros2.NFe_Faturamentos_ItensNITEM.Value;
+          Prod.CFOP     := dmCadastros2.NFe_Faturamentos_ItensCFOP.asString;
+          Prod.cProd    := dmCadastros2.NFe_Faturamentos_ItensCPROD.value;
+          Prod.xProd    := dmCadastros2.NFe_Faturamentos_ItensCXPRODUTO.value;
+          Prod.qCom     := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQCOM.value,2);
+          Prod.uCom     := dmCadastros2.NFe_Faturamentos_ItensUCOM.value;
+          Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value,2);
+          Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value,2);
+          Prod.qTrib    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
+          Prod.uTrib    := dmCadastros2.NFe_Faturamentos_ItensUTRIB.value;
+          Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
+          Prod.NCM :=   dmCadastros2.NFe_Faturamentos_ItensCODIGO_NCM.AsString;
+          if (trim(dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString) <> '') then
           begin
-            infAdProd     := '';
-            Prod.nItem    := NITEM;//dmCadastros2.NFe_Faturamentos_ItensNITEM.Value;
-            Prod.CFOP     := dmCadastros2.NFe_Faturamentos_ItensCFOP.asString;
-            Prod.cProd    := dmCadastros2.NFe_Faturamentos_ItensCPROD.value;
-            Prod.xProd    := dmCadastros2.NFe_Faturamentos_ItensCXPRODUTO.value;
-            Prod.qCom     := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQCOM.value,2);
-            Prod.uCom     := dmCadastros2.NFe_Faturamentos_ItensUCOM.value;
-            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value,2);
-            Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value,2);
-            Prod.qTrib    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
-            Prod.uTrib    := dmCadastros2.NFe_Faturamentos_ItensUTRIB.value;
-            Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
-            Prod.NCM :=   dmCadastros2.NFe_Faturamentos_ItensCODIGO_NCM.AsString;
-            if (trim(dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString) <> '') then
-            begin
-              Prod.cEAN := dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString;
-              Prod.cEANTrib := dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString;
-            end;
+            Prod.cEAN := dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString;
+            Prod.cEANTrib := dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString;
+          end;
             
-            with Imposto  do
+          with Imposto  do
+          begin
+            with ICMS  do
             begin
-              with ICMS  do
+              if regime = '1' then
               begin
-                if regime = '1' then
-                begin
 
-                  if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst00') then
-                    CST := cst00
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst20') then
-                    CST := cst20
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst40') then
-                    CST := cst40
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst41') then
-                    CST := cst41
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst51') then
-                    CST := cst51
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst60') then
-                    CST := cst60;
-                end
-                else
-                begin
-                  //(csosnVazio,csosn101, csosn102, csosn103, csosn201, csosn202, csosn203, csosn300, csosn400, csosn500,csosn900 )
-                  if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 101) then
-                    CSOSN := csosn101
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 102) then
-                    CSOSN := csosn102
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 103) then
-                    CSOSN := csosn103
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 201) then
-                    CSOSN := csosn201
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 202) then
-                    CSOSN := csosn202
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 203) then
-                    CSOSN := csosn203
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 300) then
-                    CSOSN := csosn300
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 400) then
-                    CSOSN := csosn400
-                  else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 900) then
-                    CSOSN := csosn900;
-                end;
-
-
-                if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Margem Valor Agregado (%).') then
-                  ICMS.modBC  := dbiMargemValorAgregado
-                else if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Pauta (Valor).') then
-                  ICMS.modBC  := dbiPauta
-                else if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Preço Tabelado Máx. (Valor).') then
-                  ICMS.modBC  := dbiPrecoTabelado
-                else if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Valor da operação.') then
-                  ICMS.modBC  := dbiValorOperacao;
-
-                if (DmApp.NFE_DESTACA_ICMS_SUB = 'S') then
-                begin
-                  ICMS.pICMSST  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensPICMS_SUB.value,2);
-                  ICMS.vICMSST  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVICMS_SUB.Value,2);
-                  ICMS.vBCST    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVBC_SUB.value,2);
-                end;
-
-                ICMS.pICMS  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensPICMS.value,2);
-                ICMS.vICMS  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVICMS.Value,2);
-                ICMS.vBC    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVBC.value,2);
+                if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst00') then
+                  CST := cst00
+                else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst20') then
+                  CST := cst20
+                else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst40') then
+                  CST := cst40
+                else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst41') then
+                  CST := cst41
+                else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst51') then
+                  CST := cst51
+                else if (dmCadastros2.NFe_Faturamentos_ItensCST.Value = 'cst60') then
+                  CST := cst60;
+              end
+              else
+              begin
+                //(csosnVazio,csosn101, csosn102, csosn103, csosn201, csosn202, csosn203, csosn300, csosn400, csosn500,csosn900 )
+                if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 101) then
+                  CSOSN := csosn101
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 102) then
+                  CSOSN := csosn102
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 103) then
+                  CSOSN := csosn103
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 201) then
+                  CSOSN := csosn201
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 202) then
+                  CSOSN := csosn202
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 203) then
+                  CSOSN := csosn203
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 300) then
+                  CSOSN := csosn300
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 400) then
+                  CSOSN := csosn400
+                else if (dmCadastros2.NFe_Faturamentos_ItensCSOSN.Value = 900) then
+                  CSOSN := csosn900;
               end;
 
-              {IPI.CST := StrToCSTIPI(false,Pchar(dmCadastros2.NFe_Faturamentos_ItensTRIB_IPI.AsString));
-              PIS.CST := StrToCSTPIS(false,Pchar(dmCadastros2.NFe_Faturamentos_ItensTRIB_PIS.AsString));
-              COFINS.CST := StrToCSTCOFINS(false,Pchar(dmCadastros2.NFe_Faturamentos_ItensTRIB_COFINS.AsString));
-              {
-               TpcnCstIpi = (ipi00, ipi49, ipi50, ipi99, ipi01, ipi02, ipi03, ipi04, ipi05, ipi51, ipi52, ipi53, ipi54, ipi55);
-               TpcnCstPis = (pis01, pis02, pis03, pis04, pis06, pis07, pis08, pis09, pis99);
-               TpcnCstCofins = (cof01, cof02, cof03, cof04, cof06, cof07, cof08, cof09, cof99);
-              }
 
-              {suspensao - Frig. Sao luiz}
-              PIS.CST := pis09;
-              COFINS.CST := cof09;
+              if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Margem Valor Agregado (%).') then
+                ICMS.modBC  := dbiMargemValorAgregado
+              else if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Pauta (Valor).') then
+                ICMS.modBC  := dbiPauta
+              else if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Preço Tabelado Máx. (Valor).') then
+                ICMS.modBC  := dbiPrecoTabelado
+              else if (dmCadastros2.NFe_Faturamentos_ItensTRIB_MODALIDADE.value = 'Valor da operação.') then
+                ICMS.modBC  := dbiValorOperacao;
+
+              if (DmApp.NFE_DESTACA_ICMS_SUB = 'S') then
+              begin
+                ICMS.pICMSST  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensPICMS_SUB.value,2);
+                ICMS.vICMSST  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVICMS_SUB.Value,2);
+                ICMS.vBCST    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVBC_SUB.value,2);
+              end;
+
+              ICMS.pICMS  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensPICMS.value,2);
+              ICMS.vICMS  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVICMS.Value,2);
+              ICMS.vBC    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVBC.value,2);
             end;
+
+            {IPI.CST := StrToCSTIPI(false,Pchar(dmCadastros2.NFe_Faturamentos_ItensTRIB_IPI.AsString));
+            PIS.CST := StrToCSTPIS(false,Pchar(dmCadastros2.NFe_Faturamentos_ItensTRIB_PIS.AsString));
+            COFINS.CST := StrToCSTCOFINS(false,Pchar(dmCadastros2.NFe_Faturamentos_ItensTRIB_COFINS.AsString));
+            {
+             TpcnCstIpi = (ipi00, ipi49, ipi50, ipi99, ipi01, ipi02, ipi03, ipi04, ipi05, ipi51, ipi52, ipi53, ipi54, ipi55);
+             TpcnCstPis = (pis01, pis02, pis03, pis04, pis06, pis07, pis08, pis09, pis99);
+             TpcnCstCofins = (cof01, cof02, cof03, cof04, cof06, cof07, cof08, cof09, cof99);
+            }
+
+            {suspensao - Frig. Sao luiz}
+            PIS.CST := pis09;
+            COFINS.CST := cof09;
           end;
-          NITEM := NITEM + 1;
-          dmCadastros2.NFe_Faturamentos_Itens.Next;
+        end;
+        NITEM := NITEM + 1;
+        dmCadastros2.NFe_Faturamentos_Itens.Next;
       end;
 
       Total.ICMSTot.vBC   := Arredonda(dmCadastros2.NFe_Faturamentos2BASE_ICM.value,2);

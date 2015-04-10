@@ -845,7 +845,7 @@ object FrmBaixaReceberSelecaoParc: TFrmBaixaReceberSelecaoParc
       StoredValues = 64
     end
     object dxDBEdit9: TdxDBEdit
-      Left = 293
+      Left = 303
       Top = 140
       Width = 77
       Color = clScrollBar
@@ -1294,8 +1294,8 @@ object FrmBaixaReceberSelecaoParc: TFrmBaixaReceberSelecaoParc
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

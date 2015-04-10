@@ -2,8 +2,8 @@ object DmApp: TDmApp
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 49
-  Top = 74
+  Left = 50
+  Top = 76
   Height = 517
   Width = 669
   object Database: TIBDatabase
@@ -2985,6 +2985,10 @@ object DmApp: TDmApp
   end
   object ACBrNFe: TACBrNFe
     Configuracoes.Geral.PathSalvar = 'C:\Program Files\Borland\Delphi7\Bin\'
+    Configuracoes.Geral.ExibirErroSchema = True
+    Configuracoes.Geral.FormatoAlerta = 'TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.'
+    Configuracoes.Geral.RetirarAcentos = True
+    Configuracoes.Geral.ValidarDigest = False
     Configuracoes.WebServices.UF = 'SP'
     Configuracoes.WebServices.AguardarConsultaRet = 0
     Configuracoes.WebServices.IntervaloTentativas = 0
@@ -3023,10 +3027,14 @@ object DmApp: TDmApp
     ProdutosPorPagina = 0
     ImprimirDetalhamentoEspecifico = True
     NFeCancelada = False
+    LocalImpCanhoto = 0
+    ImprimeItens = True
+    ViaConsumidor = True
     RavFile = 'c:\Sistemas\HelpStore\NFe\Report\NotaFiscalEletronica.rav'
     EspessuraBorda = 1
     TamanhoFonte_RazaoSocial = 12
     TamanhoFonte_ANTT = 10
+    TributosPercentual = ptValorProdutos
     Left = 440
     Top = 456
   end
@@ -5516,7 +5524,6 @@ object DmApp: TDmApp
       '  PARC_TEXTO_RELATORIO = :PARC_TEXTO_RELATORIO'
       'where'
       '  PARC_CNPJ = :OLD_PARC_CNPJ')
-    Active = True
     Left = 456
     Top = 272
     object QryParceiroPARC_RAZAO_SOCIAL: TIBStringField
