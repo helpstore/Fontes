@@ -203,7 +203,7 @@ object FrmEmpresas: TFrmEmpresas
       Top = 47
       Width = 761
       Height = 458
-      ActivePage = dxTabSheet9
+      ActivePage = tbsNFe
       HotTrack = True
       TabOrder = 1
       OnChange = pcChange
@@ -9252,8 +9252,8 @@ object FrmEmpresas: TFrmEmpresas
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
+    Font.Height = -11
+    Font.Name = 'Tahoma'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

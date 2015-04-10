@@ -1503,211 +1503,228 @@ begin
 end;
 
 procedure TFrmSelFaturaVendas.ActCancelaNotaExecute(Sender: TObject);
-Var
-   CUPOM: Integer;
-   CancTemp, FileXML, NUM,vAux, sAux: String;
+var
+  CUPOM: Integer;
+  CancTemp, FileXML, NUM,vAux, sAux: String;
 begin
-     IF DmApp.PEDE_SEN_GER_CX = 'S'
-     THEN BEGIN
-          Application.CreateForm(TFrmMensagemClassificacao, FrmMensagemClassificacao);
+  IF DmApp.PEDE_SEN_GER_CX = 'S'
+  THEN BEGIN
+    Application.CreateForm(TFrmMensagemClassificacao, FrmMensagemClassificacao);
 
-          FrmMensagemClassificacao.MEMO.Lines.Add ('DIGITE A SENHA GERENCIAL');
+    FrmMensagemClassificacao.MEMO.Lines.Add ('DIGITE A SENHA GERENCIAL');
 
-          FrmMensagemClassificacao.EdSenha.Visible := true ;
-          FrmMensagemClassificacao.Label6.Visible  := true ;
-          //Se o Nível ou a Classificacao exigir senha e não foi digitada
-          if FrmMensagemClassificacao.Showmodal = MrCancel then
-          Begin
-            MessageDlg('Senha Não Informada Corretamente!', mtError, [mbOK], 0);
-            EXIT ;
+    FrmMensagemClassificacao.EdSenha.Visible := true ;
+    FrmMensagemClassificacao.Label6.Visible  := true ;
+    //Se o Nível ou a Classificacao exigir senha e não foi digitada
+    if FrmMensagemClassificacao.Showmodal = MrCancel then
+    Begin
+      MessageDlg('Senha Não Informada Corretamente!', mtError, [mbOK], 0);
+      EXIT ;
+    end;
+
+    FrmMensagemClassificacao.Free ;
+    FrmMensagemClassificacao := Nil;
+  END;
+
+  IF PC.ACTIVEPAGEINDEX = 0
+  THEN BEGIN
+    IF DataSource.DataSet.fieldbyname('Codigo').Value > 0
+    THEN
+      NUM := INTTOSTR ( DataSource.DataSet.fieldbyname('Codigo').Value )
+    ELSE
+      NUM := '0';
+
+    if (Application.MessageBox('Deseja Realmente Cancelar esta Venda?','Aviso', mb_yesno + mb_iconquestion) = id_yes) then
+    BEGIN
+      If ( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
+        and ( DataSource.DataSet.fieldbyname('CANCELADA').asString <> 'S' ) AND ( DataSource.DataSet.fieldbyname('NUM_NF').Value > 0 ) then
+      begin
+        If {( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
+          and ( DataSource.DataSet.fieldbyname('CANCELADA').Value = 'N' ) AND }( DataSource.DataSet.fieldbyname('NUM_CUPOM').Value > 0 ) then 
+        begin
+          //Numero do Ultimo Cupom
+          Cupom := NumeroUltimoCupom ;
+
+          IF ( Cupom ) = DataSource.DataSet.fieldbyname('NUM_CUPOM').Value then
+          BEGIN
+            CancelaCupom ;
+          END;
+        end ;
+
+        if (Application.MessageBox('Confirme o cancelamento da nota.','Aviso', mb_yesno + mb_iconquestion) = id_yes) then
+        begin
+          if ((dmapp.EXIBE_NFE = 'S') and (DmVendas.SelFaturaVendasNFE_AUTORIZADA.value = '1')) then
+          begin
+            dmApp.ACBrNFe.NotasFiscais.Clear;
+
+            if not(DirectoryExists('C:\Sistemas\HelpStore\Temp\')) then
+              CreateDir('C:\Sistemas\HelpStore\Temp\');
+
+            FileXML := 'C:\Sistemas\HelpStore\Temp\NFe'+DataSource.DataSet.fieldbyname('NUM_NF').asString+'.tmp';
+
+            DmVendas.SelFaturaVendasNFE_XML.SaveToFile(FileXML);
+            dmApp.ACBrNFe.NotasFiscais.LoadFromFile(FileXML);
+
+            // Pegando Versão da NFE  --- Sanniel
+            if (dmApp.ACBrNFe.NotasFiscais.Items[0].NFe.infNFe.Versao = 2) then
+            begin
+              dmApp.ACBrNFe.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
+              dmApp.ACBrNFe.Configuracoes.Geral.VersaoDF := ve200   // Versão 3.10
+            end else
+            if (dmApp.ACBrNFe.NotasFiscais.Items[0].NFe.infNFe.Versao = 3.1) then
+            begin
+              dmApp.ACBrNFe.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
+              dmApp.ACBrNFe.Configuracoes.Geral.VersaoDF := ve310;   // Versão 3.10
+            end;
+
+            if not(InputQuery('NFE Cancelamento', 'Justificativa', vAux)) then
+              exit;
+
+            // Sanniel -- Tratando erro de cancelamento: justificativa com menos de 15 caracteres.
+            if Length(vAux) < 15 then
+              if not(InputQuery('NFE Cancelamento', 'A Justificativa deve conter pelo menos 15 caracteres:', vAux)) then
+                exit;
+
+            dmApp.ACBrNFe.EventoNFe.Evento.Clear;
+            dmApp.ACBrNFe.EventoNFe.idLote := DmVendas.SelFaturaVendasCODIGO.AsInteger ;
+            with dmApp.ACBrNFe.EventoNFe.Evento.Add do
+            begin
+             infEvento.dhEvento := now;
+             infEvento.tpEvento := teCancelamento;
+             infEvento.detEvento.xJust := vAux;
+            end;
+
+            // Enviar o evento de cancelamento
+            if dmApp.ACBrNFe.EnviarEventoNFe((DmVendas.SelFaturaVendasCODIGO.AsInteger)) then
+            begin
+              with dmApp.ACBrNFe.WebServices.EnvEvento do
+              begin
+                if EventoRetorno.retEvento.Items[0].RetInfEvento.cStat <> 135 then
+                begin
+                  raise Exception.CreateFmt(
+                    'Ocorreu o seguinte erro ao cancelar a nota fiscal eletrônica:'  + sLineBreak +
+                    'Código:%d' + sLineBreak +
+                    'Motivo: %s', [
+                      EventoRetorno.retEvento.Items[0].RetInfEvento.cStat,
+                      EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo
+                  ]);
+                end;
+
+            // retornos
+              {  DataHoraEvento  := EventoRetorno.retEvento.Items[0].RetInfEvento.dhRegEvento;
+                NumeroProtocolo := EventoRetorno.retEvento.Items[0].RetInfEvento.nProt;
+                XMLCancelamento := EventoRetorno.retEvento.Items[0].RetInfEvento.XML;
+                CodigoStatus    := EventoRetorno.retEvento.Items[0].RetInfEvento.cStat;
+                MotivoStatus    := EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo;}
+              end;
+            end
+            else
+            begin
+              with dmApp.ACBrNFe.WebServices.EnvEvento do
+              begin
+              raise Exception.Create(
+                  'Ocorreram erros ao tentar efetuar o cancelamento:' + sLineBreak +
+                  'Lote: '     + IntToStr(EventoRetorno.idLote) + sLineBreak +
+                  'Ambiente: ' + TpAmbToStr(EventoRetorno.tpAmb) + sLineBreak +
+                  'Orgao: '    + IntToStr(EventoRetorno.cOrgao) + sLineBreak +
+                  sLineBreak +
+                  'Status: '   + IntToStr(EventoRetorno.cStat) + sLineBreak +
+                  'Motivo: '   + EventoRetorno.xMotivo
+                );
+              end;
+
+            end;
+
+            {MemoResp.Lines.Text :=  UTF8Encode(ACBrNFe1.WebServices.EnvEvento.RetWS);
+            memoRespWS.Lines.Text :=  UTF8Encode(ACBrNFe1.WebServices.EnvEvento.RetornoWS);
+            LoadXML(MemoResp, WBResposta);
+            ShowMessage(UTF8Encode(dmApp.ACBrNFe.WebServices.EnvEvento.RetWS));
+            ShowMessage(UTF8Encode(dmApp.ACBrNFe.WebServices.EnvEvento.RetornoWS));
+            ShowMessage(IntToStr(dmApp.ACBrNFe.WebServices.EnvEvento.cStat));
+            ShowMessage(dmApp.ACBrNFe.WebServices.EnvEvento.EventoRetorno.retEvento.Items[0].RetInfEvento.nProt);}
+
+            dmCadastros2.UPDNFeVendasCanc.parambyname('cnpj').value := dmApp.cnpj;
+            dmCadastros2.UPDNFeVendasCanc.parambyname('venda').value := DmVendas.SelFaturaVendasCODIGO.VALUE;
+            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_motivo').value := vAux;
+            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_protocolo').value := dmApp.ACBrNFe.WebServices.EnvEvento.EventoRetorno.retEvento.Items[0].RetInfEvento.nProt;//ACBrNFe.WebServices.Cancelamento.Protocolo;
+            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_status').value := IntToStr(dmApp.ACBrNFe.WebServices.EnvEvento.EventoRetorno.cStat);//ACBrNFe.WebServices.Cancelamento.cStat);
+            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_xml').value := UTF8Encode(dmApp.ACBrNFe.WebServices.EnvEvento.RetWS); //ACBrNFe.WebServices.Cancelamento.RetWS);
+            dmCadastros2.UPDNFeVendasCanc.ExecQuery;
+            dmCadastros2.UPDNFeVendasCanc.Transaction.CommitRetaining;
           end;
+          Numero := DataSource.DataSet.fieldbyname('Codigo').Value ;
+          DmVendas.SelFaturaVendas.Close ;
+          DmApp.Cancela_Nota ( DmApp.Cnpj, Numero, DmApp.datacaixa );
+          DmVendas.SelFaturaVendas.Open  ;
+          Application.MessageBox('Nota Fiscal cancelada com sucesso.','Aviso', mb_ok + MB_ICONINFORMATION);
+        end;
+      end
+      ELSE BEGIN
+          If ( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
+          and ( DataSource.DataSet.fieldbyname('CANCELADA').Value = 'N' ) AND ( DataSource.DataSet.fieldbyname('NUM_CUPOM').Value > 0 )
+          then begin
+               //Numero do Ultimo Cupom
+               Cupom := NumeroUltimoCupom ;
 
-          FrmMensagemClassificacao.Free ;
-          FrmMensagemClassificacao := Nil;
-     END;
-
-     IF PC.ACTIVEPAGEINDEX = 0
-     THEN BEGIN
-          IF DataSource.DataSet.fieldbyname('Codigo').Value > 0
-          THEN
-              NUM := INTTOSTR ( DataSource.DataSet.fieldbyname('Codigo').Value )
-          ELSE
-              NUM := '0';
-
-          IF MessageDlg('Deseja Realmente Cancelar esta Venda ? ' + NUM , mtConfirmation, [mbOk, mbCancel], 0) = MrOk
-          THEN BEGIN
-               If ( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
-               and ( DataSource.DataSet.fieldbyname('CANCELADA').asString <> 'S' ) AND ( DataSource.DataSet.fieldbyname('NUM_NF').Value > 0 )
-               then begin
-                    If ( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
-                    and ( DataSource.DataSet.fieldbyname('CANCELADA').Value = 'N' ) AND ( DataSource.DataSet.fieldbyname('NUM_CUPOM').Value > 0 )
+               IF ( Cupom ) <> DataSource.DataSet.fieldbyname('NUM_CUPOM').Value
+               THEN BEGIN
+                    MessageDlg ('Impossível Cancelar Este Cupom, Verifique?', MtError, [MbOk],0);
+                    exit;
+               END
+               ELSE BEGIN
+                    If MessageDlg ('Cancelar Este Cupom?', MtConfirmation, [MbOk, MbCancel],0) = mrok
                     then begin
-                         //Numero do Ultimo Cupom
-                         Cupom := NumeroUltimoCupom ;
+                         //Cancela o Cupom Fiscal Atual
+                         CancelaCupom ;
 
-                         IF ( Cupom ) = DataSource.DataSet.fieldbyname('NUM_CUPOM').Value
-                         THEN BEGIN
-                              CancelaCupom ;
-                         END;
-                    end ;
-
-                    If MessageDlg ('Cancelar Esta Nota?', MtConfirmation, [MbOk, MbCancel],0) = mrok
-                    then begin
-                         if ((dmapp.EXIBE_NFE = 'S') and (DmVendas.SelFaturaVendasNFE_AUTORIZADA.value = '1')) then
-                         begin
-                            dmApp.ACBrNFe.NotasFiscais.Clear;
-
-                            if not(DirectoryExists('C:\Sistemas\HelpStore\Temp\')) then
-                              CreateDir('C:\Sistemas\HelpStore\Temp\');
-
-                            FileXML := 'C:\Sistemas\HelpStore\Temp\NFe'+DataSource.DataSet.fieldbyname('NUM_NF').asString+'.tmp';
-
-                            DmVendas.SelFaturaVendasNFE_XML.SaveToFile(FileXML);
-                            dmApp.ACBrNFe.NotasFiscais.LoadFromFile(FileXML);
-
-                            if not(InputQuery('NFE Cancelamento', 'Justificativa', vAux)) then
-                               exit;
-
-
-                            dmApp.ACBrNFe.EventoNFe.Evento.Clear;
-                            dmApp.ACBrNFe.EventoNFe.idLote := DmVendas.SelFaturaVendasCODIGO.AsInteger ;
-                            with dmApp.ACBrNFe.EventoNFe.Evento.Add do
-                            begin
-                             infEvento.dhEvento := now;
-                             infEvento.tpEvento := teCancelamento;
-                             infEvento.detEvento.xJust := vAux;
-                            end;
-
-                            // Enviar o evento de cancelamento
-                            if dmApp.ACBrNFe.EnviarEventoNFe((DmVendas.SelFaturaVendasCODIGO.AsInteger)) then
-                            begin
-                              with dmApp.ACBrNFe.WebServices.EnvEvento do
-                              begin
-                                if EventoRetorno.retEvento.Items[0].RetInfEvento.cStat <> 135 then
-                                begin
-                                  raise Exception.CreateFmt(
-                                    'Ocorreu o seguinte erro ao cancelar a nota fiscal eletrônica:'  + sLineBreak +
-                                    'Código:%d' + sLineBreak +
-                                    'Motivo: %s', [
-                                      EventoRetorno.retEvento.Items[0].RetInfEvento.cStat,
-                                      EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo
-                                  ]);
-                                end;
-
-                            // retornos
-                              {  DataHoraEvento  := EventoRetorno.retEvento.Items[0].RetInfEvento.dhRegEvento;
-                                NumeroProtocolo := EventoRetorno.retEvento.Items[0].RetInfEvento.nProt;
-                                XMLCancelamento := EventoRetorno.retEvento.Items[0].RetInfEvento.XML;
-                                CodigoStatus    := EventoRetorno.retEvento.Items[0].RetInfEvento.cStat;
-                                MotivoStatus    := EventoRetorno.retEvento.Items[0].RetInfEvento.xMotivo;}
-                              end;
-                            end
-                            else
-                            begin
-                              with dmApp.ACBrNFe.WebServices.EnvEvento do
-                              begin
-                              raise Exception.Create(
-                                  'Ocorreram erros ao tentar efetuar o cancelamento:' + sLineBreak +
-                                  'Lote: '     + IntToStr(EventoRetorno.idLote) + sLineBreak +
-                                  'Ambiente: ' + TpAmbToStr(EventoRetorno.tpAmb) + sLineBreak +
-                                  'Orgao: '    + IntToStr(EventoRetorno.cOrgao) + sLineBreak +
-                                  sLineBreak +
-                                  'Status: '   + IntToStr(EventoRetorno.cStat) + sLineBreak +
-                                  'Motivo: '   + EventoRetorno.xMotivo
-                                );
-                              end;
-
-                            end;
-
-                            {MemoResp.Lines.Text :=  UTF8Encode(ACBrNFe1.WebServices.EnvEvento.RetWS);
-                            memoRespWS.Lines.Text :=  UTF8Encode(ACBrNFe1.WebServices.EnvEvento.RetornoWS);
-                            LoadXML(MemoResp, WBResposta);
-                            ShowMessage(UTF8Encode(dmApp.ACBrNFe.WebServices.EnvEvento.RetWS));
-                            ShowMessage(UTF8Encode(dmApp.ACBrNFe.WebServices.EnvEvento.RetornoWS));
-                            ShowMessage(IntToStr(dmApp.ACBrNFe.WebServices.EnvEvento.cStat));
-                            ShowMessage(dmApp.ACBrNFe.WebServices.EnvEvento.EventoRetorno.retEvento.Items[0].RetInfEvento.nProt);}
-
-                            dmCadastros2.UPDNFeVendasCanc.parambyname('cnpj').value := dmApp.cnpj;
-                            dmCadastros2.UPDNFeVendasCanc.parambyname('venda').value := DmVendas.SelFaturaVendasCODIGO.VALUE;
-                            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_motivo').value := vAux;
-                            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_protocolo').value := dmApp.ACBrNFe.WebServices.Cancelamento.Protocolo;
-                            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_status').value := IntToStr(dmApp.ACBrNFe.WebServices.Cancelamento.cStat);
-                            dmCadastros2.UPDNFeVendasCanc.parambyname('nfe_canc_xml').value := UTF8Encode(dmApp.ACBrNFe.WebServices.Cancelamento.RetWS);
-                            dmCadastros2.UPDNFeVendasCanc.ExecQuery;
-                            dmCadastros2.UPDNFeVendasCanc.Transaction.CommitRetaining;
-                         end;
                          Numero := DataSource.DataSet.fieldbyname('Codigo').Value ;
                          DmVendas.SelFaturaVendas.Close ;
-                         DmApp.Cancela_Nota ( DmApp.Cnpj, Numero, DmApp.datacaixa );
+                         DmApp.Cancela_Nota ( DmApp.Cnpj, Numero, DmApp.DataCaixa );
                          DmVendas.SelFaturaVendas.Open  ;
-                    end;
-               end
-               ELSE BEGIN
-                    If ( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
-                    and ( DataSource.DataSet.fieldbyname('CANCELADA').Value = 'N' ) AND ( DataSource.DataSet.fieldbyname('NUM_CUPOM').Value > 0 )
-                    then begin
-                         //Numero do Ultimo Cupom
-                         Cupom := NumeroUltimoCupom ;
-
-                         IF ( Cupom ) <> DataSource.DataSet.fieldbyname('NUM_CUPOM').Value
-                         THEN BEGIN
-                              MessageDlg ('Impossível Cancelar Este Cupom, Verifique?', MtError, [MbOk],0);
-                              exit;
-                         END
-                         ELSE BEGIN
-                              If MessageDlg ('Cancelar Este Cupom?', MtConfirmation, [MbOk, MbCancel],0) = mrok
-                              then begin
-                                   //Cancela o Cupom Fiscal Atual
-                                   CancelaCupom ;
-
-                                   Numero := DataSource.DataSet.fieldbyname('Codigo').Value ;
-                                   DmVendas.SelFaturaVendas.Close ;
-                                   DmApp.Cancela_Nota ( DmApp.Cnpj, Numero, DmApp.DataCaixa );
-                                   DmVendas.SelFaturaVendas.Open  ;
-                              END;
-                         END;
-                    END
-                    ELSE BEGIN
-                         If ( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
-                         and ( DataSource.DataSet.fieldbyname('CANCELADA').Value = 'N' )
-                         then begin
-                              Numero := DataSource.DataSet.fieldbyname('Codigo').Value ;
-                              DmVendas.SelFaturaVendas.Close ;
-                              DmApp.Cancela_Pedido ( DmApp.Cnpj, Numero, DmApp.DataCaixa );
-                              DmVendas.SelFaturaVendas.Open  ;
-                         end
-                         ELSE BEGIN
-                              MessageDlg ('Esta Nota Já Esta Cancelada, ou aida não Foi Fechada?', MtConfirmation, [MbOk, MbCancel],0);
-                         END;
-                    end;
+                    END;
                END;
-          END;
-     END ;
-
-     //TROCAS
-     IF PC.ACTIVEPAGEINDEX = 1
-     THEN BEGIN
-          IF DsTroca.DataSet.fieldbyname('Codigo').Value > 0
-          THEN
-              NUM := INTTOSTR ( DsTroca.DataSet.fieldbyname('Codigo').Value )
-          ELSE
-              NUM := '0';
-
-          IF MessageDlg('Deseja Realmente Cancelar esta Troca ? ' + NUM , mtConfirmation, [mbOk, mbCancel], 0) = MrOk
-          THEN BEGIN
-               If ( DsTroca.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DsTroca.DataSet.fieldbyname('FECHADO').Value = 'S' )
-               and ( DsTroca.DataSet.fieldbyname('CANCELADA').Value <> 'S' )
+          END
+          ELSE BEGIN
+               If ( DataSource.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DataSource.DataSet.fieldbyname('FECHADA').Value = 'S' )
+               and ( DataSource.DataSet.fieldbyname('CANCELADA').Value = 'N' )
                then begin
-                    Numero := DsTroca.DataSet.fieldbyname('Codigo').Value ;
-                    DmVendas.SelFaturaTrocas.Close ;
-                    DmApp.Cancela_Troca ( DmApp.Cnpj, Numero, DmApp.DataCaixa );
-                    DmVendas.SelFaturaTrocas.Open  ;
+                    Numero := DataSource.DataSet.fieldbyname('Codigo').Value ;
+                    DmVendas.SelFaturaVendas.Close ;
+                    DmApp.Cancela_Pedido ( DmApp.Cnpj, Numero, DmApp.DataCaixa );
+                    DmVendas.SelFaturaVendas.Open  ;
                end
                ELSE BEGIN
-                    MessageDlg ('Esta Troca Já Esta Cancelada, ou aida não Foi Fechada?', MtConfirmation, [MbOk, MbCancel],0);
+                    MessageDlg ('Esta Nota Já Esta Cancelada, ou aida não Foi Fechada?', MtConfirmation, [MbOk, MbCancel],0);
                END;
-          END;
-     END ;
+          end;
+      END;
+      END;
+      END ;
+
+//TROCAS
+IF PC.ACTIVEPAGEINDEX = 1
+THEN BEGIN
+    IF DsTroca.DataSet.fieldbyname('Codigo').Value > 0
+    THEN
+        NUM := INTTOSTR ( DsTroca.DataSet.fieldbyname('Codigo').Value )
+    ELSE
+        NUM := '0';
+
+    IF MessageDlg('Deseja Realmente Cancelar esta Troca ? ' + NUM , mtConfirmation, [mbOk, mbCancel], 0) = MrOk
+    THEN BEGIN
+         If ( DsTroca.DataSet.fieldbyname('Codigo').Value > 0 ) and ( DsTroca.DataSet.fieldbyname('FECHADO').Value = 'S' )
+         and ( DsTroca.DataSet.fieldbyname('CANCELADA').Value <> 'S' )
+         then begin
+              Numero := DsTroca.DataSet.fieldbyname('Codigo').Value ;
+              DmVendas.SelFaturaTrocas.Close ;
+              DmApp.Cancela_Troca ( DmApp.Cnpj, Numero, DmApp.DataCaixa );
+              DmVendas.SelFaturaTrocas.Open  ;
+         end
+         ELSE BEGIN
+              MessageDlg ('Esta Troca Já Esta Cancelada, ou aida não Foi Fechada?', MtConfirmation, [MbOk, MbCancel],0);
+         END;
+    END;
+  END ;
 end;
 
 procedure TFrmSelFaturaVendas.ActReceberExecute(Sender: TObject);

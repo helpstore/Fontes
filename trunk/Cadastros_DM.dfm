@@ -2,7 +2,7 @@ object DMCadastros: TDMCadastros
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Left = 1
-  Height = 684
+  Height = 644
   Width = 1278
   object Pessoas_FJ: TIBDataSet
     Database = DmApp.Database
@@ -13126,6 +13126,7 @@ object DMCadastros: TDMCadastros
       '  INDICE = :INDICE'
       'where'
       '  INDICE = :OLD_INDICE')
+    Active = True
     Left = 504
     Top = 56
     object SerieLeiuteCNPJ: TIBStringField

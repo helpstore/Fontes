@@ -1488,6 +1488,9 @@ procedure TFrmEmpresas.btnStatusServClick(Sender: TObject);
 begin
  with dmApp do
  begin
+     // NF-e 3.10
+  ACBRNFE.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
+  ACBRNFE.Configuracoes.Geral.VersaoDF := ve310;   // Versão 3.10 
    dmApp.ACBrNFe.WebServices.StatusServico.Executar;
    MemoResp.Lines.Text := UTF8Encode(dmApp.ACBrNFe.WebServices.StatusServico.RetWS);
    LoadXML(MemoResp, WBResposta);
