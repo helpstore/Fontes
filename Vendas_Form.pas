@@ -703,6 +703,7 @@ type
     procedure Vendas_ParcNewRecord(DataSet: TDataSet);
     procedure Vendas_ParcVALORValidate(Sender: TField);
     procedure VendasTIPO_DOCTOValidate(Sender: TField);
+    procedure Vendas_ItensDESCONTOValidate(Sender: TField);
   private
     { Private declarations }
     DesctoRes : Variant;
@@ -835,16 +836,15 @@ begin
 
   //Valores dos Itens
   DataSource.DataSet.Edit ;
-  DataSource.DataSet.FieldByName('TOTAL' ).asFloat              := tProdutos    ;
-  DataSource.DataSet.FieldByName('TOTAL_FISCAL' ).asFloat       := tfProdutos   ;
   DataSource.DataSet.FieldByName('VOLUME').asFloat              := tVolumes     ;
-  DataSource.DataSet.FieldByName('PESO'  ).asFloat              := tPesos       ;
-
+  DataSource.DataSet.FieldByName('PESO'  ).asFloat              := tPesos       ;  
+  DataSource.DataSet.FieldByName('TOTAL' ).asFloat              := tProdutos;
+  DataSource.DataSet.FieldByName('TOTAL_FISCAL' ).asFloat       := tfProdutos;
   DataSource.DataSet.FieldByName('BASE_ICM').Value              := BASEICM + ((BASEICM * pctAcerto)/100);
   DataSource.DataSet.FieldByName('ICM').Value                   := ICM + ((ICM * pctAcerto)/100);
   DataSource.DataSet.FieldByName('BASE_ICM_SUBST').Value        := BASEICMSUBST + ((BASEICMSUBST * pctAcerto)/100);
   DataSource.DataSet.FieldByName('VALOR_ICM_SUBST').Value       := ICMSUBST + ((ICMSUBST * pctAcerto)/100) ;
-  DataSource.DataSet.FieldByName('DESCONTOS_CONCEDIDOS').Value  := tDesconto    ;
+  DataSource.DataSet.FieldByName('DESCONTOS_CONCEDIDOS').Value  := tDesconto;
 
   IF Dmapp.DIF_FIS_FISC = 'S'
   THEN BEGIN
@@ -4434,6 +4434,13 @@ end;
 procedure TFrmVendas.VendasTIPO_DOCTOValidate(Sender: TField);
 begin
   cmbContaCorrente.Enabled := dmApp.VerificaTipoDoctoBoleto(VendasTIPO_DOCTO.AsString);
+end;
+
+procedure TFrmVendas.Vendas_ItensDESCONTOValidate(Sender: TField);
+begin
+  //O sistema até 12-04-15 permitia desconto no total da nf, mas a nfe valida o desconto por item,
+  //por isso foi acrescentado este procedimento para o sistema fazer o cálculo automatico do desconto -- Sanniel
+  Vendas_ItensPRC_UNITARIO.Value := Vendas_ItensPRC_UNITARIO.Value - Vendas_ItensDESCONTO.Value;
 end;
 
 end.
