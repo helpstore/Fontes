@@ -11300,18 +11300,14 @@ begin
 
     ACBrNFe.NotasFiscais.Clear;
     ACBrNFe.NotasFiscais.LoadFromFile(FileXML);
-
+    ACBrNFe.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
+    
     // Pegando Versão da NFE  --- Sanniel
     if (ACBrNFe.NotasFiscais.Items[0].NFe.infNFe.Versao = 2) then
-    begin
-      ACBrNFe.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
       ACBrNFe.Configuracoes.Geral.VersaoDF := ve200   // Versão 3.10
-    end else
+    else
     if (ACBrNFe.NotasFiscais.Items[0].NFe.infNFe.Versao = 3.1) then
-    begin
-      ACBrNFe.Configuracoes.Geral.ModeloDF := moNFe; // moNFe ou moNFCe
       ACBrNFe.Configuracoes.Geral.VersaoDF := ve310;   // Versão 3.10
-    end;
 
     if (ACBrNFe.Consultar) then
     begin

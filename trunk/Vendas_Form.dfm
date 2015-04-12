@@ -77,7 +77,7 @@ object FrmVendas: TFrmVendas
       Top = 49
       Width = 928
       Height = 491
-      ActivePage = tabVenda
+      ActivePage = TabFaturamento
       Align = alClient
       HotTrack = True
       TabOrder = 1
@@ -2921,6 +2921,7 @@ object FrmVendas: TFrmVendas
           Left = 123
           Top = 107
           Width = 121
+          Enabled = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -5983,6 +5984,7 @@ object FrmVendas: TFrmVendas
       DisplayLabel = 'Desconto'
       FieldName = 'DESCONTO'
       Origin = '"FAT_VENDAS_ITENS"."DESCONTO"'
+      OnValidate = Vendas_ItensDESCONTOValidate
       DisplayFormat = '###,###,##0.00'
     end
     object Vendas_ItensPORC_DESC: TFloatField
