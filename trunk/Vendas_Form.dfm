@@ -1,6 +1,6 @@
 object FrmVendas: TFrmVendas
-  Left = 304
-  Top = 115
+  Left = 110
+  Top = 118
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Pedido'
