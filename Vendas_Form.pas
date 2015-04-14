@@ -2690,7 +2690,26 @@ begin
 end;
 
 procedure TFrmVendas.Calcular_DescAcresc;
+var Desc: Variant;
 begin
+  if Vendas_Itens.State in [ DsInsert, DsEdit ] then
+    Vendas_Itens.Post;
+
+  Vendas_Itens.DisableControls;
+  Vendas_Itens.First;
+
+  //Calculo desconto total-- Sanniel
+  Desc := 0;
+  while not (Vendas_Itens.Eof) do
+  begin
+    Desc := Desc + Vendas_ItensDESCONTO.Value;
+    Vendas_Itens.Next;
+  end;
+
+  VendasDESC_ACRES.Value := Desc;
+  Vendas_Itens.EnableControls;
+  //
+
   if not (Vendas.State in [ DsInsert, DsEdit ]) then
     Vendas.Edit;
 

@@ -984,6 +984,7 @@ type
     ContratosItensCOD_CLIENTE: TIntegerField;
     ContratoGERA_MENSALIDADE: TIBStringField;
     ContratoRESPOSTA: TIBStringField;
+    NFe_Faturamentos_ItensVDESC: TIBBCDField;
     procedure ProdutosClientesAfterInsert(DataSet: TDataSet);
     procedure ProdutosClientesBeforeOpen(DataSet: TDataSet);
     procedure ProdutosClientesNewRecord(DataSet: TDataSet);

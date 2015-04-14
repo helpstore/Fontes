@@ -11366,7 +11366,7 @@ begin
         Ide.indPag    := ipPrazo;
 
 
-      Ide.verProc   := '1.0.0.0';
+      Ide.verProc   := '3.10';
       Ide.cUF       := 50; //mato grosso do sul
       Ide.cMunFG    := StrToInt(DMApp.NFE_EMIT_COD_CIDADE);
 
@@ -11492,12 +11492,14 @@ begin
           Prod.uTrib    := dmCadastros2.NFe_Faturamentos_ItensUTRIB.value;
           Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
           Prod.NCM :=   dmCadastros2.NFe_Faturamentos_ItensCODIGO_NCM.AsString;
+          Prod.vDesc := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
+          
           if (trim(dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString) <> '') then
           begin
             Prod.cEAN := dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString;
             Prod.cEANTrib := dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString;
           end;
-            
+
           with Imposto  do
           begin
             with ICMS  do
