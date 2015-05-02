@@ -9,15 +9,15 @@ inherited frmCadOS: TfrmCadOS
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1254
-    Height = 664
-    ClientRectBottom = 660
-    ClientRectRight = 1250
+    Width = 1262
+    Height = 675
+    ClientRectBottom = 671
+    ClientRectRight = 1258
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 124
-        Width = 1246
-        Height = 509
+        Width = 1254
+        Height = 520
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroST_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_CODIGO'
@@ -428,11 +428,11 @@ inherited frmCadOS: TfrmCadOS
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1246
+        Width = 1254
         Height = 124
         Color = clWhite
         DesignSize = (
-          1246
+          1254
           124)
         object edtInicial: TcxDBDateEdit
           Left = 8
@@ -769,254 +769,28 @@ inherited frmCadOS: TfrmCadOS
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1246
-        Height = 633
+        Width = 1254
+        Height = 644
         inherited pnlSubCad: TPanel
-          Top = 336
-          Width = 1244
+          Top = 347
+          Width = 1252
           Height = 296
           inherited PgcDetalhe: TcxPageControl
-            Width = 1244
+            Width = 1252
             Height = 296
             ActivePage = tbsDetalhe2
             ClientRectBottom = 292
-            ClientRectRight = 1240
-            inherited tbsDetalhe1: TcxTabSheet
-              Caption = 'Itens'
-              inherited PGCSub1: TcxPageControl
-                Width = 1236
-                Height = 265
-                ClientRectBottom = 261
-                ClientRectRight = 1232
-                inherited tbsListaSub1: TcxTabSheet
-                  inherited GridDet1: TcxGrid
-                    Width = 1228
-                    Height = 234
-                    inherited TVDet1: TcxGridDBBandedTableView
-                      object TVDet1CNPJ: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'CNPJ'
-                        Visible = False
-                        Position.BandIndex = 0
-                        Position.ColIndex = 0
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1CODIGO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'CODIGO'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 1
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1QUANTIDADE: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'QUANTIDADE'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 4
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1UNITARIO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'UNITARIO'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 5
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1COD_PRODUTO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'COD_PRODUTO'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 2
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1CODIGO_TECNICO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'CODIGO_TECNICO'
-                        Visible = False
-                        Position.BandIndex = 0
-                        Position.ColIndex = 6
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1NOME_PRODUTO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'NOME_PRODUTO'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 3
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1NOMETEC: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'NOMETEC'
-                        Visible = False
-                        Position.BandIndex = 0
-                        Position.ColIndex = 7
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1TIPO_SERVICO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'TIPO_SERVICO'
-                        Position.BandIndex = 0
-                        Position.ColIndex = 8
-                        Position.RowIndex = 0
-                      end
-                      object TVDet1SELECIONADO: TcxGridDBBandedColumn
-                        DataBinding.FieldName = 'SELECIONADO'
-                        Visible = False
-                        Width = 64
-                        Position.BandIndex = 0
-                        Position.ColIndex = 9
-                        Position.RowIndex = 0
-                      end
-                    end
-                  end
-                end
-                inherited tbsEditaSub1: TcxTabSheet
-                  inherited edtCodDet1: TcxDBTextEdit
-                    DataBinding.DataField = 'CODIGO'
-                  end
-                  object cxDBLookupComboBox1: TcxDBLookupComboBox
-                    Left = 73
-                    Top = 24
-                    DataBinding.DataField = 'PRODUTO'
-                    DataBinding.DataSource = dsRegistroDet1
-                    ParentFont = False
-                    Properties.KeyFieldNames = 'CODIGO'
-                    Properties.ListColumns = <
-                      item
-                        FieldName = 'NOME'
-                      end
-                      item
-                        FieldName = 'CODIGO'
-                      end>
-                    Properties.ListSource = dsProdutosItens
-                    Style.Font.Charset = DEFAULT_CHARSET
-                    Style.Font.Color = clWindowText
-                    Style.Font.Height = -11
-                    Style.Font.Name = 'Tahoma'
-                    Style.Font.Style = []
-                    Style.HotTrack = False
-                    Style.IsFontAssigned = True
-                    TabOrder = 2
-                    Width = 295
-                  end
-                  object cxLabel11: TcxLabel
-                    Left = 72
-                    Top = 8
-                    Caption = 'Produto'
-                    Style.HotTrack = False
-                    Style.LookAndFeel.Kind = lfUltraFlat
-                    Style.LookAndFeel.NativeStyle = False
-                    Style.LookAndFeel.SkinName = 'GlassOceans'
-                    Style.Shadow = False
-                    Style.TransparentBorder = True
-                    StyleDisabled.LookAndFeel.Kind = lfUltraFlat
-                    StyleDisabled.LookAndFeel.NativeStyle = False
-                    StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleFocused.LookAndFeel.Kind = lfUltraFlat
-                    StyleFocused.LookAndFeel.NativeStyle = False
-                    StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleHot.LookAndFeel.Kind = lfUltraFlat
-                    StyleHot.LookAndFeel.NativeStyle = False
-                    StyleHot.LookAndFeel.SkinName = 'GlassOceans'
-                    Transparent = True
-                  end
-                  object btnProduto: TcxButton
-                    Left = 369
-                    Top = 23
-                    Width = 23
-                    Height = 22
-                    Enabled = False
-                    TabOrder = 4
-                    TabStop = False
-                    Glyph.Data = {
-                      06030000424D06030000000000003600000028000000100000000F0000000100
-                      180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
-                      0000000000000000000000000000000000000000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
-                      FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
-                      FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
-                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
-                      FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
-                      0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
-                      000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
-                      FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
-                      0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
-                      BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
-                      0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
-                      FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
-                      BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
-                      00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
-                      00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
-                      BFBFBFBFBFBFBFBFBFBF}
-                  end
-                  object cxDBCalcEdit1: TcxDBCalcEdit
-                    Left = 394
-                    Top = 24
-                    DataBinding.DataField = 'QUANTIDADE'
-                    DataBinding.DataSource = dsRegistroDet1
-                    TabOrder = 5
-                    Width = 105
-                  end
-                  object cxLabel30: TcxLabel
-                    Left = 394
-                    Top = 8
-                    Caption = 'Qtde'
-                    Style.HotTrack = False
-                    Style.LookAndFeel.Kind = lfUltraFlat
-                    Style.LookAndFeel.NativeStyle = False
-                    Style.LookAndFeel.SkinName = 'GlassOceans'
-                    Style.Shadow = False
-                    Style.TransparentBorder = True
-                    StyleDisabled.LookAndFeel.Kind = lfUltraFlat
-                    StyleDisabled.LookAndFeel.NativeStyle = False
-                    StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleFocused.LookAndFeel.Kind = lfUltraFlat
-                    StyleFocused.LookAndFeel.NativeStyle = False
-                    StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleHot.LookAndFeel.Kind = lfUltraFlat
-                    StyleHot.LookAndFeel.NativeStyle = False
-                    StyleHot.LookAndFeel.SkinName = 'GlassOceans'
-                    Transparent = True
-                  end
-                  object cxDBCalcEdit2: TcxDBCalcEdit
-                    Left = 502
-                    Top = 24
-                    DataBinding.DataField = 'UNITARIO'
-                    DataBinding.DataSource = dsRegistroDet1
-                    TabOrder = 7
-                    Width = 105
-                  end
-                  object cxLabel31: TcxLabel
-                    Left = 502
-                    Top = 8
-                    Caption = 'Vlr. Unit'#225'rio'
-                    Style.HotTrack = False
-                    Style.LookAndFeel.Kind = lfUltraFlat
-                    Style.LookAndFeel.NativeStyle = False
-                    Style.LookAndFeel.SkinName = 'GlassOceans'
-                    Style.Shadow = False
-                    Style.TransparentBorder = True
-                    StyleDisabled.LookAndFeel.Kind = lfUltraFlat
-                    StyleDisabled.LookAndFeel.NativeStyle = False
-                    StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleFocused.LookAndFeel.Kind = lfUltraFlat
-                    StyleFocused.LookAndFeel.NativeStyle = False
-                    StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
-                    StyleHot.LookAndFeel.Kind = lfUltraFlat
-                    StyleHot.LookAndFeel.NativeStyle = False
-                    StyleHot.LookAndFeel.SkinName = 'GlassOceans'
-                    Transparent = True
-                  end
-                end
-              end
-            end
-            inherited tbsDetalhe2: TcxTabSheet
+            ClientRectRight = 1248
+            inherited tbsDetalhe2: TcxTabSheet [0]
               Caption = 'Movimentos'
               inherited PGCSub2: TcxPageControl
-                Width = 1236
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1232
+                ClientRectRight = 1240
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
-                    Width = 1228
+                    Width = 1236
                     Height = 234
                     inherited TVDet2: TcxGridDBBandedTableView
                       object TVDet2CNPJ: TcxGridDBBandedColumn
@@ -1386,6 +1160,7 @@ inherited frmCadOS: TfrmCadOS
                     TabStop = True
                     Caption = 'Tarefas'
                     TabOrder = 8
+                    Visible = False
                     Height = 110
                     Width = 377
                     object cxDBDateEdit2: TcxDBDateEdit
@@ -1921,22 +1696,248 @@ inherited frmCadOS: TfrmCadOS
                 end
               end
             end
+            inherited tbsDetalhe1: TcxTabSheet [1]
+              Caption = 'Itens'
+              inherited PGCSub1: TcxPageControl
+                Width = 1244
+                Height = 265
+                ClientRectBottom = 261
+                ClientRectRight = 1240
+                inherited tbsListaSub1: TcxTabSheet
+                  inherited GridDet1: TcxGrid
+                    Width = 1228
+                    Height = 234
+                    inherited TVDet1: TcxGridDBBandedTableView
+                      object TVDet1CNPJ: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'CNPJ'
+                        Visible = False
+                        Position.BandIndex = 0
+                        Position.ColIndex = 0
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1CODIGO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'CODIGO'
+                        Position.BandIndex = 0
+                        Position.ColIndex = 1
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1QUANTIDADE: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'QUANTIDADE'
+                        Position.BandIndex = 0
+                        Position.ColIndex = 4
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1UNITARIO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'UNITARIO'
+                        Position.BandIndex = 0
+                        Position.ColIndex = 5
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1COD_PRODUTO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'COD_PRODUTO'
+                        Position.BandIndex = 0
+                        Position.ColIndex = 2
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1CODIGO_TECNICO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'CODIGO_TECNICO'
+                        Visible = False
+                        Position.BandIndex = 0
+                        Position.ColIndex = 6
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1NOME_PRODUTO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'NOME_PRODUTO'
+                        Position.BandIndex = 0
+                        Position.ColIndex = 3
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1NOMETEC: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'NOMETEC'
+                        Visible = False
+                        Position.BandIndex = 0
+                        Position.ColIndex = 7
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1TIPO_SERVICO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'TIPO_SERVICO'
+                        Position.BandIndex = 0
+                        Position.ColIndex = 8
+                        Position.RowIndex = 0
+                      end
+                      object TVDet1SELECIONADO: TcxGridDBBandedColumn
+                        DataBinding.FieldName = 'SELECIONADO'
+                        Visible = False
+                        Width = 64
+                        Position.BandIndex = 0
+                        Position.ColIndex = 9
+                        Position.RowIndex = 0
+                      end
+                    end
+                  end
+                end
+                inherited tbsEditaSub1: TcxTabSheet
+                  inherited edtCodDet1: TcxDBTextEdit
+                    DataBinding.DataField = 'CODIGO'
+                  end
+                  object cxDBLookupComboBox1: TcxDBLookupComboBox
+                    Left = 73
+                    Top = 24
+                    DataBinding.DataField = 'PRODUTO'
+                    DataBinding.DataSource = dsRegistroDet1
+                    ParentFont = False
+                    Properties.KeyFieldNames = 'CODIGO'
+                    Properties.ListColumns = <
+                      item
+                        FieldName = 'NOME'
+                      end
+                      item
+                        FieldName = 'CODIGO'
+                      end>
+                    Properties.ListSource = dsProdutosItens
+                    Style.Font.Charset = DEFAULT_CHARSET
+                    Style.Font.Color = clWindowText
+                    Style.Font.Height = -11
+                    Style.Font.Name = 'Tahoma'
+                    Style.Font.Style = []
+                    Style.HotTrack = False
+                    Style.IsFontAssigned = True
+                    TabOrder = 2
+                    Width = 295
+                  end
+                  object cxLabel11: TcxLabel
+                    Left = 72
+                    Top = 8
+                    Caption = 'Produto'
+                    Style.HotTrack = False
+                    Style.LookAndFeel.Kind = lfUltraFlat
+                    Style.LookAndFeel.NativeStyle = False
+                    Style.LookAndFeel.SkinName = 'GlassOceans'
+                    Style.Shadow = False
+                    Style.TransparentBorder = True
+                    StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                    StyleDisabled.LookAndFeel.NativeStyle = False
+                    StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                    StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                    StyleFocused.LookAndFeel.NativeStyle = False
+                    StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                    StyleHot.LookAndFeel.Kind = lfUltraFlat
+                    StyleHot.LookAndFeel.NativeStyle = False
+                    StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                    Transparent = True
+                  end
+                  object btnProduto: TcxButton
+                    Left = 369
+                    Top = 23
+                    Width = 23
+                    Height = 22
+                    Enabled = False
+                    TabOrder = 4
+                    TabStop = False
+                    Glyph.Data = {
+                      06030000424D06030000000000003600000028000000100000000F0000000100
+                      180000000000D0020000C30E0000C30E00000000000000000000BFBFBFBFBFBF
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      00000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00FFFFFFFFFF00
+                      FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFFFFFFFF00FFFF00000000FF
+                      FF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                      FFFFFFFFFF000000000000000000FFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF
+                      000000FFFFFF00FFFF00000000FFFFFFFFFF00FFFF00000000FFFF00000000FF
+                      FF000000000000000000BFBFBFBFBFBF00000000FFFFFFFFFF00000000000000
+                      0000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000BFBFBFBFBFBF
+                      000000FFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FFFFFFFFFF00FF
+                      FF000000FFFFFF000000BFBFBFBFBFBF00000000000000000000000000000000
+                      0000000000000000000000000000000000000000FFFFFF000000BFBFBFBFBFBF
+                      BFBFBF00000000FFFFFFFFFF00FFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFF
+                      FFFFFFFFFFFFFF000000BFBFBFBFBFBFBFBFBFBFBFBF00000000000000000000
+                      0000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000BFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF000000FFFFFFFFFFFFFFFFFFFFFF
+                      FF000000000000000000BFBFBFBFBFBFBFBFBF00007FBFBFBFBFBFBFBFBFBFBF
+                      BFBF000000FFFFFFFFFFFFFFFFFFFFFFFF000000000000BFBFBFBFBFBFBFBFBF
+                      00007F00007F00007FBFBFBFBFBFBFBFBFBF0000000000000000000000000000
+                      00000000BFBFBFBFBFBFBFBFBF00007F00007F00007F00007F00007FBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+                      BFBFBFBFBFBFBFBFBFBF}
+                  end
+                  object cxDBCalcEdit1: TcxDBCalcEdit
+                    Left = 394
+                    Top = 24
+                    DataBinding.DataField = 'QUANTIDADE'
+                    DataBinding.DataSource = dsRegistroDet1
+                    TabOrder = 5
+                    Width = 105
+                  end
+                  object cxLabel30: TcxLabel
+                    Left = 394
+                    Top = 8
+                    Caption = 'Qtde'
+                    Style.HotTrack = False
+                    Style.LookAndFeel.Kind = lfUltraFlat
+                    Style.LookAndFeel.NativeStyle = False
+                    Style.LookAndFeel.SkinName = 'GlassOceans'
+                    Style.Shadow = False
+                    Style.TransparentBorder = True
+                    StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                    StyleDisabled.LookAndFeel.NativeStyle = False
+                    StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                    StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                    StyleFocused.LookAndFeel.NativeStyle = False
+                    StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                    StyleHot.LookAndFeel.Kind = lfUltraFlat
+                    StyleHot.LookAndFeel.NativeStyle = False
+                    StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                    Transparent = True
+                  end
+                  object cxDBCalcEdit2: TcxDBCalcEdit
+                    Left = 502
+                    Top = 24
+                    DataBinding.DataField = 'UNITARIO'
+                    DataBinding.DataSource = dsRegistroDet1
+                    TabOrder = 7
+                    Width = 105
+                  end
+                  object cxLabel31: TcxLabel
+                    Left = 502
+                    Top = 8
+                    Caption = 'Vlr. Unit'#225'rio'
+                    Style.HotTrack = False
+                    Style.LookAndFeel.Kind = lfUltraFlat
+                    Style.LookAndFeel.NativeStyle = False
+                    Style.LookAndFeel.SkinName = 'GlassOceans'
+                    Style.Shadow = False
+                    Style.TransparentBorder = True
+                    StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+                    StyleDisabled.LookAndFeel.NativeStyle = False
+                    StyleDisabled.LookAndFeel.SkinName = 'GlassOceans'
+                    StyleFocused.LookAndFeel.Kind = lfUltraFlat
+                    StyleFocused.LookAndFeel.NativeStyle = False
+                    StyleFocused.LookAndFeel.SkinName = 'GlassOceans'
+                    StyleHot.LookAndFeel.Kind = lfUltraFlat
+                    StyleHot.LookAndFeel.NativeStyle = False
+                    StyleHot.LookAndFeel.SkinName = 'GlassOceans'
+                    Transparent = True
+                  end
+                end
+              end
+            end
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 1236
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1232
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 1236
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1232
+                ClientRectRight = 1240
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Height = 234
@@ -1947,37 +1948,37 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 1236
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1232
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 1236
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1232
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 1236
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1232
+                ClientRectRight = 1240
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 1236
+                Width = 1244
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1232
+                ClientRectRight = 1240
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 1254
@@ -1989,13 +1990,13 @@ inherited frmCadOS: TfrmCadOS
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1244
-          Height = 335
+          Width = 1252
+          Height = 346
           inherited PgcMaster: TcxPageControl
-            Width = 1244
-            Height = 335
-            ClientRectBottom = 331
-            ClientRectRight = 1240
+            Width = 1252
+            Height = 346
+            ClientRectBottom = 342
+            ClientRectRight = 1248
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit
@@ -9524,7 +9525,7 @@ inherited frmCadOS: TfrmCadOS
     DataPipeline = ppHistEquip
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
-    PrinterSetup.PaperName = 'A4 210x297 mm'
+    PrinterSetup.PaperName = 'A4'
     PrinterSetup.PrinterName = 'Default'
     PrinterSetup.SaveDeviceSettings = False
     PrinterSetup.mmMarginBottom = 6350
@@ -9559,7 +9560,7 @@ inherited frmCadOS: TfrmCadOS
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<Texto a localizar>'
+    TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
     Left = 808
     Top = 264

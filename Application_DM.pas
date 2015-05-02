@@ -11353,6 +11353,12 @@ begin
       Ide.tpAmb     := StrToTpAmb(Ok,IntToStr(StrToInt(DMApp.NFE_WS_AMBIENTE)+1));
       Ide.tpEmis    :=  StrToTpEmis(Ok,IntToStr(StrToInt(DMApp.NFE_GER_FORMA_EMISSAO)+1));
 
+      //Sanniel -- Campo tem que ser preenchido caso operação seja pra fora do estado.
+      if DMApp.NFE_EMIT_UF <> dmCadastros2.NFe_Faturamentos2DEST_UF.value then
+        Ide.idDest    :=  doInterestadual
+      else
+        Ide.idDest    := doInterna;
+
       if (dmCadastros2.NFe_Faturamentos2ES.value = 'S') then
          Ide.tpNF      := tnSaida
       else
@@ -11492,7 +11498,7 @@ begin
           Prod.uTrib    := dmCadastros2.NFe_Faturamentos_ItensUTRIB.value;
           Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
           Prod.NCM :=   dmCadastros2.NFe_Faturamentos_ItensCODIGO_NCM.AsString;
-          Prod.vDesc := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
+ //         Prod.vDesc := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
           
           if (trim(dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString) <> '') then
           begin
