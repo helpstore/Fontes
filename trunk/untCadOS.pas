@@ -881,7 +881,7 @@ implementation
 
 uses UntCadStatusServico, UntCadTecnicos, UntCadDefeitos,
   UntCadServicoExecutado, UntCadMotivosDevolucao,
-  UntCadProblemaIdentificado, Application_DM, 
+  UntCadProblemaIdentificado, Application_DM,
   SerieCustomizaveis_DM, SeriesCustomizaveis, Funcoes, untCadClientes,
   UntCadTipoMovimento, Servicos_DM;
 
@@ -1047,6 +1047,14 @@ begin
   //caso o status selecionado, seja um status de fechameto, então a OS receberá
   //a data e hora de fechamento da mudança do status, ou o status for do tipo atribuição
   // a os receberá tambem estes dados nos respectivos campos
+
+  // Sanniel -- Se não existir movimento, fechamento não é realizado.
+  if dtEditDet2.RecordCount = 0 then
+  begin
+    Application.messagebox('Impossível realizar fechamento.' + #013 + 'Não existe Movimento de trabalho do técnico registrado.','Erro!!!', MB_OK + MB_ICONERROR);
+    Exit;
+  end;
+
   QryStatus.Locate('CODIGO',dtEditCOD_STATUS.Value,[loCaseInsensitive]);
   if ((QryStatusFECHADO.value = 'S') and (dtEditDATA_FECHAMENTO.IsNull)) then
   begin
@@ -1713,7 +1721,7 @@ var
 begin
   inherited;
   //Lançando a atividade de abertura dos trabalhos
-  dtEditDet2.FetchAll;
+{  dtEditDet2.FetchAll;
   if (dtEditDet2.RecordCount = 0) then
   begin
     if application.messagebox('Deseja registrar a atividade de criação da OS?','Aviso', mb_yesno + mb_iconquestion) = id_yes then
@@ -1751,7 +1759,7 @@ begin
           dtEditDet2OBSERVACAO.Value :=  dtEditOBS_FECHAMENTO.Value;
           dtEditDet2.Post;
         end;
-      end;
+      end;  }
 
       {if ((dmApp.OFC_GERA_FAT_AUTOMATICO = 'S') and (dtEditVENDA.asInteger <= 0)) then
         ActGeraVenda.Execute;  }
