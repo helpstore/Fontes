@@ -815,6 +815,9 @@ type
     dtListKM_FINAL: TFloatField;
     TVRegistroKM_INICIAL: TcxGridDBBandedColumn;
     TVRegistroKM_FINAL: TcxGridDBBandedColumn;
+    totalhrtrabseg: TcxTimeEdit;
+    cxLabel43: TcxLabel;
+    dtEditDet2HRTRABSEG: TIntegerField;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -861,6 +864,7 @@ type
     procedure ActGeraVendaExecute(Sender: TObject);
     procedure ActImprimeHistoricoExecute(Sender: TObject);
     procedure dtEditDet2BeforePost(DataSet: TDataSet);
+    procedure dtEditDet2AfterOpen(DataSet: TDataSet);
   private
     { Private declarations }
     SqlOriginalHist : string;
@@ -868,6 +872,7 @@ type
     procedure EnviaEmailTecnico(Origem,NOrigem,Destino,NDestino,Assunto,Mensagem : string);
     procedure EnviaEmailAb_Fec(cliente,NCliente,Contato,NContato,Assunto,Mensagem,TIPO : string);
     function GerarTimer(Data: TDateTime):  String;
+    function SegundosToTime( Segundos : Cardinal ) : String;
   public
     { Public declarations }
      fTempo: Ttime;
@@ -886,6 +891,20 @@ uses UntCadStatusServico, UntCadTecnicos, UntCadDefeitos,
   UntCadTipoMovimento, Servicos_DM;
 
 {$R *.dfm}
+
+function TfrmCadOS.SegundosToTime( Segundos : Cardinal ) : String;
+var
+  Seg, Min, Hora: Cardinal;
+begin
+  Hora := Segundos div 3600;
+  Seg := Segundos mod 3600;
+  Min := Seg div 60;
+  Seg := Seg mod 60;
+
+  Result := FormatFloat(',00', Hora) + ':' +   
+  FormatFloat('00', Min) + ':' +
+  FormatFloat('00', Seg);
+end;
 
 procedure TfrmCadOS.btnStatusClick(Sender: TObject);
 begin
@@ -1598,6 +1617,8 @@ begin
                                                              HORA_INI  , HORA_FIM,
                                                              INTER_INI , INTER_FIM,
                                                              TRAB_INI  , TRAB_FIM);
+
+  totalhrtrabseg.Time := dtEditDet2HR_FIM.Value - dtEditDet2HR_INICIO.Value;
 end;
 
 procedure TfrmCadOS.dtEditDet2KM_FINALChange(Sender: TField);
@@ -1763,8 +1784,8 @@ begin
 
       {if ((dmApp.OFC_GERA_FAT_AUTOMATICO = 'S') and (dtEditVENDA.asInteger <= 0)) then
         ActGeraVenda.Execute;  }
-    end;
-  end;
+   { end;
+  end; }
 end;
 
 procedure TfrmCadOS.ActGeraVendaExecute(Sender: TObject);
@@ -1928,14 +1949,18 @@ begin
                                                   INTER_INI , INTER_FIM,
                                                   TRAB_INI  , TRAB_FIM);
 
-
-
   if dtEditDet2KM_FINAL.value < dtEditDet2KM_INICIAL.value then
   begin
     application.messagebox('Km. Final não poderá ser inferior a km. Inicial','Aviso',mb_iconerror + mb_ok);
     abort;//aqui boy
     exit;
   end;
+end;
+
+procedure TfrmCadOS.dtEditDet2AfterOpen(DataSet: TDataSet);
+begin
+  inherited;
+  totalhrtrabseg.Time := StrToTime(SegundosToTime(dtEditDet2HRTRABSEG.value));
 end;
 
 end.

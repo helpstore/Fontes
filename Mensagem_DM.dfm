@@ -291,8 +291,8 @@ object DMMensagem: TDMMensagem
       '               RESERVADO = '#39'S'#39' AND'
       '               DESTINATARIO = :LOGIN'
       'ORDER BY CODIGO, ANO')
-    Left = 112
-    Top = 80
+    Left = 184
+    Top = 72
     ParamData = <
       item
         DataType = ftString
