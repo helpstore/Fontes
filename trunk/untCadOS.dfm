@@ -1153,6 +1153,21 @@ inherited frmCadOS: TfrmCadOS
                       ParentFont = False
                       Transparent = True
                     end
+                    object totalhrtrabseg: TcxTimeEdit
+                      Left = 176
+                      Top = 32
+                      EditValue = 0
+                      Enabled = False
+                      TabOrder = 10
+                      Width = 70
+                    end
+                    object cxLabel43: TcxLabel
+                      Left = 176
+                      Top = 16
+                      Caption = 'Total'
+                      ParentFont = False
+                      Transparent = True
+                    end
                   end
                   object cxGroupBox6: TcxGroupBox
                     Left = 536
@@ -6938,6 +6953,7 @@ inherited frmCadOS: TfrmCadOS
   end
   inherited dtEditDet2: TIBDataSet
     AfterInsert = dtEditDet2AfterInsert
+    AfterOpen = dtEditDet2AfterOpen
     AfterPost = dtEditDet2AfterPost
     BeforePost = dtEditDet2BeforePost
     DeleteSQL.Strings = (
@@ -7182,6 +7198,10 @@ inherited frmCadOS: TfrmCadOS
       ProviderFlags = [pfInUpdate]
       BlobType = ftMemo
       Size = 8
+    end
+    object dtEditDet2HRTRABSEG: TIntegerField
+      FieldName = 'HRTRABSEG'
+      Origin = '"OFC_ORDEM_SERVICO_INTERVALO"."HRTRABSEG"'
     end
   end
   inherited dtListDet2: TIBQuery
