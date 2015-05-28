@@ -796,11 +796,11 @@ begin
   dsItens.DataSet.First;
   While Not dsItens.DataSet.Eof Do
   Begin
-    tProdutos := tProdutos  + dsItens.DataSet.FieldByName('TOTAL'       ).asFloat;
+    tProdutos := tProdutos  + (dsItens.DataSet.FieldByName('TOTAL'       ).asFloat + (dsItens.DataSet.FieldByName('DESCONTO').asFloat * Vendas_ItensQUANTIDADE.value));  //Sanniel -- somente total_nota deve conter o valor com desconto
     tFProdutos:= tFProdutos + dsItens.DataSet.FieldByName('TOTAL_FISCAL').asFloat;
     tPesos    := tPesos     + dsItens.DataSet.FieldByName('PESO_TOTAL'  ).asFloat;
     tVolumes  := tVolumes   + dsItens.DataSet.FieldByName('VOLUME_TOTAL').asFloat;
-    tDesconto := tDesconto  + dsItens.DataSet.FieldByName('DESCONTO').asFloat;
+    tDesconto := tDesconto  + (dsItens.DataSet.FieldByName('DESCONTO').asFloat * Vendas_ItensQUANTIDADE.value);
 
     BaseIcm       := BaseIcm      + Vendas_ItensBASECALCULOICM.Value ;
     BaseIcmSubst  := BaseIcmSubst + Vendas_ItensBASECALCULOSUBSTITUICAO.Value ;
@@ -821,8 +821,8 @@ begin
   End;
 
   //Debitando o desconto total do pedido dos totais da NF
-  Desconto := VendasDESC_ACRES.value;
-
+  Desconto := tDesconto;//VendasDESC_ACRES.value;
+  
   if VendasTOTAL.value >  0 then
     pctAcerto := (Desconto * 100)/VendasTOTAL.value;
 
@@ -840,11 +840,13 @@ begin
   DataSource.DataSet.FieldByName('PESO'  ).asFloat              := tPesos       ;  
   DataSource.DataSet.FieldByName('TOTAL' ).asFloat              := tProdutos;
   DataSource.DataSet.FieldByName('TOTAL_FISCAL' ).asFloat       := tfProdutos;
-  DataSource.DataSet.FieldByName('BASE_ICM').Value              := BASEICM + ((BASEICM * pctAcerto)/100);
-  DataSource.DataSet.FieldByName('ICM').Value                   := ICM + ((ICM * pctAcerto)/100);
-  DataSource.DataSet.FieldByName('BASE_ICM_SUBST').Value        := BASEICMSUBST + ((BASEICMSUBST * pctAcerto)/100);
-  DataSource.DataSet.FieldByName('VALOR_ICM_SUBST').Value       := ICMSUBST + ((ICMSUBST * pctAcerto)/100) ;
+  DataSource.DataSet.FieldByName('BASE_ICM').Value              := BASEICM {+ ((BASEICM * pctAcerto)/100)};
+  DataSource.DataSet.FieldByName('ICM').Value                   := ICM {+ ((ICM * pctAcerto)/100)};
+  DataSource.DataSet.FieldByName('BASE_ICM_SUBST').Value        := BASEICMSUBST {+ ((BASEICMSUBST * pctAcerto)/100)};
+  DataSource.DataSet.FieldByName('VALOR_ICM_SUBST').Value       := ICMSUBST {+ ((ICMSUBST * pctAcerto)/100) };
   DataSource.DataSet.FieldByName('DESCONTOS_CONCEDIDOS').Value  := tDesconto;
+  
+  VendasDESC_ACRES.value := tDesconto;
 
   IF Dmapp.DIF_FIS_FISC = 'S'
   THEN BEGIN
@@ -860,7 +862,7 @@ begin
   TotalNota := TotalNota + DataSource.DataSet.FieldByName('DESPESAS').asFloat ;
   TotalNota := TotalNota + DataSource.DataSet.FieldByName('IPI'     ).asFloat ;
 
-  DataSource.DataSet.FieldByName('TOTAL_NOTA').Value     := TotalNota + ((TotalNota * pctAcerto)/100) ;
+  DataSource.DataSet.FieldByName('TOTAL_NOTA').Value     := TotalNota - tDesconto{ + ((TotalNota * pctAcerto)/100) };
 
   DataSource.DataSet.Post ;
 
@@ -2019,10 +2021,9 @@ begin
      ELSE BEGIN
           HabilitaFaturamento ( VendasFORMA_PGTO.Value );
           ActLocalizarCliente.Enabled := TRUE ;
-          EdPorcentagem.Clear ;
+          EdPorcentagem.Clear ;  
           Calcular_DescAcresc;
-     END;
-
+     END; 
 end;
 
 procedure TFrmVendas.EdNaturezaExit(Sender: TObject);
@@ -2699,15 +2700,24 @@ begin
   Vendas_Itens.First;
 
   //Calculo desconto total-- Sanniel
-  Desc := 0;
+{  Desc := 0;
   while not (Vendas_Itens.Eof) do
   begin
-    Desc := Desc + Vendas_ItensDESCONTO.Value;
+    Desc := Desc + (Vendas_ItensDESCONTO.Value * Vendas_ItensQUANTIDADE.Value);
     Vendas_Itens.Next;
   end;
 
+  if not (Vendas.State in [ DsInsert, DsEdit ]) then
+  begin
+    Vendas.Close;
+    Vendas.Open;
+    Vendas.Edit;
+  end;
+  
   VendasDESC_ACRES.Value := Desc;
   Vendas_Itens.EnableControls;
+
+  exit; }
   //
 
   if not (Vendas.State in [ DsInsert, DsEdit ]) then
@@ -2906,7 +2916,7 @@ begin
      item := 0;
      while not Vendas_Itens.eof do
      begin
-       item := item + Vendas_ItensTotal.asFloat;
+       item := item + Vendas_ItensTotal.asFloat + (Vendas_ItensDESCONTO.value * Vendas_ItensQUANTIDADE.value);//Sanniel -- somente total_nota deve conter o valor com desconto
        Vendas_Itens.next;
      end;
 //     Vendas_Itens.EnableControls;
@@ -4109,7 +4119,7 @@ begin
          EDENTRADA.Enabled    := TRUE ;
      end;
 
-
+     Exit;
      //VALIDA CLIENTE
      dmVendas2.Valida_Cliente.Close ;
      dmVendas2.Valida_Cliente.ParamByName ('CNPJ').AsString  := DmApp.Cnpj   ;

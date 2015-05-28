@@ -818,6 +818,12 @@ type
     totalhrtrabseg: TcxTimeEdit;
     cxLabel43: TcxLabel;
     dtEditDet2HRTRABSEG: TIntegerField;
+    cxDBTextEdit7: TcxDBTextEdit;
+    cxLabel44: TcxLabel;
+    mtbFiltroCODIGO_OS: TIntegerField;
+    cxLabel45: TcxLabel;
+    cxDBTextEdit8: TcxDBTextEdit;
+    mtbFiltroSOLICITANTE: TStringField;
     procedure btnStatusClick(Sender: TObject);
     procedure btnTecnicoClick(Sender: TObject);
     procedure btnDefeitoReclamadoClick(Sender: TObject);
@@ -865,6 +871,7 @@ type
     procedure ActImprimeHistoricoExecute(Sender: TObject);
     procedure dtEditDet2BeforePost(DataSet: TDataSet);
     procedure dtEditDet2AfterOpen(DataSet: TDataSet);
+    procedure ActSaveExecute(Sender: TObject);
   private
     { Private declarations }
     SqlOriginalHist : string;
@@ -1067,26 +1074,19 @@ begin
   //a data e hora de fechamento da mudança do status, ou o status for do tipo atribuição
   // a os receberá tambem estes dados nos respectivos campos
 
-  // Sanniel -- Se não existir movimento, fechamento não é realizado.
-  if dtEditDet2.RecordCount = 0 then
-  begin
-    Application.messagebox('Impossível realizar fechamento.' + #013 + 'Não existe Movimento de trabalho do técnico registrado.','Erro!!!', MB_OK + MB_ICONERROR);
-    Exit;
-  end;
-
   QryStatus.Locate('CODIGO',dtEditCOD_STATUS.Value,[loCaseInsensitive]);
   if ((QryStatusFECHADO.value = 'S') and (dtEditDATA_FECHAMENTO.IsNull)) then
   begin
     DataHora := dmApp.DataServidor;
     dtEditDATA_FECHAMENTO.Value := DateOf(DataHora);
     dtEditHR_FECHAMENTO.Value := TimeOf(DataHora);
-  end
-  else if ((QryStatusPADRAO_ENVIO.value = 'S') and (dtEditDT_ATRIBUICAO.IsNull)) then
-  begin
-    DataHora := dmApp.DataServidor;
-    dtEditDT_ATRIBUICAO.Value := DateOf(DataHora);
-    dtEditHR_ATRIBUICAO.Value := TimeOf(DataHora);
-  end;
+  end else
+    if ((QryStatusPADRAO_ENVIO.value = 'S') and (dtEditDT_ATRIBUICAO.IsNull)) then
+    begin
+      DataHora := dmApp.DataServidor;
+      dtEditDT_ATRIBUICAO.Value := DateOf(DataHora);
+      dtEditHR_ATRIBUICAO.Value := TimeOf(DataHora);
+    end;
 end;
 
 procedure TfrmCadOS.dtEditDet1QUANTIDADEChange(Sender: TField);
@@ -1180,7 +1180,6 @@ begin
      rptOS.print;
    end;
    FrmSeriesCustomizaveis := Nil;
-   exit;
 end;
 
 procedure TfrmCadOS.ActFilterExecute(Sender: TObject);
@@ -1204,8 +1203,17 @@ Begin
 
   filtro := '';
     dtList.Close;
+
     if mtbFiltroDATA_INICIAL.Value > 0 then
       filtro := ' and ofc.data >= '''+FormatDateTime('mm/dd/yyyy',mtbFiltroDATA_INICIAL.Value)+'''';
+
+    // Sanniel -- Adicionado conforme solicitação da Sistemaq: Código OS e Solicitante
+    if mtbFiltroCODIGO_OS.Value > 0 then
+      filtro := filtro + ' and ofc.CODIGO = ' + mtbFiltroCODIGO_OS.AsString;
+
+    if mtbFiltroSOLICITANTE.AsString <> '' then
+      filtro := filtro + ' and ofc.CLIENTE = ' + QuoTedStr(mtbFiltroSOLICITANTE.AsString);
+    // ------------
 
     if mtbFiltroDATA_FINAL.Value > 0 then
       filtro := filtro + ' and ofc.data <= '''+FormatDateTime('mm/dd/yyyy',mtbFiltroDATA_FINAL.value)+'''';
@@ -1259,6 +1267,15 @@ var
   TRAB_INI  , TRAB_FIM : STRING;
 
 begin
+  // Sanniel -- Se não existir movimento, fechamento não é realizado.
+  if (dtEdit.State = dsedit) and ((dtEditDet2.RecordCount = 0) and (QryStatusNOME.value = 'FECHADO'))then
+  begin
+      Application.messagebox('Impossível fechar.' + #013 + 'Não existe Movimento do técnico.' + #013 + 'Altere o status e insira um movimento antes de fechar a OS.','Erro!!!', MB_OK + MB_ICONERROR);
+      dtEdit.Cancel;
+      aTfrmCadStatusServico.SetFocus;
+      Abort;
+      Exit;
+  end;
 
   //verifica se km_inicial é menor que km_final
   if dtEditKM_RODADO.value < 0 then
@@ -1342,9 +1359,9 @@ begin
   dtEditDet2CNPJ.Value      := DMApp.Cnpj;
   dtEditDet2CODIGO.Value    := dtEditCODIGO.value;
   dtEditDet2DT_INICIO.Value := DateOF(DataServidor);
-  dtEditDet2HR_INICIO.Value := TimeOF(DataServidor)-0.003;
+  //dtEditDet2HR_INICIO.Value := TimeOF(DataServidor)-0.003;
   dtEditDet2DT_FIM.Value := DateOF(DataServidor);
-  dtEditDet2HR_FIM.Value := TimeOF(DataServidor);
+  //dtEditDet2HR_FIM.Value := TimeOF(DataServidor);
   dtEditDet2USUARIO.value := dmApp.USR_CONECTADO;
   dtEditDet2COD_TECNICO.value := dtEditMECANICO.value;
 end;
@@ -1573,9 +1590,9 @@ begin
   
   dtEditDet2CODIGO.Value    := dtEditCODIGO.Value;
   dtEditDet2DT_INICIO.Value := DateOF(DMApp.DataServidor);
-  dtEditDet2HR_INICIO.Value := TimeOF(DMApp.DataServidor)-0.003;
+  //dtEditDet2HR_INICIO.Value := TimeOF(DMApp.DataServidor)-0.003;
   dtEditDet2DT_FIM.Value := DateOF(DMApp.DataServidor);
-  dtEditDet2HR_FIM.Value := TimeOF(DMApp.DataServidor);
+  //dtEditDet2HR_FIM.Value := TimeOF(DMApp.DataServidor);
   dtEditDet2USUARIO.value := dmApp.USR_CONECTADO;
   dtEditDet2COD_TECNICO.value := dtEditMECANICO.value;
 
@@ -1884,6 +1901,7 @@ begin
     Abort;
   end;
 
+  //Sanniel - retirado devido a solicitação da Sistemaq, só haverá movimento que o técnico realizou no cliente
   //-->> Validando Hora/Data [PROGRAMAÇÃO e INICIO ATIVIDADE]
  { MsgData := 'Dt. de Programação não pode ser superior a Dt. de Inicialização do serviço';
   MsgHora := 'Hr. de Programação não pode ser superior a Hr. de Inicialização do serviço';
@@ -1960,7 +1978,25 @@ end;
 procedure TfrmCadOS.dtEditDet2AfterOpen(DataSet: TDataSet);
 begin
   inherited;
-  totalhrtrabseg.Time := StrToTime(SegundosToTime(dtEditDet2HRTRABSEG.value));
+  if ((dtEditDet2HR_FIM.Value > 0) and (dtEditDet2HR_INICIO.Value > 0)) and (dtEditDet2HR_FIM.Value > dtEditDet2HR_INICIO.Value) then
+    totalhrtrabseg.Time := dtEditDet2HR_FIM.Value - dtEditDet2HR_INICIO.Value;
+end;
+
+procedure TfrmCadOS.ActSaveExecute(Sender: TObject);
+var
+  StatusPadrao : integer;
+  sql : string;
+begin  
+  {Selecionando o Status 'padrão' de abertura}
+  sql := 'select coalesce(min(s.codigo),0) from ofc_status s where s.cnpj = '+QuotedStr(dmApp.cnpj)+' and s.padrao_abertura = ''S''';
+  StatusPadrao := RetornaValor(sql);
+  if (dtEditCOD_STATUS.value = StatusPadrao) and (Foco = 'Master')then
+  begin
+    dtEdit.Post;
+    dtEdit.Transaction.CommitRetaining;
+    dtEdit.Edit;
+  end else
+    inherited;
 end;
 
 end.

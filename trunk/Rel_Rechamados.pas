@@ -188,6 +188,7 @@ type
     qAtendimento_SintKM_NAO_UTILIZADO: TIBBCDField;
     qAtendimento_SintOFC_DATA_FECHAMENTO: TDateField;
     qAtendimento_SintHR_TRABALHADAS_TMP_VIAJEM: TFloatField;
+    qAtendimento_SintTMPHRTRAB: TIBStringField;
     ppTitleBand12: TppTitleBand;
     SubRegiao: TppSubReport;
     ppChildReport1: TppChildReport;
@@ -473,8 +474,8 @@ type
     ppGroup4: TppGroup;
     ppGroupHeaderBand4: TppGroupHeaderBand;
     ppLabel63: TppLabel;
-    ppLine15: TppLine;
     ppDBText56: TppDBText;
+    ppLine15: TppLine;
     ppGroupFooterBand4: TppGroupFooterBand;
     ppLine16: TppLine;
     ppLabel64: TppLabel;
@@ -484,6 +485,12 @@ type
     ppDBCalc49: TppDBCalc;
     ppDBCalc50: TppDBCalc;
     ppDBCalc61: TppDBCalc;
+    ppGroup8: TppGroup;
+    ppGroupHeaderBand8: TppGroupHeaderBand;
+    ppLabel105: TppLabel;
+    ppLine28: TppLine;
+    ppDBText95: TppDBText;
+    ppGroupFooterBand8: TppGroupFooterBand;
     raCodeModule4: TraCodeModule;
     SubCliente: TppSubReport;
     ppChildReport5: TppChildReport;
@@ -605,12 +612,8 @@ type
     ppLabel211: TppLabel;
     ppSystemVariable13: TppSystemVariable;
     raCodeModule6: TraCodeModule;
-    ppGroup8: TppGroup;
-    ppGroupHeaderBand8: TppGroupHeaderBand;
-    ppGroupFooterBand8: TppGroupFooterBand;
-    ppLabel105: TppLabel;
-    ppLine28: TppLine;
-    ppDBText95: TppDBText;
+    ppVariable2: TppVariable;
+    qAtendimento_SintHR_TOTAL_ATEND: TTimeField;
     procedure BtnOkClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn2Click(Sender: TObject);

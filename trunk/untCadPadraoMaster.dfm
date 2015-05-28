@@ -104,7 +104,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
             Top = 0
             Width = 643
             Height = 277
-            ActivePage = tbsDetalhe8
+            ActivePage = tbsDetalhe1
             Align = alClient
             Color = clBtnFace
             HotTrack = True
@@ -671,7 +671,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
                   object GridDet8: TcxGrid
                     Left = 0
                     Top = 0
-                    Width = 1007
+                    Width = 627
                     Height = 215
                     Align = alClient
                     TabOrder = 0

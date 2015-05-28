@@ -1395,6 +1395,15 @@ object FRel_Rechamados: TFRel_Rechamados
       FieldName = 'HR_TRABALHADAS_TMP_VIAJEM'
       Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."HR_TRABALHADAS_TMP_VIAJEM"'
     end
+    object qAtendimento_SintTMPHRTRAB: TIBStringField
+      FieldName = 'TMPHRTRAB'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."TMPHRTRAB"'
+      Size = 8
+    end
+    object qAtendimento_SintHR_TOTAL_ATEND: TTimeField
+      FieldName = 'HR_TOTAL_ATEND'
+      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."HR_TOTAL_ATEND"'
+    end
   end
   object rptAtendimento: TppReport
     PrinterSetup.BinName = 'Default'
@@ -1440,7 +1449,7 @@ object FRel_Rechamados: TFRel_Rechamados
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.DefaultString = '<Texto a localizar>'
     TextSearchSettings.Enabled = True
     Left = 263
     Top = 3
@@ -2339,10 +2348,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Transparent = True
               DBCalcType = dcCount
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 3302
+              mmHeight = 3387
               mmLeft = 19050
               mmTop = 2117
-              mmWidth = 28448
+              mmWidth = 29972
               BandType = 7
             end
             object ppDBCalc2: TppDBCalc
@@ -2611,10 +2620,10 @@ object FRel_Rechamados: TFRel_Rechamados
                 Transparent = True
                 DBCalcType = dcCount
                 DataPipelineName = 'ppAtendimento'
-                mmHeight = 3302
+                mmHeight = 3387
                 mmLeft = 21696
                 mmTop = 1323
-                mmWidth = 28448
+                mmWidth = 29972
                 BandType = 5
                 GroupNo = 0
               end
@@ -6995,7 +7004,7 @@ object FRel_Rechamados: TFRel_Rechamados
               Border.Style = psSolid
               Border.Visible = False
               Border.Weight = 1.000000000000000000
-              DataField = 'REG_DESCRICAO'
+              DataField = 'TMPHRTRAB'
               DataPipeline = ppAtendimento
               Ellipsis = False
               Font.Charset = DEFAULT_CHARSET
@@ -7005,10 +7014,10 @@ object FRel_Rechamados: TFRel_Rechamados
               Font.Style = []
               Transparent = True
               DataPipelineName = 'ppAtendimento'
-              mmHeight = 2910
+              mmHeight = 2879
               mmLeft = 160867
               mmTop = 0
-              mmWidth = 529
+              mmWidth = 15282
               BandType = 4
             end
             object ppDBText45: TppDBText
@@ -9136,7 +9145,7 @@ object FRel_Rechamados: TFRel_Rechamados
                 Border.Style = psSolid
                 Border.Visible = False
                 Border.Weight = 1.000000000000000000
-                DataField = 'OFC_HORAS_TRABALHADAS'
+                DataField = 'TP_ATENDIMENTO'
                 DataPipeline = ppAtendimento
                 DisplayFormat = '#,0.00;-#,0.00'
                 Ellipsis = False
@@ -9181,6 +9190,30 @@ object FRel_Rechamados: TFRel_Rechamados
                 mmLeft = 240507
                 mmTop = 529
                 mmWidth = 12171
+                BandType = 5
+                GroupNo = 0
+              end
+              object ppVariable2: TppVariable
+                UserName = 'Variable2'
+                HyperlinkColor = clBlue
+                Border.BorderPositions = []
+                Border.Color = clBlack
+                Border.Style = psSolid
+                Border.Visible = False
+                BlankWhenZero = False
+                CalcOrder = 0
+                Ellipsis = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Name = 'Arial'
+                Font.Size = 7
+                Font.Style = [fsBold]
+                TextAlignment = taRightJustified
+                Transparent = True
+                mmHeight = 2921
+                mmLeft = 167746
+                mmTop = 1588
+                mmWidth = 10753
                 BandType = 5
                 GroupNo = 0
               end
@@ -10480,596 +10513,6 @@ object FRel_Rechamados: TFRel_Rechamados
     UserName = 'Atendimento'
     Left = 294
     Top = 3
-    object ppAtendimentoppField1: TppField
-      FieldAlias = 'OFC_CODIGO'
-      FieldName = 'OFC_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 0
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField2: TppField
-      FieldAlias = 'OFC_DATA'
-      FieldName = 'OFC_DATA'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 1
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField3: TppField
-      FieldAlias = 'OFC_DT_ENTRADA'
-      FieldName = 'OFC_DT_ENTRADA'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 2
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField4: TppField
-      FieldAlias = 'OFC_DT_ATRIBUICAO'
-      FieldName = 'OFC_DT_ATRIBUICAO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 3
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField5: TppField
-      FieldAlias = 'OFC_TOTAL'
-      FieldName = 'OFC_TOTAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 4
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField6: TppField
-      FieldAlias = 'OFC_SOLICITANTE'
-      FieldName = 'OFC_SOLICITANTE'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 5
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField7: TppField
-      FieldAlias = 'OFC_VENDA'
-      FieldName = 'OFC_VENDA'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 6
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField8: TppField
-      FieldAlias = 'OFC_KM_RODADO'
-      FieldName = 'OFC_KM_RODADO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 7
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField9: TppField
-      FieldAlias = 'OFC_HORAS_TRABALHADAS'
-      FieldName = 'OFC_HORAS_TRABALHADAS'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 8
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField10: TppField
-      FieldAlias = 'ST_CODIGO'
-      FieldName = 'ST_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 9
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField11: TppField
-      FieldAlias = 'ST_COR'
-      FieldName = 'ST_COR'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 10
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField12: TppField
-      FieldAlias = 'ST_NOME'
-      FieldName = 'ST_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 11
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField13: TppField
-      FieldAlias = 'MEC_CODIGO'
-      FieldName = 'MEC_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 12
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField14: TppField
-      FieldAlias = 'MEC_NOME'
-      FieldName = 'MEC_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 13
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField15: TppField
-      FieldAlias = 'DEF_CODIGO'
-      FieldName = 'DEF_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 14
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField16: TppField
-      FieldAlias = 'DEF_NOME'
-      FieldName = 'DEF_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 15
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField17: TppField
-      FieldAlias = 'MTC_CODIGO'
-      FieldName = 'MTC_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 16
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField18: TppField
-      FieldAlias = 'MTC_NOME'
-      FieldName = 'MTC_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 17
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField19: TppField
-      FieldAlias = 'TPA_CODIGO'
-      FieldName = 'TPA_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 18
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField20: TppField
-      FieldAlias = 'TPA_NOME'
-      FieldName = 'TPA_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 19
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField21: TppField
-      FieldAlias = 'CLI_CODIGO'
-      FieldName = 'CLI_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 20
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField22: TppField
-      FieldAlias = 'CLI_NOME_RAZAO'
-      FieldName = 'CLI_NOME_RAZAO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 21
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField23: TppField
-      FieldAlias = 'REG_CODIGO'
-      FieldName = 'REG_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 22
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField24: TppField
-      FieldAlias = 'REG_DESCRICAO'
-      FieldName = 'REG_DESCRICAO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 23
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField25: TppField
-      FieldAlias = 'PRD_CODIGO'
-      FieldName = 'PRD_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 24
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField26: TppField
-      FieldAlias = 'PRD_NOME'
-      FieldName = 'PRD_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 25
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField27: TppField
-      FieldAlias = 'PRD_SERIE'
-      FieldName = 'PRD_SERIE'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 26
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField28: TppField
-      FieldAlias = 'MDL_CODIGO'
-      FieldName = 'MDL_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 27
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField29: TppField
-      FieldAlias = 'MDL_NOME'
-      FieldName = 'MDL_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 28
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField30: TppField
-      FieldAlias = 'MRC_CODIGO'
-      FieldName = 'MRC_CODIGO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 29
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField31: TppField
-      FieldAlias = 'MRC_NOME'
-      FieldName = 'MRC_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 30
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField32: TppField
-      FieldAlias = 'CP_COD_CONTRATO'
-      FieldName = 'CP_COD_CONTRATO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 31
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField33: TppField
-      FieldAlias = 'TPC_NOME'
-      FieldName = 'TPC_NOME'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 32
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField34: TppField
-      FieldAlias = 'TP_ATENDIMENTO'
-      FieldName = 'TP_ATENDIMENTO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 33
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField35: TppField
-      FieldAlias = 'ID_CONTRATO'
-      FieldName = 'ID_CONTRATO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 34
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField36: TppField
-      FieldAlias = 'COD_CIDADE'
-      FieldName = 'COD_CIDADE'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 35
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField37: TppField
-      FieldAlias = 'CIDADE'
-      FieldName = 'CIDADE'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 36
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField38: TppField
-      FieldAlias = 'TECNICO_ATDD'
-      FieldName = 'TECNICO_ATDD'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 37
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField39: TppField
-      FieldAlias = 'OFC_DT_SOLICITACAO'
-      FieldName = 'OFC_DT_SOLICITACAO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 38
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField40: TppField
-      FieldAlias = 'BAIRRO'
-      FieldName = 'BAIRRO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 39
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField41: TppField
-      FieldAlias = 'ENDERECO'
-      FieldName = 'ENDERECO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 40
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField42: TppField
-      FieldAlias = 'FONE'
-      FieldName = 'FONE'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 41
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField43: TppField
-      FieldAlias = 'CP_TEMPO_RESPOSTA'
-      FieldName = 'CP_TEMPO_RESPOSTA'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 42
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField44: TppField
-      FieldAlias = 'OFC_TEMPO_VIAJEM'
-      FieldName = 'OFC_TEMPO_VIAJEM'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 43
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField45: TppField
-      FieldAlias = 'TECNICO_ESPECIFICO'
-      FieldName = 'TECNICO_ESPECIFICO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 44
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField46: TppField
-      FieldAlias = 'CONTADOR_TOTAL'
-      FieldName = 'CONTADOR_TOTAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 45
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField47: TppField
-      FieldAlias = 'KM_INICIAL'
-      FieldName = 'KM_INICIAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 46
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField48: TppField
-      FieldAlias = 'KM_FINAL'
-      FieldName = 'KM_FINAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 47
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField49: TppField
-      FieldAlias = 'OFC_HR_ENTRADA'
-      FieldName = 'OFC_HR_ENTRADA'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 48
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField50: TppField
-      FieldAlias = 'OFC_HR_ATRIBUICAO'
-      FieldName = 'OFC_HR_ATRIBUICAO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 49
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField51: TppField
-      FieldAlias = 'DT_INICIAL'
-      FieldName = 'DT_INICIAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 50
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField52: TppField
-      FieldAlias = 'HR_INICIAL'
-      FieldName = 'HR_INICIAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 51
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField53: TppField
-      FieldAlias = 'DT_FINAL'
-      FieldName = 'DT_FINAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 52
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField54: TppField
-      FieldAlias = 'HR_FINAL'
-      FieldName = 'HR_FINAL'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 53
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField55: TppField
-      FieldAlias = 'TEMPO_DECORRIDO_RESP'
-      FieldName = 'TEMPO_DECORRIDO_RESP'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 54
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField56: TppField
-      FieldAlias = 'KM_NAO_UTILIZADO'
-      FieldName = 'KM_NAO_UTILIZADO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 55
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField57: TppField
-      FieldAlias = 'OFC_DATA_FECHAMENTO'
-      FieldName = 'OFC_DATA_FECHAMENTO'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 56
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField58: TppField
-      FieldAlias = 'HR_TRABALHADAS_TMP_VIAJEM'
-      FieldName = 'HR_TRABALHADAS_TMP_VIAJEM'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 57
-      Searchable = False
-      Sortable = False
-    end
-    object ppAtendimentoppField59: TppField
-      FieldAlias = 'MAIOR_QTDE_HR_TRABALHADA'
-      FieldName = 'MAIOR_QTDE_HR_TRABALHADA'
-      FieldLength = 0
-      DataType = dtNotKnown
-      DisplayWidth = 0
-      Position = 58
-      Searchable = False
-      Sortable = False
-    end
   end
   object dsMotivo: TDataSource
     AutoEdit = False
@@ -12193,7 +11636,7 @@ object FRel_Rechamados: TFRel_Rechamados
       FieldName = 'ID'
       FieldLength = 0
       DataType = dtInteger
-      DisplayWidth = 0
+      DisplayWidth = 10
       Position = 0
     end
     object ppLayoutppField2: TppField
@@ -12263,8 +11706,8 @@ object FRel_Rechamados: TFRel_Rechamados
     object ppAppRepresentanteppField1: TppField
       FieldAlias = 'PARC_RAZAO_SOCIAL'
       FieldName = 'PARC_RAZAO_SOCIAL'
-      FieldLength = 50
-      DisplayWidth = 50
+      FieldLength = 0
+      DisplayWidth = 0
       Position = 0
     end
     object ppAppRepresentanteppField2: TppField
@@ -12346,6 +11789,13 @@ object FRel_Rechamados: TFRel_Rechamados
       FieldLength = 200
       DisplayWidth = 200
       Position = 11
+    end
+    object ppAppRepresentanteppField13: TppField
+      FieldAlias = 'PARC_PATH_ICONE'
+      FieldName = 'PARC_PATH_ICONE'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 12
     end
   end
 end
