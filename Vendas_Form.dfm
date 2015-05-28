@@ -1,6 +1,6 @@
 object FrmVendas: TFrmVendas
-  Left = 110
-  Top = 118
+  Left = 248
+  Top = 98
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Pedido'
@@ -1012,6 +1012,7 @@ object FrmVendas: TFrmVendas
               Left = 217
               Top = 15
               Width = 90
+              Enabled = False
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
@@ -1032,6 +1033,7 @@ object FrmVendas: TFrmVendas
               Left = 407
               Top = 14
               Width = 90
+              Enabled = False
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
@@ -1052,6 +1054,7 @@ object FrmVendas: TFrmVendas
               Left = 312
               Top = 14
               Width = 90
+              Enabled = False
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
@@ -3717,8 +3720,8 @@ object FrmVendas: TFrmVendas
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

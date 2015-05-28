@@ -9,15 +9,15 @@ inherited frmCadOS: TfrmCadOS
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
-    Width = 1262
-    Height = 675
-    ClientRectBottom = 671
-    ClientRectRight = 1258
+    Width = 1254
+    Height = 664
+    ClientRectBottom = 660
+    ClientRectRight = 1250
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Top = 124
-        Width = 1254
-        Height = 520
+        Width = 1246
+        Height = 509
         inherited TVRegistro: TcxGridDBBandedTableView
           object TVRegistroST_CODIGO: TcxGridDBBandedColumn
             DataBinding.FieldName = 'ST_CODIGO'
@@ -428,11 +428,11 @@ inherited frmCadOS: TfrmCadOS
         end
       end
       inherited pnlFiltro: TPanel
-        Width = 1254
+        Width = 1246
         Height = 124
         Color = clWhite
         DesignSize = (
-          1254
+          1246
           124)
         object edtInicial: TcxDBDateEdit
           Left = 8
@@ -599,7 +599,7 @@ inherited frmCadOS: TfrmCadOS
           Style.Font.Style = []
           Style.HotTrack = False
           Style.IsFontAssigned = True
-          TabOrder = 8
+          TabOrder = 10
           Width = 183
         end
         object btnFiltroCliente: TcxButton
@@ -607,7 +607,7 @@ inherited frmCadOS: TfrmCadOS
           Top = 31
           Width = 23
           Height = 22
-          TabOrder = 9
+          TabOrder = 11
           TabStop = False
           OnClick = btnFiltroClienteClick
           Glyph.Data = {
@@ -654,7 +654,7 @@ inherited frmCadOS: TfrmCadOS
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 10
+          TabOrder = 12
           TabStop = False
           OnClick = btnTimerClick
           Glyph.Data = {
@@ -761,36 +761,83 @@ inherited frmCadOS: TfrmCadOS
           Left = 1016
           Top = 40
           Anchors = [akTop, akRight]
-          TabOrder = 11
+          TabOrder = 13
           Visible = False
           Width = 229
+        end
+        object cxDBTextEdit7: TcxDBTextEdit
+          Left = 238
+          Top = 72
+          DataBinding.DataField = 'CODIGO_OS'
+          DataBinding.DataSource = dsFiltro
+          ParentFont = False
+          Style.Font.Charset = DEFAULT_CHARSET
+          Style.Font.Color = clWindowText
+          Style.Font.Height = -11
+          Style.Font.Name = 'Tahoma'
+          Style.Font.Style = []
+          Style.HotTrack = False
+          Style.IsFontAssigned = True
+          TabOrder = 7
+          Width = 70
+        end
+        object cxLabel44: TcxLabel
+          Left = 238
+          Top = 56
+          Caption = 'C'#243'digo OS'
+          ParentFont = False
+          Transparent = True
+        end
+        object cxLabel45: TcxLabel
+          Left = 313
+          Top = 56
+          Caption = 'Solicitante'
+          ParentFont = False
+          Transparent = True
+        end
+        object cxDBTextEdit8: TcxDBTextEdit
+          Left = 313
+          Top = 72
+          DataBinding.DataField = 'SOLICITANTE'
+          DataBinding.DataSource = dsFiltro
+          ParentFont = False
+          Properties.CharCase = ecUpperCase
+          Style.Font.Charset = DEFAULT_CHARSET
+          Style.Font.Color = clWindowText
+          Style.Font.Height = -11
+          Style.Font.Name = 'Tahoma'
+          Style.Font.Style = []
+          Style.HotTrack = False
+          Style.IsFontAssigned = True
+          TabOrder = 8
+          Width = 200
         end
       end
     end
     inherited tbsEdita: TcxTabSheet
       inherited Panel2: TPanel
-        Width = 1254
-        Height = 644
+        Width = 1246
+        Height = 633
         inherited pnlSubCad: TPanel
-          Top = 347
-          Width = 1252
+          Top = 336
+          Width = 1244
           Height = 296
           inherited PgcDetalhe: TcxPageControl
-            Width = 1252
+            Width = 1244
             Height = 296
             ActivePage = tbsDetalhe2
             ClientRectBottom = 292
-            ClientRectRight = 1248
+            ClientRectRight = 1240
             inherited tbsDetalhe2: TcxTabSheet [0]
               Caption = 'Movimentos'
               inherited PGCSub2: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
                 inherited tbsListaSub2: TcxTabSheet
                   inherited GridDet2: TcxGrid
-                    Width = 1236
+                    Width = 1228
                     Height = 234
                     inherited TVDet2: TcxGridDBBandedTableView
                       object TVDet2CNPJ: TcxGridDBBandedColumn
@@ -1048,7 +1095,7 @@ inherited frmCadOS: TfrmCadOS
                     object Label2: TcxLabel
                       Left = 8
                       Top = 16
-                      Caption = 'Dt. Inicial'
+                      Caption = 'Data'
                       ParentFont = False
                       Transparent = True
                     end
@@ -1082,6 +1129,7 @@ inherited frmCadOS: TfrmCadOS
                       Top = 72
                       DataBinding.DataField = 'DT_FIM'
                       DataBinding.DataSource = dsRegistroDet2
+                      Enabled = False
                       ParentFont = False
                       Style.BorderColor = clBtnShadow
                       Style.BorderStyle = ebsSingle
@@ -1094,14 +1142,17 @@ inherited frmCadOS: TfrmCadOS
                       Style.TransparentBorder = False
                       Style.IsFontAssigned = True
                       TabOrder = 2
+                      Visible = False
                       Width = 87
                     end
                     object Label6: TcxLabel
                       Left = 8
                       Top = 56
                       Caption = 'Dt. Final'
+                      Enabled = False
                       ParentFont = False
                       Transparent = True
+                      Visible = False
                     end
                     object hrFinal: TcxDBTimeEdit
                       Left = 98
@@ -1156,8 +1207,9 @@ inherited frmCadOS: TfrmCadOS
                     object totalhrtrabseg: TcxTimeEdit
                       Left = 176
                       Top = 32
-                      EditValue = 0
+                      EditValue = 0d
                       Enabled = False
+                      Properties.ReadOnly = False
                       TabOrder = 10
                       Width = 70
                     end
@@ -1170,7 +1222,7 @@ inherited frmCadOS: TfrmCadOS
                     end
                   end
                   object cxGroupBox6: TcxGroupBox
-                    Left = 536
+                    Left = 842
                     Top = 48
                     TabStop = True
                     Caption = 'Tarefas'
@@ -1693,7 +1745,7 @@ inherited frmCadOS: TfrmCadOS
                       BFBFBFBFBFBFBFBFBFBF}
                   end
                   object cxDBMemo3: TcxDBMemo
-                    Left = 919
+                    Left = 536
                     Top = 66
                     DataBinding.DataField = 'OBSERVACAO'
                     DataBinding.DataSource = dsRegistroDet2
@@ -1703,7 +1755,7 @@ inherited frmCadOS: TfrmCadOS
                     Width = 300
                   end
                   object cxLabel32: TcxLabel
-                    Left = 920
+                    Left = 537
                     Top = 49
                     Caption = 'Observa'#231#227'o'
                     Transparent = True
@@ -1714,10 +1766,10 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe1: TcxTabSheet [1]
               Caption = 'Itens'
               inherited PGCSub1: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
                     Width = 1228
@@ -1940,19 +1992,19 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe3: TcxTabSheet
               TabVisible = False
               inherited PGCSub3: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe4: TcxTabSheet
               TabVisible = False
               inherited PGCSub4: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
                 inherited tbsListaSub4: TcxTabSheet
                   inherited GridDet4: TcxGrid
                     Height = 234
@@ -1963,37 +2015,37 @@ inherited frmCadOS: TfrmCadOS
             inherited tbsDetalhe5: TcxTabSheet
               TabVisible = False
               inherited PGCSub5: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe6: TcxTabSheet
               TabVisible = False
               inherited PGCSub6: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe7: TcxTabSheet
               TabVisible = False
               inherited PGCSub7: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
               end
             end
             inherited tbsDetalhe8: TcxTabSheet
               TabVisible = False
               inherited PGCSub8: TcxPageControl
-                Width = 1244
+                Width = 1236
                 Height = 265
                 ClientRectBottom = 261
-                ClientRectRight = 1240
+                ClientRectRight = 1232
                 inherited tbsListaSub8: TcxTabSheet
                   inherited GridDet8: TcxGrid
                     Width = 1254
@@ -2005,13 +2057,13 @@ inherited frmCadOS: TfrmCadOS
           end
         end
         inherited pnlMaster: TPanel
-          Width = 1252
-          Height = 346
+          Width = 1244
+          Height = 335
           inherited PgcMaster: TcxPageControl
-            Width = 1252
-            Height = 346
-            ClientRectBottom = 342
-            ClientRectRight = 1248
+            Width = 1244
+            Height = 335
+            ClientRectBottom = 331
+            ClientRectRight = 1240
             inherited tbsMaster1: TcxTabSheet
               Caption = 'Geral'
               inherited edtCodigo: TcxDBTextEdit
@@ -7552,6 +7604,12 @@ inherited frmCadOS: TfrmCadOS
       FieldName = 'SERIE'
       Size = 15
     end
+    object mtbFiltroCODIGO_OS: TIntegerField
+      FieldName = 'CODIGO_OS'
+    end
+    object mtbFiltroSOLICITANTE: TStringField
+      FieldName = 'SOLICITANTE'
+    end
   end
   inherited dsFiltro: TDataSource
     Left = 319
@@ -9580,7 +9638,7 @@ inherited frmCadOS: TfrmCadOS
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
-    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.DefaultString = '<Texto a localizar>'
     TextSearchSettings.Enabled = True
     Left = 808
     Top = 264

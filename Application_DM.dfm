@@ -3030,6 +3030,7 @@ object DmApp: TDmApp
     LocalImpCanhoto = 0
     ImprimeItens = True
     ViaConsumidor = True
+    TributosSeparadamente = False
     RavFile = 'c:\Sistemas\HelpStore\NFe\Report\NotaFiscalEletronica.rav'
     EspessuraBorda = 1
     TamanhoFonte_RazaoSocial = 12

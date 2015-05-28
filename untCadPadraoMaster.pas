@@ -272,12 +272,12 @@ type
     procedure dtEditDet8NewRecord(DataSet: TDataSet);
   private
     { Private declarations }
-    Foco : string;
     procedure Alterar;
     procedure LiberaActList(master:boolean=false);
     procedure LiberaActEdit(master:boolean=false);
     procedure ConfiguraSubTabs;
-  protected
+  protected    
+    Foco : string;
     sqlOriginal : string;
     procedure CancelarAction;
     procedure Inserir(DtsEdit: TDataSource ;tbEdit:TcxTabSheet);
@@ -852,66 +852,61 @@ begin
     Inserir(dsRegistro,tbsEdita)
   else
   begin
-    case PgcDetalhe.ActivePageIndex of
-      0 : begin
-            if ((PGCSub1.ActivePageIndex = 0) and (Foco = 'Sub1')) then
-              Inserir(dsRegistroDet1,tbsEditaSub1);
-            //  edtCodDet1.SetFocus;
-          end;
-
-      1 : begin
-            if ((PGCSub2.ActivePageIndex = 0) and (Foco = 'Sub2')) then
-              Inserir(dsRegistroDet2,tbsEditaSub2);
-//              edtCodDet1.SetFocus;
-          end;
-
-      2 : begin
-            if ((PGCSub3.ActivePageIndex = 0) and (Foco = 'Sub3')) then
-            begin
-              Inserir(dsRegistroDet3,tbsEditaSub3);
-          //    edtCodDet1.SetFocus;
-            end;
-          end;
-
-      3 : begin
+    if PgcDetalhe.ActivePage = tbsDetalhe1 then
+    begin
+      if ((PGCSub1.ActivePageIndex = 0) and (Foco = 'Sub1')) then
+        Inserir(dsRegistroDet1,tbsEditaSub1);
+    end else
+    begin
+      if PgcDetalhe.ActivePage = tbsDetalhe2 then
+      begin
+        if ((PGCSub2.ActivePageIndex = 0) and (Foco = 'Sub2')) then
+          Inserir(dsRegistroDet2,tbsEditaSub2);
+      end else
+      begin
+        if PgcDetalhe.ActivePage = tbsDetalhe3 then
+        begin
+          if ((PGCSub3.ActivePageIndex = 0) and (Foco = 'Sub3')) then
+            Inserir(dsRegistroDet3,tbsEditaSub3);
+        end else
+        begin
+          if PgcDetalhe.ActivePage = tbsDetalhe4 then
+          begin
             if ((PGCSub4.ActivePageIndex = 0) and (Foco = 'Sub4')) then
-            begin
               Inserir(dsRegistroDet4,tbsEditaSub4);
-          //    edtCodDet4.SetFocus;
-            end;
-          end;
-      4 : begin
-            if ((PGCSub5.ActivePageIndex = 0) and (Foco = 'Sub5')) then
+          end else
+          begin
+            if PgcDetalhe.ActivePage = tbsDetalhe5 then
             begin
-              Inserir(dsRegistroDet5,tbsEditaSub5);
-          //    edtCodDet5.SetFocus;
-            end;
-          end;
-      5 : begin
-            if ((PGCSub6.ActivePageIndex = 0) and (Foco = 'Sub6')) then
+              if ((PGCSub5.ActivePageIndex = 0) and (Foco = 'Sub5')) then
+                Inserir(dsRegistroDet5,tbsEditaSub5);
+            end else
             begin
-              Inserir(dsRegistroDet6,tbsEditaSub6);
-        //      edtCodDet6.SetFocus;
+              if PgcDetalhe.ActivePage = tbsDetalhe6 then
+              begin
+                if ((PGCSub6.ActivePageIndex = 0) and (Foco = 'Sub6')) then
+                  Inserir(dsRegistroDet6,tbsEditaSub6);
+              end else
+              begin
+                if PgcDetalhe.ActivePage = tbsDetalhe7 then
+                begin
+                  if ((PGCSub7.ActivePageIndex = 0) and (Foco = 'Sub7')) then
+                    Inserir(dsRegistroDet7,tbsEditaSub7);
+                end else
+                begin
+                  if PgcDetalhe.ActivePage = tbsDetalhe8 then
+                  begin
+                    if ((PGCSub8.ActivePageIndex = 0) and (Foco = 'Sub8')) then
+                      Inserir(dsRegistroDet8,tbsEditaSub8);
+                  end;
+                end;
+              end; 
             end;
           end;
-      6 : begin
-            if ((PGCSub7.ActivePageIndex = 0) and (Foco = 'Sub7')) then
-            begin
-              Inserir(dsRegistroDet7,tbsEditaSub7);
-          //    edtCodDet7.SetFocus;
-            end;
-          end;
-      7 : begin
-            if ((PGCSub8.ActivePageIndex = 0) and (Foco = 'Sub8')) then
-            begin
-              Inserir(dsRegistroDet8,tbsEditaSub8);
-           //   edtCodDet8.SetFocus;
-            end;
-          end;
+        end;
+      end;
     end;
   end;
-
-
 end;
 
 procedure TfrmCadPadraoMaster.ActDeleteExecute(Sender: TObject);
@@ -1075,7 +1070,7 @@ begin
   end
   else
   begin
-    if ((PgcDetalhe.ActivePageIndex = 0)  and (Foco = 'Sub1')) then
+    if ((PgcDetalhe.ActivePage = tbsDetalhe1)  and (Foco = 'Sub1')) then
     begin
       Editar(dsRegistroDet1,tbsEditaSub1);
       for f := 0 to (TFormPadrao(Sender).ComponentCount -1) do
@@ -1085,37 +1080,37 @@ begin
       end;
       //edtCodDet1.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 1)  and (Foco = 'Sub2')) then
+    else if ((PgcDetalhe.ActivePage = tbsDetalhe2)  and (Foco = 'Sub2')) then
     begin
       Editar(dsRegistroDet2,tbsEditaSub2);
       edtCodDet2.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 2)  and (Foco = 'Sub3')) then
+    else if ((PgcDetalhe.ActivePage = tbsDetalhe3)  and (Foco = 'Sub3')) then
     begin
       Editar(dsRegistroDet3,tbsEditaSub3);
       edtCodDet3.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 3)  and (Foco = 'Sub4')) then
+    else if ((PgcDetalhe.ActivePage = tbsDetalhe4)  and (Foco = 'Sub4')) then
     begin
       Editar(dsRegistroDet4,tbsEditaSub4);
       edtCodDet4.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 4)  and (Foco = 'Sub5')) then
+    else if ((PgcDetalhe.ActivePage = tbsDetalhe5)  and (Foco = 'Sub5')) then
     begin
       Editar(dsRegistroDet5,tbsEditaSub5);
       edtCodDet5.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 5)  and (Foco = 'Sub6')) then
+    else if ((PgcDetalhe.ActivePage = tbsDetalhe6)  and (Foco = 'Sub6')) then
     begin
       Editar(dsRegistroDet6,tbsEditaSub6);
       edtCodDet6.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 6)  and (Foco = 'Sub7')) then
+    else if ((PgcDetalhe.ActivePage = tbsDetalhe7)  and (Foco = 'Sub7')) then
     begin
       Editar(dsRegistroDet7,tbsEditaSub7);
       edtCodDet7.SetFocus;
     end
-    else if ((PgcDetalhe.ActivePageIndex = 7)  and (Foco = 'Sub8')) then
+    else if ((PgcDetalhe.ActivePage = tbsDetalhe8)  and (Foco = 'Sub8')) then
     begin
       Editar(dsRegistroDet8,tbsEditaSub8);
       edtCodDet8.SetFocus;
