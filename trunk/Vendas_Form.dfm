@@ -77,7 +77,7 @@ object FrmVendas: TFrmVendas
       Top = 49
       Width = 928
       Height = 491
-      ActivePage = TabFaturamento
+      ActivePage = tabVenda
       Align = alClient
       HotTrack = True
       TabOrder = 1

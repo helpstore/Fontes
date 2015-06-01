@@ -188,7 +188,6 @@ type
     qAtendimento_SintKM_NAO_UTILIZADO: TIBBCDField;
     qAtendimento_SintOFC_DATA_FECHAMENTO: TDateField;
     qAtendimento_SintHR_TRABALHADAS_TMP_VIAJEM: TFloatField;
-    qAtendimento_SintTMPHRTRAB: TIBStringField;
     ppTitleBand12: TppTitleBand;
     SubRegiao: TppSubReport;
     ppChildReport1: TppChildReport;
