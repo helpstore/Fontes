@@ -1395,11 +1395,6 @@ object FRel_Rechamados: TFRel_Rechamados
       FieldName = 'HR_TRABALHADAS_TMP_VIAJEM'
       Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."HR_TRABALHADAS_TMP_VIAJEM"'
     end
-    object qAtendimento_SintTMPHRTRAB: TIBStringField
-      FieldName = 'TMPHRTRAB'
-      Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."TMPHRTRAB"'
-      Size = 8
-    end
     object qAtendimento_SintHR_TOTAL_ATEND: TTimeField
       FieldName = 'HR_TOTAL_ATEND'
       Origin = '"PCD_LST_ATENDIMENTO_OS_SINT"."HR_TOTAL_ATEND"'
