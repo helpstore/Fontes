@@ -77,7 +77,7 @@ object FrmVendas: TFrmVendas
       Top = 49
       Width = 928
       Height = 491
-      ActivePage = tabVenda
+      ActivePage = TabTransporte
       Align = alClient
       HotTrack = True
       TabOrder = 1
@@ -5683,6 +5683,7 @@ object FrmVendas: TFrmVendas
   object Vendas_Itens: TIBDataSet
     Database = DmApp.Database
     Transaction = DmApp.Transaction
+    AfterPost = Vendas_ItensAfterPost
     BeforeInsert = Vendas_ItensBeforeInsert
     BeforeOpen = Vendas_ItensBeforeOpen
     BeforePost = Vendas_ItensBeforePost

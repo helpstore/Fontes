@@ -11563,7 +11563,7 @@ object DMCadastros: TDMCadastros
       DisplayFormat = '###,##0.00'
     end
     object qryLocalizarProdutoCODIGO_2: TIBStringField
-      DisplayLabel = 'C'#243'digo Aux.'
+      DisplayLabel = 'C'#243'digo Secund'#225'rio'
       FieldName = 'CODIGO_2'
       Origin = '"EST_PRODUTOS"."CODIGO_2"'
       Size = 15

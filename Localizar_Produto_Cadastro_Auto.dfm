@@ -59,14 +59,14 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
         Transparent = True
       end
       object Label1: TcxLabel
-        Left = 190
+        Left = 142
         Top = 38
         Caption = 'Nome'
         ParentFont = False
         Transparent = True
       end
       object Label2: TcxLabel
-        Left = 576
+        Left = 408
         Top = 38
         Caption = 'C'#243'd. Fab.'
         ParentFont = False
@@ -80,9 +80,9 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
         Transparent = True
       end
       object EdCodigo: TdxEdit
-        Left = 45
+        Left = 42
         Top = 34
-        Width = 139
+        Width = 95
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -99,9 +99,9 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
         CharCase = ecUpperCase
       end
       object EdNome: TdxEdit
-        Left = 231
+        Left = 178
         Top = 34
-        Width = 341
+        Width = 226
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -118,9 +118,9 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
         CharCase = ecUpperCase
       end
       object EdCodigoFab: TdxEdit
-        Left = 629
+        Left = 461
         Top = 34
-        Width = 139
+        Width = 116
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -135,6 +135,32 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
         OnExit = EdCodigoExit
         OnKeyDown = EdCodigoKeyDown
         CharCase = ecUpperCase
+      end
+      object EdCodigoSec: TdxEdit
+        Left = 637
+        Top = 34
+        Width = 139
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        Style.BorderColor = clBtnShadow
+        Style.BorderStyle = xbsSingle
+        Style.ButtonStyle = btsSimple
+        TabOrder = 7
+        OnEnter = EdCodigoEnter
+        OnExit = EdCodigoExit
+        OnKeyDown = EdCodigoKeyDown
+        CharCase = ecUpperCase
+      end
+      object cxLabel1: TcxLabel
+        Left = 584
+        Top = 38
+        Caption = 'C'#243'd. Sec.'
+        ParentFont = False
+        Transparent = True
       end
     end
     object Panel2: TPanel
@@ -459,6 +485,8 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
           'HeaderPanelRowCount'
           'Height'
           'HelpContext'
+          'HelpKeyword'
+          'HelpType'
           'HideFocusRect'
           'HideSelection'
           'HideSelectionColor'
@@ -566,6 +594,98 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
       end
       item
         Component = GRIDCODIGO_2
+        Properties.Strings = (
+          'Alignment'
+          'BandIndex'
+          'Caption'
+          'CharCase'
+          'ColIndex'
+          'Color'
+          'DisableCaption'
+          'DisableCustomizing'
+          'DisableDragging'
+          'DisableEditor'
+          'DisableFilter'
+          'DisableGrouping'
+          'EditMask'
+          'FieldName'
+          'Font'
+          'GroupIndex'
+          'HeaderAlignment'
+          'HeaderGlyph'
+          'HeaderMaxLineCount'
+          'IgnoreMaskBlank'
+          'MaxLength'
+          'MinWidth'
+          'Name'
+          'OEMConvert'
+          'PasswordChar'
+          'ReadOnly'
+          'RowIndex'
+          'Sizing'
+          'SortBySummary'
+          'Sorted'
+          'SummaryField'
+          'SummaryFooterField'
+          'SummaryFooterFormat'
+          'SummaryFooterType'
+          'SummaryFormat'
+          'SummaryGroupName'
+          'SummaryType'
+          'TabStop'
+          'Tag'
+          'VertAlignment'
+          'Visible'
+          'Width')
+      end
+      item
+        Component = GRIDCODIGO_FABRICANTE
+        Properties.Strings = (
+          'Alignment'
+          'BandIndex'
+          'Caption'
+          'CharCase'
+          'ColIndex'
+          'Color'
+          'DisableCaption'
+          'DisableCustomizing'
+          'DisableDragging'
+          'DisableEditor'
+          'DisableFilter'
+          'DisableGrouping'
+          'EditMask'
+          'FieldName'
+          'Font'
+          'GroupIndex'
+          'HeaderAlignment'
+          'HeaderGlyph'
+          'HeaderMaxLineCount'
+          'IgnoreMaskBlank'
+          'MaxLength'
+          'MinWidth'
+          'Name'
+          'OEMConvert'
+          'PasswordChar'
+          'ReadOnly'
+          'RowIndex'
+          'Sizing'
+          'SortBySummary'
+          'Sorted'
+          'SummaryField'
+          'SummaryFooterField'
+          'SummaryFooterFormat'
+          'SummaryFooterType'
+          'SummaryFormat'
+          'SummaryGroupName'
+          'SummaryType'
+          'TabStop'
+          'Tag'
+          'VertAlignment'
+          'Visible'
+          'Width')
+      end
+      item
+        Component = GRIDCOMPLEMENTO
         Properties.Strings = (
           'Alignment'
           'BandIndex'

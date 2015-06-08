@@ -13,6 +13,7 @@ object frmCadPadraoMaster: TfrmCadPadraoMaster
   KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown

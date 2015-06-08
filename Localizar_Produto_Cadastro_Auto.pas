@@ -59,6 +59,8 @@ type
     EdCodigoFab: TdxEdit;
     LblTitulo: TcxLabel;
     Bevel2: TBevel;
+    EdCodigoSec: TdxEdit;
+    cxLabel1: TcxLabel;
     procedure FormShow(Sender: TObject);
     procedure GridKeyPress(Sender: TObject; var Key: Char);
     procedure GridDblClick(Sender: TObject);
@@ -87,6 +89,7 @@ type
     Procedure FiltraNome;
     Procedure FiltraCodigoFab;
     Procedure LimpaEdit;
+    Procedure FiltraCodigoSec;
   public
     { Public declarations }
     Vendedor: Integer;
@@ -245,10 +248,15 @@ procedure TFrmLocProdutoCadastro_Auto.pnlTopExit(Sender: TObject);
 begin
   if trim(EdCodigo.text) <> '' then
     FiltraCodigo
-  else if trim(EdNome.text) <> '' then
-    FiltraNome
-  else if trim(EdCodigoFab.text) <> '' then
-    FiltraCodigoFab
+  else
+    if trim(EdNome.text) <> '' then
+      FiltraNome
+  else
+    if trim(EdCodigoFab.text) <> '' then
+      FiltraCodigoFab
+  else
+    if trim(EdCodigoSec.text) <> '' then
+      FiltraCodigoSec
   else
     FiltraTodos;
 end;
@@ -368,8 +376,32 @@ end;
 procedure TFrmLocProdutoCadastro_Auto.LimpaEdit;
 begin
   EdCodigo.Clear;
-       EdNome.Clear;
-       EdCodigoFab.Clear;
+  EdNome.Clear;
+  EdCodigoFab.Clear;
+  EdCodigoSec.Clear;
+end;
+
+procedure TFrmLocProdutoCadastro_Auto.FiltraCodigoSec;
+var
+  sql : string;
+begin
+  if (FrmProdutos = nil) then
+    sql := sqlOriginal + ' where prd.cnpj = :cnpj and  prd.codigo_2 like ''%''||'+QuoTedStr(trim(EdCodigoSec.text))+'||''%''  order by  prd.codigo_2 '
+  else
+    sql := sqlOriginal + ' where prd.cnpj = :cnpj and prd.ativo = ''S'' and  prd.codigo_2 like ''%''||'+QuoTedStr(trim(EdCodigoSec.text))+'||''%''  order by  prd.codigo_2 ';
+
+  with DmCadastros do
+  begin
+    qryLocalizarProduto.Close;
+    qryLocalizarProduto.sql.text := sql;
+    qryLocalizarProduto.Open;
+  end;
+
+  //LocateNext = Apos a Posicao corrente do Cursor
+  if dmCadastros.qryLocalizarProdutoCodigo.asString = '' Then
+    MessageDlg('Produto Não Encontrado!', mtInformation, [mbOK], 0);
+
+  LimpaEdit;
 end;
 
 end.
