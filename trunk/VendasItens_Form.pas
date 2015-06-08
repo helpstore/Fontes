@@ -404,7 +404,7 @@ begin
 
          Vendas_ItensDESCONTO.Value     := {arredonda(arredonda(}Vendas_ItensPRC_UNIT_ORIGINAL.Value{,2)} - Vendas_ItensPRC_UNITARIO.VALUE{,2)} ;
          Vendas_ItensPORC_DESC.Value    := ((Vendas_ItensDESCONTO.Value * 100)/{arredonda(}Vendas_ItensPRC_UNIT_ORIGINAL.Value{,2)});
-         Vendas_ItensPRC_UNITARIO.value := ({arredonda(}Vendas_ItensPRC_UNIT_ORIGINAL.Value{,2)} - Vendas_ItensDESCONTO.Value);
+//         Vendas_ItensPRC_UNITARIO.value := ({arredonda(}Vendas_ItensPRC_UNIT_ORIGINAL.Value{,2)} - Vendas_ItensDESCONTO.Value);
        end;
      end;
 end;

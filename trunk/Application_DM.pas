@@ -11464,6 +11464,7 @@ begin
         begin
           Cobr.Fat.nFat := dmCadastros2.NFe_ParcelamentosN_FAT.AsString;
           Cobr.Fat.vOrig := dmCadastros2.NFe_ParcelamentosTOTAL_ORIG.AsFloat;
+          //SANNIEL -- SERÁ CONCEDIDO DESCONTO APENAS COM CFOP 5102
           if dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5102 then
           begin
             Cobr.Fat.vDesc := (-1 * dmCadastros2.NFe_ParcelamentosDESC_ACRES.AsFloat);
@@ -11496,15 +11497,27 @@ begin
           Prod.xProd    := dmCadastros2.NFe_Faturamentos_ItensCXPRODUTO.value;
           Prod.qCom     := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQCOM.value,2);
           Prod.uCom     := dmCadastros2.NFe_Faturamentos_ItensUCOM.value;
-          Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value,2);
-          Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value,2);
+
+          if dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5102 then
+          begin
+            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value,2);
+            Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value,2);
+            Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
+            Prod.vDesc := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVDESC.value * dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
+          end else
+          begin
+            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value - (dmCadastros2.NFe_Faturamentos_ItensVDESC.value * dmCadastros2.NFe_Faturamentos_ItensQCOM.value),2);
+            Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value - dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
+            Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value - dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
+          end;
+          
           Prod.qTrib    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
           Prod.uTrib    := dmCadastros2.NFe_Faturamentos_ItensUTRIB.value;
-          Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
+
           Prod.NCM :=   dmCadastros2.NFe_Faturamentos_ItensCODIGO_NCM.AsString;
           if dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5102 then
-            Prod.vDesc := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVDESC.value * dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
-          
+
+
           if (trim(dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString) <> '') then
           begin
             Prod.cEAN := dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString;
@@ -11611,12 +11624,12 @@ begin
         Total.ICMSTot.vST   := Arredonda(dmCadastros2.NFe_Faturamentos2VALOR_ICM_SUBST.value,2);
       end;
 
+      Total.ICMSTot.vNF   := Arredonda(dmCadastros2.NFe_Faturamentos2TOTAL_NF.value,2);
+
       if dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5102 then
-        Total.ICMSTot.vNF   := Arredonda(dmCadastros2.NFe_Faturamentos2TOTAL_NF.value,2)
+        Total.ICMSTot.vProd := Arredonda(dmCadastros2.NFe_Faturamentos2TOTAL.value,2)
       else
-        Total.ICMSTot.vNF   := Arredonda(dmCadastros2.NFe_Faturamentos2TOTAL.value,2);
-        
-      Total.ICMSTot.vProd := Arredonda(dmCadastros2.NFe_Faturamentos2TOTAL.value,2);
+        Total.ICMSTot.vProd := Arredonda(dmCadastros2.NFe_Faturamentos2TOTAL.value - dmCadastros2.NFe_Faturamentos2DESC_ACRESC.value,2);
 
      // InfAdic.infCpl := dmCadastros2.NFe_Faturamentos2OBSERVACAO.Value;
       InfAdic.infCpl := dmCadastros2.NFe_Faturamentos2MSG_FISCAL.AsString;

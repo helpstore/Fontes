@@ -704,6 +704,7 @@ type
     procedure Vendas_ParcVALORValidate(Sender: TField);
     procedure VendasTIPO_DOCTOValidate(Sender: TField);
     procedure Vendas_ItensDESCONTOValidate(Sender: TField);
+    procedure Vendas_ItensAfterPost(DataSet: TDataSet);
   private
     { Private declarations }
     DesctoRes : Variant;
@@ -1819,7 +1820,7 @@ begin
      end;
 
      //----------------------------------------Verificando o Limite de tempo-------------------------------------------
-     TotalVenda := (DataSource.DataSet.FieldByName('TOTAL').asfloat + DataSource.DataSet.FieldByName('DESC_ACRES').asfloat);
+     TotalVenda := (DataSource.DataSet.FieldByName('TOTAL').asfloat - DataSource.DataSet.FieldByName('DESC_ACRES').asfloat);
      motivo := dmapp.VerificaLimite2(DataSource.DataSet.FieldByName('PESSOA_FJ').asInteger,DataSource.DataSet.FieldByName('FORMA_PGTO').asInteger, TotalVenda,TIBDataSet(DataSource.DataSet).transaction);
      case motivo of
      1:
@@ -2014,16 +2015,19 @@ end;
 
 procedure TFrmVendas.PCChange(Sender: TObject);
 begin
-     IF PC.ActivePageIndex = 0  then
-     begin
-          ActLocalizarCliente.Enabled := TRUE ;
-     END
-     ELSE BEGIN
-          HabilitaFaturamento ( VendasFORMA_PGTO.Value );
-          ActLocalizarCliente.Enabled := TRUE ;
-          EdPorcentagem.Clear ;  
-          Calcular_DescAcresc;
-     END; 
+  if PC.ActivePageIndex = 0  then
+  begin
+    ActLocalizarCliente.Enabled := TRUE ;
+  end else
+  begin
+    if not(PC.ActivePageIndex = 0) then
+    begin
+      HabilitaFaturamento ( VendasFORMA_PGTO.Value );
+      ActLocalizarCliente.Enabled := TRUE ;
+      EdPorcentagem.Clear ;
+    end;
+    Calcular_DescAcresc;
+  end; 
 end;
 
 procedure TFrmVendas.EdNaturezaExit(Sender: TObject);
@@ -4469,7 +4473,12 @@ procedure TFrmVendas.Vendas_ItensDESCONTOValidate(Sender: TField);
 begin
   //O sistema até 12-04-15 permitia desconto no total da nf, mas a nfe valida o desconto por item,
   //por isso foi acrescentado este procedimento para o sistema fazer o cálculo automatico do desconto -- Sanniel
-  Vendas_ItensPRC_UNITARIO.Value := Vendas_ItensPRC_UNITARIO.Value - Vendas_ItensDESCONTO.Value;
+//  Vendas_ItensPRC_UNITARIO.Value := Vendas_ItensPRC_UNITARIO.Value - Vendas_ItensDESCONTO.Value;
+end;
+
+procedure TFrmVendas.Vendas_ItensAfterPost(DataSet: TDataSet);
+begin
+  Calcular_Itens;
 end;
 
 end.
