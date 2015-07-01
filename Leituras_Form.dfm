@@ -242,7 +242,7 @@ object FrmLeituras: TFrmLeituras
         object GroupBox1: TGroupBox
           Left = 8
           Top = 5
-          Width = 337
+          Width = 313
           Height = 74
           Caption = 'Contrato'
           Font.Charset = DEFAULT_CHARSET
@@ -254,70 +254,26 @@ object FrmLeituras: TFrmLeituras
           TabOrder = 0
           object Label1: TcxLabel
             Left = 8
-            Top = 24
+            Top = 23
             Caption = 'Valor (R$)'
             ParentFont = False
           end
           object Label6: TcxLabel
-            Left = 115
-            Top = 24
+            Left = 95
+            Top = 23
             Caption = 'Franquia de C'#243'pias'
             ParentFont = False
           end
           object Label8: TcxLabel
-            Left = 223
-            Top = 24
+            Left = 203
+            Top = 23
             Caption = 'C'#243'pia Excedente (R$)'
             ParentFont = False
-          end
-          object dxDBEdit5: TdxDBEdit
-            Left = 114
-            Top = 38
-            Width = 106
-            Color = clScrollBar
-            Enabled = False
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Style.BorderColor = clBtnShadow
-            Style.BorderStyle = xbsSingle
-            Style.ButtonStyle = btsSimple
-            TabOrder = 0
-            TabStop = False
-            DataField = 'CTR_FRANQUIA'
-            DataSource = DataSource
-            ReadOnly = True
-            StoredValues = 64
-          end
-          object dxDBEdit6: TdxDBEdit
-            Left = 222
-            Top = 38
-            Width = 106
-            Color = clScrollBar
-            Enabled = False
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Style.BorderColor = clBtnShadow
-            Style.BorderStyle = xbsSingle
-            Style.ButtonStyle = btsSimple
-            TabOrder = 1
-            TabStop = False
-            DataField = 'CTR_VALOR_COPIA_EXCEDENTE'
-            DataSource = DataSource
-            ReadOnly = True
-            StoredValues = 64
           end
           object DBEdit1: TDBEdit
             Left = 7
             Top = 38
-            Width = 104
+            Width = 82
             Height = 24
             TabStop = False
             Color = clScrollBar
@@ -329,11 +285,11 @@ object FrmLeituras: TFrmLeituras
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
-            TabOrder = 2
+            TabOrder = 0
           end
           object DBEdit2: TDBEdit
-            Left = 113
-            Top = 39
+            Left = 93
+            Top = 38
             Width = 106
             Height = 24
             TabStop = False
@@ -346,11 +302,11 @@ object FrmLeituras: TFrmLeituras
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
-            TabOrder = 3
+            TabOrder = 1
           end
           object DBEdit3: TDBEdit
-            Left = 223
-            Top = 39
+            Left = 203
+            Top = 38
             Width = 104
             Height = 24
             TabStop = False
@@ -363,13 +319,13 @@ object FrmLeituras: TFrmLeituras
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
-            TabOrder = 4
+            TabOrder = 2
           end
         end
         object GroupBox2: TGroupBox
-          Left = 349
+          Left = 323
           Top = 5
-          Width = 467
+          Width = 550
           Height = 74
           Caption = 'Leitura'
           Font.Charset = DEFAULT_CHARSET
@@ -391,19 +347,19 @@ object FrmLeituras: TFrmLeituras
             ParentFont = False
           end
           object Label5: TcxLabel
-            Left = 372
+            Left = 454
             Top = 24
             Caption = 'Valor Total (R$)'
             ParentFont = False
           end
           object Label7: TcxLabel
-            Left = 190
+            Left = 189
             Top = 24
             Caption = 'D/Ac. Copias'
             ParentFont = False
           end
           object Label13: TcxLabel
-            Left = 281
+            Left = 279
             Top = 24
             Caption = 'Vlr. Total Exc.'
             ParentFont = False
@@ -458,12 +414,10 @@ object FrmLeituras: TFrmLeituras
             ReadOnly = True
             StoredValues = 64
           end
-          object dxDBEdit7: TdxDBEdit
-            Left = 371
+          object dxDBEdit3: TdxDBEdit
+            Left = 188
             Top = 38
             Width = 90
-            Color = clScrollBar
-            Enabled = False
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -474,26 +428,6 @@ object FrmLeituras: TFrmLeituras
             Style.BorderStyle = xbsSingle
             Style.ButtonStyle = btsSimple
             TabOrder = 2
-            TabStop = False
-            DataField = 'VALOR_LEITURA'
-            DataSource = DataSource
-            ReadOnly = True
-            StoredValues = 64
-          end
-          object dxDBEdit3: TdxDBEdit
-            Left = 189
-            Top = 38
-            Width = 90
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            Style.BorderColor = clBtnShadow
-            Style.BorderStyle = xbsSingle
-            Style.ButtonStyle = btsSimple
-            TabOrder = 3
             TabStop = False
             DataField = 'DESC_ACRESC_CP'
             DataSource = DataSource
@@ -515,7 +449,7 @@ object FrmLeituras: TFrmLeituras
             Style.BorderColor = clBtnShadow
             Style.BorderStyle = xbsSingle
             Style.ButtonStyle = btsSimple
-            TabOrder = 4
+            TabOrder = 3
             TabStop = False
             DataField = 'VALOR_TOTAL_COPIAS_EXCENTE'
             DataSource = DataSource
@@ -537,7 +471,7 @@ object FrmLeituras: TFrmLeituras
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
-            TabOrder = 5
+            TabOrder = 4
           end
           object DBEdit5: TDBEdit
             Left = 98
@@ -554,10 +488,10 @@ object FrmLeituras: TFrmLeituras
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
-            TabOrder = 6
+            TabOrder = 5
           end
           object DBEdit6: TDBEdit
-            Left = 281
+            Left = 279
             Top = 39
             Width = 90
             Height = 24
@@ -571,10 +505,10 @@ object FrmLeituras: TFrmLeituras
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
-            TabOrder = 7
+            TabOrder = 6
           end
           object DBEdit7: TDBEdit
-            Left = 371
+            Left = 453
             Top = 39
             Width = 89
             Height = 24
@@ -588,13 +522,35 @@ object FrmLeituras: TFrmLeituras
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             ParentFont = False
-            TabOrder = 8
+            TabOrder = 7
+          end
+          object cxLabel1: TcxLabel
+            Left = 371
+            Top = 24
+            Caption = 'D/Ac. Total'
+            ParentFont = False
+          end
+          object DBEdit8: TDBEdit
+            Left = 370
+            Top = 39
+            Width = 82
+            Height = 24
+            TabStop = False
+            DataField = 'DESC_ACRESC_TOTAL'
+            DataSource = DataSource
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 15
           end
         end
         object GroupBox3: TGroupBox
-          Left = 818
+          Left = 875
           Top = 5
-          Width = 179
+          Width = 117
           Height = 74
           Caption = 'Status'
           Font.Charset = DEFAULT_CHARSET
@@ -605,7 +561,7 @@ object FrmLeituras: TFrmLeituras
           ParentFont = False
           TabOrder = 2
           object dxDBCheckEdit20: TdxDBCheckEdit
-            Left = 85
+            Left = 21
             Top = 42
             Width = 81
             Enabled = False
@@ -629,7 +585,7 @@ object FrmLeituras: TFrmLeituras
             StoredValues = 1
           end
           object dxDBCheckEdit1: TdxDBCheckEdit
-            Left = 85
+            Left = 21
             Top = 19
             Width = 67
             Enabled = False
