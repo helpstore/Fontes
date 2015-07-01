@@ -78,15 +78,12 @@ type
     Label1: TcxLabel;
     Label6: TcxLabel;
     Label8: TcxLabel;
-    dxDBEdit5: TdxDBEdit;
-    dxDBEdit6: TdxDBEdit;
     GroupBox2: TGroupBox;
     Label3: TcxLabel;
     Label4: TcxLabel;
     Label5: TcxLabel;
     dxDBEdit2: TdxDBEdit;
     dxDBEdit4: TdxDBEdit;
-    dxDBEdit7: TdxDBEdit;
     GroupBox3: TGroupBox;
     dxDBCheckEdit20: TdxDBCheckEdit;
     dxDBCheckEdit1: TdxDBCheckEdit;
@@ -220,6 +217,8 @@ type
     dsApp: TDataSource;
     ppAppRepresentante: TppDBPipeline;
     ppDBText12: TppDBText;
+    cxLabel1: TcxLabel;
+    DBEdit8: TDBEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);

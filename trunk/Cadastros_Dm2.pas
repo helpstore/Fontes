@@ -985,6 +985,7 @@ type
     ContratoGERA_MENSALIDADE: TIBStringField;
     ContratoRESPOSTA: TIBStringField;
     NFe_Faturamentos_ItensVDESC: TIBBCDField;
+    LeituraDESC_ACRESC_TOTAL: TFloatField;
     procedure ProdutosClientesAfterInsert(DataSet: TDataSet);
     procedure ProdutosClientesBeforeOpen(DataSet: TDataSet);
     procedure ProdutosClientesNewRecord(DataSet: TDataSet);
@@ -1030,6 +1031,7 @@ type
     procedure GrpContratoItensNewRecord(DataSet: TDataSet);
     procedure LeituraDESC_ACRESC_CPValidate(Sender: TField);
     procedure LeituraItensLEITURA_ATUALChange(Sender: TField);
+    procedure LeituraDESC_ACRESC_TOTALValidate(Sender: TField);
   private
     { Private declarations }
   public
@@ -1550,7 +1552,7 @@ end;
 procedure TdmCadastros2.LeituraDESC_ACRESC_CPValidate(Sender: TField);
 begin
    LeituraVALOR_TOTAL_COPIAS_EXCENTE.value := ((LeituraCOPIAS_EXCESSO.Value + LeituraDESC_ACRESC_CP.Value) * LeituraCTR_VALOR_COPIA_EXCEDENTE.value);
-   LeituraVALOR_LEITURA.Value := LeituraCTR_VALOR.AsFloat + LeituraVALOR_TOTAL_COPIAS_EXCENTE.AsFloat;
+   LeituraVALOR_LEITURA.Value := LeituraCTR_VALOR.AsFloat + LeituraVALOR_TOTAL_COPIAS_EXCENTE.AsFloat + LeituraDESC_ACRESC_TOTAL.Value;
 end;
 
 procedure TdmCadastros2.LeituraItensLEITURA_ATUALChange(Sender: TField);
@@ -1559,6 +1561,11 @@ begin
     LeituraItenssaldo_leitura.value := (LeituraItensleitura_atual.value - LeituraItensultima_leitura.value)
   else
     LeituraItenssaldo_leitura.value := LeituraItensleitura_atual.value;
+end;
+
+procedure TdmCadastros2.LeituraDESC_ACRESC_TOTALValidate(Sender: TField);
+begin
+  LeituraVALOR_LEITURA.Value := LeituraCTR_VALOR.AsFloat + LeituraVALOR_TOTAL_COPIAS_EXCENTE.AsFloat + LeituraDESC_ACRESC_TOTAL.Value;
 end;
 
 end.
