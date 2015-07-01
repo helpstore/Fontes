@@ -25,7 +25,7 @@ uses
   cxFilter, cxData, cxDataStorage, cxDBData, cxGridCustomTableView,
   cxGridTableView, cxGridBandedTableView, cxGridDBBandedTableView,
   cxGridLevel, cxGridCustomView, cxGrid, cxGridCustomPopupMenu,
-  cxGridPopupMenu, cxCheckBox;
+  cxGridPopupMenu, cxCheckBox, cxButtonEdit;
 
 type
   TFrmVendas = class(TForm)
@@ -178,7 +178,7 @@ type
     Label50: TcxLabel;
     Label55: TcxLabel;
     Label37: TcxLabel;
-    EdTransportadora: TdxDBLookupEdit;
+    aTfrmCadTransportadoras: TdxDBLookupEdit;
     dxDBEdit7: TdxDBEdit;
     dxDBCalcEdit2: TdxDBCalcEdit;
     dxDBCalcEdit3: TdxDBCalcEdit;
@@ -575,6 +575,7 @@ type
     qryContratosCODIGO: TIntegerField;
     qryContratosDESCRICAO: TIBStringField;
     dsContrato: TDataSource;
+    btnTransportadora: TcxButtonEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);
@@ -646,7 +647,7 @@ type
     procedure mmObservacaoExit(Sender: TObject);
     procedure mmObservacaoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure EdTransportadoraChange(Sender: TObject);
+    procedure aTfrmCadTransportadorasChange(Sender: TObject);
     procedure edFreteContaKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure GRIDFATURAMENTO_Exit(Sender: TObject);
@@ -705,6 +706,8 @@ type
     procedure VendasTIPO_DOCTOValidate(Sender: TField);
     procedure Vendas_ItensDESCONTOValidate(Sender: TField);
     procedure Vendas_ItensAfterPost(DataSet: TDataSet);
+    procedure btnTransportadoraClick(Sender: TObject);
+    procedure btnTransportadoraPropertiesChange(Sender: TObject);
   private
     { Private declarations }
     DesctoRes : Variant;
@@ -759,7 +762,7 @@ uses Vendas_DM,
   DefineComissaoItem_Form, Cadastros_Dm2, ACBrNFeWebServices,
   ACBrNFeNotasFiscais, Localizar_Lote, VendasPdv_Form,
   Entra_Dados_Consumidor_Form, ConsultaCobrancas_Form,
-  MensagemClassificacao_Form, EntraSenha_Form;
+  MensagemClassificacao_Form, EntraSenha_Form, UntCadTransportadoras;
   {$R *.DFM}
 
 procedure TFrmVendas.Calcular_Itens;
@@ -1441,16 +1444,23 @@ end;
 
 procedure TFrmVendas.actLookupExecute(Sender: TObject);
 begin
-  If (FrmVendas.ActiveControl = EdPessoa) Then
-     BtnPessoa.OnClick(BtnPessoa);
-  If (FrmVendas.ActiveControl = cmbNatureza) or (FrmVendas.ActiveControl = Ednatureza) Then
-     btnNatureza.OnClick(btnNatureza);
-  If (FrmVendas.ActiveControl = cmbVendedor) or (FrmVendas.ActiveControl = EdVendedor)Then
-     btnVendedor.OnClick(btnVendedor);
-  If (FrmVendas.ActiveControl = EdForma)Then
-     BtnForma.OnClick(BtnForma);
-  If (FrmVendas.ActiveControl = CmbTerceiro) or (FrmVendas.ActiveControl = EdTerceiro) Then
-     BtnTerceiro.OnClick(BtnForma);
+  if aTfrmCadTransportadoras.Focused then
+    btnTransportadora.OnClick(Self)
+  else
+    If (FrmVendas.ActiveControl = EdPessoa) Then
+      BtnPessoa.OnClick(BtnPessoa)
+    else
+      If (FrmVendas.ActiveControl = cmbNatureza) or (FrmVendas.ActiveControl = Ednatureza) Then
+         btnNatureza.OnClick(btnNatureza)
+      else
+        If (FrmVendas.ActiveControl = cmbVendedor) or (FrmVendas.ActiveControl = EdVendedor)Then
+           btnVendedor.OnClick(btnVendedor)
+        else
+          If (FrmVendas.ActiveControl = EdForma)Then
+             BtnForma.OnClick(BtnForma)
+          else
+            If (FrmVendas.ActiveControl = CmbTerceiro) or (FrmVendas.ActiveControl = EdTerceiro) Then
+               BtnTerceiro.OnClick(BtnForma);
 end;
 
 procedure TFrmVendas.btnFiltrarClick(Sender: TObject);
@@ -2604,9 +2614,9 @@ end;
 
 
 
-procedure TFrmVendas.EdTransportadoraChange(Sender: TObject);
+procedure TFrmVendas.aTfrmCadTransportadorasChange(Sender: TObject);
 begin
-  if trim(EdTransportadora.text) <> '' then
+  if trim(aTfrmCadTransportadoras.text) <> '' then
   begin
     if Vendas.state in [dsEdit] then
     begin
@@ -4479,6 +4489,29 @@ end;
 procedure TFrmVendas.Vendas_ItensAfterPost(DataSet: TDataSet);
 begin
   Calcular_Itens;
+end;
+
+procedure TFrmVendas.btnTransportadoraClick(Sender: TObject);
+begin
+  frmCadTransportadoras := TfrmCadTransportadoras.Create(Self);
+  frmCadTransportadoras.ShowMODAL ;
+
+  DmVendas.SelTransportadora.Close;
+  DmVendas.SelTransportadora.Open;
+
+  VendasTRANSPORTADORA.Value := frmCadTransportadoras.Codigo;
+
+  frmCadTransportadoras.Free;
+  frmCadTransportadoras := nil;
+end;
+
+procedure TFrmVendas.btnTransportadoraPropertiesChange(Sender: TObject);
+begin
+  FrmCadTransportadoras := TFrmCadTransportadoras.Create(Self);
+  FrmCadTransportadoras.ShowModal;
+  VendasTRANSPORTADORA.value := FrmCadTransportadoras.Codigo;
+  FrmCadTransportadoras.Free;
+  FrmCadTransportadoras := nil;
 end;
 
 end.

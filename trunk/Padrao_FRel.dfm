@@ -1,6 +1,6 @@
 object FRelPadrao: TFRelPadrao
-  Left = 360
-  Top = 161
+  Left = 384
+  Top = 156
   BorderStyle = bsDialog
   Caption = 'Relat'#243'rio Padr'#227'o'
   ClientHeight = 330

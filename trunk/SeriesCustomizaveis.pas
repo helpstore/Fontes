@@ -715,8 +715,7 @@ var
 implementation
 
 uses SerieCustomizaveis_DM, Application_DM, Main, Usuarios_DM, Series_Form, Funcoes,
-  OrdemCarga_DM, Pdv_DM, Relatorios_DM2, Ordens_Servicos_Form,
-  SelReceiturario_Form;
+  OrdemCarga_DM, Pdv_DM, Relatorios_DM2;
 
 {$R *.DFM}
 

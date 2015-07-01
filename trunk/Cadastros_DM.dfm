@@ -11996,7 +11996,7 @@ object DMCadastros: TDMCadastros
       'select * from pcd_lista_produto(:empresa, :produto)'
       'ORDER BY NOME')
     SelectSQL.Strings = (
-      'select *  from pcd_lista_produto(:empresa, :produto)'
+      'select * from pcd_lista_produto(:empresa, :produto)'
       'ORDER BY NOME')
     ModifySQL.Strings = (
       'update EST_PRODUTOS'
@@ -12671,6 +12671,13 @@ object DMCadastros: TDMCadastros
     object ProdutosCOD_TECNICO: TIntegerField
       FieldName = 'COD_TECNICO'
       Origin = '"PCD_LISTA_PRODUTO"."COD_TECNICO"'
+    end
+    object ProdutosEST_DISPONIVEL: TIBBCDField
+      FieldName = 'EST_DISPONIVEL'
+      Origin = '"PCD_LISTA_PRODUTO"."EST_DISPONIVEL"'
+      DisplayFormat = '###,##0.000'
+      Precision = 18
+      Size = 4
     end
   end
   object SerieLeiute: TIBDataSet

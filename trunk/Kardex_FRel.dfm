@@ -54,7 +54,7 @@ object FRelKardex: TFRelKardex
       OnKeyDown = cmbPessoaKeyDown
       DropDownRows = 10
       DropDownWidth = 450
-      ListFieldName = 'NOME; CODIGO'
+      ListFieldName = 'CODIGO; NOME'
       KeyFieldName = 'CODIGO'
       ListSource = dsProdutos
       LookupKeyValue = Null

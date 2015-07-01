@@ -1,6 +1,6 @@
 object FrmSeriesCustomizaveis: TFrmSeriesCustomizaveis
   Left = 344
-  Top = 121
+  Top = 126
   Width = 696
   Height = 480
   BorderIcons = [biSystemMenu]

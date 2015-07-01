@@ -1,7 +1,7 @@
 object DmSerie_Customizaveis: TDmSerie_Customizaveis
   OldCreateOrder = False
   Left = 229
-  Top = 171
+  Top = 178
   Height = 479
   Width = 741
   object edtLayoutCartaSCPC: TIBDataSet
@@ -227,6 +227,7 @@ object DmSerie_Customizaveis: TDmSerie_Customizaveis
       '  CONFIG_AGR_RECEITA = :CONFIG_AGR_RECEITA'
       'where'
       '  CNPJ = :OLD_CNPJ')
+    Active = True
     Left = 150
     Top = 120
     object edtLayoutReceitaCNPJ: TIBStringField

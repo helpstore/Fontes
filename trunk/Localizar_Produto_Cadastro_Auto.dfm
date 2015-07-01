@@ -1284,6 +1284,7 @@ object FrmLocProdutoCadastro_Auto: TFrmLocProdutoCadastro_Auto
           'Width')
       end>
     StorageName = 'stgLocalizarProduto'
+    StorageType = stRegistry
     Left = 224
     Top = 168
   end

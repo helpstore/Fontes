@@ -1638,6 +1638,7 @@ type
     ClientesCATEGORIA: TIntegerField;
     ClientesSINCRONIZA_FILIAIS: TIBStringField;
     ProdutosCOD_TECNICO: TIntegerField;
+    ProdutosEST_DISPONIVEL: TIBBCDField;
     procedure Pessoas_FJAfterInsert(DataSet: TDataSet);
     procedure Pessoas_FJPESSOAGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);

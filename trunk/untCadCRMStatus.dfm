@@ -1,7 +1,7 @@
-inherited frmCadTipoContrato: TfrmCadTipoContrato
-  Left = 230
-  Top = 243
-  Caption = 'Tipos de Contrato'
+inherited frmCadCRMStatus: TfrmCadCRMStatus
+  Left = 238
+  Top = 130
+  Caption = 'Status CRM'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
@@ -12,7 +12,7 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
         inherited GridDBBandedTableView2: TcxGridDBBandedTableView
           object GridDBBandedTableView2CNPJ: TcxGridDBBandedColumn
             DataBinding.FieldName = 'CNPJ'
-            Visible = False
+            Width = 73
             Position.BandIndex = 0
             Position.ColIndex = 0
             Position.RowIndex = 0
@@ -29,14 +29,24 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
             Position.ColIndex = 2
             Position.RowIndex = 0
           end
-          object GridDBBandedTableView2UPD_LEITURA: TcxGridDBBandedColumn
-            DataBinding.FieldName = 'UPD_LEITURA'
-            PropertiesClassName = 'TcxCheckBoxProperties'
-            Properties.ValueChecked = 'S'
-            Properties.ValueUnchecked = 'N'
-            Width = 89
+          object GridDBBandedTableView2COR: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'COR'
             Position.BandIndex = 0
             Position.ColIndex = 3
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2FECHADO: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'FECHADO'
+            Width = 47
+            Position.BandIndex = 0
+            Position.ColIndex = 4
+            Position.RowIndex = 0
+          end
+          object GridDBBandedTableView2PADRAO_ABERTURA: TcxGridDBBandedColumn
+            DataBinding.FieldName = 'PADRAO_ABERTURA'
+            Width = 53
+            Position.BandIndex = 0
+            Position.ColIndex = 5
             Position.RowIndex = 0
           end
         end
@@ -46,67 +56,116 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
       inherited Panel2: TPanel
         inherited edtNome: TcxDBTextEdit
           DataBinding.DataField = 'NOME'
+          Width = 319
         end
         inherited edtCodigo: TcxDBTextEdit
           DataBinding.DataField = 'CODIGO'
         end
-        object cxDBCheckBox1: TcxDBCheckBox
-          Left = 575
-          Top = 36
-          Caption = 'Upd. VMC Leitura de C'#243'pias'
-          DataBinding.DataField = 'UPD_LEITURA'
+        object cxDBColorComboBox1: TcxDBColorComboBox
+          Left = 399
+          Top = 32
+          DataBinding.DataField = 'COR'
           DataBinding.DataSource = dsRegistro
-          Properties.ValueChecked = 'S'
-          Properties.ValueUnchecked = 'N'
-          Style.TransparentBorder = True
+          Properties.CustomColors = <>
           TabOrder = 4
+          Width = 138
+        end
+        object cxLabel3: TcxLabel
+          Left = 399
+          Top = 15
+          Caption = 'Cor'
           Transparent = True
-          Width = 162
+        end
+        object cxGroupBox2: TcxGroupBox
+          Left = 8
+          Top = 56
+          Caption = 'Tipo de Status - Padr'#227'o'
+          TabOrder = 6
+          Height = 62
+          Width = 201
+          object cxDBCheckBox5: TcxDBCheckBox
+            Left = 101
+            Top = 25
+            Hint = 
+              'Define se o registro '#233' o Status padr'#227'o a ser sugerido na abertur' +
+              'a da OS'
+            Caption = 'Abertura'
+            DataBinding.DataField = 'PADRAO_ABERTURA'
+            DataBinding.DataSource = dsRegistro
+            ParentShowHint = False
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            ShowHint = True
+            TabOrder = 0
+            Width = 76
+          end
+          object cxLabel4: TcxLabel
+            Left = 7
+            Top = 47
+            Properties.WordWrap = True
+            Transparent = True
+            Width = 7
+          end
+          object cxDBCheckBox1: TcxDBCheckBox
+            Left = 5
+            Top = 25
+            Hint = 
+              'Se selecionado, atribui a OS, data e hora de fechamento automati' +
+              'camente e a considera fechada.'
+            Caption = 'Fechamento'
+            DataBinding.DataField = 'FECHADO'
+            DataBinding.DataSource = dsRegistro
+            ParentShowHint = False
+            Properties.ValueChecked = 'S'
+            Properties.ValueUnchecked = 'N'
+            ShowHint = True
+            TabOrder = 2
+            Width = 84
+          end
         end
       end
     end
   end
   inherited dtEdit: TIBDataSet
     DeleteSQL.Strings = (
-      'delete from GLO_TIPO_CONTRATO'
+      'delete from crm_status'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
     InsertSQL.Strings = (
-      'insert into GLO_TIPO_CONTRATO'
-      '  (CNPJ, CODIGO, NOME, UPD_LEITURA)'
+      'insert into crm_status'
+      '  (CNPJ, CODIGO, COR, FECHADO, NOME, PADRAO_ABERTURA)'
       'values'
-      '  (:CNPJ, :CODIGO, :NOME, :UPD_LEITURA)')
+      '  (:CNPJ, :CODIGO, :COR, :FECHADO, :NOME, :PADRAO_ABERTURA)')
     RefreshSQL.Strings = (
-      'Select '
-      '  CNPJ,'
-      '  CODIGO,'
-      '  NOME,'
-      '  UPD_LEITURA'
-      'from GLO_TIPO_CONTRATO '
+      'Select * '
+      'from crm_status '
       'where'
       '  CNPJ = :CNPJ and'
       '  CODIGO = :CODIGO')
     SelectSQL.Strings = (
-      'SELECT * '
-      'FROM GLO_TIPO_CONTRATO'
-      'WHERE codigo =:codigo')
+      'select * from crm_status s'
+      'where s.cnpj = :cnpj and s.codigo = :codigo')
     ModifySQL.Strings = (
-      'update GLO_TIPO_CONTRATO'
+      'update crm_status'
       'set'
       '  CNPJ = :CNPJ,'
       '  CODIGO = :CODIGO,'
+      '  COR = :COR,'
+      '  FECHADO = :FECHADO,'
       '  NOME = :NOME,'
-      '  UPD_LEITURA = :UPD_LEITURA'
+      '  PADRAO_ABERTURA = :PADRAO_ABERTURA'
       'where'
       '  CNPJ = :OLD_CNPJ and'
       '  CODIGO = :OLD_CODIGO')
     GeneratorField.Field = 'CODIGO'
-    GeneratorField.Generator = 'GLO_CONTRATOS_GE'
+    GeneratorField.Generator = 'GEN_CRM_STATUS_ID'
     GeneratorField.ApplyEvent = gamOnPost
+    Left = 160
+    Top = 12
     object dtEditCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"GLO_TIPO_CONTRATO"."CNPJ"'
+      Origin = '"CRM_STATUS"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
@@ -114,39 +173,46 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
     end
     object dtEditCODIGO: TIntegerField
       FieldName = 'CODIGO'
-      Origin = '"GLO_TIPO_CONTRATO"."CODIGO"'
+      Origin = '"CRM_STATUS"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtEditNOME: TIBStringField
       FieldName = 'NOME'
-      Origin = '"GLO_TIPO_CONTRATO"."NOME"'
+      Origin = '"CRM_STATUS"."NOME"'
       Size = 50
     end
-    object dtEditUPD_LEITURA: TIBStringField
-      FieldName = 'UPD_LEITURA'
-      Origin = '"GLO_TIPO_CONTRATO"."UPD_LEITURA"'
+    object dtEditCOR: TIntegerField
+      FieldName = 'COR'
+      Origin = '"CRM_STATUS"."COR"'
+    end
+    object dtEditFECHADO: TIBStringField
+      FieldName = 'FECHADO'
+      Origin = '"CRM_STATUS"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtEditPADRAO_ABERTURA: TIBStringField
+      FieldName = 'PADRAO_ABERTURA'
+      Origin = '"CRM_STATUS"."PADRAO_ABERTURA"'
       FixedChar = True
       Size = 1
     end
   end
   inherited dtList: TIBQuery
     SQL.Strings = (
-      'SELECT * '
-      'FROM GLO_TIPO_CONTRATO'
-      'WHERE CNPJ = :CNPJ'
-      'ORDER BY NOME')
-    Left = 89
-    Top = 4
+      'select * from crm_status s'
+      'where s.cnpj = :cnpj')
+    Left = 113
     ParamData = <
       item
         DataType = ftUnknown
-        Name = 'CNPJ'
+        Name = 'cnpj'
         ParamType = ptUnknown
       end>
     object dtListCNPJ: TIBStringField
       FieldName = 'CNPJ'
-      Origin = '"GLO_TIPO_CONTRATO"."CNPJ"'
+      Origin = '"CRM_STATUS"."CNPJ"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       FixedChar = True
@@ -155,20 +221,32 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
     object dtListCODIGO: TIntegerField
       DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
-      Origin = '"GLO_TIPO_CONTRATO"."CODIGO"'
+      Origin = '"CRM_STATUS"."CODIGO"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object dtListNOME: TIBStringField
       DisplayLabel = 'Nome'
       FieldName = 'NOME'
-      Origin = '"GLO_TIPO_CONTRATO"."NOME"'
+      Origin = '"CRM_STATUS"."NOME"'
       Size = 50
     end
-    object dtListUPD_LEITURA: TIBStringField
-      DisplayLabel = 'Upd. VMC Leitura'
-      FieldName = 'UPD_LEITURA'
-      Origin = '"GLO_TIPO_CONTRATO"."UPD_LEITURA"'
+    object dtListCOR: TIntegerField
+      DisplayLabel = 'Cor'
+      FieldName = 'COR'
+      Origin = '"CRM_STATUS"."COR"'
+    end
+    object dtListFECHADO: TIBStringField
+      DisplayLabel = 'Fechado'
+      FieldName = 'FECHADO'
+      Origin = '"CRM_STATUS"."FECHADO"'
+      FixedChar = True
+      Size = 1
+    end
+    object dtListPADRAO_ABERTURA: TIBStringField
+      DisplayLabel = 'Abertura'
+      FieldName = 'PADRAO_ABERTURA'
+      Origin = '"CRM_STATUS"."PADRAO_ABERTURA"'
       FixedChar = True
       Size = 1
     end
@@ -191,47 +269,6 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
   end
   inherited cxPropertiesStore: TcxPropertiesStore
     Components = <
-      item
-        Component = Grid
-        Properties.Strings = (
-          'Align'
-          'Anchors'
-          'BevelEdges'
-          'BevelInner'
-          'BevelKind'
-          'BevelOuter'
-          'BevelWidth'
-          'BorderStyle'
-          'BorderWidth'
-          'Constraints'
-          'Cursor'
-          'DragCursor'
-          'DragKind'
-          'DragMode'
-          'DragOpening'
-          'DragOpeningWaitTime'
-          'Enabled'
-          'Font'
-          'Height'
-          'HelpContext'
-          'HelpKeyword'
-          'HelpType'
-          'Hint'
-          'Left'
-          'LevelTabs'
-          'LookAndFeel'
-          'Name'
-          'ParentFont'
-          'PopupMenu'
-          'RootLevelOptions'
-          'RootLevelStyles'
-          'TabOrder'
-          'TabStop'
-          'Tag'
-          'Top'
-          'Visible'
-          'Width')
-      end
       item
         Component = GridDBBandedTableView1
         Properties.Strings = (
@@ -359,6 +396,76 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
           'Width')
       end
       item
+        Component = GridDBBandedTableView2COR
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
+        Component = GridDBBandedTableView2FECHADO
+        Properties.Strings = (
+          'AlternateCaption'
+          'BestFitMaxWidth'
+          'Caption'
+          'DataBinding'
+          'DateTimeGrouping'
+          'FakeComponentLink1'
+          'FakeComponentLink2'
+          'FakeComponentLink3'
+          'FooterAlignmentHorz'
+          'GroupIndex'
+          'GroupSummaryAlignment'
+          'HeaderAlignmentHorz'
+          'HeaderAlignmentVert'
+          'HeaderGlyph'
+          'HeaderGlyphAlignmentHorz'
+          'HeaderGlyphAlignmentVert'
+          'MinWidth'
+          'Name'
+          'Options'
+          'Position'
+          'Properties'
+          'PropertiesClassName'
+          'RepositoryItem'
+          'SortIndex'
+          'SortOrder'
+          'Styles'
+          'Summary'
+          'Tag'
+          'Visible'
+          'VisibleForCustomization'
+          'Width')
+      end
+      item
         Component = GridDBBandedTableView2NOME
         Properties.Strings = (
           'AlternateCaption'
@@ -394,7 +501,7 @@ inherited frmCadTipoContrato: TfrmCadTipoContrato
           'Width')
       end
       item
-        Component = GridDBBandedTableView2UPD_LEITURA
+        Component = GridDBBandedTableView2PADRAO_ABERTURA
         Properties.Strings = (
           'AlternateCaption'
           'BestFitMaxWidth'

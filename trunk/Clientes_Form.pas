@@ -580,7 +580,7 @@ uses Cadastros_DM,
      Propriedades_Form,
      PrecosEspeciaisPessoas_Form, Entra_Dados_Autorizado_Form,
   Localizar_Propriedade_Ie, Filtra_Clientes_Form, Financeiro_Dm,
-  Regioes_Form, Cadastros_Dm2, Servicos_DM, Contatos_Form, Caixa_Dm,
+  Cadastros_Dm2, Servicos_DM, Contatos_Form, Caixa_Dm,
   SelOrdens_Form, TipoEndereco_Form, Activex, ClientesCategoria_Form;
 
 const
@@ -2256,7 +2256,7 @@ end;
 
 procedure TFrmClientes.btnRegiaoClick(Sender: TObject);
 begin
-  if dsEndereco.DataSet.State in [dsbrowse] then
+ { if dsEndereco.DataSet.State in [dsbrowse] then
       if dsEndereco.DataSet.RecordCount > 0 then
          dsEndereco.DataSet.Edit
       else
@@ -2277,7 +2277,7 @@ begin
 
   DMCadastros.Tag := DMCadastros.Tag - 1;
 
-  CmbRegiao.SetFocus;
+  CmbRegiao.SetFocus; }
 end;
 
 procedure TFrmClientes.SetLblPessoa;
@@ -2480,7 +2480,7 @@ end;
 
 procedure TFrmClientes.SpeedButton4Click(Sender: TObject);
 begin
-   If ActAlterar.Tag = 0 Then
+  { If ActAlterar.Tag = 0 Then
      Exit;
 
   If dsPessoasFJ.DataSet.State = dsBrowse Then
@@ -2489,7 +2489,7 @@ begin
   FrmRegioes := TFrmRegioes.Create(Self);
   FrmRegioes.ShowModal;
   DsPessoas.DataSet.FieldByName('REGIAO').asInteger := FrmMain.Codigo_Int;
-  cbRegiao1.SetFocus;
+  cbRegiao1.SetFocus;  }
 
 
 end;

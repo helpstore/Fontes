@@ -797,7 +797,7 @@ implementation
 
 uses Empresas_DM, Application_DM, Main, Usuarios_DM, Funcoes, Cadastros_DM,
   Produtos_Form, Logradouros_Form, Bairros_Form, Cidades_Form,
-  FormasPagto_Form, Ordens_Servicos_Form, NaturezaOper_Form,
+  FormasPagto_Form, NaturezaOper_Form,
   Centro_Custo_Form;
 
 const

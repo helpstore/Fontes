@@ -1,6 +1,6 @@
 object FrmPropriedades: TFrmPropriedades
   Left = 278
-  Top = 186
+  Top = 194
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Propriedades'
@@ -781,8 +781,8 @@ object FrmPropriedades: TFrmPropriedades
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

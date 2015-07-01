@@ -1,6 +1,6 @@
 object FrmEmpresas: TFrmEmpresas
   Left = 400
-  Top = 136
+  Top = 142
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Empresas '
@@ -9252,8 +9252,8 @@ object FrmEmpresas: TFrmEmpresas
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

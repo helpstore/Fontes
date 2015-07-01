@@ -1,6 +1,6 @@
 object frmCadPadrao: TfrmCadPadrao
   Left = 197
-  Top = 113
+  Top = 118
   Width = 791
   Height = 448
   Caption = 'frmCadPadrao'
@@ -13,6 +13,7 @@ object frmCadPadrao: TfrmCadPadrao
   KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown

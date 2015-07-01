@@ -1,6 +1,6 @@
 object FrmContratos: TFrmContratos
-  Left = 285
-  Top = 123
+  Left = 298
+  Top = 127
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Contrato de Atendimento'

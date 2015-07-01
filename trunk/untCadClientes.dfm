@@ -536,7 +536,6 @@ inherited frmCadClientes: TfrmCadClientes
           inherited PgcDetalhe: TcxPageControl
             Width = 1260
             Height = 229
-            ActivePage = tbsDetalhe1
             Images = cxImageList1
             ClientRectBottom = 225
             ClientRectRight = 1256
@@ -2185,7 +2184,7 @@ inherited frmCadClientes: TfrmCadClientes
                 Top = 89
                 Width = 1252
                 Height = 267
-                ActivePage = dxTabSheet8
+                ActivePage = dxTabSheet10
                 Align = alClient
                 HotTrack = True
                 TabOrder = 3

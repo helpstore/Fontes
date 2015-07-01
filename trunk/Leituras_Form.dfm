@@ -606,7 +606,7 @@ object FrmLeituras: TFrmLeituras
           TabOrder = 2
           object dxDBCheckEdit20: TdxDBCheckEdit
             Left = 85
-            Top = 32
+            Top = 42
             Width = 81
             Enabled = False
             Font.Charset = DEFAULT_CHARSET
@@ -629,8 +629,8 @@ object FrmLeituras: TFrmLeituras
             StoredValues = 1
           end
           object dxDBCheckEdit1: TdxDBCheckEdit
-            Left = 10
-            Top = 32
+            Left = 85
+            Top = 19
             Width = 67
             Enabled = False
             Font.Charset = DEFAULT_CHARSET

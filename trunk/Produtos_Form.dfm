@@ -1,11 +1,11 @@
 object FrmProdutos: TFrmProdutos
   Left = 23
-  Top = 91
-  BorderIcons = [biSystemMenu]
+  Top = 99
+  BorderIcons = [biSystemMenu, biMaximize]
   BorderStyle = bsSingle
   Caption = ' Produtos '
-  ClientHeight = 492
-  ClientWidth = 621
+  ClientHeight = 600
+  ClientWidth = 800
   Color = 15396334
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,8 +22,8 @@ object FrmProdutos: TFrmProdutos
   object pnlClient: TPanel
     Left = 0
     Top = 0
-    Width = 621
-    Height = 492
+    Width = 800
+    Height = 600
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -38,8 +38,8 @@ object FrmProdutos: TFrmProdutos
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 458
-      Width = 617
+      Top = 566
+      Width = 796
       Height = 2
       Align = alBottom
       Shape = bsTopLine
@@ -60,8 +60,8 @@ object FrmProdutos: TFrmProdutos
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 460
-      Width = 617
+      Top = 568
+      Width = 796
       Height = 30
       Align = alBottom
       BevelOuter = bvNone
@@ -69,7 +69,7 @@ object FrmProdutos: TFrmProdutos
       object dxBarDockControl1: TdxBarDockControl
         Left = 0
         Top = 2
-        Width = 617
+        Width = 796
         Height = 26
         Align = dalTop
         BarManager = BarManager
@@ -77,7 +77,7 @@ object FrmProdutos: TFrmProdutos
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 617
+        Width = 796
         Height = 2
         Align = alTop
         BevelOuter = bvNone
@@ -85,17 +85,18 @@ object FrmProdutos: TFrmProdutos
       end
     end
     object pc: TcxPageControl
-      Left = 8
-      Top = 43
-      Width = 605
-      Height = 446
+      Left = 2
+      Top = 2
+      Width = 796
+      Height = 564
       Cursor = crHandPoint
-      ActivePage = dxTabSheet2
+      ActivePage = Pg1
+      Align = alClient
       HotTrack = True
       TabOrder = 1
-      ClientRectBottom = 442
+      ClientRectBottom = 560
       ClientRectLeft = 4
-      ClientRectRight = 601
+      ClientRectRight = 792
       ClientRectTop = 27
       object Pg1: TcxTabSheet
         Caption = '  Cadastro  '
@@ -103,8 +104,8 @@ object FrmProdutos: TFrmProdutos
         object Shape6: TShape
           Left = 0
           Top = 367
-          Width = 460
-          Height = 44
+          Width = 473
+          Height = 66
           Brush.Color = clBtnFace
           Pen.Color = clBtnShadow
         end
@@ -119,7 +120,7 @@ object FrmProdutos: TFrmProdutos
         object Shape1: TShape
           Left = 0
           Top = 0
-          Width = 597
+          Width = 788
           Height = 1
           Align = alTop
           Pen.Color = clBtnShadow
@@ -142,7 +143,7 @@ object FrmProdutos: TFrmProdutos
           Transparent = True
         end
         object DBCoolText4: TDBText
-          Left = 280
+          Left = 192
           Top = 387
           Width = 113
           Height = 21
@@ -175,7 +176,7 @@ object FrmProdutos: TFrmProdutos
           Transparent = True
         end
         object DBCoolText1: TDBText
-          Left = 286
+          Left = 198
           Top = 370
           Width = 107
           Height = 19
@@ -204,6 +205,25 @@ object FrmProdutos: TFrmProdutos
           DataSource = DataSource
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = True
+        end
+        object DBText3: TDBText
+          Left = 42
+          Top = 408
+          Width = 71
+          Height = 19
+          Alignment = taRightJustify
+          AutoSize = True
+          Color = clWhite
+          DataField = 'EST_DISPONIVEL'
+          DataSource = DataSource
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
           Font.Height = -16
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
@@ -533,7 +553,7 @@ object FrmProdutos: TFrmProdutos
           Transparent = True
         end
         object CoolLabel1: TcxLabel
-          Left = 399
+          Left = 303
           Top = 391
           Caption = 'Unidades'
           ParentFont = False
@@ -541,7 +561,7 @@ object FrmProdutos: TFrmProdutos
           Visible = False
         end
         object CoolLabel2: TcxLabel
-          Left = 399
+          Left = 303
           Top = 374
           Caption = 'F'#237'sico'
           ParentFont = False
@@ -556,7 +576,7 @@ object FrmProdutos: TFrmProdutos
           Transparent = True
         end
         object lblComp2: TcxLabel
-          Left = 118
+          Left = 115
           Top = 391
           Caption = 'Comprometido'
           ParentFont = False
@@ -745,10 +765,10 @@ object FrmProdutos: TFrmProdutos
           DataSource = DataSource
         end
         object Panel2: TPanel
-          Left = 459
+          Left = 663
           Top = 1
-          Width = 138
-          Height = 414
+          Width = 125
+          Height = 532
           Align = alRight
           Alignment = taRightJustify
           BevelInner = bvRaised
@@ -757,7 +777,7 @@ object FrmProdutos: TFrmProdutos
           object BtnLote: TcxButton
             Left = 7
             Top = 7
-            Width = 126
+            Width = 111
             Height = 26
             Cursor = crHandPoint
             Action = ActLote
@@ -787,7 +807,7 @@ object FrmProdutos: TFrmProdutos
           object SpeedButton2: TcxButton
             Left = 7
             Top = 35
-            Width = 126
+            Width = 111
             Height = 26
             Cursor = crHandPoint
             Action = ActGrade
@@ -814,7 +834,7 @@ object FrmProdutos: TFrmProdutos
           object SpeedButton3: TcxButton
             Left = 7
             Top = 63
-            Width = 126
+            Width = 111
             Height = 26
             Cursor = crHandPoint
             Caption = 'Tributa'#231#245'es'
@@ -1249,6 +1269,13 @@ object FrmProdutos: TFrmProdutos
           LookupKeyValue = Null
           StoredValues = 64
         end
+        object cxLabel5: TcxLabel
+          Left = 115
+          Top = 411
+          Caption = 'Dispon'#237'vel'
+          ParentFont = False
+          Transparent = True
+        end
       end
       object Pg2: TcxTabSheet
         Caption = '  Estoque  '
@@ -1256,7 +1283,7 @@ object FrmProdutos: TFrmProdutos
         object Shape2: TShape
           Left = 0
           Top = 0
-          Width = 597
+          Width = 788
           Height = 1
           Align = alTop
           Pen.Color = clBtnShadow
@@ -2281,7 +2308,7 @@ object FrmProdutos: TFrmProdutos
         object Shape3: TShape
           Left = 0
           Top = 0
-          Width = 597
+          Width = 788
           Height = 1
           Align = alTop
           Pen.Color = clBtnShadow
@@ -4019,15 +4046,15 @@ object FrmProdutos: TFrmProdutos
     DataSource = DataSource
     DBCheckLinks = <>
     VisibleButtons = [dxbnFirst, dxbnPrior, dxbnNext, dxbnLast]
-    Left = 482
-    Top = 7
+    Left = 490
+    Top = 31
   end
   object BarManager: TdxBarManager
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (
@@ -4042,8 +4069,8 @@ object FrmProdutos: TFrmProdutos
     PopupMenuLinks = <>
     Style = bmsFlat
     UseSystemFont = True
-    Left = 514
-    Top = 7
+    Left = 522
+    Top = 31
     DockControlHeights = (
       0
       0
@@ -4506,8 +4533,8 @@ object FrmProdutos: TFrmProdutos
     end
   end
   object Actions: TActionList
-    Left = 546
-    Top = 7
+    Left = 554
+    Top = 31
     object ActIncluir: TAction
       Tag = 1
       Caption = 'ActIncluir'
@@ -4631,91 +4658,91 @@ object FrmProdutos: TFrmProdutos
     AutoEdit = False
     DataSet = DMCadastros.Produtos
     OnStateChange = DataSourceStateChange
-    Left = 461
-    Top = 153
+    Left = 525
+    Top = 121
   end
   object dsMarcas: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.Marcas
-    Left = 258
-    Top = 6
+    Left = 266
+    Top = 30
   end
   object dsGrupos: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.Grupos
-    Left = 322
-    Top = 7
+    Left = 330
+    Top = 31
   end
   object dsSubGrupos: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.SubgruposProd
-    Left = 162
-    Top = 6
+    Left = 170
+    Top = 30
   end
   object dsReducao: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.Reducoes
-    Left = 290
-    Top = 6
+    Left = 298
+    Top = 30
   end
   object dsUnidade: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.Unidades
-    Left = 194
-    Top = 6
+    Left = 202
+    Top = 30
   end
   object DsSubUnidades: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.SubUnidades
-    Left = 98
-    Top = 6
+    Left = 106
+    Top = 30
   end
   object DsFornecedor: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.SelFornecedor
-    Left = 66
-    Top = 6
+    Left = 74
+    Top = 30
   end
   object DsAgrupadores: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.Agrupador
-    Left = 354
-    Top = 7
+    Left = 362
+    Top = 31
   end
   object dsModelo: TDataSource
     AutoEdit = False
     DataSet = DmServicos.SelModelosProduto
-    Left = 450
-    Top = 7
+    Left = 458
+    Top = 31
   end
   object dsSecoes: TDataSource
     AutoEdit = False
     DataSet = dmCadastros2.qrySelSecoes
-    Left = 226
-    Top = 6
+    Left = 234
+    Top = 30
   end
   object dsUnidadePrimaria: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.UndPrimaria
-    Left = 130
-    Top = 7
+    Left = 138
+    Top = 31
   end
   object OpenDialog: TOpenDialog
     Filter = '*.jpg|*.jpg'
-    Left = 578
-    Top = 6
+    Left = 586
+    Top = 30
   end
   object DsMaterial: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.Material
-    Left = 386
-    Top = 8
+    Left = 394
+    Top = 32
   end
   object DsCor: TDataSource
     AutoEdit = False
     DataSet = DMCadastros.Cor
-    Left = 418
-    Top = 7
+    Left = 426
+    Top = 31
   end
   object qryLocalizacao1: TIBQuery
     Database = DmApp.Database

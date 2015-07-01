@@ -1,6 +1,6 @@
 inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
-  Left = 43
-  Top = 11
+  Left = 154
+  Top = 21
   Width = 1280
   Height = 748
   Caption = 'Contratos de Atendimento'
@@ -10,7 +10,6 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
   inherited pgcCadastro: TcxPageControl
     Width = 1264
     Height = 684
-    ActivePage = tbsLista
     ClientRectBottom = 680
     ClientRectRight = 1260
     ClientRectTop = 4
@@ -164,7 +163,6 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
           inherited PgcDetalhe: TcxPageControl
             Width = 1254
             Height = 421
-            ActivePage = tbsDetalhe1
             ClientRectBottom = 417
             ClientRectRight = 1250
             inherited tbsDetalhe1: TcxTabSheet
@@ -176,7 +174,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                 ClientRectRight = 1242
                 inherited tbsListaSub1: TcxTabSheet
                   inherited GridDet1: TcxGrid
-                    Width = 1258
+                    Width = 1238
                     Height = 359
                     inherited TVDet1: TcxGridDBBandedTableView
                       OptionsView.BandHeaders = True
