@@ -425,6 +425,11 @@ type
     QryRelLotesLOTE: TIBStringField;
     dsLinkPosEst: TDataSource;
     qryRelatorioOUT_CNPJ: TIBStringField;
+    cxGroupBox1: TcxGroupBox;
+    cxGroupBox2: TcxGroupBox;
+    RdOrdemNome: TcxRadioButton;
+    RdOrdemCod: TcxRadioButton;
+    CbOrdemUltMovimento: TcxCheckBox;
     procedure ActImprimirExecute(Sender: TObject);
     procedure ppGroupHeaderBand5BeforePrint(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -604,38 +609,61 @@ begin
   filtro := filtro + 'Qtde em Estoque (UND): '+edtVlrInicial.Text+' à '+edtVlrFinal.text;
 
 
-  //---------------------------------------------Ordenação-------------------------------------------------//
+  //---------------------------------------------Quebra-------------------------------------------------//
   //-----------Sintético----------//
   if (rd7.checked) then
   begin
     ppSubSintetico.visible :=  true;
-    sOrder := ' order by nome_produto, produto';
-    filtro := filtro + ' Opção de Quebra: SINTÉTICO';
+    //sOrder := ' order by nome_produto, produto';
+    filtro := filtro + ' - Opção de Quebra: SINTÉTICO';
   end;
 
   //-----------Fornecedor----------//
   if (rd4.checked) then
   begin
     ppSubFornecedor.visible :=  true;
-    sOrder := ' order by fornecedor, nome_produto, produto';
-    filtro := filtro + ' Opção de Quebra: FORNECEDOR';
+    sOrder := ' order by fornecedor,';
+    filtro := filtro + ' - Opção de Quebra: FORNECEDOR';
   end;
 
   //-----------Marca------------//
   if (rd5.checked) then
   begin
     ppSubMarcas.visible :=  true;
-    sOrder := ' order by marca, nome_produto, produto';
-    filtro := filtro + ' Opção de Quebra: MARCA';
+    sOrder := ' order by marca,';
+    filtro := filtro + ' - Opção de Quebra: MARCA';
   end;
 
   //-----------SubGrupo----------//
   if (rd6.checked) then
   begin
    ppSubGrupos.visible :=  true;
-   sOrder := ' order by grupo, subgrupo, nome_produto, produto';
-   filtro := filtro + ' Opção de Quebra: SUB GRUPO';
+   sOrder := ' order by grupo, subgrupo,';
+   filtro := filtro + ' - Opção de Quebra: SUB GRUPO';
   end;
+
+  //--------------------------Ordenação-Sanniel--------------------------//
+  if sOrder = '' then
+    sOrder := ' order by';
+
+  filtro := filtro + ' - Opção de Ordenação:';
+
+  if CbOrdemUltMovimento.Checked then
+  begin
+    sOrder := sOrder + ' data_mov desc,';
+    filtro := filtro + ' ÚLTIMO MOVIMENTO,';
+  end;
+
+  if RdOrdemCod.Checked then
+  begin
+    sOrder := sOrder + ' produto, nome_produto';
+    filtro := filtro + ' CÓDIGO';
+  end else
+  begin
+    sOrder := sOrder + ' nome_produto, produto';
+    filtro := filtro + ' NOME';
+  end;
+  //-------------------------//-------------
 
   if (ckComplementar.checked) then
     cpl := 'S'

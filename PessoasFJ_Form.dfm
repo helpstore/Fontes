@@ -1,6 +1,6 @@
 object FrmPessoasFJ: TFrmPessoasFJ
   Left = 237
-  Top = 106
+  Top = 110
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Pessoas F'#237'sicas e Jur'#237'dicas '

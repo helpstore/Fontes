@@ -5,12 +5,12 @@ inherited frmCadOS: TfrmCadOS
   Height = 728
   Caption = 'Manuten'#231#227'o de Ordens de Servi'#231'o'
   OldCreateOrder = True
-  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
     Width = 1254
     Height = 664
+    ActivePage = tbsLista
     ClientRectBottom = 660
     ClientRectRight = 1250
     inherited tbsLista: TcxTabSheet
@@ -825,7 +825,6 @@ inherited frmCadOS: TfrmCadOS
           inherited PgcDetalhe: TcxPageControl
             Width = 1244
             Height = 296
-            ActivePage = tbsDetalhe2
             ClientRectBottom = 292
             ClientRectRight = 1240
             inherited tbsDetalhe2: TcxTabSheet [0]
@@ -833,6 +832,7 @@ inherited frmCadOS: TfrmCadOS
               inherited PGCSub2: TcxPageControl
                 Width = 1236
                 Height = 265
+                ActivePage = tbsListaSub2
                 ClientRectBottom = 261
                 ClientRectRight = 1232
                 inherited tbsListaSub2: TcxTabSheet

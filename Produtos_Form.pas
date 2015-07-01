@@ -335,6 +335,8 @@ type
     dsTecnico: TDataSource;
     Shape4: TShape;
     DBText1: TDBText;
+    cxLabel5: TcxLabel;
+    DBText3: TDBText;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);

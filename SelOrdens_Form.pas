@@ -376,10 +376,10 @@ uses
      LocalizarProd_DM,
      Splash_Form,
      Localizar_Cliente,
-     Ordens_Servicos_Form, Tipo_Impressora_Form,
+      Tipo_Impressora_Form,
   EntraNumeroOrcamento_Form, EntraNumeroOrcamento_Ordem_Form,
   Localizar_Produto_Cadastro_Auto, Vendas_Dm, DateUtils,
-  Ordens_Servicos_Horas_Form, Ordens_ServicosItens_Form, Empresas_Form, 
+  Empresas_Form,
   Empresas_DM, Vendas_Form, Vendas_DM2, Mapa_Form;
 
   {$R *.DFM}
@@ -658,7 +658,7 @@ end;
 
 procedure TFrmSelOrdens.ActAlterarExecute(Sender: TObject);
 begin
-  try
+  {try
     If (Not DataSource.DataSet.Active) Or  (DataSource.DataSet.RecordCount = 0) Then
     begin
       ShowMessage('Selecione uma ordem para alterá-la');
@@ -672,7 +672,7 @@ begin
   finally
     FrmOrdens_Servicos.Destroy;
     Filtrar;
-  end
+  end  }
 end;
 
 procedure TFrmSelOrdens.Panel2Enter(Sender: TObject);
@@ -743,12 +743,12 @@ Var
  SOMA_CHEQUES: Real ;
  Sender2 : TField;
 begin
-  FrmOrdens_Servicos := TFrmOrdens_Servicos.Create(Self);
+{  FrmOrdens_Servicos := TFrmOrdens_Servicos.Create(Self);
   DMServicos.Ordem.Open ;
   DMServicos.Ordem.Append ;
   FrmOrdens_Servicos.Showmodal ;
    ActAtualizar.execute;
-  grid.setfocus ;
+  grid.setfocus ;  }
 end;
 
 procedure TFrmSelOrdens.btnTimerClick(Sender: TObject);
@@ -970,7 +970,7 @@ end;
 procedure TFrmSelOrdens.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  If (Not DataSource.DataSet.Active) Or  (DataSource.DataSet.RecordCount = 0) Then
+ { If (Not DataSource.DataSet.Active) Or  (DataSource.DataSet.RecordCount = 0) Then
   begin
     ShowMessage('Você deve selecionar uma Ordem para alterá-la');
    // grid.SetFocus;
@@ -988,7 +988,7 @@ begin
   FrmOrdens_Servicos.Close;
 
 
-  ActAtualizar.execute;
+  ActAtualizar.execute; }
 end;
 
 procedure TFrmSelOrdens.GridMovimentosDBBandedTableView1KeyDown(Sender: TObject;
@@ -1014,7 +1014,7 @@ begin
   DmServicos.OS_INTERVALO.Open;
 
 
-  If Navigator.DataSource.State in dsEditModes Then
+ { If Navigator.DataSource.State in dsEditModes Then
     Exit;
   Try
      if (pgcOServico.ActivePageIndex = 1) then
@@ -1033,7 +1033,7 @@ begin
          ShowMessage('Ocorreu um Erro não identificado pelo Sistema !');
          Exit;
        End;
-  End;
+  End;   }
 
   ActAtualizar.execute;
 end;

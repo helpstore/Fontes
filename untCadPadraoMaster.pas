@@ -29,8 +29,7 @@ uses
   dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinXmas2008Blue, dxSkinscxPCPainter, dxSkinsdxBarPainter, cxStorage,
   dxSkinsForm, dxLayoutControl, cxLabel, cxTextEdit, cxDBEdit,
-  untFormPadrao, dxLayoutcxEditAdapters, dxmdaset,
-  Ordens_ServicosItens_Form;
+  untFormPadrao, dxLayoutcxEditAdapters, dxmdaset;
 
 type
   TfrmCadPadraoMaster = class(TFormPadrao)

@@ -774,6 +774,13 @@ type
     btnRelSaidaProdutoCliente: TdxBarButton;
     dxBarButton3: TdxBarButton;
     ActRelOrcamento: TAction;
+    dxBarButton12: TdxBarButton;
+    mdCRM: TdxBarSubItem;
+    btnCRMCadastros: TdxBarSubItem;
+    btnCRMProcesso: TdxBarSubItem;
+    btnCRMRelatorio: TdxBarSubItem;
+    btnCRMAtividades: TdxBarButton;
+    btnCRMStatus: TdxBarButton;
     procedure opFecharClick(Sender: TObject);
     procedure PessoasFJClick(Sender: TObject);
     procedure LblUsuarioMouseEnter(Sender: TObject);
@@ -1040,7 +1047,6 @@ type
     procedure btnCadPragasClick(Sender: TObject);
     procedure btnCadCulturaClick(Sender: TObject);
     procedure btnUndMedDosagemClick(Sender: TObject);
-    procedure btnReceiturarioClick(Sender: TObject);
     procedure btnRelTituloPendenteClick(Sender: TObject);
     procedure btnTesteClick(Sender: TObject);
     procedure btnCotacoesClick(Sender: TObject);
@@ -1094,6 +1100,9 @@ type
     procedure btnRelSaidaProdutoClienteClick(Sender: TObject);
     procedure btnCadastroReducaoClick(Sender: TObject);
     procedure ActRelOrcamentoExecute(Sender: TObject);
+    procedure dxBarButton12Click(Sender: TObject);
+    procedure btnCRMAtividadesClick(Sender: TObject);
+    procedure btnCRMStatusClick(Sender: TObject);
   private
     { Private declarations }
     //Agente: IAgentCtlCharacter;
@@ -1269,7 +1278,6 @@ uses
     Servicos_Form,
     Servicos_DM,
     Motores_Form,
-    Mecanicos_Form,
     SelOrdens_Form,
     PosicaoEstoqueContagemSub_FRel,
     Cria_Tab_Ext_Prod_Form,
@@ -1340,7 +1348,7 @@ uses
   Tipo_Contrato_Form,  PosicaoEstoqueGrade_Marca_FRel, RecibosPagar, ContagemGrade_Form,
   Rel_Vendas_Servicos_FRel, Saldo_Contas_FRel,
   ClientesInativos_FRel,
-  VendasCidade_FRel, Defeitos_Form,
+  VendasCidade_FRel, 
   VendasAnalise_Mes_FRel, ConsultaConveniados_Baixas_Form,
   Pdv_Terminal_Consulta,
   Saidas_FRel,
@@ -1348,12 +1356,11 @@ uses
   EntradasProdutos_FRel, Cotacoes_FRel, ImprimeBoleto,
   VendasClientesConsumidor_FRel, AuxContagem_FRel, Mesas_Form,
   Propriedades_FRel, ListagemMod_Form, Demonstrativo_Form,
-  Filtra_RelTerceiros_Form, Receber_FRel2, Regioes_Form,
+  Filtra_RelTerceiros_Form, Receber_FRel2, 
   EstoqueComprometido_FRel, Pagar_FRel2, ManutencaoBoletos_Form,
   Perfil_Com_Form, Perfil_Pagto_Form, Comissoes_FRel,
   ManutencaoComissoes_Form, Sugestao_FRel, Localizar_Produto_Cadastro_Auto,  Paises_Form,
-  StatusServico_Form,
-  TipoAtendimento_Form, MotivoChamado_Form, Secoes_Produto_Form,
+    Secoes_Produto_Form,
   Rel_Rechamados, Equipamentos_FRel2, SelCarga, SeriesCustomizaveis,
   SelKardex, EstoquePendencias, Rel_CargaVenda, AlteraPreco_Form,
   Contratos_Form, Leituras_Form, SelLeituras_Form, CategoriasDef_Form,
@@ -1361,7 +1368,7 @@ uses
   ClassQuimicaDef_Form, FabricanteDef_Form, MatEmbalagemDef_Form,
   OrientacoesDef_Form, Registrante_Form, Defensivo_Form, Contratos_FRel2,
   Unidades_Conversao_Form, PragasDef_Form,
-  CulturasDef_Form, UndMedVazao_Form, SelReceiturario_Form, Acerto_FRel,
+  CulturasDef_Form, UndMedVazao_Form,  Acerto_FRel,
   FiltraMulti_Form, DigitaCotacoes_Form, Act_Contas_Form,
   SelComissoes_Form, ComissoesTerceiros_FRel, Exporta_Iagro_Form,
   EventoContabil_Form, SincronizaCadastros_Form, TabelaPreco_Form,
@@ -1389,7 +1396,8 @@ uses
   untCadFornecedores, untCadOS, untCadContratoAtendimento,
   UntCadClassificacao, untCadClientes, UntCadContratoCopias, untCadLeitura,
   untCadProdutos, UntCadGrupos, UntCadPerfilGrades, UntCadReducoes,
-  UntRelOrcamento;
+  UntRelOrcamento, UntCadTransportadoras, untCadCRMAtividades,
+  untCadCRMStatus;
 
 {$R *.DFM}
 
@@ -2517,7 +2525,7 @@ end;
 procedure TFrmMain.OpTerceirosClick(Sender: TObject);
 begin
 //
- if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadTerceiros', True)) Then
+ if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadTerceiro', True)) Then
      Exit;
 
   if DMApp.SelecionarEmpresa = 'N' Then
@@ -4849,30 +4857,6 @@ begin
      frmCadTecnicos.ShowMODAL ;
      frmCadTecnicos.Free      ;
      frmCadTecnicos := Nil    ;
-  end;
-  Exit;
-///
-  { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmMecanicos', True)) Then
-     Exit;
-  { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
-     Exit;
-  { * * * * * }
-  if FrmMecanicos = Nil Then
-  begin
-    If FrmMain.MDIChildCount > 0 Then
-      opFechar.OnClick(opFechar);
-
-    Application.ProcessMessages;
-
-
-    FrmMecanicos := TFrmMecanicos.Create(Self);
-
-    FrmMecanicos.FormStyle   := fsMDIChild;
-    FrmMecanicos.WindowState := wsMaximized;
-    FrmMecanicos.BorderStyle := bsNone;
-    PnlClient.Visible           := False;
   end;
 end;
 
@@ -7540,21 +7524,6 @@ begin
     frmCadOS.Destroy   ;
   end;
 
-  exit;
-    { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmSelOrdens', True)) Then Exit;
-
-  { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
-    Exit;
-
-  { * * * * * }
-  try
-    FrmSelOrdens   := TFrmSelOrdens.Create(Self);
-    FrmSelOrdens.Showmodal ;
-  finally
-    FrmSelOrdens.Destroy   ;
-  end;
 end;
 
 procedure TFrmMain.btnSecaoClick(Sender: TObject);
@@ -8258,29 +8227,6 @@ begin
     frmUndMedVazao.WindowState := wsMaximized;
     frmUndMedVazao.BorderStyle := bsNone;
     PnlClient.Visible         := False;
-  end;
-end;
-
-procedure TFrmMain.btnReceiturarioClick(Sender: TObject);
-begin
-  { * * * * * }
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'FrmSelReceituario', True)) Then Exit;
-
-  { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then Exit;
-
-  { * * * * * }
-  if FrmSelReceituario = nil then
-  begin
-    if FrmMain.MDIChildCount > 0 then
-      opFechar.OnClick(opFechar);
-
-    Application.ProcessMessages;
-
-    FrmSelReceituario   := TFrmSelReceituario.Create(Self);
-    FrmSelReceituario.Showmodal ;
-    FrmSelReceituario.Free   ;
-    FrmSelReceituario := nil ;
   end;
 end;
 
@@ -9481,6 +9427,63 @@ begin
   FrmRelOrcamento.Showmodal ;
   FrmRelOrcamento.Free      ;
   FrmRelOrcamento := Nil    ;
+end;
+
+procedure TFrmMain.dxBarButton12Click(Sender: TObject);
+begin
+  if Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadTransportadoras', True)) Then
+     Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' Then
+     Exit;
+
+  if frmCadTransportadoras = Nil Then
+  begin
+     Application.ProcessMessages;
+     frmCadTransportadoras := TfrmCadTransportadoras.Create(Self);
+     frmCadTransportadoras.ShowMODAL ;
+     frmCadTransportadoras.Free      ;
+     frmCadTransportadoras := Nil    ;
+  end;
+end;
+
+procedure TFrmMain.btnCRMAtividadesClick(Sender: TObject);
+begin
+  { * * * * * }
+  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCRMAtividades', True)) Then Exit;
+
+  { * * * * * }
+  If DMApp.SelecionarEmpresa = 'N' Then
+    Exit;
+
+  { * * * * * }
+  try
+    frmCadCRMAtividades   := TfrmCadCRMAtividades.Create(Self);
+    frmCadCRMAtividades.Showmodal ;
+  finally
+    frmCadCRMAtividades.Destroy   ;
+  end;
+end;
+
+procedure TFrmMain.btnCRMStatusClick(Sender: TObject);
+begin
+  If FrmMain.MDIChildCount > 1 Then
+     Exit;
+
+  if not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmCadCRMStatus', True)) then
+    Exit;
+
+  if DMApp.SelecionarEmpresa = 'N' then
+    Exit;
+
+  if frmCadCRMStatus = nil  then
+  begin
+    Application.ProcessMessages;
+    frmCadCRMStatus := TfrmCadCRMStatus.Create(Self);
+    frmCadCRMStatus.Showmodal;
+    frmCadCRMStatus.Free;
+    frmCadCRMStatus := Nil;
+  end;
 end;
 
 end.

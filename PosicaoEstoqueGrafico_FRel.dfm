@@ -2,26 +2,27 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
   Left = 393
   Top = 89
   Caption = 'Posi'#231#227'o de Estoque Gr'#225'fico'
-  ClientHeight = 547
-  ClientWidth = 466
+  ClientHeight = 562
+  ClientWidth = 451
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlClient: TPanel
-    Width = 466
-    Height = 507
+    Width = 451
+    Height = 522
     inherited LblTitulo: TcxLabel
       Caption = 'Posi'#231#227'o de Estoque Gr'#225'fico'
       Style.IsFontAssigned = True
     end
     inherited gbGeral: TcxGroupBox
-      Left = 9
-      Top = 33
-      Height = 456
-      Width = 446
+      Left = 2
+      Top = 2
+      Align = alClient
+      Height = 518
+      Width = 447
       object GroupBox3: TcxGroupBox
         Left = 15
-        Top = 386
+        Top = 382
         Caption = 'Op'#231#245'es de Quebra'
         ParentColor = False
         ParentFont = False
@@ -74,7 +75,7 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
       end
       object gbSituacao: TcxGroupBox
         Left = 15
-        Top = 327
+        Top = 322
         Caption = 'Situa'#231#227'o de Estoque'
         ParentColor = False
         ParentFont = False
@@ -117,7 +118,7 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
       end
       object gbData: TcxGroupBox
         Left = 16
-        Top = 255
+        Top = 251
         Caption = 'Dt. Vencimento Pre'#231'o de Venda'
         ParentColor = False
         ParentFont = False
@@ -216,7 +217,7 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
       end
       object gbValor: TcxGroupBox
         Left = 230
-        Top = 327
+        Top = 322
         Caption = 'Qtde em Estoque (UND)'
         ParentFont = False
         TabOrder = 11
@@ -575,13 +576,68 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
         Style.IsFontAssigned = True
         Transparent = True
       end
+      object cxGroupBox1: TcxGroupBox
+        Left = 15
+        Top = 445
+        Caption = 'Op'#231#245'es de Ordena'#231#227'o'
+        ParentColor = False
+        ParentFont = False
+        Style.Color = clWhite
+        TabOrder = 23
+        Height = 63
+        Width = 418
+        object cxGroupBox2: TcxGroupBox
+          Left = 233
+          Top = 15
+          PanelStyle.Active = True
+          ParentColor = False
+          ParentFont = False
+          Style.Color = clWhite
+          TabOrder = 0
+          Height = 41
+          Width = 183
+          object RdOrdemNome: TcxRadioButton
+            Left = 119
+            Top = 19
+            Width = 50
+            Height = 17
+            Caption = 'Nome'
+            TabOrder = 0
+            OnKeyDown = FormKeyDown
+            Transparent = True
+          end
+          object RdOrdemCod: TcxRadioButton
+            Left = 15
+            Top = 19
+            Width = 74
+            Height = 17
+            Caption = 'C'#243'digo'
+            Checked = True
+            TabOrder = 1
+            TabStop = True
+            OnKeyDown = FormKeyDown
+            Transparent = True
+          end
+        end
+        object CbOrdemUltMovimento: TcxCheckBox
+          Left = 4
+          Top = 34
+          Caption = #218'ltimo Movimento'
+          ParentFont = False
+          State = cbsGrayed
+          TabOrder = 1
+          Transparent = True
+          OnKeyDown = FormKeyDown
+          Width = 141
+        end
+      end
     end
   end
   inherited Panel2: TPanel
-    Top = 507
-    Width = 466
+    Top = 522
+    Width = 451
     inherited cxButton1: TcxButton
-      Left = 435
+      Left = 420
     end
   end
   inherited Actions: TActionList
@@ -3335,7 +3391,7 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
                 mmHeight = 3683
                 mmLeft = 19050
                 mmTop = 3704
-                mmWidth = 762
+                mmWidth = 889
                 BandType = 3
                 GroupNo = 0
               end
@@ -6452,8 +6508,8 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
     Top = 2
   end
   inherited mtbFiltro: TdxMemData
-    Left = 300
-    Top = 482
+    Left = 340
+    Top = 522
     object mtbFiltroGRUPO: TIntegerField
       FieldName = 'GRUPO'
     end
@@ -6485,7 +6541,6 @@ inherited fRelPosicaoEstoqueGrafico: TfRelPosicaoEstoqueGrafico
     Top = 514
   end
   inherited edtRel: TIBDataSet
-    Active = True
     Left = 297
     Top = 3
   end

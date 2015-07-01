@@ -2,10 +2,9 @@ object DmApp: TDmApp
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 50
-  Top = 76
-  Height = 517
-  Width = 669
+  Left = 1
+  Height = 728
+  Width = 1278
   object Database: TIBDatabase
     Connected = True
     DatabaseName = 'D:\Sistemas\HelpStore\Dados\comparer\HELPSTORE_PADRAO.GDB'
@@ -3007,7 +3006,7 @@ object DmApp: TDmApp
   end
   object ACBrNFeDANFERave: TACBrNFeDANFERave
     ACBrNFe = ACBrNFe
-    Sistema = 'Manager 2.0'
+    Sistema = 'HelpStore'
     PathPDF = 'c:\Sistemas\HelpStore\NFe\'
     MostrarPreview = True
     MostrarStatus = True

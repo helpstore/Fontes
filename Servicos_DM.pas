@@ -1796,13 +1796,12 @@ implementation
 uses Application_DM,
      Cadastros_DM,
      Funcoes,
-     Ordens_Servicos_Form,
      MensagemFaturamento_Form,
      EntraDescricao_Form,
      Localizar_Ordens,
      Garantias_Form,
-     GarantiasItens_Form, Ordens_ServicosItens_Orc_Form, Motores_Form,
-  Vendas_Dm, Ordens_ServicosItens_Form, Cadastros_Dm2, Vendas_DM2,
+     GarantiasItens_Form, Motores_Form,
+  Vendas_Dm,  Cadastros_Dm2, Vendas_DM2,
   Empresas_DM;
 
 {$R *.DFM}
@@ -2318,7 +2317,7 @@ begin
 
        //Gambiarra feita pro andré, ele nao quer que nao permita selecao do tecnico no momento da insercao do caso,
        //este deverá ser ligado automaticamente ao usuáiro.
-       FrmOrdens_Servicos.cmbTecnico.Enabled := false;
+     //  FrmOrdens_Servicos.cmbTecnico.Enabled := false;
      end;
 end;
 
@@ -2996,49 +2995,6 @@ begin
 
      Geral.Open ;
 
-     If Geral.Fields[0].isNull
-     then Begin
-          If DmApp.CHM_PROD_INEXIST = 'S'
-          THEN BEGIN
-               If FrmOrdensServicosItens_Orc <> Nil
-               then
-                   FrmOrdensServicosItens_Orc.LocServ := True ;
-
-               Exit;
-          END
-          ELSE BEGIN
-               Showmessage ('Serviço Inexistente!');
-               Abort ;
-          END;
-     end
-     else begin
-          If ( UpperCase(Geral.Fields[0].Value) = 'VAZIO' )
-          OR ( UpperCase(Geral.Fields[0].Value) = 'NADA' )
-          then begin
-               Application.CreateForm(TFrmEntraDescricao, FrmEntraDescricao);
-               FrmEntraDescricao.LblTitulo.Caption := 'Serviço';
-               FrmEntraDescricao.LBLPROMPT.Caption := 'Descrição';
-
-               IF FrmEntraDescricao.ShowModal = MROK
-               THEN BEGIN
-                    Aux := FrmEntraDescricao.EdNumero.Text ;
-               END;
-
-               FrmEntraDescricao.Free ;
-               FrmEntraDescricao := Nil;
-
-               If Trim(Aux) = ''
-               then
-                   Servicos_Itens_ORCNOME.Value := 'VAZIO'
-               else
-                   Servicos_Itens_ORCNOME.Value := Aux ;
-          end
-          else begin
-               Servicos_Itens_ORCNOME.Value     := Geral.Fields[0].Value ;
-          end;
-
-          Servicos_Itens_ORCUNITARIO.VALUE := Geral.Fields[1].Value ;
-     End;
 end;
 
 procedure TDmServicos.Servicos_Itens_OrcSELECIONADOValidate( Sender: TField);
@@ -3528,8 +3484,6 @@ begin
 
      If ( Sender.Value = 0 )
      then Begin
-          FrmOrdens_Servicos.LocDef := True ;
-          Exit ;
      end;
 
      Geral.Close ;
@@ -3689,8 +3643,6 @@ begin
     begin
        If DmApp.CHM_PROD_INEXIST = 'S' THEN
        begin
-         If FrmOrdensServicosItens <> Nil then
-           FrmOrdensServicosItens.LocServ := True ;
 
          Exit;
        end
@@ -3817,10 +3769,7 @@ begin
     Destino := SelEmail.fieldbyname('email').Value;
     NDestino := SelEmail.fieldbyname('nome').Value;
 
-    FrmOrdens_Servicos.EnviaEmailTecnico(Origem,NOrigem,Destino,NDestino,'Caso '+Completaesq(OrdemCODIGO.asString,'0',9)+ ' transferido à você',
-    'Informamos que a ordem de serviço nº '+OrdemCODIGO.AsString+' esta sob sua responsabilidade a partir deste momento');
   end;
-  FrmOrdens_Servicos.cmbTecnico.Enabled := true;
 end;
 
 procedure TDmServicos.SelOrdens_ServicosCalcFields(DataSet: TDataSet);
@@ -3999,9 +3948,6 @@ begin
   begin
     if (((OS_INTERVALO.RecordCount = 1) or (OS_INTERVALOTIPO.Value = 'A')) and (OS_INTERVALO_EMAIL.RecordCount = 0)) then
     begin
-       FrmOrdens_Servicos.EnviaEmailAb_Fec(dmCadastros2.SelClientesEMAIL.AsString,dmCadastros2.SelClientesNOME_RAZAO.AsString,
-                                           dmCadastros2.SelClientes2EMAIL.AsString,dmCadastros2.SelClientes2NOME_RAZAO.AsString,
-                                           'Caso '+Completaesq(OrdemCODIGO.asString,'0',9)+' - Abertura',OrdemINFORMACOES.Value,'A');
     end
     else if (OS_INTERVALOTIPO.Value = 'F') then
     begin
@@ -4010,9 +3956,6 @@ begin
 
       existe := RetornaValor(sql,dmapp.Transaction);
       if (existe <= 0) then
-        FrmOrdens_Servicos.EnviaEmailAb_Fec(dmCadastros2.SelClientesEMAIL.AsString,dmCadastros2.SelClientesNOME_RAZAO.AsString,
-                                           dmCadastros2.SelClientes2EMAIL.AsString,dmCadastros2.SelClientes2NOME_RAZAO.AsString,
-                                           'Caso '+Completaesq(OrdemCODIGO.asString,'0',9)+' - Fechamento',OrdemOBS_FECHAMENTO.Value,'F');
     end;
   end;
 

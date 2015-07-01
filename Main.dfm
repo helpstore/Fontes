@@ -1,6 +1,6 @@
 object FrmMain: TFrmMain
   Left = 0
-  Top = 30
+  Top = 114
   Width = 1280
   Height = 614
   Caption = 'Help Store'
@@ -2155,7 +2155,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 9.000000000000000000
+                            Value = 83.000000000000000000
                           end
                         end
                         object GChart1: TChart
@@ -2323,7 +2323,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 12.000000000000000000
+                            Value = 78.000000000000000000
                           end
                         end
                         object GChart2: TChart
@@ -2491,7 +2491,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 73.000000000000000000
+                            Value = 13.000000000000000000
                           end
                         end
                         object GChart4: TChart
@@ -2659,7 +2659,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 2.000000000000000000
+                            Value = 9.000000000000000000
                           end
                         end
                         object GChart10: TChart
@@ -2827,7 +2827,7 @@ object FrmMain: TFrmMain
                             Ticks.Visible = True
                             Ticks.GaugeStyle = gpTick
                             TotalAngle = 300.000000000000000000
-                            Value = 57.000000000000000000
+                            Value = 16.000000000000000000
                           end
                         end
                         object lcMetaVendaGroup_Root: TdxLayoutGroup
@@ -4318,7 +4318,6 @@ object FrmMain: TFrmMain
       Category = 0
       Hint = 'Receitu'#225'rio'
       Visible = ivAlways
-      OnClick = btnReceiturarioClick
     end
     object btnRelTituloPendente: TdxBarButton
       Caption = 'Posi'#231#227'o de T'#237'tulos Pendentes'
@@ -4561,6 +4560,27 @@ object FrmMain: TFrmMain
     object dxBarButton3: TdxBarButton
       Action = ActRelOrcamento
       Category = 0
+    end
+    object dxBarButton12: TdxBarButton
+      Caption = 'Transportadora'
+      Category = 0
+      Hint = 'Transportadora'
+      Visible = ivAlways
+      OnClick = dxBarButton12Click
+    end
+    object btnCRMAtividades: TdxBarButton
+      Caption = 'Manuten'#231#227'o Atividades'
+      Category = 0
+      Hint = 'Manuten'#231#227'o Atividades'
+      Visible = ivAlways
+      OnClick = btnCRMAtividadesClick
+    end
+    object btnCRMStatus: TdxBarButton
+      Caption = 'Status'
+      Category = 0
+      Hint = 'Status'
+      Visible = ivAlways
+      OnClick = btnCRMStatusClick
     end
     object opAtividades: TdxBarButton
       Caption = '&Atividade'
@@ -4869,6 +4889,10 @@ object FrmMain: TFrmMain
           ItemName = 'OpFornecedores'
         end
         item
+          Visible = True
+          ItemName = 'dxBarButton12'
+        end
+        item
           BeginGroup = True
           Visible = True
           ItemName = 'OpFuncionarios'
@@ -4932,6 +4956,10 @@ object FrmMain: TFrmMain
         item
           Visible = True
           ItemName = 'SubServico'
+        end
+        item
+          Visible = True
+          ItemName = 'mdCRM'
         end
         item
           Visible = True
@@ -6015,7 +6043,6 @@ object FrmMain: TFrmMain
       Hint = 'Receitu'#225'rio'
       Visible = ivAlways
       LargeImageIndex = 9
-      OnClick = btnReceiturarioClick
       HotImageIndex = 9
     end
     object btnNfeMain: TdxBarLargeButton
@@ -9919,6 +9946,51 @@ object FrmMain: TFrmMain
       Hint = 'Resumo de Atendimentos'
       Visible = ivAlways
       OnClick = btnResumoServicoClick
+    end
+    object mdCRM: TdxBarSubItem
+      Caption = 'CRM'
+      Category = 44
+      Visible = ivAlways
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnCRMCadastros'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'btnCRMProcesso'
+        end
+        item
+          Visible = True
+          ItemName = 'btnCRMRelatorio'
+        end>
+    end
+    object btnCRMCadastros: TdxBarSubItem
+      Caption = 'Cadastro'
+      Category = 44
+      Visible = ivAlways
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnCRMStatus'
+        end>
+    end
+    object btnCRMProcesso: TdxBarSubItem
+      Caption = 'Processo'
+      Category = 44
+      Visible = ivAlways
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btnCRMAtividades'
+        end>
+    end
+    object btnCRMRelatorio: TdxBarSubItem
+      Caption = 'Relat'#243'rio'
+      Category = 44
+      Visible = ivAlways
+      ItemLinks = <>
     end
   end
   object ActMain: TActionList

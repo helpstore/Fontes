@@ -1,6 +1,6 @@
 object FrmOrcamentos: TFrmOrcamentos
   Left = 276
-  Top = 102
+  Top = 106
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = ' Or'#231'amento '

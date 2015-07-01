@@ -1,6 +1,6 @@
 object FrmVendas: TFrmVendas
   Left = 248
-  Top = 98
+  Top = 102
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Pedido'
@@ -77,7 +77,7 @@ object FrmVendas: TFrmVendas
       Top = 49
       Width = 928
       Height = 491
-      ActivePage = TabTransporte
+      ActivePage = TabFaturamento
       Align = alClient
       HotTrack = True
       TabOrder = 1
@@ -1484,7 +1484,7 @@ object FrmVendas: TFrmVendas
           BevelOuter = bvNone
           TabOrder = 0
           object Label48: TcxLabel
-            Left = 206
+            Left = 9
             Top = 57
             Caption = 'Frete por Conta'
             ParentFont = False
@@ -1498,28 +1498,28 @@ object FrmVendas: TFrmVendas
             Transparent = True
           end
           object Label51: TcxLabel
-            Left = 461
+            Left = 264
             Top = 57
             Caption = 'Especie'
             ParentFont = False
             Transparent = True
           end
           object Label52: TcxLabel
-            Left = 364
-            Top = 56
+            Left = 164
+            Top = 57
             Caption = 'Quantidade'
             ParentFont = False
             Transparent = True
           end
           object Label53: TcxLabel
-            Left = 324
+            Left = 321
             Top = 96
             Caption = 'Peso L'#237'quido'
             ParentFont = False
             Transparent = True
           end
           object Label54: TcxLabel
-            Left = 472
+            Left = 469
             Top = 96
             Caption = 'Peso Bruto'
             ParentFont = False
@@ -1533,8 +1533,8 @@ object FrmVendas: TFrmVendas
             Transparent = True
           end
           object Label55: TcxLabel
-            Left = 528
-            Top = 59
+            Left = 334
+            Top = 57
             Caption = 'N'#250'mero'
             ParentFont = False
             Transparent = True
@@ -1554,30 +1554,31 @@ object FrmVendas: TFrmVendas
             Transparent = True
           end
           object Label59: TcxLabel
-            Left = 451
+            Left = 455
             Top = 138
             Caption = 'UF'
             ParentFont = False
             Transparent = True
           end
           object Label68: TcxLabel
-            Left = 104
+            Left = 106
             Top = 138
             Caption = 'Cidade'
             ParentFont = False
             Transparent = True
           end
           object Label60: TcxLabel
-            Left = 8
-            Top = 57
+            Left = 504
+            Top = 137
             Caption = 'CPF/CNPJ'
             ParentFont = False
             Transparent = True
+            Visible = False
           end
-          object EdTransportadora: TdxDBLookupEdit
+          object aTfrmCadTransportadoras: TdxDBLookupEdit
             Left = 8
             Top = 33
-            Width = 307
+            Width = 281
             Color = clWhite
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -1595,7 +1596,7 @@ object FrmVendas: TFrmVendas
             AutoSize = False
             DataField = 'TRANSPORTADORA'
             DataSource = DataSource
-            OnChange = EdTransportadoraChange
+            OnChange = aTfrmCadTransportadorasChange
             ClearKey = 8
             ListFieldName = 'NOME'
             KeyFieldName = 'CODIGO'
@@ -1604,8 +1605,8 @@ object FrmVendas: TFrmVendas
             Height = 24
           end
           object dxDBEdit7: TdxDBEdit
-            Left = 460
-            Top = 71
+            Left = 263
+            Top = 73
             Width = 65
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -1625,8 +1626,8 @@ object FrmVendas: TFrmVendas
             DataSource = DataSource
           end
           object dxDBCalcEdit2: TdxDBCalcEdit
-            Left = 362
-            Top = 71
+            Left = 162
+            Top = 73
             Width = 97
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -1665,10 +1666,10 @@ object FrmVendas: TFrmVendas
               D684860084860084860084860084860084860084860084860084860084860084
               8600848600CED3D60000}
             PopupBorder = pbFrame3D
-            Height = 26
+            Height = 24
           end
           object dxDBCalcEdit3: TdxDBCalcEdit
-            Left = 321
+            Left = 318
             Top = 111
             Width = 144
             Font.Charset = DEFAULT_CHARSET
@@ -1709,7 +1710,7 @@ object FrmVendas: TFrmVendas
             PopupBorder = pbFrame3D
           end
           object dxDBCalcEdit4: TdxDBCalcEdit
-            Left = 470
+            Left = 467
             Top = 111
             Width = 137
             Font.Charset = DEFAULT_CHARSET
@@ -1782,8 +1783,8 @@ object FrmVendas: TFrmVendas
             StoredValues = 64
           end
           object dxDBEdit6: TdxDBEdit
-            Left = 526
-            Top = 71
+            Left = 332
+            Top = 73
             Width = 83
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -1864,8 +1865,8 @@ object FrmVendas: TFrmVendas
             StoredValues = 4
           end
           object edUF: TdxDBEdit
-            Left = 449
-            Top = 152
+            Left = 453
+            Top = 153
             Width = 32
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -1883,7 +1884,7 @@ object FrmVendas: TFrmVendas
             DataSource = DataSource
           end
           object dxDBEdit14: TdxDBEdit
-            Left = 103
+            Left = 105
             Top = 153
             Width = 346
             Font.Charset = DEFAULT_CHARSET
@@ -1906,8 +1907,8 @@ object FrmVendas: TFrmVendas
             Height = 24
           end
           object dxDBEdit15: TdxDBEdit
-            Left = 8
-            Top = 72
+            Left = 504
+            Top = 152
             Width = 196
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
@@ -1919,6 +1920,7 @@ object FrmVendas: TFrmVendas
             Style.BorderStyle = xbsSingle
             Style.ButtonStyle = btsSimple
             TabOrder = 2
+            Visible = False
             OnEnter = EdPessoaEnter
             OnExit = edObservacoesExit
             OnKeyDown = dxDBEdit1KeyDown
@@ -1929,7 +1931,7 @@ object FrmVendas: TFrmVendas
             Height = 24
           end
           object edFreteConta: TcxDBComboBox
-            Left = 209
+            Left = 9
             Top = 73
             DataBinding.DataField = 'PGTO_FRETE'
             DataBinding.DataSource = DataSource
@@ -1953,6 +1955,22 @@ object FrmVendas: TFrmVendas
             OnExit = edObservacoesExit
             OnKeyDown = edFreteContaKeyDown
             Width = 149
+          end
+          object btnTransportadora: TcxButtonEdit
+            Left = 289
+            Top = 35
+            Properties.Buttons = <
+              item
+                Caption = 'F4'
+                Default = True
+                Kind = bkText
+              end>
+            Properties.ViewStyle = vsButtonsOnly
+            Properties.OnChange = btnTransportadoraPropertiesChange
+            TabOrder = 27
+            Text = 'btnTransportadora'
+            OnClick = btnTransportadoraClick
+            Width = 25
           end
         end
       end
@@ -8340,8 +8358,8 @@ object FrmVendas: TFrmVendas
     SQL.Strings = (
       'select ct.codigo, ct.descricao from ctr_contrato ct'
       'where ct.ativo = '#39'S'#39)
-    Left = 476
-    Top = 137
+    Left = 620
+    Top = 145
     object qryContratosCODIGO: TIntegerField
       FieldName = 'CODIGO'
       Origin = '"CTR_CONTRATO"."CODIGO"'
@@ -8357,7 +8375,7 @@ object FrmVendas: TFrmVendas
   object dsContrato: TDataSource
     AutoEdit = False
     DataSet = qryContratos
-    Left = 516
-    Top = 136
+    Left = 660
+    Top = 144
   end
 end

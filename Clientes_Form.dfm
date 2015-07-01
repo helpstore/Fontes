@@ -1,6 +1,6 @@
 object FrmClientes: TFrmClientes
   Left = 198
-  Top = -6
+  Top = 0
   Width = 830
   Height = 677
   BorderIcons = [biSystemMenu]
@@ -21,8 +21,8 @@ object FrmClientes: TFrmClientes
   object pnlClient: TPanel
     Left = 0
     Top = 0
-    Width = 822
-    Height = 650
+    Width = 814
+    Height = 639
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -37,16 +37,16 @@ object FrmClientes: TFrmClientes
     OnResize = pnlClientResize
     object Bevel1: TBevel
       Left = 2
-      Top = 616
-      Width = 818
+      Top = 605
+      Width = 810
       Height = 2
       Align = alBottom
       Shape = bsTopLine
     end
     object pnlBottom: TPanel
       Left = 2
-      Top = 618
-      Width = 818
+      Top = 607
+      Width = 810
       Height = 30
       Align = alBottom
       BevelOuter = bvNone
@@ -54,7 +54,7 @@ object FrmClientes: TFrmClientes
       object dxBarDockControl1: TdxBarDockControl
         Left = 0
         Top = 2
-        Width = 818
+        Width = 810
         Height = 26
         Align = dalTop
         BarManager = BarMgr
@@ -62,7 +62,7 @@ object FrmClientes: TFrmClientes
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 818
+        Width = 810
         Height = 2
         Align = alTop
         BevelOuter = bvNone
@@ -72,24 +72,24 @@ object FrmClientes: TFrmClientes
     object PCPES: TcxPageControl
       Left = 2
       Top = 47
-      Width = 818
-      Height = 569
+      Width = 810
+      Height = 558
       ActivePage = dxTabSheet4
       Align = alClient
       HotTrack = True
       TabOrder = 0
       OnChange = PCPESChange
       OnEnter = PCPESEnter
-      ClientRectBottom = 565
+      ClientRectBottom = 554
       ClientRectLeft = 4
-      ClientRectRight = 814
+      ClientRectRight = 806
       ClientRectTop = 27
       object dxTabSheet4: TcxTabSheet
         Caption = '&1 Clientes'
         object Shape3: TShape
           Left = 0
           Top = 0
-          Width = 810
+          Width = 802
           Height = 1
           Align = alTop
           Pen.Color = clBtnShadow
@@ -100,8 +100,8 @@ object FrmClientes: TFrmClientes
           Align = alClient
           Caption = 'Dados '
           TabOrder = 0
-          Height = 537
-          Width = 810
+          Height = 526
+          Width = 802
           object BtnAtividadePes: TcxButton
             Left = 397
             Top = 89
@@ -635,8 +635,8 @@ object FrmClientes: TFrmClientes
           end
           object PCCLIENTE: TcxPageControl
             Left = 3
-            Top = 278
-            Width = 804
+            Top = 267
+            Width = 796
             Height = 251
             ActivePage = dxTabSheet1
             Align = alBottom
@@ -645,7 +645,7 @@ object FrmClientes: TFrmClientes
             OnEnter = PCCLIENTEEnter
             ClientRectBottom = 247
             ClientRectLeft = 4
-            ClientRectRight = 800
+            ClientRectRight = 792
             ClientRectTop = 27
             object dxTabSheet1: TcxTabSheet
               Caption = 'Dados Cliente'
@@ -3464,8 +3464,8 @@ object FrmClientes: TFrmClientes
           StyleHot.LookAndFeel.Kind = lfOffice11
           StyleHot.LookAndFeel.NativeStyle = True
           TabOrder = 0
-          Height = 538
-          Width = 810
+          Height = 527
+          Width = 802
           object btnCidade: TcxButton
             Left = 696
             Top = 31
@@ -4053,8 +4053,8 @@ object FrmClientes: TFrmClientes
         ImageIndex = 4
         object Panel4: TPanel
           Left = 0
-          Top = 471
-          Width = 810
+          Top = 460
+          Width = 802
           Height = 67
           Align = alBottom
           TabOrder = 0
@@ -4133,8 +4133,8 @@ object FrmClientes: TFrmClientes
         object WebBrowser1: TWebBrowser
           Left = 0
           Top = 0
-          Width = 810
-          Height = 430
+          Width = 802
+          Height = 419
           Align = alClient
           TabOrder = 1
           OnCommandStateChange = WebBrowser1CommandStateChange
@@ -4147,8 +4147,8 @@ object FrmClientes: TFrmClientes
         end
         object pnlConexao: TPanel
           Left = 0
-          Top = 430
-          Width = 810
+          Top = 419
+          Width = 802
           Height = 41
           Align = alBottom
           Caption = 'Sem Conex'#227'o com  Internet'
@@ -4773,7 +4773,7 @@ object FrmClientes: TFrmClientes
     object Panel2: TPanel
       Left = 2
       Top = 2
-      Width = 818
+      Width = 810
       Height = 45
       Align = alTop
       BevelOuter = bvNone
@@ -4917,8 +4917,8 @@ object FrmClientes: TFrmClientes
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

@@ -1075,6 +1075,18 @@ begin
   // a os receberá tambem estes dados nos respectivos campos
 
   QryStatus.Locate('CODIGO',dtEditCOD_STATUS.Value,[loCaseInsensitive]);
+  
+  // Sanniel -- Se não existir movimento, fechamento não é realizado.
+  if (dtEdit.State in [dsedit, dsinsert]) and ((dtEditDet2.RecordCount = 0) and (QryStatusFECHADO.value = 'S') and not (QryStatusNOME.value = 'CANCELADO'))then
+  begin
+    Application.messagebox('Impossível fechar.' + #013 + 'Não existe Movimento do técnico.','Erro!!!', MB_OK + MB_ICONERROR);
+    if dtEditCOD_STATUS.value = dtEditCOD_STATUS.OldValue then
+      dtEditCOD_STATUS.value := 0
+    else
+      dtEditCOD_STATUS.value := dtEditCOD_STATUS.OldValue;
+    exit;
+  end;
+
   if ((QryStatusFECHADO.value = 'S') and (dtEditDATA_FECHAMENTO.IsNull)) then
   begin
     DataHora := dmApp.DataServidor;
@@ -1267,16 +1279,6 @@ var
   TRAB_INI  , TRAB_FIM : STRING;
 
 begin
-  // Sanniel -- Se não existir movimento, fechamento não é realizado.
-  if (dtEdit.State = dsedit) and ((dtEditDet2.RecordCount = 0) and (QryStatusNOME.value = 'FECHADO'))then
-  begin
-      Application.messagebox('Impossível fechar.' + #013 + 'Não existe Movimento do técnico.' + #013 + 'Altere o status e insira um movimento antes de fechar a OS.','Erro!!!', MB_OK + MB_ICONERROR);
-      dtEdit.Cancel;
-      aTfrmCadStatusServico.SetFocus;
-      Abort;
-      Exit;
-  end;
-
   //verifica se km_inicial é menor que km_final
   if dtEditKM_RODADO.value < 0 then
   begin
@@ -1986,11 +1988,12 @@ procedure TfrmCadOS.ActSaveExecute(Sender: TObject);
 var
   StatusPadrao : integer;
   sql : string;
-begin  
+begin
   {Selecionando o Status 'padrão' de abertura}
   sql := 'select coalesce(min(s.codigo),0) from ofc_status s where s.cnpj = '+QuotedStr(dmApp.cnpj)+' and s.padrao_abertura = ''S''';
   StatusPadrao := RetornaValor(sql);
-  if (dtEditCOD_STATUS.value = StatusPadrao) and (Foco = 'Master')then
+  
+  if {(dtEditCOD_STATUS.value = StatusPadrao) and} (Foco = 'Master')then
   begin
     dtEdit.Post;
     dtEdit.Transaction.CommitRetaining;

@@ -1,3 +1,56 @@
+{$A8,B-,C+,D+,E-,F-,G+,H+,I+,J+,K-,L+,M-,N+,O+,P+,Q-,R-,S-,T-,U-,V+,W-,X+,Y+,Z1}
+{$MINSTACKSIZE $00004000}
+{$MAXSTACKSIZE $00100000}
+{$IMAGEBASE $00400000}
+{$APPTYPE GUI}
+{$WARN SYMBOL_DEPRECATED ON}
+{$WARN SYMBOL_LIBRARY ON}
+{$WARN SYMBOL_PLATFORM ON}
+{$WARN UNIT_LIBRARY ON}
+{$WARN UNIT_PLATFORM ON}
+{$WARN UNIT_DEPRECATED ON}
+{$WARN HRESULT_COMPAT ON}
+{$WARN HIDING_MEMBER ON}
+{$WARN HIDDEN_VIRTUAL ON}
+{$WARN GARBAGE ON}
+{$WARN BOUNDS_ERROR ON}
+{$WARN ZERO_NIL_COMPAT ON}
+{$WARN STRING_CONST_TRUNCED ON}
+{$WARN FOR_LOOP_VAR_VARPAR ON}
+{$WARN TYPED_CONST_VARPAR ON}
+{$WARN ASG_TO_TYPED_CONST ON}
+{$WARN CASE_LABEL_RANGE ON}
+{$WARN FOR_VARIABLE ON}
+{$WARN CONSTRUCTING_ABSTRACT ON}
+{$WARN COMPARISON_FALSE ON}
+{$WARN COMPARISON_TRUE ON}
+{$WARN COMPARING_SIGNED_UNSIGNED ON}
+{$WARN COMBINING_SIGNED_UNSIGNED ON}
+{$WARN UNSUPPORTED_CONSTRUCT ON}
+{$WARN FILE_OPEN ON}
+{$WARN FILE_OPEN_UNITSRC ON}
+{$WARN BAD_GLOBAL_SYMBOL ON}
+{$WARN DUPLICATE_CTOR_DTOR ON}
+{$WARN INVALID_DIRECTIVE ON}
+{$WARN PACKAGE_NO_LINK ON}
+{$WARN PACKAGED_THREADVAR ON}
+{$WARN IMPLICIT_IMPORT ON}
+{$WARN HPPEMIT_IGNORED ON}
+{$WARN NO_RETVAL ON}
+{$WARN USE_BEFORE_DEF ON}
+{$WARN FOR_LOOP_VAR_UNDEF ON}
+{$WARN UNIT_NAME_MISMATCH ON}
+{$WARN NO_CFG_FILE_FOUND ON}
+{$WARN MESSAGE_DIRECTIVE ON}
+{$WARN IMPLICIT_VARIANTS ON}
+{$WARN UNICODE_TO_LOCALE ON}
+{$WARN LOCALE_TO_UNICODE ON}
+{$WARN IMAGEBASE_MULTIPLE ON}
+{$WARN SUSPICIOUS_TYPECAST ON}
+{$WARN PRIVATE_PROPACCESSOR ON}
+{$WARN UNSAFE_TYPE ON}
+{$WARN UNSAFE_CODE ON}
+{$WARN UNSAFE_CAST ON}
   unit OrcamentosItens_Form;
 
 interface
@@ -342,7 +395,8 @@ end;
 
 procedure TFrmOrcamentosItens.edProdutoExit(Sender: TObject);
 Var
-   Aux: String;
+   Aux, AuxSql: String;
+   Aux2: Variant;
 begin
      //TROCA A COR DE FUNDO
      TiraCorFundo ( Sender );
@@ -360,7 +414,27 @@ begin
           if FrmLocProdutoCadastro_Auto.Showmodal = mrok then
             Datasource.DataSet.FieldByName('PRODUTO').asString := (FrmLocProdutoCadastro_Auto.CampTrecho);
 
-          edProduto.SetFocus ;
+
+        //Validando produto ativo -- Sanniel
+        AuxSql := 'select coalesce(prd.ativo, ' + '''' + 'N' +'''' + ') from est_produtos prd where prd.cnpj = ' + '''' + FrmOrcamentos.Orcamentos_ItensCNPJ.AsString + '''' + ' and prd.codigo = ' + '''' + FrmOrcamentos.Orcamentos_ItensPRODUTO.AsString + '''';
+        Aux2 := RetornaValor(AuxSql);
+        if Aux2 = 'N' then
+        begin
+          Application.MessageBox('Produto Inativo.','Aviso',mb_iconerror + mb_ok);
+          Datasource.DataSet.FieldByName('PRODUTO').asString := '';
+        end else
+        begin
+          //Validando estoque comprometido. -- Sanniel
+          AuxSql := 'select est_disponivel from pcd_lista_produto(' + '''' + FrmOrcamentos.Orcamentos_ItensCNPJ.AsString + '''' + ', ' + '''' + FrmOrcamentos.Orcamentos_ItensPRODUTO.AsString + '''' + ')';
+          Aux2 := RetornaValor(AuxSql);
+          if Aux2 < 1 then
+          begin
+            Application.MessageBox('Produto com saldo insuficiente.','Aviso',mb_iconerror + mb_ok);
+            Datasource.DataSet.FieldByName('PRODUTO').asString := '';
+          end;
+        end;
+        
+        edProduto.SetFocus ;  
      end
      Else begin
           If LocProd

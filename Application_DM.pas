@@ -11500,22 +11500,22 @@ begin
 
           if dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5102 then
           begin
-            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value,2);
-            Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value,2);
-            Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
+            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value + (dmCadastros2.NFe_Faturamentos_ItensVDESC.value * dmCadastros2.NFe_Faturamentos_ItensQCOM.value),2);
+            Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value + dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
+            Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value + dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
             Prod.vDesc := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVDESC.value * dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
           end else
           begin
-            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value - (dmCadastros2.NFe_Faturamentos_ItensVDESC.value * dmCadastros2.NFe_Faturamentos_ItensQCOM.value),2);
-            Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value - dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
-            Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value - dmCadastros2.NFe_Faturamentos_ItensVDESC.value,2);
+            Prod.vProd    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVPROD.value,2);
+            Prod.vUnCom   := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUNCOM.value,2);
+            Prod.vUnTrib  := Arredonda(dmCadastros2.NFe_Faturamentos_ItensVUTRIB.value,2);
           end;
           
           Prod.qTrib    := Arredonda(dmCadastros2.NFe_Faturamentos_ItensQTRIB.value,2);
           Prod.uTrib    := dmCadastros2.NFe_Faturamentos_ItensUTRIB.value;
 
           Prod.NCM :=   dmCadastros2.NFe_Faturamentos_ItensCODIGO_NCM.AsString;
-          if dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5102 then
+          //if dmCadastros2.NFe_Faturamentos_ItensCFOP.AsInteger = 5102 then
 
 
           if (trim(dmCadastros2.NFe_Faturamentos_ItensCOD_GETIN.AsString) <> '') then

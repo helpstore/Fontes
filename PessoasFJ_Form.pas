@@ -211,7 +211,7 @@ implementation
 
 uses Cadastros_DM, Listagens_DM, Application_DM, Main, Usuarios_DM, Funcoes,
   Logradouros_Form, Bairros_Form, Cidades_Form, Atividades_Form,
-  Localizar_Generico, VeiculosPessoas_Form, Regioes_Form, untCadLogradouro;
+  Localizar_Generico, VeiculosPessoas_Form, untCadLogradouro;
 
 {$R *.DFM}
 
@@ -1094,7 +1094,7 @@ end;
 
 procedure TFrmPessoasFJ.btnRegiaoClick(Sender: TObject);
 begin
-  If ActAlterar.Tag = 0 Then
+ { If ActAlterar.Tag = 0 Then
      Exit;
 
   If Datasource.DataSet.State = dsBrowse Then
@@ -1115,7 +1115,7 @@ begin
   FrmRegioes.Free;
   FrmRegioes := Nil;
   //
-  cmbRegiao.SetFocus;
+  cmbRegiao.SetFocus;  }
 end;
 
 end.
