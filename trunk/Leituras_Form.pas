@@ -267,7 +267,6 @@ type
     Procedure Calcular_Itens;
   public
      procedure Synchronize;
-
   end;
 
 var
@@ -392,7 +391,7 @@ begin
   Datasource.AutoEdit := ActAlterar.Enabled;
   dmcadastros2.LeituraItens.Close;
   dmcadastros2.LeituraItens.Open;
-
+  
   Grid.FullExpand;
 end;
 
@@ -558,12 +557,24 @@ begin
 end;
 
 procedure TFrmLeituras.ActGerarItensExecute(Sender: TObject);
+var
+  AuxSql: String;
 begin
   with dmCadastros2 do
    begin
      if Application.MessageBox('Deseja realmente gerar os itens?','Aviso', mb_iconinformation + mb_yesno) = id_no then
        exit;
 
+    //Sanniel -- Verifica se a vigência do contrato está em vigor. Solicitação da Alessandra.
+    AuxSql := 'select grp.codigo from ofc_grp_contratos grp where grp.dt_fim < (select data from data_servidor) and grp.codigo = ' + LeituraCONTRATO.AsString;
+    if RetornaValor(AuxSql) <> null then
+    begin
+      Application.MessageBox('Vigência do contrato de cópias expirada.','Erro', mb_ok + mb_iconerror);
+      LeituraCONTRATO.Value := 0;
+      cmbContrato.SetFocus;
+      Exit;
+    end;
+    //
      LeituraItens.FetchAll;
      if (LeituraItens.recordCount > 0) then
      begin

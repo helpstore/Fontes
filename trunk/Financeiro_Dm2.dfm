@@ -1,9 +1,8 @@
 object dmFinanceiro2: TdmFinanceiro2
   OldCreateOrder = False
-  Left = 53
-  Top = 80
-  Height = 517
-  Width = 669
+  Left = 1
+  Height = 728
+  Width = 1278
   object qryManBoletos: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction

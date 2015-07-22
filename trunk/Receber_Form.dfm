@@ -1,6 +1,6 @@
 object FrmReceber: TFrmReceber
-  Left = 11
-  Top = 109
+  Left = 12
+  Top = 93
   Width = 1269
   Height = 635
   Caption = 'Contas '#224' Receber  '
@@ -1812,7 +1812,7 @@ object FrmReceber: TFrmReceber
     object cxSplitter1: TcxSplitter
       Left = 2
       Top = 2
-      Width = 6
+      Width = 7
       Height = 593
       Control = Panel4
     end

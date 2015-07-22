@@ -1,6 +1,6 @@
 object FrmExtornaReceber: TFrmExtornaReceber
-  Left = 218
-  Top = 110
+  Left = 233
+  Top = 111
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Contas Recebidas'
@@ -135,10 +135,10 @@ object FrmExtornaReceber: TFrmExtornaReceber
         Height = 493
         HotTrack = True
         TabOrder = 0
-        ClientRectBottom = 488
-        ClientRectLeft = 2
-        ClientRectRight = 593
-        ClientRectTop = 2
+        ClientRectBottom = 489
+        ClientRectLeft = 4
+        ClientRectRight = 594
+        ClientRectTop = 4
       end
       object GRID: TdxDBGrid
         Left = 0
@@ -427,8 +427,8 @@ object FrmExtornaReceber: TFrmExtornaReceber
     AllowReset = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     CanCustomize = False
     Categories.Strings = (

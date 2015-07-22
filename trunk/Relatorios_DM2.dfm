@@ -1672,6 +1672,11 @@ object dmRelatorios2: TdmRelatorios2
       FieldName = 'TECNICO_ESPECIFICO'
       Origin = '"PCD_REL_EQUIPAMENTOS"."TECNICO_ESPECIFICO"'
     end
+    object qryRelEquipSintTP_CONTRATO: TIBStringField
+      FieldName = 'TP_CONTRATO'
+      Origin = '"PCD_REL_EQUIPAMENTOS"."TP_CONTRATO"'
+      Size = 50
+    end
   end
   object SelKardex: TIBQuery
     Database = DmApp.Database

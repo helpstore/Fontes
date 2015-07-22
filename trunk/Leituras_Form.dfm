@@ -527,7 +527,7 @@ object FrmLeituras: TFrmLeituras
           object cxLabel1: TcxLabel
             Left = 371
             Top = 24
-            Caption = 'D/Ac. Total'
+            Caption = 'Acr'#233'sc. Total'
             ParentFont = False
           end
           object DBEdit8: TDBEdit

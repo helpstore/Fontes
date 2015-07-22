@@ -11441,7 +11441,9 @@ begin
       //os valores reais do destinatario
      // if (DMApp.NFE_WS_AMBIENTE = '0') then
      if (dmCadastros2.NFe_Faturamentos2DEST_IE.value) = 'ISENTO' then
-      Dest.indIEDest := inNaoContribuinte
+     //begin
+      Dest.indIEDest := inNaoContribuinte// inIsento;
+      //Dest.IE := '';
      else
       Dest.IE                := StringReplace(StringReplace(dmCadastros2.NFe_Faturamentos2DEST_IE.value,'.','',[rfReplaceAll]),'-','',[rfReplaceAll]);
      // else
@@ -11450,7 +11452,6 @@ begin
       Dest.xNome             := dmCadastros2.NFe_Faturamentos2DEST_RAZAO_SOCIAL.value;
       Dest.EnderDest.cPais   := 1058;
       Dest.EnderDest.xPais   := 'BRASIL';
-
 
 
 
