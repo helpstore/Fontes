@@ -1,8 +1,8 @@
 object DMProcs: TDMProcs
   OldCreateOrder = False
-  Left = 65515
-  Top = 109
+  Top = 110
   Height = 549
+  VerticalOffset = 26
   Width = 883
   object GeraCodigo: TIBStoredProc
     Database = DmApp.Database

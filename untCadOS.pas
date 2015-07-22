@@ -992,9 +992,18 @@ end;
 
 procedure TfrmCadOS.dtEditPESSOA_FJChange(Sender: TField);
 var
-  ativo : string;
+  ativo, AuxSql : string;
 begin
   inherited;
+  //Sanniel -- Verifica se a vigência do contrato está em vigor. Solicitação da Alessandra.
+  AuxSql := 'select count(ctr.codigo) from ofc_contratos ctr where (ctr.dt_fim >= (select data from data_servidor) or ctr.dt_fim is null) and ctr.cod_cliente = ' + dtEditPESSOA_FJ.AsString;
+  if (RetornaValor(AuxSql) = 0) and (dtEditPESSOA_FJ.Value > 0) then
+  begin
+    Application.MessageBox('Vigência do contrato de atendimento expirada.','Erro', mb_ok + mb_iconerror);
+    dtEditPESSOA_FJ.Value := 0;
+    aTfrmCadClientes.SetFocus;
+    Exit;
+  end;
   //Atribuindo a OS a Lat. e Longitude do Cadastro de Clientes, caso ela existe
   if (dtEditMAP_LAT.asString = '') then
   begin

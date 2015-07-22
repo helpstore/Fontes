@@ -1156,6 +1156,7 @@ inherited frmCadContratoAtendimento: TfrmCadContratoAtendimento
                 WordWrap = True
               end
               inherited edtCodigo: TcxDBTextEdit
+                DataBinding.DataField = 'CODIGO'
                 TabOrder = 0
               end
               object cxDBLookupComboBox1: TcxDBLookupComboBox

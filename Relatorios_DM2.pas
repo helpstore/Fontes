@@ -557,6 +557,7 @@ type
     qryPosicaoEstoqueDT_VENCTO_PRC_VENDA: TDateField;
     Extenso: TACBrExtenso;
     qryRelEquipSintTECNICO_ESPECIFICO: TIntegerField;
+    qryRelEquipSintTP_CONTRATO: TIBStringField;
     procedure qryRelComVendasCalcFields(DataSet: TDataSet);
     procedure qryRelParametrosCalcFields(DataSet: TDataSet);
     procedure qryRelComCobCalcFields(DataSet: TDataSet);

@@ -1,11 +1,12 @@
 inherited frmCadCRMStatus: TfrmCadCRMStatus
-  Left = 238
-  Top = 130
+  Left = 272
+  Top = 132
   Caption = 'Status CRM'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited pgcCadastro: TcxPageControl
+    ActivePage = tbsLista
     inherited tbsLista: TcxTabSheet
       inherited Grid: TcxGrid
         Height = 336
@@ -31,6 +32,8 @@ inherited frmCadCRMStatus: TfrmCadCRMStatus
           end
           object GridDBBandedTableView2COR: TcxGridDBBandedColumn
             DataBinding.FieldName = 'COR'
+            PropertiesClassName = 'TcxColorComboBoxProperties'
+            Properties.CustomColors = <>
             Position.BandIndex = 0
             Position.ColIndex = 3
             Position.RowIndex = 0

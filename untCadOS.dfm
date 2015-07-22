@@ -1,5 +1,5 @@
 inherited frmCadOS: TfrmCadOS
-  Left = 10
+  Left = 11
   Top = 0
   Width = 1270
   Height = 728
@@ -10,7 +10,6 @@ inherited frmCadOS: TfrmCadOS
   inherited pgcCadastro: TcxPageControl
     Width = 1254
     Height = 664
-    ActivePage = tbsLista
     ClientRectBottom = 660
     ClientRectRight = 1250
     inherited tbsLista: TcxTabSheet
@@ -9135,7 +9134,6 @@ inherited frmCadOS: TfrmCadOS
   object qryRelHistoricoEquip: TIBQuery
     Database = DmApp.Database
     Transaction = DmApp.Transaction
-    Active = True
     SQL.Strings = (
       'select'
       'os.CONTADOR_TOTAL,'
@@ -9320,7 +9318,6 @@ inherited frmCadOS: TfrmCadOS
     Database = DmApp.Database
     Transaction = DmApp.Transaction
     BeforeOpen = dtListBeforeOpen
-    Active = True
     DataSource = DsHistEquip
     SQL.Strings = (
       
