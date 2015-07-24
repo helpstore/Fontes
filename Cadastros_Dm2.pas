@@ -1570,24 +1570,29 @@ var
   Posicao: Integer;
   MsgAcres: String;
 begin
-  if LeituraDESC_ACRESC_TOTAL.Value < 0 then
-  begin
-    Application.MessageBox('Não é permitido desconto!','Erro', mb_ok + mb_iconerror);
-    LeituraDESC_ACRESC_TOTAL.Value := 0;
-    Exit;
-  end;
-  
   Posicao := 0;
   MsgAcres := 'ACRESCIMO REFERENTE A OUTROS SERVICOS: ';
   Posicao := Pos(MsgAcres, LeituraOBSERVACAO.AsString);
 
   if Posicao > 0 then
     LeituraOBSERVACAO.AsString := Copy(LeituraOBSERVACAO.AsString, 1, Posicao -1);
+    
+  if LeituraDESC_ACRESC_TOTAL.Value < 0 then
+  begin
+    Application.MessageBox('Não é permitido desconto!','Erro', mb_ok + mb_iconerror);
+    LeituraDESC_ACRESC_TOTAL.Clear;
+    Exit;
+  end;
 
-  if (LeituraDESC_ACRESC_TOTAL.Value > 0) and (Posicao = 0) then
-    LeituraOBSERVACAO.AsString := LeituraOBSERVACAO.AsString + #013 + MsgAcres + LeituraDESC_ACRESC_TOTAL.AsString + '  REAIS'
+  if LeituraDESC_ACRESC_TOTAL.Value = 0 then
+    Exit;
+    
+  if Pos(#013, Copy(LeituraOBSERVACAO.AsString, Length(LeituraOBSERVACAO.AsString), Length(LeituraOBSERVACAO.AsString) -1)) > 0 then
+    LeituraOBSERVACAO.AsString := LeituraOBSERVACAO.AsString + MsgAcres + LeituraDESC_ACRESC_TOTAL.AsString + ' REAIS'
   else
-    LeituraOBSERVACAO.AsString := LeituraOBSERVACAO.AsString + MsgAcres + LeituraDESC_ACRESC_TOTAL.AsString + ' REAIS';
+    LeituraOBSERVACAO.AsString := LeituraOBSERVACAO.AsString + #013 + MsgAcres + LeituraDESC_ACRESC_TOTAL.AsString + ' REAIS';
+
+  LeituraVALOR_LEITURA.Value := LeituraCTR_VALOR.AsFloat + LeituraVALOR_TOTAL_COPIAS_EXCENTE.AsFloat + LeituraDESC_ACRESC_TOTAL.Value;
 end;
 
 end.

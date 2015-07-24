@@ -1,6 +1,6 @@
 object FrmMain: TFrmMain
   Left = 0
-  Top = 110
+  Top = 111
   Width = 1280
   Height = 614
   Caption = 'Help Store'
