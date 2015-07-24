@@ -530,21 +530,25 @@ object FrmLeituras: TFrmLeituras
             Caption = 'Acr'#233'sc. Total'
             ParentFont = False
           end
-          object DBEdit8: TDBEdit
-            Left = 370
+          object dxDBEdit5: TdxDBEdit
+            Left = 369
             Top = 39
-            Width = 82
-            Height = 24
+            Width = 83
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            Style.BorderColor = clBtnShadow
+            Style.BorderStyle = xbsSingle
+            Style.ButtonStyle = btsSimple
+            TabOrder = 15
             TabStop = False
             DataField = 'DESC_ACRESC_TOTAL'
             DataSource = DataSource
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -13
-            Font.Name = 'MS Sans Serif'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 15
+            ReadOnly = False
+            StoredValues = 64
           end
         end
         object GroupBox3: TGroupBox

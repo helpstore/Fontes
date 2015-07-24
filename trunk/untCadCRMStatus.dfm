@@ -1,6 +1,6 @@
 inherited frmCadCRMStatus: TfrmCadCRMStatus
-  Left = 272
-  Top = 132
+  Left = 290
+  Top = 133
   Caption = 'Status CRM'
   OldCreateOrder = True
   PixelsPerInch = 96

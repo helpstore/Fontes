@@ -218,7 +218,7 @@ type
     ppAppRepresentante: TppDBPipeline;
     ppDBText12: TppDBText;
     cxLabel1: TcxLabel;
-    DBEdit8: TDBEdit;
+    dxDBEdit5: TdxDBEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ActIncluirExecute(Sender: TObject);
     procedure ActExcluirExecute(Sender: TObject);

@@ -1,8 +1,8 @@
 object DmPlano: TDmPlano
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 504
-  Top = 186
+  Left = 537
+  Top = 187
   Height = 450
   Width = 638
   object Plano: TIBDataSet
