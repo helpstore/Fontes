@@ -377,7 +377,6 @@ uses
   Cheque_Contabilidade in 'Cheque_Contabilidade.pas' {FrmCheque_Contabilidade},
   FormasPagto_Form in 'FormasPagto_Form.pas' {FrmFormasPagto},
   Splash_Form in 'Splash_Form.pas' {FrmSplash},
-  Demonstrativo_Form in 'Demonstrativo_Form.pas' {frmDemonstrativo},
   Filtra_RelTerceiros_Form in 'Filtra_RelTerceiros_Form.pas' {frmRelTerceiros},
   EstoqueComprometido_FRel in 'EstoqueComprometido_FRel.pas' {FRelEstoqueComprometido},
   Financeiro_Dm2 in 'Financeiro_Dm2.pas' {dmFinanceiro2: TDataModule},

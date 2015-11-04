@@ -91,7 +91,7 @@ ImageBase=4194304
 ExeDescription=
 [Directories]
 OutputDir=..\
-UnitOutputDir=..\dcu
+UnitOutputDir=D:\Sistemas\HelpStore\dcu
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=$(DELPHI)\Source\Soap
@@ -135,9 +135,10 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
+c:\program files\borland\delphi7\Bin\dcldss70.bpl=Borland Decision Cube Components
 C:\Users\Fabiano\Documents\DevExpress VCL\Library\Delphi7\dcldxPSTeeChartD7.bpl=ExpressPrinting System 4 ReportLink for TeeChart by Developer Express Inc.
 C:\Users\Fabiano\Documents\DevExpress VCL\Library\Delphi7\dcldxPSDBTeeChartD7.bpl=ExpressPrinting System ReportLink for DBTeeChart by Developer Express Inc.
-c:\program files\borland\delphi7\Bin\dcldss70.bpl=Borland Decision Cube Components
+C:\Program Files\Borland\Delphi7\RBuilder\Lib\dclRBC127.bpl=ReportBuilder TeeChart 4.04 Components
 C:\Windows\system32\rbIBE127.bpl=ReportBuilder Data Access for Interbase Express
 D:\Sistemas\Componentes\TeeChart Pro VCL 8.06 Full Source (Delphi4 CB4 - RAD Studio 2010)\Sources\Compiled\Delphi7\Bin\DclTQR87.bpl=TeeChart 8 for QuickReport 3
 [HistoryLists\hlDebugSourcePath]
@@ -153,8 +154,9 @@ Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 Count=1
 Item0=$(DELPHI)\Source\Soap
 [HistoryLists\hlUnitOutputDirectory]
-Count=1
-Item0=..\dcu
+Count=2
+Item0=D:\Sistemas\HelpStore\dcu
+Item1=..\dcu
 [HistoryLists\hlOutputDirectorry]
 Count=1
 Item0=..\
