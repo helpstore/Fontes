@@ -1355,7 +1355,7 @@ uses
   CaixaFrentista_DM, Devolucoes_FRel, VendasProdutos_FRel,
   EntradasProdutos_FRel, Cotacoes_FRel, ImprimeBoleto,
   VendasClientesConsumidor_FRel, AuxContagem_FRel, Mesas_Form,
-  Propriedades_FRel, ListagemMod_Form, Demonstrativo_Form,
+  Propriedades_FRel, ListagemMod_Form, {Demonstrativo_Form,}
   Filtra_RelTerceiros_Form, Receber_FRel2, 
   EstoqueComprometido_FRel, Pagar_FRel2, ManutencaoBoletos_Form,
   Perfil_Com_Form, Perfil_Pagto_Form, Comissoes_FRel,
@@ -7100,13 +7100,13 @@ end;
 
 procedure TFrmMain.btnDemonstrativoClick(Sender: TObject);
 begin
-  If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmDemonstrativo', True)) Then
+ { If Not(DMApp.Verificar_Login(FileName(Application.ExeName), 'frmDemonstrativo', True)) Then
      Exit;
     { * * * * * }
-  If DMApp.SelecionarEmpresa = 'N' Then
+ { If DMApp.SelecionarEmpresa = 'N' Then
      Exit;
     { * * * * * }
-  If frmDemonstrativo = Nil Then
+ { If frmDemonstrativo = Nil Then
   begin
        //
     if FrmMain.MDIChildCount > 0 Then
@@ -7116,7 +7116,7 @@ begin
        //
     frmDemonstrativo := TfrmDemonstrativo.Create(Self);
     frmDemonstrativo.showmodal;
-  end;
+  end;   }
 end;
 
 procedure TFrmMain.ActSetReleaseExecute(Sender: TObject);

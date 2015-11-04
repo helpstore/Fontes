@@ -8,173 +8,127 @@
   resources were bound to the produced executable.
 */
 
-#define GIFImage_sGIFImageFile 62048
-#define GIFImage_sProgressLoading 62049
-#define GIFImage_sProgressSaving 62050
-#define GIFImage_sProgressConverting 62051
-#define GIFImage_sProgressRendering 62052
-#define GIFImage_sProgressCopying 62053
-#define GIFImage_sProgressOptimizing 62054
-#define GIFImage_sUnsupportedClass 62064
-#define GIFImage_sInvalidData 62065
-#define GIFImage_sBadHeight 62066
-#define GIFImage_sBadWidth 62067
-#define GIFImage_sFailedPaste 62068
-#define GIFImage_sScreenSizeExceeded 62069
-#define GIFImage_sNoColorTable 62070
-#define GIFImage_sBadPixelCoordinates 62071
-#define GIFImage_sInvalidPixelFormat 62072
-#define GIFImage_sBadDimension 62073
-#define GIFImage_sNoDIB 62074
-#define GIFImage_sInvalidStream 62075
-#define GIFImage_sInvalidColor 62076
-#define GIFImage_sEmptyColorMap 62077
-#define GIFImage_sEmptyImage 62078
-#define GIFImage_sInvalidReduction 62079
-#define GIFImage_sOutOfData 62080
-#define GIFImage_sTooManyColors 62081
-#define GIFImage_sBadColorIndex 62082
-#define GIFImage_sBadVersion 62083
-#define GIFImage_sBadSignature 62084
-#define GIFImage_sScreenBadColorSize 62085
-#define GIFImage_sImageBadColorSize 62086
-#define GIFImage_sUnknownExtension 62087
-#define GIFImage_sBadExtensionLabel 62088
-#define GIFImage_sOutOfMemDIB 62089
-#define GIFImage_sDecodeTooFewBits 62090
-#define GIFImage_sDecodeCircular 62091
-#define GIFImage_sBadTrailer 62092
-#define GIFImage_sBadExtensionInstance 62093
-#define GIFImage_sBadBlockSize 62094
-#define GIFImage_sBadBlock 62095
-#define XMLConst_SDOMNotSupported 62096
-#define XMLConst_SNodeExpected 62097
-#define XMLConst_SMSDOMNotInstalled 62098
-#define XMLConst_SNotActive 62099
-#define XMLConst_SNodeNotFound 62100
-#define XMLConst_SMissingNode 62101
-#define XMLConst_SNoAttributes 62102
-#define XMLConst_SInvalidNodeType 62103
-#define XMLConst_SMismatchedRegItems 62104
-#define XMLConst_SNotSingleTextNode 62105
-#define XMLConst_SNoDOMParseOptions 62106
-#define XMLConst_SMissingItemTag 62107
-#define XMLConst_SNodeReadOnly 62108
-#define XMLConst_SNoRefresh 62109
-#define XMLConst_SMissingFileName 62110
-#define XMLConst_SLine 62111
-#define cxPivotGridStrs_scxPrefilterIsEmpty 62112
-#define cxPivotGridStrs_scxPrefilterCustomizeButtonCaption 62113
-#define cxPivotGridStrs_scxConnectUsing 62114
-#define cxPivotGridStrs_scxAnalysisServer 62115
-#define cxPivotGridStrs_scxCubeFile 62116
-#define cxPivotGridStrs_scxFile 62117
-#define cxPivotGridStrs_scxServer 62118
-#define cxPivotGridStrs_scxDatabase 62119
-#define cxPivotGridStrs_scxCube 62120
-#define cxPivotGridStrs_scxMeasures 62121
-#define cxPivotGridStrs_scxUnsupportedProviderVersion 62122
-#define cxPivotGridStrs_scxOLAPTotalCaption 62123
-#define cxPivotGridStrs_scxInvalidProviderVersion 62124
-#define XMLConst_SDuplicateRegistration 62125
-#define XMLConst_SNoMatchingDOMVendor 62126
-#define XMLConst_SNoDOMNodeEx 62127
-#define cxPivotGridStrs_scxInvalidLayout 62128
-#define cxPivotGridStrs_scxNotImplemented 62129
-#define cxPivotGridStrs_scxSeparator 62130
-#define cxPivotGridStrs_scxHide 62131
-#define cxPivotGridStrs_scxOrder 62132
-#define cxPivotGridStrs_scxMoveToBeginning 62133
-#define cxPivotGridStrs_scxMoveToEnd 62134
-#define cxPivotGridStrs_scxMoveToLeft 62135
-#define cxPivotGridStrs_scxMoveToRight 62136
-#define cxPivotGridStrs_scxExpand 62137
-#define cxPivotGridStrs_scxCollapse 62138
-#define cxPivotGridStrs_scxExpandAll 62139
-#define cxPivotGridStrs_scxCollapseAll 62140
-#define cxPivotGridStrs_scxShowCustomization 62141
-#define cxPivotGridStrs_scxHideCustomization 62142
-#define cxPivotGridStrs_scxShowPrefilterDialog 62143
-#define cxPivotGridStrs_scxGroupCount 62144
-#define cxPivotGridStrs_scxGroupSum 62145
-#define cxPivotGridStrs_scxGroupMin 62146
-#define cxPivotGridStrs_scxGroupMax 62147
-#define cxPivotGridStrs_scxGroupAverage 62148
-#define cxPivotGridStrs_scxGroupStdDev 62149
-#define cxPivotGridStrs_scxGroupStdDevP 62150
-#define cxPivotGridStrs_scxGroupVariance 62151
-#define cxPivotGridStrs_scxGroupVarianceP 62152
-#define cxPivotGridStrs_scxGroupCustom 62153
-#define cxPivotGridStrs_scxOthers 62154
-#define cxPivotGridStrs_scxPivotGridShowAll 62155
-#define cxPivotGridStrs_scxPivotGridOk 62156
-#define cxPivotGridStrs_scxPivotGridCancel 62157
-#define cxPivotGridStrs_scxQuarterFormat 62158
-#define cxPivotGridStrs_scxFieldNotADataField 62159
-#define cxTLStrs_scxExportNotVisibleControl 62160
-#define cxPivotGridStrs_scxDataField 62161
-#define cxPivotGridStrs_scxDropFilterFields 62162
-#define cxPivotGridStrs_scxDropDataItems 62163
-#define cxPivotGridStrs_scxDropRowFields 62164
-#define cxPivotGridStrs_scxDropColumnFields 62165
-#define cxPivotGridStrs_scxGrandTotal 62166
-#define cxPivotGridStrs_scxNoDataToDisplay 62167
-#define cxPivotGridStrs_scxAddTo 62168
-#define cxPivotGridStrs_scxDragItems 62169
-#define cxPivotGridStrs_scxFieldListCaption 62170
-#define cxPivotGridStrs_scxRowArea 62171
-#define cxPivotGridStrs_scxColumnArea 62172
-#define cxPivotGridStrs_scxFilterArea 62173
-#define cxPivotGridStrs_scxDataArea 62174
-#define cxPivotGridStrs_scxGroupTotal 62175
-#define cxTLStrs_scxTreeListGroupFootersAlwaysVisibleMenuItem 62176
-#define cxTLStrs_scxTreeListRemoveThisColumnMenuItem 62177
-#define cxTLStrs_scxTreeListFieldChooserMenuItem 62178
-#define cxTLStrs_scxTreeListHorizontalAlignmentMenuItem 62179
-#define cxTLStrs_scxTreeListHorizontalAlignmentLeftMenuItem 62180
-#define cxTLStrs_scxTreeListHorizontalAlignmentCenterMenuItem 62181
-#define cxTLStrs_scxTreeListHorizontalAlignmentRightMenuItem 62182
-#define cxTLStrs_scxTreeListVerticalAlignmentMenuItem 62183
-#define cxTLStrs_scxTreeListVerticalAlignmentBottomMenuItem 62184
-#define cxTLStrs_scxTreeListVerticalAlignmentCenterMenuItem 62185
-#define cxTLStrs_scxTreeListVerticalAlignmentTopMenuItem 62186
-#define cxTLStrs_scxTreeListBestFitMenuItem 62187
-#define cxTLStrs_scxTreeListBestFitAllColumnsMenuItem 62188
-#define cxTLStrs_scxOperationNotSupported 62189
-#define cxTLStrs_scxTreeListDeletingFocusedConfirmationText 62190
-#define cxTLStrs_scxTreeListDeletingConfirmationCaption 62191
-#define cxTLStrs_scxColumnsCaption 62192
-#define cxTLStrs_scxBandsCaption 62193
-#define cxTLStrs_scxTreeListNoneMenuItem 62194
-#define cxTLStrs_scxTreeListSumMenuItem 62195
-#define cxTLStrs_scxTreeListMinMenuItem 62196
-#define cxTLStrs_scxTreeListMaxMenuItem 62197
-#define cxTLStrs_scxTreeListCountMenuItem 62198
-#define cxTLStrs_scxTreeListAvgMenuItem 62199
-#define cxTLStrs_scxTreeListAllNodesMenuItem 62200
-#define cxTLStrs_scxTreeListSortAscendingMenuItem 62201
-#define cxTLStrs_scxTreeListSortDescendingMenuItem 62202
-#define cxTLStrs_scxTreeListClearSortingMenuItem 62203
-#define cxTLStrs_scxTreeListFooterMenuItem 62204
-#define cxTLStrs_scxTreeListGroupFootersMenuItem 62205
-#define cxTLStrs_scxTreeListGroupFootersInvisibleMenuItem 62206
-#define cxTLStrs_scxTreeListGroupFootersVisibleWhenExpandedMenuItem 62207
+#define GIFImage_sEmptyImage 62096
+#define GIFImage_sInvalidReduction 62097
+#define GIFImage_sGIFImageFile 62098
+#define GIFImage_sProgressLoading 62099
+#define GIFImage_sProgressSaving 62100
+#define GIFImage_sProgressConverting 62101
+#define GIFImage_sProgressRendering 62102
+#define GIFImage_sProgressCopying 62103
+#define GIFImage_sProgressOptimizing 62104
+#define GIFImage_sBadBlockSize 62112
+#define GIFImage_sBadBlock 62113
+#define GIFImage_sUnsupportedClass 62114
+#define GIFImage_sInvalidData 62115
+#define GIFImage_sBadHeight 62116
+#define GIFImage_sBadWidth 62117
+#define GIFImage_sFailedPaste 62118
+#define GIFImage_sScreenSizeExceeded 62119
+#define GIFImage_sNoColorTable 62120
+#define GIFImage_sBadPixelCoordinates 62121
+#define GIFImage_sInvalidPixelFormat 62122
+#define GIFImage_sBadDimension 62123
+#define GIFImage_sNoDIB 62124
+#define GIFImage_sInvalidStream 62125
+#define GIFImage_sInvalidColor 62126
+#define GIFImage_sEmptyColorMap 62127
+#define XMLConst_SMissingFileName 62128
+#define XMLConst_SLine 62129
+#define GIFImage_sOutOfData 62130
+#define GIFImage_sTooManyColors 62131
+#define GIFImage_sBadColorIndex 62132
+#define GIFImage_sBadVersion 62133
+#define GIFImage_sBadSignature 62134
+#define GIFImage_sScreenBadColorSize 62135
+#define GIFImage_sImageBadColorSize 62136
+#define GIFImage_sUnknownExtension 62137
+#define GIFImage_sBadExtensionLabel 62138
+#define GIFImage_sOutOfMemDIB 62139
+#define GIFImage_sDecodeTooFewBits 62140
+#define GIFImage_sDecodeCircular 62141
+#define GIFImage_sBadTrailer 62142
+#define GIFImage_sBadExtensionInstance 62143
+#define XMLConst_SNoMatchingDOMVendor 62144
+#define XMLConst_SNoDOMNodeEx 62145
+#define XMLConst_SDOMNotSupported 62146
+#define XMLConst_SNodeExpected 62147
+#define XMLConst_SMSDOMNotInstalled 62148
+#define XMLConst_SNotActive 62149
+#define XMLConst_SNodeNotFound 62150
+#define XMLConst_SMissingNode 62151
+#define XMLConst_SNoAttributes 62152
+#define XMLConst_SInvalidNodeType 62153
+#define XMLConst_SMismatchedRegItems 62154
+#define XMLConst_SNotSingleTextNode 62155
+#define XMLConst_SNoDOMParseOptions 62156
+#define XMLConst_SMissingItemTag 62157
+#define XMLConst_SNodeReadOnly 62158
+#define XMLConst_SNoRefresh 62159
+#define cxPivotGridStrs_scxHideCustomization 62160
+#define cxPivotGridStrs_scxShowPrefilterDialog 62161
+#define cxPivotGridStrs_scxPrefilterIsEmpty 62162
+#define cxPivotGridStrs_scxPrefilterCustomizeButtonCaption 62163
+#define cxPivotGridStrs_scxConnectUsing 62164
+#define cxPivotGridStrs_scxAnalysisServer 62165
+#define cxPivotGridStrs_scxCubeFile 62166
+#define cxPivotGridStrs_scxFile 62167
+#define cxPivotGridStrs_scxServer 62168
+#define cxPivotGridStrs_scxDatabase 62169
+#define cxPivotGridStrs_scxCube 62170
+#define cxPivotGridStrs_scxMeasures 62171
+#define cxPivotGridStrs_scxUnsupportedProviderVersion 62172
+#define cxPivotGridStrs_scxOLAPTotalCaption 62173
+#define cxPivotGridStrs_scxInvalidProviderVersion 62174
+#define XMLConst_SDuplicateRegistration 62175
+#define cxPivotGridStrs_scxQuarterFormat 62176
+#define cxPivotGridStrs_scxFieldNotADataField 62177
+#define cxPivotGridStrs_scxInvalidLayout 62178
+#define cxPivotGridStrs_scxNotImplemented 62179
+#define cxPivotGridStrs_scxSeparator 62180
+#define cxPivotGridStrs_scxHide 62181
+#define cxPivotGridStrs_scxOrder 62182
+#define cxPivotGridStrs_scxMoveToBeginning 62183
+#define cxPivotGridStrs_scxMoveToEnd 62184
+#define cxPivotGridStrs_scxMoveToLeft 62185
+#define cxPivotGridStrs_scxMoveToRight 62186
+#define cxPivotGridStrs_scxExpand 62187
+#define cxPivotGridStrs_scxCollapse 62188
+#define cxPivotGridStrs_scxExpandAll 62189
+#define cxPivotGridStrs_scxCollapseAll 62190
+#define cxPivotGridStrs_scxShowCustomization 62191
+#define cxPivotGridStrs_scxDataArea 62192
+#define cxPivotGridStrs_scxGroupTotal 62193
+#define cxPivotGridStrs_scxGroupCount 62194
+#define cxPivotGridStrs_scxGroupSum 62195
+#define cxPivotGridStrs_scxGroupMin 62196
+#define cxPivotGridStrs_scxGroupMax 62197
+#define cxPivotGridStrs_scxGroupAverage 62198
+#define cxPivotGridStrs_scxGroupStdDev 62199
+#define cxPivotGridStrs_scxGroupStdDevP 62200
+#define cxPivotGridStrs_scxGroupVariance 62201
+#define cxPivotGridStrs_scxGroupVarianceP 62202
+#define cxPivotGridStrs_scxGroupCustom 62203
+#define cxPivotGridStrs_scxOthers 62204
+#define cxPivotGridStrs_scxPivotGridShowAll 62205
+#define cxPivotGridStrs_scxPivotGridOk 62206
+#define cxPivotGridStrs_scxPivotGridCancel 62207
 #define ShellConsts_SShellNoDetails 62208
 #define ShellConsts_SCallLoadDetails 62209
 #define ShellConsts_SRenamedFailedError 62210
-#define dxtree_dxTreeViewDelConfirm 62211
-#define dxtree_dxDBTreeViewSmartLoadS 62212
-#define cxTLStrs_scxTLPrefixName 62213
-#define cxTLStrs_scxIndexOutOfBounds 62214
-#define cxTLStrs_scxInvalidStreamFormat 62215
-#define cxTLStrs_scxMultiSelectRequired 62216
-#define cxTLStrs_scxDesignerCaption 62217
-#define cxTLStrs_scxBands 62218
-#define cxTLStrs_scxColumns 62219
-#define cxTLStrs_scxCreateAllItems 62220
-#define cxTLStrs_scxDeleteAllItems 62221
-#define cxTLStrs_scxItems 62222
-#define cxTLStrs_scxCustomizeCaption 62223
+#define cxPivotGridStrs_scxDataField 62211
+#define cxPivotGridStrs_scxDropFilterFields 62212
+#define cxPivotGridStrs_scxDropDataItems 62213
+#define cxPivotGridStrs_scxDropRowFields 62214
+#define cxPivotGridStrs_scxDropColumnFields 62215
+#define cxPivotGridStrs_scxGrandTotal 62216
+#define cxPivotGridStrs_scxNoDataToDisplay 62217
+#define cxPivotGridStrs_scxAddTo 62218
+#define cxPivotGridStrs_scxDragItems 62219
+#define cxPivotGridStrs_scxFieldListCaption 62220
+#define cxPivotGridStrs_scxRowArea 62221
+#define cxPivotGridStrs_scxColumnArea 62222
+#define cxPivotGridStrs_scxFilterArea 62223
 #define ppSynEditStrConst_ppSynS_AttrTableName 62224
 #define ppSynEditStrConst_ppSynS_AttrVariable 62225
 #define ppSynEditStrConst_ppSynS_FilterSQL 62226
@@ -3489,6 +3443,8 @@
 #define SysConst_SEndOfFile 65535
 STRINGTABLE
 BEGIN
+	GIFImage_sEmptyImage,	"Image is empty"
+	GIFImage_sInvalidReduction,	"Invalid reduction method"
 	GIFImage_sGIFImageFile,	"GIF Image"
 	GIFImage_sProgressLoading,	"Loading..."
 	GIFImage_sProgressSaving,	"Saving..."
@@ -3496,6 +3452,8 @@ BEGIN
 	GIFImage_sProgressRendering,	"Rendering..."
 	GIFImage_sProgressCopying,	"Copying..."
 	GIFImage_sProgressOptimizing,	"Optimizing..."
+	GIFImage_sBadBlockSize,	"Unsupported Application Extension block size"
+	GIFImage_sBadBlock,	"Unknown GIF block type"
 	GIFImage_sUnsupportedClass,	"Object type not supported for operation"
 	GIFImage_sInvalidData,	"Invalid GIF data"
 	GIFImage_sBadHeight,	"Image height too small for contained frames"
@@ -3510,8 +3468,8 @@ BEGIN
 	GIFImage_sInvalidStream,	"Invalid stream operation"
 	GIFImage_sInvalidColor,	"Color not in color table"
 	GIFImage_sEmptyColorMap,	"Color table is empty"
-	GIFImage_sEmptyImage,	"Image is empty"
-	GIFImage_sInvalidReduction,	"Invalid reduction method"
+	XMLConst_SMissingFileName,	"FileName cannot be blank"
+	XMLConst_SLine,	"Line"
 	GIFImage_sOutOfData,	"Premature end of data"
 	GIFImage_sTooManyColors,	"Color table overflow"
 	GIFImage_sBadColorIndex,	"Invalid color index"
@@ -3526,8 +3484,8 @@ BEGIN
 	GIFImage_sDecodeCircular,	"Circular decoder table entry"
 	GIFImage_sBadTrailer,	"Invalid Image trailer"
 	GIFImage_sBadExtensionInstance,	"Internal error: Extension Instance does not match Extension Label"
-	GIFImage_sBadBlockSize,	"Unsupported Application Extension block size"
-	GIFImage_sBadBlock,	"Unknown GIF block type"
+	XMLConst_SNoMatchingDOMVendor,	"No matching DOM Vendor: \"%s\""
+	XMLConst_SNoDOMNodeEx,	"Selected DOM Vendor does not support this property or method"
 	XMLConst_SDOMNotSupported,	"Property or Method \"%s\" is not supported by DOM Vendor \"%s\""
 	XMLConst_SNodeExpected,	"Node cannot be null"
 	XMLConst_SMSDOMNotInstalled,	"Microsoft MSXML is not installed"
@@ -3542,8 +3500,8 @@ BEGIN
 	XMLConst_SMissingItemTag,	"ItemTag property is not initialized"
 	XMLConst_SNodeReadOnly,	"Node is readonly"
 	XMLConst_SNoRefresh,	"Refresh is only supported if the FileName or XML properties are set"
-	XMLConst_SMissingFileName,	"FileName cannot be blank"
-	XMLConst_SLine,	"Line"
+	cxPivotGridStrs_scxHideCustomization,	"Hide Field List"
+	cxPivotGridStrs_scxShowPrefilterDialog,	"Show Prefilter Dialog"
 	cxPivotGridStrs_scxPrefilterIsEmpty,	"<Prefilter is Empty>"
 	cxPivotGridStrs_scxPrefilterCustomizeButtonCaption,	"Prefilter..."
 	cxPivotGridStrs_scxConnectUsing,	"Connect using"
@@ -3558,8 +3516,8 @@ BEGIN
 	cxPivotGridStrs_scxOLAPTotalCaption,	"OLAP Grand Total"
 	cxPivotGridStrs_scxInvalidProviderVersion,	"Provider version doesn't match the OLAP data source version"
 	XMLConst_SDuplicateRegistration,	"\"%s\" DOMImplementation already registered"
-	XMLConst_SNoMatchingDOMVendor,	"No matching DOM Vendor: \"%s\""
-	XMLConst_SNoDOMNodeEx,	"Selected DOM Vendor does not support this property or method"
+	cxPivotGridStrs_scxQuarterFormat,	"Qtr %d"
+	cxPivotGridStrs_scxFieldNotADataField,	"Field must be in data area!"
 	cxPivotGridStrs_scxInvalidLayout,	"Invalid layout!"
 	cxPivotGridStrs_scxNotImplemented,	"Not implemented yet!"
 	cxPivotGridStrs_scxSeparator,	"-"
@@ -3574,8 +3532,8 @@ BEGIN
 	cxPivotGridStrs_scxExpandAll,	"Expand All"
 	cxPivotGridStrs_scxCollapseAll,	"Collapse All"
 	cxPivotGridStrs_scxShowCustomization,	"Show Field List"
-	cxPivotGridStrs_scxHideCustomization,	"Hide Field List"
-	cxPivotGridStrs_scxShowPrefilterDialog,	"Show Prefilter Dialog"
+	cxPivotGridStrs_scxDataArea,	"Data Area"
+	cxPivotGridStrs_scxGroupTotal,	"%s Total"
 	cxPivotGridStrs_scxGroupCount,	"%s Count"
 	cxPivotGridStrs_scxGroupSum,	"%s Sum"
 	cxPivotGridStrs_scxGroupMin,	"%s Min"
@@ -3590,9 +3548,9 @@ BEGIN
 	cxPivotGridStrs_scxPivotGridShowAll,	"(Show All)"
 	cxPivotGridStrs_scxPivotGridOk,	"Ok"
 	cxPivotGridStrs_scxPivotGridCancel,	"Cancel"
-	cxPivotGridStrs_scxQuarterFormat,	"Qtr %d"
-	cxPivotGridStrs_scxFieldNotADataField,	"Field must be in data area!"
-	cxTLStrs_scxExportNotVisibleControl,	"Control must be visible for export"
+	ShellConsts_SShellNoDetails,	"Unable to retrieve folder details for \"%s\". Error code $%x"
+	ShellConsts_SCallLoadDetails,	"%s: Missing call to LoadColumnDetails"
+	ShellConsts_SRenamedFailedError,	"Rename to %s failed"
 	cxPivotGridStrs_scxDataField,	"Data"
 	cxPivotGridStrs_scxDropFilterFields,	"Drop Filter Fields Here"
 	cxPivotGridStrs_scxDropDataItems,	"Drop Data Fields Here"
@@ -3606,56 +3564,6 @@ BEGIN
 	cxPivotGridStrs_scxRowArea,	"Row Area"
 	cxPivotGridStrs_scxColumnArea,	"Column Area"
 	cxPivotGridStrs_scxFilterArea,	"Filter Area"
-	cxPivotGridStrs_scxDataArea,	"Data Area"
-	cxPivotGridStrs_scxGroupTotal,	"%s Total"
-	cxTLStrs_scxTreeListGroupFootersAlwaysVisibleMenuItem,	"&Always Visible"
-	cxTLStrs_scxTreeListRemoveThisColumnMenuItem,	"R&emove This Column"
-	cxTLStrs_scxTreeListFieldChooserMenuItem,	"F&ield Chooser"
-	cxTLStrs_scxTreeListHorizontalAlignmentMenuItem,	"Ho&rizontal Alignment"
-	cxTLStrs_scxTreeListHorizontalAlignmentLeftMenuItem,	"&Left"
-	cxTLStrs_scxTreeListHorizontalAlignmentCenterMenuItem,	"Ce&nter"
-	cxTLStrs_scxTreeListHorizontalAlignmentRightMenuItem,	"&Right"
-	cxTLStrs_scxTreeListVerticalAlignmentMenuItem,	"Ver&tical Alignment"
-	cxTLStrs_scxTreeListVerticalAlignmentBottomMenuItem,	"&Bottom"
-	cxTLStrs_scxTreeListVerticalAlignmentCenterMenuItem,	"Ce&nter"
-	cxTLStrs_scxTreeListVerticalAlignmentTopMenuItem,	"&Top"
-	cxTLStrs_scxTreeListBestFitMenuItem,	"&Best Fit"
-	cxTLStrs_scxTreeListBestFitAllColumnsMenuItem,	"Bes&t Fit (all columns)"
-	cxTLStrs_scxOperationNotSupported,	"Operation is not supported"
-	cxTLStrs_scxTreeListDeletingFocusedConfirmationText,	"Delete record(s)?"
-	cxTLStrs_scxTreeListDeletingConfirmationCaption,	"Confirm"
-	cxTLStrs_scxColumnsCaption,	"   Columns   "
-	cxTLStrs_scxBandsCaption,	"    Bands    "
-	cxTLStrs_scxTreeListNoneMenuItem,	"None"
-	cxTLStrs_scxTreeListSumMenuItem,	"Sum"
-	cxTLStrs_scxTreeListMinMenuItem,	"Min"
-	cxTLStrs_scxTreeListMaxMenuItem,	"Max"
-	cxTLStrs_scxTreeListCountMenuItem,	"Count"
-	cxTLStrs_scxTreeListAvgMenuItem,	"Average"
-	cxTLStrs_scxTreeListAllNodesMenuItem,	"All Nodes"
-	cxTLStrs_scxTreeListSortAscendingMenuItem,	"&Sort Ascending"
-	cxTLStrs_scxTreeListSortDescendingMenuItem,	"S&ort Descending"
-	cxTLStrs_scxTreeListClearSortingMenuItem,	"&Clear Sorting"
-	cxTLStrs_scxTreeListFooterMenuItem,	"&Footer"
-	cxTLStrs_scxTreeListGroupFootersMenuItem,	"&Group Footers"
-	cxTLStrs_scxTreeListGroupFootersInvisibleMenuItem,	"&Hidden"
-	cxTLStrs_scxTreeListGroupFootersVisibleWhenExpandedMenuItem,	"&Visible When Expanded"
-	ShellConsts_SShellNoDetails,	"Unable to retrieve folder details for \"%s\". Error code $%x"
-	ShellConsts_SCallLoadDetails,	"%s: Missing call to LoadColumnDetails"
-	ShellConsts_SRenamedFailedError,	"Rename to %s failed"
-	dxtree_dxTreeViewDelConfirm,	"Do you want to delete the item \"%s\""
-	dxtree_dxDBTreeViewSmartLoadS,	"Set trSmartRecordLoad in the Options property to decrease the loading time. Do you want to do it now?"
-	cxTLStrs_scxTLPrefixName,	"TcxTreeList"
-	cxTLStrs_scxIndexOutOfBounds,	"Index %d out of bounds"
-	cxTLStrs_scxInvalidStreamFormat,	"Invalid stream format"
-	cxTLStrs_scxMultiSelectRequired,	"Multi select required"
-	cxTLStrs_scxDesignerCaption,	"TreeListDesigner editing - "
-	cxTLStrs_scxBands,	"Bands..."
-	cxTLStrs_scxColumns,	"Columns..."
-	cxTLStrs_scxCreateAllItems,	"Create all columns"
-	cxTLStrs_scxDeleteAllItems,	"Delete all columns"
-	cxTLStrs_scxItems,	"Items editor..."
-	cxTLStrs_scxCustomizeCaption,	"Customization"
 	ppSynEditStrConst_ppSynS_AttrTableName,	"Table name"
 	ppSynEditStrConst_ppSynS_AttrVariable,	"Variable"
 	ppSynEditStrConst_ppSynS_FilterSQL,	"SQL Files (*.sql)|*.sql"
